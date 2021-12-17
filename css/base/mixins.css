@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+@define-mixin atExSmall {
+    @media (min-width: 480px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atSmall {
+    @media (min-width: 530px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atMedium {
+    @media (min-width: 576px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atTablet {
+    @media (min-width: 768px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atSmDesktop {
+    @media (min-width: 992px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atDesktop {
+    @media (min-width: 1200px) {
+        @mixin-content;
+    }
+}
+
+@define-mixin atBiggie {
+    @media (min-width: 1600px) {
+        @mixin-content;
+    }
+}

@@ -1,0 +1,62 @@
+[08-Aug-2016 00:34:46 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[19-Sep-2016 01:01:19 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[20-Oct-2016 00:20:01 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[25-Oct-2016 01:16:16 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[29-Oct-2016 03:28:11 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[21-Nov-2016 06:05:05 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[22-Dec-2016 03:14:59 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[23-Jan-2017 08:59:17 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[19-Mar-2017 03:47:35 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[23-Mar-2017 19:25:32 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[09-Apr-2017 07:08:35 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[18-May-2017 00:40:00 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[22-Jun-2017 16:33:23 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[23-Jul-2017 00:18:08 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[24-Aug-2017 00:21:02 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[25-Sep-2017 00:22:02 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[30-Nov-2017 08:27:34 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[03-Jan-2018 14:42:27 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[06-Jan-2018 03:33:37 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[10-Feb-2018 03:33:35 CST6CDT] PHP Fatal error:  Call to undefined function language_attributes() in /home/timfette/public_html/wp-content/themes/timfetter/header.php on line 2
+[10-Feb-2018 03:33:36 CST6CDT] PHP Fatal error:  Call to undefined function language_attributes() in /home/timfette/public_html/wp-content/themes/timfetter/header.php on line 2
+[15-Mar-2018 06:52:40 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/archive.php on line 1
+[19-Mar-2018 02:39:31 CST6CDT] PHP Fatal error:  Call to undefined function language_attributes() in /home/timfette/public_html/wp-content/themes/timfetter/header.php on line 2
+[19-Mar-2018 22:05:15 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/archive.php on line 1
+[20-Mar-2018 17:17:11 CST6CDT] PHP Fatal error:  Call to undefined function language_attributes() in /home/timfette/public_html/wp-content/themes/timfetter/header.php on line 2
+[09-Apr-2018 14:21:18 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[11-Apr-2018 03:50:52 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/archive.php on line 1
+[07-May-2018 05:45:02 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[03-Dec-2018 03:46:21 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[04-Dec-2018 11:51:48 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[04-Dec-2018 11:51:50 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/archive.php on line 1
+[04-Dec-2018 13:49:57 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[04-Dec-2018 13:49:59 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/archive.php on line 1
+[14-Jan-2019 03:51:28 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
+[16-Nov-2019 00:07:17 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[17-Nov-2019 20:01:25 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[13-Dec-2019 06:06:17 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[15-Dec-2019 06:57:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[13-Jan-2020 12:26:32 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[15-Jan-2020 14:20:05 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/404.php on line 1
+[11-Feb-2021 05:17:32 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/timfette/public_html/wp-content/themes/timfetter/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/timfette/public_html/wp-content/themes/timfetter/index.php on line 1
