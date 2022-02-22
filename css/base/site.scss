@@ -55,7 +55,7 @@ body {
 #content {
 	font-size: 75%;
 
-	@mixin atSmDesktop {
+	@include atSmDesktop {
 		font-size: 100%;
 	}
 }
@@ -169,10 +169,6 @@ address {
 	font-variant: small-caps;
 }
 
-.hide-text {
-	@include hide-text;
-}
-
 /* ==========================================================================
    Alignment
    ========================================================================== */
@@ -268,19 +264,19 @@ address {
 	position: relative;
 	max-width: 92%;
 
-	@mixin atTablet {
+	@include atTablet {
 		width: 750px;
 	}
 
-	@mixin atSmDesktop {
+	@include atSmDesktop {
 		width: 970px;
 	}
 
-	@mixin atDesktop {
+	@include atDesktop {
 		width: 1170px;
 	}
 
-	@mixin atBiggie {
+	@include atBiggie {
 		width: 1500px;
 	}
 } */
@@ -291,7 +287,7 @@ address {
 } */
 
 .header-wrap {
-	@mixin atTablet {
+	@include atTablet {
 		display: flex;
 	}
 }
@@ -326,7 +322,7 @@ address {
 	display: none;
 	margin-left: auto;
 
-	@mixin atTablet {
+	@include atTablet {
 		display: block;
 	}
 }
@@ -435,17 +431,6 @@ address {
 /* end (max-width: 767px) */
 
 /* ==========================================================================
-   Sprites
-   ========================================================================== */
-
-.sprite {
-	background-image: url(ui/spritesheet.png);
-	background-repeat: no-repeat;
-	display: block;
-	@include hide-text;
-}
-
-/* ==========================================================================
    Home
    ========================================================================== */
 
@@ -453,7 +438,7 @@ address {
 	padding-top: 6em;
 	padding-bottom: 3em;
 
-	@mixin atTablet {
+	@include atTablet {
 		padding-top: 7em;
 	}
 }
@@ -525,7 +510,7 @@ h2 {
 	max-width: 1400px;
 	margin: 2em auto 0;
 
-	@mixin atTablet {
+	@include atTablet {
 		width: 75%;
 	}
 }
@@ -536,15 +521,15 @@ h2 {
 	margin: 15px;
 	overflow: hidden;
 
-	@mixin atSmall {
+	@include atSmall {
 		width: calc(50% - 30px);
 	}
 
-	@mixin atTablet {
+	@include atTablet {
 		width: calc(50% - 30px);
 	}
 
-	@mixin atSmDesktop {
+	@include atSmDesktop {
 		width: calc(33% - 30px);
 	}
 }
@@ -554,13 +539,13 @@ h2 {
 	background: #fff;
 	overflow: hidden;
 
-	@mixin atSmDesktop {
+	@include atSmDesktop {
 		&:nth-child(even) .row {
 			flex-direction: row-reverse;
 		}
 	}
 
-	@mixin atSmDesktop {
+	@include atSmDesktop {
 		&:nth-child(even) .row {
 			.portfolio-details {
 				padding-left: 45px;
@@ -574,16 +559,16 @@ h2 {
 		background-repeat: no-repeat;
 		background-size: cover;
 
-		@mixin atTablet {
+		@include atTablet {
 			height: auto;
 		}
 	}
 
 	.portfolio-details {
-		@mixin atTablet {
+		@include atTablet {
 			padding: 15px;
 		}
-		@mixin atSmDesktop {
+		@include atSmDesktop {
 			padding: 20px 15px 28px 30px;
 		}
 	}
@@ -591,7 +576,7 @@ h2 {
 	.portfolio-detail-content {
 		padding: 15px;
 
-		@mixin atTablet {
+		@include atTablet {
 			padding: 0;
 			padding-right: 15px;
 		}
@@ -602,7 +587,7 @@ h2 {
 		font-size: 2em;
 		line-height: 1.25;
 
-		@mixin atTablet {
+		@include atTablet {
 			line-height: 1.5;
 		}
 	}
@@ -618,7 +603,7 @@ h2 {
 		max-width: 700px;
 		font-size: 1.4em;
 
-		@mixin atSmDesktop {
+		@include atSmDesktop {
 			font-size: 1.142857142857143em;
 		}
 	}
@@ -647,7 +632,7 @@ h2 {
 	outline: none;
 	letter-spacing: 0.75px;
 
-    @mixin atTablet {
+    @include atTablet {
         padding: 10px 16px;
     }
 
@@ -746,16 +731,16 @@ h2 {
 	margin: 0;
 	padding: 0;
 
-	@mixin atMedium {
+	@include atMedium {
 		max-width: 100%;
 	}
 
-	@mixin atTablet {
+	@include atTablet {
 		flex-wrap: no-wrap;
 		overflow: hidden;
 	}
 
-	@mixin atDesktop {
+	@include atDesktop {
 		max-width: 1140px;
 		height: 90%;
 		margin: auto;
@@ -770,14 +755,14 @@ h2 {
 	padding: 4em 2em 3em;
 	background-color: #262626;
 
-	@mixin atTablet {
+	@include atTablet {
 		width: 50%;
 		height: 100%;
 		overflow: auto;
 		padding: 4em 2em 2em;
 	}
 
-	@mixin atSmDesktop {
+	@include atSmDesktop {
 		padding: 4em 5em 2em;
 	}
 }
@@ -815,7 +800,7 @@ h2 {
 		color: #b7b7b7;
 		line-height: 25px;
 
-		@mixin atSmDesktop {
+		@include atSmDesktop {
 			font-size: 1.142857142857143em;
 		}
 	}
@@ -851,7 +836,7 @@ h2 {
 		pointer-events: none;
 		user-select: none;
 
-        @mixin atTablet {
+        @include atTablet {
             padding: 4px 8px;
         }
 
@@ -922,7 +907,7 @@ h2 {
 	background: #afafaf;
 	text-align: center;
 
-	@mixin atTablet {
+	@include atTablet {
 		display: block;
 		width: 50%;
 		height: 100%;
@@ -939,7 +924,7 @@ h2 {
 		margin: 0;
 	}
 
-	@mixin atMedium {
+	@include atMedium {
 		width: calc(50% - 1em);
 		max-width: 100%;
 		float: left;
@@ -949,7 +934,7 @@ h2 {
 		}
 	}
 
-	@mixin atTablet {
+	@include atTablet {
 		width: 100%;
 		max-width: 100%;
 		float: none;
@@ -972,7 +957,7 @@ h2 {
 	text-shadow: none;
 	outline: none;
 
-	@mixin atTablet {
+	@include atTablet {
 		top: 20px;
 		right: 20px;
 		ont-size: 18px;
@@ -1021,7 +1006,7 @@ footer {
 	align-items: center;
 	letter-spacing: 0.1em;
 
-	@mixin atTablet {
+	@include atTablet {
 		flex-direction: row;
 		justify-content: space-between;
 	}

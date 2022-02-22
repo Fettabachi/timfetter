@@ -28,13 +28,9 @@ function base_scripts()
 
     wp_enqueue_style('bootstrap4-css', '//cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css');
 
-    if (strstr($_SERVER['SERVER_NAME'], 'tim-fetter.local')) {
-        wp_enqueue_script('our-main-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
-    } else {
-        // wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/undefined'), NULL, '1.0', true);
-        wp_enqueue_script('our-main-js', get_theme_file_uri('/bundled-assets/scripts.e839a65775f13eb42832.js'), NULL, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.e839a65775f13eb42832.css'));
-    }
+    wp_enqueue_style('our-main-styles', get_theme_file_uri('/build/style-index.css'));
+
+    wp_enqueue_script('our-main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
 
     wp_enqueue_script('our-custom-scripts', get_template_directory_uri() . '/js/main.js', array('jquery'), NULL, true);
 

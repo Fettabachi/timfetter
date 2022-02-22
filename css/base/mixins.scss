@@ -2,44 +2,44 @@
    Mixins
    ========================================================================== */
 
-@define-mixin atExSmall {
+@mixin atExSmall {
     @media (min-width: 480px) {
-        @mixin-content;
+        @content;
     }
 }
 
-@define-mixin atSmall {
+@mixin atSmall {
     @media (min-width: 530px) {
-        @mixin-content;
+        @content;
     }
 }
 
-@define-mixin atMedium {
+@mixin atMedium {
     @media (min-width: 576px) {
-        @mixin-content;
+        @content;
     }
 }
 
-@define-mixin atTablet {
+@mixin atTablet {
     @media (min-width: 768px) {
-        @mixin-content;
+        @content;
     }
 }
 
-@define-mixin atSmDesktop {
+@mixin atSmDesktop {
     @media (min-width: 992px) {
-        @mixin-content;
+        @content;
     }
 }
 
-@define-mixin atDesktop {
+@mixin atDesktop {
     @media (min-width: 1200px) {
-        @mixin-content;
+        @content;
     }
 }
 
-@define-mixin atBiggie {
+@mixin atBiggie {
     @media (min-width: 1600px) {
-        @mixin-content;
+        @content;
     }
 }

@@ -1,4 +1,4 @@
-import "../css/style.css";
+import "../css/style.scss";
 
 // mobile menu button
 // var hamburger = document.querySelector(".hamburger");
