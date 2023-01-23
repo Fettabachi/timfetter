@@ -42,6 +42,10 @@
 /* ==========================================================================
    General
    ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: #696969;
   padding: 0;
@@ -84,10 +88,8 @@ a:hover {
    Images
    ========================================================================== */
 img {
-  height: auto;
-  /* Make sure images are scaled correctly. */
-  max-width: 100%;
-  /* Adhere to container width. */
+  height: auto; /* Make sure images are scaled correctly. */
+  max-width: 100%; /* Adhere to container width. */
 }
 
 /* ==========================================================================
@@ -98,13 +100,11 @@ img {
 }
 
 h1 {
-  font-size: 1.6666666667em;
-  /* 30px */
+  font-size: 1.6666666667em; /* 30px */
 }
 
 h2 {
-  font-size: 1.875em;
-  /*30px*/
+  font-size: 1.875em; /*30px*/
   font-family: "Raleway", sans-serif;
 }
 
@@ -118,20 +118,17 @@ h3 {
 }
 
 h4 {
-  font-size: 1.2em;
-  /*18px*/
+  font-size: 1.2em; /*18px*/
   font-family: "Open Sans", sans-serif;
 }
 
 h5 {
-  font-size: 0.93em;
-  /*15px*/
+  font-size: 0.93em; /*15px*/
   font-family: "Raleway", sans-serif;
 }
 
 h6 {
-  font-size: 0.875em;
-  /*14px*/
+  font-size: 0.875em; /*14px*/
   font-family: "Raleway", sans-serif;
 }
 
@@ -229,8 +226,7 @@ address {
   text-decoration: none;
   top: 5px;
   width: auto;
-  z-index: 100000;
-  /* Above WP toolbar */
+  z-index: 100000; /* Above WP toolbar */
 }
 
 /* ==========================================================================
@@ -397,7 +393,6 @@ address {
     border-radius: 3px;
     z-index: 1000;
   }
-
   .icon-bar {
     display: block;
     margin: 4px;
@@ -406,7 +401,6 @@ address {
     border-radius: 1px;
     background-color: #000;
   }
-
   .main-navigation ul {
     display: block;
     height: 0;
@@ -414,20 +408,16 @@ address {
     overflow: hidden;
     transition: height 0.3s ease;
   }
-
   .main-navigation ul.mobile-menu {
     height: 130px;
   }
-
   .main-navigation {
     float: none;
     width: 100%;
   }
-
   .main-navigation ul {
     text-align: center;
   }
-
   .site-branding {
     /* width: 172px; */
     margin: 0 auto;
@@ -616,7 +606,6 @@ h2 {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -836,7 +825,6 @@ h2 {
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   /* &.responsive-design {
             background: #8a7aab;
@@ -946,7 +934,7 @@ h2 {
 }
 @media (min-width: 768px) {
   .black-close,
-.see-more {
+  .see-more {
     top: 20px;
     right: 20px;
     ont-size: 18px;
@@ -1074,10 +1062,8 @@ footer {
  */
 .clearfix:before,
 .clearfix:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 
 .clearfix:after {
@@ -1091,62 +1077,50 @@ footer {
 @media print {
   * {
     background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster: h5bp.com/s */
+    color: #000 !important; /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
     text-shadow: none !important;
   }
-
   a,
-a:visited {
+  a:visited {
     text-decoration: underline;
   }
-
   a[href]:after {
     content: " (" attr(href) ")";
   }
-
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
-
   /*
    * Don't show links for images, or javascript/internal links
    */
   a[href^="javascript:"]:after,
-a[href^="#"]:after {
+  a[href^="#"]:after {
     content: "";
   }
-
   pre,
-blockquote {
+  blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
-
   thead {
-    display: table-header-group;
-    /* h5bp.com/t */
+    display: table-header-group; /* h5bp.com/t */
   }
-
   tr,
-img {
+  img {
     page-break-inside: avoid;
   }
-
   img {
     max-width: 100% !important;
   }
-
   p,
-h2,
-h3 {
+  h2,
+  h3 {
     orphans: 3;
     widows: 3;
   }
-
   h2,
-h3 {
+  h3 {
     page-break-after: avoid;
   }
 }
