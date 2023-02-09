@@ -1,0 +1,56 @@
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: 100%;
+
+	@include atMedium {
+		width: 540px;
+	}
+
+	@include atTablet {
+		width: 720px;
+	}
+
+	@include atSmDesktop {
+		width: 960px;
+	}
+
+	@include atDesktop {
+		width: 1140px;
+	}
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.grid-row {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+
+	.col-md-4,
+	.col-md-8 {
+		grid-column: span 12;
+		max-width: 100%;
+	}
+    
+    @include atTablet {
+        .col-md-4 {
+            grid-column: span 4;
+        }
+        
+        .col-md-8 {
+            grid-column: span 8;
+        }
+        
+        .col-md-8.col-md-8-center {
+            grid-column-start: 3;
+            grid-column-end: 11;
+        }
+    }
+}

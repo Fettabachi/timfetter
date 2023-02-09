@@ -25,7 +25,7 @@ function base_scripts()
 {
     wp_enqueue_style('base-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:300,400,500,600', false);
 
-    wp_enqueue_style('bootstrap4-css', '//cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css');
+    // wp_enqueue_style('bootstrap4-css', '//cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css');
 
     wp_enqueue_style('our-main-styles', get_theme_file_uri('/build/style-index.css'));
 

@@ -11,8 +11,8 @@
                 if (have_rows('page_content')) :
                     while (have_rows('page_content')) : the_row(); ?>
                         <div class="container home-wrap" id="home">
-                            <div class="row justify-content-center">
-                                <div class="col-md-8 text-center">
+                            <div class="grid-row">
+                                <div class="col-md-8 col-md-8-center text-center">
                                     <div class="landing-pname">
                                         <h1>Hello, I'm Tim Fetter.</h1>
                                     </div>
@@ -27,156 +27,6 @@
                     <?php endwhile; ?>
                 <?php endif; ?>
                 <!-- end page_content -->
-
-                <?php
-                if (have_rows('portfolio_content')) : ?>
-                    <?php
-                    while (have_rows('portfolio_content')) : the_row(); ?>
-                        <div class="content-wrap-in portfolio-wrap" id="portfolio">
-                            <div class="container">
-                                <h2 class=" text-center">Portfolio</h2>
-                            </div>
-                            <div class="container portfolio-items-2">
-                                <?php
-                                if (have_rows('portfolio')) :
-                                    $modal_counter = 1; ?>
-                                    <?php
-                                    while (have_rows('portfolio')) : the_row();
-                                        $hero_image = get_sub_field('hero_image'); ?>
-                                        <div class="portfolio-item">
-                                            <div class="row">
-                                                <?php
-                                                if (!empty($hero_image)) :
-                                                    $hero_alt = $hero_image['alt'];
-                                                    $hero_size = 'small-image';
-                                                    $hero_small_image = $hero_image['sizes'][$hero_size];
-                                                ?>
-                                                    <div class="col-md-4 portfolio-image" style="background-image:url(<?php echo $hero_small_image; ?>)">
-                                                    </div>
-                                                <?php endif; ?>
-                                                <div class="col-md-8 portfolio-details">
-                                                    <div class="portfolio-detail-content">
-                                                        <h3><?php the_sub_field('website_title'); ?></h3>
-                                                        <h4><?php the_sub_field('website_sub_title'); ?></h4>
-                                                        <div class="info-text">
-                                                            <p><?php echo wp_trim_words(get_sub_field('description'), 40); ?></p>
-                                                        </div>
-                                                        <button class="btn--gold btn--view-more" data-toggle="modal" data-target="#modal_<?php echo $modal_counter; ?>"><span>See More</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php $modal_counter++; ?>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
-                            </div><!-- portfolio-items -->
-                        </div>
-                        <!-- #portfolio -->
-                    <?php endwhile; ?>
-                <?php endif; ?>
-
-                <!-- the modal content -->
-                <?php
-                if (have_rows('portfolio_content')) : ?>
-                    <?php
-                    while (have_rows('portfolio_content')) : the_row(); ?>
-                        <?php
-                        if (have_rows('portfolio')) :
-                            $modal_counter = 1; ?>
-                            <?php
-                            while (have_rows('portfolio')) : the_row(); ?>
-
-                                <!-- modal -->
-                                <div class="modal fade" id="modal_<?php echo $modal_counter; ?>" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-                                    <!-- modal-dialog -->
-                                    <div class="modal-dialog">
-                                        <!-- modal-content -->
-                                        <div class="modal-content">
-                                            <div class="modal-body" tabindex="5000">
-                                                <div class="container">
-                                                    <div class="modal-info-wrap">
-                                                        <button type="button" class="black-close ui-btn ui-shadow ui-corner-all" data-dismiss="modal">
-                                                            <svg class="icon icon-icon-close-icon-medium">
-                                                                <use xlink:href="#icon-icon-close-icon-medium"></use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="info-item">
-                                                            <h3><?php the_sub_field('website_title'); ?></h3>
-                                                            <h4><?php the_sub_field('website_sub_title'); ?></h4>
-                                                            <div class="info-text"><?php the_sub_field('description'); ?></div>
-                                                            <h5 class="info-meta-title">Skills</h5>
-                                                            <div class="info-tech"><?php the_sub_field('skills'); ?></div>
-
-                                                            <?php
-                                                            $links = get_sub_field('website_links');
-                                                            $metaTitle = '';
-                                                            if ($links) {
-                                                                $linksCount = count($links);
-                                                            }
-
-                                                            if ($linksCount > 1) {
-                                                                $metaTitle = "Project Links";
-                                                            } else {
-                                                                $metaTitle = "Project Link";
-                                                            }
-
-                                                            if (have_rows('website_links')) :
-                                                            ?>
-
-                                                                <h5 class="info-meta-title"><?php echo $metaTitle; ?></h5>
-                                                                <div class="site-links">
-                                                                    <?php
-                                                                    while (have_rows('website_links')) : the_row();
-                                                                        $link = get_sub_field('link');
-                                                                        if ($link) :
-                                                                            $link_url = $link['url'];
-                                                                            $link_title = $link['title'];
-                                                                            $link_target = $link['target'] ? $link['target'] : '_blank';
-                                                                    ?>
-
-                                                                            <div><a class="btn--gold btn--link" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">Visit <?php echo esc_html($link_title); ?></a></div>
-                                                                        <?php endif; ?>
-                                                                    <?php endwhile; ?>
-                                                                </div>
-
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-image-wrap">
-                                                        <?php
-                                                        if (have_rows('images')) :
-                                                            while (have_rows('images')) : the_row();
-                                                                $image = get_sub_field('image');
-                                                                if (!empty($image)) :
-                                                                    $url = $image['url'];
-                                                                    $alt = $image['alt'];
-                                                                    $size = 'small-image';
-                                                                    $small_image = $image['sizes'][$size];
-                                                                    $width = $image['sizes'][$size . '-width'];
-                                                                    $height = $image['sizes'][$size . '-height'];
-                                                        ?>
-                                                                    <img src="<?php echo $small_image; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-                                                                <?php endif; ?>
-                                                            <?php endwhile; ?>
-                                                        <?php endif; ?>
-                                                        <div class="embed-container">
-                                                            <?php the_sub_field('video'); ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /modal-content -->
-                                    </div>
-                                    <!-- /modal-dialog -->
-                                </div>
-                                <!-- /modal -->
-                                <?php $modal_counter++; ?>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
-                    <?php endwhile; ?>
-                <?php endif; ?>
             </div><!-- .entry-content -->
         </article>
 
@@ -203,7 +53,7 @@
 
                     ?>
                         <div class="portfolio-item">
-                            <div class="row">
+                            <div class="grid-row">
                                 <div class="col-md-4 portfolio-image" style="background-image: url(<?php the_post_thumbnail_url(); ?>);"></div>
                                 <div class="col-md-8 portfolio-details">
                                     <div class="portfolio-detail-content">
