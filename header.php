@@ -40,7 +40,7 @@
                         </a>
                     </div>
                     <nav id="site-navigation" class="main-navigation" role="navigation">
-                        <div id="resonsive-toggle" class="menu-toggle">
+                        <div id="responsive-toggle" class="menu-toggle">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>

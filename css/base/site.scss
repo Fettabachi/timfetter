@@ -1,29 +1,3 @@
-/* ==========================================================================
-    Contents
-   ==========================================================================
-   General
-   Links
-   Images
-   Typography
-   Alignment
-   Accessiblity
-   Clearings
-   Wrap
-   Header
-   Layout
-   Menus
-   Sprites
-   Hover effects
-   Home
-   Contact
-   Footer
-   Forms
-   ========================================================================== */
-
-/* ==========================================================================
-   Border-box all the things!
-   ========================================================================== */
-
 *,
 :before,
 :after {
@@ -32,11 +6,13 @@
 	box-sizing: border-box;
 }
 
-/* ==========================================================================
-   General
-   ========================================================================== */
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: 60px;
+
+	@include atTablet {
+		scroll-padding-top: 57px;
+	}
 }
 
 body {
@@ -63,10 +39,6 @@ body {
 	}
 }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
-
 a,
 a:visited {
 	color: #06f;
@@ -76,18 +48,10 @@ a:hover {
 	text-decoration: none;
 }
 
-/* ==========================================================================
-   Images
-   ========================================================================== */
-
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
-
-/* ==========================================================================
-   Typography
-   ========================================================================== */
 
 .openSans {
 	font-family: "Open Sans", sans-serif;
@@ -172,19 +136,16 @@ address {
 	font-variant: small-caps;
 }
 
-/* ==========================================================================
-   Accessiblity
-   ========================================================================== */
-
 /* Text meant only for screen readers */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+	padding: 0 !important;
 }
 
 .screen-reader-text:hover,
 .screen-reader-text:active,
-.screen-reader-text:focus {
+.screen-reader-text:focus-visible {
 	background-color: #f1f1f1;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -203,9 +164,6 @@ address {
 	z-index: 100000; /* Above WP toolbar */
 }
 
-/* ==========================================================================
-   Clearings
-   ========================================================================== */
 .clear:before,
 .clear:after,
 .entry-content:before,
@@ -240,20 +198,17 @@ address {
 	}
 }
 
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
 .site-header {
 	width: 100%;
 	position: fixed;
-	padding: 0.25em 0;
+	padding: 0.75em 0;
 	background-color: $blue_black;
 	z-index: 3;
 	transition: background 0.3s ease;
-}
 
-.scroll-header {
+	@include atTablet {
+		padding: 0.25em 0;
+	}
 }
 
 .site-header-hide {
@@ -267,17 +222,9 @@ address {
 }
 
 #site-navigation {
-	display: none;
+	position: relative;
 	margin-left: auto;
-
-	@include atTablet {
-		display: block;
-	}
 }
-
-/* ==========================================================================
-   Menus
-   ========================================================================== */
 
 .main-navigation ul {
 	display: flex;
@@ -311,6 +258,11 @@ address {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	transition: color 0.3s ease;
+
+	&:focus-visible {
+		outline: 2px solid white;
+		outline-offset: 3px;
+	}
 }
 
 .site-branding > a {
@@ -363,6 +315,12 @@ address {
 	.main-navigation {
 		float: none;
 		width: 100%;
+
+		&.toggled {
+			ul {
+				height: 44px;
+			}
+		}
 	}
 
 	.main-navigation ul {
@@ -377,17 +335,9 @@ address {
 }
 /* end (max-width: 767px) */
 
-/* ==========================================================================
-   Home
-   ========================================================================== */
-
 .home-wrap {
-	padding-top: 6em;
+	padding-top: 8em;
 	padding-bottom: 3em;
-
-	@include atTablet {
-		padding-top: 7em;
-	}
 }
 
 .landing-text-pos {
@@ -485,11 +435,14 @@ h2 {
 	margin-bottom: 40px;
 	background-color: #fff;
 	overflow: hidden;
+	box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.05),
+		0 0.3px 0.4px hsla(0, 0%, 0%, 0.02), 0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+		0 3.5px 6px hsla(0, 0%, 0%, 0.09);
 
 	@include atTablet {
-		&:nth-child(even) .grid-row {
+		&:nth-child(2n) .grid-row {
+			direction: rtl;
 			flex-direction: row-reverse;
-			direction : rtl;
 		}
 	}
 
@@ -532,6 +485,7 @@ h2 {
 
 	.portfolio-detail-content {
 		padding: 15px;
+		direction: ltr;
 
 		@include atTablet {
 			padding: 0;
@@ -568,7 +522,8 @@ h2 {
 	.portfolio-image img {
 		object-fit: cover;
 		height: 100%;
-		width: fit-content;
+		width: 100%;
+		aspect-ratio: 6/4;
 	}
 }
 
@@ -584,14 +539,14 @@ h2 {
 	font-size: 12px;
 	font-weight: 700;
 	text-transform: uppercase;
-	transition: background-color 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
 	z-index: 1;
 	outline: none;
 	letter-spacing: 0.75px;
 
-    @include atTablet {
-        padding: 10px 16px;
-    }
+	@include atTablet {
+		padding: 10px 16px;
+	}
 
 	&:hover {
 		background-color: $rustHover;
@@ -604,7 +559,7 @@ h2 {
 
 	&.btn--resume {
 		color: #fff;
-		margin: 50px auto 0;
+		margin: 50px auto 5px;
 	}
 
 	&.btn--view-more {
@@ -615,98 +570,67 @@ h2 {
 		color: #fff;
 		margin: 4px 0 8px;
 	}
+
+	&.btn--resume,
+	&.btn--view-more,
+	&.btn--link {
+		&:focus-visible {
+			outline: 2px solid black;
+			outline-offset: 2px;
+			/* outline: none;
+			box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%); */
+		}
+	}
+
+	&.btn--link {
+		&:focus-visible {
+			outline: 2px solid white;
+			outline-offset: 3px;
+		}
+	}
 }
 
-.modal {
-	width: 100%;
+.dialog-overlay {
+	background-color: #efefef;
+}
+
+.dialog-content {
 	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
+	overflow-y: auto;
+	margin: auto;
 	opacity: 0;
 	visibility: hidden;
 	transition: 0.3s ease-in-out;
 	transition-property: opacity, visibility, transform;
-	transform: translateY(50px);
+	transform: translateY(57px);
+	transform: translateY(0px);
 	z-index: 99999;
 	background-color: #efefef;
 
-	&.show {
-		opacity: 1;
-		visibility: visible;
-		transform: none;
+	@include atTablet {
+		height: calc(100vh - 4em);
 	}
 }
 
-.modal-dialog {
-	width: 100%;
-	max-width: 100%;
-	height: 100%;
-	margin: 0;
-	background-color: transparent;
-}
-
-.modal-content {
-	border: medium none;
-	border-radius: 0;
-	min-height: 100%;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: transparent;
-}
-
-.modal-body {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	overflow-y: auto !important;
-	outline: none;
+.dialog-body {
 	display: flex;
-	justify-content: center;
-	padding: 0;
+	height: 100%;
 }
 
-.modal-backdrop {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1040;
-	background-color: transparent;
-}
-
-.modal .container {
+.dialog-content .container {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
-
-	@include atMedium {
-		max-width: 100%;
-	}
+	z-index: 10;
 
 	@include atTablet {
-		flex-wrap: no-wrap;
-		overflow: hidden;
-	}
-
-	@include atDesktop {
-		max-width: 1140px;
-		height: 90%;
-		margin: auto;
-		padding-left: 15px;
-		padding-right: 15px;
+		flex-wrap: nowrap;
 	}
 }
 
-.modal .container .modal-info-wrap {
+.dialog-content .container .dialog-info-wrap {
 	position: relative;
 	width: 100%;
 	padding: 4em 2em 3em;
@@ -720,11 +644,11 @@ h2 {
 	}
 
 	@include atSmDesktop {
-		padding: 4em 5em 2em;
+		padding: 4em 3em 2em;
 	}
 }
 
-.info-item {
+.dialog-info-item {
 	h3 {
 		margin-bottom: 12px;
 		font-size: 2em;
@@ -793,9 +717,9 @@ h2 {
 		pointer-events: none;
 		user-select: none;
 
-        @include atTablet {
-            padding: 4px 8px;
-        }
+		@include atTablet {
+			padding: 4px 8px;
+		}
 
 		&.html {
 			background-color: #ab7a7a;
@@ -828,29 +752,37 @@ h2 {
 	}
 }
 
-.info-item,
-.modal-image-wrap img,
+.dialog-info-item,
+.dialog-image-wrap img,
 .black-close {
 	transition: 0.4s cubic-bezier(0.13, 0.19, 0.34, 0.96);
 	transition-property: opacity, transform;
 	transform: translateY(30px);
-	transition-delay: 0.25s;
+	transition-delay: 1.6s;
 	opacity: 0;
 }
 
 .black-close {
 	transform: translateY(60px);
-	transition-delay: 0.6s;
+	transition-delay: 1.6s;
 }
 
-.modal.show .info-item,
-.modal.show .modal-image-wrap img,
-.modal.show .black-close {
-	opacity: 1;
-	transform: none;
+.dialog-container[aria-modal="true"] {
+	.dialog-content {
+		opacity: 1;
+		visibility: visible;
+		/* transform: none; */
+	}
+
+	.dialog-info-item,
+	.dialog-image-wrap img,
+	.black-close {
+		opacity: 1;
+		transform: none;
+	}
 }
 
-.modal .container .modal-image-wrap {
+.dialog-content .container .dialog-image-wrap {
 	width: 100%;
 	padding: 2em;
 	background-color: #afafaf;
@@ -864,12 +796,16 @@ h2 {
 	}
 }
 
-.modal .container .modal-image-wrap > img {
+.dialog-content .container .dialog-image-wrap > img {
 	width: 100%;
 	max-width: 320px;
 	margin-bottom: 2em;
 	aspect-ratio: 6/4.61;
 	object-fit: cover;
+	border-radius: 6px;
+	box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
+		0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+		0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09);
 
 	&:last-of-type {
 		margin: 0;
@@ -895,31 +831,23 @@ h2 {
 	}
 }
 
-.black-close,
-.see-more {
+.black-close {
+	display: inline-flex;
 	position: absolute;
-	top: 14px;
-	right: 14px;
+	top: 1.25rem;
+	right: 1.25rem;
+	padding: 0;
 	background-color: transparent;
 	border: 0;
 	color: #fff;
-	font-size: 20px;
+	font-size: 1.5rem;
 	text-shadow: none;
 	outline: none;
 
-	@include atTablet {
-		top: 20px;
-		right: 20px;
-		font-size: 18px;
+	&:focus-visible {
+		outline: 2px solid white;
+		outline-offset: 3px;
 	}
-}
-
-a.see-more {
-	color: #d5d5d5;
-	font-size: 2em;
-	position: relative;
-	right: auto;
-	top: auto;
 }
 
 .fa {
@@ -937,10 +865,6 @@ a.see-more {
 	height: 1em;
 	fill: currentColor;
 }
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
 
 footer {
 	background-color: $blue_black;
@@ -969,7 +893,13 @@ footer {
 .footer-wrap a {
 	display: inline-block;
 	color: #fff;
-	transition: color 0.3s ease;
+	transition: color 0.3s ease, box-shadow 0.3s ease;
+	/*  */
+
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%);
+	}
 }
 
 .footer-wrap a:hover {

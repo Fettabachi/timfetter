@@ -25,13 +25,9 @@ function base_scripts()
 {
     wp_enqueue_style('base-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:300,400,500,600', false);
 
-    // wp_enqueue_style('bootstrap4-css', '//cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css');
-
     wp_enqueue_style('our-main-styles', get_theme_file_uri('/build/style-index.css'));
 
     wp_enqueue_script('our-main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
-
-    wp_enqueue_script('bootstrap4-js', '//cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js', array('jquery'), NULL, true);
 }
 add_action('wp_enqueue_scripts', 'base_scripts');
 
@@ -125,3 +121,9 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 
     return $urls;
 }
+
+/*  DISABLE GUTENBERG STYLE IN HEADER| WordPress 5.9 */
+function wps_deregister_styles() {
+    wp_dequeue_style( 'global-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );

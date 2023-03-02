@@ -1,5 +1,5 @@
 <?php
-//Template Name: Home
+//Template Name: Dialog
 ?>
 <?php get_header(); ?>
 
@@ -21,6 +21,7 @@
                             </div>
                             <div class="align-center">
                                 <a class="btn--gold btn--resume" target="_blank" href="<?php the_sub_field('resume_link'); ?>">View My Resum&Eacute;</a>
+                                <a href="https://docs.google.com/document/d/1016yIe2QJWI_O3mbFLBrGbGDlgMm812BrdqN6uaw8ew/edit?usp=sharing"></a>
                             </div>
                         </div>
                     <?php endwhile; ?>

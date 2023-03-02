@@ -38,19 +38,19 @@
 		grid-column: span 12;
 		max-width: 100%;
 	}
-    
-    @include atTablet {
-        .col-md-4 {
-            grid-column: span 4;
-        }
-        
-        .col-md-8 {
-            grid-column: span 8;
-        }
-        
-        .col-md-8.col-md-8-center {
-            grid-column-start: 3;
-            grid-column-end: 11;
-        }
-    }
+
+	@include atTablet {
+		.col-md-4 {
+			grid-column: span 4;
+		}
+
+		.col-md-8 {
+			grid-column: span 8;
+		}
+
+		.col-md-8.col-md-8-center {
+			grid-column-start: 3;
+			grid-column-end: 11;
+		}
+	}
 }
