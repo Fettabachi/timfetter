@@ -49,8 +49,8 @@ a:hover {
 }
 
 img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+	height: auto;
+	max-width: 100%;
 }
 
 .openSans {
@@ -58,11 +58,11 @@ img {
 }
 
 h1 {
-	font-size: 1.66666666666667em; /* 30px */
+	font-size: 1.66666666666667em;
 }
 
 h2 {
-	font-size: 1.875em; /*30px*/
+	font-size: 1.875em;
 	font-family: "Raleway", sans-serif;
 }
 
@@ -76,17 +76,17 @@ h3 {
 }
 
 h4 {
-	font-size: 1.2em; /*18px*/
+	font-size: 1.2em;
 	font-family: "Open Sans", sans-serif;
 }
 
 h5 {
-	font-size: 0.93em; /*15px*/
+	font-size: 0.93em;
 	font-family: "Raleway", sans-serif;
 }
 
 h6 {
-	font-size: 0.875em; /*14px*/
+	font-size: 0.875em;
 	font-family: "Raleway", sans-serif;
 }
 
@@ -136,7 +136,6 @@ address {
 	font-variant: small-caps;
 }
 
-/* Text meant only for screen readers */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
@@ -161,7 +160,7 @@ address {
 	text-decoration: none;
 	top: 5px;
 	width: auto;
-	z-index: 100000; /* Above WP toolbar */
+	z-index: 100000;
 }
 
 .clear:before,
@@ -328,12 +327,10 @@ address {
 	}
 
 	.site-branding {
-		/* width: 172px; */
 		margin: 0 auto;
 		z-index: 10;
 	}
 }
-/* end (max-width: 767px) */
 
 .home-wrap {
 	padding-top: 8em;
@@ -577,8 +574,6 @@ h2 {
 		&:focus-visible {
 			outline: 2px solid black;
 			outline-offset: 2px;
-			/* outline: none;
-			box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%); */
 		}
 	}
 
@@ -894,7 +889,6 @@ footer {
 	display: inline-block;
 	color: #fff;
 	transition: color 0.3s ease, box-shadow 0.3s ease;
-	/*  */
 
 	&:focus-visible {
 		outline: none;

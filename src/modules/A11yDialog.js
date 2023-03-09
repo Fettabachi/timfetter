@@ -36,7 +36,6 @@ class A11yDialog {
     }
 
     preventBodyScroll() {
-        console.log("no scroll?")
         document.body.classList.add("body-no-scroll");
         this.isDialogOpen = true;
         return false;
