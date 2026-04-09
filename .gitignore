@@ -66,3 +66,9 @@ assets/bower_components/*
 .idea/
 library/vendors/composer
 assets/img/.DS_Store
+
+# Local Git repair backups #
+.git.broken-*/
+
+# Local runtime artifacts #
+php_errorlog
