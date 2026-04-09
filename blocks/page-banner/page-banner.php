@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * Page Banner Block - Optimized & Secure Version
+ */
+
+// 1. Setup Fields (Using null coalescing for cleaner defaults)
+$bg_type      = get_field('background_type') ?: 'image';
+$video_url    = get_field('video_file');
+$image        = get_field('page_banner_image');
+$focal_point  = get_field('bg_focal_point') ?: 'center center';
+$alignment    = get_field('alignment_buttons') ?: 'center';
+
+// Visual Filters & Overlays
+$contrast     = get_field('banner_contrast') ?? '100';
+$grayscale    = get_field('banner_grayscale') ? '100%' : '0%';
+$saturate     = get_field('banner_saturation') ?: '100';
+$blur         = get_field('pause_blur_intensity') ?: '0';
+$brand_hex    = get_field('banner_overlay_brand_color') ?: '#000000';
+$opacity_raw  = get_field('banner_overlay_opacity') ?: '50';
+$opacity      = $opacity_raw / 100;
+$blend_mode   = get_field('banner_overlay_blend_mode') ?: 'normal';
+
+// Visibility Toggles
+$show_h2      = get_field('show_h2') !== false; // Default to true if null
+$show_p       = get_field('show_p') !== false;
+$show_btn_1   = get_field('show_btn_1') !== false;
+$show_btn_2   = get_field('show_btn_2') !== false;
+
+// 2. Logic & Classes
+$fallback_img = get_theme_file_uri('/images/library-hero.jpg');
+$bg_url       = ($image) ? $image['url'] : $fallback_img;
+$block_id     = 'fu-banner-' . $block['id'];
+
+$classes = ['fu-page-banner', 'alignfull'];
+if (!empty($block['className'])) $classes[] = $block['className'];
+if ($alignment) $classes[] = 'fu-page-banner--align-' . $alignment;
+
+// Video-specific logic
+$banner_args = '';
+if ($bg_type === 'video' && $video_url) {
+    $classes[] = 'has-video';
+    $banner_args = 'data-pause-on-scroll="true"';
+}
+
+// Map Visibility to CSS classes
+if (!$show_h2)    $classes[] = 'hide-h2';
+if (!$show_p)     $classes[] = 'hide-p';
+if (!$show_btn_1) $classes[] = 'hide-btn-1';
+if (!$show_btn_2) $classes[] = 'hide-btn-2';
+
+// 3. Style Variable String (Sanitized)
+$style_vars = array(
+    '--banner-contrast'            => $contrast . '%',
+    '--banner-grayscale'           => $grayscale,
+    '--banner-saturate'            => $saturate . '%',
+    '--banner-blur'                => $blur . 'px',
+    '--banner-overlay-color'       => $brand_hex,
+    '--banner-overlay-opacity'     => $opacity,
+    '--banner-video-focal-point'   => $focal_point,
+    '--banner-blend-mode'          => $blend_mode,
+);
+
+$style_string = '';
+foreach ($style_vars as $key => $val) {
+    $style_string .= "{$key}: {$val}; ";
+}
+
+// 4. InnerBlocks Template
+$template = [
+    ['acf/fu-heading', ['heading_level' => 'h1', 'placeholder' => 'Welcome!']],
+    ['acf/fu-heading', ['heading_level' => 'h2', 'placeholder' => 'Subheadline here']],
+    ['core/paragraph', ['content' => 'Descriptive text goes here.', 'align' => 'center']],
+    ['core/group', ['className' => 'fu-banner-button-wrapper'], [
+        ['acf/fu-button', ['btn_text' => 'Primary Action', 'btn_color' => 'orange', 'btn_size' => 'large']],
+        ['acf/fu-button', ['btn_text' => 'Secondary Action', 'btn_color' => 'blue', 'btn_size' => 'large']]
+    ]]
+];
+
+// Editor Note
+if (is_admin()) : ?>
+    <div class="fu-editor-note" style="background: #d9efff; border-left: 4px solid #2271b1; padding: 12px; font-family: sans-serif; font-size: 13px;">
+        <strong>Page Banner Config:</strong> Using <?php echo esc_html($bg_type); ?> background. Use block settings to adjust element visibility, content alignment, and Accessibility & Visual Styles.
+    </div>
+<?php endif; ?>
+
+<section id="<?php echo esc_attr($block['anchor'] ?? $block_id); ?>"
+    class="<?php echo esc_attr(implode(' ', $classes)); ?>"
+    style="<?php echo esc_attr($style_string); ?>"
+    <?php echo $banner_args; // No escaping needed for hardcoded data-args 
+    ?>>
+    <?php if (!is_admin()) : ?>
+        <button class="fu-banner-config-toggle" data-banner-id="<?php echo esc_attr($block['anchor'] ?? $block_id); ?>" aria-label="Banner Controls" title="Banner Controls">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 24px; height: 24px">
+                <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    <?php endif; ?>
+
+    <div class="fu-page-banner__media">
+        <?php if ($bg_type === 'video' && $video_url) : ?>
+            <video
+                id="<?php echo esc_attr($block_id); ?>-video"
+                class="fu-page-banner__video"
+                muted loop playsinline autoplay preload="auto" aria-hidden="true"
+                <?php if (is_admin()) : ?>
+                src="<?php echo esc_url($video_url); ?>"
+                style="opacity: 1; visibility: visible;"
+                <?php else : ?>
+                data-lazy-video="<?php echo esc_url($video_url); ?>"
+                <?php endif; ?>>
+            </video>
+        <?php else : ?>
+            <div class="fu-page-banner__bg-image"
+                style="background-image: url('<?php echo esc_url($bg_url); ?>'); background-position: <?php echo esc_attr($focal_point); ?>;">
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <?php if ($bg_type === 'video' && $video_url) : ?>
+        <button class="fu-banner-mute-toggle"
+            aria-label="Toggle Video Playback"
+            aria-pressed="false">
+            <span class="video-icon" aria-hidden="true"></span>
+            <span class="visibly-hidden">Pause/Play Background</span>
+        </button>
+    <?php endif; ?>
+
+    <div class="fu-page-banner__content container">
+        <?php echo '<InnerBlocks template="' . esc_attr(wp_json_encode($template)) . '" templateLock="all" />'; ?>
+    </div>
+</section>

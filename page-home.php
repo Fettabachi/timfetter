@@ -123,6 +123,8 @@
                                     if ($links) {
                                         $linksCount = count($links);
                                     }
+                                    $home_page_image = $portfolioContent['home_page_image'];
+                                    $home_page_image_scroll_duration = $portfolioContent['image_scroll_duration'];
                                     $images = $portfolioContent['images'];
                                     while (have_rows('portfolio_content')) : the_row();
                                 ?>
@@ -175,6 +177,20 @@
                                             </div>
                                         </div>
                                         <div class="dialog-image-wrap">
+                                            <?php
+                                            $home_page_image = get_sub_field('home_page_image');
+                                            $home_page_image_scroll_duration = (float) get_sub_field('image_scroll_duration');
+
+                                            if (!empty($home_page_image)) : ?>
+                                                <div class="site-demo">
+                                                    <div class="site-demo_laptop">
+                                                        <img src="/wp-content/uploads/2024/03/macbook-pro.png" alt="" />
+                                                    </div>
+                                                    <div class="site-demo_website">
+                                                        <img src="<?php echo esc_url($home_page_image['url']); ?>" alt="<?php echo esc_attr($home_page_image['alt']); ?>" style="transition-duration: <?php echo esc_attr($home_page_image_scroll_duration); ?>s;" />
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
                                             <?php
                                             if (have_rows('images')) :
                                                 while (have_rows('images')) : the_row();

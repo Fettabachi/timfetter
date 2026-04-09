@@ -434,6 +434,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_SkipLinkFocusFix__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/SkipLinkFocusFix */ "./src/modules/SkipLinkFocusFix.js");
 /* harmony import */ var _modules_ToggleNavMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/ToggleNavMenu */ "./src/modules/ToggleNavMenu.js");
 /* harmony import */ var _modules_A11yDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/A11yDialog */ "./src/modules/A11yDialog.js");
+/* harmony import */ var _modules_HandleOnPageLinks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/HandleOnPageLinks */ "./src/modules/HandleOnPageLinks.js");
 
 
 
@@ -441,7 +442,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// const handleOnPageLinks = new HandleOnPageLinks()
+const handleOnPageLinks = new _modules_HandleOnPageLinks__WEBPACK_IMPORTED_MODULE_6__["default"]();
 const checkIsTouchDevice = new _modules_CheckIsTouchDevice__WEBPACK_IMPORTED_MODULE_1__["default"]();
 const checkBrowser = new _modules_CheckBrowser__WEBPACK_IMPORTED_MODULE_2__["default"]();
 const skipLinkFocusFix = new _modules_SkipLinkFocusFix__WEBPACK_IMPORTED_MODULE_3__["default"]();
@@ -497,6 +498,7 @@ class A11yDialog {
     document.addEventListener("keydown", e => this.keyPressDispatcher(e));
   }
   preventBodyScroll() {
+    // console.log("no scroll?")
     document.body.classList.add("body-no-scroll");
     this.isDialogOpen = true;
     return false;
@@ -699,6 +701,50 @@ class CheckIsTouchDevice {
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckIsTouchDevice);
+
+/***/ }),
+
+/***/ "./src/modules/HandleOnPageLinks.js":
+/*!******************************************!*\
+  !*** ./src/modules/HandleOnPageLinks.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class HandleOnPageLinks {
+  constructor() {
+    this.handleOnPageLinks();
+  }
+  handleOnPageLinks() {
+    const links = Array.from(document.querySelectorAll('a[href*="#"]:not([href="#"])'));
+    const headerHeight = document.querySelector("#masthead").offsetHeight;
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault(); // prevent default action immediately
+
+        if (location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") && location.hostname === this.hostname) {
+          let target = document.querySelector(this.hash);
+          target = target ? target : document.querySelector("[name=" + this.hash.slice(1) + "]");
+          if (target) {
+            window.requestAnimationFrame(() => {
+              window.scrollTo({
+                top: target.offsetTop - headerHeight,
+                behavior: "smooth" // let CSS handle the scrolling
+              });
+            });
+
+            window.history.pushState(null, null, " "); // remove hash from URL
+          }
+        }
+      });
+    });
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HandleOnPageLinks);
 
 /***/ }),
 

@@ -1,5 +1,7 @@
 <?php
 
+require get_theme_file_path('/inc/acf-block-loader.php');
+
 /**
  * Theme support
  */
@@ -123,7 +125,22 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 }
 
 /*  DISABLE GUTENBERG STYLE IN HEADER| WordPress 5.9 */
-function wps_deregister_styles() {
-    wp_dequeue_style( 'global-styles' );
+// function wps_deregister_styles() {
+//     wp_dequeue_style( 'global-styles' );
+// }
+// add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
+
+/**
+ * Inject the Banner Demo Panel into the footer
+ */
+function fu_inject_demo_panel()
+{
+    if (is_admin()) return;
+
+    // Optional: Only load if we are on a page/post that has the banner
+    // This keeps your PageSpeed scores perfect on non-banner pages
+    if (has_block('acf/fu-page-banner') || is_singular()) {
+        get_template_part('parts/demo-panel');
+    }
 }
-add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
+add_action('wp_footer', 'fu_inject_demo_panel', 999);

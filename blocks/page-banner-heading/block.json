@@ -1,0 +1,12 @@
+{
+    "name": "acf/fu-heading",
+    "title": "FU Heading",
+    "parent": ["acf/fu-page-banner"],
+    "apiVersion": 3,
+    "category": "layout",
+    "icon": "editor-textcolor",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "fu-heading.php"
+    }
+}

@@ -1,0 +1,147 @@
+/* 1. Container & Grid */
+.fu-lab-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    align-content: start; /* Prevents cards from stretching to fill min-height */
+    position: relative;
+    padding: 20px 0;
+    view-transition-name: lab-container;
+    overflow: hidden; /* Required for smooth height morphing */
+}
+
+/* 2. Navigation Filters */
+.fu-lab-filters {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.fu-lab-filters button {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.fu-lab-filters button:hover {
+    border-color: #0d3b66;
+}
+
+.fu-lab-filters button.is-active {
+    background: #0d3b66;
+    color: #fff;
+    border-color: #0d3b66;
+}
+
+/* 3. Card Styling */
+.fu-lab-card {
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Changed to auto so cards don't stretch vertically */
+    align-self: start;
+
+    /* View Transition Identity */
+    contain: layout;
+    /* view-transition-name is handled via inline style in PHP */
+
+    /* Entrance animation (Staggered) */
+    opacity: 0;
+    animation: labFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--i) * 0.06s);
+
+    /* Smooth vertical lift */
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fu-lab-card:hover {
+    transform: translateY(-5px);
+    /* Box-shadow removed to prevent clipping by overflow:hidden container */
+}
+
+/* 4. Image Hover Effect (The Replacement for Box-Shadow) */
+.fu-lab-card__image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden; /* Clips the scaling image to the card borders */
+    background: #f9f9f9;
+}
+
+.fu-lab-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fu-lab-card:hover .fu-lab-card__image img {
+    transform: scale(1.08); /* Subtle, elegant zoom */
+}
+
+.fu-lab-card__content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.fu-lab-card__content h3 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/* 5. View Transition Orchestration */
+::view-transition-group(root),
+::view-transition-group(lab-container),
+::view-transition-group(*) {
+    animation-duration: 0.8s !important;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.8s !important;
+    mix-blend-mode: normal;
+}
+
+/* 6. Loading State */
+.fu-lab-container.is-loading {
+    opacity: 0.4;
+    filter: grayscale(1) blur(1px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+/* 7. Keyframes & Utilities */
+@keyframes labFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    padding: 100px 0;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-style: italic;
+}

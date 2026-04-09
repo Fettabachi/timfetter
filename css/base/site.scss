@@ -49,8 +49,8 @@ a:hover {
 }
 
 img {
-	height: auto;
-	max-width: 100%;
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
 }
 
 .openSans {
@@ -58,11 +58,11 @@ img {
 }
 
 h1 {
-	font-size: 1.66666666666667em;
+	font-size: 1.66666666666667em; /* 30px */
 }
 
 h2 {
-	font-size: 1.875em;
+	font-size: 1.875em; /*30px*/
 	font-family: "Raleway", sans-serif;
 }
 
@@ -76,17 +76,17 @@ h3 {
 }
 
 h4 {
-	font-size: 1.2em;
+	font-size: 1.2em; /*18px*/
 	font-family: "Open Sans", sans-serif;
 }
 
 h5 {
-	font-size: 0.93em;
+	font-size: 0.93em; /*15px*/
 	font-family: "Raleway", sans-serif;
 }
 
 h6 {
-	font-size: 0.875em;
+	font-size: 0.875em; /*14px*/
 	font-family: "Raleway", sans-serif;
 }
 
@@ -136,6 +136,7 @@ address {
 	font-variant: small-caps;
 }
 
+/* Text meant only for screen readers */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
@@ -160,7 +161,7 @@ address {
 	text-decoration: none;
 	top: 5px;
 	width: auto;
-	z-index: 100000;
+	z-index: 100000; /* Above WP toolbar */
 }
 
 .clear:before,
@@ -327,10 +328,12 @@ address {
 	}
 
 	.site-branding {
+		/* width: 172px; */
 		margin: 0 auto;
 		z-index: 10;
 	}
 }
+/* end (max-width: 767px) */
 
 .home-wrap {
 	padding-top: 8em;
@@ -574,6 +577,8 @@ h2 {
 		&:focus-visible {
 			outline: 2px solid black;
 			outline-offset: 2px;
+			/* outline: none;
+			box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%); */
 		}
 	}
 
@@ -738,7 +743,8 @@ h2 {
 		}
 		&.photoshop,
 		&.illustrator,
-		&.inkscape {
+		&.inkscape,
+		&.figma {
 			background-color: #a67aab;
 		}
 		&.more {
@@ -791,11 +797,66 @@ h2 {
 	}
 }
 
-.dialog-content .container .dialog-image-wrap > img {
+.site-demo {
+	display: none;
+	position: relative;
+	aspect-ratio: 1.645083932853717 / 1;
+	margin-bottom: 1rem;
+
+	@include atTablet {
+		display: block;
+	}
+}
+
+.site-demo_laptop {
+	position: absolute;
+	inset: auto;
+	z-index: 1;
+}
+.site-demo_laptop img {
+	width: 100%;
+	height: auto;
+}
+
+.site-demo_website {
+	position: absolute;
+
+	@include atTablet {
+		top: 4px;
+		left: 29px;
+		width: 260px;
+		height: 176px;
+	}
+	@include atSmDesktop {
+		top: 5px;
+		left: 38px;
+		width: 348px;
+		height: 234px;
+	}
+	@include atDesktop {
+		top: 6px;
+		left: 46px;
+		width: 422px;
+		height: 284px;
+	}
+}
+
+.site-demo_website img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top center;
+	transition: object-position 3s ease-in-out;
+}
+
+.site-demo:hover .site-demo_website img {
+	object-position: bottom center;
+}
+Í .dialog-content .container .dialog-image-wrap > img {
 	width: 100%;
 	max-width: 320px;
 	margin-bottom: 2em;
-	aspect-ratio: 6/4.61;
+	/* aspect-ratio: 6/4.61; */
 	object-fit: cover;
 	border-radius: 6px;
 	box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
@@ -889,6 +950,7 @@ footer {
 	display: inline-block;
 	color: #fff;
 	transition: color 0.3s ease, box-shadow 0.3s ease;
+	/*  */
 
 	&:focus-visible {
 		outline: none;

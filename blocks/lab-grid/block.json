@@ -1,0 +1,14 @@
+{
+    "name": "acf/lab-grid",
+    "style": "lab-grid-style",
+    "title": "Component Lab Grid",
+    "description": "A live-filtering grid for my portfolio components.",
+    "category": "formatting",
+    "icon": "admin-plugins",
+    "keywords": ["lab", "filter", "grid"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "lab-grid.php"
+    },
+    "script": "alpine-js-cdn"
+}

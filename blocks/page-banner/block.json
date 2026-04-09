@@ -1,0 +1,20 @@
+{
+    "name": "acf/fu-page-banner",
+    "title": "FU Page Banner",
+    "apiVersion": 3,
+    "category": "layout",
+    "icon": "cover-image",
+    "script": "file:./page-banner.js",
+    "style": "file:./page-banner.css",
+    "editorStyle": "file:./page-banner-admin.css",
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "html": false
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "page-banner.php"
+    }
+}
