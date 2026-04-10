@@ -1,0 +1,258 @@
+/* Front-end demo harness styles for the page-banner showcase panel. */
+.fu-demo-ui {
+	--wp-blue: #2271b1;
+	--fu-accent: #007cba;
+	position: fixed;
+	top: 32px;
+	right: 0;
+	width: 280px;
+	transform: translateX(100%);
+	transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+	background: #fff;
+	box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+	z-index: 99999;
+	border-radius: 8px 0 0 8px;
+}
+
+.fu-demo-ui.is-open {
+	transform: translateX(0);
+}
+
+.fu-demo-panel-inner {
+	position: relative;
+	padding: 14px 20px 20px;
+	max-height: 80vh;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+.fu-demo-title {
+	margin-block: 0 0.5rem;
+	font-size: 16px;
+}
+
+.fu-demo-group {
+	margin-bottom: 18px;
+}
+
+.fu-demo-group label {
+	display: block;
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 6px;
+	color: #666;
+}
+
+.fu-demo-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	gap: 12px;
+}
+
+.fu-demo-btns {
+	display: flex;
+	gap: 5px;
+}
+
+.fu-demo-btns button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	padding: 2px;
+	cursor: pointer;
+	background: #f0f0f1;
+	border: 1px solid #dcdcde;
+}
+
+.fu-demo-btns button.is-active {
+	background: var(--wp-blue) !important;
+	color: #fff !important;
+	border-color: #135e96 !important;
+}
+
+.fu-demo-reset {
+	width: 100%;
+	padding: 12px;
+	background: #d63638;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 4px;
+	margin-top: 5px;
+}
+
+.fu-swatch-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 8px;
+}
+
+.fu-swatch {
+	height: 30px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.fu-swatch--orange {
+	background: #f95738;
+}
+
+.fu-swatch--blue {
+	background: #0d3b66;
+}
+
+.fu-swatch--yellow {
+	background: #f4d35e;
+}
+
+.fu-swatch--black {
+	background: #000;
+}
+
+.fu-swatch.is-active {
+	border: 2px solid var(--fu-accent) !important;
+	box-shadow: 0 0 0 2px #fff inset;
+}
+
+.fu-demo-ui input[type="range"] {
+	accent-color: var(--wp-blue);
+	width: 100%;
+}
+
+.fu-demo-ui input[type="range"]::-webkit-slider-track {
+	background: #dcdcde;
+	height: 4px;
+	border-radius: 2px;
+	border: none;
+}
+
+.fu-demo-ui input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	background: var(--wp-blue);
+	border: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.fu-demo-ui input[type="range"]::-webkit-slider-thumb:hover {
+	background: #135e96;
+}
+
+.fu-demo-ui input[type="range"]::-moz-range-track {
+	background: #dcdcde;
+	height: 4px;
+	border-radius: 2px;
+	border: none;
+}
+
+.fu-demo-ui input[type="range"]::-moz-range-thumb {
+	background: var(--wp-blue);
+	border: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.fu-demo-ui input[type="range"]::-moz-range-thumb:hover {
+	background: #135e96;
+}
+
+.label-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.fu-demo-ui output {
+	font-family: monospace;
+	font-size: 10px;
+	background: #eee;
+	padding: 2px 5px;
+	border-radius: 3px;
+	color: var(--fu-accent);
+}
+
+.fu-demo-toggles {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+	background: #f6f7f7;
+	padding: 10px;
+	border-radius: 4px;
+	border: 1px solid #dcdcde;
+}
+
+.fu-demo-toggles label {
+	font-size: 11px !important;
+	text-transform: none !important;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer;
+	color: #444 !important;
+	margin-bottom: 0 !important;
+}
+
+.fu-demo-toggles input[type="checkbox"] {
+	margin: 0;
+	cursor: pointer;
+}
+
+.fu-demo-select {
+	width: 100%;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 8px 12px;
+	padding-right: 32px;
+	font-size: 14px;
+	color: #333;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	background-size: 16px;
+}
+
+.fu-demo-select:focus {
+	outline: none;
+	border-color: #007cba;
+	box-shadow: 0 0 0 1px #007cba;
+}
+
+.fu-demo-close {
+	display: flex;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 18px;
+	color: #666;
+	padding: 4px;
+	border-radius: 4px;
+	transition: background 0.2s;
+}
+
+.fu-demo-close:hover {
+	background: #f0f0f1;
+	color: #333;
+}
+
+@media (max-width: 47.99rem) {
+	.fu-demo-group--alignment {
+		display: none;
+	}
+}

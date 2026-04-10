@@ -5,29 +5,35 @@
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <article>
-            <div class="entry-content">
-                <?php
-                if (have_rows('page_content')) :
-                    while (have_rows('page_content')) : the_row(); ?>
-                        <div class="container home-wrap" id="hello">
-                            <div class="grid-row">
-                                <div class="col-md-8 col-md-8-center text-center">
-                                    <div class="landing-pname">
-                                        <h1>Hello, I'm Tim Fetter.</h1>
+        <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post(); ?>
+                <article>
+                    <div class="entry-content">
+                        <?php the_content(); ?>
+
+                        <?php
+                        if (have_rows('page_content')) :
+                            while (have_rows('page_content')) : the_row(); ?>
+                                <div class="container home-wrap" id="hello">
+                                    <div class="grid-row">
+                                        <div class="col-md-8 col-md-8-center text-center">
+                                            <div class="landing-pname">
+                                                <h1>Hello, I'm Tim Fetter.</h1>
+                                            </div>
+                                            <div class="landing-intro"><?php the_sub_field('intro_blurb'); ?></div>
+                                        </div>
                                     </div>
-                                    <div class="landing-intro"><?php the_sub_field('intro_blurb'); ?></div>
+                                    <div class="align-center">
+                                        <a class="btn--gold btn--resume" target="_blank" href="<?php the_sub_field('resume_link'); ?>">View My Resum&Eacute;</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="align-center">
-                                <a class="btn--gold btn--resume" target="_blank" href="<?php the_sub_field('resume_link'); ?>">View My Resum&Eacute;</a>
-                            </div>
-                        </div>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-                <!-- end page_content -->
-            </div><!-- .entry-content -->
-        </article>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                        <!-- end page_content -->
+                    </div><!-- .entry-content -->
+                </article>
+            <?php endwhile; ?>
+        <?php endif; ?>
 
         <div id="portfolio" class="content-wrap-in portfolio-wrap">
             <div class="container">

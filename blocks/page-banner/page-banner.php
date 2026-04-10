@@ -6,9 +6,22 @@
 
 // 1. Setup Fields (Using null coalescing for cleaner defaults)
 $bg_type      = get_field('background_type') ?: 'image';
-$video_url    = get_field('video_file');
+$video_field  = get_field('video_file');
+$video_url    = '';
+
+if (is_array($video_field)) {
+    $video_url = $video_field['url'] ?? '';
+} elseif (is_string($video_field)) {
+    $candidate = trim($video_field);
+    if ($candidate !== '' && $candidate !== 'undefined' && $candidate !== 'null') {
+        $video_url = $candidate;
+    }
+}
+
 $image        = get_field('page_banner_image');
 $focal_point  = get_field('bg_focal_point') ?: 'center center';
+$focal_point  = is_string($focal_point) ? trim($focal_point) : 'center center';
+$focal_point  = $focal_point === 'center' || $focal_point === '' ? 'center center' : $focal_point;
 $alignment    = get_field('alignment_buttons') ?: 'center';
 
 // Visual Filters & Overlays
@@ -22,10 +35,15 @@ $opacity      = $opacity_raw / 100;
 $blend_mode   = get_field('banner_overlay_blend_mode') ?: 'normal';
 
 // Visibility Toggles
-$show_h2      = get_field('show_h2') !== false; // Default to true if null
-$show_p       = get_field('show_p') !== false;
-$show_btn_1   = get_field('show_btn_1') !== false;
-$show_btn_2   = get_field('show_btn_2') !== false;
+$show_h2_value    = get_field('show_h2');
+$show_p_value     = get_field('show_p');
+$show_btn_1_value = get_field('show_btn_1');
+$show_btn_2_value = get_field('show_btn_2');
+
+$show_h2    = $show_h2_value === null ? true : (bool) $show_h2_value;
+$show_p     = $show_p_value === null ? true : (bool) $show_p_value;
+$show_btn_1 = $show_btn_1_value === null ? true : (bool) $show_btn_1_value;
+$show_btn_2 = $show_btn_2_value === null ? true : (bool) $show_btn_2_value;
 
 // 2. Logic & Classes
 $fallback_img = get_theme_file_uri('/images/library-hero.jpg');
@@ -90,7 +108,7 @@ if (is_admin()) : ?>
     <?php echo $banner_args; // No escaping needed for hardcoded data-args 
     ?>>
     <?php if (!is_admin()) : ?>
-        <button class="fu-banner-config-toggle" data-banner-id="<?php echo esc_attr($block['anchor'] ?? $block_id); ?>" aria-label="Banner Controls" title="Banner Controls">
+        <button type="button" class="fu-banner-config-toggle" data-banner-id="<?php echo esc_attr($block['anchor'] ?? $block_id); ?>" aria-label="Banner Controls" title="Banner Controls">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 24px; height: 24px">
                 <path
                     fill-rule="evenodd"
@@ -106,9 +124,11 @@ if (is_admin()) : ?>
                 id="<?php echo esc_attr($block_id); ?>-video"
                 class="fu-page-banner__video"
                 muted loop playsinline autoplay preload="auto" aria-hidden="true"
+                style="object-position: <?php echo esc_attr($focal_point); ?>;"
                 <?php if (is_admin()) : ?>
                 src="<?php echo esc_url($video_url); ?>"
-                style="opacity: 1; visibility: visible;"
+                data-editor-video="<?php echo esc_url($video_url); ?>"
+                data-editor-focal-point="<?php echo esc_attr($focal_point); ?>"
                 <?php else : ?>
                 data-lazy-video="<?php echo esc_url($video_url); ?>"
                 <?php endif; ?>>
@@ -121,7 +141,7 @@ if (is_admin()) : ?>
     </div>
 
     <?php if ($bg_type === 'video' && $video_url) : ?>
-        <button class="fu-banner-mute-toggle"
+        <button type="button" class="fu-banner-mute-toggle"
             aria-label="Toggle Video Playback"
             aria-pressed="false">
             <span class="video-icon" aria-hidden="true"></span>

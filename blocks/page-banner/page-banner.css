@@ -4,131 +4,163 @@
  */
 
 :root {
-    /* Spacing & Layout */
-    --fu-banner-overlay: rgba(0, 0, 0, 0.6);
-    --fu-transition: all 0.3s ease;
+	/* Brand Colors (The Source) */
+	--color-brand-primary: #0d3b66; /* University Blue */
+	--color-brand-secondary: #f95738; /* University Orange */
+	--color-brand-accent: #f4d35e; /* University Yellow */
+	--color-brand-dark-accent: #ee964b; /* University Yellow */
+	--color-brand-light: #faf0ca; /* Beige / Cream */
+	--success: #198754;
+	--warning: #ac2020;
+
+	/* Semantic Mapping (What we use in our blocks) */
+	--fu-blue: var(--color-brand-primary);
+	--fu-orange: var(--color-brand-secondary);
+	--fu-yellow: var(--color-brand-accent);
+	--fu-yellow-dark: var(--color-brand-dark-accent);
+	--fu-beige: var(--color-brand-light);
+	--fu-white: #ffffff;
+	--fu-black: #222222;
+
+	/* Spacing System */
+	--fu-space-xs: 0.5rem;
+	--fu-space-sm: 1rem;
+	--fu-space-md: 1.5rem;
+	--fu-space-lg: 3rem;
+	--fu-space-xl: clamp(5rem, 4vw, 8rem); /* Fluid spacing for sections */
+
+	/* Border Radii */
+	--fu-radius-sm: 4px;
+	--fu-radius-md: 8px;
+	--fu-radius-lg: 12px;
+
+	/* Transitions */
+	--fu-transition-fast: all 0.2s ease-in-out;
+	--fu-transition-base: all 0.3s ease;
+
+	/* Spacing & Layout */
+	--fu-banner-overlay: rgba(0, 0, 0, 0.6);
+	--fu-transition: all 0.3s ease;
 }
 
 /* 1. LAYOUT: THE BANNER CONTAINER
    ------------------------------------------------------------------------- */
 .fu-page-banner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    min-height: clamp(29rem, 13.724vw + 25.784rem, 37.5rem);
-    background-color: #222;
-    padding-top: clamp(5rem, 4.2rem + 4vw, 8.125rem);
-    padding-bottom: clamp(2.5rem, 2.1rem + 2vw, 3.75rem);
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	min-height: clamp(29rem, 13.724vw + 25.784rem, 37.5rem);
+	background-color: #222;
+	padding-top: clamp(5rem, 4.2rem + 4vw, 8.125rem);
+	padding-bottom: clamp(2.5rem, 2.1rem + 2vw, 3.75rem);
 
-    &.has-video {
-        padding-top: clamp(8rem, 6rem + 12vw, 15rem);
-        padding-bottom: clamp(4rem, 3rem + 6vw, 8rem);
-    }
+	&.has-video {
+		padding-top: clamp(8rem, 6rem + 12vw, 15rem);
+		padding-bottom: clamp(4rem, 3rem + 6vw, 8rem);
+	}
 
-    /* Banner Content Horizontal Alignment Modifiers */
-    @media (min-width: 48rem) {
-        /* 768px */
-        .fu-page-banner__content {
-            display: flex;
-            flex-direction: row;
-            padding: 0;
+	/* Banner Content Horizontal Alignment Modifiers */
+	@media (min-width: 48rem) {
+		/* 768px */
+		.fu-page-banner__content {
+			display: flex;
+			flex-direction: row;
+			padding: 0;
 
-            /* These styles make the editor UX feel like an app */
-            /* Create two 'springs' on either side of the container */
-            &::before,
-            &::after {
-                content: "";
-                display: block;
-                flex-basis: 0%;
-                transition: flex-grow 1s cubic-bezier(0.16, 1, 0.3, 1);
-            }
+			/* These styles make the editor UX feel like an app */
+			/* Create two 'springs' on either side of the container */
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				flex-basis: 0%;
+				transition: flex-grow 1s cubic-bezier(0.16, 1, 0.3, 1);
+			}
 
-            .acf-innerblocks-container {
-                flex-shrink: 0; /* Don't let the text squish */
-                transition: text-align 0.3s ease;
-            }
-        }
+			.acf-innerblocks-container {
+				flex-shrink: 0; /* Don't let the text squish */
+				transition: text-align 0.3s ease;
+			}
+		}
 
-        /* LEFT: Right spring grows to 1, pushing content to the left */
-        &.fu-page-banner--align-left .fu-page-banner__content {
-            &::before {
-                flex-grow: 0;
-            }
-            &::after {
-                flex-grow: 1;
-            }
+		/* LEFT: Right spring grows to 1, pushing content to the left */
+		&.fu-page-banner--align-left .fu-page-banner__content {
+			&::before {
+				flex-grow: 0;
+			}
+			&::after {
+				flex-grow: 1;
+			}
 
-            .acf-innerblocks-container,
-            .acf-innerblocks-container p {
-                text-align: left;
-            }
+			.acf-innerblocks-container,
+			.acf-innerblocks-container p {
+				text-align: left;
+			}
 
-            .fu-banner-button-wrapper {
-                justify-content: flex-start;
-            }
-        }
+			.fu-banner-button-wrapper > div {
+				justify-content: flex-start;
+			}
+		}
 
-        /* CENTER: Both springs grow equally, centering the content */
-        &.fu-page-banner--align-center .fu-page-banner__content {
-            &::before {
-                flex-grow: 1;
-            }
-            &::after {
-                flex-grow: 1;
-            }
+		/* CENTER: Both springs grow equally, centering the content */
+		&.fu-page-banner--align-center .fu-page-banner__content {
+			&::before {
+				flex-grow: 1;
+			}
+			&::after {
+				flex-grow: 1;
+			}
 
-            .acf-innerblocks-container {
-                text-align: center;
-            }
-        }
+			.acf-innerblocks-container {
+				text-align: center;
+			}
+		}
 
-        /* RIGHT: Left spring grows to 1, pushing content to the right */
-        &.fu-page-banner--align-right .fu-page-banner__content {
-            &::before {
-                flex-grow: 1;
-            }
-            &::after {
-                flex-grow: 0;
-            }
+		/* RIGHT: Left spring grows to 1, pushing content to the right */
+		&.fu-page-banner--align-right .fu-page-banner__content {
+			&::before {
+				flex-grow: 1;
+			}
+			&::after {
+				flex-grow: 0;
+			}
 
-            .acf-innerblocks-container,
-            .acf-innerblocks-container p {
-                text-align: right;
-            }
-            .fu-banner-button-wrapper {
-                justify-content: flex-end;
-            }
-        }
-    }
+			.acf-innerblocks-container,
+			.acf-innerblocks-container p {
+				text-align: right;
+			}
+			.fu-banner-button-wrapper > div {
+				justify-content: flex-end;
+			}
+		}
+	}
 }
 
 /* configuration toggle button placed inside each banner */
 .fu-banner-config-toggle {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 2000;
-    background: #007cba;
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 16px;
-    opacity: 1;
-    transition:
-        opacity 0.2s,
-        box-shadow 0.2s;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	z-index: 2000;
+	background: #007cba;
+	color: #fff;
+	border: none;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: 16px;
+	opacity: 1;
+	transition: opacity 0.2s, box-shadow 0.2s;
 }
 
 .fu-banner-config-toggle.is-active {
-    box-shadow: 0 0 0 2px #fff inset;
+	box-shadow: 0 0 0 2px #fff inset;
 }
 
 /* .fu-banner-config-toggle:hover {
@@ -136,309 +168,383 @@
 } */
 
 .fu-page-banner__media {
-    isolation: isolate;
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+	isolation: isolate;
+	position: absolute;
+	inset: 0;
+	z-index: 1;
 
-    /* Consolidated Base Filter */
-    filter: contrast(var(--banner-contrast, 100%)) grayscale(var(--banner-grayscale, 0%)) saturate(var(--banner-saturate, 100%)) brightness(var(--banner-brightness, 100%));
+	/* Consolidated Base Filter */
+	filter: contrast(var(--banner-contrast, 100%))
+		grayscale(var(--banner-grayscale, 0%))
+		saturate(var(--banner-saturate, 100%))
+		brightness(var(--banner-brightness, 100%));
 
-    /* Combined Transition for Performance */
-    transition:
-        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	/* Combined Transition for Performance */
+	transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+		transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
-    transform: scale(1); /* Base state */
-    will-change: transform, filter;
+	transform: scale(1); /* Base state */
+	will-change: transform, filter;
 
-    /* Single Overlay Implementation */
-    &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: var(--banner-overlay-color, #000);
-        opacity: var(--banner-overlay-opacity, 0.5);
-        mix-blend-mode: var(--banner-blend-mode, normal);
-        z-index: 2;
-        transition:
-            opacity 0.5s ease,
-            background-color 0.5s ease;
-    }
+	/* Single Overlay Implementation */
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: var(--banner-overlay-color, #000);
+		opacity: var(--banner-overlay-opacity, 0.5);
+		mix-blend-mode: var(--banner-blend-mode, normal);
+		z-index: 2;
+		transition: opacity 0.5s ease, background-color 0.5s ease;
+	}
 }
 
 /* Universal Media Handling (Video & Image) */
 .fu-page-banner__video,
 .fu-page-banner__bg-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: var(--banner-video-focal-point, center);
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: var(--banner-video-focal-point, center);
 }
 
 .fu-page-banner__video {
-    object-fit: cover;
-    object-position: var(--banner-video-focal-point, 50% 50%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+	object-fit: cover;
+	object-position: var(--banner-video-focal-point, 50% 50%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.8s ease;
 }
 
 .fu-page-banner__bg-image {
-    display: block; /* Ensures visibility when background-type is image */
+	display: block; /* Ensures visibility when background-type is image */
 }
 
 /* Show video if loaded OR if we are in the admin */
 .fu-page-banner__video[data-loaded="true"],
 .is-admin .fu-page-banner__video {
-    opacity: 1;
+	opacity: 1;
 }
 
 /* --- THE PAUSE TRANSITION --- */
 /* Works on Front-end AND Editor via inheritance */
 .fu-page-banner.is-paused .fu-page-banner__media,
 .wp-block-acf-fu-page-banner.is-paused .fu-page-banner__media {
-    filter: contrast(var(--banner-contrast, 100%)) grayscale(var(--banner-grayscale, 0%)) saturate(var(--banner-saturate, 100%)) brightness(var(--banner-brightness, 100%)) blur(var(--banner-blur, 8px)); /* Apply blur to the media wrapper */
+	filter: contrast(var(--banner-contrast, 100%))
+		grayscale(var(--banner-grayscale, 0%))
+		saturate(var(--banner-saturate, 100%))
+		brightness(var(--banner-brightness, 100%)) blur(var(--banner-blur, 8px)); /* Apply blur to the media wrapper */
 
-    transform: scale(1.05); /* The cinematic zoom */
+	transform: scale(1.05); /* The cinematic zoom */
 }
 
 .fu-page-banner__content {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    gap: 1.5rem;
-    transition:
-        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.8s ease;
+	position: relative;
+	z-index: 3;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #fff;
+	text-align: center;
+	gap: 1.5rem;
+	transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+
+	h1,
+	h2,
+	p,
+	a {
+		font-weight: 300;
+		letter-spacing: 0.25px;
+		font-family: "Open Sans", sans-serif;
+		color: #fff;
+	}
+
+	p,
+	a {
+		font-weight: 400;
+	}
 }
 
 /* Subtle lift on pause */
 .fu-page-banner.is-paused .fu-page-banner__content {
-    transform: translateY(-10px);
-    opacity: 0.95;
+	transform: translateY(-10px);
+	opacity: 0.95;
 }
 
 .fu-banner-button-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+	> div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
 
-    /* Buttons share width when there are two */
-    > .btn {
-        flex: 1 1 10rem; /* grow, shrink, base width */
-        max-width: 16rem;
-        text-align: center;
-    }
+	/* Buttons share width when there are two */
+	> .btn {
+		flex: 1 1 10rem; /* grow, shrink, base width */
+		max-width: 16rem;
+		text-align: center;
+	}
 
-    > div {
-        margin-block: 0; /* for the editor */
-    }
+	> div {
+		margin-block: 0; /* for the editor */
+	}
 }
 
 /* Visibility Logic */
 .fu-page-banner.hide-h2 .acf-innerblocks-container h2 {
-    display: none !important;
+	display: none !important;
 }
 .fu-page-banner.hide-p .acf-innerblocks-container p {
-    display: none !important;
+	display: none !important;
 }
 
 /* Individual Button Hiding */
-/* Target specific children of the button wrapper */
-.fu-page-banner.hide-btn-1 .fu-banner-button-wrapper > *:first-child {
-    display: none !important;
+
+.fu-page-banner.hide-btn-1
+	.fu-banner-button-wrapper
+	> .block-editor-inner-blocks
+	> .block-editor-block-list__layout
+	> .wp-block-acf-fu-button:first-child,
+.fu-page-banner.hide-btn-1
+	.fu-banner-button-wrapper
+	> :is(.wp-block-group__inner-container, .acf-innerblocks-container)
+	> :is(.wp-block-acf-fu-button:first-child, a:first-child),
+.fu-page-banner.hide-btn-1
+	.fu-banner-button-wrapper
+	> :is(.wp-block-acf-fu-button:first-child, a:first-child) {
+	display: none !important;
 }
-.fu-page-banner.hide-btn-2 .fu-banner-button-wrapper > *:last-child {
-    display: none !important;
+
+.fu-page-banner.hide-btn-2
+	.fu-banner-button-wrapper
+	> .block-editor-inner-blocks
+	> .block-editor-block-list__layout
+	> .wp-block-acf-fu-button:last-child,
+.fu-page-banner.hide-btn-2
+	.fu-banner-button-wrapper
+	> :is(.wp-block-group__inner-container, .acf-innerblocks-container)
+	> :is(.wp-block-acf-fu-button:last-child, a:last-child),
+.fu-page-banner.hide-btn-2
+	.fu-banner-button-wrapper
+	> :is(.wp-block-acf-fu-button:last-child, a:last-child) {
+	display: none !important;
 }
 
 /* 2. TYPOGRAPHY: HEADINGS & PARAGRAPHS
    ------------------------------------------------------------------------- */
 .fu-page-banner {
-    .headline--large {
-        font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem);
-        line-height: 1.1;
-        margin: 0;
-    }
-    .headline--medium {
-        font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
-        line-height: 1.2;
-        margin: 0;
-        margin-block-end: 0.75rem;
-    }
-    .headline--small {
-        font-size: clamp(1.1rem, 1rem + 0.5vw, 1.5rem);
-        line-height: 1.3;
-        margin: 0;
-        margin-block-end: 1.9rem;
-    }
+	.headline--large {
+		font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem);
+		line-height: 1.1;
+		margin: 0;
+	}
+	.headline--medium {
+		font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+		line-height: 1.2;
+		margin: 0;
+		margin-block-end: 0.75rem;
+	}
+	.headline--small {
+		font-size: clamp(1.1rem, 1rem + 0.5vw, 1.5rem);
+		line-height: 1.3;
+		margin: 0;
+		margin-block-end: 1.9rem;
+	}
 
-    .fu-page-banner__content p {
-        /* max-width: 65ch; */
-        font-size: clamp(1rem, 0.252vw + 0.905rem, 1.25rem);
-        line-height: 1.6;
-        margin: 0;
-        margin-block-end: 1.9rem;
-    }
+	.fu-page-banner__content p {
+		/* max-width: 65ch; */
+		font-size: clamp(1rem, 0.252vw + 0.905rem, 1.25rem);
+		line-height: 1.6;
+		margin: 0;
+		margin-block-end: 1.9rem;
+	}
 }
 
 /* 3. COMPONENTS: BUTTONS
    ------------------------------------------------------------------------- */
 .fu-page-banner {
-    .btn {
-        display: inline-block;
-        text-decoration: none;
-        border-radius: var(--fu-radius-md);
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        filter: brightness(1);
-        transition:
-            filter 0.3s ease,
-            transform 0.3s ease;
-    }
+	.btn {
+		display: inline-block;
+		text-decoration: none;
+		border-radius: var(--fu-radius-md);
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		filter: brightness(1);
+		transition: filter 0.3s ease, transform 0.3s ease;
+	}
 
-    .btn--large {
-        padding-block: clamp(0.75rem, 0.404vw + 0.655rem, 1rem);
-        padding-inline: clamp(1.75rem, 0.565vw + 1.618rem, 2.1rem);
-        font-size: clamp(1.3rem, 0.969vw + 1.073rem, 1.9rem);
-    }
-    .btn--medium {
-        padding: 0.8rem 1.8rem;
-        font-size: 1.2rem;
-        border-radius: var(--fu-radius-sm);
-    }
-    .btn--small {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
-        border-radius: var(--fu-radius-sm);
-    }
+	.btn--large {
+		padding-block: clamp(0.75rem, 0.404vw + 0.655rem, 1rem);
+		padding-inline: clamp(1.75rem, 0.565vw + 1.618rem, 2.1rem);
+		font-size: clamp(1.3rem, 0.969vw + 1.073rem, 1.9rem);
+	}
+	.btn--medium {
+		padding: 0.8rem 1.8rem;
+		font-size: 1.2rem;
+		border-radius: var(--fu-radius-sm);
+	}
+	.btn--small {
+		padding: 0.5rem 1.2rem;
+		font-size: 0.85rem;
+		border-radius: var(--fu-radius-sm);
+	}
 
-    .btn--fu-orange {
-        background-color: var(--fu-orange);
-        color: var(--fu-white);
-    }
-    .btn--fu-blue {
-        background-color: var(--fu-blue);
-        color: var(--fu-beige);
-    }
-    .btn--fu-dark-yellow {
-        background-color: var(--fu-yellow-dark);
-        color: var(--fu-blue);
-    }
+	.btn--fu-orange {
+		background-color: var(--fu-orange);
+		color: var(--fu-white);
+	}
+	.btn--fu-blue {
+		background-color: var(--fu-blue);
+		color: var(--fu-beige);
+	}
+	.btn--fu-dark-yellow {
+		background-color: var(--fu-yellow-dark);
+		color: var(--fu-blue);
+	}
 
-    .btn:hover {
-        filter: brightness(1.2);
-        transform: translateY(-2px);
-    }
+	.btn:hover {
+		filter: brightness(1.2);
+		transform: translateY(-2px);
+	}
 
-    .btn--placeholder,
-    .btn--placeholder:hover {
-        opacity: 0.7;
-        cursor: not-allowed;
-        filter: saturate(0.85);
-        transform: none;
-        text-decoration: none;
-        outline: 2px dashed rgba(255, 255, 255, 0.45);
-        outline-offset: 2px;
-    }
+	.btn--placeholder,
+	.btn--placeholder:hover {
+		opacity: 0.7;
+		cursor: not-allowed;
+		filter: saturate(0.85);
+		transform: none;
+		text-decoration: none;
+		outline: 2px dashed rgba(255, 255, 255, 0.45);
+		outline-offset: 2px;
+	}
 }
 
 /* Prevent buttons from being clickable/navigable inside the Editor */
 .editor-styles-wrapper .fu-page-banner .btn {
-    pointer-events: none !important;
-    cursor: default;
+	pointer-events: none !important;
+	cursor: default;
 }
 
 /* 4. UTILITY & ACCESSIBILITY
    ------------------------------------------------------------------------- */
 .fu-banner-mute-toggle {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
+	position: absolute;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	z-index: 10;
+	background: rgba(255, 255, 255, 0.2);
+	border: 1px solid white;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.3s ease;
 }
 
 .fu-banner-mute-toggle:hover {
-    background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.4);
 }
 
 .video-icon {
-    box-sizing: content-box;
-    display: block;
-    width: 6px;
-    height: 14px;
-    border-left: 4px solid white;
-    border-right: 4px solid white;
+	box-sizing: content-box;
+	display: block;
+	width: 6px;
+	height: 14px;
+	border-left: 4px solid white;
+	border-right: 4px solid white;
 }
 
 .fu-page-banner .fu-banner-mute-toggle.is-paused .video-icon {
-    display: block !important;
-    border-top: 7px solid transparent !important;
-    border-bottom: 7px solid transparent !important;
-    border-left: 12px solid #ffffff !important;
-    border-right: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    margin-left: 4px !important;
+	display: block !important;
+	border-top: 7px solid transparent !important;
+	border-bottom: 7px solid transparent !important;
+	border-left: 12px solid #ffffff !important;
+	border-right: none !important;
+	width: 0 !important;
+	height: 0 !important;
+	margin-left: 4px !important;
 }
 
 .visibly-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
 
 body.user-high-contrast {
-    .fu-page-banner {
-        --banner-contrast: 150% !important;
-        --banner-grayscale: 100% !important;
-    }
+	.fu-page-banner {
+		--banner-contrast: 150% !important;
+		--banner-grayscale: 100% !important;
+	}
 }
 
 .editor-styles-wrapper .fu-page-banner::before {
-    content: "Page Banner Block";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
-    z-index: 10;
+	content: "Page Banner Block";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 0.625rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.4);
+	z-index: 10;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .fu-page-banner__video {
-        display: none;
-    }
-    .fu-page-banner__bg-image {
-        display: block;
-    }
+	.fu-page-banner__video {
+		display: none;
+	}
+	.fu-page-banner__bg-image {
+		display: block;
+	}
+}
+
+/* Editor-specific styles */
+
+html :where(.wp-block) {
+	&:has(.headline),
+	&:has(.btn) {
+		margin: 0 !important;
+	}
+}
+
+/* Fix for the alignment 'Springs' in the editor */
+@media (min-width: 48rem) {
+	.editor-styles-wrapper
+		.fu-page-banner--align-left
+		.acf-innerblocks-container {
+		align-items: flex-start;
+		text-align: left;
+	}
+	.editor-styles-wrapper
+		.fu-page-banner--align-right
+		.acf-innerblocks-container {
+		align-items: flex-end;
+		text-align: right;
+	}
+}
+
+.block-editor-block-list__layout {
+	margin-inline: -8px;
+}
+
+/* Ensure the editor container allows the banner to be full-height */
+.editor-styles-wrapper .wp-block-acf-fu-page-banner {
+	margin: 0 !important;
+	max-width: none !important;
 }

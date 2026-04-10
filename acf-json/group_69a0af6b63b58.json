@@ -108,7 +108,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<button type=\"button\" class=\"fu-banner-reset btn btn--medium btn--fu-orange\">\r\n    Reset Banner Controls\r\n</button>",
+            "message": "<button type=\"button\" class=\"fu-banner-reset btn btn--medium btn--fu-orange\">\r\n    Reset Banner Controls\r\n<\/button>",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -211,9 +211,9 @@
                 "id": ""
             },
             "choices": {
-                "left": "<i class=\"dashicons dashicons-editor-alignleft\"> </i>",
-                "center": "<i class=\"dashicons dashicons-editor-aligncenter\"> </i>",
-                "right": "<i class=\"dashicons dashicons-editor-alignright\"> </i>"
+                "left": "<i class=\"dashicons dashicons-editor-alignleft\"> <\/i>",
+                "center": "<i class=\"dashicons dashicons-editor-aligncenter\"> <\/i>",
+                "right": "<i class=\"dashicons dashicons-editor-alignright\"> <\/i>"
             },
             "default_value": "",
             "return_format": "value",
@@ -245,7 +245,7 @@
             "name": "bg_focal_point",
             "aria-label": "",
             "type": "select",
-            "instructions": "Use this control to position your image/video. Depending on the size of its container and its aspect ratio, it may or may not have any effect.",
+            "instructions": "Use this control to position your image\/video. Depending on the size of its container and its aspect ratio, it may or may not have any effect.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -453,7 +453,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/fu-page-banner"
+                "value": "acf\/fu-page-banner"
             }
         ]
     ],
@@ -469,5 +469,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775674325
+    "modified": 1775765326
 }
