@@ -1,12 +1,14 @@
 {
-    "name": "acf/fu-button",
-    "title": "FU Button",
-    "parent": ["acf/fu-page-banner"],
-    "apiVersion": 3,
-    "category": "layout",
-    "icon": "button",
-    "acf": {
-        "mode": "preview",
-        "renderTemplate": "fu-button.php"
-    }
+	"name": "acf/fu-button",
+	"title": "FU Button",
+	"parent": ["acf/fu-page-banner"],
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "button",
+	"style": "file:./fu-button.css",
+	"editorStyle": "file:./fu-button.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "fu-button.php"
+	}
 }

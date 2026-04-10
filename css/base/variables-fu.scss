@@ -1,0 +1,67 @@
+/**
+ * Global Design Tokens
+ * -------------------------------------------------------------------------
+ */
+
+:root {
+	/* Brand Colors (The Source) */
+	--color-brand-primary: #0d3b66; /* University Blue */
+	--color-brand-secondary: #f95738; /* University Orange */
+	--color-brand-accent: #f4d35e; /* University Yellow */
+	--color-brand-dark-accent: #ee964b; /* University Yellow */
+	--color-brand-light: #faf0ca; /* Beige / Cream */
+	--success: #198754;
+	--warning: #ac2020;
+
+	/* Semantic Mapping (What we use in our blocks) */
+	--fu-blue: var(--color-brand-primary);
+	--fu-orange: var(--color-brand-secondary);
+	--fu-yellow: var(--color-brand-accent);
+	--fu-yellow-dark: var(--color-brand-dark-accent);
+	--fu-beige: var(--color-brand-light);
+	--fu-white: #ffffff;
+	--fu-black: #222222;
+
+	/* Spacing System */
+	--fu-space-xs: 0.5rem;
+	--fu-space-sm: 1rem;
+	--fu-space-md: 1.5rem;
+	--fu-space-lg: 3rem;
+	--fu-space-xl: clamp(5rem, 4vw, 8rem); /* Fluid spacing for sections */
+
+	/* Border Radii */
+	--fu-radius-sm: 4px;
+	--fu-radius-md: 8px;
+	--fu-radius-lg: 12px;
+
+	/* Transitions */
+	--fu-transition-fast: all 0.2s ease-in-out;
+	--fu-transition-base: all 0.3s ease;
+}
+
+/* Box sizing reset */
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+/* Fixed Button Styling */
+.a11y-toggle-btn {
+	position: fixed;
+	bottom: 2rem;
+	left: 2rem;
+	z-index: 9999;
+	background: #333;
+	color: #fff;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
