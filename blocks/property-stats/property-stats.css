@@ -1,0 +1,48 @@
+.fu-property-stats {
+	background: #fff;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 1.5rem 0;
+	margin: 2rem 0;
+}
+
+.fu-property-stats__inner {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	text-align: center;
+}
+
+.fu-prop-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.fu-prop-value {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #333;
+	line-height: 1;
+}
+
+.fu-prop-label {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #888;
+}
+
+.fu-prop-item--price .fu-prop-value {
+	color: #007cba; /* A professional blue accent */
+	font-size: 1.75rem;
+}
+
+@media (max-width: 48rem) {
+	.fu-property-stats__inner {
+		justify-content: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}

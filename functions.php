@@ -90,6 +90,32 @@ function tf_portfolio_items_register_post_type()
     ));
 }
 
+// Property Post Type
+function fu_register_property_cpt()
+{
+    $labels = array(
+        'name'               => 'Properties',
+        'singular_name'      => 'Property',
+        'menu_name'          => 'Properties',
+        'add_new'            => 'Add New Property',
+        'edit_item'          => 'Edit Property',
+        'all_items'          => 'All Properties',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'menu_icon'          => 'dashicons-admin-home', // The home icon
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => true, // Required for Gutenberg
+        'rewrite'            => array('slug' => 'properties'),
+    );
+
+    register_post_type('fu_property', $args);
+}
+add_action('init', 'fu_register_property_cpt');
+
 /**
  * Disable the emoji's
  */
