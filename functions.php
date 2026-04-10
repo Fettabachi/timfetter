@@ -30,6 +30,23 @@ function base_scripts()
     wp_enqueue_style('our-main-styles', get_theme_file_uri('/build/style-index.css'));
 
     wp_enqueue_script('our-main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
+
+    if (fu_should_load_demo_panel()) {
+        wp_enqueue_style(
+            'fu-demo-panel',
+            get_theme_file_uri('/css/demo-panel.css'),
+            array(),
+            filemtime(get_theme_file_path('/css/demo-panel.css'))
+        );
+
+        wp_enqueue_script(
+            'fu-demo-panel',
+            get_theme_file_uri('/src/demo-panel.js'),
+            array(),
+            filemtime(get_theme_file_path('/src/demo-panel.js')),
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'base_scripts');
 
@@ -131,15 +148,22 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 // add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
 
 /**
- * Inject the Banner Demo Panel into the footer
+ * The demo panel is a front-end showcase for the page-banner block.
+ *
+ * It is intentionally loaded only on pages where the banner is relevant so the
+ * portfolio/demo UI stays isolated from the rest of the theme.
  */
+function fu_should_load_demo_panel()
+{
+    if (is_admin()) return false;
+
+    return has_block('acf/fu-page-banner') || is_singular();
+}
+
 function fu_inject_demo_panel()
 {
-    if (is_admin()) return;
-
-    // Optional: Only load if we are on a page/post that has the banner
-    // This keeps your PageSpeed scores perfect on non-banner pages
-    if (has_block('acf/fu-page-banner') || is_singular()) {
+    if (fu_should_load_demo_panel()) {
+        // Markup only. Supporting CSS/JS are enqueued separately in base_scripts().
         get_template_part('parts/demo-panel');
     }
 }
