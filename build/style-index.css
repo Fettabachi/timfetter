@@ -154,6 +154,11 @@ button {
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 60px;
@@ -177,14 +182,25 @@ body {
 }
 
 .site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   overflow: hidden;
 }
 
-#content {
+.site-content {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+#primary {
   font-size: 75%;
 }
 @media (min-width: 992px) {
-  #content {
+  #primary {
     font-size: 100%;
   }
 }
@@ -350,9 +366,9 @@ address {
 }
 
 .site-header {
-  width: 100%;
+  /* width: 100%;
   position: fixed;
-  top: 0;
+  top: 0; */
   padding: 0.75em 0;
   background-color: #0f1726;
   z-index: 3;

@@ -1,0 +1,33 @@
+{
+	"name": "acf/property-stats",
+	"title": "Property Stats Bar",
+	"description": "A data-driven bar displaying Price, Beds, Baths, and SqFt.",
+	"apiVersion": 3,
+	"category": "theme",
+	"icon": "admin-home",
+	"keywords": ["real estate", "property", "stats"],
+	"style": "file:./property-stats.css",
+	"editorStyle": "file:./property-stats.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "property-stats.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"price": { "type": "string", "default": "0" },
+		"beds": { "type": "string", "default": "0" },
+		"baths": { "type": "string", "default": "0" },
+		"sqft": { "type": "string", "default": "0" }
+	}
+}

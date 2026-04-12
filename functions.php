@@ -50,6 +50,16 @@ function base_scripts()
 }
 add_action('wp_enqueue_scripts', 'base_scripts');
 
+function fu_normalize_title_spacing($title)
+{
+    if (is_admin() || '' === $title) {
+        return $title;
+    }
+
+    return preg_replace('/(?:\x{00A0}|&nbsp;|&#160;|&#xA0;)+/iu', ' ', $title);
+}
+add_filter('the_title', 'fu_normalize_title_spacing');
+
 
 // Add Page Slug Body Class
 function add_slug_body_class($classes)
@@ -89,6 +99,38 @@ function tf_portfolio_items_register_post_type()
         )
     ));
 }
+
+// Property Post Type
+function fu_register_property_cpt()
+{
+    $labels = array(
+        'name'               => 'Properties',
+        'singular_name'      => 'Property',
+        'menu_name'          => 'Properties',
+        'name_admin_bar'     => 'Property', // Top bar "New" menu
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Property', // <--- This fixes the sidebar hover!
+        'new_item'           => 'New Property',
+        'edit_item'          => 'Edit Property',
+        'view_item'          => 'View Property',
+        'all_items'          => 'All Properties',
+        'search_items'       => 'Search Properties',
+        'not_found'          => 'No properties found.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'menu_icon'          => 'dashicons-admin-home', // The home icon
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => true, // Required for Gutenberg
+        'rewrite'            => array('slug' => 'properties'),
+    );
+
+    register_post_type('fu_property', $args);
+}
+add_action('init', 'fu_register_property_cpt');
 
 /**
  * Disable the emoji's
@@ -168,3 +210,76 @@ function fu_inject_demo_panel()
     }
 }
 add_action('wp_footer', 'fu_inject_demo_panel', 999);
+
+if (!function_exists('tim_fetter_portfolio_posted_on')) :
+    function tim_fetter_portfolio_posted_on()
+    {
+        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+        if (get_the_time('U') !== get_the_modified_time('U')) {
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+        }
+
+        $time_string = sprintf(
+            $time_string,
+            esc_attr(get_the_date(DATE_W3C)),
+            esc_html(get_the_date()),
+            esc_attr(get_the_modified_date(DATE_W3C)),
+            esc_html(get_the_modified_date())
+        );
+
+        $posted_on = sprintf(
+            esc_html_x('Posted on %s', 'post date', 'tim-fetter-portfolio'),
+            '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+        );
+
+        echo '<span class="posted-on">' . wp_kses_post($posted_on) . '</span>';
+    }
+endif;
+
+if (!function_exists('tim_fetter_portfolio_posted_by')) :
+    function tim_fetter_portfolio_posted_by()
+    {
+        $byline = sprintf(
+            esc_html_x('by %s', 'post author', 'tim-fetter-portfolio'),
+            '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+        );
+
+        echo '<span class="byline"> ' . wp_kses_post($byline) . '</span>';
+    }
+endif;
+
+if (!function_exists('tim_fetter_portfolio_post_thumbnail')) :
+    function tim_fetter_portfolio_post_thumbnail()
+    {
+        if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
+            return;
+        }
+
+        if (is_singular()) {
+?>
+            <div class="post-thumbnail">
+                <?php the_post_thumbnail(); ?>
+            </div>
+        <?php
+            return;
+        }
+
+        ?>
+        <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+            <?php
+            the_post_thumbnail(
+                'post-thumbnail',
+                array(
+                    'alt' => the_title_attribute(
+                        array(
+                            'echo' => false,
+                        )
+                    ),
+                )
+            );
+            ?>
+        </a>
+<?php
+    }
+endif;
