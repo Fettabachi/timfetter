@@ -7,7 +7,7 @@
             "label": "Price",
             "name": "price",
             "aria-label": "",
-            "type": "text",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,16 +17,18 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
+            "min": "",
+            "max": "",
             "allow_in_bindings": 0,
             "placeholder": "",
+            "step": "",
             "prepend": "",
             "append": ""
         },
         {
             "key": "field_69d93781d0d8a",
             "label": "Bedrooms",
-            "name": "beds",
+            "name": "bedrooms",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -49,7 +51,7 @@
         {
             "key": "field_69d9378ed0d8b",
             "label": "Bathrooms",
-            "name": "baths",
+            "name": "bathrooms",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -72,7 +74,7 @@
         {
             "key": "field_69d9379ad0d8c",
             "label": "Square Feet",
-            "name": "sqft",
+            "name": "square_feet",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -126,14 +128,14 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "fu_property"
+                "value": "acf\/property-stats"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -144,5 +146,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775844475
+    "modified": 1775933287
 }

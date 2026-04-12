@@ -55,4 +55,4 @@
         </header><!-- #masthead -->
 
         <div id="content" class="site-content">
-            <div class="wrap">
+            <!-- <div class="wrap"> -->
