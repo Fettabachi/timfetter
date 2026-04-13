@@ -31,6 +31,9 @@ function base_scripts()
 
     wp_enqueue_script('our-main-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
 
+    // Register Alpine.js for the Lab Grid "Bridge"
+    wp_register_script('alpine-js', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
+
     if (fu_should_load_demo_panel()) {
         wp_enqueue_style(
             'fu-demo-panel',
@@ -131,6 +134,83 @@ function fu_register_property_cpt()
     register_post_type('fu_property', $args);
 }
 add_action('init', 'fu_register_property_cpt');
+
+
+/**
+ * Register Component Lab CPT & Taxonomy
+ */
+function fu_register_lab_cpt()
+{
+    $labels = array(
+        'name'               => 'Component Lab',
+        'singular_name'      => 'Component',
+        'menu_name'          => 'Component Lab',
+        'add_new_item'       => 'Add New Component',
+        'all_items'          => 'All Components',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'menu_icon'          => 'dashicons-rest-api',
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => true,
+        'rewrite'            => array('slug' => 'lab'),
+    );
+
+    register_post_type('fu_lab', $args);
+
+    // Taxonomy for filtering (UI, Layout, Utility, etc.)
+    register_taxonomy('lab_category', 'fu_lab', array(
+        'label'        => 'Categories',
+        'rewrite'      => array('slug' => 'lab-category'),
+        'hierarchical' => true,
+        'show_in_rest' => true,
+    ));
+}
+add_action('init', 'fu_register_lab_cpt');
+
+/**
+ * One-time Seeder: Create 12 Lab Components
+ */
+function fu_seed_lab_components()
+{
+    // Only run if we haven't seeded yet
+    if (get_option('fu_lab_seeded')) return;
+
+    $components = [
+        ['title' => 'Animated Hero Banner', 'cat' => 'Layout'],
+        ['title' => 'Sticky Property Stats Bar', 'cat' => 'UI'],
+        ['title' => 'ACF Color Swatch Logic', 'cat' => 'Utility'],
+        ['title' => 'SVG Icon System', 'cat' => 'Utility'],
+        ['title' => 'Recipe Card (Schema.org)', 'cat' => 'Data'],
+        ['title' => 'Custom Mobile Navigation', 'cat' => 'Navigation'],
+        ['title' => 'Dynamic Filter Gallery', 'cat' => 'UI'],
+        ['title' => 'Video Background Logic', 'cat' => 'Layout'],
+        ['title' => 'ACF Repeater Accordion', 'cat' => 'UI'],
+        ['title' => 'Portfolio Grid (Isotope)', 'cat' => 'Layout'],
+        ['title' => 'Dark Mode Toggle', 'cat' => 'Utility'],
+        ['title' => 'Contact Form 7 Stylizer', 'cat' => 'Utility'],
+    ];
+
+    foreach ($components as $comp) {
+        $post_id = wp_insert_post(array(
+            'post_title'   => $comp['title'],
+            'post_status'  => 'publish',
+            'post_type'    => 'fu_lab',
+            'post_content' => 'Placeholder for ' . $comp['title'] . ' technical breakdown.',
+        ));
+
+        if ($post_id) {
+            wp_set_object_terms($post_id, $comp['cat'], 'lab_category');
+        }
+    }
+
+    update_option('fu_lab_seeded', true);
+}
+// add_action('admin_init', 'fu_seed_lab_components');
+
 
 /**
  * Disable the emoji's
