@@ -1,0 +1,298 @@
+[CONTAINER-01] Yes — and this is a good next step
+
+Automatic.css’s current grid system is a strong model to borrow because it leans into intrinsic layout instead of breakpoint micromanagement. The current docs emphasize standard grid classes, auto grids, variable grids, content grids, and an ACSS 4.x direction that is now officially breakpoint-free.
+
+Since you liked the Etch/ACSS workflow, I’d recommend you copy the ideas, not the framework wholesale, into your theme/block system.
+
+[CONTAINER-02] The pieces of ACSS worth borrowing
+
+The most useful parts for your setup are:
+
+Content grid for page-width management and controlled “breakout” zones like content, feature, feature-max, and full/full-safe.
+Auto grids for repeatable card layouts that stack automatically without hard-coded breakpoints. ACSS supports utility classes like .grid--auto-2 through .grid--auto-12, plus ratio variants like .grid--auto-1-2 and .grid--auto-2-1.
+Variable grid thinking, where layouts respond to minimum item widths instead of device breakpoints.
+Alternating grid patterns for image/text rows. ACSS has a utility approach for this too, but in your case I’d implement the concept with your own modifiers.
+
+For your theme, I’d build:
+
+a container/content system
+a small grid utility layer
+block-level layout modifiers that sit on top of that
+
+[CONTAINER-03] The right way to translate ACSS into your theme
+
+Because you are not trying to recreate ACSS, your goal should be:
+
+build a small, stable layout foundation that your ACF blocks can rely on.
+
+That means:
+
+global design tokens
+a reusable container/content grid system
+a few grid utilities
+block-local CSS still owning the final presentation
+
+So the container system should live globally, while block-specific layout remains inside each block.
+
+[CONTAINER-04] The setup I recommend
+
+Create a global layout file, something like:
+
+/css/base/layout.css
+
+or, if you’re still compiling global SCSS for shared foundations:
+
+/css/base/layout.scss
+
+This file should define:
+
+max-width tokens
+gutter tokens
+a standard container
+a content grid
+a few auto-grid utilities
+
+[CONTAINER-05] Start with the tokens
+
+You want a small set of layout tokens first:
+
+:root {
+  --container-s: 48rem;
+  --container-m: 64rem;
+  --container-l: 78rem;
+  --container-xl: 90rem;
+
+  --content-max: 48rem;
+  --feature-width: 6rem;
+  --feature-max-width: 10rem;
+
+  --gutter: clamp(1rem, 2vw, 2rem);
+  --section-space: clamp(3rem, 5vw, 6rem);
+}
+
+This gives you:
+
+page shells
+readable content width
+breakout zones
+consistent gutters
+
+The ACSS docs treat the content grid as zones that content can span into, including feature, feature-max, full, and full-safe.
+
+[CONTAINER-06] Build a standard container first
+
+This is the simplest building block:
+
+.container {
+  width: min(100% - (var(--gutter) * 2), var(--container-l));
+  margin-inline: auto;
+}
+
+Optional size variants:
+
+.container--s { max-width: var(--container-s); }
+.container--m { max-width: var(--container-m); }
+.container--l { max-width: var(--container-l); }
+.container--xl { max-width: var(--container-xl); }
+
+Use this for:
+
+sections
+headers
+CTA bands
+any block that just needs a centered shell
+
+[CONTAINER-07] Then build a content grid
+
+This is the part closest to ACSS’s content grid idea.
+
+A practical version for you:
+
+.content-grid {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--gutter), 1fr)
+    [feature-max-start] minmax(0, var(--feature-max-width))
+    [feature-start] minmax(0, var(--feature-width))
+    [content-start] min(100% - (var(--gutter) * 2), var(--content-max)) [content-end]
+    minmax(0, var(--feature-width)) [feature-end]
+    minmax(0, var(--feature-max-width)) [feature-max-end]
+    minmax(var(--gutter), 1fr) [full-end];
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.content--feature {
+  grid-column: feature;
+}
+
+.content--feature-max {
+  grid-column: feature-max;
+}
+
+.content--full {
+  grid-column: full;
+}
+
+.content--full-safe {
+  grid-column: full;
+  padding-inline: var(--gutter);
+}
+
+That mirrors the ACSS concept pretty closely: default children stay in the content zone, while selected children can break out to feature, feature-max, full, or full-safe.
+
+This is especially useful for:
+
+long-form content
+testimonials
+image callouts
+wide quotes
+full-bleed media inside otherwise constrained content
+
+[CONTAINER-08] Add auto-grid utilities next
+
+ACSS’s auto grids are one of the most attractive parts because they create responsive grids with a single class and stack based on available space. The docs show utility support for .grid--auto-2 through .grid--auto-12 and ratio variants as well.
+
+You do not need all of that. Start with a smaller set:
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap, 1.5rem);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--auto-2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.grid--auto-3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
+.grid--auto-cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+Use these for:
+
+card grids
+feature cards
+logo walls
+post previews
+resources
+
+This gives you the spirit of ACSS auto grids without needing to recreate the whole engine.
+
+[CONTAINER-09] Use ratio grids for split layouts
+
+ACSS also supports ratio-style auto grids like 1-2, 2-1, 2-3, 3-2, and so on.
+
+For your system, I’d create a few deterministic split utilities:
+
+.grid--split-balanced {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.grid--split-content {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+.grid--split-media {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+Then your blocks can combine these with modifier classes.
+
+This is basically what you’re already doing in the Feature Section block, but turning it into a reusable layout layer.
+
+[CONTAINER-10] How to use this in your blocks
+
+My recommendation:
+
+use .container when a block just needs a centered shell
+use .content-grid when a block has breakout behavior
+use .grid + a small set of split/auto classes for internal layouts
+
+Examples:
+
+Standard centered block
+<section class="my-block">
+  <div class="container">
+    ...
+  </div>
+</section>
+Long-form content with breakout quote/image
+<div class="content-grid">
+  <p>Normal content</p>
+  <blockquote class="content--feature">Wider quote</blockquote>
+  <figure class="content--feature-max">Big image</figure>
+  <div class="content--full-safe">Full-width band with safe padding</div>
+</div>
+Auto card grid
+<div class="grid grid--auto-cards">
+  <article>...</article>
+  <article>...</article>
+  <article>...</article>
+</div>
+
+[CONTAINER-11] How this fits your WordPress + ACF workflow
+
+This container system should be global infrastructure, not per-block duplication.
+
+So:
+
+define it once in your shared global CSS
+load it in frontend and editor
+let blocks opt into it with markup/classes
+
+That gives you:
+
+consistency
+portability
+less repeated CSS
+easier demos in your portfolio
+
+For your ACF blocks, I would generally avoid giving editors direct control over these low-level container classes. Instead, blocks should choose the right shell internally.
+
+Example:
+
+Feature Section always uses its own layout shell
+Rich Text / Case Study block might use .content-grid
+Card List block might use .grid--auto-cards
+
+[CONTAINER-12] What I would not copy from ACSS
+
+I would not try to recreate:
+
+the full utility catalog
+every grid variant
+full recipe/mixin behavior
+framework-wide class vocabulary
+
+ACSS also supports applying auto grids by CSS variables and recipes, but that is more framework-specific than you need.
+
+Keep your system smaller:
+
+easier to maintain
+easier to explain
+more believable in a custom theme
+
+[CONTAINER-13] Recommended implementation order
+
+Add layout tokens
+Add .container
+Add .content-grid + breakout utilities
+Add a small set of .grid--auto-* utilities
+Add a small set of split-layout utilities
+Refactor one or two blocks to use them intentionally
+
+Do not try to refactor the whole theme at once.

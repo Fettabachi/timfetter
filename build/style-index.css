@@ -126,34 +126,29 @@ button {
   -webkit-appearance: button;
 }
 
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  max-width: 100%;
-}
-@media (min-width: 576px) {
-  .container {
-    width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1140px;
-  }
-}
+/* .container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: 100%;
 
+	@include atMedium {
+		width: 540px;
+	}
+
+	@include atTablet {
+		width: 720px;
+	}
+
+	@include atSmDesktop {
+		width: 960px;
+	}
+
+	@include atDesktop {
+		width: 1140px;
+	}
+} */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -183,6 +178,172 @@ button {
   }
 }
 
+/*
+	Global layout foundation
+
+	Provides:
+	- .container with size modifiers for centered page-width wrappers
+	- .content-grid with default content flow and optional breakout zones
+	- .grid with shared gap utilities
+	- intrinsic auto-grid utilities for repeated items
+	- split-layout utilities for simple two-column compositions
+
+	Quick examples:
+
+	<div class="container container--l">...</div>
+
+	<section class="content-grid">
+		<div>Default content column</div>
+		<figure class="content--feature">...</figure>
+		<div class="content--full-safe">...</div>
+	</section>
+
+	<div class="grid grid--gap-md grid--auto-cards">...</div>
+
+	<div class="grid grid--gap-lg grid--split-content">...</div>
+*/
+:root {
+  /* Container widths */
+  --fu-container-s: 48rem;
+  --fu-container-m: 64rem;
+  --fu-container-l: 78rem;
+  --fu-container-xl: 90rem;
+  /* Content and breakout widths */
+  --fu-content-max: 48rem;
+  --fu-feature-width: 6rem;
+  --fu-feature-max-width: 10rem;
+  /* Shared gutters and grid gaps */
+  --fu-gutter: clamp(1rem, 2vw, 2rem);
+  --fu-grid-gap-sm: 1rem;
+  --fu-grid-gap-md: 1.5rem;
+  --fu-grid-gap-lg: 2rem;
+  /* Intrinsic grid minimums */
+  --fu-grid-auto-card-min: 16rem;
+  --fu-grid-auto-2-min: 20rem;
+  --fu-grid-auto-3-min: 14rem;
+}
+
+.container {
+  --fu-container-max: var(--fu-container-l);
+  margin-inline: auto;
+  width: min(100% - var(--fu-gutter) * 2, var(--fu-container-max));
+}
+
+.container--s {
+  --fu-container-max: var(--fu-container-s);
+}
+
+.container--m {
+  --fu-container-max: var(--fu-container-m);
+}
+
+.container--l {
+  --fu-container-max: var(--fu-container-l);
+}
+
+.container--xl {
+  --fu-container-max: var(--fu-container-xl);
+}
+
+/* Content Grid */
+:where(.content-grid) {
+  --full: minmax(var(--fu-gutter), 1fr);
+  display: grid;
+  padding-inline: 0;
+  -moz-column-gap: 0;
+       column-gap: 0;
+  row-gap: var(--fu-grid-gap-md);
+  grid-template-columns: [full-start] var(--full) [feature-max-start] minmax(0, var(--fu-feature-max-width)) [feature-start] minmax(0, var(--fu-feature-width)) [content-start] min(var(--fu-content-max), 100% - var(--fu-gutter) * 2) [content-end] minmax(0, var(--fu-feature-width)) [feature-end] minmax(0, var(--fu-feature-max-width)) [feature-max-end] var(--full) [full-end];
+}
+
+/* Default children go in the content zone */
+:where(.content-grid) > :where(:not(.content--feature, .content--feature-max, .content--full, .content--full-safe)) {
+  grid-column: content;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Breakout utilities */
+.content--feature {
+  grid-column: feature;
+}
+
+.content--feature-max {
+  grid-column: feature-max;
+}
+
+.content--full {
+  grid-column: full;
+}
+
+.content--full-safe {
+  grid-column: full;
+  padding-inline: var(--fu-gutter);
+}
+
+/* Make breakout items actually fill their tracks */
+:where(.content--feature, .content--feature-max, .content--full, .content--full-safe) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Images fill breakout tracks */
+:where(.content--feature, .content--feature-max, .content--full, .content--full-safe) :where(img) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.grid {
+  --fu-grid-gap: var(--fu-grid-gap-md);
+  display: grid;
+  gap: var(--fu-grid-gap);
+}
+
+.grid--gap-sm {
+  --fu-grid-gap: var(--fu-grid-gap-sm);
+}
+
+.grid--gap-md {
+  --fu-grid-gap: var(--fu-grid-gap-md);
+}
+
+.grid--gap-lg {
+  --fu-grid-gap: var(--fu-grid-gap-lg);
+}
+
+.grid--auto-cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--fu-grid-auto-card-min)), 1fr));
+}
+
+.grid--auto-wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--fu-grid-auto-2-min)), 1fr));
+}
+
+.grid--auto-tight {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--fu-grid-auto-3-min)), 1fr));
+}
+
+.grid--split-balanced,
+.grid--split-content,
+.grid--split-media {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 48rem) {
+  .grid--split-balanced {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .grid--split-content {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+  .grid--split-media {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
 /* Box sizing reset */
 html {
   box-sizing: border-box;

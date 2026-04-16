@@ -1,0 +1,311 @@
+.layout-examples {
+	--layout-demo-bg: #f6f1e8;
+	--layout-demo-ink: #14324a;
+	--layout-demo-muted: rgba(20, 50, 74, 0.72);
+	--layout-demo-line: rgba(20, 50, 74, 0.12);
+	--layout-demo-panel: #fff;
+	--layout-demo-accent: #d98952;
+	--layout-demo-shadow: 0 18px 40px rgba(20, 50, 74, 0.08);
+	color: var(--layout-demo-ink);
+}
+
+.layout-examples__swatch {
+	padding: 1rem;
+}
+
+.layout-examples .entry-header {
+	padding-block: clamp(2.5rem, 2rem + 2vw, 4rem) 1.25rem;
+}
+
+.layout-examples .entry-title {
+	font-size: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+	line-height: 0.96;
+	letter-spacing: -0.03em;
+}
+
+.layout-examples__eyebrow {
+	color: var(--layout-demo-accent);
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	margin: 0 0 0.75rem;
+	text-transform: uppercase;
+}
+
+.layout-examples__intro {
+	color: var(--layout-demo-muted);
+	font-size: clamp(1rem, 0.94rem + 0.3vw, 1.15rem);
+	max-width: 62ch;
+	margin-top: 1rem;
+}
+
+.layout-examples__lede {
+	padding-bottom: 2rem;
+}
+
+.layout-examples__nav {
+	margin-top: 1.5rem;
+}
+
+.layout-examples__nav-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.layout-examples__nav-link {
+	background: rgba(20, 50, 74, 0.06);
+	border: 1px solid rgba(20, 50, 74, 0.1);
+	border-radius: 999px;
+	color: var(--layout-demo-ink);
+	display: inline-flex;
+	font-size: 0.92rem;
+	font-weight: 600;
+	padding: 0.65rem 0.95rem;
+	text-decoration: none;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.layout-examples__nav-link:hover,
+.layout-examples__nav-link:focus-visible {
+	background: rgba(217, 137, 82, 0.16);
+	transform: translateY(-1px);
+}
+
+.layout-examples__section {
+	padding-block: clamp(2rem, 1.6rem + 1.8vw, 3.5rem);
+	scroll-margin-top: 5rem;
+}
+
+.layout-examples__section-head {
+	margin-bottom: 1.5rem;
+	max-width: 60rem;
+}
+
+.layout-examples__section-head h2 {
+	font-size: clamp(1.85rem, 1.35rem + 1.5vw, 2.75rem);
+	margin-bottom: 0.5rem;
+}
+
+.layout-examples h2 {
+	margin-top: 0.5rem;
+	line-height: 1.25 !important;
+}
+
+.layout-examples__section-head p {
+	color: var(--layout-demo-muted);
+	margin: 0;
+}
+
+.layout-examples__panel,
+.layout-examples__tile,
+.layout-examples__swatch,
+.layout-examples__callout,
+.layout-examples__split-card,
+.layout-examples__intro-card,
+.layout-examples__block-surface {
+	background: var(--layout-demo-panel);
+	border: 1px solid var(--layout-demo-line);
+	border-radius: 1.25rem;
+	box-shadow: var(--layout-demo-shadow);
+}
+
+.layout-examples__intro-card,
+.layout-examples__panel,
+.layout-examples__tile,
+.layout-examples__callout,
+.layout-examples__split-card,
+.layout-examples__block-surface {
+	padding: clamp(1.1rem, 0.9rem + 0.8vw, 1.6rem);
+}
+
+.layout-examples__chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	background: rgba(217, 137, 82, 0.12);
+	border-radius: 999px;
+	color: var(--layout-demo-ink);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	padding: 0.4rem 0.75rem;
+	text-transform: uppercase;
+}
+
+.layout-examples__intro-card p:last-child,
+.layout-examples__panel p:last-child,
+.layout-examples__tile p:last-child,
+.layout-examples__callout p:last-child,
+.layout-examples__split-card p:last-child,
+.layout-examples__block-surface p:last-child {
+	margin-bottom: 0;
+}
+
+.layout-examples code {
+	background: rgba(20, 50, 74, 0.07);
+	border-radius: 0.45rem;
+	font-size: 0.92em;
+	padding: 0.18rem 0.38rem;
+}
+
+.layout-examples__container-stage {
+	background: linear-gradient(
+			180deg,
+			rgba(217, 137, 82, 0.08),
+			rgba(217, 137, 82, 0.02)
+		),
+		var(--layout-demo-bg);
+	border: 1px dashed rgba(20, 50, 74, 0.18);
+	border-radius: 1.25rem;
+	padding-block: 1rem;
+}
+
+.layout-examples__swatch {
+	position: relative;
+}
+
+.layout-examples__swatch::before {
+	content: attr(data-label);
+	display: inline-block;
+	margin-bottom: 0.8rem;
+	color: var(--layout-demo-accent);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.layout-examples__content-grid {
+	padding-block: 1rem;
+}
+
+.layout-examples__quote {
+	font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.8rem);
+	line-height: 1.35;
+	margin: 0;
+}
+
+.layout-examples__strip {
+	background: linear-gradient(135deg, #14324a, #36536c);
+	color: #fff;
+	border-radius: 1.1rem;
+	padding: clamp(1rem, 0.85rem + 0.8vw, 1.4rem);
+
+	h3 {
+		color: #fff;
+	}
+}
+
+.layout-examples__strip .grid > * {
+	background: rgba(255, 255, 255, 0.12);
+	border-radius: 0.9rem;
+	padding: 1rem;
+}
+
+.layout-examples__auto-group {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.layout-examples__auto-group h3,
+.layout-examples__split-group h3 {
+	margin-bottom: 0.75rem;
+	margin-top: 0;
+}
+
+.layout-examples__tile strong {
+	display: block;
+	font-family: "Raleway", sans-serif;
+	font-size: 1.05rem;
+	margin-bottom: 0.35rem;
+}
+
+.layout-examples__split-group {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.layout-examples__split-card {
+	min-height: 100%;
+}
+
+.layout-examples__visual {
+	background: linear-gradient(
+		135deg,
+		rgba(217, 137, 82, 0.18),
+		rgba(20, 50, 74, 0.12)
+	);
+	border-radius: 1rem;
+	min-height: 11rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.layout-examples__visual::before,
+.layout-examples__visual::after {
+	content: "";
+	position: absolute;
+	border-radius: 999px;
+}
+
+.layout-examples__visual::before {
+	background: rgba(255, 255, 255, 0.78);
+	height: 7rem;
+	width: 7rem;
+	right: -1rem;
+	top: -1rem;
+}
+
+.layout-examples__visual::after {
+	background: rgba(20, 50, 74, 0.16);
+	height: 10rem;
+	width: 10rem;
+	left: -2rem;
+	bottom: -3.25rem;
+}
+
+.layout-examples__block-stage {
+	background: linear-gradient(
+		180deg,
+		rgba(20, 50, 74, 0.03),
+		rgba(20, 50, 74, 0.01)
+	);
+	border-radius: 1.4rem;
+	padding: clamp(1rem, 0.85rem + 0.8vw, 1.5rem);
+}
+
+.layout-examples__block-surface .wp-block-heading {
+	margin-top: 0;
+}
+
+.layout-examples__block-surface .wp-block-buttons {
+	margin-top: 1.5rem;
+}
+
+.layout-examples__block-surface .wp-block-button__link {
+	border-radius: 999px;
+	padding: 0.8rem 1.15rem;
+	text-decoration: none;
+}
+
+.layout-examples__page-links {
+	padding-bottom: 3rem;
+}
+
+@media (max-width: 47.99rem) {
+	.layout-examples__section {
+		padding-block: 1.5rem;
+	}
+
+	.layout-examples__container-stage {
+		padding-block: 0.75rem;
+	}
+
+	.layout-examples__nav-list {
+		gap: 0.55rem;
+	}
+}
