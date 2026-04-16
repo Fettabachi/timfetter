@@ -51,6 +51,23 @@ $content_width = $sanitize_choice(
     'balanced'
 );
 
+$layout_width_raw = get_field('feature_layout_width');
+
+$layout_width = $sanitize_choice(
+    $layout_width_raw ?: 'default',
+    array('default', 'feature', 'feature-max', 'full'),
+    'default'
+);
+
+$layout_width_classes = array(
+    'default' => '',
+    'feature' => 'fu-feature-section--layout-feature',
+    'feature-max' => 'fu-feature-section--layout-feature-max',
+    'full' => 'fu-feature-section--layout-full',
+);
+
+$layout_width_class = $layout_width_classes[$layout_width];
+
 $media_position = $sanitize_choice(
     get_field('feature_media_position') ?: 'right',
     array('left', 'right'),
@@ -169,6 +186,7 @@ $classes = array(
     'fu-feature-section',
     'fu-feature-section--media-' . $media_position,
     'fu-feature-section--width-' . $content_width,
+    $layout_width_class,
     'fu-feature-section--align-' . $vertical_align,
     'fu-feature-section--actions-' . $actions_alignment,
     'fu-feature-section--bg-' . $background_token,
@@ -315,18 +333,21 @@ $render_media = static function () use ($should_render_media, $image_id, $image_
 };
 ?>
 
+<!-- fu-feature-section debug: feature_layout_width_raw=<?php echo esc_html(is_scalar($layout_width_raw) && $layout_width_raw !== '' ? (string) $layout_width_raw : '(empty)'); ?> mapped_class=<?php echo esc_html($layout_width_class !== '' ? $layout_width_class : '(none)'); ?> -->
 <section
     id="<?php echo esc_attr($block_anchor); ?>"
-    class="<?php echo esc_attr(implode(' ', $classes)); ?>">
-    <div class="fu-feature-section__inner">
-        <?php if ($media_position === 'left' && $should_render_media) : ?>
-            <?php $render_media(); ?>
-        <?php endif; ?>
+    class="<?php echo esc_attr(implode(' ', array_filter($classes))); ?>">
+    <div class="fu-feature-section__layout">
+        <div class="fu-feature-section__inner">
+            <?php if ($media_position === 'left' && $should_render_media) : ?>
+                <?php $render_media(); ?>
+            <?php endif; ?>
 
-        <?php $render_content(); ?>
+            <?php $render_content(); ?>
 
-        <?php if ($media_position === 'right' && $should_render_media) : ?>
-            <?php $render_media(); ?>
-        <?php endif; ?>
+            <?php if ($media_position === 'right' && $should_render_media) : ?>
+                <?php $render_media(); ?>
+            <?php endif; ?>
+        </div>
     </div>
 </section>

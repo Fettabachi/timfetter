@@ -16,6 +16,7 @@
 		"field_68008a5f1005",
 		"field_68008a5f1009",
 		"field_68008a5f1027",
+		"field_68008a5f1032",
 		"field_68008a5f1011",
 		"field_68008a5f1028",
 		"field_68008a5f1030",
@@ -45,6 +46,7 @@
 		feature_heading_size: "xl",
 		feature_image_fit: "cover",
 		feature_content_width: "balanced",
+		feature_layout_width: "default",
 		feature_media_position: "right",
 		feature_media_fill: false,
 		feature_image_radius: "default",
@@ -75,6 +77,11 @@
 			"fu-feature-section--width-balanced",
 			"fu-feature-section--width-content",
 			"fu-feature-section--width-media",
+		],
+		layout_width: [
+			"fu-feature-section--layout-feature",
+			"fu-feature-section--layout-feature-max",
+			"fu-feature-section--layout-full",
 		],
 		media_position: [
 			"fu-feature-section--media-left",
@@ -125,6 +132,12 @@
 		"fu-feature-section__cta--medium",
 		"fu-feature-section__cta--large",
 	];
+	const LAYOUT_WIDTH_CLASS_MAP = {
+		default: "",
+		feature: "fu-feature-section--layout-feature",
+		"feature-max": "fu-feature-section--layout-feature-max",
+		full: "fu-feature-section--layout-full",
+	};
 
 	const sanitizeChoice = (value, allowed, fallback) =>
 		allowed.includes(value) ? value : fallback;
@@ -281,6 +294,11 @@
 				["balanced", "content", "media"],
 				DEFAULTS.feature_content_width
 			),
+			layout_width: sanitizeChoice(
+				values.feature_layout_width,
+				["default", "feature", "feature-max", "full"],
+				DEFAULTS.feature_layout_width
+			),
 			media_position: sanitizeChoice(
 				values.feature_media_position,
 				["left", "right"],
@@ -361,6 +379,20 @@
 		preview.classList.add(nextClass);
 	};
 
+	const updateLayoutWidthClass = (preview, layoutWidth) => {
+		if (!preview) {
+			return;
+		}
+
+		preview.classList.remove(...MODIFIER_SETS.layout_width);
+
+		const nextClass = LAYOUT_WIDTH_CLASS_MAP[layoutWidth] || "";
+
+		if (nextClass) {
+			preview.classList.add(nextClass);
+		}
+	};
+
 	const updateCtaClasses = (preview, selector, styleValue, sizeValue) => {
 		const cta = preview.querySelector(selector);
 		if (!cta) {
@@ -394,6 +426,7 @@
 			MODIFIER_SETS.content_width,
 			`fu-feature-section--width-${state.content_width}`
 		);
+		updateLayoutWidthClass(preview, state.layout_width);
 		replaceModifierSet(
 			preview,
 			MODIFIER_SETS.media_position,

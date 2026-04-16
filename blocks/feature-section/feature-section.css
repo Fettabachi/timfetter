@@ -13,7 +13,9 @@
 	--feature-cta-ghost-bg: rgba(255, 255, 255, 0.08);
 	--feature-cta-ghost-text: currentColor;
 	--feature-cta-ghost-border: rgba(255, 255, 255, 0.18);
-	--feature-shell-max: 78rem;
+	--feature-layout-width: min(100% - 2rem, 78rem);
+	--feature-content-max: 42rem;
+	--feature-content-max-no-image: 60rem;
 	--feature-shell-gutter: clamp(1rem, 2.2vw, 2rem);
 	--feature-content-pad-block: clamp(3rem, 2.3rem + 3.5vw, 5.5rem);
 	--feature-content-pad-inline: clamp(1rem, 2vw, 2rem);
@@ -30,6 +32,30 @@
 	overflow: hidden;
 	padding-block: var(--feature-content-pad-block);
 	position: relative;
+}
+
+.fu-feature-section__layout {
+	margin-inline: auto;
+	width: var(--feature-layout-width);
+	max-width: none;
+}
+
+.fu-feature-section--layout-feature {
+	--feature-layout-width: min(100% - 2rem, 90rem);
+	--feature-content-max: 46rem;
+	--feature-content-max-no-image: 66rem;
+}
+
+.fu-feature-section--layout-feature-max {
+	--feature-layout-width: min(100% - 2rem, 108rem);
+	--feature-content-max: 50rem;
+	--feature-content-max-no-image: 72rem;
+}
+
+.fu-feature-section--layout-full {
+	--feature-layout-width: 100%;
+	--feature-content-max: 54rem;
+	--feature-content-max-no-image: 80rem;
 }
 
 .fu-feature-section--fill-inline-sm {
@@ -114,8 +140,7 @@
 	align-items: center;
 	display: grid;
 	gap: clamp(1.5rem, 1rem + 2vw, 3rem);
-	margin: 0 auto;
-	max-width: min(100% - 2rem, var(--feature-shell-max));
+	width: 100%;
 }
 
 .fu-feature-section--align-top .fu-feature-section__inner {
@@ -136,12 +161,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	max-width: 42rem;
+	max-width: var(--feature-content-max);
 	padding-inline: var(--feature-content-pad-inline);
 }
 
 .fu-feature-section--no-image .fu-feature-section__content {
-	max-width: 60rem;
+	max-width: var(--feature-content-max-no-image);
 }
 
 .fu-feature-section__eyebrow {
@@ -354,6 +379,10 @@
 }
 
 @media (min-width: 48rem) {
+	.fu-feature-section--media-fill .fu-feature-section__layout {
+		width: 100%;
+	}
+
 	.fu-feature-section__inner {
 		grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
 	}
@@ -389,7 +418,6 @@
 	.fu-feature-section--media-fill .fu-feature-section__inner {
 		align-items: stretch;
 		gap: 0;
-		max-width: none;
 		width: 100%;
 	}
 

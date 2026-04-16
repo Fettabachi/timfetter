@@ -308,6 +308,34 @@
 			"save_other_choice": 0
 		},
 		{
+			"key": "field_68008a5f1032",
+			"label": "Layout Width",
+			"name": "feature_layout_width",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose how wide the Feature Section should render within its own block layout.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"default": "Default",
+				"feature": "Wide",
+				"feature-max": "Extra Wide",
+				"full": "Full Width"
+			},
+			"default_value": "default",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
 			"key": "field_68008a5f1011",
 			"label": "Media Position",
 			"name": "feature_media_position",
