@@ -4,16 +4,12 @@
  * ACF Block Development & Global Assets Loader
  */
 
-// 1. Load CSS Variables (Frontend & Editor)
-function fu_enqueue_brand_assets()
+// 1. Load shared compiled editor styles
+function fu_add_editor_shared_styles()
 {
-    // Frontend
-    wp_enqueue_style('fu-variables', get_template_directory_uri() . '/css/base/variables.css');
-    // Editor
-    add_editor_style('css/base/variables.css');
+    add_editor_style('build/style-index.css');
 }
-add_action('wp_enqueue_scripts', 'fu_enqueue_brand_assets');
-add_action('after_setup_theme', 'fu_enqueue_brand_assets');
+add_action('after_setup_theme', 'fu_add_editor_shared_styles');
 
 // 2. Load Editor-Specific Assets (GLOBAL ONLY)
 add_action('enqueue_block_editor_assets', function () {

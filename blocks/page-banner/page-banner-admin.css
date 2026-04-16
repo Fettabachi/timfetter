@@ -1,41 +1,5 @@
 /* Editor-only preview styles for the page banner block. */
 
-:root {
-	/* Brand Colors (The Source) */
-	--color-brand-primary: #0d3b66; /* University Blue */
-	--color-brand-secondary: #f95738; /* University Orange */
-	--color-brand-accent: #f4d35e; /* University Yellow */
-	--color-brand-dark-accent: #ee964b; /* University Yellow */
-	--color-brand-light: #faf0ca; /* Beige / Cream */
-	--success: #198754;
-	--warning: #ac2020;
-
-	/* Semantic Mapping (What we use in our blocks) */
-	--fu-blue: var(--color-brand-primary);
-	--fu-orange: var(--color-brand-secondary);
-	--fu-yellow: var(--color-brand-accent);
-	--fu-yellow-dark: var(--color-brand-dark-accent);
-	--fu-beige: var(--color-brand-light);
-	--fu-white: #ffffff;
-	--fu-black: #222222;
-
-	/* Spacing System */
-	--fu-space-xs: 0.5rem;
-	--fu-space-sm: 1rem;
-	--fu-space-md: 1.5rem;
-	--fu-space-lg: 3rem;
-	--fu-space-xl: clamp(5rem, 4vw, 8rem); /* Fluid spacing for sections */
-
-	/* Border Radii */
-	--fu-radius-sm: 4px;
-	--fu-radius-md: 8px;
-	--fu-radius-lg: 12px;
-
-	/* Transitions */
-	--fu-transition-fast: all 0.2s ease-in-out;
-	--fu-transition-base: all 0.3s ease;
-}
-
 .editor-styles-wrapper {
 	font-family: "Open Sans", sans-serif;
 
@@ -404,4 +368,49 @@
 			}
 		}
 	}
+
+	.fu-page-banner::before {
+		content: "Page Banner Block";
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		font-size: 0.625rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.4);
+		z-index: 10;
+	}
+}
+
+html :where(.wp-block) {
+	&:has(.headline),
+	&:has(.btn) {
+		margin: 0 !important;
+	}
+}
+
+/* Fix for the alignment 'Springs' in the editor */
+@media (min-width: 48rem) {
+	.editor-styles-wrapper
+		.fu-page-banner--align-left
+		.acf-innerblocks-container {
+		align-items: flex-start;
+		text-align: left;
+	}
+	.editor-styles-wrapper
+		.fu-page-banner--align-right
+		.acf-innerblocks-container {
+		align-items: flex-end;
+		text-align: right;
+	}
+}
+
+.block-editor-block-list__layout {
+	margin-inline: -8px;
+}
+
+/* Ensure the editor container allows the banner to be full-height */
+.editor-styles-wrapper .wp-block-acf-fu-page-banner {
+	margin: 0 !important;
+	max-width: none !important;
 }

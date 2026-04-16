@@ -1,0 +1,44 @@
+.editor-styles-wrapper .wp-block-acf-fu-feature-section {
+	margin: 0 !important;
+	max-width: none !important;
+}
+
+.editor-styles-wrapper .wp-block-acf-fu-feature-section > .acf-block-component {
+	margin: 0;
+}
+
+.editor-styles-wrapper .fu-feature-section {
+	outline: 1px dashed rgba(0, 0, 0, 0.08);
+	outline-offset: -10px;
+	position: relative;
+}
+
+.editor-styles-wrapper .fu-feature-section::before {
+	color: rgba(0, 0, 0, 0.42);
+	content: "Feature Section";
+	font-size: 0.65rem;
+	font-weight: 700;
+	left: 0.85rem;
+	letter-spacing: 0.12em;
+	position: absolute;
+	text-transform: uppercase;
+	top: 0.85rem;
+	z-index: 5;
+}
+
+.editor-styles-wrapper .fu-feature-section__cta {
+	cursor: default;
+	pointer-events: none;
+}
+
+.editor-styles-wrapper
+	.fu-feature-section__media.is-placeholder
+	.fu-feature-section__image-wrap {
+	min-height: 18rem;
+}
+
+.editor-styles-wrapper .fu-feature-section__image-placeholder {
+	border: 1px dashed currentColor;
+	border-radius: calc(var(--fu-radius-md) + 2px);
+	margin: 1rem;
+}

@@ -1,0 +1,17 @@
+Create a new ACF block in this theme following my block standard.
+
+Requirements:
+1. Use this folder structure:
+   /blocks/block-slug/
+     block.json
+     render.php
+     block-slug.css
+2. Use block-local CSS loaded through block.json.
+3. Use a unique root class with BEM-style naming.
+4. Use semantic, accessible, SEO-friendly markup.
+5. Escape all output properly in PHP.
+6. Avoid empty wrappers.
+7. Use shared design tokens from the global theme pipeline, but do not depend on theme structure or container classes.
+8. Keep the block visually consistent in frontend and editor.
+9. Do not manually enqueue the block CSS if it is loaded via block.json.
+10. Explain every file created and why.

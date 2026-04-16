@@ -1,0 +1,821 @@
+{
+	"key": "group_68008a5f0010",
+	"title": "Block: Feature Section",
+	"fields": [
+		{
+			"key": "field_68008a5f1001",
+			"label": "Content",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 1,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1002",
+			"label": "Eyebrow",
+			"name": "feature_eyebrow",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional short label above the heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Featured Project",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_68008a5f1003",
+			"label": "Heading",
+			"name": "feature_heading",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Keep this concise and specific.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "A standout portfolio project with a clear outcome",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_68008a5f1004",
+			"label": "Heading Level",
+			"name": "feature_heading_level",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "Use H2 in most cases. Choose H3 or H4 only when this section sits under a stronger heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"h2": "H2",
+				"h3": "H3",
+				"h4": "H4"
+			},
+			"default_value": "h2",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
+		},
+		{
+			"key": "field_68008a5f1005",
+			"label": "Heading Size",
+			"name": "feature_heading_size",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Controls the visual scale of the heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"xl": "XL",
+				"lg": "LG",
+				"md": "MD"
+			},
+			"default_value": "xl",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_68008a5f1006",
+			"label": "Body Copy",
+			"name": "feature_body",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "Use 1 to 3 short paragraphs.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "A concise summary that explains the challenge, the solution, and the result in a way that feels polished immediately after insert.",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"rows": 4,
+			"placeholder": "",
+			"new_lines": ""
+		},
+		{
+			"key": "field_68008a5f1007",
+			"label": "Media",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1008",
+			"label": "Feature Image",
+			"name": "feature_image",
+			"aria-label": "",
+			"type": "image",
+			"instructions": "Upload a project image or screenshot.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "id",
+			"library": "all",
+			"min_width": "",
+			"min_height": "",
+			"min_size": "",
+			"max_width": "",
+			"max_height": "",
+			"max_size": "",
+			"mime_types": "",
+			"allow_in_bindings": 0,
+			"preview_size": "medium"
+		},
+		{
+			"key": "field_68008a5f1009",
+			"label": "Image Fit",
+			"name": "feature_image_fit",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Choose how the image should fit within the media frame.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"cover": "Cover",
+				"contain": "Contain"
+			},
+			"default_value": "cover",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_68008a5f1028",
+			"label": "Media Fill",
+			"name": "feature_media_fill",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Enable to make the media frame stretch with the section layout.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_68008a5f1029",
+			"label": "Image Radius",
+			"name": "feature_image_radius",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose a constrained corner radius for the media frame.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1028",
+						"operator": "!=",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"default": "Default",
+				"none": "None",
+				"large": "Large"
+			},
+			"default_value": "default",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1010",
+			"label": "Layout",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1027",
+			"label": "Content Width",
+			"name": "feature_content_width",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Adjust the relationship between the copy column and the media column.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"balanced": "Balanced",
+				"content": "Content",
+				"media": "Media"
+			},
+			"default_value": "balanced",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1011",
+			"label": "Media Position",
+			"name": "feature_media_position",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose whether the image appears on the left or right on larger screens.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"left": "Left",
+				"right": "Right"
+			},
+			"default_value": "right",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1012",
+			"label": "Vertical Alignment",
+			"name": "feature_vertical_align",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Controls vertical alignment of the content within the section.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"top": "Top",
+				"center": "Center"
+			},
+			"default_value": "center",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_68008a5f1013",
+			"label": "Button Group Alignment",
+			"name": "feature_button_group_alignment",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Controls how the CTA group is arranged.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"left": "Left",
+				"center": "Center"
+			},
+			"default_value": "left",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_68008a5f1030",
+			"label": "Fill Padding Inline",
+			"name": "feature_fill_padding_inline",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Controls the left and right content padding in media-fill mode.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1028",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "medium",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1031",
+			"label": "Fill Padding Block",
+			"name": "feature_fill_padding_block",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Controls the top and bottom content padding in media-fill mode.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1028",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "medium",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1014",
+			"label": "Colors",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1015",
+			"label": "Background Style",
+			"name": "feature_background_token",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose from approved brand colors.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"beige": "Beige",
+				"blue": "Blue",
+				"orange": "Orange",
+				"charcoal": "Charcoal"
+			},
+			"default_value": "beige",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1016",
+			"label": "Buttons",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1017",
+			"label": "Show CTA 1",
+			"name": "feature_show_cta_1",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Keep enabled for a complete default insert experience.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 1,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_68008a5f1018",
+			"label": "CTA 1 Link",
+			"name": "feature_cta_1_link",
+			"aria-label": "",
+			"type": "link",
+			"instructions": "If empty, the editor will show a preview button, but nothing will render on the frontend.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1017",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"allow_in_bindings": 0
+		},
+		{
+			"key": "field_68008a5f1019",
+			"label": "CTA 1 Style",
+			"name": "feature_cta_1_style",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose a design-system button treatment.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1017",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"primary": "Primary",
+				"secondary": "Secondary",
+				"ghost": "Ghost"
+			},
+			"default_value": "primary",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1020",
+			"label": "CTA 1 Size",
+			"name": "feature_cta_1_size",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose a constrained button size token.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1017",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "large",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1021",
+			"label": "Show CTA 2",
+			"name": "feature_show_cta_2",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Enable only when a second action is needed.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_68008a5f1022",
+			"label": "CTA 2 Link",
+			"name": "feature_cta_2_link",
+			"aria-label": "",
+			"type": "link",
+			"instructions": "Optional secondary action.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1021",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"allow_in_bindings": 0
+		},
+		{
+			"key": "field_68008a5f1023",
+			"label": "CTA 2 Style",
+			"name": "feature_cta_2_style",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Usually secondary or ghost.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1021",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"primary": "Primary",
+				"secondary": "Secondary",
+				"ghost": "Ghost"
+			},
+			"default_value": "secondary",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1024",
+			"label": "CTA 2 Size",
+			"name": "feature_cta_2_size",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Match CTA 1 unless there is a strong reason not to.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1021",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "large",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1025",
+			"label": "Optional Overrides",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1026",
+			"label": "Text Scheme Override",
+			"name": "feature_text_scheme",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "Leave on Auto unless readability requires a manual override.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"auto": "Auto",
+				"dark": "Dark",
+				"light": "Light"
+			},
+			"default_value": "auto",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/fu-feature-section"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "side",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1776211200
+}

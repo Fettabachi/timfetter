@@ -1,0 +1,22 @@
+{
+	"name": "acf/fu-feature-section",
+	"title": "Feature Section",
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "cover-image",
+	"description": "A guided feature section for premium portfolio storytelling.",
+	"style": "file:./feature-section.css",
+	"editorScript": "file:./feature-section.js",
+	"editorStyle": "file:./feature-section-editor.css",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": true,
+		"html": false,
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

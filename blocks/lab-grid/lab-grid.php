@@ -3,8 +3,6 @@
 /**
  * Component Lab Grid Block Template
  */
-wp_enqueue_script('alpine-js');
-
 $terms = get_terms([
     'taxonomy' => 'lab_category',
     'hide_empty' => true

@@ -1,0 +1,405 @@
+[QA-REVIEW-01]
+All good.
+
+Modifications
+I like the sidebar controls, but, intuitively, I want to click on the element in the editor to edit it in place.
+
+Media
+The placeholder is displayed in the editor, but not on the front end which is correct. However, I think the parent container would compensate for the missing content to allow the text to take up the remaining space.
+
+Layout
+I don't like that the grid-template-columns doesn't flip when the media position is flipped. Also, I'd like to provide width controls for the fu-feature-section**content container. Setting that width would also be compensated on the fu-feature-section**media container width.
+Let's remove the stacked option. It's breaking the layout in the sidebar and it's not necessary for desktop widths. One consideration would be to use a container query to stack the layout depending on its parent container size and perhaps provide a control to reverse the stacking order.
+I think we need to provide an option to fill the media container to allow the image to fill the container and to control the border-radius on the image.
+
+Colors
+The color combinations are very good.
+This "Choose from approved brand surfaces only." should read "Choose from approved brand colors."
+
+Buttons
+The size and style selectors look good, but are too wide for the sidebar container. Maybe use the default radio input here.
+The size controls only affect the size of the labels, not the button itself and the size is change is minimal. It should affect it more. Let's use small, medium, and large options.
+For "Show CTA 2", let's hide the controls if it's false.
+
+Advanced
+This is confusing because of the existing Advanced panel provided by WordPress. Rename it or move it beneath the background style options.
+
+[QA-REVIEW-02]
+Layout / Content Width / Media Position === Left & Media Wide
+This does position the media left, but there is no accommodation to make media wide with these settings. Also, the button controls are breaking the layout by overlapping each other. These should be standard radio inputs.
+
+We have an issue conveying how the media fill should work. We will need to alter the padding styles to allow the media to stretch to fill the container from top to bottom, and from left or right depending on the position of the media. This means that fu-feature-section\_\_content will need default top, right or left, and bottom padding to prevent the text content from reaching the edges of the container.
+
+Buttons / CTA Size(s)
+The order should be Small, Medium, Large
+Small & Large appear to use the same styles while Medium is shorter than both.
+Small: less padding, smaller font
+Medium: more padding, larger font
+Large: more padding, larger font
+
+Correction on CGPT
+Layout Buttons
+[BUTTONS-REFINE-01] Content width and Media position controls should be radios, not selects.
+
+[BUTTONS-REFINE-01] CTA controls are okay
+
+Revised [PROMPT-04]
+Please make a focused refinement pass on the Feature Section block based on the latest QA feedback.
+
+SCOPE
+Only update the Feature Section block files and its ACF JSON group. Do not change page-banner or global theme architecture.
+
+CHANGES TO MAKE
+
+1. Layout controls (radio inputs, not selects)
+
+- Ensure the following fields use standard ACF radio inputs (not button groups or selects):
+
+  - feature_content_width
+  - feature_media_position
+  - feature_cta_1_style
+  - feature_cta_1_size
+  - feature_cta_2_style
+  - feature_cta_2_size
+
+- Keep labels concise for sidebar usability:
+
+  - feature_content_width options:
+    - balanced
+    - content
+    - media
+  - feature_media_position options:
+    - left
+    - right
+
+- Do not refer to these as “buttons” in labels or instructions. These are layout controls using radio inputs.
+
+2. Content / Media width behavior (stronger + deterministic)
+
+- Rebuild layout proportions so the difference between content-wide, balanced, and media-wide is visually obvious.
+
+- Use explicit grid-template-columns ratios at desktop:
+
+  - balanced → 1fr 1fr
+  - content → 1.2fr 0.8fr
+  - media → 0.8fr 1.2fr
+
+- When feature_media_position is left, the layout must flip BOTH:
+
+  - visual order (media appears on the left)
+  - AND the grid proportions (so “media wide” still means the media side is larger)
+
+- Do not rely only on flex/grid order changes. The column widths must reflect the selected layout.
+
+- Use clear, separate modifier classes:
+  - fu-feature-section--media-left / --media-right
+  - fu-feature-section--width-balanced / --width-content / --width-media
+
+3. Media fill behavior (true layout mode)
+
+- Rework feature_media_fill as a structural layout mode, not just a visual tweak.
+
+- In media-fill mode:
+
+  - media should stretch to the outer edge of the section on its side
+  - media should extend top-to-bottom within the section
+  - remove or reduce section padding on the media side
+  - content should receive internal padding so text never touches the edges
+
+- Ensure this works correctly for:
+
+  - media-left
+  - media-right
+
+- Keep default (non-fill) behavior unchanged.
+
+4. CTA controls and sizing
+
+- Use radio inputs for CTA style and size controls.
+
+- Ensure size order is:
+
+  - small
+  - medium
+  - large
+
+- Rebuild CTA size styles so they are clearly distinct:
+
+  Small:
+
+  - smaller font size
+  - reduced padding
+  - smaller min-height
+
+  Medium:
+
+  - standard/default button
+
+  Large:
+
+  - increased padding
+  - larger min-height
+  - optionally slightly larger font
+
+- Fix current issue where Small and Large appear visually too similar.
+
+- Ensure CTA styles do not break or overlap in the sidebar UI.
+
+5. Keep everything else stable
+
+- Preserve:
+
+  - block namespace (acf/fu-feature-section)
+  - automatic block registration
+  - server-rendered PHP structure
+  - existing preview-sync architecture
+
+- Update JS preview sync only as needed:
+
+  - ensure new layout and visibility classes stay in sync
+  - keep updates scoped to the current block instance only
+
+- Do not introduce new architectural patterns or refactors.
+
+OUTPUT
+After changes, summarize:
+
+1. every field changed (added, removed, or modified)
+2. every file changed
+3. how the new layout system works (position × width)
+4. how grid-template-columns behave for each combination
+5. how media-fill mode works structurally
+6. how CTA size tokens now differ visually
+7. any areas that may still require manual CSS tuning
+
+[QA-REVIEW-03]
+Media
+When Media Fill is set to true, Layout Vertical Alignment will not honor the Top setting. .fu-feature-section--media-fill .fu-feature-section\_\_content should bet set to flex-start instead of center.
+
+The Image Radius controls should be basic stacked radio inputs because the stylized inputs are breaking the layout.
+
+.fu-feature-section\_\_image-wrap should nat have padding, background, or border.
+
+All basic radio inputs should be title case.
+
+Layout / Button Group Alignment: The center setting center aligns the content and the buttons. Those buttons should only affect the buttons, not the text content. Also, remove the stacked option. They should stack when the container is too small to allow them to be in one row.
+
+fu-feature-section\_\_content: padding-left & right should be equal, but as it is now, padding-left is too small at desktop sizes.
+
+Buttons:
+CTA Style & Size should be in a single column to prevent long labels from wrapping below the input.
+
+The small button's padding isn't being reduced from the medium sized button.
+
+I think the button controls should only be rendered
+
+Revised [PROMPT-05] (QA-REVIEW-03 Fix Pass)
+Please perform a focused QA refinement pass on the Feature Section block.
+
+SCOPE
+Only update:
+
+- blocks/feature-section/render.php
+- blocks/feature-section/feature-section.css
+- blocks/feature-section/feature-section.js
+- acf-json/group_68008a5f0010.json
+
+Do not change:
+
+- block registration
+- namespace (acf/fu-feature-section)
+- page-banner or any other blocks
+- overall architecture
+
+This pass is strictly for fixing layout, control behavior, and visual consistency issues identified in QA.
+
+---
+
+1. Media Fill + Vertical Alignment Fix
+
+Problem:
+When feature_media_fill is true, the Top alignment is not respected.
+
+Fix:
+
+- When `.fu-feature-section--media-fill` AND `.fu-feature-section--align-top` are present:
+  - `.fu-feature-section__content` must use `align-items: flex-start`
+- Ensure this overrides any default centering behavior
+
+---
+
+2. Image Radius Control UI + Media Container Cleanup
+
+Fix UI:
+
+- Change feature_image_radius control to use standard stacked radio inputs (not stylized/button UI)
+- Labels should be Title Case (Default, None, Large)
+
+Fix layout:
+
+- `.fu-feature-section__image-wrap` must NOT include:
+
+  - padding
+  - background
+  - border
+
+- These styles should only exist in non-fill or placeholder states if needed
+
+---
+
+3. Button Group Alignment Behavior
+
+Problem:
+Center alignment is affecting both text content and buttons.
+
+Fix:
+
+- `.fu-feature-section--actions-center` should ONLY affect:
+
+  - `.fu-feature-section__actions`
+
+- It must NOT:
+  - center-align `.fu-feature-section__content`
+  - change text alignment
+
+Remove option:
+
+- Remove "stacked" from feature_button_group_alignment field
+- Buttons should naturally wrap via flex when space is constrained
+
+---
+
+4. Content Padding Consistency
+
+Problem:
+Content padding is uneven (left too small at desktop)
+
+Fix:
+
+- Ensure `.fu-feature-section__content` has symmetrical left/right padding
+- Use consistent responsive padding values
+- Especially important when media-fill is active
+
+---
+
+5. CTA Controls Layout (Sidebar UX)
+
+Fix:
+
+- Ensure CTA Style and CTA Size controls are rendered in a single column
+- Prevent label wrapping issues
+- Use standard ACF radio layout (vertical stack)
+
+- Apply this to:
+  - feature_cta_1_style
+  - feature_cta_1_size
+  - feature_cta_2_style
+  - feature_cta_2_size
+
+---
+
+6. CTA Size Token Fix (Small vs Medium vs Large)
+
+Problem:
+Small button appears identical to Medium
+
+Fix:
+Rebuild size tokens so they are clearly distinct:
+
+Small:
+
+- smaller font size
+- reduced padding (both inline and block)
+- smaller min-height
+
+Medium:
+
+- current default size
+
+Large:
+
+- increased padding
+- larger min-height
+- optionally slightly larger font
+
+Ensure:
+
+- visible difference between all three sizes
+- especially between Small and Medium
+
+---
+
+7. Radio Input Consistency
+
+Fix:
+
+- All basic radio inputs should use Title Case labels
+  (e.g., Left, Right, Balanced, Content, Media, Small, Medium, Large)
+
+- Remove any remaining stylized/button-style radio controls that break layout
+
+---
+
+8. CTA Control Visibility Logic (Finish Incomplete Behavior)
+
+The last QA note was incomplete:
+"I think the button controls should only be rendered..."
+
+Implement the correct behavior:
+
+- CTA 1 controls:
+
+  - Always visible when "Show CTA 1" is enabled
+  - Hidden when disabled
+
+- CTA 2 controls:
+  - Only render when "Show CTA 2" is enabled
+  - Fully hidden otherwise (not just disabled)
+
+Ensure:
+
+- no empty UI gaps
+- clean conditional logic in ACF JSON
+
+---
+
+9. Keep Everything Else Stable
+
+Do NOT:
+
+- change layout system (position × width)
+- change media-fill architecture
+- change preview sync targeting model
+
+Only adjust:
+
+- class behavior
+- control types
+- CSS polish
+- ACF field presentation
+
+---
+
+OUTPUT
+
+After completing the changes, summarize:
+
+1. all CSS fixes applied
+2. all ACF field changes (types, labels, visibility)
+3. how media-fill + alignment now behave together
+4. how CTA sizes now differ visually
+5. any remaining edge cases that may need manual tuning
+
+[QA-REVIEW-04]
+
+If media fill === true, set Image Radius to none and hide the Image radius controls.
+
+@media (min-width: 48rem)
+.fu-feature-section--media-fill .fu-feature-section\_\_content
+I need padding controls for this element when media is set to fill.
+inline & block both should have Small, Medium, and Large inputs. As it is now, padding-inline is so large the content gets squeezed into a very narrow container.
+
+[QA-REVIEW-05]
+The Fill Padding controls should be rendered in the Layout section.
+
+.fu-feature-section\_\_actions < 768px gets set to flex-direction column instead of letting the buttons wrap naturally. This also causes the buttons to fill the width which can be much too wide.

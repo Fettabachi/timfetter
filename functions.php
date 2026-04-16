@@ -8,6 +8,7 @@ require get_theme_file_path('/inc/acf-block-loader.php');
 if (!function_exists('base_setup')) :
     function base_setup()
     {
+        add_theme_support('editor-styles');
         add_theme_support('post-thumbnails');
         add_image_size('small-image', 600);
         add_image_size('wide-image', 1400);
@@ -34,19 +35,20 @@ function base_scripts()
     // Register Alpine.js for the Lab Grid "Bridge"
     wp_register_script('alpine-js', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
 
+    // Conditionally load the demo panel assets only on relevant pages (where the page-banner block is used or on single posts)
     if (fu_should_load_demo_panel()) {
         wp_enqueue_style(
             'fu-demo-panel',
-            get_theme_file_uri('/css/demo-panel.css'),
+            get_theme_file_uri('/css/blocks/demo-panel.css'),
             array(),
-            filemtime(get_theme_file_path('/css/demo-panel.css'))
+            filemtime(get_theme_file_path('/css/blocks/demo-panel.css'))
         );
 
         wp_enqueue_script(
             'fu-demo-panel',
-            get_theme_file_uri('/src/demo-panel.js'),
+            get_theme_file_uri('/src/blocks/demo-panel.js'),
             array(),
-            filemtime(get_theme_file_path('/src/demo-panel.js')),
+            filemtime(get_theme_file_path('/src/blocks/demo-panel.js')),
             true
         );
     }

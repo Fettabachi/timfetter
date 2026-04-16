@@ -12,147 +12,151 @@
 	}
 }
 
-/* Ensure the hero has a defined height */
-.property-hero {
-	position: relative;
-	display: flex;
-	align-items: center; /* Centers content vertically */
-	justify-content: center;
-	min-height: 60vh; /* This gives it the "Hero" height */
-	overflow: hidden;
-	color: #fff;
-	text-align: center;
-}
+.wp-block-acf-property-stats,
+.fu_property {
+	/* Ensure the hero has a defined height */
+	.property-hero {
+		position: relative;
+		display: flex;
+		align-items: center; /* Centers content vertically */
+		justify-content: center;
+		min-height: 60vh; /* This gives it the "Hero" height */
+		overflow: hidden;
+		color: #fff;
+		text-align: center;
 
-/* Ensure the media wrapper fills the section */
-.property-hero .fu-page-banner__media {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-}
+		/* Ensure the media wrapper fills the section */
+		.fu-page-banner__media {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+		}
 
-.property-hero .fu-page-banner__bg-image {
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	/* Apply the filters from your block logic if needed */
-	filter: grayscale(var(--banner-grayscale)) contrast(var(--banner-contrast));
-}
+		.fu-page-banner__bg-image {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			/* Apply the filters from your block logic if needed */
+			filter: grayscale(var(--banner-grayscale))
+				contrast(var(--banner-contrast));
+		}
 
-/* Push content above the background */
-.property-hero .fu-page-banner__content {
-	position: relative;
-	z-index: 2;
-	padding: 2rem;
-}
-
-.fu_property h1 {
-	margin-block-start: 3rem;
-}
-
-.fu-property-stats-bar {
-	background: #fcfcfc;
-	border-top: 1px solid #eaeaea;
-	border-bottom: 1px solid #eaeaea;
-	padding: 2rem 0;
-	margin: 3rem 0;
-}
-
-.fu-prop-grid {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 2rem;
-	max-width: 1000px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.fu-prop-col {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-
-	&.fu-prop-col--status {
-		flex: 0.75;
+		/* Push content above the background */
+		.fu-page-banner__content {
+			position: relative;
+			z-index: 2;
+			padding: 2rem;
+		}
 	}
-}
 
-.fu-prop-col .value {
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #222;
-	line-height: 1.2;
-}
+	h1 {
+		margin-block-start: 3rem;
+	}
 
-.fu-prop-col .label {
-	font-size: 0.8rem;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	color: #777;
-	margin-top: 0.25rem;
-}
+	.fu-property-stats-bar {
+		background: #fcfcfc;
+		border-top: 1px solid #eaeaea;
+		border-bottom: 1px solid #eaeaea;
+		padding: 2rem 0;
+		margin: 3rem 0;
+	}
 
-.fu-prop-col--price .value {
-	color: #007cba;
-	font-size: 2rem;
-}
-
-/* Editor Placeholder Styles */
-.fu-prop-placeholder {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 15px;
-	padding: 20px;
-	background: #fff;
-	border: 2px dashed #ccc;
-	color: #666;
-}
-
-.fu-prop-placeholder .dashicons {
-	font-size: 30px;
-	width: 30px;
-	height: 30px;
-	color: #007cba;
-}
-
-/* Status Badge Styling */
-.fu-status-badge {
-	display: inline-block;
-	padding: 0.4rem 1rem;
-	border-radius: 50px;
-	font-size: 0.7rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	background: #eee;
-	color: #444;
-}
-
-/* Color Coding based on the 'status-' class we added in PHP */
-.status-available .fu-status-badge {
-	background-color: #d4edda;
-	color: #155724; /* Green */
-}
-
-.status-under-contract .fu-status-badge {
-	background-color: #fff3cd;
-	color: #856404; /* Yellow/Gold */
-}
-
-.status-sold .fu-status-badge {
-	background-color: #f8d7da;
-	color: #721c24; /* Red */
-}
-
-@media (max-width: 600px) {
 	.fu-prop-grid {
-		flex-direction: column;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		gap: 2rem;
+		max-width: 1000px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.fu-prop-col {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		&.fu-prop-col--status {
+			flex: 0.75;
+		}
+	}
+
+	.fu-prop-col .value {
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: #222;
+		line-height: 1.2;
+	}
+
+	.fu-prop-col .label {
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #777;
+		margin-top: 0.25rem;
+	}
+
+	.fu-prop-col--price .value {
+		color: #007cba;
+		font-size: 2rem;
+	}
+
+	/* Editor Placeholder Styles */
+	.fu-prop-placeholder {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+		padding: 20px;
+		background: #fff;
+		border: 2px dashed #ccc;
+		color: #666;
+	}
+
+	.fu-prop-placeholder .dashicons {
+		font-size: 30px;
+		width: 30px;
+		height: 30px;
+		color: #007cba;
+	}
+
+	/* Status Badge Styling */
+	.fu-status-badge {
+		display: inline-block;
+		padding: 0.4rem 1rem;
+		border-radius: 50px;
+		font-size: 0.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		background: #eee;
+		color: #444;
+	}
+
+	/* Color Coding based on the 'status-' class we added in PHP */
+	.status-available .fu-status-badge {
+		background-color: #d4edda;
+		color: #155724; /* Green */
+	}
+
+	.status-under-contract .fu-status-badge {
+		background-color: #fff3cd;
+		color: #856404; /* Yellow/Gold */
+	}
+
+	.status-sold .fu-status-badge {
+		background-color: #f8d7da;
+		color: #721c24; /* Red */
+	}
+
+	@media (max-width: 600px) {
+		.fu-prop-grid {
+			flex-direction: column;
+			gap: 2rem;
+		}
 	}
 }

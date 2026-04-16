@@ -6,6 +6,7 @@
 	"icon": "cover-image",
 	"script": "file:./page-banner.js",
 	"style": "file:./page-banner.css",
+	"editorStyle": "file:./page-banner-admin.css",
 	"supports": {
 		"align": ["full"],
 		"anchor": true,

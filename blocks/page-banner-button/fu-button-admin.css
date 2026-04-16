@@ -1,0 +1,69 @@
+.fu-page-banner .btn,
+.editor-styles-wrapper .fu-page-banner .btn,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn {
+	display: inline-block;
+	text-decoration: none;
+	border-radius: var(--fu-radius-md);
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	filter: brightness(1);
+	transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.fu-page-banner .btn--large,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--large {
+	padding-block: clamp(0.75rem, 0.404vw + 0.655rem, 1rem);
+	padding-inline: clamp(1.75rem, 0.565vw + 1.618rem, 2.1rem);
+	font-size: clamp(1.3rem, 0.969vw + 1.073rem, 1.9rem);
+}
+
+.fu-page-banner .btn--medium,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--medium {
+	padding: 0.8rem 1.8rem;
+	font-size: 1.2rem;
+	border-radius: var(--fu-radius-sm);
+}
+
+.fu-page-banner .btn--small,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--small {
+	padding: 0.5rem 1.2rem;
+	font-size: 0.85rem;
+	border-radius: var(--fu-radius-sm);
+}
+
+.fu-page-banner .btn--fu-orange,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--fu-orange {
+	background-color: var(--fu-orange);
+	color: var(--fu-white);
+}
+
+.fu-page-banner .btn--fu-blue,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--fu-blue {
+	background-color: var(--fu-blue);
+	color: var(--fu-beige);
+}
+
+.fu-page-banner .btn--fu-dark-yellow,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--fu-dark-yellow {
+	background-color: var(--fu-yellow-dark);
+	color: var(--fu-blue);
+}
+
+.fu-page-banner .btn--placeholder,
+.fu-page-banner .btn--placeholder:hover,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--placeholder,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn--placeholder:hover {
+	opacity: 0.7;
+	cursor: not-allowed;
+	filter: saturate(0.85);
+	transform: none;
+	text-decoration: none;
+	outline: 2px dashed rgba(255, 255, 255, 0.45);
+	outline-offset: 2px;
+}
+
+.editor-styles-wrapper .fu-page-banner .btn,
+.editor-styles-wrapper .wp-block-acf-fu-button .btn {
+	pointer-events: none;
+	cursor: default;
+}

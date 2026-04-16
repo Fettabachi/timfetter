@@ -2,12 +2,8 @@
 @import "base/variables";
 @import "base/variables-fu";
 @import "base/utilities";
-@import "base/layout";
+@import "base/layout-with-mixins";
 @import "base/site";
 @import "base/helpers";
 @import "base/dialog";
 @import "base/print";
-
-@import "blocks/section";
-@import "blocks/pricing";
-@import "blocks/grid";
