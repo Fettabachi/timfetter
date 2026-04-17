@@ -445,4 +445,35 @@
 	.fu-feature-section {
 		padding-block: clamp(2.5rem, 1.8rem + 3vw, 4rem);
 	}
+
+	/* Mobile styles for media fill */
+	.fu-feature-section--media-fill {
+		padding-block: 0;
+	}
+
+	.fu-feature-section--media-fill .fu-feature-section__inner {
+		max-width: none;
+		margin: 0;
+		gap: 0;
+	}
+
+	.fu-feature-section--media-fill .fu-feature-section__media {
+		width: 100%;
+	}
+
+	.fu-feature-section--media-fill .fu-feature-section__image-wrap {
+		border-radius: 0;
+		box-shadow: none;
+		aspect-ratio: auto; /* KEY FIX */
+	}
+
+	.fu-feature-section--media-fill .fu-feature-section__image {
+		height: auto;
+		object-fit: cover;
+	}
+
+	.fu-feature-section--media-fill .fu-feature-section__content {
+		padding-inline: var(--feature-content-pad-inline);
+		padding-block: var(--feature-fill-pad-block-current);
+	}
 }
