@@ -295,6 +295,18 @@
 
 .fu-feature-section__media {
 	width: 100%;
+
+	&:not(.fu-feature-section--media-fill) {
+		padding-inline-end: var(--feature-content-pad-inline);
+
+		@media (max-width: 47.99rem) {
+			padding-inline-end: 0;
+		}
+	}
+}
+
+.fu-feature-section--media-fill .fu-feature-section__media {
+	padding: 0;
 }
 
 .fu-feature-section__image-wrap {
