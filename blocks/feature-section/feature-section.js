@@ -1,22 +1,83 @@
 (function () {
 	"use strict";
 
+	const ROOT_SELECTOR = ".fu-feature-section";
+	const MOBILE_OVERLAY_REVEAL_SELECTOR =
+		".fu-feature-section--mobile-overlay.fu-feature-section--has-image";
+	const REVEAL_BOUND_ATTRIBUTE = "data-feature-mobile-reveal-bound";
+	const prefersReducedMotion =
+		typeof window.matchMedia === "function"
+			? window.matchMedia("(prefers-reduced-motion: reduce)")
+			: null;
+	const revealObserver =
+		typeof IntersectionObserver === "function" && !prefersReducedMotion?.matches
+			? new IntersectionObserver(
+					(entries, observer) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) {
+								return;
+							}
+
+							entry.target.classList.add("is-in-view");
+							entry.target.setAttribute(REVEAL_BOUND_ATTRIBUTE, "done");
+							observer.unobserve(entry.target);
+						});
+					},
+					{
+						threshold: 0.3,
+						rootMargin: "0px 0px -10% 0px",
+					}
+			  )
+			: null;
+
+	const bindMobileOverlayReveal = (block) => {
+		if (!(block instanceof Element)) return;
+		if (!block.matches(MOBILE_OVERLAY_REVEAL_SELECTOR)) return;
+		if (block.getAttribute(REVEAL_BOUND_ATTRIBUTE) === "done") return;
+
+		block.classList.add("is-anim-ready");
+
+		if (prefersReducedMotion?.matches || !revealObserver) {
+			block.classList.add("is-in-view");
+			block.setAttribute(REVEAL_BOUND_ATTRIBUTE, "done");
+			return;
+		}
+
+		if (block.getAttribute(REVEAL_BOUND_ATTRIBUTE) === "pending") return;
+
+		block.setAttribute(REVEAL_BOUND_ATTRIBUTE, "pending");
+		revealObserver.observe(block);
+	};
+
+	const initMobileOverlayReveal = (targetDoc = document) => {
+		if (!targetDoc?.querySelectorAll) {
+			return;
+		}
+
+		targetDoc
+			.querySelectorAll(MOBILE_OVERLAY_REVEAL_SELECTOR)
+			.forEach(bindMobileOverlayReveal);
+	};
+
 	const isEditor =
 		typeof wp !== "undefined" &&
 		typeof wp.data !== "undefined" &&
 		typeof window.acf !== "undefined";
 
+	initMobileOverlayReveal(document);
+
 	if (!isEditor) {
 		return;
 	}
 
-	const ROOT_SELECTOR = ".fu-feature-section";
 	const BLOCK_WRAPPER_SELECTOR = ".wp-block-acf-fu-feature-section";
 	const SYNC_FIELD_KEYS = [
 		"field_68008a5f1005",
 		"field_68008a5f1009",
 		"field_68008a5f1027",
 		"field_68008a5f1011",
+		"field_68008a5f1032",
+		"field_68008a5f1033",
 		"field_68008a5f1028",
 		"field_68008a5f1030",
 		"field_68008a5f1031",
@@ -46,6 +107,8 @@
 		feature_image_fit: "cover",
 		feature_content_width: "balanced",
 		feature_media_position: "right",
+		feature_mobile_media_mode: "stack",
+		feature_mobile_overlay_intensity: "medium",
 		feature_media_fill: false,
 		feature_image_radius: "default",
 		feature_fill_padding_inline: "medium",
@@ -79,6 +142,15 @@
 		media_position: [
 			"fu-feature-section--media-left",
 			"fu-feature-section--media-right",
+		],
+		mobile_media_mode: [
+			"fu-feature-section--mobile-stack",
+			"fu-feature-section--mobile-overlay",
+		],
+		overlay_intensity: [
+			"fu-feature-section--overlay-light",
+			"fu-feature-section--overlay-medium",
+			"fu-feature-section--overlay-strong",
 		],
 		image_radius: [
 			"fu-feature-section--radius-default",
@@ -246,6 +318,43 @@
 		);
 	};
 
+	const getFieldByName = (fieldOrElement, fieldName) => {
+		const container = getFieldsContainer(fieldOrElement);
+
+		if (!container || typeof acf?.getFields !== "function") {
+			return null;
+		}
+
+		const fields = acf.getFields({ parent: container }) || [];
+
+		return (
+			fields.find((candidate) => candidate?.get?.("name") === fieldName) || null
+		);
+	};
+
+	const normalizeMediaFillField = (fieldOrElement) => {
+		const imageFitField = getFieldByName(fieldOrElement, "feature_image_fit");
+		const mediaFillField = getFieldByName(fieldOrElement, "feature_media_fill");
+
+		if (!imageFitField || !mediaFillField) {
+			return;
+		}
+
+		const imageFitValue = sanitizeChoice(
+			imageFitField.val(),
+			["cover", "contain"],
+			DEFAULTS.feature_image_fit
+		);
+
+		if (imageFitValue === "cover") {
+			return;
+		}
+
+		if (normalizeBooleanValue(mediaFillField.val(), false)) {
+			mediaFillField.val(0);
+		}
+	};
+
 	const readState = (fieldOrElement) => {
 		const container = getFieldsContainer(fieldOrElement);
 
@@ -264,6 +373,19 @@
 
 			values[name] = field.val();
 		});
+
+		const normalizedImageFit = sanitizeChoice(
+			values.feature_image_fit,
+			["cover", "contain"],
+			DEFAULTS.feature_image_fit
+		);
+		const normalizedMediaFill =
+			normalizedImageFit === "cover"
+				? normalizeBooleanValue(
+						values.feature_media_fill,
+						DEFAULTS.feature_media_fill
+				  )
+				: false;
 
 		return {
 			heading_size: sanitizeChoice(
@@ -286,8 +408,18 @@
 				["left", "right"],
 				DEFAULTS.feature_media_position
 			),
+			mobile_media_mode: sanitizeChoice(
+				values.feature_mobile_media_mode,
+				["stack", "overlay"],
+				DEFAULTS.feature_mobile_media_mode
+			),
+			overlay_intensity: sanitizeChoice(
+				values.feature_mobile_overlay_intensity,
+				["light", "medium", "strong"],
+				DEFAULTS.feature_mobile_overlay_intensity
+			),
 			media_fill: normalizeBooleanValue(
-				values.feature_media_fill,
+				normalizedMediaFill,
 				DEFAULTS.feature_media_fill
 			),
 			image_radius: sanitizeChoice(
@@ -399,12 +531,22 @@
 			MODIFIER_SETS.media_position,
 			`fu-feature-section--media-${state.media_position}`
 		);
-		const resolvedImageRadius = state.media_fill ? "none" : state.image_radius;
 		replaceModifierSet(
 			preview,
-			MODIFIER_SETS.image_radius,
-			`fu-feature-section--radius-${resolvedImageRadius}`
+			MODIFIER_SETS.mobile_media_mode,
+			`fu-feature-section--mobile-${state.mobile_media_mode}`
 		);
+		replaceModifierSet(
+			preview,
+			MODIFIER_SETS.overlay_intensity,
+			`fu-feature-section--overlay-${state.overlay_intensity}`
+		);
+		const useImageBorderRadius =
+			state.image_fit === "cover" && !state.media_fill;
+		preview.classList.remove(...MODIFIER_SETS.image_radius);
+		if (useImageBorderRadius) {
+			preview.classList.add(`fu-feature-section--radius-${state.image_radius}`);
+		}
 		replaceModifierSet(
 			preview,
 			MODIFIER_SETS.fill_padding_inline,
@@ -473,6 +615,8 @@
 			state.cta_2_size
 		);
 
+		bindMobileOverlayReveal(preview);
+
 		return true;
 	};
 
@@ -496,6 +640,7 @@
 	SYNC_FIELD_KEYS.forEach((fieldKey) => {
 		acf.addAction(`change_field/key=${fieldKey}`, (field) => {
 			requestAnimationFrame(() => {
+				normalizeMediaFillField(field);
 				if (!syncPreviewState(field)) {
 					requestPreviewRerender();
 				}
@@ -510,4 +655,12 @@
 			});
 		});
 	});
+
+	acf.addAction("render_block_preview", () => {
+		requestAnimationFrame(() => {
+			getEditorDocuments().forEach(initMobileOverlayReveal);
+		});
+	});
+
+	getEditorDocuments().forEach(initMobileOverlayReveal);
 })();

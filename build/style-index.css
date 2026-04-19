@@ -126,6 +126,57 @@ button {
   -webkit-appearance: button;
 }
 
+.fu-case-section {
+  padding-block: clamp(3rem, 2.2rem + 3vw, 5.5rem);
+}
+
+.fu-case-section__inner {
+  margin: 0 auto;
+  max-width: min(100% - 2rem, 52rem);
+}
+
+.fu-case-section__eyebrow {
+  color: rgba(13, 59, 102, 0.72);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.85rem;
+  text-transform: uppercase;
+}
+
+.fu-case-section__heading {
+  color: var(--fu-blue);
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.fu-case-section__body {
+  color: rgba(13, 59, 102, 0.82);
+  font-size: clamp(1rem, 0.97rem + 0.2vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.fu-case-section__body p {
+  margin: 0 0 1rem;
+}
+
+.fu-case-section__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Add space between stacked sections */
+.fu-feature-section + .fu-feature-section,
+.fu-feature-section + .fu-case-section,
+.fu-case-section + .fu-feature-section,
+.fu-case-section + .fu-case-section {
+  margin-top: clamp(1.5rem, 1.871vw + 1.061rem, 2.5rem);
+}
+
 /* .container {
 	margin-right: auto;
 	margin-left: auto;
@@ -1309,6 +1360,13 @@ footer {
 
 .footer-wrap a:hover {
   color: #ab977a;
+}
+
+.entry-header {
+  margin-block-start: clamp(1.5rem, 2.807vw + 0.842rem, 3rem);
+}
+.entry-header h1 {
+  margin-block-end: clamp(1.25rem, 1.404vw + 0.921rem, 2rem);
 }
 
 /* ==========================================================================

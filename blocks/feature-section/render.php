@@ -38,6 +38,7 @@ $heading_size = $sanitize_choice(
 $body = trim((string) get_field('feature_body'));
 
 $image_id = (int) get_field('feature_image');
+$has_image = $image_id > 0;
 
 $image_fit = $sanitize_choice(
     get_field('feature_image_fit') ?: 'cover',
@@ -57,8 +58,24 @@ $media_position = $sanitize_choice(
     'right'
 );
 
+$mobile_media_mode = $sanitize_choice(
+    get_field('feature_mobile_media_mode') ?: 'stack',
+    array('stack', 'overlay'),
+    'stack'
+);
+
+$mobile_overlay_intensity = $sanitize_choice(
+    get_field('feature_mobile_overlay_intensity') ?: 'medium',
+    array('light', 'medium', 'strong'),
+    'medium'
+);
+
 $media_fill_value = get_field('feature_media_fill');
 $media_fill = $media_fill_value === null ? false : (bool) $media_fill_value;
+
+if (!$has_image || $image_fit !== 'cover') {
+    $media_fill = false;
+}
 
 $image_radius = $sanitize_choice(
     get_field('feature_image_radius') ?: 'default',
@@ -88,10 +105,18 @@ if ($media_fill) {
     $image_radius = 'none';
 }
 
+$use_image_border_radius = ($has_image && $image_fit === 'cover' && !$media_fill);
+
 $vertical_align = $sanitize_choice(
     get_field('feature_vertical_align') ?: 'center',
     array('top', 'center'),
     'center'
+);
+
+$tablet_vertical_align = $sanitize_choice(
+    get_field('feature_tablet_vertical_align') ?: 'default',
+    array('default', 'top', 'center'),
+    'default'
 );
 
 $actions_alignment = $sanitize_choice(
@@ -102,7 +127,7 @@ $actions_alignment = $sanitize_choice(
 
 $background_token = $sanitize_choice(
     get_field('feature_background_token') ?: 'beige',
-    array('beige', 'blue', 'orange', 'charcoal'),
+    array('white', 'beige', 'blue', 'orange', 'charcoal'),
     'beige'
 );
 
@@ -129,7 +154,7 @@ if ($cta_1_text === '') {
 $cta_1_target = !empty($cta_1_link['target']) ? $cta_1_link['target'] : '_self';
 $cta_1_style = $sanitize_choice(
     get_field('feature_cta_1_style') ?: 'primary',
-    array('primary', 'secondary', 'ghost'),
+    array('primary', 'secondary', 'ghost', 'dark'),
     'primary'
 );
 $cta_1_size = $sanitize_choice(
@@ -149,7 +174,7 @@ if ($cta_2_text === '') {
 $cta_2_target = !empty($cta_2_link['target']) ? $cta_2_link['target'] : '_self';
 $cta_2_style = $sanitize_choice(
     get_field('feature_cta_2_style') ?: 'secondary',
-    array('primary', 'secondary', 'ghost'),
+    array('primary', 'secondary', 'ghost', 'dark'),
     'secondary'
 );
 $cta_2_size = $sanitize_choice(
@@ -161,23 +186,35 @@ $cta_2_size = $sanitize_choice(
 $should_render_cta_1 = $show_cta_1 && ($cta_1_has_link || $is_editor);
 $should_render_cta_2 = $show_cta_2 && $cta_2_has_link;
 $should_render_actions = $should_render_cta_1 || $should_render_cta_2;
-$should_render_media = $image_id > 0 || $is_editor;
+$should_render_media = $has_image;
 
 $block_anchor = !empty($block['anchor']) ? $block['anchor'] : 'fu-feature-section-' . $block['id'];
 
 $classes = array(
     'fu-feature-section',
-    'fu-feature-section--media-' . $media_position,
-    'fu-feature-section--width-' . $content_width,
-    'fu-feature-section--align-' . $vertical_align,
     'fu-feature-section--actions-' . $actions_alignment,
     'fu-feature-section--bg-' . $background_token,
     'fu-feature-section--text-' . $text_scheme,
     'fu-feature-section--heading-' . $heading_size,
-    'fu-feature-section--image-' . $image_fit,
-    'fu-feature-section--radius-' . $image_radius,
-    $should_render_media ? 'fu-feature-section--has-image' : 'fu-feature-section--no-image',
+    $has_image ? 'fu-feature-section--has-image' : 'fu-feature-section--no-image',
 );
+
+if ($has_image) {
+    $classes[] = 'fu-feature-section--media-' . $media_position;
+    $classes[] = 'fu-feature-section--mobile-' . $mobile_media_mode;
+    $classes[] = 'fu-feature-section--overlay-' . $mobile_overlay_intensity;
+    $classes[] = 'fu-feature-section--width-' . $content_width;
+    $classes[] = 'fu-feature-section--align-' . $vertical_align;
+    $classes[] = 'fu-feature-section--image-' . $image_fit;
+}
+
+if ($use_image_border_radius) {
+    $classes[] = 'fu-feature-section--radius-' . $image_radius;
+}
+
+if ($has_image && $tablet_vertical_align !== 'default') {
+    $classes[] = 'fu-feature-section--tablet-align-' . $tablet_vertical_align;
+}
 
 if ($media_fill) {
     $classes[] = 'fu-feature-section--media-fill';

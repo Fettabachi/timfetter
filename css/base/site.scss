@@ -997,3 +997,11 @@ footer {
 .footer-wrap a:hover {
 	color: $rust;
 }
+
+.entry-header {
+	margin-block-start: clamp(1.5rem, 2.807vw + 0.842rem, 3rem);
+
+	h1 {
+		margin-block-end: clamp(1.25rem, 1.404vw + 0.921rem, 2rem);
+	}
+}

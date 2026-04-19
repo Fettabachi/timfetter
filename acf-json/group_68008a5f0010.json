@@ -190,7 +190,14 @@
 			"type": "button_group",
 			"instructions": "Choose how the image should fit within the media frame.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "",
 				"class": "",
@@ -214,7 +221,19 @@
 			"type": "true_false",
 			"instructions": "Enable to make the media frame stretch with the section layout.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					},
+					{
+						"field": "field_68008a5f1009",
+						"operator": "==",
+						"value": "cover"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -229,14 +248,23 @@
 		},
 		{
 			"key": "field_68008a5f1029",
-			"label": "Image Radius",
+			"label": "Image Border Radius",
 			"name": "feature_image_radius",
 			"aria-label": "",
 			"type": "radio",
-			"instructions": "Choose a constrained corner radius for the media frame.",
+			"instructions": "Choose a constrained corner radius for the image frame.",
 			"required": 0,
 			"conditional_logic": [
 				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					},
+					{
+						"field": "field_68008a5f1009",
+						"operator": "==",
+						"value": "cover"
+					},
 					{
 						"field": "field_68008a5f1028",
 						"operator": "!=",
@@ -288,7 +316,14 @@
 			"type": "radio",
 			"instructions": "Adjust the relationship between the copy column and the media column.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -315,7 +350,14 @@
 			"type": "radio",
 			"instructions": "Choose whether the image appears on the left or right on larger screens.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -334,14 +376,89 @@
 			"save_other_choice": 0
 		},
 		{
+			"key": "field_68008a5f1032",
+			"label": "Mobile Media Layout",
+			"name": "feature_mobile_media_mode",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Choose how media and content behave on small screens.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"stack": "Stack",
+				"overlay": "Overlay"
+			},
+			"default_value": "stack",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_68008a5f1033",
+			"label": "Mobile Overlay Intensity",
+			"name": "feature_mobile_overlay_intensity",
+			"aria-label": "",
+			"type": "radio",
+			"instructions": "Controls the readability strength of the mobile overlay image treatment.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1032",
+						"operator": "==",
+						"value": "overlay"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"light": "Light",
+				"medium": "Medium",
+				"strong": "Strong"
+			},
+			"default_value": "medium",
+			"return_format": "value",
+			"allow_null": 0,
+			"other_choice": 0,
+			"allow_in_bindings": 0,
+			"layout": "vertical",
+			"save_other_choice": 0
+		},
+		{
 			"key": "field_68008a5f1012",
 			"label": "Vertical Alignment",
 			"name": "feature_vertical_align",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "radio",
 			"instructions": "Controls vertical alignment of the content within the section.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -358,27 +475,31 @@
 			"layout": "horizontal"
 		},
 		{
-			"key": "field_68008a5f1013",
-			"label": "Button Group Alignment",
-			"name": "feature_button_group_alignment",
-			"aria-label": "",
-			"type": "button_group",
-			"instructions": "Controls how the CTA group is arranged.",
+			"key": "field_68008a5f1034",
+			"label": "Tablet Vertical Alignment",
+			"name": "feature_tablet_vertical_align",
+			"type": "radio",
+			"instructions": "Adjust alignment on tablet screens (768-1023px). Leave as Default to inherit the main setting.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_68008a5f1008",
+						"operator": "!=empty"
+					}
+				]
+			],
 			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
+				"width": "50"
 			},
 			"choices": {
-				"left": "Left",
+				"default": "Default",
+				"top": "Top",
 				"center": "Center"
 			},
-			"default_value": "left",
+			"default_value": "default",
 			"return_format": "value",
 			"allow_null": 0,
-			"allow_in_bindings": 0,
 			"layout": "horizontal"
 		},
 		{
@@ -484,6 +605,7 @@
 				"id": ""
 			},
 			"choices": {
+				"white": "White",
 				"beige": "Beige",
 				"blue": "Blue",
 				"orange": "Orange",
@@ -514,6 +636,30 @@
 			"open": 0,
 			"multi_expand": 0,
 			"endpoint": 0
+		},
+		{
+			"key": "field_68008a5f1013",
+			"label": "Button Alignment",
+			"name": "feature_button_group_alignment",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Controls horizontal alignment of the button area.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"left": "Left",
+				"center": "Center"
+			},
+			"default_value": "left",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
 		},
 		{
 			"key": "field_68008a5f1017",
@@ -579,14 +725,15 @@
 				]
 			],
 			"wrapper": {
-				"width": "",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
 			"choices": {
 				"primary": "Primary",
 				"secondary": "Secondary",
-				"ghost": "Ghost"
+				"ghost": "Ghost",
+				"dark": "Dark"
 			},
 			"default_value": "primary",
 			"return_format": "value",
@@ -614,7 +761,7 @@
 				]
 			],
 			"wrapper": {
-				"width": "",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
@@ -695,14 +842,15 @@
 				]
 			],
 			"wrapper": {
-				"width": "",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
 			"choices": {
 				"primary": "Primary",
 				"secondary": "Secondary",
-				"ghost": "Ghost"
+				"ghost": "Ghost",
+				"dark": "Dark"
 			},
 			"default_value": "secondary",
 			"return_format": "value",
@@ -730,7 +878,7 @@
 				]
 			],
 			"wrapper": {
-				"width": "",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
