@@ -6,7 +6,6 @@
 	--fu-filtered-surface-alt: #f7f8fa;
 	--fu-filtered-accent: #0d3b66;
 	--fu-filtered-accent-strong: #08263f;
-	/* --fu-filtered-shadow: 0 20px 44px rgba(15, 23, 42, 0.08); */
 	color: var(--fu-filtered-text);
 }
 
@@ -62,10 +61,6 @@
 	outline: none;
 }
 
-/* .fu-filtered-content-grid__filter:focus-visible {
-	box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.18);
-} */
-
 .fu-filtered-content-grid__filter.is-active {
 	background: var(--fu-filtered-accent);
 	border-color: var(--fu-filtered-accent);
@@ -112,28 +107,14 @@
 	overflow: clip;
 	background: var(--fu-filtered-surface);
 	border: 1px solid rgba(31, 41, 51, 0.08);
-	/* box-shadow: var(--fu-filtered-shadow); */
-	transform: translateY(0);
 	animation: fuFilteredGridFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 	animation-delay: calc(var(--fu-filtered-index, 0) * 0.06s);
-	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-		box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fu-filtered-content-grid__results.is-swapping .fu-filtered-content-grid__card {
 	animation: none;
 	opacity: 1;
-}
-
-/* .fu-filtered-content-grid.is-transitioning .fu-filtered-content-grid__card,
-.fu-filtered-content-grid.is-transitioning
-	.fu-filtered-content-grid__card:hover {
-	box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
-} */
-
-.fu-filtered-content-grid__card:hover {
-	transform: translateY(-4px);
-	/* box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12); */
 }
 
 .fu-filtered-content-grid__image-link {

@@ -2,8 +2,6 @@
 	"use strict";
 
 	const ROOT_SELECTOR = "[data-fu-filtered-content-grid]";
-	const LOADING_UI_DELAY = 140;
-	const TRANSITION_CLEANUP_DELAY = 850;
 	const observedDocuments = new WeakSet();
 	let alpineReadyListenerBound = false;
 	const acfApi =
@@ -244,12 +242,9 @@
 		return {
 			activeTerm: 0,
 			loading: false,
-			loadingVisible: false,
 			isSwapping: false,
 			requestId: 0,
 			rootEl: null,
-			loadingUiTimer: null,
-			transitionCleanupTimer: null,
 			config: { ...DEFAULTS },
 
 			init() {
@@ -271,62 +266,16 @@
 				};
 				this.activeTerm = Number.isFinite(activeTerm) ? activeTerm : 0;
 				this.loading = false;
-				this.loadingVisible = false;
 				this.isSwapping = false;
 
 				this.syncStatus(getInitialStatusMessage(this.rootEl, this.config));
 				this.syncLoadingState();
 			},
 
-			clearLoadingUiDelay() {
-				if (this.loadingUiTimer) {
-					window.clearTimeout(this.loadingUiTimer);
-					this.loadingUiTimer = null;
-				}
-			},
-
-			scheduleLoadingUi() {
-				this.clearLoadingUiDelay();
-				this.loadingVisible = false;
-				this.loadingUiTimer = window.setTimeout(() => {
-					this.loadingUiTimer = null;
-					if (!this.loading) {
-						return;
-					}
-
-					this.loadingVisible = true;
-					this.syncLoadingState();
-				}, LOADING_UI_DELAY);
-			},
-
 			finishLoadingState() {
-				this.clearLoadingUiDelay();
 				this.loading = false;
-				this.loadingVisible = false;
+				this.isSwapping = false;
 				this.syncLoadingState();
-			},
-
-			clearTransitionCleanup() {
-				if (this.transitionCleanupTimer) {
-					window.clearTimeout(this.transitionCleanupTimer);
-					this.transitionCleanupTimer = null;
-				}
-			},
-
-			setTransitioningState(isActive) {
-				if (!this.rootEl) {
-					return;
-				}
-
-				this.rootEl.classList.toggle("is-transitioning", isActive);
-			},
-
-			scheduleTransitionCleanup() {
-				this.clearTransitionCleanup();
-				this.transitionCleanupTimer = window.setTimeout(() => {
-					this.transitionCleanupTimer = null;
-					this.setTransitioningState(false);
-				}, TRANSITION_CLEANUP_DELAY);
 			},
 
 			syncStatus(message) {
@@ -343,7 +292,7 @@
 					this.rootEl?.querySelectorAll("[data-filter-term]") || [];
 
 				if (results) {
-					results.classList.toggle("is-loading", this.loadingVisible);
+					results.classList.toggle("is-loading", this.loading);
 					results.classList.toggle("is-swapping", this.isSwapping);
 					results.setAttribute("aria-busy", this.loading ? "true" : "false");
 				}
@@ -395,7 +344,6 @@
 				this.isSwapping = true;
 				this.requestId += 1;
 				const requestId = this.requestId;
-				this.scheduleLoadingUi();
 				this.syncLoadingState();
 
 				try {
@@ -412,15 +360,8 @@
 
 					const items = (await response.json()).map(mapPost);
 
-					console.log("[Filtered Content Grid] REST result", {
-						termId,
-						url: this.buildUrl(termId),
-						itemCount: items.length,
-						titles: items.map((item) => item.title),
-					});
-
 					if (requestId !== this.requestId || !this.rootEl?.isConnected) {
-						this.clearLoadingUiDelay();
+						this.finishLoadingState();
 						return;
 					}
 
@@ -433,39 +374,23 @@
 					const updateMarkup = () => {
 						const results = this.rootEl?.querySelector("[data-grid-results]");
 
-						console.log("[Filtered Content Grid] DOM update", {
-							termId,
-							count: items.length,
-							hasResultsEl: !!results,
-						});
-
 						if (results) {
 							results.innerHTML = markup;
 						}
 
-						this.clearLoadingUiDelay();
-						this.loadingVisible = false;
-						this.loading = false;
+						this.finishLoadingState();
 						this.syncStatus(items.length ? "" : this.config.emptyMessage);
-						this.syncLoadingState();
-						this.scheduleTransitionCleanup();
 					};
 
-					this.setTransitioningState(true);
 					runDomUpdate(this.rootEl, updateMarkup);
 				} catch (error) {
 					if (requestId !== this.requestId || !this.rootEl?.isConnected) {
-						this.clearLoadingUiDelay();
-						this.clearTransitionCleanup();
-						this.setTransitioningState(false);
+						this.finishLoadingState();
 						return;
 					}
 
 					console.error("Filtered Content Grid request failed.", error);
 					this.finishLoadingState();
-					this.isSwapping = false;
-					this.clearTransitionCleanup();
-					this.setTransitioningState(false);
 					this.syncStatus("Unable to update the grid right now.");
 				}
 			},
