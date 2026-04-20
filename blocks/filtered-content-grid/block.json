@@ -1,0 +1,19 @@
+{
+	"name": "acf/filtered-content-grid",
+	"title": "Filtered Content Grid",
+	"apiVersion": 3,
+	"category": "formatting",
+	"icon": "screenoptions",
+	"keywords": ["filtered", "content", "grid"],
+	"style": "file:./filtered-content-grid.css",
+	"script": ["file:./filtered-content-grid.js", "alpine-js"],
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"html": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

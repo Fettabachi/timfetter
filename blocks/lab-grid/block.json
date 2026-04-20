@@ -9,7 +9,7 @@
 	"keywords": ["lab", "filter", "grid"],
 	"acf": {
 		"mode": "preview",
-		"renderTemplate": "lab-grid.php"
+		"renderTemplate": "render.php"
 	},
 	"script": "alpine-js"
 }
