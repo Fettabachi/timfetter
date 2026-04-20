@@ -4,9 +4,9 @@ if (!function_exists('fu_filtered_content_grid_get_source_settings')) {
     function fu_filtered_content_grid_get_source_settings()
     {
         return [
-            'post_type' => 'fu_lab',
-            'taxonomy' => 'lab_category',
-            'rest_base' => 'fu_lab',
+            'post_type' => 'resource',
+            'taxonomy' => 'resource_category',
+            'rest_base' => 'resource',
         ];
     }
 }

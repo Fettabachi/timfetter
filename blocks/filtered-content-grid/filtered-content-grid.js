@@ -13,8 +13,8 @@
 		taxonomy: "",
 		itemCount: 12,
 		showExcerpt: true,
-		ctaLabel: "View Item",
-		emptyMessage: "No items found.",
+		ctaLabel: "View Resource",
+		emptyMessage: "No resources found.",
 		transitionScope: "fu-filtered-content-grid",
 		allLabel: "All",
 	};

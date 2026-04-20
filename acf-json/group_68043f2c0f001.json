@@ -58,7 +58,7 @@
 				"class": "",
 				"id": ""
 			},
-			"default_value": "View Item",
+			"default_value": "View Resource",
 			"maxlength": "",
 			"allow_in_bindings": 0,
 			"placeholder": "",
@@ -100,7 +100,7 @@
 				"class": "",
 				"id": ""
 			},
-			"default_value": 12,
+			"default_value": 15,
 			"min": 1,
 			"max": 50,
 			"allow_in_bindings": 0,

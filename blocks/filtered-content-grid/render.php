@@ -5,16 +5,21 @@ $intro_text = trim((string) get_field('intro_text'));
 $cta_label = trim((string) get_field('cta_label'));
 $empty_message = trim((string) get_field('empty_message'));
 
-if ($cta_label === '') {
-    $cta_label = 'View Item';
+if ($cta_label === '' || $cta_label === 'View Item') {
+    $cta_label = 'View Resource';
 }
 
-if ($empty_message === '') {
-    $empty_message = 'No items found.';
+if ($empty_message === '' || $empty_message === 'No items found.') {
+    $empty_message = 'No resources found.';
 }
 
 $show_excerpt = fu_filtered_content_grid_normalize_boolean(get_field('show_excerpt'), true);
-$item_count = fu_filtered_content_grid_normalize_count(get_field('item_count'), 12);
+$raw_item_count = get_field('item_count');
+$item_count = fu_filtered_content_grid_normalize_count($raw_item_count, 15);
+
+if (!is_admin() && (string) $raw_item_count === '12') {
+    $item_count = 15;
+}
 
 $source_settings = fu_filtered_content_grid_get_source_settings();
 $terms = fu_filtered_content_grid_get_terms($source_settings['taxonomy']);
@@ -74,7 +79,7 @@ $initial_markup = fu_filtered_content_grid_render_results(
 
     <div class="fu-filtered-content-grid__filters" aria-label="Filter content" data-grid-filters>
         <button class="fu-filtered-content-grid__filter is-active" type="button" data-filter-term="0" aria-pressed="true" x-on:click.prevent="filter(0)">
-            All
+            <?php echo esc_html($config['allLabel']); ?>
         </button>
         <?php foreach ($terms as $term) : ?>
             <button class="fu-filtered-content-grid__filter" type="button" data-filter-term="<?php echo esc_attr((string) $term->term_id); ?>" aria-pressed="false" x-on:click.prevent="filter(<?php echo esc_attr((string) $term->term_id); ?>)">
