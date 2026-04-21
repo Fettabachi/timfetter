@@ -406,7 +406,7 @@ html :where(.wp-block) {
 }
 
 .block-editor-block-list__layout {
-	margin-inline: -8px;
+	/* margin-inline: -8px; */
 }
 
 /* Ensure the editor container allows the banner to be full-height */

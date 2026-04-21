@@ -67,7 +67,7 @@ footer {
 }
 
 #primary {
-	font-size: 75%;
+	/* font-size: 75%; */
 
 	@include atSmDesktop {
 		font-size: 100%;
@@ -385,13 +385,15 @@ h1,
 h2 {
 	margin-bottom: 20px;
 	color: $blue_black;
-	font-size: 2.5em;
+	/* font-size: 2.5em; */
+	font-size: 2.25rem;
 	font-weight: 300;
 	letter-spacing: 0.25px;
 	font-family: "Raleway", sans-serif;
 }
 
 h2 {
+	font-size: 1.875rem;
 	margin-bottom: 36px;
 }
 
@@ -998,10 +1000,22 @@ footer {
 	color: $rust;
 }
 
+html :where(.editor-styles-wrapper) {
+	padding: 8px !important;
+}
+
 .entry-header {
 	margin-block-start: clamp(1.5rem, 2.807vw + 0.842rem, 3rem);
 
 	h1 {
+		margin-block-end: clamp(1.25rem, 1.404vw + 0.921rem, 2rem);
+	}
+}
+
+.entry-content {
+	margin-block-start: clamp(1.5rem, 2.807vw + 0.842rem, 3rem);
+
+	h2 {
 		margin-block-end: clamp(1.25rem, 1.404vw + 0.921rem, 2rem);
 	}
 }
