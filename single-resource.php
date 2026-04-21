@@ -75,19 +75,6 @@ $related_resources = new WP_Query($related_args);
                     );
                     ?>
                 </div>
-
-                <aside class="fu-resource-single__sidebar">
-                    <!-- <div class="fu-resource-single__panel">
-                        <h2>Resource Details</h2>
-
-                        <?php if ($primary_term) : ?>
-                            <p><strong>Category:</strong> <?php echo esc_html($primary_term->name); ?></p>
-                        <?php endif; ?>
-
-                        <p><strong>Use:</strong> Planning, implementation, or reference</p>
-                        <p><strong>Format:</strong> Resource entry</p>
-                    </div>
-                </aside> -->
             </div>
 
             <?php if ($related_resources->have_posts()) : ?>

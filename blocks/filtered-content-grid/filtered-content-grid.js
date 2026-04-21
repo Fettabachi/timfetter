@@ -11,7 +11,7 @@
 	const DEFAULTS = {
 		endpoint: "",
 		taxonomy: "",
-		itemCount: 12,
+		itemCount: 15,
 		showExcerpt: true,
 		ctaLabel: "View Resource",
 		emptyMessage: "No resources found.",

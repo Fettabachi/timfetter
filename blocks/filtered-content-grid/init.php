@@ -11,6 +11,39 @@ if (!function_exists('fu_filtered_content_grid_get_source_settings')) {
     }
 }
 
+if (!function_exists('fu_filtered_content_grid_get_default_item_count')) {
+    function fu_filtered_content_grid_get_default_item_count()
+    {
+        return 15;
+    }
+}
+
+if (!function_exists('fu_filtered_content_grid_normalize_cta_label')) {
+    function fu_filtered_content_grid_normalize_cta_label($value)
+    {
+        $label = trim((string) $value);
+
+        if ($label === '' || $label === 'View Item') {
+            return 'View Resource';
+        }
+
+        return $label;
+    }
+}
+
+if (!function_exists('fu_filtered_content_grid_normalize_empty_message')) {
+    function fu_filtered_content_grid_normalize_empty_message($value)
+    {
+        $message = trim((string) $value);
+
+        if ($message === '' || $message === 'No items found.') {
+            return 'No resources found.';
+        }
+
+        return $message;
+    }
+}
+
 if (!function_exists('fu_filtered_content_grid_normalize_boolean')) {
     function fu_filtered_content_grid_normalize_boolean($value, $default = true)
     {
@@ -43,8 +76,12 @@ if (!function_exists('fu_filtered_content_grid_normalize_boolean')) {
 }
 
 if (!function_exists('fu_filtered_content_grid_normalize_count')) {
-    function fu_filtered_content_grid_normalize_count($value, $default = 12)
+    function fu_filtered_content_grid_normalize_count($value, $default = null)
     {
+        if ($default === null) {
+            $default = fu_filtered_content_grid_get_default_item_count();
+        }
+
         $count = absint($value);
 
         if ($count < 1) {
@@ -52,6 +89,19 @@ if (!function_exists('fu_filtered_content_grid_normalize_count')) {
         }
 
         return min($count, 50);
+    }
+}
+
+if (!function_exists('fu_filtered_content_grid_resolve_item_count')) {
+    function fu_filtered_content_grid_resolve_item_count($value, $is_admin = false)
+    {
+        $count = fu_filtered_content_grid_normalize_count($value);
+
+        if (!$is_admin && (string) $value === '12') {
+            return fu_filtered_content_grid_get_default_item_count();
+        }
+
+        return $count;
     }
 }
 
@@ -72,7 +122,7 @@ if (!function_exists('fu_filtered_content_grid_get_terms')) {
 }
 
 if (!function_exists('fu_filtered_content_grid_get_posts')) {
-    function fu_filtered_content_grid_get_posts($source_settings, $active_term_id = 0, $item_count = 12)
+    function fu_filtered_content_grid_get_posts($source_settings, $active_term_id = 0, $item_count = null)
     {
         $query_args = [
             'post_type' => $source_settings['post_type'],
@@ -118,6 +168,7 @@ if (!function_exists('fu_filtered_content_grid_render_card')) {
         }
 
         ob_start();
+
 ?>
         <article class="fu-filtered-content-grid__card" style="--fu-filtered-index: <?php echo esc_attr((string) $index); ?>; view-transition-name: <?php echo esc_attr($transition_name); ?>;">
             <a class="fu-filtered-content-grid__image-link" href="<?php echo esc_url($permalink); ?>">
@@ -169,6 +220,7 @@ if (!function_exists('fu_filtered_content_grid_render_results')) {
                 );
             }
         } else {
+
         ?>
             <div class="fu-filtered-content-grid__empty-state">
                 <p><?php echo esc_html($empty_message); ?></p>

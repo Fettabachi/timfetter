@@ -2,24 +2,10 @@
 
 $heading = trim((string) get_field('heading'));
 $intro_text = trim((string) get_field('intro_text'));
-$cta_label = trim((string) get_field('cta_label'));
-$empty_message = trim((string) get_field('empty_message'));
-
-if ($cta_label === '' || $cta_label === 'View Item') {
-    $cta_label = 'View Resource';
-}
-
-if ($empty_message === '' || $empty_message === 'No items found.') {
-    $empty_message = 'No resources found.';
-}
-
+$cta_label = fu_filtered_content_grid_normalize_cta_label(get_field('cta_label'));
+$empty_message = fu_filtered_content_grid_normalize_empty_message(get_field('empty_message'));
 $show_excerpt = fu_filtered_content_grid_normalize_boolean(get_field('show_excerpt'), true);
-$raw_item_count = get_field('item_count');
-$item_count = fu_filtered_content_grid_normalize_count($raw_item_count, 15);
-
-if (!is_admin() && (string) $raw_item_count === '12') {
-    $item_count = 15;
-}
+$item_count = fu_filtered_content_grid_resolve_item_count(get_field('item_count'), is_admin());
 
 $source_settings = fu_filtered_content_grid_get_source_settings();
 $terms = fu_filtered_content_grid_get_terms($source_settings['taxonomy']);
