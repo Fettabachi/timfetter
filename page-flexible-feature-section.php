@@ -12,7 +12,7 @@ get_header();
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece'); ?>>
     <div class="container">
         <div class="entry-content">
-            <section class="fu-portfolio-piece__lead">
+            <section id="lead" class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
@@ -46,7 +46,7 @@ get_header();
                 </div>
             </section>
 
-            <section class="fu-case-section">
+            <section id="overview" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-case-section__eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading">A More Reliable Way to Build Feature Sections</h2>
@@ -61,7 +61,7 @@ get_header();
                 <?php the_content(); ?>
             </section>
 
-            <section class="fu-case-section">
+            <section id="outcome" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-case-section__eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">Flexible for Editors, Reliable on the Front End</h2>
