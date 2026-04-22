@@ -2069,7 +2069,7 @@ html :where(.editor-styles-wrapper) {
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
-  max-width: 14ch;
+  max-width: 24ch;
 }
 
 .fu-portfolio-piece__actions {
@@ -2409,6 +2409,175 @@ html :where(.editor-styles-wrapper) {
   }
   .fu-resource-single__media {
     max-width: 100%;
+  }
+}
+.fu-page-banner-portfolio__demo-panel .fu-portfolio-piece__demo-panel-inner {
+  padding: clamp(1.25rem, 2.8vw, 1.8rem);
+}
+
+.fu-page-banner-portfolio__demo-note {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(13, 59, 102, 0.12);
+  border-radius: 14px;
+  background: rgba(13, 59, 102, 0.05);
+  color: rgba(13, 59, 102, 0.84);
+}
+
+.fu-page-banner-portfolio__demo-note p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.fu-page-banner-portfolio__demo-stage {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Keep the showcased banners wide and avoid extra spacing wrappers */
+.fu-page-banner-portfolio__demo-stage > * {
+  margin: 0;
+}
+
+/* Remove rounded showcase framing only in this portfolio context */
+.fu-page-banner-portfolio__demo-stage .fu-page-banner,
+.fu-page-banner-portfolio__demo-stage [class*=fu-page-banner] {
+  border-radius: 0;
+}
+
+/* Tighten any extra block spacing if WordPress/theme wrappers add it */
+.fu-page-banner-portfolio__demo-stage > .wp-block,
+.fu-page-banner-portfolio__demo-stage > .acf-block-preview,
+.fu-page-banner-portfolio__demo-stage > .block-editor-block-list__block {
+  margin-block: 0;
+}
+
+/* Give the front-end settings button a little more visibility without changing the component design */
+.fu-page-banner-portfolio__demo-stage .fu-page-banner__controls-toggle,
+.fu-page-banner-portfolio__demo-stage [class*=controls-toggle] {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 760px) {
+  .fu-page-banner-portfolio__demo-stage {
+    gap: 1.5rem;
+  }
+}
+.fu-page-banner-portfolio__demo-head {
+  margin-bottom: 1rem;
+}
+
+.fu-page-banner-portfolio__demo-heading {
+  margin: 0.6rem 0 0;
+  color: var(--fu-blue, #0d3b66);
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.8rem, 2vw + 1.2rem, 2.6rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.fu-page-banner-portfolio__demo-note {
+  margin-bottom: 1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(13, 59, 102, 0.12);
+  border-radius: 14px;
+  background: rgba(13, 59, 102, 0.05);
+  color: rgba(13, 59, 102, 0.84);
+}
+
+.fu-page-banner-portfolio__demo-note p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* .fu-page-banner-portfolio__demo-stage {
+	display: grid;
+	gap: 1.25rem;
+} */
+/* Use this class on paragraph blocks or headings inserted above each demo in the editor */
+.fu-page-banner-portfolio__demo-label {
+  display: inline-flex;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-height: 2rem;
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(13, 59, 102, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--fu-blue, #0d3b66);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Tighten block spacing inside the demo stage */
+.fu-page-banner-portfolio__demo-stage > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Remove rounded top framing only in this showcase context */
+.fu-page-banner-portfolio__demo-stage .fu-page-banner,
+.fu-page-banner-portfolio__demo-stage [class*=fu-page-banner] {
+  border-radius: 0;
+}
+
+/* Slightly tighten the visual relationship between paired examples */
+.fu-page-banner-portfolio__demo-stage .fu-page-banner + .fu-page-banner,
+.fu-page-banner-portfolio__demo-stage [class*=fu-page-banner] + [class*=fu-page-banner] {
+  margin-top: -0.25rem;
+}
+
+/* If the editor injects wrapper spacing, neutralize it */
+.fu-page-banner-portfolio__demo-stage > .wp-block,
+.fu-page-banner-portfolio__demo-stage > .acf-block-preview,
+.fu-page-banner-portfolio__demo-stage > .block-editor-block-list__block {
+  margin-block: 0;
+}
+
+/* Give the front-end settings button a little more visibility */
+.fu-page-banner-portfolio__demo-stage .fu-page-banner__controls-toggle,
+.fu-page-banner-portfolio__demo-stage [class*=controls-toggle] {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+}
+
+/* Strengthen the principles cards slightly */
+.fu-principles__item {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(13, 59, 102, 0.12);
+  box-shadow: 0 10px 24px rgba(13, 59, 102, 0.04);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.fu-principles__item:hover,
+.fu-principles__item:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(13, 59, 102, 0.18);
+  background: #ffffff;
+  box-shadow: 0 14px 32px rgba(13, 59, 102, 0.08);
+}
+
+.fu-principles__item h3 {
+  font-size: 1.1rem;
+}
+
+/* Optional: if you decide to make the second banner left-aligned, this gives you a contextual note style nearby */
+.fu-page-banner-portfolio__variation-note {
+  margin-top: 0.75rem;
+  color: rgba(13, 59, 102, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .fu-page-banner-portfolio__demo-stage {
+    gap: 1rem;
   }
 }
 

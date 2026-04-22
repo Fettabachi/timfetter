@@ -27,6 +27,7 @@
 		.fu-page-banner__content {
 			display: flex;
 			flex-direction: row;
+			max-width: 65rem;
 			padding: 0;
 
 			/* These styles make the editor UX feel like an app */
@@ -40,8 +41,9 @@
 			}
 
 			.acf-innerblocks-container {
-				flex-shrink: 0; /* Don't let the text squish */
+				/* flex-shrink: 0; */ /* Don't let the text squish */
 				transition: text-align 0.3s ease;
+				text-wrap-style: balance;
 			}
 		}
 
@@ -216,18 +218,25 @@
 
 	h1,
 	h2,
+	h3,
 	p,
 	a {
-		font-weight: 300;
+		font-weight: 400;
 		letter-spacing: 0.25px;
 		font-family: "Open Sans", sans-serif;
 		color: #fff;
 	}
 
-	p,
+	h1,
+	h2,
+	h3 {
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.25);
+	}
+
+	/* p,
 	a {
 		font-weight: 400;
-	}
+	} */
 }
 
 /* Subtle lift on pause */
@@ -304,6 +313,7 @@
 		font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem);
 		line-height: 1.1;
 		margin: 0;
+		margin-block: 0 0.2em;
 	}
 	.headline--medium {
 		font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
@@ -330,6 +340,10 @@
 /* 3. COMPONENTS: BUTTONS
    ------------------------------------------------------------------------- */
 .fu-page-banner {
+	.fu-banner-button-wrapper {
+		margin-block-start: 1.5rem;
+	}
+
 	.btn {
 		display: inline-block;
 		text-decoration: none;
