@@ -76,6 +76,10 @@ get_header();
 
             <section class="fu-portfolio-piece__demo-panel fu-page-banner-portfolio__demo-panel" id="live-demo">
                 <div class="fu-portfolio-piece__demo-panel-inner">
+                    <div class="fu-portfolio__hint">
+                        <span>Try the live controls</span>
+                    </div>
+
                     <div class="fu-page-banner-portfolio__demo-head">
                         <p class="fu-case-section__eyebrow">Live Component Preview</p>
                         <h2 class="fu-page-banner-portfolio__demo-heading">Interactive Banner Configurations</h2>
@@ -100,6 +104,7 @@ get_header();
                         The front-end controls shown here expose a curated subset of the available options. The full set of controls is available to editors within the WordPress block editor.
                     </p>
                 </div>
+
             </section>
 
             <section class="fu-principles">

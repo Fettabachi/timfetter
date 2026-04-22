@@ -37,8 +37,8 @@
         <div class="fu-demo-group">
             <label>Visibility</label>
             <div class="fu-demo-toggles">
-                <label><input type="checkbox" id="check-h2" data-visibility-class="hide-h2" /> Subhead</label>
-                <label><input type="checkbox" id="check-p" data-visibility-class="hide-p" /> Text</label>
+                <label><input type="checkbox" id="check-subhead" data-visibility-class="hide-subhead" /> Subhead</label>
+                <label><input type="checkbox" id="check-body" data-visibility-class="hide-body" /> Body Text</label>
                 <label><input type="checkbox" id="check-btn1" data-visibility-class="hide-btn-1" /> Button 1</label>
                 <label><input type="checkbox" id="check-btn2" data-visibility-class="hide-btn-2" /> Button 2</label>
             </div>

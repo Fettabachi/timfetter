@@ -1,0 +1,66 @@
+{
+	"key": "group_69df0002b84a2",
+	"title": "Block: Page Banner Text",
+	"fields": [
+		{
+			"key": "field_69df0002abed1",
+			"label": "Body Text",
+			"name": "body_text",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Descriptive text goes here.",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"rows": 4,
+			"placeholder": "",
+			"new_lines": "br"
+		},
+		{
+			"key": "field_69df0002abed2",
+			"label": "Banner Role",
+			"name": "banner_role",
+			"aria-label": "",
+			"type": "hidden",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "body",
+			"allow_in_bindings": 0
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/fu-page-banner-text"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "side",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1775779200
+}

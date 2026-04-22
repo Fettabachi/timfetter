@@ -17,14 +17,20 @@
 		"fu-page-banner--align-right",
 	];
 	const EDITOR_CONTROL_DEFAULTS = {
-		show_h2: true,
-		show_p: true,
+		show_subhead: true,
+		show_body: true,
 		show_btn_1: true,
 		show_btn_2: true,
 		alignment_buttons: "center",
 		pause_blur_intensity: 7,
 		bg_focal_point: "center center",
 	};
+	const BANNER_HEADING_ROLE_CLASSES = [
+		"fu-page-banner__primary-heading",
+		"fu-page-banner__subhead",
+	];
+	const HEADING_TEXT_FIELD_SELECTOR =
+		'.acf-field[data-key="field_69a187ceabed1"]';
 
 	const normalizeMediaSrc = (value) => {
 		if (typeof value !== "string") return "";
@@ -53,6 +59,179 @@
 
 	const getFieldElement = (field) =>
 		field?.$el?.get?.(0) || field?.$el?.[0] || null;
+
+	const getClosestBlockElement = (fieldOrElement) => {
+		const fieldElement =
+			fieldOrElement?.nodeType === 1
+				? fieldOrElement
+				: getFieldElement(fieldOrElement);
+
+		if (!fieldElement) return null;
+
+		return fieldElement.closest(".block-editor-block-list__block[data-block]");
+	};
+
+	const getBlockEditorStore = () => wp?.data?.select?.("core/block-editor");
+	const getBlockEditorDispatch = () =>
+		wp?.data?.dispatch?.("core/block-editor");
+
+	const getBlockRecord = (clientId) => {
+		if (!clientId) return null;
+
+		return getBlockEditorStore()?.getBlock?.(clientId) || null;
+	};
+
+	const getBlockParentChain = (clientId) => {
+		const store = getBlockEditorStore();
+		if (!store?.getBlockParents || !clientId) return [];
+
+		return store.getBlockParents(clientId) || [];
+	};
+
+	const isPageBannerHeadingBlock = (clientId) => {
+		const blockRecord = getBlockRecord(clientId);
+		if (blockRecord?.name !== "acf/fu-heading") return false;
+
+		return getBlockParentChain(clientId).some((parentClientId) => {
+			const parentBlock = getBlockRecord(parentClientId);
+			return parentBlock?.name === "acf/fu-page-banner";
+		});
+	};
+
+	const getHeadingRole = (fieldOrElement) => {
+		const blockElement = getClosestBlockElement(fieldOrElement);
+		const selectedClientId =
+			getBlockEditorStore()?.getSelectedBlockClientId?.();
+		const clientId = blockElement?.dataset?.block || selectedClientId;
+
+		if (!isPageBannerHeadingBlock(clientId)) {
+			return null;
+		}
+
+		if (clientId) {
+			const blockRecord = getBlockRecord(clientId);
+			const className = String(blockRecord?.attributes?.className || "");
+
+			if (className.includes("fu-page-banner__subhead")) {
+				return "subhead";
+			}
+
+			if (className.includes("fu-page-banner__primary-heading")) {
+				return "primary";
+			}
+		}
+
+		return "primary";
+	};
+
+	const normalizeClassName = (className) =>
+		String(className || "")
+			.split(/\s+/)
+			.map((token) => token.trim())
+			.filter(Boolean);
+
+	const getMigratedHeadingClassName = (className, expectedClassName) => {
+		const tokens = normalizeClassName(className).filter(
+			(token) => !BANNER_HEADING_ROLE_CLASSES.includes(token)
+		);
+
+		if (!tokens.includes(expectedClassName)) {
+			tokens.push(expectedClassName);
+		}
+
+		return tokens.join(" ");
+	};
+
+	const getAllBlocks = (blocks) => {
+		const flatBlocks = [];
+
+		(blocks || []).forEach((block) => {
+			flatBlocks.push(block);
+			if (Array.isArray(block?.innerBlocks) && block.innerBlocks.length > 0) {
+				flatBlocks.push(...getAllBlocks(block.innerBlocks));
+			}
+		});
+
+		return flatBlocks;
+	};
+
+	const migratePageBannerHeadingClasses = () => {
+		const select = getBlockEditorStore();
+		const dispatch = getBlockEditorDispatch();
+
+		if (!select || !dispatch) return;
+
+		const pageBanners = getAllBlocks(select.getBlocks()).filter(
+			(block) => block?.name === "acf/fu-page-banner"
+		);
+
+		pageBanners.forEach((pageBanner) => {
+			const headingBlocks = (pageBanner.innerBlocks || []).filter(
+				(innerBlock) => innerBlock?.name === "acf/fu-heading"
+			);
+
+			const expectedClasses = [
+				"fu-page-banner__primary-heading",
+				"fu-page-banner__subhead",
+			];
+			let bannerWasMigrated = false;
+
+			headingBlocks
+				.slice(0, expectedClasses.length)
+				.forEach((headingBlock, index) => {
+					const expectedClassName = expectedClasses[index];
+					const nextClassName = getMigratedHeadingClassName(
+						headingBlock?.attributes?.className,
+						expectedClassName
+					);
+					const currentClassName = String(
+						headingBlock?.attributes?.className || ""
+					).trim();
+
+					if (currentClassName !== nextClassName) {
+						dispatch.updateBlockAttributes(headingBlock.clientId, {
+							className: nextClassName,
+						});
+						bannerWasMigrated = true;
+					}
+				});
+
+			if (bannerWasMigrated) {
+				console.log(
+					"[Page Banner] Migrated heading role classes for an existing banner. Save the post to persist the update.",
+					pageBanner.clientId
+				);
+			}
+		});
+	};
+
+	const syncHeadingFieldLabels = () => {
+		if (typeof acf?.getFields !== "function") return;
+
+		const headingTextFields = acf.getFields({
+			key: "field_69a187ceabed1",
+		});
+
+		(headingTextFields || []).forEach((field) => {
+			updateHeadingFieldLabel(field);
+		});
+	};
+
+	const updateHeadingFieldLabel = (fieldOrElement) => {
+		const fieldElement = getFieldElement(fieldOrElement) || fieldOrElement;
+		if (!fieldElement?.matches?.(HEADING_TEXT_FIELD_SELECTOR)) {
+			return;
+		}
+
+		const labelNode = fieldElement.querySelector(".acf-label label");
+		if (!labelNode) return;
+
+		const role = getHeadingRole(fieldElement);
+		if (!role) return;
+
+		labelNode.textContent =
+			role === "subhead" ? "Subheading Text" : "Heading Text";
+	};
 
 	const getEditorDocuments = () => {
 		const docs = [document];
@@ -167,8 +346,8 @@
 		});
 
 		return {
-			show_h2: normalizeBooleanValue(values.show_h2, true),
-			show_p: normalizeBooleanValue(values.show_p, true),
+			show_subhead: normalizeBooleanValue(values.show_subhead, true),
+			show_body: normalizeBooleanValue(values.show_body, true),
 			show_btn_1: normalizeBooleanValue(values.show_btn_1, true),
 			show_btn_2: normalizeBooleanValue(values.show_btn_2, true),
 			alignment_buttons:
@@ -188,8 +367,8 @@
 	const applyEditorBannerState = (banner, values) => {
 		if (!banner || !values) return;
 
-		banner.classList.toggle("hide-h2", !values.show_h2);
-		banner.classList.toggle("hide-p", !values.show_p);
+		banner.classList.toggle("hide-subhead", !values.show_subhead);
+		banner.classList.toggle("hide-body", !values.show_body);
 		banner.classList.toggle("hide-btn-1", !values.show_btn_1);
 		banner.classList.toggle("hide-btn-2", !values.show_btn_2);
 
@@ -231,11 +410,17 @@
 		const value = field.val();
 
 		switch (name) {
-			case "show_h2":
-				banner.classList.toggle("hide-h2", !normalizeBooleanValue(value, true));
+			case "show_subhead":
+				banner.classList.toggle(
+					"hide-subhead",
+					!normalizeBooleanValue(value, true)
+				);
 				return true;
-			case "show_p":
-				banner.classList.toggle("hide-p", !normalizeBooleanValue(value, true));
+			case "show_body":
+				banner.classList.toggle(
+					"hide-body",
+					!normalizeBooleanValue(value, true)
+				);
 				return true;
 			case "show_btn_1":
 				banner.classList.toggle(
@@ -445,6 +630,24 @@
 	 */
 	const initEditor = () => {
 		if (typeof window.acf === "undefined") return;
+
+		migratePageBannerHeadingClasses();
+		requestAnimationFrame(syncHeadingFieldLabels);
+
+		acf.addAction(
+			"ready_field/key=field_69a187ceabed1",
+			updateHeadingFieldLabel
+		);
+		acf.addAction(
+			"append_field/key=field_69a187ceabed1",
+			updateHeadingFieldLabel
+		);
+		acf.addAction("render_block_preview", () => {
+			requestAnimationFrame(() => {
+				migratePageBannerHeadingClasses();
+				syncHeadingFieldLabels();
+			});
+		});
 
 		const requestEditorPlayback = (video, banner, button) => {
 			if (banner.hasAttribute("data-manual-pause")) return;
@@ -693,8 +896,8 @@
 			// alignment_buttons is a button_group field (treated like a radio)
 			alignment_buttons: "center",
 			// visibility controls - true means show (don't apply hide class)
-			show_h2: 1,
-			show_p: 1,
+			show_subhead: 1,
+			show_body: 1,
 			show_btn_1: 1,
 			show_btn_2: 1,
 		};

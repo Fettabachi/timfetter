@@ -35,13 +35,13 @@ $opacity      = $opacity_raw / 100;
 $blend_mode   = get_field('banner_overlay_blend_mode') ?: 'normal';
 
 // Visibility Toggles
-$show_h2_value    = get_field('show_h2');
-$show_p_value     = get_field('show_p');
+$show_subhead_value = get_field('show_subhead');
+$show_body_value    = get_field('show_body');
 $show_btn_1_value = get_field('show_btn_1');
 $show_btn_2_value = get_field('show_btn_2');
 
-$show_h2    = $show_h2_value === null ? true : (bool) $show_h2_value;
-$show_p     = $show_p_value === null ? true : (bool) $show_p_value;
+$show_subhead = $show_subhead_value === null ? true : (bool) $show_subhead_value;
+$show_body    = $show_body_value === null ? true : (bool) $show_body_value;
 $show_btn_1 = $show_btn_1_value === null ? true : (bool) $show_btn_1_value;
 $show_btn_2 = $show_btn_2_value === null ? true : (bool) $show_btn_2_value;
 
@@ -62,8 +62,8 @@ if ($bg_type === 'video' && $video_url) {
 }
 
 // Map Visibility to CSS classes
-if (!$show_h2)    $classes[] = 'hide-h2';
-if (!$show_p)     $classes[] = 'hide-p';
+if (!$show_subhead) $classes[] = 'hide-subhead';
+if (!$show_body)    $classes[] = 'hide-body';
 if (!$show_btn_1) $classes[] = 'hide-btn-1';
 if (!$show_btn_2) $classes[] = 'hide-btn-2';
 
@@ -86,9 +86,31 @@ foreach ($style_vars as $key => $val) {
 
 // 4. InnerBlocks Template
 $template = [
-    ['acf/fu-heading', ['heading_level' => 'h1', 'placeholder' => 'Welcome!']],
-    ['acf/fu-heading', ['heading_level' => 'h2', 'placeholder' => 'Subheadline here']],
-    ['core/paragraph', ['content' => 'Descriptive text goes here.', 'align' => 'center']],
+    ['acf/fu-heading', [
+        'data' => [
+            'heading_level' => 'h1',
+            '_heading_level' => 'field_69a1886babed3',
+        ],
+        'heading_level' => 'h1',
+        'className' => 'fu-page-banner__primary-heading',
+    ]],
+    ['acf/fu-heading', [
+        'data' => [
+            'heading_level' => 'h2',
+            '_heading_level' => 'field_69a1886babed3',
+        ],
+        'heading_level' => 'h2',
+        'className' => 'fu-page-banner__subhead',
+    ]],
+    ['acf/fu-page-banner-text', [
+        'data' => [
+            'banner_role' => 'body',
+            '_banner_role' => 'field_69df0002abed2',
+            'body_text' => 'Descriptive text goes here.',
+            '_body_text' => 'field_69df0002abed1',
+        ],
+        'banner_role' => 'body',
+    ]],
     ['core/group', ['className' => 'fu-banner-button-wrapper'], [
         ['acf/fu-button', ['btn_text' => 'Primary Action', 'btn_color' => 'orange', 'btn_size' => 'large']],
         ['acf/fu-button', ['btn_text' => 'Secondary Action', 'btn_color' => 'blue', 'btn_size' => 'large']]

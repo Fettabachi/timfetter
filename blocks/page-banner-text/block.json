@@ -1,0 +1,12 @@
+{
+	"name": "acf/fu-page-banner-text",
+	"title": "FU Page Banner Text",
+	"parent": ["acf/fu-page-banner"],
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "editor-paragraph",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "fu-page-banner-text.php"
+	}
+}

@@ -143,9 +143,8 @@
 			}
 		}
 
-		h1,
-		h2,
-		h3 {
+		.fu-page-banner__primary-heading,
+		.fu-page-banner__subhead {
 			margin-bottom: 20px;
 			color: #0f1726;
 			font-size: 2.5em;
@@ -178,22 +177,27 @@
 			color: inherit;
 		}
 
-		.fu-page-banner__content p {
+		.fu-page-banner__body {
 			font-size: clamp(1rem, 0.252vw + 0.905rem, 1.25rem);
 			line-height: 1.6;
 			margin: 0;
 			margin-block-end: 1.9rem;
 			color: inherit;
+			display: grid;
+			gap: 1rem;
 		}
 
-		&.hide-h2 .fu-page-banner__content {
-			h2,
-			.headline--medium {
-				display: none !important;
-			}
+		.fu-page-banner__body > * {
+			margin: 0;
+			color: inherit;
+			font: inherit;
 		}
 
-		&.hide-p .fu-page-banner__content p {
+		&.hide-subhead .fu-page-banner__subhead {
+			display: none !important;
+		}
+
+		&.hide-body .fu-page-banner__body {
 			display: none !important;
 		}
 
@@ -295,7 +299,7 @@
 
 					> .block-editor-inner-blocks > .block-editor-block-list__layout,
 					> .acf-innerblocks-container,
-					p {
+					.fu-page-banner__body {
 						align-items: flex-start;
 						text-align: left;
 					}
@@ -343,7 +347,7 @@
 
 					> .block-editor-inner-blocks > .block-editor-block-list__layout,
 					> .acf-innerblocks-container,
-					p {
+					.fu-page-banner__body {
 						align-items: flex-end;
 						text-align: right;
 					}
@@ -405,10 +409,6 @@ html :where(.wp-block) {
 		align-items: flex-end;
 		text-align: right;
 	}
-}
-
-.block-editor-block-list__layout {
-	/* margin-inline: -8px; */
 }
 
 /* Ensure the editor container allows the banner to be full-height */

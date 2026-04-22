@@ -31,8 +31,8 @@
 			pauseBlur: "10px",
 			align: "center",
 			visibility: {
-				"hide-h2": true,
-				"hide-p": true,
+				"hide-subhead": true,
+				"hide-body": true,
 				"hide-btn-1": true,
 				"hide-btn-2": true,
 			},
