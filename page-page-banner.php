@@ -107,36 +107,37 @@ get_header();
 
             </section>
 
-            <section class="fu-principles">
+            <section id="design-principles" class="fu-principles">
                 <div class="fu-principles__inner">
-                    <p class="fu-principles__eyebrow">Design Principles</p>
+                    <p class="fu-principles__eyebrow">Design Principles Behind This Block</p>
+                    <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
 
                     <div class="fu-principles__grid">
                         <div class="fu-principles__item">
-                            <h3>Keep the banner visually strong</h3>
+                            <h3>Controlled Flexibility</h3>
                             <p>
-                                This component is designed to work at full width, so it has the space it needs to feel like a true page header rather than a constrained module.
+                                Editors can adjust layout, media, and alignment without breaking the design. Options are intentionally limited to maintain consistency across pages.
                             </p>
                         </div>
 
                         <div class="fu-principles__item">
-                            <h3>Expose useful controls, not every control</h3>
+                            <h3>Built-In Branding</h3>
                             <p>
-                                The demo surfaces a small interactive subset, while the editor experience provides broader configuration where it belongs.
+                                Colors, overlays, and spacing are driven by predefined design tokens, allowing teams to match their brand without custom development.
                             </p>
                         </div>
 
                         <div class="fu-principles__item">
-                            <h3>Balance flexibility with guardrails</h3>
+                            <h3>Reusable by Design</h3>
                             <p>
-                                The goal is not unlimited variation. It is to give editors meaningful choices while preserving readability, structure, and consistency.
+                                The same component supports multiple use cases—from high-impact video banners to simple image headers—without rebuilding layouts.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="fu-case-section">
+            <section id="editor-experience" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-case-section__eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading">A Better Demo on the Front End, a Broader Toolset in the Editor</h2>
@@ -152,7 +153,7 @@ get_header();
                 </div>
             </section>
 
-            <section class="fu-case-section">
+            <section id="implementation" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-case-section__eyebrow">Implementation</p>
                     <h2 class="fu-case-section__heading">Flexible Media, Predictable Output</h2>
@@ -169,7 +170,7 @@ get_header();
                 </div>
             </section>
 
-            <section class="fu-case-section">
+            <section id="outcome" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-case-section__eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">A Reusable Hero Component for Real WordPress Builds</h2>

@@ -67,7 +67,8 @@ get_header();
 
             <section class="fu-principles">
                 <div class="fu-principles__inner">
-                    <p class="fu-principles__eyebrow">Design Principles</p>
+                    <p class="fu-principles__eyebrow">Design Principles Behind This Block</p>
+                    <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
 
                     <div class="fu-principles__grid">
                         <div class="fu-principles__item">
