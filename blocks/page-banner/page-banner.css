@@ -11,15 +11,8 @@
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	min-height: clamp(29rem, 13.724vw + 25.784rem, 37.5rem);
+	min-height: clamp(15rem, 16.145vw + 11.216rem, 25rem);
 	background-color: #222;
-	padding-top: clamp(5rem, 4.2rem + 4vw, 8.125rem);
-	padding-bottom: clamp(2.5rem, 2.1rem + 2vw, 3.75rem);
-
-	&.has-video {
-		padding-top: clamp(8rem, 6rem + 12vw, 15rem);
-		padding-bottom: clamp(4rem, 3rem + 6vw, 8rem);
-	}
 
 	/* Banner Content Horizontal Alignment Modifiers */
 	@media (min-width: 48rem) {
@@ -41,7 +34,10 @@
 			}
 
 			.acf-innerblocks-container {
-				/* flex-shrink: 0; */ /* Don't let the text squish */
+				flex-shrink: 0;
+				width: fit-content;
+				max-width: min(100%, 52rem);
+				min-width: 0;
 				transition: text-align 0.3s ease;
 				text-wrap-style: balance;
 			}
@@ -98,6 +94,30 @@
 			}
 		}
 	}
+}
+
+.fu-page-banner.fu-page-banner--pt-small {
+	padding-top: clamp(3rem, 2.5rem + 2vw, 4.5rem);
+}
+
+.fu-page-banner.fu-page-banner--pt-medium {
+	padding-top: clamp(5rem, 4rem + 4vw, 8rem);
+}
+
+.fu-page-banner.fu-page-banner--pt-large {
+	padding-top: clamp(7rem, 5.5rem + 6vw, 11rem);
+}
+
+.fu-page-banner.fu-page-banner--pb-small {
+	padding-bottom: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+}
+
+.fu-page-banner.fu-page-banner--pb-medium {
+	padding-bottom: clamp(3rem, 2.5rem + 2.5vw, 5rem);
+}
+
+.fu-page-banner.fu-page-banner--pb-large {
+	padding-bottom: clamp(4.5rem, 3.5rem + 4vw, 7rem);
 }
 
 /* configuration toggle button placed inside each banner */
@@ -245,12 +265,18 @@
 }
 
 .fu-banner-button-wrapper {
+	width: 100%;
+	max-width: 100%;
+	margin-inline: auto;
+
 	> div {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 1rem;
 		margin-top: 1rem;
+		width: 100%;
+		max-width: 100%;
 	}
 
 	/* Buttons share width when there are two */

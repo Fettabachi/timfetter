@@ -23,6 +23,8 @@ $focal_point  = get_field('bg_focal_point') ?: 'center center';
 $focal_point  = is_string($focal_point) ? trim($focal_point) : 'center center';
 $focal_point  = $focal_point === 'center' || $focal_point === '' ? 'center center' : $focal_point;
 $alignment    = get_field('alignment_buttons') ?: 'center';
+$padding_top = get_field('padding_top') ?: 'medium';
+$padding_bottom = get_field('padding_bottom') ?: 'medium';
 
 // Visual Filters & Overlays
 $contrast     = get_field('banner_contrast') ?? '100';
@@ -53,6 +55,8 @@ $block_id     = 'fu-banner-' . $block['id'];
 $classes = ['fu-page-banner', 'alignfull'];
 if (!empty($block['className'])) $classes[] = $block['className'];
 if ($alignment) $classes[] = 'fu-page-banner--align-' . $alignment;
+if ($padding_top) $classes[] = 'fu-page-banner--pt-' . sanitize_html_class($padding_top);
+if ($padding_bottom) $classes[] = 'fu-page-banner--pb-' . sanitize_html_class($padding_bottom);
 
 // Video-specific logic
 $banner_args = '';
