@@ -16,6 +16,7 @@ if (!function_exists('fu_content_switcher_get_seed_panels')) {
                 'label' => 'Strategy',
                 'slug' => 'strategy',
                 'icon' => 'strategy',
+                'layout' => 'text_media',
                 'eyebrow' => 'Content Planning',
                 'heading' => 'Plan content before building layouts',
                 'body' => 'Structured sections help teams organize complex information before visual styling begins, making content easier to maintain and easier for users to scan.',
@@ -24,15 +25,26 @@ if (!function_exists('fu_content_switcher_get_seed_panels')) {
                     'Reduces layout rework',
                     'Improves editorial consistency',
                 ),
-                'cta_1_text' => 'See the Demo',
-                'cta_1_url' => '#live-demo',
-                'cta_2_text' => 'Implementation Notes',
-                'cta_2_url' => '#implementation',
+                'cta_1' => array(
+                    'title' => 'See the Demo',
+                    'url' => '#live-demo',
+                    'target' => '',
+                ),
+                'cta_1_style' => 'primary',
+                'cta_1_size' => 'medium',
+                'cta_2' => array(
+                    'title' => 'Implementation Notes',
+                    'url' => '#implementation',
+                    'target' => '',
+                ),
+                'cta_2_style' => 'outline',
+                'cta_2_size' => 'medium',
             ),
             array(
                 'label' => 'Design',
                 'slug' => 'design',
                 'icon' => 'design',
+                'layout' => 'media_text',
                 'eyebrow' => 'System-Driven Styling',
                 'heading' => 'Keep branding consistent across variations',
                 'body' => 'The same structured component can support different visual treatments while staying inside a controlled design system for spacing, color, and presentation.',
@@ -41,15 +53,26 @@ if (!function_exists('fu_content_switcher_get_seed_panels')) {
                     'Brand-aware presentation',
                     'Flexible without visual drift',
                 ),
-                'cta_1_text' => 'Design Principles',
-                'cta_1_url' => '#design-principles',
-                'cta_2_text' => 'Editor Experience',
-                'cta_2_url' => '#editor-experience',
+                'cta_1' => array(
+                    'title' => 'Design Principles',
+                    'url' => '#design-principles',
+                    'target' => '',
+                ),
+                'cta_1_style' => 'primary',
+                'cta_1_size' => 'medium',
+                'cta_2' => array(
+                    'title' => 'Editor Experience',
+                    'url' => '#editor-experience',
+                    'target' => '',
+                ),
+                'cta_2_style' => 'text',
+                'cta_2_size' => 'medium',
             ),
             array(
                 'label' => 'Development',
                 'slug' => 'development',
                 'icon' => 'development',
+                'layout' => 'text_only',
                 'eyebrow' => 'Reusable Architecture',
                 'heading' => 'Build components editors can trust',
                 'body' => 'Reusable blocks are most effective when the editor experience mirrors the front end and content rules are clear enough to prevent accidental breakage.',
@@ -58,10 +81,20 @@ if (!function_exists('fu_content_switcher_get_seed_panels')) {
                     'Predictable markup and styling',
                     'Better editor/front-end parity',
                 ),
-                'cta_1_text' => 'How It’s Built',
-                'cta_1_url' => '#implementation',
-                'cta_2_text' => 'View Portfolio',
-                'cta_2_url' => '/portfolio/',
+                'cta_1' => array(
+                    'title' => 'How It’s Built',
+                    'url' => '#implementation',
+                    'target' => '',
+                ),
+                'cta_1_style' => 'secondary',
+                'cta_1_size' => 'medium',
+                'cta_2' => array(
+                    'title' => 'View Portfolio',
+                    'url' => '/portfolio/',
+                    'target' => '',
+                ),
+                'cta_2_style' => 'text',
+                'cta_2_size' => 'small',
             ),
         );
     }
@@ -88,6 +121,8 @@ if (!function_exists('fu_content_switcher_seed_panel_data')) {
             '_panel_slug' => 'field_6806fc300203',
             'panel_icon' => $panel['icon'],
             '_panel_icon' => 'field_6806fc300204',
+            'panel_layout' => $panel['layout'],
+            '_panel_layout' => 'field_6806fc300218',
             'panel_eyebrow' => $panel['eyebrow'],
             '_panel_eyebrow' => 'field_6806fc300206',
             'panel_heading' => $panel['heading'],
@@ -96,18 +131,22 @@ if (!function_exists('fu_content_switcher_seed_panel_data')) {
             '_panel_body' => 'field_6806fc300208',
             'panel_highlights' => $highlight_rows,
             '_panel_highlights' => 'field_6806fc300209',
-            'panel_cta_1_text' => $panel['cta_1_text'],
-            '_panel_cta_1_text' => 'field_6806fc30020b',
-            'panel_cta_1_url' => $panel['cta_1_url'],
-            '_panel_cta_1_url' => 'field_6806fc30020c',
             'show_primary_button' => 1,
             '_show_primary_button' => 'field_6806fc300216',
-            'panel_cta_2_text' => $panel['cta_2_text'],
-            '_panel_cta_2_text' => 'field_6806fc30020d',
-            'panel_cta_2_url' => $panel['cta_2_url'],
-            '_panel_cta_2_url' => 'field_6806fc30020e',
+            'panel_cta_1_link' => $panel['cta_1'],
+            '_panel_cta_1_link' => 'field_6806fc30020b',
+            'panel_cta_1_style' => $panel['cta_1_style'],
+            '_panel_cta_1_style' => 'field_6806fc30020c',
+            'panel_cta_1_size' => $panel['cta_1_size'],
+            '_panel_cta_1_size' => 'field_6806fc30020f',
             'show_secondary_button' => 1,
             '_show_secondary_button' => 'field_6806fc300217',
+            'panel_cta_2_link' => $panel['cta_2'],
+            '_panel_cta_2_link' => 'field_6806fc30020d',
+            'panel_cta_2_style' => $panel['cta_2_style'],
+            '_panel_cta_2_style' => 'field_6806fc30020e',
+            'panel_cta_2_size' => $panel['cta_2_size'],
+            '_panel_cta_2_size' => 'field_6806fc300210',
         );
     }
 }
@@ -417,16 +456,22 @@ $nav_alignment = fu_content_switcher_sanitize_choice(
     'left'
 );
 
-$panel_layout = fu_content_switcher_sanitize_choice(
-    get_field('panel_layout') ?: 'text_media',
-    array('text_only', 'text_media', 'media_text'),
-    'text_media'
+$background_style = fu_content_switcher_sanitize_choice(
+    get_field('background_style') ?: 'none',
+    array('none', 'light', 'dark'),
+    'none'
 );
 
-$background_style = fu_content_switcher_sanitize_choice(
-    get_field('background_style') ?: 'surface',
-    array('none', 'surface', 'surface-alt', 'brand-tint', 'dark'),
-    'surface'
+$switcher_shadow = fu_content_switcher_sanitize_choice(
+    get_field('switcher_shadow') ?: 'soft',
+    array('none', 'soft', 'medium', 'strong'),
+    'soft'
+);
+
+$panel_background = fu_content_switcher_sanitize_choice(
+    get_field('panel_background') ?: 'none',
+    array('none', 'light', 'dark'),
+    'none'
 );
 
 $panel_radius = fu_content_switcher_sanitize_choice(
@@ -443,6 +488,12 @@ $spacing_top = fu_content_switcher_sanitize_choice(
 
 $spacing_bottom = fu_content_switcher_sanitize_choice(
     get_field('spacing_bottom') ?: 'medium',
+    array('small', 'medium', 'large'),
+    'medium'
+);
+
+$spacing_inline = fu_content_switcher_sanitize_choice(
+    get_field('spacing_inline') ?: 'medium',
     array('small', 'medium', 'large'),
     'medium'
 );
@@ -536,6 +587,7 @@ if (!empty($saved_panel_markup)) {
 
 $panel_count = count($panels);
 $initial_index = max(0, (int) (get_field('initial_active_panel') ?: 1) - 1);
+$panel_uses_dark_surface = $panel_background === 'dark' || ($panel_background === 'none' && $background_style === 'dark');
 
 if ($panel_count > 0 && $initial_index >= $panel_count) {
     $initial_index = 0;
@@ -545,13 +597,15 @@ $classes = array(
     'fu-content-switcher',
     'fu-content-switcher--' . $display_style,
     'fu-content-switcher--mobile-' . $mobile_behavior,
-    'fu-content-switcher--layout-' . $panel_layout,
     'fu-content-switcher--bg-' . sanitize_html_class($background_style),
+    'fu-content-switcher--shadow-' . sanitize_html_class($switcher_shadow),
+    'fu-content-switcher--panel-bg-' . sanitize_html_class($panel_background),
     'fu-content-switcher--radius-' . $panel_radius,
     'fu-content-switcher--nav-' . $nav_alignment,
     'fu-content-switcher--transition-' . $panel_transition,
     'fu-content-switcher--pt-' . $spacing_top,
     'fu-content-switcher--pb-' . $spacing_bottom,
+    'fu-content-switcher--px-' . $spacing_inline,
 );
 
 if ($show_nav_icons) {
@@ -560,6 +614,10 @@ if ($show_nav_icons) {
 
 if ($equal_nav_items) {
     $classes[] = 'fu-content-switcher--equal-nav';
+}
+
+if ($panel_uses_dark_surface) {
+    $classes[] = 'fu-content-switcher--panel-surface-dark';
 }
 
 if (!empty($block['align'])) {

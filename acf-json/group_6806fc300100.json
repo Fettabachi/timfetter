@@ -34,7 +34,7 @@
 				"class": "",
 				"id": ""
 			},
-			"message": "This block contains panels. Select a 'FU Switcher Panel' to edit its content, media, and buttons.",
+			"message": "This block contains panels. Select a 'Switcher Panel' to edit content, media, and buttons.",
 			"new_lines": "wpautop",
 			"esc_html": 0
 		},
@@ -108,7 +108,7 @@
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "100",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
@@ -121,36 +121,6 @@
 				"6": "6"
 			},
 			"default_value": "1",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300105",
-			"label": "Panel Layout",
-			"name": "panel_layout",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "Controls the text and media arrangement inside each panel.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"text_only": "Text Only",
-				"text_media": "Text / Media",
-				"media_text": "Media / Text"
-			},
-			"default_value": "text_media",
 			"return_format": "value",
 			"multiple": 0,
 			"allow_null": 0,
@@ -177,8 +147,8 @@
 			},
 			"choices": {
 				"none": "None",
-				"fade": "Fade",
-				"slide": "Slide"
+				"fade": "Crossfade",
+				"slide": "Slide Up"
 			},
 			"default_value": "fade",
 			"return_format": "value",
@@ -252,6 +222,36 @@
 			"save_options": 0
 		},
 		{
+			"key": "field_6806fc300115",
+			"label": "Inline Spacing",
+			"name": "spacing_inline",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "medium",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
+		},
+		{
 			"key": "field_6806fc300109",
 			"label": "Visual Styles",
 			"name": "",
@@ -271,7 +271,7 @@
 		},
 		{
 			"key": "field_6806fc30010a",
-			"label": "Background Style",
+			"label": "Switcher Background",
 			"name": "background_style",
 			"aria-label": "",
 			"type": "select",
@@ -285,12 +285,71 @@
 			},
 			"choices": {
 				"none": "None",
-				"surface": "Surface",
-				"surface-alt": "Surface Alt",
-				"brand-tint": "Brand Tint",
+				"light": "Light",
 				"dark": "Dark"
 			},
-			"default_value": "surface",
+			"default_value": "none",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
+		},
+		{
+			"key": "field_6806fc300113",
+			"label": "Switcher Shadow",
+			"name": "switcher_shadow",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "Controls the shell depth without changing panel behavior.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"none": "None",
+				"soft": "Soft",
+				"medium": "Medium",
+				"strong": "Strong"
+			},
+			"default_value": "soft",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
+		},
+		{
+			"key": "field_6806fc300114",
+			"label": "Panel Background",
+			"name": "panel_background",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "Controls the panel surface independently from the switcher shell.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"none": "None",
+				"light": "Light",
+				"dark": "Dark"
+			},
+			"default_value": "none",
 			"return_format": "value",
 			"multiple": 0,
 			"allow_null": 0,
@@ -303,7 +362,7 @@
 		},
 		{
 			"key": "field_6806fc30010b",
-			"label": "Panel Radius",
+			"label": "Panel Border Radius",
 			"name": "panel_radius",
 			"aria-label": "",
 			"type": "select",

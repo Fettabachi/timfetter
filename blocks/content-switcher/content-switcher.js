@@ -162,11 +162,17 @@
 					dataNode.closest(EDITOR_PANEL_SELECTORS) ||
 					dataNode.closest("[data-block]") ||
 					dataNode;
+				const blockEdit =
+					Array.from(wrapper.children || []).find((child) =>
+						child.classList?.contains("block-editor-block-list__block-edit")
+					) || wrapper;
+				wrapper.classList.add("fu-content-switcher__panel");
+				blockEdit.classList.add("fu-content-switcher__panel-inner");
 				wrapper.dataset.fuSwitcherEditorPanel = "true";
 				return {
 					index,
 					wrapper,
-					content: wrapper,
+					content: blockEdit,
 					accordion: null,
 					dataNode,
 					slug:

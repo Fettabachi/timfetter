@@ -30,7 +30,7 @@
 			"required": 1,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "50",
+				"width": "100",
 				"class": "",
 				"id": ""
 			},
@@ -64,7 +64,7 @@
 		},
 		{
 			"key": "field_6806fc300203",
-			"label": "Panel Link ID (optional)",
+			"label": "Panel Link ID",
 			"name": "panel_slug",
 			"aria-label": "",
 			"type": "text",
@@ -97,7 +97,7 @@
 			"name": "panel_icon",
 			"aria-label": "",
 			"type": "select",
-			"instructions": "Choose from a limited icon set for navigation tabs.",
+			"instructions": "Choose an icon for the tab label.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -141,6 +141,36 @@
 			"open": 0,
 			"multi_expand": 0,
 			"endpoint": 0
+		},
+		{
+			"key": "field_6806fc300218",
+			"label": "Panel Layout",
+			"name": "panel_layout",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "Controls the text and media arrangement for this panel.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "100",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"text_only": "Text Only",
+				"text_media": "Text / Media",
+				"media_text": "Media / Text"
+			},
+			"default_value": "text_media",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300206",
@@ -213,7 +243,7 @@
 			"name": "panel_highlights",
 			"aria-label": "",
 			"type": "repeater",
-			"instructions": "Optional short supporting points displayed beneath the body content.",
+			"instructions": "Optional short supporting points shown below the content.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -277,9 +307,17 @@
 			"name": "panel_image",
 			"aria-label": "",
 			"type": "image",
-			"instructions": "Media will not display when the parent Content Switcher uses Text Only panel layout.",
+			"instructions": "Media will not display when this panel uses Text Only layout.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300218",
+						"operator": "!=",
+						"value": "text_only"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "",
 				"class": "",
@@ -338,10 +376,36 @@
 		},
 		{
 			"key": "field_6806fc30020b",
-			"label": "Primary Button Label",
-			"name": "panel_cta_1_text",
+			"label": "Primary Button Link",
+			"name": "panel_cta_1_link",
 			"aria-label": "",
-			"type": "text",
+			"type": "link",
+			"instructions": "Leave incomplete while drafting; the preview will show a placeholder until the link is set.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300216",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "100",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"allow_in_bindings": 0,
+			"placeholder": ""
+		},
+		{
+			"key": "field_6806fc30020c",
+			"label": "Primary Button Style",
+			"name": "panel_cta_1_style",
+			"aria-label": "",
+			"type": "select",
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": [
@@ -358,20 +422,26 @@
 				"class": "",
 				"id": ""
 			},
-			"default_value": "",
-			"maxlength": "",
+			"choices": {
+				"primary": "Primary",
+				"secondary": "Secondary",
+				"outline": "Outline",
+				"text": "Text"
+			},
+			"default_value": "primary",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"placeholder": "",
-			"prepend": "",
-			"append": ""
+			"placeholder": ""
 		},
 		{
-			"key": "field_6806fc30020c",
-			"label": "Primary Button URL",
-			"name": "panel_cta_1_url",
+			"key": "field_6806fc30020f",
+			"label": "Primary Button Size",
+			"name": "panel_cta_1_size",
 			"aria-label": "",
-			"type": "text",
-			"instructions": "Accepts internal anchors (#section), relative URLs (/page), or full URLs (https://example.com).",
+			"type": "select",
+			"instructions": "",
 			"required": 0,
 			"conditional_logic": [
 				[
@@ -387,9 +457,21 @@
 				"class": "",
 				"id": ""
 			},
-			"default_value": "",
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "medium",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"placeholder": ""
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300217",
@@ -414,10 +496,36 @@
 		},
 		{
 			"key": "field_6806fc30020d",
-			"label": "Secondary Button Label",
-			"name": "panel_cta_2_text",
+			"label": "Secondary Button Link",
+			"name": "panel_cta_2_link",
 			"aria-label": "",
-			"type": "text",
+			"type": "link",
+			"instructions": "Leave incomplete while drafting; the preview will show a placeholder until the link is set.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300217",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "100",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"allow_in_bindings": 0,
+			"placeholder": ""
+		},
+		{
+			"key": "field_6806fc30020e",
+			"label": "Secondary Button Style",
+			"name": "panel_cta_2_style",
+			"aria-label": "",
+			"type": "select",
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": [
@@ -434,20 +542,26 @@
 				"class": "",
 				"id": ""
 			},
-			"default_value": "",
-			"maxlength": "",
+			"choices": {
+				"primary": "Primary",
+				"secondary": "Secondary",
+				"outline": "Outline",
+				"text": "Text"
+			},
+			"default_value": "secondary",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"placeholder": "",
-			"prepend": "",
-			"append": ""
+			"placeholder": ""
 		},
 		{
-			"key": "field_6806fc30020e",
-			"label": "Secondary Button URL",
-			"name": "panel_cta_2_url",
+			"key": "field_6806fc300210",
+			"label": "Secondary Button Size",
+			"name": "panel_cta_2_size",
 			"aria-label": "",
-			"type": "text",
-			"instructions": "Accepts internal anchors (#section), relative URLs (/page), or full URLs (https://example.com).",
+			"type": "select",
+			"instructions": "",
 			"required": 0,
 			"conditional_logic": [
 				[
@@ -463,9 +577,21 @@
 				"class": "",
 				"id": ""
 			},
-			"default_value": "",
+			"choices": {
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "medium",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"placeholder": ""
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		}
 	],
 	"location": [

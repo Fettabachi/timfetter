@@ -1,11 +1,186 @@
 .editor-styles-wrapper .fu-content-switcher,
 .acf-block-component .fu-content-switcher {
+	--switcher-surface: rgba(255, 255, 255, 0.78);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.94);
+	--switcher-surface-soft: rgba(250, 240, 202, 0.52);
+	--switcher-border: rgba(13, 59, 102, 0.16);
+	--switcher-border-strong: rgba(13, 59, 102, 0.24);
+	--switcher-text: var(--fu-blue);
+	--switcher-muted: rgba(13, 59, 102, 0.68);
+	--switcher-accent: var(--fu-orange);
+	--switcher-accent-soft: rgba(249, 87, 56, 0.14);
+	--switcher-shadow: 0 22px 56px rgba(13, 59, 102, 0.12);
+	--switcher-panel-surface: rgba(255, 255, 255, 0.88);
+	--switcher-panel-surface-strong: rgba(255, 255, 255, 0.96);
+	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-panel-border: rgba(13, 59, 102, 0.12);
+	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
+	--switcher-panel-text: var(--fu-blue);
+	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+	--switcher-panel-radius: calc(var(--fu-radius-lg) + 8px);
+	--switcher-shell-max: 82rem;
+	--switcher-shell-pad-inline: clamp(1rem, 2vw, 1.75rem);
+	--switcher-shell-pad-block: clamp(1.25rem, 0.85rem + 1.3vw, 2rem);
+	--switcher-panel-gap: clamp(1.25rem, 0.9rem + 1.2vw, 2rem);
+	--switcher-panel-min-height: clamp(22rem, 32vw, 30rem);
+	--switcher-tab-radius: 999px;
+	--switcher-outline: 0 0 0 3px rgba(249, 87, 56, 0.18);
+	color: var(--switcher-text);
 	overflow: visible;
+	position: relative;
+}
+
+.editor-styles-wrapper .fu-content-switcher--px-small,
+.acf-block-component .fu-content-switcher--px-small {
+	--switcher-shell-pad-inline: clamp(0.8rem, 1.4vw, 1.1rem);
+}
+
+.editor-styles-wrapper .fu-content-switcher--px-medium,
+.acf-block-component .fu-content-switcher--px-medium {
+	--switcher-shell-pad-inline: clamp(1rem, 2vw, 1.75rem);
+}
+
+.editor-styles-wrapper .fu-content-switcher--px-large,
+.acf-block-component .fu-content-switcher--px-large {
+	--switcher-shell-pad-inline: clamp(1.25rem, 2.8vw, 2.4rem);
+}
+
+.editor-styles-wrapper .fu-content-switcher--bg-none,
+.acf-block-component .fu-content-switcher--bg-none {
+	--switcher-surface: rgba(255, 255, 255, 0.72);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.92);
+	--switcher-surface-soft: rgba(13, 59, 102, 0.04);
+	background: transparent;
+}
+
+.editor-styles-wrapper .fu-content-switcher--bg-light,
+.acf-block-component .fu-content-switcher--bg-light {
+	--switcher-surface: rgba(255, 255, 255, 0.9);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.98);
+	--switcher-surface-soft: rgba(13, 59, 102, 0.06);
+	background: linear-gradient(
+		180deg,
+		rgba(250, 240, 202, 0.2),
+		rgba(255, 255, 255, 0)
+	);
+}
+
+.editor-styles-wrapper .fu-content-switcher--bg-dark,
+.acf-block-component .fu-content-switcher--bg-dark {
+	--switcher-surface: rgba(255, 255, 255, 0.08);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.12);
+	--switcher-surface-soft: rgba(255, 255, 255, 0.06);
+	--switcher-border: rgba(255, 255, 255, 0.14);
+	--switcher-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-text: var(--fu-white);
+	--switcher-muted: rgba(255, 255, 255, 0.74);
+	--switcher-accent-soft: rgba(250, 240, 202, 0.16);
+	background: linear-gradient(
+		180deg,
+		rgba(13, 59, 102, 0.98),
+		rgba(17, 24, 39, 0.94)
+	);
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-bg-none,
+.acf-block-component .fu-content-switcher--panel-bg-none {
+	--switcher-panel-surface: transparent;
+	--switcher-panel-surface-strong: transparent;
+	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-panel-border: rgba(13, 59, 102, 0.12);
+	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
+	--switcher-panel-text: var(--fu-blue);
+	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-bg-light,
+.acf-block-component .fu-content-switcher--panel-bg-light {
+	--switcher-panel-surface: rgba(255, 255, 255, 0.88);
+	--switcher-panel-surface-strong: rgba(255, 255, 255, 0.96);
+	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.06);
+	--switcher-panel-border: rgba(13, 59, 102, 0.12);
+	--switcher-panel-border-strong: rgba(13, 59, 102, 0.22);
+	--switcher-panel-text: var(--fu-blue);
+	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-bg-dark,
+.acf-block-component .fu-content-switcher--panel-bg-dark {
+	--switcher-panel-surface: rgba(13, 59, 102, 0.92);
+	--switcher-panel-surface-strong: rgba(17, 24, 39, 0.96);
+	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-text: var(--fu-white);
+	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-surface-dark,
+.editor-styles-wrapper .fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none,
+.acf-block-component .fu-content-switcher--panel-surface-dark {
+	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-text: var(--fu-white);
+	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+}
+
+.acf-block-component .fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-text: var(--fu-white);
+	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+}
+
+.editor-styles-wrapper .fu-content-switcher--shadow-none,
+.acf-block-component .fu-content-switcher--shadow-none {
+	--switcher-shadow: none;
+}
+
+.editor-styles-wrapper .fu-content-switcher--shadow-soft,
+.acf-block-component .fu-content-switcher--shadow-soft {
+	--switcher-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
+}
+
+.editor-styles-wrapper .fu-content-switcher--shadow-medium,
+.acf-block-component .fu-content-switcher--shadow-medium {
+	--switcher-shadow: 0 22px 56px rgba(13, 59, 102, 0.16);
+}
+
+.editor-styles-wrapper .fu-content-switcher--shadow-strong,
+.acf-block-component .fu-content-switcher--shadow-strong {
+	--switcher-shadow: 0 28px 68px rgba(13, 59, 102, 0.24);
+}
+
+.editor-styles-wrapper .fu-content-switcher--radius-none,
+.acf-block-component .fu-content-switcher--radius-none {
+	--switcher-panel-radius: 0;
+}
+
+.editor-styles-wrapper .fu-content-switcher--radius-small,
+.acf-block-component .fu-content-switcher--radius-small {
+	--switcher-panel-radius: var(--fu-radius-sm);
+}
+
+.editor-styles-wrapper .fu-content-switcher--radius-medium,
+.acf-block-component .fu-content-switcher--radius-medium {
+	--switcher-panel-radius: calc(var(--fu-radius-md) + 4px);
+}
+
+.editor-styles-wrapper .fu-content-switcher--radius-large,
+.acf-block-component .fu-content-switcher--radius-large {
+	--switcher-panel-radius: calc(var(--fu-radius-lg) + 10px);
 }
 
 .editor-styles-wrapper .fu-content-switcher__panels,
 .acf-block-component .fu-content-switcher__panels {
+	margin: 0 auto;
+	max-width: min(100%, var(--switcher-shell-max));
+	min-width: 0;
+	padding-inline: var(--switcher-shell-pad-inline);
 	position: relative;
+	width: 100%;
 }
 
 .editor-styles-wrapper .fu-content-switcher__panels .block-editor-inner-blocks,
@@ -42,8 +217,56 @@
 
 .editor-styles-wrapper .fu-content-switcher__tab,
 .acf-block-component .fu-content-switcher__tab {
+	align-items: center;
+	appearance: none;
+	background: var(--switcher-surface);
+	backdrop-filter: blur(12px);
+	border: 1px solid var(--switcher-border);
+	border-radius: var(--switcher-tab-radius);
+	box-shadow: none;
+	color: var(--switcher-text);
+	cursor: pointer;
+	display: inline-flex;
+	font: inherit;
+	font-weight: 600;
+	gap: 0.7rem;
+	justify-content: center;
+	line-height: 1.2;
+	min-height: 48px;
+	padding: 0.85rem 1.15rem;
 	position: relative;
+	text-align: center;
+	text-decoration: none;
+	transition: transform 0.2s ease, background-color 0.25s ease,
+		border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+	width: auto;
 	z-index: 2;
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab:hover,
+.editor-styles-wrapper .fu-content-switcher__accordion-trigger:hover,
+.acf-block-component .fu-content-switcher__tab:hover,
+.acf-block-component .fu-content-switcher__accordion-trigger:hover {
+	border-color: var(--switcher-border-strong);
+	transform: translateY(-1px);
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab:focus-visible,
+.editor-styles-wrapper .fu-content-switcher__accordion-trigger:focus-visible,
+.acf-block-component .fu-content-switcher__tab:focus-visible,
+.acf-block-component .fu-content-switcher__accordion-trigger:focus-visible {
+	box-shadow: var(--switcher-outline);
+	outline: none;
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab.is-active,
+.editor-styles-wrapper .fu-content-switcher__accordion-trigger.is-active,
+.acf-block-component .fu-content-switcher__tab.is-active,
+.acf-block-component .fu-content-switcher__accordion-trigger.is-active {
+	background: var(--switcher-surface-strong);
+	border-color: rgba(249, 87, 56, 0.34);
+	box-shadow: 0 14px 32px rgba(13, 59, 102, 0.12);
+	color: var(--switcher-text);
 }
 
 .editor-styles-wrapper .fu-content-switcher__tab[hidden],
@@ -53,7 +276,128 @@
 
 .editor-styles-wrapper .fu-content-switcher__nav,
 .acf-block-component .fu-content-switcher__nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: flex-start;
 	margin-bottom: 1rem;
+	max-width: min(100%, var(--switcher-shell-max));
+	padding-inline: var(--switcher-shell-pad-inline);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--nav-center
+	.fu-content-switcher__nav,
+.acf-block-component
+	.fu-content-switcher--nav-center
+	.fu-content-switcher__nav {
+	justify-content: center;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--nav-right
+	.fu-content-switcher__nav,
+.acf-block-component .fu-content-switcher--nav-right .fu-content-switcher__nav {
+	justify-content: flex-end;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--equal-nav
+	.fu-content-switcher__nav,
+.acf-block-component .fu-content-switcher--equal-nav .fu-content-switcher__nav {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	width: min(100%, var(--switcher-shell-max));
+}
+
+.editor-styles-wrapper .fu-content-switcher--minimal .fu-content-switcher__tab,
+.editor-styles-wrapper
+	.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger,
+.acf-block-component .fu-content-switcher--minimal .fu-content-switcher__tab,
+.acf-block-component
+	.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger {
+	background: transparent;
+	border-color: transparent;
+	border-bottom: 2px solid transparent;
+	border-radius: 0;
+	padding-inline: 0.25rem;
+	padding-left: 0;
+	padding-right: 0;
+	transform: none;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--minimal
+	.fu-content-switcher__tab.is-active,
+.editor-styles-wrapper
+	.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger.is-active,
+.acf-block-component
+	.fu-content-switcher--minimal
+	.fu-content-switcher__tab.is-active,
+.acf-block-component
+	.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger.is-active {
+	background: transparent;
+	border-bottom-color: var(--switcher-accent);
+	box-shadow: none;
+}
+
+.editor-styles-wrapper .fu-content-switcher--pills .fu-content-switcher__tab,
+.editor-styles-wrapper
+	.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger,
+.acf-block-component .fu-content-switcher--pills .fu-content-switcher__tab,
+.acf-block-component
+	.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger {
+	background: var(--switcher-accent-soft);
+	border-color: transparent;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--pills
+	.fu-content-switcher__tab.is-active,
+.editor-styles-wrapper
+	.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger.is-active,
+.acf-block-component
+	.fu-content-switcher--pills
+	.fu-content-switcher__tab.is-active,
+.acf-block-component
+	.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger.is-active {
+	background: var(--switcher-accent);
+	color: var(--fu-white);
+}
+
+.editor-styles-wrapper .fu-content-switcher--tabs .fu-content-switcher__tab,
+.editor-styles-wrapper
+	.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger,
+.acf-block-component .fu-content-switcher--tabs .fu-content-switcher__tab,
+.acf-block-component
+	.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger {
+	border-radius: calc(var(--fu-radius-lg) + 6px) calc(var(--fu-radius-lg) + 6px)
+		0 0;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active,
+.editor-styles-wrapper
+	.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger.is-active,
+.acf-block-component
+	.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active,
+.acf-block-component
+	.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger.is-active {
+	border-bottom-color: transparent;
 }
 
 .editor-styles-wrapper
@@ -74,14 +418,366 @@
 .editor-styles-wrapper .fu-content-switcher--vertical,
 .acf-block-component .fu-content-switcher--vertical {
 	align-items: start;
+	display: grid;
+	gap: clamp(1rem, 0.75rem + 1.1vw, 2rem);
+	grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+	margin: 0 auto;
+	max-width: min(100%, var(--switcher-shell-max));
+	padding-inline: var(--switcher-shell-pad-inline);
+}
+
+.editor-styles-wrapper .fu-content-switcher--vertical .fu-content-switcher__nav,
+.acf-block-component .fu-content-switcher--vertical .fu-content-switcher__nav {
+	align-content: start;
+	display: grid;
+	justify-content: stretch;
+	margin: 0;
+	padding: 0;
+	position: sticky;
+	top: 1rem;
+	width: 100%;
+}
+
+.editor-styles-wrapper .fu-content-switcher--vertical .fu-content-switcher__tab,
+.acf-block-component .fu-content-switcher--vertical .fu-content-switcher__tab {
+	border-radius: calc(var(--fu-radius-lg) + 6px);
+	justify-content: flex-start;
+	padding-inline: 1rem;
+	text-align: left;
+	width: 100%;
 }
 
 .editor-styles-wrapper .fu-content-switcher .fu-switcher-panel,
 .acf-block-component .fu-content-switcher .fu-switcher-panel {
+	color: inherit;
 	margin: 0;
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab-icon,
+.acf-block-component .fu-content-switcher__tab-icon {
+	align-items: center;
+	display: inline-flex;
+	flex: 0 0 auto;
+	height: 1.15rem;
+	justify-content: center;
+	width: 1.15rem;
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab-icon svg,
+.acf-block-component .fu-content-switcher__tab-icon svg {
+	fill: currentColor;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.editor-styles-wrapper .fu-content-switcher__panel-inner,
+.acf-block-component .fu-content-switcher__panel-inner,
+.editor-styles-wrapper
+	[data-fu-switcher-editor-panel]
+	> .block-editor-block-list__block-edit,
+.acf-block-component
+	[data-fu-switcher-editor-panel]
+	> .block-editor-block-list__block-edit {
+	background: linear-gradient(
+			180deg,
+			var(--switcher-panel-surface-strong),
+			var(--switcher-panel-surface)
+		),
+		var(--switcher-panel-surface-strong);
+	border: 1px solid var(--switcher-panel-border);
+	border-radius: var(--switcher-panel-radius);
+	box-shadow: var(--switcher-shadow);
+	color: var(--switcher-panel-text);
+	min-height: var(--switcher-panel-min-height);
+	overflow: clip;
+	padding: var(--switcher-shell-pad-block) var(--switcher-shell-pad-inline);
+	position: relative;
+}
+
+.editor-styles-wrapper .fu-content-switcher .fu-switcher-panel__inner,
+.acf-block-component .fu-content-switcher .fu-switcher-panel__inner {
+	align-items: center;
+	display: grid;
+	gap: var(--switcher-panel-gap);
+	grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+	/* min-height: calc(
+		var(--switcher-panel-min-height) - (2 * var(--switcher-shell-pad-block))
+	); */
+	width: 100%;
+}
+
+.editor-styles-wrapper .fu-content-switcher__panel-inner .fu-switcher-panel,
+.acf-block-component .fu-content-switcher__panel-inner .fu-switcher-panel {
+	--switcher-surface: var(--switcher-panel-surface);
+	--switcher-surface-strong: var(--switcher-panel-surface-strong);
+	--switcher-surface-soft: var(--switcher-panel-surface-soft);
+	--switcher-border: var(--switcher-panel-border);
+	--switcher-border-strong: var(--switcher-panel-border-strong);
+	--switcher-text: var(--switcher-panel-text);
+	--switcher-muted: var(--switcher-panel-muted);
+	--switcher-action-secondary-bg: var(--switcher-panel-surface-soft);
+	--switcher-action-secondary-border: var(--switcher-panel-border);
+	--switcher-action-secondary-hover-bg: var(--switcher-panel-surface-soft);
+	--switcher-action-outline-border: var(--switcher-panel-border-strong);
+	--switcher-action-outline-hover-bg: var(--switcher-panel-surface-soft);
+	--switcher-action-text: var(--switcher-panel-text);
+	--switcher-action-text-hover: var(--switcher-accent);
+	color: var(--switcher-panel-text);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_only
+	.fu-switcher-panel__inner,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_only
+	.fu-switcher-panel__inner {
+	grid-template-columns: 1fr;
+	max-width: 54rem;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_only
+	.fu-switcher-panel__media,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_only
+	.fu-switcher-panel__media {
+	display: none;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__content,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__content {
+	order: 2;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__media,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__media {
+	order: 1;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__content,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__content {
+	order: 1;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__media,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__media {
+	order: 2;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__media,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__media,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__media {
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.12);
+}
+
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__media {
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.12);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--secondary,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary {
+	border-color: rgba(255, 255, 255, 0.24);
+	color: var(--fu-white);
+}
+
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--secondary {
+	border-color: rgba(255, 255, 255, 0.24);
+	color: var(--fu-white);
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-surface-dark .fu-switcher-panel,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel,
+.acf-block-component .fu-content-switcher--panel-surface-dark .fu-switcher-panel {
+	--switcher-action-secondary-bg: rgba(255, 255, 255, 0.08);
+	--switcher-action-secondary-border: rgba(255, 255, 255, 0.24);
+	--switcher-action-secondary-hover-bg: rgba(255, 255, 255, 0.12);
+	--switcher-action-outline-border: rgba(255, 255, 255, 0.32);
+	--switcher-action-outline-hover-bg: rgba(255, 255, 255, 0.08);
+	--switcher-action-text: rgba(255, 255, 255, 0.92);
+	--switcher-action-text-hover: var(--fu-white);
+}
+
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel {
+	--switcher-action-secondary-bg: rgba(255, 255, 255, 0.08);
+	--switcher-action-secondary-border: rgba(255, 255, 255, 0.24);
+	--switcher-action-secondary-hover-bg: rgba(255, 255, 255, 0.12);
+	--switcher-action-outline-border: rgba(255, 255, 255, 0.32);
+	--switcher-action-outline-hover-bg: rgba(255, 255, 255, 0.08);
+	--switcher-action-text: rgba(255, 255, 255, 0.92);
+	--switcher-action-text-hover: var(--fu-white);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary:hover,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary:focus-visible,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--secondary:hover,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--secondary:focus-visible,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary:hover,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary:focus-visible {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--secondary:hover,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--secondary:focus-visible {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--outline,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--text,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--outline,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--text,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--outline,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--text {
+	color: var(--fu-white);
+}
+
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--outline,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	.fu-switcher-panel__action--text {
+	color: var(--fu-white);
 }
 
 .editor-styles-wrapper .fu-content-switcher .fu-switcher-panel__actions a,
 .acf-block-component .fu-content-switcher .fu-switcher-panel__actions a {
 	pointer-events: none;
+}
+
+@media (max-width: 63.99rem) {
+	.editor-styles-wrapper .fu-content-switcher--vertical,
+	.acf-block-component .fu-content-switcher--vertical {
+		display: block;
+		padding-inline: 0;
+	}
+
+	.editor-styles-wrapper
+		.fu-content-switcher--vertical
+		.fu-content-switcher__nav,
+	.acf-block-component
+		.fu-content-switcher--vertical
+		.fu-content-switcher__nav {
+		position: relative;
+		top: auto;
+	}
+
+	.editor-styles-wrapper .fu-content-switcher .fu-switcher-panel__inner,
+	.acf-block-component .fu-content-switcher .fu-switcher-panel__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.editor-styles-wrapper
+		.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__content,
+	.editor-styles-wrapper
+		.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__media,
+	.editor-styles-wrapper
+		.fu-content-switcher
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__content,
+	.editor-styles-wrapper
+		.fu-content-switcher
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__media,
+	.acf-block-component
+		.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__content,
+	.acf-block-component
+		.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__media,
+	.acf-block-component
+		.fu-content-switcher
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__content,
+	.acf-block-component
+		.fu-content-switcher
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__media {
+		order: initial;
+	}
 }

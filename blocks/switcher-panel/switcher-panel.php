@@ -7,6 +7,7 @@
  */
 
 $panel_label = trim((string) get_field('panel_label'));
+$panel_layout = get_field('panel_layout') ?: 'text_media';
 $panel_slug = sanitize_title((string) get_field('panel_slug'));
 $panel_icon = sanitize_key((string) get_field('panel_icon'));
 $panel_eyebrow = trim((string) get_field('panel_eyebrow'));
@@ -15,21 +16,35 @@ $panel_body = get_field('panel_body');
 $panel_highlights = get_field('panel_highlights');
 $panel_image = get_field('panel_image');
 $show_primary_button = (bool) get_field('show_primary_button');
-$panel_cta_1_text = trim((string) get_field('panel_cta_1_text'));
-$panel_cta_1_url = trim((string) get_field('panel_cta_1_url'));
+$panel_cta_1_link = get_field('panel_cta_1_link');
+$panel_cta_1_style = get_field('panel_cta_1_style') ?: 'primary';
+$panel_cta_1_size = get_field('panel_cta_1_size') ?: 'medium';
 $show_secondary_button = (bool) get_field('show_secondary_button');
-$panel_cta_2_text = trim((string) get_field('panel_cta_2_text'));
-$panel_cta_2_url = trim((string) get_field('panel_cta_2_url'));
+$panel_cta_2_link = get_field('panel_cta_2_link');
+$panel_cta_2_style = get_field('panel_cta_2_style') ?: 'secondary';
+$panel_cta_2_size = get_field('panel_cta_2_size') ?: 'medium';
 
 $panel_heading = $panel_heading !== '' ? $panel_heading : $panel_label;
 $panel_slug = $panel_slug !== '' ? $panel_slug : sanitize_title($panel_label);
+$panel_layout = in_array($panel_layout, array('text_only', 'text_media', 'media_text'), true) ? $panel_layout : 'text_media';
 $panel_highlights = is_array($panel_highlights) ? array_slice($panel_highlights, 0, 4) : array();
-$has_media = is_array($panel_image) && (!empty($panel_image['ID']) || !empty($panel_image['url']));
-$has_primary_button = $show_primary_button && $panel_cta_1_text !== '' && $panel_cta_1_url !== '';
-$has_secondary_button = $show_secondary_button && $panel_cta_2_text !== '' && $panel_cta_2_url !== '';
+$has_media = $panel_layout !== 'text_only' && is_array($panel_image) && (!empty($panel_image['ID']) || !empty($panel_image['url']));
+$panel_cta_1_link = is_array($panel_cta_1_link) ? $panel_cta_1_link : array();
+$panel_cta_2_link = is_array($panel_cta_2_link) ? $panel_cta_2_link : array();
+$panel_cta_1_title = trim((string) ($panel_cta_1_link['title'] ?? ''));
+$panel_cta_1_url = trim((string) ($panel_cta_1_link['url'] ?? ''));
+$panel_cta_1_target = trim((string) ($panel_cta_1_link['target'] ?? ''));
+$panel_cta_2_title = trim((string) ($panel_cta_2_link['title'] ?? ''));
+$panel_cta_2_url = trim((string) ($panel_cta_2_link['url'] ?? ''));
+$panel_cta_2_target = trim((string) ($panel_cta_2_link['target'] ?? ''));
+$has_primary_button = $show_primary_button;
+$has_secondary_button = $show_secondary_button;
 $has_actions = $has_primary_button || $has_secondary_button;
 
-$classes = array('fu-switcher-panel');
+$classes = array(
+    'fu-switcher-panel',
+    'fu-switcher-panel--layout-' . $panel_layout,
+);
 
 if (!empty($block['className'])) {
     $classes[] = $block['className'];
@@ -37,6 +52,8 @@ if (!empty($block['className'])) {
 
 $body_markup = is_string($panel_body) && $panel_body !== '' ? wp_kses_post($panel_body) : '';
 $editor_panel_label = $panel_label !== '' ? $panel_label . ' Panel' : 'Panel';
+$primary_button_has_link = $panel_cta_1_url !== '';
+$secondary_button_has_link = $panel_cta_2_url !== '';
 ?>
 <article
     class="<?php echo esc_attr(implode(' ', $classes)); ?>"
@@ -75,11 +92,23 @@ $editor_panel_label = $panel_label !== '' ? $panel_label . ' Panel' : 'Panel';
             <?php if ($has_actions) : ?>
                 <div class="fu-switcher-panel__actions">
                     <?php if ($has_primary_button) : ?>
-                        <a class="fu-switcher-panel__action fu-switcher-panel__action--primary" href="<?php echo esc_url($panel_cta_1_url); ?>"><?php echo esc_html($panel_cta_1_text); ?></a>
+                        <?php $primary_label = $panel_cta_1_title !== '' ? $panel_cta_1_title : 'Add primary button link'; ?>
+                        <?php $primary_classes = 'fu-switcher-panel__action fu-switcher-panel__action--' . sanitize_html_class($panel_cta_1_style) . ' fu-switcher-panel__action--size-' . sanitize_html_class($panel_cta_1_size); ?>
+                        <?php if ($primary_button_has_link) : ?>
+                            <a class="<?php echo esc_attr($primary_classes); ?>" href="<?php echo esc_url($panel_cta_1_url); ?>" <?php echo $panel_cta_1_target !== '' ? ' target="' . esc_attr($panel_cta_1_target) . '" rel="noopener"' : ''; ?>><?php echo esc_html($primary_label); ?></a>
+                        <?php elseif (!empty($is_preview)) : ?>
+                            <span class="<?php echo esc_attr($primary_classes . ' is-placeholder'); ?>" aria-disabled="true"><?php echo esc_html($primary_label); ?></span>
+                        <?php endif; ?>
                     <?php endif; ?>
 
                     <?php if ($has_secondary_button) : ?>
-                        <a class="fu-switcher-panel__action fu-switcher-panel__action--secondary" href="<?php echo esc_url($panel_cta_2_url); ?>"><?php echo esc_html($panel_cta_2_text); ?></a>
+                        <?php $secondary_label = $panel_cta_2_title !== '' ? $panel_cta_2_title : 'Add secondary button link'; ?>
+                        <?php $secondary_classes = 'fu-switcher-panel__action fu-switcher-panel__action--' . sanitize_html_class($panel_cta_2_style) . ' fu-switcher-panel__action--size-' . sanitize_html_class($panel_cta_2_size); ?>
+                        <?php if ($secondary_button_has_link) : ?>
+                            <a class="<?php echo esc_attr($secondary_classes); ?>" href="<?php echo esc_url($panel_cta_2_url); ?>" <?php echo $panel_cta_2_target !== '' ? ' target="' . esc_attr($panel_cta_2_target) . '" rel="noopener"' : ''; ?>><?php echo esc_html($secondary_label); ?></a>
+                        <?php elseif (!empty($is_preview)) : ?>
+                            <span class="<?php echo esc_attr($secondary_classes . ' is-placeholder'); ?>" aria-disabled="true"><?php echo esc_html($secondary_label); ?></span>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
