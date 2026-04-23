@@ -1,0 +1,20 @@
+{
+	"name": "acf/fu-switcher-panel",
+	"title": "FU Switcher Panel",
+	"parent": ["acf/fu-content-switcher"],
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "excerpt-view",
+	"style": "file:./switcher-panel.css",
+	"editorStyle": "file:./switcher-panel.css",
+	"supports": {
+		"anchor": false,
+		"jsx": true,
+		"html": false,
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "switcher-panel.php"
+	}
+}

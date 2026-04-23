@@ -1,0 +1,87 @@
+.editor-styles-wrapper .fu-content-switcher,
+.acf-block-component .fu-content-switcher {
+	overflow: visible;
+}
+
+.editor-styles-wrapper .fu-content-switcher__panels,
+.acf-block-component .fu-content-switcher__panels {
+	position: relative;
+}
+
+.editor-styles-wrapper .fu-content-switcher__panels .block-editor-inner-blocks,
+.acf-block-component .fu-content-switcher__panels .block-editor-inner-blocks {
+	width: 100%;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher__panels
+	.block-editor-block-list__layout,
+.acf-block-component
+	.fu-content-switcher__panels
+	.block-editor-block-list__layout {
+	align-items: stretch;
+	display: grid;
+	gap: 1rem;
+}
+
+.editor-styles-wrapper [data-fu-switcher-editor-panel],
+.acf-block-component [data-fu-switcher-editor-panel] {
+	width: 100%;
+}
+
+.editor-styles-wrapper [data-fu-switcher-editor-panel][hidden],
+.acf-block-component [data-fu-switcher-editor-panel][hidden] {
+	display: none !important;
+}
+
+.editor-styles-wrapper [data-fu-switcher-editor-panel].is-active,
+.acf-block-component [data-fu-switcher-editor-panel].is-active {
+	display: block;
+	width: 100%;
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab,
+.acf-block-component .fu-content-switcher__tab {
+	position: relative;
+	z-index: 2;
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab[hidden],
+.acf-block-component .fu-content-switcher__tab[hidden] {
+	display: none !important;
+}
+
+.editor-styles-wrapper .fu-content-switcher__nav,
+.acf-block-component .fu-content-switcher__nav {
+	margin-bottom: 1rem;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher__panels
+	> .block-editor-inner-blocks
+	> .block-editor-block-list__layout
+	> [data-fu-switcher-editor-panel]
+	> .block-editor-block-list__block-edit,
+.acf-block-component
+	.fu-content-switcher__panels
+	> .block-editor-inner-blocks
+	> .block-editor-block-list__layout
+	> [data-fu-switcher-editor-panel]
+	> .block-editor-block-list__block-edit {
+	margin: 0;
+}
+
+.editor-styles-wrapper .fu-content-switcher--vertical,
+.acf-block-component .fu-content-switcher--vertical {
+	align-items: start;
+}
+
+.editor-styles-wrapper .fu-content-switcher .fu-switcher-panel,
+.acf-block-component .fu-content-switcher .fu-switcher-panel {
+	margin: 0;
+}
+
+.editor-styles-wrapper .fu-content-switcher .fu-switcher-panel__actions a,
+.acf-block-component .fu-content-switcher .fu-switcher-panel__actions a {
+	pointer-events: none;
+}
