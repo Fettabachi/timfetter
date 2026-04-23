@@ -68,6 +68,15 @@ function fu_normalize_title_spacing($title)
 }
 add_filter('the_title', 'fu_normalize_title_spacing');
 
+function fu_register_switcher_panel_wysiwyg_toolbar($toolbars)
+{
+    $toolbars['fu_switcher_panel'] = array();
+    $toolbars['fu_switcher_panel'][1] = array('bold', 'italic', 'link', 'unlink', 'bullist');
+
+    return $toolbars;
+}
+add_filter('acf/fields/wysiwyg/toolbars', 'fu_register_switcher_panel_wysiwyg_toolbar');
+
 
 // Add Page Slug Body Class
 function add_slug_body_class($classes)

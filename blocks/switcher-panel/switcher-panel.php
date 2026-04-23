@@ -14,8 +14,10 @@ $panel_heading = trim((string) get_field('panel_heading'));
 $panel_body = get_field('panel_body');
 $panel_highlights = get_field('panel_highlights');
 $panel_image = get_field('panel_image');
+$show_primary_button = (bool) get_field('show_primary_button');
 $panel_cta_1_text = trim((string) get_field('panel_cta_1_text'));
 $panel_cta_1_url = trim((string) get_field('panel_cta_1_url'));
+$show_secondary_button = (bool) get_field('show_secondary_button');
 $panel_cta_2_text = trim((string) get_field('panel_cta_2_text'));
 $panel_cta_2_url = trim((string) get_field('panel_cta_2_url'));
 
@@ -23,7 +25,9 @@ $panel_heading = $panel_heading !== '' ? $panel_heading : $panel_label;
 $panel_slug = $panel_slug !== '' ? $panel_slug : sanitize_title($panel_label);
 $panel_highlights = is_array($panel_highlights) ? array_slice($panel_highlights, 0, 4) : array();
 $has_media = is_array($panel_image) && (!empty($panel_image['ID']) || !empty($panel_image['url']));
-$has_actions = ($panel_cta_1_text !== '' && $panel_cta_1_url !== '') || ($panel_cta_2_text !== '' && $panel_cta_2_url !== '');
+$has_primary_button = $show_primary_button && $panel_cta_1_text !== '' && $panel_cta_1_url !== '';
+$has_secondary_button = $show_secondary_button && $panel_cta_2_text !== '' && $panel_cta_2_url !== '';
+$has_actions = $has_primary_button || $has_secondary_button;
 
 $classes = array('fu-switcher-panel');
 
@@ -32,12 +36,16 @@ if (!empty($block['className'])) {
 }
 
 $body_markup = is_string($panel_body) && $panel_body !== '' ? wp_kses_post($panel_body) : '';
+$editor_panel_label = $panel_label !== '' ? $panel_label . ' Panel' : 'Panel';
 ?>
 <article
     class="<?php echo esc_attr(implode(' ', $classes)); ?>"
     data-panel-label="<?php echo esc_attr($panel_label !== '' ? $panel_label : 'Panel'); ?>"
     data-panel-slug="<?php echo esc_attr($panel_slug); ?>"
     data-panel-icon="<?php echo esc_attr($panel_icon); ?>">
+    <?php if (!empty($is_preview)) : ?>
+        <p class="fu-switcher-panel__editor-label"><?php echo esc_html($editor_panel_label); ?></p>
+    <?php endif; ?>
     <div class="fu-switcher-panel__inner">
         <div class="fu-switcher-panel__content">
             <?php if ($panel_eyebrow !== '') : ?>
@@ -66,11 +74,11 @@ $body_markup = is_string($panel_body) && $panel_body !== '' ? wp_kses_post($pane
 
             <?php if ($has_actions) : ?>
                 <div class="fu-switcher-panel__actions">
-                    <?php if ($panel_cta_1_text !== '' && $panel_cta_1_url !== '') : ?>
+                    <?php if ($has_primary_button) : ?>
                         <a class="fu-switcher-panel__action fu-switcher-panel__action--primary" href="<?php echo esc_url($panel_cta_1_url); ?>"><?php echo esc_html($panel_cta_1_text); ?></a>
                     <?php endif; ?>
 
-                    <?php if ($panel_cta_2_text !== '' && $panel_cta_2_url !== '') : ?>
+                    <?php if ($has_secondary_button) : ?>
                         <a class="fu-switcher-panel__action fu-switcher-panel__action--secondary" href="<?php echo esc_url($panel_cta_2_url); ?>"><?php echo esc_html($panel_cta_2_text); ?></a>
                     <?php endif; ?>
                 </div>

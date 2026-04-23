@@ -4,6 +4,21 @@
 	width: 100%;
 }
 
+.fu-switcher-panel__editor-label {
+	display: none;
+}
+
+.editor-styles-wrapper .fu-switcher-panel__editor-label,
+.acf-block-component .fu-switcher-panel__editor-label {
+	color: var(--switcher-muted, rgba(13, 59, 102, 0.68));
+	display: block;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	margin: 0 0 0.9rem;
+	text-transform: uppercase;
+}
+
 .fu-switcher-panel__inner {
 	width: 100%;
 }

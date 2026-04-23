@@ -82,6 +82,8 @@ if (!function_exists('fu_content_switcher_seed_panel_data')) {
         return array(
             'panel_label' => $panel['label'],
             '_panel_label' => 'field_6806fc300201',
+            'enable_panel_deeplink' => 1,
+            '_enable_panel_deeplink' => 'field_6806fc300215',
             'panel_slug' => $panel['slug'],
             '_panel_slug' => 'field_6806fc300203',
             'panel_icon' => $panel['icon'],
@@ -98,10 +100,14 @@ if (!function_exists('fu_content_switcher_seed_panel_data')) {
             '_panel_cta_1_text' => 'field_6806fc30020b',
             'panel_cta_1_url' => $panel['cta_1_url'],
             '_panel_cta_1_url' => 'field_6806fc30020c',
+            'show_primary_button' => 1,
+            '_show_primary_button' => 'field_6806fc300216',
             'panel_cta_2_text' => $panel['cta_2_text'],
             '_panel_cta_2_text' => 'field_6806fc30020d',
             'panel_cta_2_url' => $panel['cta_2_url'],
             '_panel_cta_2_url' => 'field_6806fc30020e',
+            'show_secondary_button' => 1,
+            '_show_secondary_button' => 'field_6806fc300217',
         );
     }
 }

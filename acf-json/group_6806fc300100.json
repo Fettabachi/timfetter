@@ -21,11 +21,29 @@
 			"endpoint": 0
 		},
 		{
+			"key": "field_6806fc300110",
+			"label": "",
+			"name": "",
+			"aria-label": "",
+			"type": "message",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "This block contains panels. Select a 'FU Switcher Panel' to edit its content, media, and buttons.",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
 			"key": "field_6806fc300102",
 			"label": "Display Style",
 			"name": "display_style",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "select",
 			"instructions": "Choose the primary navigation style.",
 			"required": 0,
 			"conditional_logic": 0,
@@ -42,16 +60,21 @@
 			},
 			"default_value": "tabs",
 			"return_format": "value",
+			"multiple": 0,
 			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"layout": "horizontal"
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300103",
 			"label": "Mobile Behavior",
 			"name": "mobile_behavior",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "select",
 			"instructions": "Set how panels behave below tablet width.",
 			"required": 0,
 			"conditional_logic": 0,
@@ -66,9 +89,14 @@
 			},
 			"default_value": "accordion",
 			"return_format": "value",
+			"multiple": 0,
 			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"layout": "horizontal"
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300104",
@@ -80,7 +108,7 @@
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "33",
+				"width": "100",
 				"class": "",
 				"id": ""
 			},
@@ -108,12 +136,12 @@
 			"label": "Panel Layout",
 			"name": "panel_layout",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "select",
 			"instructions": "Controls the text and media arrangement inside each panel.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "34",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
@@ -124,21 +152,26 @@
 			},
 			"default_value": "text_media",
 			"return_format": "value",
+			"multiple": 0,
 			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"layout": "horizontal"
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300106",
 			"label": "Panel Transition",
 			"name": "panel_transition",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "select",
 			"instructions": "Keep transitions restrained for a clean feel.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "33",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
@@ -149,9 +182,14 @@
 			},
 			"default_value": "fade",
 			"return_format": "value",
+			"multiple": 0,
 			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"layout": "horizontal"
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300107",
@@ -268,7 +306,7 @@
 			"label": "Panel Radius",
 			"name": "panel_radius",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "select",
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
@@ -285,9 +323,14 @@
 			},
 			"default_value": "medium",
 			"return_format": "value",
+			"multiple": 0,
 			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"layout": "horizontal"
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc30010c",
@@ -312,12 +355,12 @@
 			"label": "Navigation Alignment",
 			"name": "nav_alignment",
 			"aria-label": "",
-			"type": "button_group",
+			"type": "select",
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "34",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
@@ -328,30 +371,14 @@
 			},
 			"default_value": "left",
 			"return_format": "value",
+			"multiple": 0,
 			"allow_null": 0,
 			"allow_in_bindings": 0,
-			"layout": "horizontal"
-		},
-		{
-			"key": "field_6806fc30010e",
-			"label": "Show Icons in Navigation",
-			"name": "show_nav_icons",
-			"aria-label": "",
-			"type": "true_false",
-			"instructions": "Show panel icons when available.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "33",
-				"class": "",
-				"id": ""
-			},
-			"message": "",
-			"default_value": 0,
-			"allow_in_bindings": 0,
-			"ui_on_text": "",
-			"ui_off_text": "",
-			"ui": 1
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
 		},
 		{
 			"key": "field_6806fc300111",
@@ -363,7 +390,28 @@
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "33",
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_6806fc30010e",
+			"label": "Show Icons in Navigation",
+			"name": "show_nav_icons",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Show panel icons when available.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
 				"class": "",
 				"id": ""
 			},
@@ -384,7 +432,7 @@
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
-				"width": "33",
+				"width": "50",
 				"class": "",
 				"id": ""
 			},

@@ -42,14 +42,43 @@
 			"append": ""
 		},
 		{
+			"key": "field_6806fc300215",
+			"label": "Enable deep linking for this panel",
+			"name": "enable_panel_deeplink",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
 			"key": "field_6806fc300203",
-			"label": "Panel Slug",
+			"label": "Panel Link ID (optional)",
 			"name": "panel_slug",
 			"aria-label": "",
 			"type": "text",
-			"instructions": "Optional anchor/deep-link slug. Leave blank to generate from label.",
+			"instructions": "Used for linking directly to this tab. Leave blank to generate automatically.",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300215",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -64,11 +93,11 @@
 		},
 		{
 			"key": "field_6806fc300204",
-			"label": "Panel Icon",
+			"label": "Navigation Icon",
 			"name": "panel_icon",
 			"aria-label": "",
 			"type": "select",
-			"instructions": "",
+			"instructions": "Choose from a limited icon set for navigation tabs.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -160,8 +189,8 @@
 			"label": "Body",
 			"name": "panel_body",
 			"aria-label": "",
-			"type": "textarea",
-			"instructions": "",
+			"type": "wysiwyg",
+			"instructions": "Keep formatting simple: paragraphs, bold, italic, links, and unordered lists.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -172,9 +201,11 @@
 			"default_value": "",
 			"maxlength": "",
 			"allow_in_bindings": 0,
-			"rows": 4,
 			"placeholder": "",
-			"new_lines": "wpautop"
+			"tabs": "visual",
+			"toolbar": "fu_switcher_panel",
+			"media_upload": 0,
+			"delay": 0
 		},
 		{
 			"key": "field_6806fc300209",
@@ -182,7 +213,7 @@
 			"name": "panel_highlights",
 			"aria-label": "",
 			"type": "repeater",
-			"instructions": "",
+			"instructions": "Optional short supporting points displayed beneath the body content.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -246,7 +277,7 @@
 			"name": "panel_image",
 			"aria-label": "",
 			"type": "image",
-			"instructions": "",
+			"instructions": "Media will not display when the parent Content Switcher uses Text Only panel layout.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -268,7 +299,7 @@
 		},
 		{
 			"key": "field_6806fc300214",
-			"label": "Actions",
+			"label": "Buttons",
 			"name": "",
 			"aria-label": "",
 			"type": "accordion",
@@ -285,14 +316,43 @@
 			"endpoint": 0
 		},
 		{
+			"key": "field_6806fc300216",
+			"label": "Show Primary Button",
+			"name": "show_primary_button",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "100",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
 			"key": "field_6806fc30020b",
-			"label": "Primary Button Text",
+			"label": "Primary Button Label",
 			"name": "panel_cta_1_text",
 			"aria-label": "",
 			"type": "text",
 			"instructions": "",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300216",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -313,7 +373,15 @@
 			"type": "text",
 			"instructions": "Accepts internal anchors (#section), relative URLs (/page), or full URLs (https://example.com).",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300216",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -324,14 +392,43 @@
 			"placeholder": ""
 		},
 		{
+			"key": "field_6806fc300217",
+			"label": "Show Secondary Button",
+			"name": "show_secondary_button",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "100",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
 			"key": "field_6806fc30020d",
-			"label": "Secondary Button Text",
+			"label": "Secondary Button Label",
 			"name": "panel_cta_2_text",
 			"aria-label": "",
 			"type": "text",
 			"instructions": "",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300217",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
@@ -352,7 +449,15 @@
 			"type": "text",
 			"instructions": "Accepts internal anchors (#section), relative URLs (/page), or full URLs (https://example.com).",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300217",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "50",
 				"class": "",
