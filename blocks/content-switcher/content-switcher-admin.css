@@ -1,3 +1,11 @@
+.wp-block-acf-fu-content-switcher {
+	max-width: 100%;
+
+	:where(.wp-block) {
+		max-width: 100%;
+	}
+}
+
 .editor-styles-wrapper .fu-content-switcher,
 .acf-block-component .fu-content-switcher {
 	--switcher-surface: rgba(255, 255, 255, 0.78);
@@ -17,17 +25,59 @@
 	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
 	--switcher-panel-text: var(--fu-blue);
 	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+	--switcher-panel-effective-surface: var(--switcher-panel-surface);
+	--switcher-panel-effective-surface-strong: var(
+		--switcher-panel-surface-strong
+	);
+	--switcher-panel-effective-surface-soft: var(--switcher-panel-surface-soft);
+	--switcher-panel-effective-border: var(--switcher-panel-border);
+	--switcher-panel-effective-border-strong: var(--switcher-panel-border-strong);
+	--switcher-panel-effective-text: var(--switcher-panel-text);
+	--switcher-panel-effective-muted: var(--switcher-panel-muted);
 	--switcher-panel-radius: calc(var(--fu-radius-lg) + 8px);
+	--switcher-tabs-edge-offset: 0;
 	--switcher-shell-max: 82rem;
 	--switcher-shell-pad-inline: clamp(1rem, 2vw, 1.75rem);
 	--switcher-shell-pad-block: clamp(1.25rem, 0.85rem + 1.3vw, 2rem);
 	--switcher-panel-gap: clamp(1.25rem, 0.9rem + 1.2vw, 2rem);
 	--switcher-panel-min-height: clamp(22rem, 32vw, 30rem);
 	--switcher-tab-radius: 999px;
+	--switcher-tabs-top-radius: 0;
+	--switcher-tabs-active-surface: var(
+		--switcher-panel-effective-surface-strong
+	);
+	--switcher-tabs-hover-surface: var(--switcher-panel-effective-surface-soft);
+	--switcher-tabs-active-border: var(--switcher-panel-effective-border);
+	--switcher-tabs-hover-border: var(--switcher-panel-effective-border-strong);
+	--switcher-tabs-active-text: var(--switcher-panel-effective-text);
 	--switcher-outline: 0 0 0 3px rgba(249, 87, 56, 0.18);
 	color: var(--switcher-text);
 	overflow: visible;
 	position: relative;
+}
+
+.fu-content-switcher--bg-light {
+	--switcher-bg-start: color-mix(in srgb, var(--fu-blue) 8%, var(--fu-white));
+	--switcher-bg-end: color-mix(
+		in srgb,
+		var(--fu-charcoal, #111827) 6%,
+		var(--fu-white)
+	);
+
+	--switcher-surface: rgba(13, 59, 102, 0.06);
+	--switcher-surface-strong: rgba(13, 59, 102, 0.1);
+	--switcher-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-border: rgba(13, 59, 102, 0.14);
+	--switcher-border-strong: rgba(13, 59, 102, 0.24);
+	--switcher-text: var(--fu-blue);
+	--switcher-muted: rgba(13, 59, 102, 0.68);
+	--switcher-accent-soft: rgba(249, 87, 56, 0.12);
+
+	background: linear-gradient(
+		180deg,
+		var(--switcher-bg-start),
+		var(--switcher-bg-end)
+	);
 }
 
 .editor-styles-wrapper .fu-content-switcher--px-small,
@@ -52,17 +102,48 @@
 	--switcher-surface-soft: rgba(13, 59, 102, 0.04);
 	background: transparent;
 }
+/* Editor parity: Remove tinted background for bg-none + panel-bg-none */
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none {
+	background: transparent !important;
+}
 
-.editor-styles-wrapper .fu-content-switcher--bg-light,
-.acf-block-component .fu-content-switcher--bg-light {
-	--switcher-surface: rgba(255, 255, 255, 0.9);
-	--switcher-surface-strong: rgba(255, 255, 255, 0.98);
-	--switcher-surface-soft: rgba(13, 59, 102, 0.06);
-	background: linear-gradient(
-		180deg,
-		rgba(250, 240, 202, 0.2),
-		rgba(255, 255, 255, 0)
-	);
+/* Tabs + bg-none + panel-bg-none: Inactive and active tab backgrounds */
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger {
+	background: #fff;
+	box-shadow: none;
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger.is-active {
+	color: #fff;
+	box-shadow: none;
+	border-color: var(--switcher-tabs-active-border);
+	background: var(--switcher-tabs-active-text);
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active:hover,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger.is-active:hover {
+	color: #fff;
+	border-color: var(--switcher-tabs-active-border);
+	background: var(--switcher-tabs-active-text);
+	cursor: default;
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger:hover {
+	color: #fff;
+	box-shadow: none;
+	border-color: var(--switcher-tabs-active-border);
+	background: var(--switcher-tabs-active-text);
 }
 
 .editor-styles-wrapper .fu-content-switcher--bg-dark,
@@ -85,7 +166,6 @@
 .editor-styles-wrapper .fu-content-switcher--panel-bg-none,
 .acf-block-component .fu-content-switcher--panel-bg-none {
 	--switcher-panel-surface: transparent;
-	--switcher-panel-surface-strong: transparent;
 	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
 	--switcher-panel-border: rgba(13, 59, 102, 0.12);
 	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
@@ -116,7 +196,8 @@
 }
 
 .editor-styles-wrapper .fu-content-switcher--panel-surface-dark,
-.editor-styles-wrapper .fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none,
 .acf-block-component .fu-content-switcher--panel-surface-dark {
 	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
 	--switcher-panel-border: rgba(255, 255, 255, 0.14);
@@ -125,7 +206,8 @@
 	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
 }
 
-.acf-block-component .fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
 	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
 	--switcher-panel-border: rgba(255, 255, 255, 0.14);
 	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
@@ -155,22 +237,78 @@
 
 .editor-styles-wrapper .fu-content-switcher--radius-none,
 .acf-block-component .fu-content-switcher--radius-none {
-	--switcher-panel-radius: 0;
+	--switcher-shell-radius: 0;
+	--switcher-tab-radius: 0;
 }
 
 .editor-styles-wrapper .fu-content-switcher--radius-small,
 .acf-block-component .fu-content-switcher--radius-small {
-	--switcher-panel-radius: var(--fu-radius-sm);
+	--switcher-shell-radius: var(--fu-radius-sm);
+	--switcher-tab-radius: var(--fu-radius-sm);
 }
 
 .editor-styles-wrapper .fu-content-switcher--radius-medium,
 .acf-block-component .fu-content-switcher--radius-medium {
-	--switcher-panel-radius: calc(var(--fu-radius-md) + 4px);
+	--switcher-shell-radius: calc(var(--fu-radius-md) + 4px);
+	--switcher-tab-radius: calc(var(--fu-radius-md) + 4px);
 }
 
 .editor-styles-wrapper .fu-content-switcher--radius-large,
 .acf-block-component .fu-content-switcher--radius-large {
+	--switcher-shell-radius: calc(var(--fu-radius-lg) + 10px);
+	--switcher-tab-radius: calc(var(--fu-radius-lg) + 10px);
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-radius-none,
+.acf-block-component .fu-content-switcher--panel-radius-none {
+	--switcher-panel-radius: 0;
+	--switcher-tabs-edge-offset: 0rem;
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-radius-small,
+.acf-block-component .fu-content-switcher--panel-radius-small {
+	--switcher-panel-radius: var(--fu-radius-sm);
+	--switcher-tabs-edge-offset: 0.2rem;
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-radius-medium,
+.acf-block-component .fu-content-switcher--panel-radius-medium {
+	--switcher-panel-radius: calc(var(--fu-radius-md) + 4px);
+	--switcher-tabs-edge-offset: 0.4rem;
+}
+
+.editor-styles-wrapper .fu-content-switcher--panel-radius-large,
+.acf-block-component .fu-content-switcher--panel-radius-large {
 	--switcher-panel-radius: calc(var(--fu-radius-lg) + 10px);
+	--switcher-tabs-edge-offset: 0.65rem;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-none,
+.acf-block-component
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-none {
+	--switcher-tabs-top-radius: 0;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-small,
+.acf-block-component
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-small {
+	--switcher-tabs-top-radius: var(--fu-radius-sm);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-medium,
+.acf-block-component
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-medium {
+	--switcher-tabs-top-radius: calc(var(--fu-radius-md) + 4px);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-large,
+.acf-block-component
+	.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-large {
+	--switcher-tabs-top-radius: calc(var(--fu-radius-lg) + 10px);
 }
 
 .editor-styles-wrapper .fu-content-switcher__panels,
@@ -264,9 +402,13 @@
 .acf-block-component .fu-content-switcher__tab.is-active,
 .acf-block-component .fu-content-switcher__accordion-trigger.is-active {
 	background: var(--switcher-surface-strong);
-	border-color: rgba(249, 87, 56, 0.34);
+	border-color: rgba(249, 87, 56, 0.6);
 	box-shadow: 0 14px 32px rgba(13, 59, 102, 0.12);
 	color: var(--switcher-text);
+}
+
+.editor-styles-wrapper .fu-content-switcher__tab.is-active {
+	border-color: var(--switcher-border);
 }
 
 .editor-styles-wrapper .fu-content-switcher__tab[hidden],
@@ -381,8 +523,27 @@
 .acf-block-component
 	.fu-content-switcher--tabs
 	.fu-content-switcher__accordion-trigger {
-	border-radius: calc(var(--fu-radius-lg) + 6px) calc(var(--fu-radius-lg) + 6px)
+	border-radius: var(--switcher-tabs-top-radius) var(--switcher-tabs-top-radius)
 		0 0;
+	margin-bottom: -1px;
+	position: relative;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--tabs
+	.fu-content-switcher__tab:hover,
+.editor-styles-wrapper
+	.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger:hover,
+.acf-block-component .fu-content-switcher--tabs .fu-content-switcher__tab:hover,
+.acf-block-component
+	.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger:hover {
+	background: var(--switcher-tabs-hover-surface);
+	border-color: var(--switcher-tabs-hover-border);
+	border-bottom-color: transparent;
+	color: var(--switcher-tabs-active-text);
+	transform: none;
 }
 
 .editor-styles-wrapper
@@ -397,7 +558,38 @@
 .acf-block-component
 	.fu-content-switcher--tabs
 	.fu-content-switcher__accordion-trigger.is-active {
+	background: var(--switcher-tabs-active-surface);
+	border-color: var(--switcher-tabs-active-border);
 	border-bottom-color: transparent;
+	box-shadow: none;
+	color: var(--switcher-tabs-active-text);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+	.fu-content-switcher__nav,
+.acf-block-component
+	.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+	.fu-content-switcher__nav {
+	align-items: flex-end;
+	gap: 0.45rem;
+	margin-bottom: 0;
+	padding-inline: calc(
+		var(--switcher-shell-pad-inline) + var(--switcher-tabs-edge-offset) + 6px
+	);
+	position: relative;
+	z-index: 2;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+	.fu-content-switcher__nav,
+.acf-block-component
+	.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+	.fu-content-switcher__nav {
+	padding-inline: calc(
+		var(--switcher-shell-pad-inline) + var(--switcher-tabs-edge-offset) + 6px
+	);
 }
 
 .editor-styles-wrapper
@@ -481,18 +673,42 @@
 	> .block-editor-block-list__block-edit {
 	background: linear-gradient(
 			180deg,
-			var(--switcher-panel-surface-strong),
-			var(--switcher-panel-surface)
+			var(--switcher-panel-effective-surface-strong),
+			var(--switcher-panel-effective-surface)
 		),
-		var(--switcher-panel-surface-strong);
-	border: 1px solid var(--switcher-panel-border);
+		var(--switcher-panel-effective-surface-strong);
+	border: 1px solid var(--switcher-panel-effective-border);
 	border-radius: var(--switcher-panel-radius);
 	box-shadow: var(--switcher-shadow);
-	color: var(--switcher-panel-text);
+	color: var(--switcher-panel-effective-text);
 	min-height: var(--switcher-panel-min-height);
 	overflow: clip;
 	padding: var(--switcher-shell-pad-block) var(--switcher-shell-pad-inline);
 	position: relative;
+}
+
+.fu-content-switcher--bg-light .fu-content-switcher__panel-inner {
+	--switcher-bg-start: color-mix(in srgb, var(--fu-blue) 8%, var(--fu-white));
+	--switcher-bg-end: color-mix(
+		in srgb,
+		var(--fu-charcoal, #111827) 6%,
+		var(--fu-white)
+	);
+
+	--switcher-surface: rgba(13, 59, 102, 0.06);
+	--switcher-surface-strong: rgba(13, 59, 102, 0.1);
+	--switcher-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-border: rgba(13, 59, 102, 0.14);
+	--switcher-border-strong: rgba(13, 59, 102, 0.24);
+	--switcher-text: var(--fu-blue);
+	--switcher-muted: rgba(13, 59, 102, 0.68);
+	--switcher-accent-soft: rgba(249, 87, 56, 0.12);
+
+	background: linear-gradient(
+		180deg,
+		var(--switcher-bg-start),
+		var(--switcher-bg-end)
+	);
 }
 
 .editor-styles-wrapper .fu-content-switcher .fu-switcher-panel__inner,
@@ -509,21 +725,27 @@
 
 .editor-styles-wrapper .fu-content-switcher__panel-inner .fu-switcher-panel,
 .acf-block-component .fu-content-switcher__panel-inner .fu-switcher-panel {
-	--switcher-surface: var(--switcher-panel-surface);
-	--switcher-surface-strong: var(--switcher-panel-surface-strong);
-	--switcher-surface-soft: var(--switcher-panel-surface-soft);
-	--switcher-border: var(--switcher-panel-border);
-	--switcher-border-strong: var(--switcher-panel-border-strong);
-	--switcher-text: var(--switcher-panel-text);
-	--switcher-muted: var(--switcher-panel-muted);
-	--switcher-action-secondary-bg: var(--switcher-panel-surface-soft);
-	--switcher-action-secondary-border: var(--switcher-panel-border);
-	--switcher-action-secondary-hover-bg: var(--switcher-panel-surface-soft);
-	--switcher-action-outline-border: var(--switcher-panel-border-strong);
-	--switcher-action-outline-hover-bg: var(--switcher-panel-surface-soft);
-	--switcher-action-text: var(--switcher-panel-text);
+	--switcher-surface: var(--switcher-panel-effective-surface);
+	--switcher-surface-strong: var(--switcher-panel-effective-surface-strong);
+	--switcher-surface-soft: var(--switcher-panel-effective-surface-soft);
+	--switcher-border: var(--switcher-panel-effective-border);
+	--switcher-border-strong: var(--switcher-panel-effective-border-strong);
+	--switcher-text: var(--switcher-panel-effective-text);
+	--switcher-muted: var(--switcher-panel-effective-muted);
+	--switcher-action-secondary-bg: var(--switcher-panel-effective-surface-soft);
+	--switcher-action-secondary-border: var(--switcher-panel-effective-border);
+	--switcher-action-secondary-hover-bg: var(
+		--switcher-panel-effective-surface-soft
+	);
+	--switcher-action-outline-border: var(
+		--switcher-panel-effective-border-strong
+	);
+	--switcher-action-outline-hover-bg: var(
+		--switcher-panel-effective-surface-soft
+	);
+	--switcher-action-text: var(--switcher-panel-effective-text);
 	--switcher-action-text-hover: var(--switcher-accent);
-	color: var(--switcher-panel-text);
+	color: var(--switcher-panel-effective-text);
 }
 
 .editor-styles-wrapper
@@ -633,11 +855,15 @@
 	color: var(--fu-white);
 }
 
-.editor-styles-wrapper .fu-content-switcher--panel-surface-dark .fu-switcher-panel,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel,
 .editor-styles-wrapper
 	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
 	.fu-switcher-panel,
-.acf-block-component .fu-content-switcher--panel-surface-dark .fu-switcher-panel {
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel {
 	--switcher-action-secondary-bg: rgba(255, 255, 255, 0.08);
 	--switcher-action-secondary-border: rgba(255, 255, 255, 0.24);
 	--switcher-action-secondary-hover-bg: rgba(255, 255, 255, 0.12);
@@ -722,6 +948,84 @@
 .editor-styles-wrapper .fu-content-switcher .fu-switcher-panel__actions a,
 .acf-block-component .fu-content-switcher .fu-switcher-panel__actions a {
 	pointer-events: none;
+}
+
+/* Editor parity: dark switcher + no panel background should inherit the dark switcher surface */
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+	--switcher-panel-surface: transparent;
+	--switcher-panel-surface-strong: transparent;
+	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-text: var(--fu-white);
+	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+
+	--switcher-panel-effective-surface: transparent;
+	--switcher-panel-effective-surface-strong: transparent;
+	--switcher-panel-effective-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-effective-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-effective-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-effective-text: var(--fu-white);
+	--switcher-panel-effective-muted: rgba(255, 255, 255, 0.74);
+
+	color: var(--fu-white);
+}
+
+/* Ensure the actual editable child block wrapper uses the inherited dark treatment */
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	[data-fu-switcher-editor-panel]
+	> .block-editor-block-list__block-edit,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
+	[data-fu-switcher-editor-panel]
+	> .block-editor-block-list__block-edit {
+	background: linear-gradient(
+			180deg,
+			var(--switcher-panel-effective-surface-strong),
+			var(--switcher-panel-effective-surface)
+		),
+		var(--switcher-panel-effective-surface-strong);
+	border-color: var(--switcher-panel-effective-border);
+	color: var(--switcher-panel-effective-text);
+}
+
+/* Tabs should stay readable when the dark switcher is the inherited panel surface */
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.18);
+	color: var(--fu-white);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab:hover,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab:hover {
+	background: rgba(255, 255, 255, 0.12);
+	border-color: rgba(255, 255, 255, 0.28);
+	color: var(--fu-white);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active,
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active {
+	background: transparent;
+	border-color: var(--switcher-panel-effective-border);
+	border-bottom-color: transparent;
+	color: var(--fu-white);
 }
 
 @media (max-width: 63.99rem) {

@@ -11,32 +11,10 @@
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "", "class": "", "id": "" },
 			"open": 1,
 			"multi_expand": 0,
 			"endpoint": 0
-		},
-		{
-			"key": "field_6806fc300110",
-			"label": "",
-			"name": "",
-			"aria-label": "",
-			"type": "message",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"message": "This block contains panels. Select a 'Switcher Panel' to edit content, media, and buttons.",
-			"new_lines": "wpautop",
-			"esc_html": 0
 		},
 		{
 			"key": "field_6806fc300102",
@@ -47,200 +25,9 @@
 			"instructions": "Choose the primary navigation style.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"tabs": "Tabs",
-				"pills": "Pills",
-				"vertical": "Vertical",
-				"minimal": "Minimal"
-			},
+			"wrapper": { "width": "50", "class": "", "id": "" },
+			"choices": { "tabs": "Tabs", "pills": "Pills" },
 			"default_value": "tabs",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300103",
-			"label": "Mobile Behavior",
-			"name": "mobile_behavior",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "Set how panels behave below tablet width.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"accordion": "Accordion",
-				"stacked": "Stacked"
-			},
-			"default_value": "accordion",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300104",
-			"label": "Initial Active Panel",
-			"name": "initial_active_panel",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "Choose which panel opens first before any deep link is applied.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"1": "1",
-				"2": "2",
-				"3": "3",
-				"4": "4",
-				"5": "5",
-				"6": "6"
-			},
-			"default_value": "1",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300106",
-			"label": "Panel Transition",
-			"name": "panel_transition",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "Keep transitions restrained for a clean feel.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"none": "None",
-				"fade": "Crossfade",
-				"slide": "Slide Up"
-			},
-			"default_value": "fade",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300107",
-			"label": "Top Spacing",
-			"name": "spacing_top",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"small": "Small",
-				"medium": "Medium",
-				"large": "Large"
-			},
-			"default_value": "medium",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300108",
-			"label": "Bottom Spacing",
-			"name": "spacing_bottom",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"small": "Small",
-				"medium": "Medium",
-				"large": "Large"
-			},
-			"default_value": "medium",
-			"return_format": "value",
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ajax": 0,
-			"placeholder": "",
-			"create_options": 0,
-			"save_options": 0
-		},
-		{
-			"key": "field_6806fc300115",
-			"label": "Inline Spacing",
-			"name": "spacing_inline",
-			"aria-label": "",
-			"type": "select",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"small": "Small",
-				"medium": "Medium",
-				"large": "Large"
-			},
-			"default_value": "medium",
 			"return_format": "value",
 			"multiple": 0,
 			"allow_null": 0,
@@ -260,11 +47,7 @@
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "", "class": "", "id": "" },
 			"open": 0,
 			"multi_expand": 0,
 			"endpoint": 0
@@ -278,16 +61,8 @@
 			"instructions": "Use the constrained background palette for consistent presentation.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"none": "None",
-				"light": "Light",
-				"dark": "Dark"
-			},
+			"wrapper": { "width": "100", "class": "", "id": "" },
+			"choices": { "none": "None", "light": "Light", "dark": "Dark" },
 			"default_value": "none",
 			"return_format": "value",
 			"multiple": 0,
@@ -308,11 +83,7 @@
 			"instructions": "Controls the shell depth without changing panel behavior.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "100", "class": "", "id": "" },
 			"choices": {
 				"none": "None",
 				"soft": "Soft",
@@ -320,6 +91,33 @@
 				"strong": "Strong"
 			},
 			"default_value": "soft",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": "",
+			"create_options": 0,
+			"save_options": 0
+		},
+		{
+			"key": "field_6806fc300116",
+			"label": "Switcher Border Radius",
+			"name": "switcher_radius",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": { "width": "100", "class": "", "id": "" },
+			"choices": {
+				"none": "None",
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "medium",
 			"return_format": "value",
 			"multiple": 0,
 			"allow_null": 0,
@@ -339,16 +137,8 @@
 			"instructions": "Controls the panel surface independently from the switcher shell.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"none": "None",
-				"light": "Light",
-				"dark": "Dark"
-			},
+			"wrapper": { "width": "100", "class": "", "id": "" },
+			"choices": { "none": "None", "light": "Light", "dark": "Dark" },
 			"default_value": "none",
 			"return_format": "value",
 			"multiple": 0,
@@ -369,11 +159,7 @@
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "50", "class": "", "id": "" },
 			"choices": {
 				"none": "None",
 				"small": "Small",
@@ -392,6 +178,28 @@
 			"save_options": 0
 		},
 		{
+			"key": "field_6806fc300117",
+			"label": "Rounded Tabs",
+			"name": "rounded_tabs",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Only applies when Display Style is Tabs.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{ "field": "field_6806fc300100", "operator": "==", "value": "tabs" },
+					{ "field": "field_6806fc30010b", "operator": "!=", "value": "none" }
+				]
+			],
+			"wrapper": { "width": "50", "class": "", "id": "" },
+			"message": "",
+			"default_value": 1,
+			"allow_in_bindings": 0,
+			"ui_on_text": "",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
 			"key": "field_6806fc30010c",
 			"label": "Navigation Options",
 			"name": "",
@@ -400,11 +208,7 @@
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "", "class": "", "id": "" },
 			"open": 0,
 			"multi_expand": 0,
 			"endpoint": 0
@@ -418,16 +222,8 @@
 			"instructions": "",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"left": "Left",
-				"center": "Center",
-				"right": "Right"
-			},
+			"wrapper": { "width": "50", "class": "", "id": "" },
+			"choices": { "left": "Left", "center": "Center", "right": "Right" },
 			"default_value": "left",
 			"return_format": "value",
 			"multiple": 0,
@@ -448,11 +244,7 @@
 			"instructions": "Makes each navigation item share the same width when space allows.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "50", "class": "", "id": "" },
 			"message": "",
 			"default_value": 0,
 			"allow_in_bindings": 0,
@@ -469,11 +261,7 @@
 			"instructions": "Show panel icons when available.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "50", "class": "", "id": "" },
 			"message": "",
 			"default_value": 0,
 			"allow_in_bindings": 0,
@@ -490,11 +278,7 @@
 			"instructions": "Updates the URL hash when a panel changes and reads hashes on load.",
 			"required": 0,
 			"conditional_logic": 0,
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			},
+			"wrapper": { "width": "50", "class": "", "id": "" },
 			"message": "",
 			"default_value": 1,
 			"allow_in_bindings": 0,
@@ -504,13 +288,7 @@
 		}
 	],
 	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/fu-content-switcher"
-			}
-		]
+		[{ "param": "block", "operator": "==", "value": "acf/fu-content-switcher" }]
 	],
 	"menu_order": 0,
 	"position": "normal",

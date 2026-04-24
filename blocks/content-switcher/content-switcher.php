@@ -474,6 +474,12 @@ $panel_background = fu_content_switcher_sanitize_choice(
     'none'
 );
 
+$switcher_radius = fu_content_switcher_sanitize_choice(
+    get_field('switcher_radius') ?: 'medium',
+    array('none', 'small', 'medium', 'large'),
+    'medium'
+);
+
 $panel_radius = fu_content_switcher_sanitize_choice(
     get_field('panel_radius') ?: 'medium',
     array('none', 'small', 'medium', 'large'),
@@ -504,6 +510,7 @@ $panel_transition = fu_content_switcher_sanitize_choice(
     'fade'
 );
 
+$rounded_tabs = fu_content_switcher_normalize_bool(get_field('rounded_tabs'), true);
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
 $equal_nav_items = fu_content_switcher_normalize_bool(get_field('equal_nav_items'), false);
 $enable_deep_linking = fu_content_switcher_normalize_bool(get_field('enable_deep_linking'), true);
@@ -600,7 +607,8 @@ $classes = array(
     'fu-content-switcher--bg-' . sanitize_html_class($background_style),
     'fu-content-switcher--shadow-' . sanitize_html_class($switcher_shadow),
     'fu-content-switcher--panel-bg-' . sanitize_html_class($panel_background),
-    'fu-content-switcher--radius-' . $panel_radius,
+    'fu-content-switcher--radius-' . $switcher_radius,
+    'fu-content-switcher--panel-radius-' . $panel_radius,
     'fu-content-switcher--nav-' . $nav_alignment,
     'fu-content-switcher--transition-' . $panel_transition,
     'fu-content-switcher--pt-' . $spacing_top,
@@ -614,6 +622,10 @@ if ($show_nav_icons) {
 
 if ($equal_nav_items) {
     $classes[] = 'fu-content-switcher--equal-nav';
+}
+
+if ($rounded_tabs) {
+    $classes[] = 'fu-content-switcher--rounded-tabs';
 }
 
 if ($panel_uses_dark_surface) {
