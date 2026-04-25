@@ -26,7 +26,12 @@
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": { "width": "50", "class": "", "id": "" },
-			"choices": { "tabs": "Tabs", "pills": "Pills" },
+			"choices": {
+				"tabs": "Tabs",
+				"pills": "Pills",
+				"vertical": "Vertical",
+				"minimal": "Minimal"
+			},
 			"default_value": "tabs",
 			"return_format": "value",
 			"multiple": 0,
