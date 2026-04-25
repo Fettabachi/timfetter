@@ -30,6 +30,12 @@
 	position: relative;
 }
 
+/* Let the content switcher and switcher panel take full width */
+.wp-block-acf-fu-content-switcher,
+.wp-block-acf-fu-switcher-panel {
+	max-width: 100%;
+}
+
 .editor-styles-wrapper .fu-content-switcher--px-small,
 .acf-block-component .fu-content-switcher--px-small {
 	--switcher-shell-pad-inline: clamp(0.8rem, 1.4vw, 1.1rem);
@@ -116,7 +122,8 @@
 }
 
 .editor-styles-wrapper .fu-content-switcher--panel-surface-dark,
-.editor-styles-wrapper .fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none,
+.editor-styles-wrapper
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none,
 .acf-block-component .fu-content-switcher--panel-surface-dark {
 	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
 	--switcher-panel-border: rgba(255, 255, 255, 0.14);
@@ -125,7 +132,8 @@
 	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
 }
 
-.acf-block-component .fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+.acf-block-component
+	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
 	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
 	--switcher-panel-border: rgba(255, 255, 255, 0.14);
 	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
@@ -633,11 +641,15 @@
 	color: var(--fu-white);
 }
 
-.editor-styles-wrapper .fu-content-switcher--panel-surface-dark .fu-switcher-panel,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel,
 .editor-styles-wrapper
 	.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none
 	.fu-switcher-panel,
-.acf-block-component .fu-content-switcher--panel-surface-dark .fu-switcher-panel {
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel {
 	--switcher-action-secondary-bg: rgba(255, 255, 255, 0.08);
 	--switcher-action-secondary-border: rgba(255, 255, 255, 0.24);
 	--switcher-action-secondary-hover-bg: rgba(255, 255, 255, 0.12);
