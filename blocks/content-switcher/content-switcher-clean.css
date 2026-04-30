@@ -187,8 +187,7 @@
 
 /* Admin specific styles */
 /* Let the content switcher and switcher panel take full width */
-.editor-styles-wrapper:has(.fu-content-switcher)
-	.wp-block-acf-fu-content-switcher,
-.editor-styles-wrapper:has(.fu-content-switcher).wp-block-acf-fu-switcher-panel {
+html:has(.fu-content-switcher) .wp-block-acf-fu-content-switcher,
+html:has(.fu-content-switcher) .wp-block-acf-fu-switcher-panel {
 	max-width: 100%;
 }
