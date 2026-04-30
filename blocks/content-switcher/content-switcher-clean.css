@@ -1,0 +1,194 @@
+/**
+ * FU Content Switcher — Clean Visual Layer
+ *
+ * This file intentionally overrides only visual state logic first.
+ * Layout remains in content-switcher.css until migrated.
+ */
+
+.fu-content-switcher {
+	--cs-white: var(--fu-white, #ffffff);
+	--cs-blue: var(--fu-blue, #0d3b66);
+	--cs-orange: var(--fu-orange, #f95738);
+	--cs-charcoal: var(--fu-charcoal, #111827);
+
+	--cs-shell-bg: transparent;
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 16%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	--cs-panel-bg: var(--cs-white);
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 4%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+
+	--cs-tab-bg: color-mix(in srgb, var(--cs-shell-bg) 70%, var(--cs-white));
+	--cs-tab-text: var(--cs-shell-text);
+	--cs-tab-border: var(--cs-shell-border);
+	--cs-tab-hover-bg: var(--cs-panel-bg-soft);
+	--cs-tab-hover-text: var(--cs-panel-text);
+	--cs-tab-hover-border: var(--cs-panel-border-strong);
+	--cs-tab-active-bg: var(--cs-panel-bg-strong);
+	--cs-tab-active-text: var(--cs-panel-text);
+	--cs-tab-active-border: var(--cs-panel-border);
+
+	color: var(--cs-shell-text);
+}
+
+/* Switcher background themes */
+.fu-content-switcher--bg-none {
+	--cs-shell-bg: transparent;
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 16%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	background: transparent;
+}
+
+.fu-content-switcher--bg-light {
+	--cs-shell-bg: color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white));
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 14%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white)),
+		color-mix(in srgb, var(--cs-charcoal) 6%, var(--cs-white))
+	);
+}
+
+.fu-content-switcher--bg-dark {
+	--cs-shell-bg: var(--cs-blue);
+	--cs-shell-text: var(--cs-white);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-shell-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--cs-blue) 98%, black),
+		color-mix(in srgb, var(--cs-charcoal) 94%, black)
+	);
+}
+
+/* Panel background themes */
+.fu-content-switcher--panel-bg-none {
+	--cs-panel-bg: var(--cs-white);
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 4%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+	--cs-panel-bg: transparent;
+	--cs-panel-bg-strong: transparent;
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-white) 8%, transparent);
+	--cs-panel-text: var(--cs-white);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+}
+
+.fu-content-switcher--panel-bg-light {
+	--cs-panel-bg: color-mix(in srgb, var(--cs-white) 92%, var(--cs-blue));
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 6%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+}
+
+.fu-content-switcher--panel-bg-dark {
+	--cs-panel-bg: color-mix(in srgb, var(--cs-blue) 92%, black);
+	--cs-panel-bg-strong: color-mix(in srgb, var(--cs-charcoal) 96%, black);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-white) 8%, transparent);
+	--cs-panel-text: var(--cs-white);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+}
+
+/* Bridge old variable names to clean variables */
+.fu-content-switcher {
+	--switcher-text: var(--cs-shell-text);
+	--switcher-muted: var(--cs-shell-muted);
+	--switcher-border: var(--cs-shell-border);
+	--switcher-border-strong: var(--cs-shell-border-strong);
+	--switcher-panel-effective-surface: var(--cs-panel-bg);
+	--switcher-panel-effective-surface-strong: var(--cs-panel-bg-strong);
+	--switcher-panel-effective-surface-soft: var(--cs-panel-bg-soft);
+	--switcher-panel-effective-border: var(--cs-panel-border);
+	--switcher-panel-effective-border-strong: var(--cs-panel-border-strong);
+	--switcher-panel-effective-text: var(--cs-panel-text);
+	--switcher-panel-effective-muted: var(--cs-panel-muted);
+}
+
+/* Panel consumes only clean/effective variables */
+.fu-content-switcher .fu-content-switcher__panel-inner {
+	background: linear-gradient(
+		180deg,
+		var(--cs-panel-bg-strong),
+		var(--cs-panel-bg)
+	);
+	border-color: var(--cs-panel-border);
+	color: var(--cs-panel-text);
+}
+
+/* Tabs display style consumes clean tab variables */
+.fu-content-switcher.fu-content-switcher--tabs .fu-content-switcher__tab {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	border-bottom-color: var(--cs-panel-border);
+	color: var(--cs-tab-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher.fu-content-switcher--tabs .fu-content-switcher__tab:hover {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-tab-hover-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	border-bottom-color: var(--cs-tab-active-bg);
+	color: var(--cs-tab-active-text);
+	box-shadow: none;
+	transform: none;
+}
+
+/* Admin specific styles */
+/* Let the content switcher and switcher panel take full width */
+.editor-styles-wrapper:has(.fu-content-switcher)
+	.wp-block-acf-fu-content-switcher,
+.editor-styles-wrapper:has(.fu-content-switcher).wp-block-acf-fu-switcher-panel {
+	max-width: 100%;
+}

@@ -5,8 +5,11 @@
 	"category": "layout",
 	"icon": "index-card",
 	"description": "Accessible content tabs and section switcher with structured child panels.",
-	"style": "file:./content-switcher.css",
-	"editorStyle": "file:./content-switcher-admin.css",
+	"style": ["file:./content-switcher.css", "file:./content-switcher-clean.css"],
+	"editorStyle": [
+		"file:./content-switcher.css",
+		"file:./content-switcher-clean.css"
+	],
 	"script": "file:./content-switcher.js",
 	"editorScript": "file:./content-switcher.js",
 	"supports": {
