@@ -468,10 +468,16 @@ $switcher_shadow = fu_content_switcher_sanitize_choice(
     'soft'
 );
 
+$switcher_radius = fu_content_switcher_sanitize_choice(
+    get_field('switcher_radius') ?: 'medium',
+    array('none', 'small', 'medium', 'large'),
+    'medium'
+);
+
 $panel_background = fu_content_switcher_sanitize_choice(
-    get_field('panel_background') ?: 'none',
+    get_field('panel_background') ?: 'light',
     array('none', 'light', 'dark'),
-    'none'
+    'light'
 );
 
 $panel_radius = fu_content_switcher_sanitize_choice(
@@ -507,6 +513,7 @@ $panel_transition = fu_content_switcher_sanitize_choice(
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
 $equal_nav_items = fu_content_switcher_normalize_bool(get_field('equal_nav_items'), false);
 $enable_deep_linking = fu_content_switcher_normalize_bool(get_field('enable_deep_linking'), true);
+$rounded_tabs = fu_content_switcher_normalize_bool(get_field('rounded_tabs'), true);
 
 $seed_panels = fu_content_switcher_get_seed_panels();
 
@@ -595,17 +602,18 @@ if ($panel_count > 0 && $initial_index >= $panel_count) {
 
 $classes = array(
     'fu-content-switcher',
-    'fu-content-switcher--' . $display_style,
-    'fu-content-switcher--mobile-' . $mobile_behavior,
+    'fu-content-switcher--' . sanitize_html_class($display_style),
+    'fu-content-switcher--mobile-' . sanitize_html_class($mobile_behavior),
     'fu-content-switcher--bg-' . sanitize_html_class($background_style),
     'fu-content-switcher--shadow-' . sanitize_html_class($switcher_shadow),
     'fu-content-switcher--panel-bg-' . sanitize_html_class($panel_background),
-    'fu-content-switcher--radius-' . $panel_radius,
-    'fu-content-switcher--nav-' . $nav_alignment,
-    'fu-content-switcher--transition-' . $panel_transition,
-    'fu-content-switcher--pt-' . $spacing_top,
-    'fu-content-switcher--pb-' . $spacing_bottom,
-    'fu-content-switcher--px-' . $spacing_inline,
+    'fu-content-switcher--radius-' . sanitize_html_class($switcher_radius),
+    'fu-content-switcher--panel-radius-' . sanitize_html_class($panel_radius),
+    'fu-content-switcher--nav-' . sanitize_html_class($nav_alignment),
+    'fu-content-switcher--transition-' . sanitize_html_class($panel_transition),
+    'fu-content-switcher--pt-' . sanitize_html_class($spacing_top),
+    'fu-content-switcher--pb-' . sanitize_html_class($spacing_bottom),
+    'fu-content-switcher--px-' . sanitize_html_class($spacing_inline),
 );
 
 if ($show_nav_icons) {
@@ -614,6 +622,10 @@ if ($show_nav_icons) {
 
 if ($equal_nav_items) {
     $classes[] = 'fu-content-switcher--equal-nav';
+}
+
+if ($display_style === 'tabs' && $rounded_tabs && $panel_radius !== 'none') {
+    $classes[] = 'fu-content-switcher--rounded-tabs';
 }
 
 if ($panel_uses_dark_surface) {
