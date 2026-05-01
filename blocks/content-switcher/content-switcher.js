@@ -296,38 +296,73 @@
 					return;
 				}
 
+				const existingUtility = panel.content.querySelector(
+					".fu-content-switcher__editor-utility"
+				);
+
 				const existingButton = panel.content.querySelector(
 					"[data-fu-copy-panel-link]"
 				);
 
-				const canonicalPanelHash = this.frontendMode
-					? panel.wrapper?.dataset.panelHash || panel.hashSlug
-					: panel.hashSlug || panel.wrapper?.dataset.panelHash;
-
-				const shouldRender =
-					!this.frontendMode &&
-					this.copyLinkHelperEnabled &&
-					panel.deepLinkEnabled &&
-					!!canonicalPanelHash;
-
-				if (!shouldRender) {
+				// The editor utility should only exist in the editor preview.
+				// Public/front-end copy helpers are intentionally not rendered.
+				if (this.frontendMode) {
+					existingUtility?.remove();
 					existingButton?.remove();
 					return;
 				}
 
-				const button = existingButton || document.createElement("button");
+				let utility = existingUtility;
+
+				if (!utility) {
+					utility = document.createElement("div");
+					utility.className = "fu-content-switcher__editor-utility";
+					utility.setAttribute("aria-label", "Panel editor utilities");
+					panel.content.appendChild(utility);
+				}
+
+				let label = utility.querySelector(".fu-content-switcher__editor-label");
+
+				if (!label) {
+					label = document.createElement("span");
+					label.className = "fu-content-switcher__editor-label";
+					utility.appendChild(label);
+				}
+
+				label.textContent = `Panel: ${
+					panel.label || `Panel ${panel.index + 1}`
+				}`;
+
+				const canonicalPanelHash =
+					panel.hashSlug || panel.wrapper?.dataset.panelHash;
+
+				const shouldRenderCopyButton =
+					this.copyLinkHelperEnabled &&
+					panel.deepLinkEnabled &&
+					!!canonicalPanelHash;
+
+				if (!shouldRenderCopyButton) {
+					existingButton?.remove();
+					return;
+				}
+
+				const button =
+					existingButton ||
+					utility.querySelector("[data-fu-copy-panel-link]") ||
+					document.createElement("button");
+
 				button.type = "button";
 				button.className = "fu-content-switcher__copy-link";
 				button.dataset.fuCopyPanelLink = "true";
 				button.dataset.panelHash = canonicalPanelHash;
-				button.dataset.defaultLabel = "Copy panel link";
+				button.dataset.defaultLabel = "Copy deep link";
 
 				if (!button.dataset.feedbackState) {
 					button.textContent = button.dataset.defaultLabel;
 				}
 
-				if (!existingButton) {
-					panel.content.appendChild(button);
+				if (!button.parentElement) {
+					utility.appendChild(button);
 				}
 			});
 		}
