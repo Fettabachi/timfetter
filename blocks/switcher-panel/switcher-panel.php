@@ -121,6 +121,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
     class="<?php echo esc_attr(implode(' ', $classes)); ?>"
     data-panel-label="<?php echo esc_attr($panel_label !== '' ? $panel_label : 'Panel'); ?>"
     data-panel-slug="<?php echo esc_attr($panel_slug); ?>"
+    <?php if ($enable_panel_deeplink) : ?>data-panel-deeplink-enabled="true" <?php endif; ?>
     data-panel-icon="<?php echo esc_attr($panel_icon); ?>">
     <?php if ($is_preview) : ?>
         <p class="fu-switcher-panel__editor-label"><?php echo esc_html($editor_panel_label); ?></p>

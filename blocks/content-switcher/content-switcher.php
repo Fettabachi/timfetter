@@ -238,6 +238,7 @@ if (!function_exists('fu_content_switcher_extract_saved_panel_markup')) {
                 'label' => trim((string) $node->getAttribute('data-panel-label')),
                 'slug' => trim((string) $node->getAttribute('data-panel-slug')),
                 'icon' => sanitize_key((string) $node->getAttribute('data-panel-icon')),
+                'deeplink_enabled' => $node->getAttribute('data-panel-deeplink-enabled') === 'true',
                 'rendered' => $html,
             );
         }
@@ -389,24 +390,42 @@ if (!function_exists('fu_content_switcher_unique_slug')) {
 }
 
 if (!function_exists('fu_content_switcher_instance_prefix')) {
+    /**
+     * Build a stable, duplicate-safe switcher prefix for IDs and deep-link hashes.
+     *
+     * Do not use $block['id'] here. In this setup ACF/Gutenberg can expose a
+     * UUID-like runtime id that changes between page loads, which makes copied
+     * deep links expire. Prefer the author-controlled anchor when present;
+     * otherwise use the current post ID plus a per-request render count.
+     */
     function fu_content_switcher_instance_prefix(array $block, $is_preview = false)
     {
-        $raw_id = (string) ($block['id'] ?? '');
-        $sanitized_id = sanitize_title($raw_id);
+        $anchor = '';
+
+        if (!empty($block['anchor']) && is_string($block['anchor'])) {
+            $anchor = sanitize_title($block['anchor']);
+        }
+
+        $post_id = get_the_ID();
+
+        if (!$post_id) {
+            $post = get_post();
+            $post_id = $post instanceof WP_Post ? (int) $post->ID : 0;
+        }
+
+        $stable_base = $anchor !== ''
+            ? 'switcher-' . $anchor
+            : 'switcher-' . ($post_id ? absint($post_id) : 'instance');
 
         static $render_counts = array();
 
-        if ($sanitized_id === '') {
-            $sanitized_id = 'instance';
-        }
-
         if ($is_preview) {
-            return 'switcher-' . $sanitized_id;
+            return $stable_base;
         }
 
-        $render_counts[$sanitized_id] = ($render_counts[$sanitized_id] ?? 0) + 1;
+        $render_counts[$stable_base] = ($render_counts[$stable_base] ?? 0) + 1;
 
-        return 'switcher-' . $sanitized_id . '-' . $render_counts[$sanitized_id];
+        return $stable_base . '-' . $render_counts[$stable_base];
     }
 }
 
@@ -512,7 +531,6 @@ $panel_transition = fu_content_switcher_sanitize_choice(
 
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
 $equal_nav_items = fu_content_switcher_normalize_bool(get_field('equal_nav_items'), false);
-$enable_deep_linking = fu_content_switcher_normalize_bool(get_field('enable_deep_linking'), true);
 $rounded_tabs = fu_content_switcher_normalize_bool(get_field('rounded_tabs'), true);
 
 $seed_panels = fu_content_switcher_get_seed_panels();
@@ -563,6 +581,7 @@ if (!empty($saved_panel_markup)) {
             'slug' => $slug,
             'hash_slug' => $hash_slug,
             'icon' => sanitize_key((string) ($saved_panel['icon'] ?? '')),
+            'deeplink_enabled' => !empty($saved_panel['deeplink_enabled']),
             'tab_id' => $internal_id_prefix . '-tab-' . ($index + 1),
             'panel_id' => $internal_id_prefix . '-panel-' . ($index + 1),
             'accordion_id' => $internal_id_prefix . '-accordion-' . ($index + 1),
@@ -575,7 +594,9 @@ if (!empty($saved_panel_markup)) {
         $data = $attrs['data'] ?? array();
         $label = trim((string) ($data['panel_label'] ?? ''));
         $fallback_label = $label !== '' ? $label : 'Panel ' . ($index + 1);
-        $slug = fu_content_switcher_unique_slug(trim((string) ($data['panel_slug'] ?? '')), $fallback_label, $used_slugs);
+        $deeplink_enabled = fu_content_switcher_normalize_bool($data['enable_panel_deeplink'] ?? null, false);
+        $slug_source = $deeplink_enabled ? trim((string) ($data['panel_slug'] ?? '')) : '';
+        $slug = fu_content_switcher_unique_slug($slug_source, $fallback_label, $used_slugs);
         $hash_slug = fu_content_switcher_hash_slug($instance_prefix, $slug);
 
         $panels[] = array(
@@ -584,6 +605,7 @@ if (!empty($saved_panel_markup)) {
             'slug' => $slug,
             'hash_slug' => $hash_slug,
             'icon' => sanitize_key((string) ($data['panel_icon'] ?? '')),
+            'deeplink_enabled' => $deeplink_enabled,
             'tab_id' => $internal_id_prefix . '-tab-' . ($index + 1),
             'panel_id' => $internal_id_prefix . '-panel-' . ($index + 1),
             'accordion_id' => $internal_id_prefix . '-accordion-' . ($index + 1),
@@ -641,16 +663,23 @@ if (!empty($block['className'])) {
 }
 
 $wrapper_id = !empty($block['anchor']) ? $block['anchor'] : $internal_id_prefix;
+$show_copy_panel_link_helper = is_user_logged_in() && (current_user_can('edit_posts') || current_user_can('edit_pages'));
+$page_url = '';
+
+if (function_exists('get_permalink')) {
+    $page_url = (string) get_permalink();
+}
 ?>
 <section
     id="<?php echo esc_attr($wrapper_id); ?>"
     class="<?php echo esc_attr(implode(' ', $classes)); ?>"
     data-fu-content-switcher
     data-instance-prefix="<?php echo esc_attr($instance_prefix); ?>"
+    data-page-url="<?php echo esc_url($page_url); ?>"
     data-display-style="<?php echo esc_attr($display_style); ?>"
     data-mobile-behavior="<?php echo esc_attr($mobile_behavior); ?>"
     data-initial-index="<?php echo esc_attr((string) $initial_index); ?>"
-    data-deep-link-enabled="<?php echo esc_attr($enable_deep_linking ? 'true' : 'false'); ?>"
+    data-copy-link-helper-enabled="<?php echo esc_attr($show_copy_panel_link_helper ? 'true' : 'false'); ?>"
     data-transition="<?php echo esc_attr($panel_transition); ?>">
     <?php if ($panel_count > 0) : ?>
         <div
@@ -673,7 +702,8 @@ $wrapper_id = !empty($block['anchor']) ? $block['anchor'] : $internal_id_prefix;
                     data-panel-index="<?php echo esc_attr((string) $panel['index']); ?>"
                     data-panel-slug="<?php echo esc_attr($panel['slug']); ?>"
                     data-panel-hash="<?php echo esc_attr($panel['hash_slug']); ?>"
-                    data-panel-label="<?php echo esc_attr($panel['label']); ?>">
+                    data-panel-label="<?php echo esc_attr($panel['label']); ?>"
+                    <?php echo !empty($panel['deeplink_enabled']) ? 'data-panel-deeplink-enabled="true"' : ''; ?>>
                     <?php if ($render_nav_icon) : ?>
                         <span class="fu-content-switcher__tab-icon" aria-hidden="true"><?php echo $is_preview ? '' : fu_content_switcher_panel_icon_svg($panel['icon']); ?></span>
                     <?php endif; ?>
@@ -696,7 +726,8 @@ $wrapper_id = !empty($block['anchor']) ? $block['anchor'] : $internal_id_prefix;
                         data-panel-index="<?php echo esc_attr((string) $panel['index']); ?>"
                         data-panel-slug="<?php echo esc_attr($panel['slug']); ?>"
                         data-panel-hash="<?php echo esc_attr($panel['hash_slug']); ?>"
-                        data-panel-label="<?php echo esc_attr($panel['label']); ?>">
+                        data-panel-label="<?php echo esc_attr($panel['label']); ?>"
+                        <?php echo !empty($panel['deeplink_enabled']) ? 'data-panel-deeplink-enabled="true"' : ''; ?>>
                         <button
                             type="button"
                             id="<?php echo esc_attr($panel['accordion_id']); ?>"
@@ -707,7 +738,8 @@ $wrapper_id = !empty($block['anchor']) ? $block['anchor'] : $internal_id_prefix;
                             data-panel-index="<?php echo esc_attr((string) $panel['index']); ?>"
                             data-panel-slug="<?php echo esc_attr($panel['slug']); ?>"
                             data-panel-hash="<?php echo esc_attr($panel['hash_slug']); ?>"
-                            data-panel-label="<?php echo esc_attr($panel['label']); ?>">
+                            data-panel-label="<?php echo esc_attr($panel['label']); ?>"
+                            <?php echo !empty($panel['deeplink_enabled']) ? 'data-panel-deeplink-enabled="true"' : ''; ?>>
                             <?php if ($show_nav_icons && $panel['icon'] !== '') : ?>
                                 <span class="fu-content-switcher__tab-icon" aria-hidden="true"><?php echo fu_content_switcher_panel_icon_svg($panel['icon']); ?></span>
                             <?php endif; ?>

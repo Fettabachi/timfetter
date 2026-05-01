@@ -1,5 +1,3 @@
 If "Show Icons in Navigation" is set to False in the parent switcher, should we hide "Navigation Icon" in the child panels?
 
-When "Panel Layout" is "Text Only", the media tab should not render.
-
 I don't like how the Link buttons wrap when the URL is too long

@@ -60,12 +60,42 @@
 	const buildHashSlug = (instancePrefix, panelSlug) =>
 		`${instancePrefix || "switcher-instance"}-${slugify(panelSlug)}`;
 
+	const stripRenderOrderSuffix = (value) => {
+		const normalized = String(value || "");
+
+		if (/^switcher-\d+$/.test(normalized)) {
+			return normalized;
+		}
+
+		return normalized.replace(/-\d+$/, "");
+	};
+
+	const hasRenderOrderSuffix = (value) => {
+		const normalized = String(value || "");
+
+		if (/^switcher-\d+$/.test(normalized)) {
+			return false;
+		}
+
+		return /-\d+$/.test(normalized);
+	};
+	const REDUCED_MOTION_QUERY = window.matchMedia(
+		"(prefers-reduced-motion: reduce)"
+	);
+	const getFallbackPageUrl = () => {
+		const href = window.location.href || "";
+		return href
+			? href.split("#")[0]
+			: `${window.location.pathname}${window.location.search}`;
+	};
+
 	class ContentSwitcher {
 		constructor(root) {
 			this.root = root;
 			this.handleTabClick = this.handleTabClick.bind(this);
 			this.handleTabKeydown = this.handleTabKeydown.bind(this);
 			this.handleAccordionClick = this.handleAccordionClick.bind(this);
+			this.handleCopyLinkClick = this.handleCopyLinkClick.bind(this);
 			this.handleViewportChange = this.handleViewportChange.bind(this);
 			this.activeIndex = Number.NaN;
 			this.refresh();
@@ -82,9 +112,9 @@
 			this.frontendMode = this.frontendPanels.length > 0;
 			this.displayStyle = this.root.dataset.displayStyle || "tabs";
 			this.mobileBehavior = this.root.dataset.mobileBehavior || "accordion";
-			this.deepLinkEnabled = this.root.dataset.deepLinkEnabled !== "false";
-			this.instancePrefix =
-				this.root.dataset.instancePrefix || this.root.id || "switcher-instance";
+			this.copyLinkHelperEnabled =
+				this.root.dataset.copyLinkHelperEnabled === "true";
+			this.instancePrefix = this.getCanonicalInstancePrefix();
 			this.controlIdPrefix = this.instancePrefix;
 			this.initialIndex = Number.parseInt(
 				this.root.dataset.initialIndex || "0",
@@ -93,6 +123,7 @@
 			this.panels = this.frontendMode
 				? this.collectFrontendPanels()
 				: this.collectEditorPanels();
+			this.syncCopyLinkControls();
 			this.syncEditorControls();
 			this.activeIndex = this.getValidIndex(this.resolveStartingIndex());
 			this.applyState({ updateHash: false, force: true });
@@ -102,6 +133,7 @@
 			this.root.addEventListener("click", this.handleTabClick);
 			this.root.addEventListener("keydown", this.handleTabKeydown);
 			this.root.addEventListener("click", this.handleAccordionClick);
+			this.root.addEventListener("click", this.handleCopyLinkClick);
 
 			if (typeof MOBILE_BREAKPOINT.addEventListener === "function") {
 				MOBILE_BREAKPOINT.addEventListener("change", this.handleViewportChange);
@@ -114,11 +146,35 @@
 			this.applyState({ updateHash: false, force: true });
 		}
 
+		getCanonicalInstancePrefix() {
+			const rawPrefix =
+				this.root.dataset.instancePrefix || this.root.id || "switcher-instance";
+
+			if (hasRenderOrderSuffix(rawPrefix)) {
+				return rawPrefix;
+			}
+
+			const basePrefix = stripRenderOrderSuffix(rawPrefix);
+			const roots = Array.from(document.querySelectorAll(ROOT_SELECTOR));
+			const matchingRoots = roots.filter((root) => {
+				const rootPrefix =
+					root.dataset.instancePrefix || root.id || "switcher-instance";
+
+				return stripRenderOrderSuffix(rootPrefix) === basePrefix;
+			});
+			const renderIndex = matchingRoots.indexOf(this.root);
+			const suffix = renderIndex >= 0 ? renderIndex + 1 : 1;
+
+			return `${basePrefix}-${suffix}`;
+		}
+
 		collectFrontendPanels() {
 			return this.frontendPanels.map((panel, index) => {
 				const content = panel.querySelector(FRONTEND_PANEL_INNER_SELECTOR);
 				const accordion = panel.querySelector(ACCORDION_SELECTOR);
 				const dataNode = panel.querySelector(".fu-switcher-panel");
+				const deepLinkEnabled =
+					dataNode?.dataset.panelDeeplinkEnabled === "true";
 				return {
 					index,
 					wrapper: panel,
@@ -144,6 +200,7 @@
 							?.textContent ||
 						`Panel ${index + 1}`,
 					icon: dataNode?.dataset.panelIcon || "",
+					deepLinkEnabled,
 				};
 			});
 		}
@@ -169,6 +226,8 @@
 				wrapper.classList.add("fu-content-switcher__panel");
 				blockEdit.classList.add("fu-content-switcher__panel-inner");
 				wrapper.dataset.fuSwitcherEditorPanel = "true";
+				const deepLinkEnabled =
+					dataNode?.dataset.panelDeeplinkEnabled === "true";
 				return {
 					index,
 					wrapper,
@@ -190,6 +249,7 @@
 						wrapper.dataset.title ||
 						`Panel ${index + 1}`,
 					icon: dataNode?.dataset.panelIcon || "",
+					deepLinkEnabled,
 				};
 			});
 		}
@@ -228,6 +288,80 @@
 			}
 
 			iconNode.hidden = false;
+		}
+
+		syncCopyLinkControls() {
+			this.panels.forEach((panel) => {
+				if (!panel?.content) {
+					return;
+				}
+
+				const existingButton = panel.content.querySelector(
+					"[data-fu-copy-panel-link]"
+				);
+
+				const canonicalPanelHash = this.frontendMode
+					? panel.wrapper?.dataset.panelHash || panel.hashSlug
+					: panel.hashSlug || panel.wrapper?.dataset.panelHash;
+
+				const shouldRender =
+					!this.frontendMode &&
+					this.copyLinkHelperEnabled &&
+					panel.deepLinkEnabled &&
+					!!canonicalPanelHash;
+
+				if (!shouldRender) {
+					existingButton?.remove();
+					return;
+				}
+
+				const button = existingButton || document.createElement("button");
+				button.type = "button";
+				button.className = "fu-content-switcher__copy-link";
+				button.dataset.fuCopyPanelLink = "true";
+				button.dataset.panelHash = canonicalPanelHash;
+				button.dataset.defaultLabel = "Copy panel link";
+
+				if (!button.dataset.feedbackState) {
+					button.textContent = button.dataset.defaultLabel;
+				}
+
+				if (!existingButton) {
+					panel.content.appendChild(button);
+				}
+			});
+		}
+
+		setCopyFeedback(button, text) {
+			const defaultLabel = button.dataset.defaultLabel || "Copy panel link";
+			const previousTimer = Number.parseInt(
+				button.dataset.feedbackTimer || "",
+				10
+			);
+
+			if (Number.isFinite(previousTimer)) {
+				window.clearTimeout(previousTimer);
+			}
+
+			button.dataset.feedbackState = "active";
+			button.textContent = text;
+
+			const timer = window.setTimeout(() => {
+				button.textContent = defaultLabel;
+				delete button.dataset.feedbackState;
+				delete button.dataset.feedbackTimer;
+			}, 1500);
+
+			button.dataset.feedbackTimer = String(timer);
+		}
+
+		scrollToRoot() {
+			if (!this.root || isEditorEnvironment) {
+				return;
+			}
+
+			const behavior = REDUCED_MOTION_QUERY.matches ? "auto" : "smooth";
+			this.root.scrollIntoView({ behavior, block: "start" });
 		}
 
 		syncEditorSelection() {
@@ -298,9 +432,9 @@
 			}
 
 			const hash = decodeHash();
-			if (this.deepLinkEnabled && hash) {
+			if (hash) {
 				const matchedIndex = this.panels.findIndex(
-					(panel) => panel.hashSlug === hash
+					(panel) => panel.deepLinkEnabled && panel.hashSlug === hash
 				);
 				if (matchedIndex !== -1) {
 					return matchedIndex;
@@ -391,6 +525,71 @@
 			event.preventDefault();
 			const index = Number.parseInt(button.dataset.panelIndex || "0", 10);
 			this.activate(index, { updateHash: true, focusControl: true });
+		}
+
+		handleCopyLinkClick(event) {
+			const button = event.target.closest("[data-fu-copy-panel-link]");
+			if (!button || button.closest(ROOT_SELECTOR) !== this.root) {
+				return;
+			}
+
+			event.preventDefault();
+
+			const panel =
+				button.closest("[data-fu-switcher-panel]") ||
+				button.closest("[data-fu-switcher-editor-panel]");
+
+			const hashSlug = isEditorEnvironment
+				? button.dataset.panelHash || panel?.dataset.panelHash || ""
+				: panel?.dataset.panelHash || button.dataset.panelHash || "";
+			if (!hashSlug) {
+				return;
+			}
+
+			const baseUrl = this.root.dataset.pageUrl || getFallbackPageUrl();
+			const cleanBase = baseUrl.split("#")[0];
+			const fullUrl = `${cleanBase}#${encodeURIComponent(hashSlug)}`;
+
+			this.copyToClipboard(fullUrl)
+				.then(() => {
+					this.setCopyFeedback(button, "Copied!");
+				})
+				.catch(() => {
+					this.setCopyFeedback(button, "Copy failed");
+				});
+		}
+
+		copyToClipboard(text) {
+			if (navigator.clipboard?.writeText) {
+				return navigator.clipboard.writeText(text);
+			}
+
+			return new Promise((resolve, reject) => {
+				const helper = document.createElement("textarea");
+				helper.value = text;
+				helper.setAttribute("readonly", "readonly");
+				helper.style.position = "fixed";
+				helper.style.opacity = "0";
+				helper.style.pointerEvents = "none";
+				document.body.appendChild(helper);
+				helper.focus();
+				helper.select();
+
+				try {
+					const successful = document.execCommand("copy");
+					helper.remove();
+					if (successful) {
+						resolve();
+						return;
+					}
+				} catch (error) {
+					helper.remove();
+					reject(error);
+					return;
+				}
+
+				reject(new Error("Clipboard copy unavailable"));
+			});
 		}
 
 		handleTabKeydown(event) {
@@ -486,12 +685,22 @@
 				panel.wrapper.dataset.panelSlug = panel.slug;
 				panel.wrapper.dataset.panelHash = panel.hashSlug;
 				panel.wrapper.dataset.panelLabel = panel.label;
+				if (panel.deepLinkEnabled) {
+					panel.wrapper.dataset.panelDeeplinkEnabled = "true";
+				} else {
+					delete panel.wrapper.dataset.panelDeeplinkEnabled;
+				}
 
 				if (panel.accordion) {
 					panel.accordion.hidden = !accordionMode;
 					panel.accordion.classList.toggle("is-active", isActive);
 					panel.accordion.dataset.panelHash = panel.hashSlug;
 					panel.accordion.dataset.panelLabel = panel.label;
+					if (panel.deepLinkEnabled) {
+						panel.accordion.dataset.panelDeeplinkEnabled = "true";
+					} else {
+						delete panel.accordion.dataset.panelDeeplinkEnabled;
+					}
 					panel.accordion.setAttribute(
 						"aria-expanded",
 						isActive ? "true" : "false"
@@ -525,7 +734,7 @@
 				}
 			});
 
-			if (updateHash && this.deepLinkEnabled && !isEditorEnvironment) {
+			if (updateHash && !isEditorEnvironment) {
 				this.updateHash();
 			}
 
@@ -538,30 +747,35 @@
 		}
 
 		updateHash() {
-			const hashSlug = this.panels[this.activeIndex]?.hashSlug;
-			if (!hashSlug) {
+			const activePanel = this.panels[this.activeIndex];
+			if (!activePanel?.deepLinkEnabled || !activePanel.hashSlug) {
 				return;
 			}
 
 			const nextUrl = `${window.location.pathname}${
 				window.location.search
-			}#${encodeURIComponent(hashSlug)}`;
+			}#${encodeURIComponent(activePanel.hashSlug)}`;
 			window.history.replaceState({}, "", nextUrl);
 		}
 
-		activateFromHash(hash) {
-			if (!hash || !this.deepLinkEnabled) {
+		activateFromHash(hash, options = {}) {
+			if (!hash) {
 				return false;
 			}
 
+			const { scrollToRoot = false } = options;
+
 			const matchedIndex = this.panels.findIndex(
-				(panel) => panel.hashSlug === hash
+				(panel) => panel.deepLinkEnabled && panel.hashSlug === hash
 			);
 			if (matchedIndex === -1) {
 				return false;
 			}
 
 			this.activate(matchedIndex, { updateHash: false });
+			if (scrollToRoot) {
+				this.scrollToRoot();
+			}
 			return true;
 		}
 	}
@@ -615,6 +829,7 @@
 				"data-panel-label",
 				"data-panel-slug",
 				"data-panel-icon",
+				"data-panel-deeplink-enabled",
 			],
 		});
 	};
@@ -649,7 +864,7 @@
 	const handleHashChange = () => {
 		const hash = decodeHash();
 		document.querySelectorAll(ROOT_SELECTOR).forEach((root) => {
-			instances.get(root)?.activateFromHash(hash);
+			instances.get(root)?.activateFromHash(hash, { scrollToRoot: true });
 		});
 	};
 

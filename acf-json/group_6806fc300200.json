@@ -47,7 +47,7 @@
 			"name": "enable_panel_deeplink",
 			"aria-label": "",
 			"type": "true_false",
-			"instructions": "",
+			"instructions": "Allows this panel to be linked directly.",
 			"required": 0,
 			"conditional_logic": 0,
 			"wrapper": {
@@ -68,7 +68,7 @@
 			"name": "panel_slug",
 			"aria-label": "",
 			"type": "text",
-			"instructions": "Used for linking directly to this tab. Leave blank to generate automatically.",
+			"instructions": "Used as part of this panel’s deep link. Leave blank to generate automatically.",
 			"required": 0,
 			"conditional_logic": [
 				[

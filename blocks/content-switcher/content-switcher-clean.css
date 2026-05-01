@@ -191,3 +191,28 @@ html:has(.fu-content-switcher) .wp-block-acf-fu-content-switcher,
 html:has(.fu-content-switcher) .wp-block-acf-fu-switcher-panel {
 	max-width: 100%;
 }
+
+.fu-content-switcher .fu-content-switcher__copy-link {
+	margin-top: 1rem;
+	padding: 0.45rem 0.75rem;
+	border: 1px dashed color-mix(in srgb, currentColor 22%, transparent);
+	border-radius: 999px;
+	background: color-mix(in srgb, currentColor 6%, transparent);
+	color: inherit;
+	font: inherit;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	opacity: 0.82;
+	transition: opacity 0.2s ease, background-color 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.fu-content-switcher .fu-content-switcher__copy-link:hover,
+.fu-content-switcher .fu-content-switcher__copy-link:focus-visible {
+	opacity: 1;
+	background: color-mix(in srgb, currentColor 10%, transparent);
+	border-color: color-mix(in srgb, currentColor 38%, transparent);
+	outline: none;
+}

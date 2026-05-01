@@ -202,15 +202,6 @@
 			"wrapper": { "width": "50" },
 			"default_value": 0,
 			"ui": 1
-		},
-		{
-			"key": "field_6806fc300112",
-			"label": "Enable Deep Linking",
-			"name": "enable_deep_linking",
-			"type": "true_false",
-			"wrapper": { "width": "50" },
-			"default_value": 1,
-			"ui": 1
 		}
 	],
 	"location": [
