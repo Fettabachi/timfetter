@@ -291,7 +291,15 @@
 			"type": "accordion",
 			"instructions": "",
 			"required": 0,
-			"conditional_logic": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6806fc300218",
+						"operator": "!=",
+						"value": "text_only"
+					}
+				]
+			],
 			"wrapper": {
 				"width": "",
 				"class": "",

@@ -6,6 +6,8 @@
  * @param array $block The block settings and attributes.
  */
 
+$is_preview = ! empty($is_preview);
+
 $panel_label = trim((string) get_field('panel_label'));
 $panel_icon  = sanitize_key((string) get_field('panel_icon'));
 
@@ -48,18 +50,15 @@ $panel_heading    = $panel_heading !== '' ? $panel_heading : $panel_label;
 $panel_slug       = $panel_slug !== '' ? $panel_slug : 'panel';
 $panel_highlights = is_array($panel_highlights) ? array_slice($panel_highlights, 0, 4) : array();
 $panel_image      = is_array($panel_image) ? $panel_image : array();
-$has_media        = $panel_layout !== 'text_only' && (!empty($panel_image['ID']) || !empty($panel_image['url']));
+
+/*
+ * Text Only is a hard render rule, not just a CSS layout choice.
+ * When text_only is selected, no media wrapper is output at all.
+ */
+$has_media = $panel_layout !== 'text_only' && (! empty($panel_image['ID']) || ! empty($panel_image['url']));
 
 $panel_cta_1_link = is_array($panel_cta_1_link) ? $panel_cta_1_link : array();
 $panel_cta_2_link = is_array($panel_cta_2_link) ? $panel_cta_2_link : array();
-
-$panel_cta_1_title  = trim((string) ($panel_cta_1_link['title'] ?? ''));
-$panel_cta_1_url    = trim((string) ($panel_cta_1_link['url'] ?? ''));
-$panel_cta_1_target = trim((string) ($panel_cta_1_link['target'] ?? ''));
-
-$panel_cta_2_title  = trim((string) ($panel_cta_2_link['title'] ?? ''));
-$panel_cta_2_url    = trim((string) ($panel_cta_2_link['url'] ?? ''));
-$panel_cta_2_target = trim((string) ($panel_cta_2_link['target'] ?? ''));
 
 $has_primary_button   = $show_primary_button;
 $has_secondary_button = $show_secondary_button;
@@ -70,7 +69,7 @@ $classes = array(
     'fu-switcher-panel--layout-' . $panel_layout,
 );
 
-if (!empty($block['className']) && is_string($block['className'])) {
+if (! empty($block['className']) && is_string($block['className'])) {
     $classes[] = $block['className'];
 }
 
@@ -107,7 +106,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
         return;
     }
 
-    if (!empty($is_preview)) {
+    if ($is_preview) {
         $classes[] = 'is-placeholder';
 
         printf(
@@ -123,7 +122,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
     data-panel-label="<?php echo esc_attr($panel_label !== '' ? $panel_label : 'Panel'); ?>"
     data-panel-slug="<?php echo esc_attr($panel_slug); ?>"
     data-panel-icon="<?php echo esc_attr($panel_icon); ?>">
-    <?php if (!empty($is_preview)) : ?>
+    <?php if ($is_preview) : ?>
         <p class="fu-switcher-panel__editor-label"><?php echo esc_html($editor_panel_label); ?></p>
     <?php endif; ?>
 
@@ -142,7 +141,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
                                                         ?></div>
             <?php endif; ?>
 
-            <?php if (!empty($panel_highlights)) : ?>
+            <?php if (! empty($panel_highlights)) : ?>
                 <ul class="fu-switcher-panel__highlights">
                     <?php foreach ($panel_highlights as $highlight_row) : ?>
                         <?php $highlight_text = trim((string) ($highlight_row['highlight_text'] ?? '')); ?>
@@ -163,7 +162,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
                             $panel_cta_1_style,
                             $panel_cta_1_size,
                             'Add primary button link',
-                            !empty($is_preview)
+                            $is_preview
                         );
                     }
 
@@ -173,7 +172,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
                             $panel_cta_2_style,
                             $panel_cta_2_size,
                             'Add secondary button link',
-                            !empty($is_preview)
+                            $is_preview
                         );
                     }
                     ?>
@@ -183,7 +182,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
 
         <?php if ($has_media) : ?>
             <div class="fu-switcher-panel__media">
-                <?php if (!empty($panel_image['ID'])) : ?>
+                <?php if (! empty($panel_image['ID'])) : ?>
                     <?php
                     echo wp_get_attachment_image(
                         (int) $panel_image['ID'],
@@ -196,7 +195,7 @@ $render_panel_action = static function ($link, $style, $size, $fallback_label, $
                         )
                     );
                     ?>
-                <?php elseif (!empty($panel_image['url'])) : ?>
+                <?php elseif (! empty($panel_image['url'])) : ?>
                     <img
                         class="fu-switcher-panel__image"
                         src="<?php echo esc_url($panel_image['url']); ?>"
