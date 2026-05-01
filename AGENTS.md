@@ -66,6 +66,11 @@ This project is a WordPress theme focused on portable, client-ready ACF Blocks f
 - If a request involves ACF JSON, inspect the current JSON before editing and preserve existing keys unless a field is intentionally removed.
 - Prefer one focused change per commit-sized task.
 
+## Porting Notes
+
+- Global ACF admin UI fixes belong in a shared theme-level helper, not inside individual block folders.
+- When porting ACF blocks, verify Dashicons/ACF admin icon controls render correctly.
+
 ---
 
 This file is for AI coding agents. Update as project conventions evolve. For questions, consult the project owner.

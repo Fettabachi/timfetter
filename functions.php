@@ -1,6 +1,7 @@
 <?php
 
 require get_theme_file_path('/inc/acf-block-loader.php');
+require_once get_theme_file_path('/inc/acf-admin-ui.php');
 include get_theme_file_path('/inc/post-types.php');
 // include get_theme_file_path('/inc/seeders.php');
 include get_theme_file_path('/inc/template-helpers.php');
