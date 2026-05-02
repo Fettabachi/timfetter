@@ -321,6 +321,17 @@
 					panel.content.appendChild(utility);
 				}
 
+				let heading = utility.querySelector(
+					".fu-content-switcher__editor-utility-heading"
+				);
+
+				if (!heading) {
+					heading = document.createElement("span");
+					heading.className = "fu-content-switcher__editor-utility-heading";
+					heading.textContent = "Editor Utilities";
+					utility.insertBefore(heading, utility.firstChild);
+				}
+
 				let label = utility.querySelector(".fu-content-switcher__editor-label");
 
 				if (!label) {

@@ -1467,19 +1467,20 @@
 
 .editor-styles-wrapper .fu-content-switcher__editor-utility,
 .acf-block-component .fu-content-switcher__editor-utility {
-	align-items: center;
+	align-items: start;
 	background: color-mix(
 		in srgb,
 		var(--cs-panel-bg-strong, #fff) 86%,
 		transparent
 	);
 	border: 1px dashed var(--cs-panel-border, rgba(13, 59, 102, 0.18));
-	border-radius: 999px;
+	border-radius: 0.75rem;
 	box-shadow: 0 0.35rem 1rem rgba(13, 59, 102, 0.08);
-	display: inline-flex;
-	gap: 0.45rem;
-	justify-content: flex-end;
-	padding: 0.35rem;
+	display: grid;
+	gap: 0.35rem;
+	justify-items: start;
+	max-width: 14rem;
+	padding: 0.5rem;
 	position: absolute;
 	right: 0.75rem;
 	top: 0.75rem;
@@ -1495,15 +1496,23 @@
 	display: none;
 }
 
+.editor-styles-wrapper .fu-content-switcher__editor-utility-heading,
+.acf-block-component .fu-content-switcher__editor-utility-heading {
+	color: var(--cs-panel-text, var(--fu-blue));
+	font-size: 0.65rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
 .editor-styles-wrapper .fu-content-switcher__editor-label,
 .acf-block-component .fu-content-switcher__editor-label {
 	color: var(--cs-panel-muted, rgba(13, 59, 102, 0.68));
-	font-size: 0.75rem;
-	font-weight: 700;
-	letter-spacing: 0.04em;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.03em;
 	line-height: 1;
-	padding-inline: 0.45rem 0.2rem;
-	text-transform: uppercase;
 	white-space: nowrap;
 }
 
@@ -1536,7 +1545,7 @@
 	.fu-content-switcher__copy-link:focus-visible {
 	background: var(--cs-panel-bg-soft, rgba(13, 59, 102, 0.06));
 	border-color: var(--cs-panel-border-strong, rgba(13, 59, 102, 0.28));
-	box-shadow: 0 0 0 3px rgba(249, 87, 56, 0.16);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--cs-blue) 24%, transparent);
 	outline: none;
 }
 
@@ -1555,6 +1564,21 @@
 	background: rgba(255, 255, 255, 0.08);
 	border-color: rgba(255, 255, 255, 0.18);
 	box-shadow: none;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__editor-utility-heading,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__editor-utility-heading,
+.acf-block-component
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__editor-utility-heading,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__editor-utility-heading {
+	color: rgba(255, 255, 255, 0.9);
 }
 
 .editor-styles-wrapper

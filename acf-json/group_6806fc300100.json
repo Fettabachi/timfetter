@@ -92,6 +92,16 @@
 			"default_value": "medium"
 		},
 		{
+			"key": "field_6806fc300121",
+			"label": "Show Editor Utilities",
+			"name": "show_editor_utilities",
+			"type": "true_false",
+			"instructions": "Show editor-only panel labels and copy deep link helpers inside the block preview.",
+			"wrapper": { "width": "100" },
+			"default_value": 1,
+			"ui": 1
+		},
+		{
 			"key": "field_6806fc300109",
 			"label": "Visual Styles",
 			"name": "",
@@ -204,16 +214,6 @@
 			"type": "true_false",
 			"wrapper": { "width": "50" },
 			"default_value": 0,
-			"ui": 1
-		},
-		{
-			"key": "field_6806fc300121",
-			"label": "Show Editor Utilities",
-			"name": "show_editor_utilities",
-			"type": "true_false",
-			"instructions": "Show editor-only panel labels and copy deep link helpers inside the block preview.",
-			"wrapper": { "width": "50" },
-			"default_value": 1,
 			"ui": 1
 		}
 	],
