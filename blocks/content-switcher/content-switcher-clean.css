@@ -491,6 +491,48 @@
 	margin-bottom: 0;
 }
 
+@media (max-width: 48rem) {
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab {
+		background: var(--cs-tab-bg);
+		border-color: var(--cs-tab-border);
+		border-bottom-color: var(--cs-tab-border);
+		border-radius: var(--switcher-tab-radius);
+		box-shadow: none;
+		color: var(--cs-tab-text);
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:focus-visible,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:focus-visible {
+		background: var(--cs-tab-hover-bg);
+		border-color: var(--cs-tab-hover-border);
+		border-bottom-color: var(--cs-tab-hover-border);
+		color: var(--cs-tab-hover-text);
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger.is-active,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger[aria-selected="true"],
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab.is-active,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab[aria-selected="true"] {
+		background: var(--cs-tab-active-bg);
+		border-color: var(--cs-tab-active-border);
+		border-bottom-color: var(--cs-tab-active-border);
+		color: var(--cs-tab-active-text);
+	}
+}
+
 .fu-content-switcher .fu-switcher-panel__actions {
 	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
 	margin-top: 0.5rem;
