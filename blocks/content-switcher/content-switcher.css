@@ -134,6 +134,11 @@
 	);
 }
 
+.fu-content-switcher--bg-light:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical),
+.fu-content-switcher--bg-dark:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical) {
+	border-radius: var(--switcher-shell-radius);
+}
+
 .fu-content-switcher--panel-bg-none {
 	--switcher-panel-surface: transparent;
 	--switcher-panel-surface-strong: transparent;
@@ -268,7 +273,7 @@
 	display: inline-flex;
 	font: inherit;
 	font-weight: 600;
-	gap: 0.7rem;
+	gap: 0.2rem;
 	justify-content: center;
 	line-height: 1.2;
 	margin: 0;
@@ -306,10 +311,11 @@
 }
 
 .fu-content-switcher--minimal .fu-content-switcher__tab,
-.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger {
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab,
+.fu-content-switcher--style-minimal .fu-content-switcher__accordion-trigger {
 	background: transparent;
 	border-color: transparent;
-	border-bottom: 2px solid transparent;
 	border-radius: 0;
 	padding-inline: 0.25rem;
 	padding-left: 0;
@@ -318,24 +324,35 @@
 }
 
 .fu-content-switcher--minimal .fu-content-switcher__tab.is-active,
-.fu-content-switcher--minimal
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--style-minimal
 	.fu-content-switcher__accordion-trigger.is-active {
 	background: transparent;
-	border-bottom-color: var(--switcher-accent);
+	border-color: transparent;
 	box-shadow: none;
 	color: var(--switcher-text);
 }
 
 .fu-content-switcher--pills .fu-content-switcher__tab,
 .fu-content-switcher--pills .fu-content-switcher__accordion-trigger {
-	background: var(--switcher-accent-soft);
-	border-color: transparent;
+	background: var(--switcher-panel-effective-surface-soft);
+	border-color: var(--switcher-panel-effective-border);
+	border-radius: clamp(0px, calc(var(--switcher-panel-radius) - 2px), 999px);
 }
 
 .fu-content-switcher--pills .fu-content-switcher__tab.is-active,
 .fu-content-switcher--pills .fu-content-switcher__accordion-trigger.is-active {
-	background: var(--switcher-accent);
-	color: var(--fu-white);
+	background: var(--switcher-panel-effective-surface-strong);
+	border-color: var(--switcher-panel-effective-border-strong);
+	color: var(--switcher-panel-effective-text);
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__tab,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger {
+	border-radius: 999px;
 }
 
 /* Tabs display structure only. Visual states are owned by content-switcher-clean.css. */
@@ -359,7 +376,9 @@
 	z-index: 2;
 }
 
-.fu-content-switcher--vertical {
+.fu-content-switcher--vertical,
+.fu-content-switcher--style-vertical {
+	border-radius: var(--switcher-shell-radius);
 	display: grid;
 	gap: clamp(1rem, 0.75rem + 1.1vw, 2rem);
 	grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
@@ -373,6 +392,7 @@
 .fu-content-switcher--vertical .fu-content-switcher__nav {
 	align-content: start;
 	display: grid;
+	gap: clamp(0.5rem, 0.35rem + 0.4vw, 0.75rem);
 	justify-content: stretch;
 	margin: 0;
 	padding: 0;
@@ -382,8 +402,9 @@
 }
 
 .fu-content-switcher--vertical .fu-content-switcher__tab {
-	border-radius: calc(var(--fu-radius-lg) + 6px);
+	border-radius: clamp(0px, calc(var(--switcher-panel-radius) - 2px), 999px);
 	justify-content: flex-start;
+	min-height: 46px;
 	padding-inline: 1rem;
 	text-align: left;
 	width: 100%;
@@ -435,7 +456,6 @@
 	border-radius: var(--switcher-panel-radius);
 	box-shadow: var(--switcher-shadow);
 	color: var(--switcher-panel-effective-text);
-	min-height: var(--switcher-panel-min-height);
 	overflow: clip;
 	padding: var(--switcher-shell-pad-block) var(--switcher-shell-pad-inline);
 	position: relative;
@@ -478,6 +498,15 @@
 		var(--switcher-panel-min-height) - (2 * var(--switcher-shell-pad-block))
 	); */
 	width: 100%;
+}
+
+.fu-content-switcher .fu-switcher-panel__content {
+	gap: 1.5rem;
+}
+
+.fu-content-switcher .fu-switcher-panel__actions {
+	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
+	margin-top: 0.5rem;
 }
 
 .fu-content-switcher__panel-inner .fu-switcher-panel {
@@ -605,7 +634,8 @@
 }
 
 @media (max-width: 63.99rem) {
-	.fu-content-switcher--vertical {
+	.fu-content-switcher--vertical,
+	.fu-content-switcher--style-vertical {
 		display: block;
 		padding-inline: 0;
 	}
@@ -666,8 +696,8 @@
 	}
 
 	.fu-content-switcher--mobile-accordion .fu-content-switcher__panel-inner {
+		margin-top: 0.75rem;
 		min-height: 0;
-		padding-top: 0.25rem;
 	}
 
 	.fu-content-switcher--mobile-stacked .fu-content-switcher__panel {

@@ -434,7 +434,9 @@
 				"primary": "Primary",
 				"secondary": "Secondary",
 				"outline": "Outline",
-				"text": "Text"
+				"text": "Text",
+				"charcoal": "Charcoal",
+				"white": "White"
 			},
 			"default_value": "primary",
 			"return_format": "value",
@@ -554,7 +556,9 @@
 				"primary": "Primary",
 				"secondary": "Secondary",
 				"outline": "Outline",
-				"text": "Text"
+				"text": "Text",
+				"charcoal": "Charcoal",
+				"white": "White"
 			},
 			"default_value": "secondary",
 			"return_format": "value",

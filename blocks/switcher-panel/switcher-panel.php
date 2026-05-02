@@ -38,7 +38,7 @@ $panel_cta_2_link      = get_field('panel_cta_2_link');
 $panel_cta_2_style     = get_field('panel_cta_2_style') ?: 'secondary';
 $panel_cta_2_size      = get_field('panel_cta_2_size') ?: 'medium';
 
-$style_options = array('primary', 'secondary', 'outline', 'text');
+$style_options = array('primary', 'secondary', 'outline', 'text', 'charcoal', 'white');
 $size_options  = array('small', 'medium', 'large');
 
 $panel_cta_1_style = in_array($panel_cta_1_style, $style_options, true) ? $panel_cta_1_style : 'primary';

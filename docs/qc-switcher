@@ -1,0 +1,56 @@
+QA matrix
+✅ ☑️ ❎ ❌
+
+Tabs aren't keyboard accessible.
+
+✅ Keyboard focus is very subtle.
+Buttons should have an obvious :focus-visible state for keyboard accessibility.
+
+Display Style Tabs:
+Switcher Background: dark:
+✅ Remove or make the bottom border transparent on the active tab.
+
+Switcher Background: dark & Panel Background: Light:
+✅ The tabs hover state: The background and color settings are not accessible.
+✅ The bottom of the tabs are positioned 1px below the top of the panels.
+Mobile:
+Accordion:
+✅ Add space in between the tabs and the panels.
+✅ .fu-content-switcher--mobile-accordion .fu-content-switcher\_\_panel-inner - remove the padding-top style.
+
+☑️ The tabs still look like tabs. The bottom border radius should respect the panel radius.
+
+Display Style Pills:
+✅ The tabs have an orange theme. I think they should have a theme similar to the vertical style tabs.
+✅ Active state: The pills are invisible on a white background.
+✅ The Panel Border Radius should affect the border radius of the pills as well?
+✅ Switcher Background: Dark: The hover state is inaccessible with white color on a light background color.
+
+Display Style Minimal:
+✅ tabs don't have a hover state
+✅ I don't like the active states on light and dark backgrounds. Remove all of the borders and use a pseudo-element to create an orange bottom border that's positioned about 4px below .fu-content-switcher\_\_tab-label
+
+Display Style Vertical:
+✅ Switcher Border Radius is not working.
+✅ If "Switcher Shadow" is none, the tabs should have an different active state instead of a shadow.
+✅ The Panel Border Radius should affect the border radius of the tabs as well.
+✅ Switcher Background: Dark The active tab is not obvious.
+
+✅ If Switcher Background is set to None, Switcher Border Radius should not be displayed.
+
+Display Style Any:
+✅ Switcher Background: Dark & Panel Background: Dark:
+The border around the panels does not look good, probably due to the transparency. This same border is present around the tabs when the Display Style is set to Tabs.
+
+Panels:
+✅ .fu-content-switcher**panel-inner - should not set a min-height.
+✅ The content should have more breathing room. .fu-switcher-panel**content set the gap to 1.5rem or more. This could be a good candidate for a control.
+
+Buttons:
+✅ There are no options for Charcoal or white.
+✅ The hover & focus states are subtle.
+✅ In the editor, the Primary button color changes to blue on hover. The color should not change on hover.
+
+TODO: If "Show Icons in Navigation" is set to False in the parent switcher, should we hide "Navigation Icon" in the child panels?
+
+TODO: I don't like how the Link buttons wrap when the URL is too long
