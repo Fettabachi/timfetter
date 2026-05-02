@@ -532,6 +532,7 @@ $panel_transition = fu_content_switcher_sanitize_choice(
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
 $equal_nav_items = fu_content_switcher_normalize_bool(get_field('equal_nav_items'), false);
 $rounded_tabs = fu_content_switcher_normalize_bool(get_field('rounded_tabs'), true);
+$show_editor_utilities = fu_content_switcher_normalize_bool(get_field('show_editor_utilities'), true);
 
 $seed_panels = fu_content_switcher_get_seed_panels();
 
@@ -650,6 +651,10 @@ if ($display_style === 'tabs' && $rounded_tabs && $panel_radius !== 'none') {
     $classes[] = 'fu-content-switcher--rounded-tabs';
 }
 
+if (!$show_editor_utilities) {
+    $classes[] = 'fu-content-switcher--hide-editor-utilities';
+}
+
 if ($panel_uses_dark_surface) {
     $classes[] = 'fu-content-switcher--panel-surface-dark';
 }
@@ -663,7 +668,10 @@ if (!empty($block['className'])) {
 }
 
 $wrapper_id = !empty($block['anchor']) ? $block['anchor'] : $internal_id_prefix;
-$show_copy_panel_link_helper = is_user_logged_in() && (current_user_can('edit_posts') || current_user_can('edit_pages'));
+$show_copy_panel_link_helper =
+    $show_editor_utilities
+    && is_user_logged_in()
+    && (current_user_can('edit_posts') || current_user_can('edit_pages'));
 $page_url = '';
 
 if (function_exists('get_permalink')) {

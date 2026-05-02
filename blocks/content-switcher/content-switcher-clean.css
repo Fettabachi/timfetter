@@ -686,6 +686,15 @@
 	z-index: 5;
 }
 
+.editor-styles-wrapper
+	.fu-content-switcher--hide-editor-utilities
+	.fu-content-switcher__editor-utility,
+.acf-block-component
+	.fu-content-switcher--hide-editor-utilities
+	.fu-content-switcher__editor-utility {
+	display: none;
+}
+
 .editor-styles-wrapper .fu-content-switcher__editor-label,
 .acf-block-component .fu-content-switcher__editor-label {
 	color: var(--cs-panel-muted, rgba(13, 59, 102, 0.68));
