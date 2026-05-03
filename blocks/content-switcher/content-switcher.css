@@ -589,9 +589,17 @@
 	order: 2;
 }
 
+.fu-content-switcher--panel-bg-dark .fu-switcher-panel__media,
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
+	border-color: color-mix(
+		in srgb,
+		var(--fu-charcoal, #111827) 72%,
+		var(--fu-blue, #0d3b66)
+	);
+}
+
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
 	background: rgba(255, 255, 255, 0.06);
-	border-color: rgba(255, 255, 255, 0.12);
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--secondary {
