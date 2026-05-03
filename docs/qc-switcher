@@ -18,7 +18,7 @@ Accordion:
 ✅ Add space in between the tabs and the panels.
 ✅ .fu-content-switcher--mobile-accordion .fu-content-switcher\_\_panel-inner - remove the padding-top style.
 
-☑️ The tabs still look like tabs. The bottom border radius should respect the panel radius.
+✅ The tabs still look like tabs. The bottom border radius should respect the panel radius.
 
 Display Style Pills:
 ✅ The tabs have an orange theme. I think they should have a theme similar to the vertical style tabs.
@@ -56,3 +56,5 @@ TODO: Now that the stylesheets have been combined, we need to try to make sure a
 TODO: If "Show Icons in Navigation" is set to False in the parent switcher, should we hide "Navigation Icon" in the child panels?
 
 TODO: I don't like how the Link buttons wrap when the URL is too long
+
+❌ Known migration issue: older saved Content Switcher instances may contain stale panel markup after the render/deep-link refactor. If a tab does not activate its panel, rebuild the switcher instance or resave/recreate the affected block.
