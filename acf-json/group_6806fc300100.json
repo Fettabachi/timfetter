@@ -66,7 +66,7 @@
 		},
 		{
 			"key": "field_6806fc300107",
-			"label": "Top Spacing",
+			"label": "Internal Spacing Above",
 			"name": "spacing_top",
 			"type": "select",
 			"wrapper": { "width": "50" },
@@ -75,12 +75,42 @@
 		},
 		{
 			"key": "field_6806fc300108",
-			"label": "Bottom Spacing",
+			"label": "Internal Spacing Below",
 			"name": "spacing_bottom",
 			"type": "select",
 			"wrapper": { "width": "50" },
 			"choices": { "small": "Small", "medium": "Medium", "large": "Large" },
 			"default_value": "medium"
+		},
+		{
+			"key": "field_6806fc300122",
+			"label": "Space Before Block",
+			"name": "outer_spacing_top",
+			"type": "select",
+			"instructions": "Adds space above the entire switcher block.",
+			"wrapper": { "width": "50" },
+			"choices": {
+				"none": "None",
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "none"
+		},
+		{
+			"key": "field_6806fc300123",
+			"label": "Space After Block",
+			"name": "outer_spacing_bottom",
+			"type": "select",
+			"instructions": "Adds space below the entire switcher block.",
+			"wrapper": { "width": "50" },
+			"choices": {
+				"none": "None",
+				"small": "Small",
+				"medium": "Medium",
+				"large": "Large"
+			},
+			"default_value": "none"
 		},
 		{
 			"key": "field_6806fc300115",

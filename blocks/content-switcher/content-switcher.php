@@ -517,6 +517,18 @@ $spacing_bottom = fu_content_switcher_sanitize_choice(
     'medium'
 );
 
+$outer_spacing_top = fu_content_switcher_sanitize_choice(
+    get_field('outer_spacing_top') ?: 'none',
+    array('none', 'small', 'medium', 'large'),
+    'none'
+);
+
+$outer_spacing_bottom = fu_content_switcher_sanitize_choice(
+    get_field('outer_spacing_bottom') ?: 'none',
+    array('none', 'small', 'medium', 'large'),
+    'none'
+);
+
 $spacing_inline = fu_content_switcher_sanitize_choice(
     get_field('spacing_inline') ?: 'medium',
     array('small', 'medium', 'large'),
@@ -636,6 +648,8 @@ $classes = array(
     'fu-content-switcher--transition-' . sanitize_html_class($panel_transition),
     'fu-content-switcher--pt-' . sanitize_html_class($spacing_top),
     'fu-content-switcher--pb-' . sanitize_html_class($spacing_bottom),
+    'fu-content-switcher--mt-' . sanitize_html_class($outer_spacing_top),
+    'fu-content-switcher--mb-' . sanitize_html_class($outer_spacing_bottom),
     'fu-content-switcher--px-' . sanitize_html_class($spacing_inline),
 );
 

@@ -92,6 +92,38 @@
 	padding-bottom: clamp(2rem, 6vw, 5rem);
 }
 
+.fu-content-switcher--mt-none {
+	margin-top: 0;
+}
+
+.fu-content-switcher--mt-small {
+	margin-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+.fu-content-switcher--mt-medium {
+	margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.fu-content-switcher--mt-large {
+	margin-top: clamp(2rem, 6vw, 5rem);
+}
+
+.fu-content-switcher--mb-none {
+	margin-bottom: 0;
+}
+
+.fu-content-switcher--mb-small {
+	margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.fu-content-switcher--mb-medium {
+	margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.fu-content-switcher--mb-large {
+	margin-bottom: clamp(2rem, 6vw, 5rem);
+}
+
 .fu-content-switcher--bg-none {
 	--switcher-surface: rgba(255, 255, 255, 0.72);
 	--switcher-surface-strong: rgba(255, 255, 255, 0.92);
@@ -391,7 +423,7 @@
 	display: grid;
 	gap: clamp(1rem, 0.75rem + 1.1vw, 2rem);
 	grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
-	margin: 0 auto;
+	margin-inline: auto;
 	max-width: min(100%, var(--switcher-shell-max));
 	padding-inline: var(--switcher-shell-pad-inline);
 	position: relative;
