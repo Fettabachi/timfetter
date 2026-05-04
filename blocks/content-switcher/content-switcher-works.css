@@ -1,0 +1,1667 @@
+.fu-content-switcher {
+	--switcher-surface: rgba(255, 255, 255, 0.78);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.94);
+	--switcher-surface-soft: rgba(250, 240, 202, 0.52);
+	--switcher-border: rgba(13, 59, 102, 0.16);
+	--switcher-border-strong: rgba(13, 59, 102, 0.24);
+	--switcher-text: var(--fu-blue);
+	--switcher-muted: rgba(13, 59, 102, 0.68);
+	--switcher-accent: var(--fu-orange);
+	--switcher-accent-soft: rgba(249, 87, 56, 0.14);
+	--switcher-shadow: 0 22px 56px rgba(13, 59, 102, 0.12);
+	--switcher-shell-radius: calc(var(--fu-radius-lg) + 8px);
+	--switcher-panel-surface: rgba(255, 255, 255, 0.88);
+	--switcher-panel-surface-strong: rgba(255, 255, 255, 0.96);
+	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-panel-border: rgba(13, 59, 102, 0.12);
+	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
+	--switcher-panel-text: var(--fu-blue);
+	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+	--switcher-panel-effective-surface: var(--switcher-panel-surface);
+	--switcher-panel-effective-surface-strong: var(
+		--switcher-panel-surface-strong
+	);
+	--switcher-panel-effective-surface-soft: var(--switcher-panel-surface-soft);
+	--switcher-panel-effective-border: var(--switcher-panel-border);
+	--switcher-panel-effective-border-strong: var(--switcher-panel-border-strong);
+	--switcher-panel-effective-text: var(--switcher-panel-text);
+	--switcher-panel-effective-muted: var(--switcher-panel-muted);
+	--switcher-nav-gap: 0.75rem;
+	--switcher-panel-gap: clamp(1.25rem, 0.9rem + 1.2vw, 2rem);
+	--switcher-shell-max: 82rem;
+	--switcher-tabs-edge-offset: 0;
+	--switcher-shell-pad-inline: clamp(1rem, 2vw, 1.75rem);
+	--switcher-shell-pad-block: clamp(1.25rem, 0.85rem + 1.3vw, 2rem);
+	--switcher-tab-radius: 999px;
+	--switcher-tabs-top-radius: 0;
+	--switcher-tabs-active-surface: var(
+		--switcher-panel-effective-surface-strong
+	);
+	--switcher-tabs-hover-surface: var(--switcher-panel-effective-surface-soft);
+	--switcher-tabs-active-border: var(--switcher-panel-effective-border);
+	--switcher-tabs-hover-border: var(--switcher-panel-effective-border-strong);
+	--switcher-tabs-active-text: var(--switcher-panel-effective-text);
+	--switcher-panel-radius: calc(var(--fu-radius-lg) + 8px);
+	--switcher-panel-min-height: clamp(22rem, 32vw, 30rem);
+	--switcher-outline: 0 0 0 3px rgba(249, 87, 56, 0.18);
+	color: var(--switcher-text);
+	position: relative;
+}
+
+.fu-content-switcher--pt-none {
+	padding-top: 0;
+}
+
+.fu-content-switcher--pt-small {
+	padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+.fu-content-switcher--px-small {
+	--switcher-shell-pad-inline: clamp(0.8rem, 1.4vw, 1.1rem);
+}
+
+.fu-content-switcher--pt-medium {
+	padding-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.fu-content-switcher--px-medium {
+	--switcher-shell-pad-inline: clamp(1rem, 2vw, 1.75rem);
+}
+
+.fu-content-switcher--pt-large {
+	padding-top: clamp(2rem, 6vw, 5rem);
+}
+
+.fu-content-switcher--px-large {
+	--switcher-shell-pad-inline: clamp(1.25rem, 2.8vw, 2.4rem);
+}
+
+.fu-content-switcher--pb-none {
+	padding-bottom: 0;
+}
+
+.fu-content-switcher--pb-small {
+	padding-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.fu-content-switcher--pb-medium {
+	padding-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.fu-content-switcher--pb-large {
+	padding-bottom: clamp(2rem, 6vw, 5rem);
+}
+
+.fu-content-switcher--bg-none {
+	--switcher-surface: rgba(255, 255, 255, 0.72);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.92);
+	--switcher-surface-soft: rgba(13, 59, 102, 0.04);
+	background: transparent;
+}
+
+.fu-content-switcher--bg-light {
+	--switcher-surface: rgba(255, 255, 255, 0.9);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.98);
+	--switcher-surface-soft: rgba(13, 59, 102, 0.06);
+	background: linear-gradient(
+		180deg,
+		rgba(250, 240, 202, 0.2),
+		rgba(255, 255, 255, 0)
+	);
+}
+
+.fu-content-switcher--shadow-none {
+	--switcher-shadow: none;
+}
+
+.fu-content-switcher--shadow-soft {
+	--switcher-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
+}
+
+.fu-content-switcher--shadow-medium {
+	--switcher-shadow: 0 22px 56px rgba(13, 59, 102, 0.16);
+}
+
+.fu-content-switcher--shadow-strong {
+	--switcher-shadow: 0 28px 68px rgba(13, 59, 102, 0.24);
+}
+
+.fu-content-switcher--bg-dark {
+	--switcher-surface: rgba(255, 255, 255, 0.08);
+	--switcher-surface-strong: rgba(255, 255, 255, 0.12);
+	--switcher-surface-soft: rgba(255, 255, 255, 0.06);
+	--switcher-border: rgba(255, 255, 255, 0.14);
+	--switcher-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-text: var(--fu-white);
+	--switcher-muted: rgba(255, 255, 255, 0.74);
+	--switcher-accent-soft: rgba(250, 240, 202, 0.16);
+	background: linear-gradient(
+		180deg,
+		rgba(13, 59, 102, 0.98),
+		rgba(17, 24, 39, 0.94)
+	);
+}
+
+.fu-content-switcher--bg-light:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical),
+.fu-content-switcher--bg-dark:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical) {
+	border-radius: var(--switcher-shell-radius);
+}
+
+.fu-content-switcher--panel-bg-none {
+	--switcher-panel-surface: transparent;
+	--switcher-panel-surface-strong: transparent;
+	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-panel-border: rgba(13, 59, 102, 0.12);
+	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
+	--switcher-panel-text: var(--fu-blue);
+	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+}
+
+.fu-content-switcher--panel-bg-light {
+	--switcher-panel-surface: rgba(255, 255, 255, 0.88);
+	--switcher-panel-surface-strong: rgba(255, 255, 255, 0.96);
+	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.06);
+	--switcher-panel-border: rgba(13, 59, 102, 0.12);
+	--switcher-panel-border-strong: rgba(13, 59, 102, 0.22);
+	--switcher-panel-text: var(--fu-blue);
+	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+}
+
+.fu-content-switcher--panel-bg-dark {
+	--switcher-panel-surface: rgba(13, 59, 102, 0.92);
+	--switcher-panel-surface-strong: rgba(17, 24, 39, 0.96);
+	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-text: var(--fu-white);
+	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+}
+
+.fu-content-switcher--panel-surface-dark {
+	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
+	--switcher-panel-border: rgba(255, 255, 255, 0.14);
+	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-text: var(--fu-white);
+	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+}
+
+.fu-content-switcher--radius-none {
+	--switcher-shell-radius: 0;
+	--switcher-tab-radius: 0;
+}
+
+.fu-content-switcher--radius-small {
+	--switcher-shell-radius: var(--fu-radius-sm);
+	--switcher-tab-radius: var(--fu-radius-sm);
+}
+
+.fu-content-switcher--radius-medium {
+	--switcher-shell-radius: calc(var(--fu-radius-md) + 4px);
+	--switcher-tab-radius: calc(var(--fu-radius-md) + 4px);
+}
+
+.fu-content-switcher--radius-large {
+	--switcher-shell-radius: calc(var(--fu-radius-lg) + 10px);
+	--switcher-tab-radius: calc(var(--fu-radius-lg) + 10px);
+}
+
+.fu-content-switcher--panel-radius-none {
+	--switcher-panel-radius: 0;
+	--switcher-tabs-edge-offset: 0rem;
+}
+
+.fu-content-switcher--panel-radius-small {
+	--switcher-panel-radius: var(--fu-radius-sm);
+	--switcher-tabs-edge-offset: 0.2rem;
+}
+
+.fu-content-switcher--panel-radius-medium {
+	--switcher-panel-radius: calc(var(--fu-radius-md) + 4px);
+	--switcher-tabs-edge-offset: 0.4rem;
+}
+
+.fu-content-switcher--panel-radius-large {
+	--switcher-panel-radius: calc(var(--fu-radius-lg) + 10px);
+	--switcher-tabs-edge-offset: 0.65rem;
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-none {
+	--switcher-tabs-top-radius: 0;
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-small {
+	--switcher-tabs-top-radius: var(--fu-radius-sm);
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-medium {
+	--switcher-tabs-top-radius: calc(var(--fu-radius-md) + 4px);
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--panel-radius-large {
+	--switcher-tabs-top-radius: calc(var(--fu-radius-lg) + 10px);
+}
+
+.fu-content-switcher__nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--switcher-nav-gap);
+	justify-content: flex-start;
+	margin: 0 auto clamp(1rem, 0.7rem + 1vw, 1.75rem);
+	max-width: min(100%, var(--switcher-shell-max));
+	padding-inline: var(--switcher-shell-pad-inline);
+	position: relative;
+	z-index: 1;
+}
+
+.fu-content-switcher--nav-center .fu-content-switcher__nav {
+	justify-content: center;
+}
+
+.fu-content-switcher--nav-right .fu-content-switcher__nav {
+	justify-content: flex-end;
+}
+
+.fu-content-switcher--equal-nav .fu-content-switcher__nav {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	width: min(100%, var(--switcher-shell-max));
+}
+
+.fu-content-switcher__tab,
+.fu-content-switcher__accordion-trigger {
+	align-items: center;
+	appearance: none;
+	background: var(--switcher-surface);
+	backdrop-filter: blur(12px);
+	border: 1px solid var(--switcher-border);
+	border-radius: var(--switcher-tab-radius);
+	box-shadow: none;
+	color: var(--switcher-text);
+	cursor: pointer;
+	display: inline-flex;
+	font: inherit;
+	font-weight: 600;
+	gap: 0.2rem;
+	justify-content: center;
+	line-height: 1.2;
+	margin: 0;
+	min-height: 48px;
+	padding: 0.85rem 1.15rem;
+	text-align: center;
+	text-decoration: none;
+	transition: transform 0.2s ease, background-color 0.25s ease,
+		border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+	width: auto;
+}
+
+.fu-content-switcher__tab:hover,
+.fu-content-switcher__accordion-trigger:hover {
+	border-color: var(--switcher-border-strong);
+	transform: translateY(-1px);
+}
+
+.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher__accordion-trigger:focus-visible {
+	box-shadow: var(--switcher-outline);
+	outline: none;
+}
+
+.fu-content-switcher__tab.is-active,
+.fu-content-switcher__accordion-trigger.is-active {
+	background: var(--switcher-surface-strong);
+	border-color: rgba(249, 87, 56, 0.6);
+	box-shadow: 0 14px 32px rgba(13, 59, 102, 0.12);
+	color: var(--switcher-text);
+}
+
+.fu-content-switcher__tab.is-active {
+	border-color: var(--switcher-border);
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab,
+.fu-content-switcher--style-minimal .fu-content-switcher__accordion-trigger {
+	background: transparent;
+	border-color: transparent;
+	border-radius: 0;
+	padding-inline: 0.25rem;
+	padding-left: 0;
+	padding-right: 0;
+	transform: none;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger.is-active {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: none;
+	color: var(--switcher-text);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger {
+	background: var(--switcher-panel-effective-surface-soft);
+	border-color: var(--switcher-panel-effective-border);
+	border-radius: clamp(0px, calc(var(--switcher-panel-radius) - 2px), 999px);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab.is-active,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger.is-active {
+	background: var(--switcher-panel-effective-surface-strong);
+	border-color: var(--switcher-panel-effective-border-strong);
+	color: var(--switcher-panel-effective-text);
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__tab,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger {
+	border-radius: 999px;
+}
+
+/* Tabs display structure only. Visual states are owned by content-switcher-clean.css. */
+.fu-content-switcher--tabs .fu-content-switcher__tab,
+.fu-content-switcher--tabs .fu-content-switcher__accordion-trigger {
+	border-radius: var(--switcher-tabs-top-radius) var(--switcher-tabs-top-radius)
+		0 0;
+	margin-bottom: -1px;
+	position: relative;
+}
+
+.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+	.fu-content-switcher__nav {
+	align-items: flex-end;
+	gap: 0.45rem;
+	margin-bottom: 0;
+	padding-inline: calc(
+		var(--switcher-shell-pad-inline) + var(--switcher-tabs-edge-offset) + 6px
+	);
+	position: relative;
+	z-index: 2;
+}
+
+.fu-content-switcher--vertical,
+.fu-content-switcher--style-vertical {
+	border-radius: var(--switcher-shell-radius);
+	display: grid;
+	gap: clamp(1rem, 0.75rem + 1.1vw, 2rem);
+	grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+	margin: 0 auto;
+	max-width: min(100%, var(--switcher-shell-max));
+	padding-inline: var(--switcher-shell-pad-inline);
+	position: relative;
+	width: 100%;
+}
+
+.fu-content-switcher--vertical .fu-content-switcher__nav {
+	align-content: start;
+	display: grid;
+	gap: clamp(0.5rem, 0.35rem + 0.4vw, 0.75rem);
+	justify-content: stretch;
+	margin: 0;
+	padding: 0;
+	position: sticky;
+	top: 1rem;
+	width: 100%;
+}
+
+.fu-content-switcher--vertical .fu-content-switcher__tab {
+	border-radius: clamp(0px, calc(var(--switcher-panel-radius) - 2px), 999px);
+	justify-content: flex-start;
+	min-height: 46px;
+	padding-inline: 1rem;
+	text-align: left;
+	width: 100%;
+}
+
+.fu-content-switcher__tab-label {
+	display: inline-flex;
+	min-width: 0;
+	word-break: break-word;
+}
+
+.fu-content-switcher__tab-icon {
+	align-items: center;
+	display: inline-flex;
+	flex: 0 0 auto;
+	height: 1.15rem;
+	justify-content: center;
+	width: 1.15rem;
+}
+
+.fu-content-switcher__tab-icon svg {
+	fill: currentColor;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.fu-content-switcher__panels {
+	margin: 0 auto;
+	max-width: min(100%, var(--switcher-shell-max));
+	min-width: 0;
+	padding-inline: var(--switcher-shell-pad-inline);
+	position: relative;
+	width: 100%;
+}
+
+.fu-content-switcher__panel {
+	position: relative;
+}
+
+.fu-content-switcher__panel-inner {
+	background: linear-gradient(
+			180deg,
+			var(--switcher-panel-effective-surface-strong),
+			var(--switcher-panel-effective-surface)
+		),
+		var(--switcher-panel-effective-surface-strong);
+	border: 1px solid var(--switcher-panel-effective-border);
+	border-radius: var(--switcher-panel-radius);
+	box-shadow: var(--switcher-shadow);
+	color: var(--switcher-panel-effective-text);
+	overflow: clip;
+	padding: var(--switcher-shell-pad-block) var(--switcher-shell-pad-inline);
+	position: relative;
+}
+
+.fu-content-switcher__panel-inner[hidden] {
+	display: none;
+}
+
+.fu-content-switcher--transition-fade .fu-content-switcher__panel-inner {
+	animation: fuContentSwitcherFade 0.42s ease-out;
+}
+
+.fu-content-switcher--transition-slide .fu-content-switcher__panel-inner {
+	animation: fuContentSwitcherSlide 0.4s ease-out;
+}
+
+.fu-content-switcher--transition-none .fu-content-switcher__panel-inner {
+	animation: none;
+}
+
+.fu-content-switcher__accordion-trigger {
+	display: none;
+	margin-bottom: 0.75rem;
+	width: 100%;
+}
+
+.fu-content-switcher--show-icons .fu-content-switcher__tab,
+.fu-content-switcher--show-icons .fu-content-switcher__accordion-trigger {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.fu-content-switcher .fu-switcher-panel__inner {
+	align-items: center;
+	display: grid;
+	gap: var(--switcher-panel-gap);
+	grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+	/* min-height: calc(
+		var(--switcher-panel-min-height) - (2 * var(--switcher-shell-pad-block))
+	); */
+	width: 100%;
+}
+
+.fu-content-switcher .fu-switcher-panel__content {
+	gap: 1.5rem;
+}
+
+.fu-content-switcher .fu-switcher-panel__actions {
+	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 600px) {
+	.fu-content-switcher .fu-switcher-panel__actions {
+		align-items: flex-start;
+	}
+
+	.fu-content-switcher .fu-switcher-panel__action {
+		min-width: min(100%, 16rem);
+		width: auto;
+	}
+}
+
+.fu-content-switcher__panel-inner .fu-switcher-panel {
+	--switcher-surface: var(--switcher-panel-effective-surface);
+	--switcher-surface-strong: var(--switcher-panel-effective-surface-strong);
+	--switcher-surface-soft: var(--switcher-panel-effective-surface-soft);
+	--switcher-border: var(--switcher-panel-effective-border);
+	--switcher-border-strong: var(--switcher-panel-effective-border-strong);
+	--switcher-text: var(--switcher-panel-effective-text);
+	--switcher-muted: var(--switcher-panel-effective-muted);
+	--switcher-action-secondary-bg: var(--switcher-panel-effective-surface-soft);
+	--switcher-action-secondary-border: var(--switcher-panel-effective-border);
+	--switcher-action-secondary-hover-bg: var(
+		--switcher-panel-effective-surface-soft
+	);
+	--switcher-action-outline-border: var(
+		--switcher-panel-effective-border-strong
+	);
+	--switcher-action-outline-hover-bg: var(
+		--switcher-panel-effective-surface-soft
+	);
+	--switcher-action-text: var(--switcher-panel-effective-text);
+	--switcher-action-text-hover: var(--switcher-accent);
+	color: var(--switcher-panel-effective-text);
+}
+
+.fu-content-switcher
+	.fu-switcher-panel--layout-text_only
+	.fu-switcher-panel__inner {
+	grid-template-columns: 1fr;
+	max-width: 54rem;
+}
+
+.fu-content-switcher
+	.fu-switcher-panel--layout-text_only
+	.fu-switcher-panel__media {
+	display: none;
+}
+
+.fu-content-switcher
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__content {
+	order: 2;
+}
+
+.fu-content-switcher
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__media {
+	order: 1;
+}
+
+.fu-content-switcher
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__content {
+	order: 1;
+}
+
+.fu-content-switcher
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__media {
+	order: 2;
+}
+
+.fu-content-switcher--panel-bg-dark .fu-switcher-panel__media,
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
+	border-color: color-mix(
+		in srgb,
+		var(--fu-charcoal, #111827) 72%,
+		var(--fu-blue, #0d3b66)
+	);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
+	background: rgba(255, 255, 255, 0.06);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--secondary {
+	border-color: rgba(255, 255, 255, 0.24);
+	color: var(--fu-white);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel {
+	--switcher-action-secondary-bg: rgba(255, 255, 255, 0.08);
+	--switcher-action-secondary-border: rgba(255, 255, 255, 0.24);
+	--switcher-action-secondary-hover-bg: rgba(255, 255, 255, 0.12);
+	--switcher-action-outline-border: rgba(255, 255, 255, 0.32);
+	--switcher-action-outline-hover-bg: rgba(255, 255, 255, 0.08);
+	--switcher-action-text: rgba(255, 255, 255, 0.92);
+	--switcher-action-text-hover: var(--fu-white);
+}
+
+.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary:hover,
+.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--secondary:focus-visible {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--outline,
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--text {
+	color: var(--fu-white);
+}
+
+@media (min-width: 64rem) {
+	.fu-content-switcher--tabs .fu-content-switcher__nav,
+	.fu-content-switcher--pills .fu-content-switcher__nav,
+	.fu-content-switcher--minimal .fu-content-switcher__nav {
+		padding-inline: var(--switcher-shell-pad-inline);
+	}
+
+	.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+		.fu-content-switcher__nav {
+		padding-inline: calc(
+			var(--switcher-shell-pad-inline) + var(--switcher-tabs-edge-offset) + 6px
+		);
+	}
+
+	.fu-content-switcher:not(.fu-content-switcher--vertical)
+		.fu-content-switcher__panel-inner {
+		padding: clamp(1.4rem, 1rem + 1.2vw, 2.15rem)
+			var(--switcher-shell-pad-inline);
+	}
+
+	.fu-content-switcher:not(.fu-content-switcher--vertical)
+		.fu-content-switcher__panels {
+		padding-inline: var(--switcher-shell-pad-inline);
+	}
+
+	.fu-content-switcher:not(.fu-content-switcher--vertical)
+		.fu-content-switcher__nav {
+		padding-inline: var(--switcher-shell-pad-inline);
+	}
+}
+
+@media (max-width: 63.99rem) {
+	.fu-content-switcher--vertical,
+	.fu-content-switcher--style-vertical {
+		display: block;
+		padding-inline: 0;
+	}
+
+	.fu-content-switcher--vertical .fu-content-switcher__nav {
+		position: relative;
+		top: auto;
+	}
+
+	.fu-content-switcher .fu-switcher-panel__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__content,
+	.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__media,
+	.fu-content-switcher
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__content,
+	.fu-content-switcher
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__media {
+		order: initial;
+	}
+}
+
+@media (max-width: 48rem) {
+	.fu-content-switcher__nav {
+		padding-inline: var(--switcher-shell-pad-inline);
+	}
+
+	.fu-content-switcher.fu-content-switcher--tabs:not(.fu-content-switcher--vertical)
+		.fu-content-switcher__nav {
+		padding-inline: calc(
+			var(--switcher-shell-pad-inline) + var(--switcher-tabs-edge-offset) + 6px
+		);
+	}
+
+	.fu-content-switcher__panels {
+		padding-inline: var(--switcher-shell-pad-inline);
+	}
+
+	.fu-content-switcher--mobile-accordion .fu-content-switcher__nav,
+	.fu-content-switcher--mobile-stacked .fu-content-switcher__nav {
+		display: none;
+	}
+
+	.fu-content-switcher--mobile-accordion
+		.fu-content-switcher__accordion-trigger {
+		display: inline-flex;
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab {
+		border-radius: var(--switcher-tab-radius);
+		margin-bottom: 0;
+		position: static;
+		transform: none;
+		width: 100%;
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:focus-visible,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:focus-visible {
+		transform: none;
+	}
+
+	.fu-content-switcher--mobile-accordion .fu-content-switcher__panel {
+		margin-bottom: 1rem;
+	}
+
+	.fu-content-switcher--mobile-accordion .fu-content-switcher__panel-inner {
+		margin-top: 0.75rem;
+		min-height: 0;
+	}
+
+	.fu-content-switcher--mobile-stacked .fu-content-switcher__panel {
+		margin-bottom: 1rem;
+	}
+
+	.fu-content-switcher--mobile-stacked .fu-content-switcher__panel-inner {
+		min-height: 0;
+	}
+}
+
+@keyframes fuContentSwitcherFade {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fuContentSwitcherSlide {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fu-content-switcher__tab,
+	.fu-content-switcher__accordion-trigger,
+	.fu-content-switcher__panel-inner {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+/**
+ * Clean visual layer
+ * Formerly content-switcher-clean.css
+ */
+
+/**
+ * FU Content Switcher — Clean Visual Layer
+ *
+ * This file intentionally overrides only visual state logic first.
+ * Layout remains in content-switcher.css until migrated.
+ */
+
+.fu-content-switcher {
+	--cs-white: var(--fu-white, #ffffff);
+	--cs-blue: var(--fu-blue, #0d3b66);
+	--cs-orange: var(--fu-orange, #f95738);
+	--cs-charcoal: var(--fu-charcoal, #111827);
+	--cs-focus-ring: 0 0 0 3px
+		color-mix(in srgb, var(--cs-orange) 28%, transparent);
+
+	--cs-shell-bg: transparent;
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 16%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	--cs-panel-bg: var(--cs-white);
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 4%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+
+	--cs-tab-bg: color-mix(in srgb, var(--cs-shell-bg) 30%, var(--cs-white));
+	--cs-tab-text: var(--cs-shell-text);
+	--cs-tab-border: var(--cs-shell-border);
+	--cs-tab-hover-bg: var(--cs-panel-bg-soft);
+	--cs-tab-hover-text: var(--cs-panel-text);
+	--cs-tab-hover-border: var(--cs-panel-border-strong);
+	--cs-tab-active-bg: color-mix(
+		in srgb,
+		var(--cs-shell-bg) 15%,
+		var(--cs-white)
+	);
+	--cs-tab-active-text: var(--cs-panel-text);
+	--cs-tab-active-border: var(--cs-panel-border);
+
+	color: var(--cs-shell-text);
+}
+
+/* Switcher background themes */
+.fu-content-switcher--bg-none {
+	--cs-shell-bg: transparent;
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 16%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	background: transparent;
+}
+
+.fu-content-switcher--bg-light {
+	--cs-shell-bg: color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white));
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 14%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white)),
+		color-mix(in srgb, var(--cs-charcoal) 6%, var(--cs-white))
+	);
+}
+
+.fu-content-switcher--bg-dark {
+	--cs-shell-bg: var(--cs-blue);
+	--cs-shell-text: var(--cs-white);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-shell-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+	--cs-tab-bg: color-mix(in srgb, var(--cs-white) 12%, transparent);
+	--cs-tab-hover-bg: color-mix(in srgb, var(--cs-white) 18%, transparent);
+	--cs-tab-hover-text: var(--cs-white);
+	--cs-tab-active-bg: color-mix(in srgb, var(--cs-white) 24%, transparent);
+	--cs-tab-active-text: var(--cs-white);
+
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--cs-blue) 98%, black),
+		color-mix(in srgb, var(--cs-charcoal) 94%, black)
+	);
+}
+
+/* Panel background themes */
+.fu-content-switcher--panel-bg-none {
+	--cs-panel-bg: transparent;
+	--cs-panel-bg-strong: transparent;
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 4%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+	--cs-panel-bg: transparent;
+	--cs-panel-bg-strong: transparent;
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-white) 8%, transparent);
+	--cs-panel-text: var(--cs-white);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+}
+
+.fu-content-switcher--panel-bg-light {
+	--cs-panel-bg: color-mix(in srgb, var(--cs-white) 92%, var(--cs-blue));
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 6%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+}
+
+.fu-content-switcher--panel-bg-dark {
+	--cs-panel-bg: color-mix(in srgb, var(--cs-blue) 92%, black);
+	--cs-panel-bg-strong: color-mix(in srgb, var(--cs-charcoal) 96%, black);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-white) 8%, transparent);
+	--cs-panel-text: var(--cs-white);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+}
+
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-light {
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 18%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 28%, transparent);
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-dark {
+	--cs-panel-border: color-mix(in srgb, var(--cs-charcoal) 78%, var(--cs-blue));
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-charcoal) 70%,
+		var(--cs-blue)
+	);
+	--cs-tab-border: var(--cs-panel-border);
+	--cs-tab-hover-border: var(--cs-panel-border-strong);
+	--cs-tab-active-border: var(--cs-panel-border);
+}
+
+/* Bridge old variable names to clean variables */
+.fu-content-switcher {
+	--switcher-text: var(--cs-shell-text);
+	--switcher-muted: var(--cs-shell-muted);
+	--switcher-border: var(--cs-shell-border);
+	--switcher-border-strong: var(--cs-shell-border-strong);
+	--switcher-panel-effective-surface: var(--cs-panel-bg);
+	--switcher-panel-effective-surface-strong: var(--cs-panel-bg-strong);
+	--switcher-panel-effective-surface-soft: var(--cs-panel-bg-soft);
+	--switcher-panel-effective-border: var(--cs-panel-border);
+	--switcher-panel-effective-border-strong: var(--cs-panel-border-strong);
+	--switcher-panel-effective-text: var(--cs-panel-text);
+	--switcher-panel-effective-muted: var(--cs-panel-muted);
+}
+
+.fu-content-switcher .fu-content-switcher__tab,
+.fu-content-switcher .fu-content-switcher__accordion-trigger {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	color: var(--cs-tab-text);
+	box-shadow: none;
+	transform: none;
+	transition: background-color 0.2s ease, border-color 0.2s ease,
+		color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fu-content-switcher .fu-content-switcher__tab:hover,
+.fu-content-switcher .fu-content-switcher__accordion-trigger:hover {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	color: var(--cs-tab-hover-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher .fu-content-switcher__accordion-trigger:focus-visible {
+	box-shadow: var(--cs-focus-ring);
+	outline: none;
+}
+
+.fu-content-switcher .fu-content-switcher__tab.is-active,
+.fu-content-switcher .fu-content-switcher__accordion-trigger.is-active {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	color: var(--cs-tab-active-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab,
+.fu-content-switcher--style-minimal .fu-content-switcher__accordion-trigger {
+	background: transparent;
+	border-color: transparent;
+	color: var(--cs-shell-muted);
+	padding-inline: 0.35rem;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab:hover,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab:hover,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger:hover {
+	background: transparent;
+	border-color: transparent;
+	color: var(--cs-shell-text);
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger:focus-visible {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: var(--cs-focus-ring);
+	outline: none;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--minimal .fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--style-minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab[aria-selected="true"] {
+	background: transparent;
+	border-color: transparent;
+	color: var(--cs-shell-text);
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab-label,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab-label,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label {
+	position: relative;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab-label::after,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label::after {
+	background: var(--cs-orange);
+	border-radius: 999px;
+	bottom: -4px;
+	content: "";
+	height: 2px;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	transform: scaleX(0.35);
+	transform-origin: center;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fu-content-switcher--minimal
+	.fu-content-switcher__tab.is-active
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--minimal
+	.fu-content-switcher__tab[aria-selected="true"]
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger.is-active
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab.is-active
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab[aria-selected="true"]
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger.is-active
+	.fu-content-switcher__tab-label::after {
+	opacity: 1;
+	transform: scaleX(1);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger,
+.fu-content-switcher--style-pills .fu-content-switcher__tab,
+.fu-content-switcher--style-pills .fu-content-switcher__accordion-trigger {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	border-radius: clamp(0px, calc(var(--switcher-panel-radius) - 2px), 999px);
+	color: var(--cs-tab-text);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab:hover,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--pills .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--style-pills .fu-content-switcher__tab:hover,
+.fu-content-switcher--style-pills .fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--style-pills .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--style-pills
+	.fu-content-switcher__accordion-trigger:focus-visible {
+	background: color-mix(in srgb, var(--cs-blue) 12%, var(--cs-white));
+	border-color: var(--cs-tab-hover-border);
+	color: var(--cs-tab-hover-text);
+}
+
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab:focus-visible {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	color: var(--cs-tab-hover-text);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab.is-active,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--style-pills .fu-content-switcher__tab.is-active,
+.fu-content-switcher--style-pills
+	.fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--pills .fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--style-pills
+	.fu-content-switcher__tab[aria-selected="true"] {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	color: var(--cs-tab-active-text);
+}
+
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab.is-active:hover,
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab[aria-selected="true"]:hover {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	color: var(--cs-tab-active-text);
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__tab,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--style-pills
+	.fu-content-switcher__tab,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--style-pills
+	.fu-content-switcher__accordion-trigger {
+	border-radius: 999px;
+}
+
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger {
+	background: color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white));
+	border-color: color-mix(in srgb, var(--cs-blue) 20%, transparent);
+	color: var(--cs-blue);
+}
+
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger.is-active {
+	background: color-mix(in srgb, var(--cs-blue) 14%, var(--cs-white));
+	border-color: color-mix(in srgb, var(--cs-blue) 34%, transparent);
+	color: var(--cs-blue);
+}
+
+/* Panel consumes only clean/effective variables */
+.fu-content-switcher .fu-content-switcher__panel-inner {
+	background: linear-gradient(
+		180deg,
+		var(--cs-panel-bg-strong),
+		var(--cs-panel-bg)
+	);
+	border-color: var(--cs-panel-border);
+	color: var(--cs-panel-text);
+	position: relative;
+}
+
+/* Tabs display style consumes clean tab variables */
+.fu-content-switcher.fu-content-switcher--tabs .fu-content-switcher__tab {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	border-bottom-color: var(--cs-panel-border);
+	color: var(--cs-tab-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher.fu-content-switcher--tabs .fu-content-switcher__tab:hover {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-tab-hover-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__tab:focus-visible {
+	background: color-mix(in srgb, var(--cs-white) 24%, transparent);
+	border-color: color-mix(in srgb, var(--cs-white) 44%, transparent);
+	border-bottom-color: transparent;
+	color: var(--cs-white);
+}
+
+.fu-content-switcher.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	border-bottom-color: var(--cs-tab-active-bg);
+	color: var(--cs-tab-active-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-dark.fu-content-switcher--tabs
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-dark.fu-content-switcher--style-tabs
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-dark.fu-content-switcher--style-tabs
+	.fu-content-switcher__tab[aria-selected="true"] {
+	border-bottom-color: transparent;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger {
+	margin-bottom: 0;
+}
+
+@media (max-width: 48rem) {
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab {
+		background: var(--cs-tab-bg);
+		border-color: var(--cs-tab-border);
+		border-bottom-color: var(--cs-tab-border);
+		border-radius: var(--switcher-tab-radius);
+		box-shadow: none;
+		color: var(--cs-tab-text);
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:focus-visible,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:focus-visible {
+		background: var(--cs-tab-hover-bg);
+		border-color: var(--cs-tab-hover-border);
+		border-bottom-color: var(--cs-tab-hover-border);
+		color: var(--cs-tab-hover-text);
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger.is-active,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger[aria-selected="true"],
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab.is-active,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab[aria-selected="true"] {
+		background: var(--cs-tab-active-bg);
+		border-color: var(--cs-tab-active-border);
+		border-bottom-color: var(--cs-tab-active-border);
+		color: var(--cs-tab-active-text);
+	}
+}
+
+.fu-content-switcher .fu-switcher-panel__actions {
+	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
+	margin-top: 0.5rem;
+}
+
+.fu-content-switcher .fu-switcher-panel__action:focus-visible {
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--cs-orange) 42%, transparent);
+	outline: none;
+}
+
+.fu-content-switcher .fu-switcher-panel__action--primary {
+	background: var(--cs-orange);
+	border-color: transparent;
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--primary:hover,
+.fu-content-switcher .fu-switcher-panel__action--primary:focus-visible,
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:hover,
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:focus-visible,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:hover,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:focus-visible {
+	border-color: transparent;
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--secondary {
+	background: color-mix(in srgb, var(--cs-panel-bg-soft) 88%, transparent);
+	border-color: var(--cs-panel-border);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--secondary:hover,
+.fu-content-switcher .fu-switcher-panel__action--secondary:focus-visible {
+	background: color-mix(
+		in srgb,
+		var(--cs-panel-bg-soft) 80%,
+		var(--cs-panel-text)
+	);
+	border-color: var(--cs-panel-border-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--outline {
+	border-color: var(--cs-panel-border-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--outline:hover,
+.fu-content-switcher .fu-switcher-panel__action--outline:focus-visible {
+	background: color-mix(in srgb, var(--cs-panel-bg-soft) 80%, transparent);
+	border-color: var(--cs-panel-border-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--text {
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--text:hover,
+.fu-content-switcher .fu-switcher-panel__action--text:focus-visible {
+	color: color-mix(in srgb, var(--cs-panel-text) 80%, black);
+	text-decoration-color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--charcoal {
+	background: var(--cs-charcoal);
+	border-color: color-mix(in srgb, var(--cs-charcoal) 84%, black);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--charcoal:hover,
+.fu-content-switcher .fu-switcher-panel__action--charcoal:focus-visible {
+	background: color-mix(in srgb, var(--cs-charcoal) 84%, black);
+	border-color: color-mix(in srgb, var(--cs-charcoal) 76%, black);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--white {
+	background: var(--cs-white);
+	border-color: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+	color: var(--cs-blue);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--white:hover,
+.fu-content-switcher .fu-switcher-panel__action--white:focus-visible {
+	background: color-mix(in srgb, var(--cs-white) 88%, var(--cs-panel-bg-soft));
+	border-color: color-mix(in srgb, var(--cs-blue) 36%, transparent);
+	color: var(--cs-blue);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--secondary {
+	background: color-mix(in srgb, var(--cs-white) 12%, transparent);
+	border-color: color-mix(in srgb, var(--cs-white) 30%, transparent);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--outline {
+	border-color: color-mix(in srgb, var(--cs-white) 30%, transparent);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--outline:hover,
+.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--outline:focus-visible {
+	background: color-mix(in srgb, var(--cs-white) 12%, transparent);
+	border-color: color-mix(in srgb, var(--cs-white) 50%, transparent);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--text {
+	color: var(--cs-white);
+}
+
+/* Admin/editor helper styles */
+/* Let the content switcher and switcher panel take full width in the editor. */
+.editor-styles-wrapper .wp-block-acf-fu-content-switcher,
+.editor-styles-wrapper .wp-block-acf-fu-switcher-panel,
+.acf-block-component .wp-block-acf-fu-content-switcher,
+.acf-block-component .wp-block-acf-fu-switcher-panel {
+	max-width: 100%;
+}
+
+.editor-styles-wrapper .fu-content-switcher__editor-utility,
+.acf-block-component .fu-content-switcher__editor-utility {
+	align-items: center;
+	background: color-mix(
+		in srgb,
+		var(--cs-panel-bg-strong, #fff) 86%,
+		transparent
+	);
+	border: 1px dashed var(--cs-panel-border, rgba(13, 59, 102, 0.18));
+	border-radius: 999px;
+	box-shadow: 0 0.35rem 1rem rgba(13, 59, 102, 0.08);
+	display: inline-flex;
+	gap: 0.45rem;
+	justify-content: flex-end;
+	padding: 0.35rem;
+	position: absolute;
+	right: 0.75rem;
+	top: 0.75rem;
+	z-index: 5;
+}
+
+.fu-content-switcher--hide-editor-utilities
+	.fu-content-switcher__editor-utility {
+	display: none;
+}
+
+.editor-styles-wrapper .fu-content-switcher__editor-label,
+.acf-block-component .fu-content-switcher__editor-label {
+	color: var(--cs-panel-muted, rgba(13, 59, 102, 0.68));
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	padding-inline: 0.45rem 0.2rem;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.editor-styles-wrapper .fu-content-switcher .fu-content-switcher__copy-link,
+.acf-block-component .fu-content-switcher .fu-content-switcher__copy-link {
+	appearance: none;
+	background: var(--cs-panel-bg, #fff);
+	border: 1px solid var(--cs-panel-border, rgba(13, 59, 102, 0.18));
+	border-radius: 999px;
+	color: var(--cs-panel-text, var(--fu-blue));
+	cursor: pointer;
+	font: inherit;
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 1;
+	padding: 0.45rem 0.65rem;
+	transition: background-color 0.2s ease, border-color 0.2s ease,
+		color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-content-switcher__copy-link:hover,
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-content-switcher__copy-link:focus-visible,
+.acf-block-component .fu-content-switcher .fu-content-switcher__copy-link:hover,
+.acf-block-component
+	.fu-content-switcher
+	.fu-content-switcher__copy-link:focus-visible {
+	background: var(--cs-panel-bg-soft, rgba(13, 59, 102, 0.06));
+	border-color: var(--cs-panel-border-strong, rgba(13, 59, 102, 0.28));
+	box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.18);
+	outline: none;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__editor-utility,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__editor-utility,
+.acf-block-component
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__editor-utility,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__editor-utility {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.18);
+	box-shadow: none;
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__editor-label,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__editor-label,
+.acf-block-component
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__editor-label,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__editor-label {
+	color: rgba(255, 255, 255, 0.72);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__copy-link,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__copy-link,
+.acf-block-component
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__copy-link,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__copy-link {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.22);
+	color: var(--fu-white);
+}
+
+.editor-styles-wrapper
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__copy-link:hover,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__copy-link:focus-visible,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__copy-link:hover,
+.editor-styles-wrapper
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__copy-link:focus-visible,
+.acf-block-component
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__copy-link:hover,
+.acf-block-component
+	.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__copy-link:focus-visible,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__copy-link:hover,
+.acf-block-component
+	.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__copy-link:focus-visible {
+	background: rgba(255, 255, 255, 0.14);
+	border-color: rgba(255, 255, 255, 0.34);
+}
+
+/* Tabs: scoped dark-panel edge treatment for light/no switcher backgrounds.
+ * Keep inactive hover states from drawing a light divider above the dark panel.
+ */
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:focus-visible {
+	background: color-mix(
+		in srgb,
+		var(--cs-panel-bg-strong) 88%,
+		var(--cs-white)
+	);
+	border-color: var(--cs-panel-border-strong);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab[aria-selected="true"] {
+	background: var(--cs-panel-bg-strong);
+	border-color: var(--cs-panel-border);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]),
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]) {
+	margin-bottom: 0;
+	transform: none;
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):hover,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):focus-visible,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):hover,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):focus-visible {
+	/* Match the panel gradient start and cover the panel top border only during hover/focus. */
+	border-bottom-color: var(--cs-panel-bg-strong);
+	margin-bottom: -1px;
+	transform: none;
+}

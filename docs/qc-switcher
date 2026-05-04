@@ -51,12 +51,16 @@ Buttons:
 ✅ The hover & focus states are subtle.
 ✅ In the editor, the Primary button color changes to blue on hover. The color should not change on hover.
 
-TODO: Defect in the Show Editor Utilities switch.
+✅ TODO: Defect in the Show Editor Utilities switch.
 
-TODO: Now that the stylesheets have been combined, we need to try to make sure all of the style rules are combined if possible.
+TODO: WILL NOT DO:
+The styles are too fragile.
+Now that the stylesheets have been combined, we need to try to make sure all of the style rules are combined if possible.
 
-TODO: If "Show Icons in Navigation" is set to False in the parent switcher, should we hide "Navigation Icon" in the child panels?
+TODO:
+If "Show Icons in Navigation" is set to False in the parent switcher, should we hide "Navigation Icon" in the child panels?
 
-TODO: I don't like how the Link buttons wrap when the URL is too long
+TODO: WILL NOT DO:
+I don't like how the Link buttons wrap when the URL is too long
 
 ❌ Known migration issue: older saved Content Switcher instances may contain stale panel markup after the render/deep-link refactor. If a tab does not activate its panel, rebuild the switcher instance or resave/recreate the affected block.
