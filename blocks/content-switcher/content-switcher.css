@@ -587,6 +587,23 @@
 	border-radius: 0 0 var(--switcher-panel-radius) var(--switcher-panel-radius);
 }
 
+.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media {
+	overflow: hidden;
+}
+
+.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media
+	.fu-switcher-panel__image,
+.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media
+	img,
+.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media
+	video {
+	border-radius: inherit;
+}
+
 .fu-content-switcher .fu-switcher-panel__actions {
 	align-items: center;
 	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
@@ -712,6 +729,18 @@
 }
 
 @media (min-width: 64rem) {
+	.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__media {
+		border-radius: var(--switcher-panel-radius) 0 0 var(--switcher-panel-radius);
+	}
+
+	.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__media {
+		border-radius: 0 var(--switcher-panel-radius) var(--switcher-panel-radius) 0;
+	}
+
 	.fu-content-switcher--tabs .fu-content-switcher__nav,
 	.fu-content-switcher--pills .fu-content-switcher__nav,
 	.fu-content-switcher--minimal .fu-content-switcher__nav {
@@ -756,6 +785,18 @@
 
 	.fu-content-switcher .fu-switcher-panel__inner {
 		grid-template-columns: 1fr;
+	}
+
+	.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__media {
+		border-radius: var(--switcher-panel-radius) var(--switcher-panel-radius) 0 0;
+	}
+
+	.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__media {
+		border-radius: 0 0 var(--switcher-panel-radius) var(--switcher-panel-radius);
 	}
 
 	.fu-content-switcher
