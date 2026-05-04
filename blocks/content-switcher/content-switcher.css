@@ -512,14 +512,64 @@
 	gap: 1.5rem;
 }
 
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__inner {
+	grid-template-columns: 1fr;
+}
+
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__content,
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media {
+	max-width: none;
+	width: 100%;
+}
+
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media {
+	border-radius: var(--switcher-panel-radius);
+	overflow: hidden;
+}
+
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media
+	.fu-switcher-panel__image,
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media
+	img,
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel__media
+	video {
+	border-radius: inherit;
+}
+
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel--layout-media_text
+	.fu-switcher-panel__media {
+	border-radius: var(--switcher-panel-radius) var(--switcher-panel-radius) 0 0;
+}
+
+.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-switcher-panel--layout-text_media
+	.fu-switcher-panel__media {
+	border-radius: 0 0 var(--switcher-panel-radius) var(--switcher-panel-radius);
+}
+
 .fu-content-switcher .fu-switcher-panel__actions {
+	align-items: center;
 	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
 	margin-top: 0.5rem;
 }
 
+.fu-content-switcher .fu-switcher-panel__action {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+}
+
 @media (min-width: 600px) {
 	.fu-content-switcher .fu-switcher-panel__actions {
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.fu-content-switcher .fu-switcher-panel__action {
@@ -589,63 +639,17 @@
 	order: 2;
 }
 
-/* Non-vertical Media / Text panels keep media in the smaller column. */
-@media (min-width: 64rem) {
-	.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
-		.fu-switcher-panel--layout-media_text
-		.fu-switcher-panel__inner {
-		grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
-	}
-}
-
-/* Vertical display style keeps media and content stacked inside the panel. */
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__inner {
-	grid-template-columns: 1fr;
-}
-
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__content,
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__media {
-	max-width: none;
-	width: 100%;
-}
-
-/* Vertical stacked media follows the selected panel radius. */
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__media {
-	border-radius: var(--switcher-panel-radius);
-	overflow: hidden;
-}
-
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__media
-	.fu-switcher-panel__image,
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__media
-	img,
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel__media
-	video {
-	border-radius: inherit;
-}
-
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel--layout-media_text
-	.fu-switcher-panel__media {
-	border-radius: var(--switcher-panel-radius) var(--switcher-panel-radius) 0 0;
-}
-
-.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
-	.fu-switcher-panel--layout-text_media
-	.fu-switcher-panel__media {
-	border-radius: 0 0 var(--switcher-panel-radius) var(--switcher-panel-radius);
+.fu-content-switcher--panel-bg-dark .fu-switcher-panel__media,
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
+	border-color: color-mix(
+		in srgb,
+		var(--fu-charcoal, #111827) 72%,
+		var(--fu-blue, #0d3b66)
+	);
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
 	background: rgba(255, 255, 255, 0.06);
-	border-color: rgba(255, 255, 255, 0.12);
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--secondary {
@@ -724,17 +728,28 @@
 
 	.fu-content-switcher
 		.fu-switcher-panel--layout-media_text
-		.fu-switcher-panel__content,
-	.fu-content-switcher
-		.fu-switcher-panel--layout-media_text
 		.fu-switcher-panel__media,
 	.fu-content-switcher
 		.fu-switcher-panel--layout-text_media
+		.fu-switcher-panel__content {
+		order: 1;
+	}
+
+	.fu-content-switcher
+		.fu-switcher-panel--layout-media_text
 		.fu-switcher-panel__content,
 	.fu-content-switcher
 		.fu-switcher-panel--layout-text_media
 		.fu-switcher-panel__media {
-		order: initial;
+		order: 2;
+	}
+}
+
+@media (min-width: 48.01rem) and (max-width: 63.99rem) {
+	.fu-content-switcher:is(.fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+		.fu-content-switcher__nav {
+		margin-block-end: 1rem;
+		padding-inline: var(--switcher-shell-pad-inline);
 	}
 }
 
@@ -835,6 +850,706 @@
 	}
 }
 
+/**
+ * Clean visual layer
+ * Formerly content-switcher-clean.css
+ */
+
+/**
+ * FU Content Switcher — Clean Visual Layer
+ *
+ * This file intentionally overrides only visual state logic first.
+ * Layout remains in content-switcher.css until migrated.
+ */
+
+.fu-content-switcher {
+	--cs-white: var(--fu-white, #ffffff);
+	--cs-blue: var(--fu-blue, #0d3b66);
+	--cs-orange: var(--fu-orange, #f95738);
+	--cs-charcoal: var(--fu-charcoal, #111827);
+	--cs-focus-ring: 0 0 0 3px
+		color-mix(in srgb, var(--cs-orange) 28%, transparent);
+
+	--cs-shell-bg: transparent;
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 16%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	--cs-panel-bg: var(--cs-white);
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 4%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+
+	--cs-tab-bg: color-mix(in srgb, var(--cs-shell-bg) 30%, var(--cs-white));
+	--cs-tab-text: var(--cs-shell-text);
+	--cs-tab-border: var(--cs-shell-border);
+	--cs-tab-hover-bg: var(--cs-panel-bg-soft);
+	--cs-tab-hover-text: var(--cs-panel-text);
+	--cs-tab-hover-border: var(--cs-panel-border-strong);
+	--cs-tab-active-bg: color-mix(
+		in srgb,
+		var(--cs-shell-bg) 15%,
+		var(--cs-white)
+	);
+	--cs-tab-active-text: var(--cs-panel-text);
+	--cs-tab-active-border: var(--cs-panel-border);
+
+	color: var(--cs-shell-text);
+}
+
+/* Switcher background themes */
+.fu-content-switcher--bg-none {
+	--cs-shell-bg: transparent;
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 16%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	background: transparent;
+}
+
+.fu-content-switcher--bg-light {
+	--cs-shell-bg: color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white));
+	--cs-shell-text: var(--cs-blue);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-blue) 14%, transparent);
+	--cs-shell-border-strong: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white)),
+		color-mix(in srgb, var(--cs-charcoal) 6%, var(--cs-white))
+	);
+}
+
+.fu-content-switcher--bg-dark {
+	--cs-shell-bg: var(--cs-blue);
+	--cs-shell-text: var(--cs-white);
+	--cs-shell-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-shell-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-shell-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+	--cs-tab-bg: color-mix(in srgb, var(--cs-white) 12%, transparent);
+	--cs-tab-hover-bg: color-mix(in srgb, var(--cs-white) 18%, transparent);
+	--cs-tab-hover-text: var(--cs-white);
+	--cs-tab-active-bg: color-mix(in srgb, var(--cs-white) 24%, transparent);
+	--cs-tab-active-text: var(--cs-white);
+
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--cs-blue) 98%, black),
+		color-mix(in srgb, var(--cs-charcoal) 94%, black)
+	);
+}
+
+/* Panel background themes */
+.fu-content-switcher--panel-bg-none {
+	--cs-panel-bg: transparent;
+	--cs-panel-bg-strong: transparent;
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 4%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-none {
+	--cs-panel-bg: transparent;
+	--cs-panel-bg-strong: transparent;
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-white) 8%, transparent);
+	--cs-panel-text: var(--cs-white);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+}
+
+.fu-content-switcher--panel-bg-light {
+	--cs-panel-bg: color-mix(in srgb, var(--cs-white) 92%, var(--cs-blue));
+	--cs-panel-bg-strong: var(--cs-white);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-blue) 6%, transparent);
+	--cs-panel-text: var(--cs-blue);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-blue) 68%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 12%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 22%, transparent);
+}
+
+.fu-content-switcher--panel-bg-dark {
+	--cs-panel-bg: color-mix(in srgb, var(--cs-blue) 92%, black);
+	--cs-panel-bg-strong: color-mix(in srgb, var(--cs-charcoal) 96%, black);
+	--cs-panel-bg-soft: color-mix(in srgb, var(--cs-white) 8%, transparent);
+	--cs-panel-text: var(--cs-white);
+	--cs-panel-muted: color-mix(in srgb, var(--cs-white) 74%, transparent);
+	--cs-panel-border: color-mix(in srgb, var(--cs-white) 14%, transparent);
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-white) 24%,
+		transparent
+	);
+}
+
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-light {
+	--cs-panel-border: color-mix(in srgb, var(--cs-blue) 18%, transparent);
+	--cs-panel-border-strong: color-mix(in srgb, var(--cs-blue) 28%, transparent);
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-dark {
+	--cs-panel-border: color-mix(in srgb, var(--cs-charcoal) 78%, var(--cs-blue));
+	--cs-panel-border-strong: color-mix(
+		in srgb,
+		var(--cs-charcoal) 70%,
+		var(--cs-blue)
+	);
+	--cs-tab-border: var(--cs-panel-border);
+	--cs-tab-hover-border: var(--cs-panel-border-strong);
+	--cs-tab-active-border: var(--cs-panel-border);
+}
+
+/* Bridge old variable names to clean variables */
+.fu-content-switcher {
+	--switcher-text: var(--cs-shell-text);
+	--switcher-muted: var(--cs-shell-muted);
+	--switcher-border: var(--cs-shell-border);
+	--switcher-border-strong: var(--cs-shell-border-strong);
+	--switcher-panel-effective-surface: var(--cs-panel-bg);
+	--switcher-panel-effective-surface-strong: var(--cs-panel-bg-strong);
+	--switcher-panel-effective-surface-soft: var(--cs-panel-bg-soft);
+	--switcher-panel-effective-border: var(--cs-panel-border);
+	--switcher-panel-effective-border-strong: var(--cs-panel-border-strong);
+	--switcher-panel-effective-text: var(--cs-panel-text);
+	--switcher-panel-effective-muted: var(--cs-panel-muted);
+}
+
+.fu-content-switcher .fu-content-switcher__tab,
+.fu-content-switcher .fu-content-switcher__accordion-trigger {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	color: var(--cs-tab-text);
+	box-shadow: none;
+	transform: none;
+	transition: background-color 0.2s ease, border-color 0.2s ease,
+		color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fu-content-switcher .fu-content-switcher__tab:hover,
+.fu-content-switcher .fu-content-switcher__accordion-trigger:hover {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	color: var(--cs-tab-hover-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher .fu-content-switcher__accordion-trigger:focus-visible {
+	box-shadow: none;
+	outline: 2px solid var(--fu-blue, #0d3b66);
+	outline-offset: 3px;
+}
+
+.fu-content-switcher--bg-dark .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-dark
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--panel-bg-dark
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--panel-surface-dark
+	.fu-content-switcher__accordion-trigger:focus-visible {
+	outline-color: var(--fu-white, #fff);
+}
+
+.fu-content-switcher .fu-content-switcher__tab.is-active,
+.fu-content-switcher .fu-content-switcher__accordion-trigger.is-active {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	color: var(--cs-tab-active-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab,
+.fu-content-switcher--style-minimal .fu-content-switcher__accordion-trigger {
+	background: transparent;
+	border-color: transparent;
+	color: var(--cs-shell-muted);
+	padding-inline: 0.35rem;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab:hover,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab:hover,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger:hover {
+	background: transparent;
+	border-color: transparent;
+	color: var(--cs-shell-text);
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger:focus-visible {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: none;
+	outline: 2px solid var(--fu-blue, #0d3b66);
+	outline-offset: 3px;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--minimal
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-dark.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--bg-dark.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-dark.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger:focus-visible {
+	outline: 2px solid
+		color-mix(in srgb, var(--fu-white, #fff) 86%, var(--fu-blue, #0d3b66));
+	outline-offset: 0.35rem;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--minimal .fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--minimal .fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--style-minimal .fu-content-switcher__tab.is-active,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab[aria-selected="true"] {
+	background: transparent;
+	border-color: transparent;
+	color: var(--cs-shell-text);
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab-label,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab-label,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label {
+	position: relative;
+}
+
+.fu-content-switcher--minimal .fu-content-switcher__tab-label::after,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal .fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger
+	.fu-content-switcher__tab-label::after {
+	background: var(--cs-orange);
+	border-radius: 999px;
+	bottom: -4px;
+	content: "";
+	height: 2px;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	transform: scaleX(0.35);
+	transform-origin: center;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fu-content-switcher--minimal
+	.fu-content-switcher__tab.is-active
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--minimal
+	.fu-content-switcher__tab[aria-selected="true"]
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--minimal
+	.fu-content-switcher__accordion-trigger.is-active
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab.is-active
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__tab[aria-selected="true"]
+	.fu-content-switcher__tab-label::after,
+.fu-content-switcher--style-minimal
+	.fu-content-switcher__accordion-trigger.is-active
+	.fu-content-switcher__tab-label::after {
+	opacity: 1;
+	transform: scaleX(1);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger,
+.fu-content-switcher--style-pills .fu-content-switcher__tab,
+.fu-content-switcher--style-pills .fu-content-switcher__accordion-trigger {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	border-radius: clamp(0px, calc(var(--switcher-panel-radius) - 2px), 999px);
+	color: var(--cs-tab-text);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab:hover,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--pills .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--style-pills .fu-content-switcher__tab:hover,
+.fu-content-switcher--style-pills .fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--style-pills .fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--style-pills
+	.fu-content-switcher__accordion-trigger:focus-visible {
+	background: color-mix(in srgb, var(--cs-blue) 12%, var(--cs-white));
+	border-color: var(--cs-tab-hover-border);
+	color: var(--cs-tab-hover-text);
+}
+
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab:focus-visible {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	color: var(--cs-tab-hover-text);
+}
+
+.fu-content-switcher--pills .fu-content-switcher__tab.is-active,
+.fu-content-switcher--pills .fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--style-pills .fu-content-switcher__tab.is-active,
+.fu-content-switcher--style-pills
+	.fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--pills .fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--style-pills
+	.fu-content-switcher__tab[aria-selected="true"] {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	color: var(--cs-tab-active-text);
+}
+
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab.is-active:hover,
+.fu-content-switcher--bg-dark:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills)
+	.fu-content-switcher__tab[aria-selected="true"]:hover {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	color: var(--cs-tab-active-text);
+}
+
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__tab,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--pills
+	.fu-content-switcher__accordion-trigger,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--style-pills
+	.fu-content-switcher__tab,
+.fu-content-switcher--rounded-tabs.fu-content-switcher--style-pills
+	.fu-content-switcher__accordion-trigger {
+	border-radius: 999px;
+}
+
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger {
+	background: color-mix(in srgb, var(--cs-blue) 8%, var(--cs-white));
+	border-color: color-mix(in srgb, var(--cs-blue) 20%, transparent);
+	color: var(--cs-blue);
+}
+
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:hover,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger:focus-visible,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-none:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger.is-active,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-light:is(.fu-content-switcher--pills, .fu-content-switcher--style-pills, .fu-content-switcher--vertical, .fu-content-switcher--style-vertical)
+	.fu-content-switcher__accordion-trigger.is-active {
+	background: color-mix(in srgb, var(--cs-blue) 14%, var(--cs-white));
+	border-color: color-mix(in srgb, var(--cs-blue) 34%, transparent);
+	color: var(--cs-blue);
+}
+
+/* Panel consumes only clean/effective variables */
+.fu-content-switcher .fu-content-switcher__panel-inner {
+	background: linear-gradient(
+		180deg,
+		var(--cs-panel-bg-strong),
+		var(--cs-panel-bg)
+	);
+	border-color: var(--cs-panel-border);
+	color: var(--cs-panel-text);
+	position: relative;
+}
+
+/* Tabs display style consumes clean tab variables */
+.fu-content-switcher.fu-content-switcher--tabs .fu-content-switcher__tab {
+	background: var(--cs-tab-bg);
+	border-color: var(--cs-tab-border);
+	border-bottom-color: var(--cs-panel-border);
+	color: var(--cs-tab-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher.fu-content-switcher--tabs .fu-content-switcher__tab:hover {
+	background: var(--cs-tab-hover-bg);
+	border-color: var(--cs-tab-hover-border);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-tab-hover-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__tab:focus-visible {
+	background: color-mix(in srgb, var(--cs-white) 24%, transparent);
+	border-color: color-mix(in srgb, var(--cs-white) 44%, transparent);
+	border-bottom-color: transparent;
+	color: var(--cs-white);
+}
+
+.fu-content-switcher.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active {
+	background: var(--cs-tab-active-bg);
+	border-color: var(--cs-tab-active-border);
+	border-bottom-color: var(--cs-tab-active-bg);
+	color: var(--cs-tab-active-text);
+	box-shadow: none;
+	transform: none;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--tabs
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-dark.fu-content-switcher--tabs
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-dark.fu-content-switcher--style-tabs
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-dark.fu-content-switcher--style-tabs
+	.fu-content-switcher__tab[aria-selected="true"] {
+	border-bottom-color: transparent;
+}
+
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__tab,
+.fu-content-switcher--bg-dark.fu-content-switcher--panel-bg-light.fu-content-switcher--tabs
+	.fu-content-switcher__accordion-trigger {
+	margin-bottom: 0;
+}
+
+@media (max-width: 48rem) {
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab {
+		background: var(--cs-tab-bg);
+		border-color: var(--cs-tab-border);
+		border-bottom-color: var(--cs-tab-border);
+		border-radius: var(--switcher-tab-radius);
+		box-shadow: none;
+		color: var(--cs-tab-text);
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger:focus-visible,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:hover,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab:focus-visible {
+		background: var(--cs-tab-hover-bg);
+		border-color: var(--cs-tab-hover-border);
+		border-bottom-color: var(--cs-tab-hover-border);
+		color: var(--cs-tab-hover-text);
+	}
+
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger.is-active,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__accordion-trigger[aria-selected="true"],
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab.is-active,
+	.fu-content-switcher--mobile-accordion:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+		.fu-content-switcher__tab[aria-selected="true"] {
+		background: var(--cs-tab-active-bg);
+		border-color: var(--cs-tab-active-border);
+		border-bottom-color: var(--cs-tab-active-border);
+		color: var(--cs-tab-active-text);
+	}
+
+	.fu-content-switcher--minimal.fu-content-switcher--mobile-accordion {
+		.fu-content-switcher__panel {
+			margin-block-end: 0;
+		}
+
+		.fu-content-switcher__accordion-trigger {
+			min-height: 40px;
+			margin-block: 0;
+			padding-block: 0;
+		}
+	}
+}
+
+.fu-content-switcher .fu-switcher-panel__actions {
+	gap: clamp(0.7rem, 0.6rem + 0.3vw, 0.95rem);
+	margin-top: 0.5rem;
+}
+
+.fu-content-switcher .fu-switcher-panel__action:focus-visible {
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--cs-orange) 42%, transparent);
+	outline: none;
+}
+
+.fu-content-switcher .fu-switcher-panel__action--primary {
+	background: var(--cs-orange);
+	border-color: transparent;
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--primary:hover,
+.fu-content-switcher .fu-switcher-panel__action--primary:focus-visible,
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:hover,
+.editor-styles-wrapper
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:focus-visible,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:hover,
+.acf-block-component
+	.fu-content-switcher
+	.fu-switcher-panel__action--primary:focus-visible {
+	border-color: transparent;
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--secondary {
+	background: color-mix(in srgb, var(--cs-panel-bg-soft) 88%, transparent);
+	border-color: var(--cs-panel-border);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--secondary:hover,
+.fu-content-switcher .fu-switcher-panel__action--secondary:focus-visible {
+	background: color-mix(
+		in srgb,
+		var(--cs-panel-bg-soft) 80%,
+		var(--cs-panel-text)
+	);
+	border-color: var(--cs-panel-border-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--outline {
+	border-color: var(--cs-panel-border-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--outline:hover,
+.fu-content-switcher .fu-switcher-panel__action--outline:focus-visible {
+	background: color-mix(in srgb, var(--cs-panel-bg-soft) 80%, transparent);
+	border-color: var(--cs-panel-border-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--text {
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--text:hover,
+.fu-content-switcher .fu-switcher-panel__action--text:focus-visible {
+	color: color-mix(in srgb, var(--cs-panel-text) 80%, black);
+	text-decoration-color: var(--cs-panel-text);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--charcoal {
+	background: var(--cs-charcoal);
+	border-color: color-mix(in srgb, var(--cs-charcoal) 84%, black);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--charcoal:hover,
+.fu-content-switcher .fu-switcher-panel__action--charcoal:focus-visible {
+	background: color-mix(in srgb, var(--cs-charcoal) 84%, black);
+	border-color: color-mix(in srgb, var(--cs-charcoal) 76%, black);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--white {
+	background: var(--cs-white);
+	border-color: color-mix(in srgb, var(--cs-blue) 24%, transparent);
+	color: var(--cs-blue);
+}
+
+.fu-content-switcher .fu-switcher-panel__action--white:hover,
+.fu-content-switcher .fu-switcher-panel__action--white:focus-visible {
+	background: color-mix(in srgb, var(--cs-white) 88%, var(--cs-panel-bg-soft));
+	border-color: color-mix(in srgb, var(--cs-blue) 36%, transparent);
+	color: var(--cs-blue);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--secondary {
+	background: color-mix(in srgb, var(--cs-white) 12%, transparent);
+	border-color: color-mix(in srgb, var(--cs-white) 30%, transparent);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--outline {
+	border-color: color-mix(in srgb, var(--cs-white) 30%, transparent);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--outline:hover,
+.fu-content-switcher--panel-surface-dark
+	.fu-switcher-panel__action--outline:focus-visible {
+	background: color-mix(in srgb, var(--cs-white) 12%, transparent);
+	border-color: color-mix(in srgb, var(--cs-white) 50%, transparent);
+	color: var(--cs-white);
+}
+
+.fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--text {
+	color: var(--cs-white);
+}
+
 /* Admin/editor helper styles */
 /* Let the content switcher and switcher panel take full width in the editor. */
 .editor-styles-wrapper .wp-block-acf-fu-content-switcher,
@@ -844,7 +1559,6 @@
 	max-width: 100%;
 }
 
-/* Editor utility styles */
 .editor-styles-wrapper .fu-content-switcher__editor-utility,
 .acf-block-component .fu-content-switcher__editor-utility {
 	align-items: start;
@@ -867,11 +1581,7 @@
 	z-index: 5;
 }
 
-.editor-styles-wrapper
-	.fu-content-switcher--hide-editor-utilities
-	.fu-content-switcher__editor-utility,
-.acf-block-component
-	.fu-content-switcher--hide-editor-utilities
+.fu-content-switcher--hide-editor-utilities
 	.fu-content-switcher__editor-utility {
 	display: none;
 }
@@ -948,21 +1658,6 @@
 
 .editor-styles-wrapper
 	.fu-content-switcher--panel-bg-dark
-	.fu-content-switcher__editor-utility-heading,
-.editor-styles-wrapper
-	.fu-content-switcher--panel-surface-dark
-	.fu-content-switcher__editor-utility-heading,
-.acf-block-component
-	.fu-content-switcher--panel-bg-dark
-	.fu-content-switcher__editor-utility-heading,
-.acf-block-component
-	.fu-content-switcher--panel-surface-dark
-	.fu-content-switcher__editor-utility-heading {
-	color: rgba(255, 255, 255, 0.9);
-}
-
-.editor-styles-wrapper
-	.fu-content-switcher--panel-bg-dark
 	.fu-content-switcher__editor-label,
 .editor-styles-wrapper
 	.fu-content-switcher--panel-surface-dark
@@ -1019,5 +1714,61 @@
 	.fu-content-switcher__copy-link:focus-visible {
 	background: rgba(255, 255, 255, 0.14);
 	border-color: rgba(255, 255, 255, 0.34);
-	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+}
+
+/* Tabs: scoped dark-panel edge treatment for light/no switcher backgrounds.
+ * Keep inactive hover states from drawing a light divider above the dark panel.
+ */
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:focus-visible,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:hover,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:focus-visible {
+	background: color-mix(
+		in srgb,
+		var(--cs-panel-bg-strong) 88%,
+		var(--cs-white)
+	);
+	border-color: var(--cs-panel-border-strong);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab[aria-selected="true"],
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab.is-active,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab[aria-selected="true"] {
+	background: var(--cs-panel-bg-strong);
+	border-color: var(--cs-panel-border);
+	border-bottom-color: var(--cs-panel-bg-strong);
+	color: var(--cs-panel-text);
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]),
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]) {
+	margin-bottom: 0;
+	transform: none;
+}
+
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):hover,
+.fu-content-switcher--bg-none.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):focus-visible,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):hover,
+.fu-content-switcher--bg-light.fu-content-switcher--panel-bg-dark:is(.fu-content-switcher--tabs, .fu-content-switcher--style-tabs)
+	.fu-content-switcher__tab:not(.is-active):not([aria-selected="true"]):focus-visible {
+	/* Match the panel gradient start and cover the panel top border only during hover/focus. */
+	border-bottom-color: var(--cs-panel-bg-strong);
+	margin-bottom: -1px;
+	transform: none;
 }
