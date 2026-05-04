@@ -540,6 +540,14 @@
 	width: 100%;
 }
 
+@media (min-width: 64rem) {
+	.fu-content-switcher:not(.fu-content-switcher--vertical):not(.fu-content-switcher--style-vertical)
+		.fu-switcher-panel--layout-media_text
+		.fu-switcher-panel__inner {
+		grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
+	}
+}
+
 .fu-content-switcher .fu-switcher-panel__content {
 	gap: 1.5rem;
 }
