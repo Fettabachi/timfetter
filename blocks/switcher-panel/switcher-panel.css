@@ -180,6 +180,7 @@
 	display: inline-flex;
 	font-size: 0.98rem;
 	font-weight: 600;
+	text-transform: capitalize;
 	justify-content: center;
 	line-height: 1.2;
 	min-height: 46px;
