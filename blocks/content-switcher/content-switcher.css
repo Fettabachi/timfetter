@@ -1482,6 +1482,11 @@
 	z-index: 5;
 }
 
+.fu-content-switcher--hide-editor-utilities
+	.fu-content-switcher__editor-utility {
+	display: none;
+}
+
 .editor-styles-wrapper .fu-content-switcher__editor-label,
 .acf-block-component .fu-content-switcher__editor-label {
 	color: var(--cs-panel-muted, rgba(13, 59, 102, 0.68));
@@ -1523,7 +1528,7 @@
 	.fu-content-switcher__copy-link:focus-visible {
 	background: var(--cs-panel-bg-soft, rgba(13, 59, 102, 0.06));
 	border-color: var(--cs-panel-border-strong, rgba(13, 59, 102, 0.28));
-	box-shadow: 0 0 0 3px rgba(249, 87, 56, 0.16);
+	box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.18);
 	outline: none;
 }
 

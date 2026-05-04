@@ -362,6 +362,30 @@ if (!function_exists('fu_content_switcher_normalize_bool')) {
             return (bool) $fallback;
         }
 
+        if (is_bool($value)) {
+            return $value;
+        }
+
+        if (is_int($value) || is_float($value)) {
+            return (int) $value !== 0;
+        }
+
+        if (is_string($value)) {
+            $normalized = strtolower(trim($value));
+
+            if ($normalized === '') {
+                return (bool) $fallback;
+            }
+
+            if (in_array($normalized, array('1', 'true', 'yes', 'on'), true)) {
+                return true;
+            }
+
+            if (in_array($normalized, array('0', 'false', 'no', 'off'), true)) {
+                return false;
+            }
+        }
+
         return (bool) $value;
     }
 }

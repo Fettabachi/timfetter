@@ -51,6 +51,8 @@ Buttons:
 ✅ The hover & focus states are subtle.
 ✅ In the editor, the Primary button color changes to blue on hover. The color should not change on hover.
 
+TODO: Defect in the Show Editor Utilities switch.
+
 TODO: Now that the stylesheets have been combined, we need to try to make sure all of the style rules are combined if possible.
 
 TODO: If "Show Icons in Navigation" is set to False in the parent switcher, should we hide "Navigation Icon" in the child panels?

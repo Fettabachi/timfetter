@@ -8,10 +8,42 @@
 
 $is_preview = ! empty($is_preview);
 
+$normalize_bool = static function ($value, $fallback = false) {
+    if ($value === null) {
+        return (bool) $fallback;
+    }
+
+    if (is_bool($value)) {
+        return $value;
+    }
+
+    if (is_int($value) || is_float($value)) {
+        return (int) $value !== 0;
+    }
+
+    if (is_string($value)) {
+        $normalized = strtolower(trim($value));
+
+        if ($normalized === '') {
+            return (bool) $fallback;
+        }
+
+        if (in_array($normalized, array('1', 'true', 'yes', 'on'), true)) {
+            return true;
+        }
+
+        if (in_array($normalized, array('0', 'false', 'no', 'off'), true)) {
+            return false;
+        }
+    }
+
+    return (bool) $value;
+};
+
 $panel_label = trim((string) get_field('panel_label'));
 $panel_icon  = sanitize_key((string) get_field('panel_icon'));
 
-$enable_panel_deeplink = (bool) get_field('enable_panel_deeplink');
+$enable_panel_deeplink = $normalize_bool(get_field('enable_panel_deeplink'), false);
 $raw_panel_slug        = trim((string) get_field('panel_slug'));
 $panel_slug            = $enable_panel_deeplink && $raw_panel_slug !== ''
     ? sanitize_title($raw_panel_slug)
