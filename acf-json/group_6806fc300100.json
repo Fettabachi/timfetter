@@ -65,6 +65,19 @@
 			"default_value": "fade"
 		},
 		{
+			"key": "field_6806fc300124",
+			"label": "Panel Height",
+			"name": "panel_height_behavior",
+			"type": "select",
+			"instructions": "Choose whether panels use their natural height or reserve space for the tallest panel to reduce page movement while switching.",
+			"wrapper": { "width": "100" },
+			"choices": {
+				"natural": "Natural",
+				"match_tallest": "Match tallest panel"
+			},
+			"default_value": "natural"
+		},
+		{
 			"key": "field_6806fc300107",
 			"label": "Internal Spacing Above",
 			"name": "spacing_top",
@@ -114,10 +127,11 @@
 		},
 		{
 			"key": "field_6806fc300115",
-			"label": "Inline Spacing",
+			"label": "Horizontal Content Padding",
 			"name": "spacing_inline",
 			"type": "select",
-			"wrapper": { "width": "50" },
+			"instructions": "Controls the left and right padding inside the switcher container.",
+			"wrapper": { "width": "100" },
 			"choices": { "small": "Small", "medium": "Medium", "large": "Large" },
 			"default_value": "medium"
 		},

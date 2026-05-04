@@ -481,6 +481,10 @@
 	width: 100%;
 }
 
+.fu-content-switcher--match-panel-height .fu-content-switcher__panels {
+	min-height: var(--fu-switcher-panel-height, auto);
+}
+
 .fu-content-switcher__panel {
 	position: relative;
 }
@@ -848,6 +852,11 @@
 
 	.fu-content-switcher__panels {
 		padding-inline: var(--switcher-shell-pad-inline);
+	}
+
+	.fu-content-switcher--mobile-accordion.fu-content-switcher--match-panel-height
+		.fu-content-switcher__panels {
+		min-height: 0;
 	}
 
 	.fu-content-switcher--mobile-accordion .fu-content-switcher__nav,

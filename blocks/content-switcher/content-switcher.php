@@ -565,6 +565,12 @@ $panel_transition = fu_content_switcher_sanitize_choice(
     'fade'
 );
 
+$panel_height_behavior = fu_content_switcher_sanitize_choice(
+    get_field('panel_height_behavior') ?: 'natural',
+    array('natural', 'match_tallest'),
+    'natural'
+);
+
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
 $equal_nav_items = fu_content_switcher_normalize_bool(get_field('equal_nav_items'), false);
 $rounded_tabs = fu_content_switcher_normalize_bool(get_field('rounded_tabs'), true);
@@ -695,6 +701,10 @@ if (!$show_editor_utilities) {
 
 if ($panel_uses_dark_surface) {
     $classes[] = 'fu-content-switcher--panel-surface-dark';
+}
+
+if ($panel_height_behavior === 'match_tallest') {
+    $classes[] = 'fu-content-switcher--match-panel-height';
 }
 
 if (!empty($block['align'])) {

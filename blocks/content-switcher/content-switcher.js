@@ -97,7 +97,11 @@
 			this.handleAccordionClick = this.handleAccordionClick.bind(this);
 			this.handleCopyLinkClick = this.handleCopyLinkClick.bind(this);
 			this.handleViewportChange = this.handleViewportChange.bind(this);
+			this.handleWindowResize = this.handleWindowResize.bind(this);
 			this.activeIndex = Number.NaN;
+			this.panelHeightRafId = 0;
+			this.panelHeightSettleTimer = 0;
+			this.panelHeightResizeObserver = null;
 			this.refresh();
 			this.bindEvents();
 		}
@@ -125,8 +129,11 @@
 				: this.collectEditorPanels();
 			this.syncCopyLinkControls();
 			this.syncEditorControls();
+			this.bindPanelHeightAssets();
+			this.bindPanelHeightResizeObserver();
 			this.activeIndex = this.getValidIndex(this.resolveStartingIndex());
 			this.applyState({ updateHash: false, force: true });
+			this.schedulePanelHeightUpdate({ settle: true });
 		}
 
 		bindEvents() {
@@ -134,12 +141,23 @@
 			this.root.addEventListener("keydown", this.handleTabKeydown);
 			this.root.addEventListener("click", this.handleAccordionClick);
 			this.root.addEventListener("click", this.handleCopyLinkClick);
+			window.addEventListener("resize", this.handleWindowResize);
+
+			if (document.fonts?.ready?.then) {
+				document.fonts.ready.then(() => {
+					this.schedulePanelHeightUpdate({ settle: true });
+				});
+			}
 
 			if (typeof MOBILE_BREAKPOINT.addEventListener === "function") {
 				MOBILE_BREAKPOINT.addEventListener("change", this.handleViewportChange);
 			} else if (typeof MOBILE_BREAKPOINT.addListener === "function") {
 				MOBILE_BREAKPOINT.addListener(this.handleViewportChange);
 			}
+		}
+
+		handleWindowResize() {
+			this.schedulePanelHeightUpdate({ settle: true });
 		}
 
 		handleViewportChange() {
@@ -541,6 +559,173 @@
 			return this.isMobile() && this.mobileBehavior === "accordion";
 		}
 
+		isMatchPanelHeightEnabled() {
+			return this.root.classList.contains(
+				"fu-content-switcher--match-panel-height"
+			);
+		}
+
+		clearMatchedPanelHeight() {
+			this.root.style.removeProperty("--fu-switcher-panel-height");
+		}
+
+		bindPanelHeightAssets() {
+			if (!this.isMatchPanelHeightEnabled()) {
+				return;
+			}
+
+			const assetSelector = [
+				".fu-content-switcher__panel-inner img",
+				".fu-content-switcher__panel-inner video",
+			].join(", ");
+
+			this.root.querySelectorAll(assetSelector).forEach((asset) => {
+				if (asset.dataset.fuPanelHeightBound === "true") {
+					return;
+				}
+
+				asset.dataset.fuPanelHeightBound = "true";
+
+				if (asset.tagName === "IMG") {
+					if (!asset.complete) {
+						asset.addEventListener(
+							"load",
+							() => this.schedulePanelHeightUpdate({ settle: true }),
+							{ once: true }
+						);
+					}
+					return;
+				}
+
+				asset.addEventListener(
+					"loadedmetadata",
+					() => this.schedulePanelHeightUpdate({ settle: true }),
+					{ once: true }
+				);
+			});
+		}
+
+		bindPanelHeightResizeObserver() {
+			if (typeof ResizeObserver === "undefined") {
+				return;
+			}
+
+			if (!this.panelHeightResizeObserver) {
+				this.panelHeightResizeObserver = new ResizeObserver(() => {
+					this.schedulePanelHeightUpdate();
+				});
+			}
+
+			this.panelHeightResizeObserver.disconnect();
+
+			if (!this.isMatchPanelHeightEnabled()) {
+				return;
+			}
+
+			if (this.panelsContainer) {
+				this.panelHeightResizeObserver.observe(this.panelsContainer);
+			}
+
+			this.panels.forEach((panel) => {
+				if (panel?.content) {
+					this.panelHeightResizeObserver.observe(panel.content);
+				}
+			});
+		}
+
+		schedulePanelHeightUpdate({ settle = false } = {}) {
+			if (this.panelHeightRafId) {
+				window.cancelAnimationFrame(this.panelHeightRafId);
+			}
+
+			this.panelHeightRafId = window.requestAnimationFrame(() => {
+				this.updateMatchedPanelHeight();
+				this.panelHeightRafId = 0;
+			});
+
+			if (!settle) {
+				return;
+			}
+
+			if (this.panelHeightSettleTimer) {
+				window.clearTimeout(this.panelHeightSettleTimer);
+			}
+
+			this.panelHeightSettleTimer = window.setTimeout(() => {
+				this.updateMatchedPanelHeight();
+				this.panelHeightSettleTimer = 0;
+			}, 220);
+		}
+
+		updateMatchedPanelHeight() {
+			if (!this.isMatchPanelHeightEnabled()) {
+				this.clearMatchedPanelHeight();
+				return;
+			}
+
+			if (this.isAccordionMode()) {
+				this.clearMatchedPanelHeight();
+				return;
+			}
+
+			if (!this.panelsContainer || !this.panels.length) {
+				this.clearMatchedPanelHeight();
+				return;
+			}
+
+			const measureHost = document.createElement("div");
+			const panelWidth =
+				this.panelsContainer.getBoundingClientRect().width ||
+				this.root.getBoundingClientRect().width ||
+				0;
+
+			measureHost.setAttribute("aria-hidden", "true");
+			measureHost.style.position = "absolute";
+			measureHost.style.left = "0";
+			measureHost.style.top = "0";
+			measureHost.style.width =
+				panelWidth > 0 ? `${Math.ceil(panelWidth)}px` : "100%";
+			measureHost.style.visibility = "hidden";
+			measureHost.style.pointerEvents = "none";
+			measureHost.style.zIndex = "-1";
+			measureHost.style.height = "0";
+			measureHost.style.overflow = "visible";
+
+			this.panelsContainer.appendChild(measureHost);
+
+			let tallest = 0;
+
+			this.panels.forEach((panel) => {
+				if (!panel?.content) {
+					return;
+				}
+
+				const clone = panel.content.cloneNode(true);
+				clone.hidden = false;
+				clone.removeAttribute("hidden");
+				clone.style.display = "block";
+				clone.style.visibility = "hidden";
+				clone.style.animation = "none";
+				clone.style.transition = "none";
+				clone.style.position = "static";
+
+				measureHost.appendChild(clone);
+				tallest = Math.max(tallest, clone.getBoundingClientRect().height);
+				clone.remove();
+			});
+
+			measureHost.remove();
+
+			if (tallest > 0) {
+				this.root.style.setProperty(
+					"--fu-switcher-panel-height",
+					`${Math.ceil(tallest)}px`
+				);
+			} else {
+				this.clearMatchedPanelHeight();
+			}
+		}
+
 		isStackedMode() {
 			return this.isMobile() && this.mobileBehavior === "stacked";
 		}
@@ -790,6 +975,8 @@
 					: this.tabs[this.activeIndex];
 				target?.focus();
 			}
+
+			this.schedulePanelHeightUpdate({ settle: true });
 		}
 
 		updateHash() {
