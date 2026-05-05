@@ -26,9 +26,33 @@
 	box-sizing: border-box;
 }
 
+.fu-demo-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
 .fu-demo-title {
-	margin-block: 0 0.5rem;
+	margin: 0;
 	font-size: 16px;
+}
+
+.fu-demo-note {
+	margin: 0 0 12px;
+	font-size: 12px;
+	line-height: 1.45;
+	color: #4a4a4a;
+}
+
+.fu-demo-group-label {
+	display: block;
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0 0 6px;
+	color: #666;
 }
 
 .fu-demo-group {
@@ -70,6 +94,20 @@
 	background: var(--wp-blue) !important;
 	color: #fff !important;
 	border-color: #135e96 !important;
+}
+
+.fu-demo-ui[data-demo-type="content-switcher"] .fu-demo-btns--text button {
+	padding: 8px 6px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.fu-demo-ui[data-demo-type="content-switcher"] .fu-demo-btns--wrap {
+	flex-wrap: wrap;
+}
+
+.fu-demo-ui[data-demo-type="content-switcher"] .fu-demo-btns--wrap button {
+	flex: 1 1 calc(50% - 6px);
 }
 
 .fu-demo-reset {
@@ -249,6 +287,44 @@
 .fu-demo-close:hover {
 	background: #f0f0f1;
 	color: #333;
+}
+
+.fu-demo-ui--content-switcher .fu-demo-close {
+	position: static;
+	flex: 0 0 auto;
+}
+
+.fu-content-switcher-demo-shell {
+	position: relative;
+}
+
+.fu-content-switcher-config-toggle {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	z-index: 20;
+	background: #007cba;
+	color: #fff;
+	border: none;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: 16px;
+	transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.fu-content-switcher-config-toggle.is-active {
+	box-shadow: 0 0 0 2px #fff inset;
+}
+
+@media (max-width: 63.99rem) {
+	.fu-demo-ui--content-switcher .fu-demo-option--vertical {
+		display: none;
+	}
 }
 
 @media (max-width: 47.99rem) {

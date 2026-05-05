@@ -566,9 +566,9 @@ $panel_transition = fu_content_switcher_sanitize_choice(
 );
 
 $panel_height_behavior = fu_content_switcher_sanitize_choice(
-    get_field('panel_height_behavior') ?: 'natural',
+    get_field('panel_height_behavior') ?: 'match_tallest',
     array('natural', 'match_tallest'),
-    'natural'
+    'match_tallest'
 );
 
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
@@ -807,7 +807,8 @@ if (function_exists('get_permalink')) {
                             class="fu-content-switcher__panel-inner"
                             role="tabpanel"
                             aria-labelledby="<?php echo esc_attr($panel['tab_id']); ?>"
-                            <?php echo $is_active ? '' : 'hidden'; ?>>
+                            <?php if (!$is_active) : echo $panel_height_behavior === 'match_tallest' ? 'aria-hidden="true" inert' : 'hidden';
+                            endif; ?>>
                             <?php echo $panel['rendered']; ?>
                         </div>
                     </div>

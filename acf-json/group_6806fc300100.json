@@ -75,7 +75,7 @@
 				"natural": "Natural",
 				"match_tallest": "Match tallest panel"
 			},
-			"default_value": "natural"
+			"default_value": "match_tallest"
 		},
 		{
 			"key": "field_6806fc300107",

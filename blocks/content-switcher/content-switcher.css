@@ -482,7 +482,45 @@
 }
 
 .fu-content-switcher--match-panel-height .fu-content-switcher__panels {
-	min-height: var(--fu-switcher-panel-height, auto);
+	display: grid;
+}
+
+.fu-content-switcher--match-panel-height .fu-content-switcher__panel {
+	grid-area: 1 / 1;
+}
+
+.fu-content-switcher--match-panel-height
+	.fu-content-switcher__panel:not(.is-active) {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.fu-content-switcher--match-panel-height .fu-content-switcher__panel.is-active {
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.fu-content-switcher--match-panel-height
+	.fu-content-switcher__panel:not(.is-active)
+	.fu-content-switcher__panel-inner {
+	animation: none;
+}
+
+/* Editor parity: Gutenberg wraps panels in .block-editor-inner-blocks >
+   .block-editor-block-list__layout, so .fu-content-switcher__panel elements
+   added by JS are not direct grid children of .fu-content-switcher__panels.
+   Re-establish grid stacking at the layout level. */
+.fu-content-switcher--match-panel-height
+	.fu-content-switcher__panels
+	.block-editor-block-list__layout {
+	display: grid;
+}
+
+.fu-content-switcher--match-panel-height
+	.fu-content-switcher__panels
+	.block-editor-block-list__layout
+	> .fu-content-switcher__panel {
+	grid-area: 1 / 1;
 }
 
 .fu-content-switcher__panel {
@@ -854,11 +892,6 @@
 		padding-inline: var(--switcher-shell-pad-inline);
 	}
 
-	.fu-content-switcher--mobile-accordion.fu-content-switcher--match-panel-height
-		.fu-content-switcher__panels {
-		min-height: 0;
-	}
-
 	.fu-content-switcher--mobile-accordion .fu-content-switcher__nav,
 	.fu-content-switcher--mobile-stacked .fu-content-switcher__nav {
 		display: none;
@@ -906,6 +939,19 @@
 
 	.fu-content-switcher--mobile-stacked .fu-content-switcher__panel-inner {
 		min-height: 0;
+	}
+
+	.fu-content-switcher--mobile-accordion.fu-content-switcher--match-panel-height
+		.fu-content-switcher__panels,
+	.fu-content-switcher--mobile-stacked.fu-content-switcher--match-panel-height
+		.fu-content-switcher__panels {
+		display: block;
+	}
+
+	.fu-content-switcher--mobile-stacked.fu-content-switcher--match-panel-height
+		.fu-content-switcher__panel:not(.is-active) {
+		visibility: visible;
+		pointer-events: auto;
 	}
 }
 
