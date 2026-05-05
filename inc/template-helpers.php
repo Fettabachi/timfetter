@@ -1,21 +1,31 @@
 <?php
 
 /**
- * The demo panel is a front-end showcase for the page-banner block.
+ * The page-banner demo panel is a front-end showcase for the page-banner block.
  *
  * It is intentionally loaded only on pages where the banner is relevant so the
  * portfolio/demo UI stays isolated from the rest of the theme.
  */
-function fu_should_load_demo_panel()
+function fu_should_load_page_banner_demo_panel()
 {
     if (is_admin()) return false;
 
-    return has_block('acf/fu-page-banner') || is_singular();
+    return has_block('acf/fu-page-banner');
+}
+
+/**
+ * Shared demo panel assets are needed by both portfolio demo pages.
+ */
+function fu_should_load_demo_panel_assets()
+{
+    if (is_admin()) return false;
+
+    return fu_should_load_page_banner_demo_panel() || is_page_template('page-content-switcher.php');
 }
 
 function fu_inject_demo_panel()
 {
-    if (fu_should_load_demo_panel()) {
+    if (fu_should_load_page_banner_demo_panel()) {
         // Markup only. Supporting CSS/JS are enqueued separately in base_scripts().
         get_template_part('parts/demo-panel');
     }

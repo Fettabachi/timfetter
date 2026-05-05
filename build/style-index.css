@@ -2598,4 +2598,13 @@ html :where(.editor-styles-wrapper) {
   pointer-events: none;
 }
 
+.fu-content-switcher-portfolio__principles-intro,
+.fu-content-switcher-portfolio__implementation-intro {
+  margin: 0 0 1.5rem !important;
+  max-width: 56rem;
+  color: rgba(13, 59, 102, 0.8);
+  font-size: clamp(1rem, 0.97rem + 0.2vw, 1.08rem);
+  line-height: 1.75;
+}
+
 /*# sourceMappingURL=style-index.css.map*/

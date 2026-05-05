@@ -39,8 +39,16 @@ function base_scripts()
     // Register Alpine.js for the Lab Grid "Bridge"
     wp_register_script('alpine-js', 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
 
-    // Conditionally load the demo panel assets only on relevant pages (where the page-banner block is used or on single posts)
-    if (fu_should_load_demo_panel()) {
+    // Conditionally load shared demo panel assets for Page Banner and Content Switcher portfolio demos.
+    $current_template_slug = get_page_template_slug();
+    $is_content_switcher_demo = is_page_template('page-content-switcher.php')
+        || 'page-content-switcher.php' === $current_template_slug
+        || is_page('content-switcher');
+    $is_page_banner_demo = function_exists('fu_should_load_page_banner_demo_panel')
+        ? fu_should_load_page_banner_demo_panel()
+        : false;
+
+    if ($is_content_switcher_demo || $is_page_banner_demo) {
         wp_enqueue_style(
             'fu-demo-panel',
             get_theme_file_uri('/css/blocks/demo-panel.css'),
@@ -55,6 +63,16 @@ function base_scripts()
             filemtime(get_theme_file_path('/src/blocks/demo-panel.js')),
             true
         );
+
+        if ($is_content_switcher_demo) {
+            wp_enqueue_script(
+                'fu-demo-panel-content-switcher',
+                get_theme_file_uri('/src/blocks/demo-panel-content-switcher.js'),
+                array(),
+                filemtime(get_theme_file_path('/src/blocks/demo-panel-content-switcher.js')),
+                true
+            );
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'base_scripts');

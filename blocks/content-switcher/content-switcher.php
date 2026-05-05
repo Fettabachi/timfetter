@@ -566,9 +566,9 @@ $panel_transition = fu_content_switcher_sanitize_choice(
 );
 
 $panel_height_behavior = fu_content_switcher_sanitize_choice(
-    get_field('panel_height_behavior') ?: 'natural',
+    get_field('panel_height_behavior') ?: 'match_tallest',
     array('natural', 'match_tallest'),
-    'natural'
+    'match_tallest'
 );
 
 $show_nav_icons = fu_content_switcher_normalize_bool(get_field('show_nav_icons'), false);
