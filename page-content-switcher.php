@@ -91,7 +91,7 @@ get_header();
 
                     <p class="fu-portfolio-piece__demo-caption">
                         <strong>Try it:</strong> Click the settings button to explore curated front-end controls for display
-                        style, backgrounds, radius, and panel height. These controls mirror a small subset of the options
+                        style, backgrounds, and radius. These controls mirror a small subset of the options
                         available to editors inside WordPress.
                     </p>
 
