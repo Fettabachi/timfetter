@@ -10,7 +10,6 @@
 		"[data-fu-content-switcher-demo-target] .fu-content-switcher";
 	const FALLBACK_TARGET_SELECTOR = ".fu-content-switcher";
 	const PANEL_TRANSITION_MS = 450;
-
 	const CONTROL_CLASS_SETS = {
 		"display-style": [
 			"fu-content-switcher--tabs",
@@ -67,22 +66,6 @@
 
 	const triggerSwitcherRefresh = () => {
 		window.dispatchEvent(new CustomEvent("fuContentSwitcherDemoChange"));
-		window.dispatchEvent(new Event("resize"));
-	};
-
-	const requestPanelHeightRefresh = (switcher) => {
-		if (!switcher) {
-			window.dispatchEvent(
-				new CustomEvent("fuContentSwitcherRefreshPanelHeight")
-			);
-			return;
-		}
-
-		window.dispatchEvent(
-			new CustomEvent("fuContentSwitcherRefreshPanelHeight", {
-				detail: { switcher },
-			})
-		);
 	};
 
 	const detectFirstMatch = (switcher, entries, fallback) => {
@@ -117,11 +100,6 @@
 			CONTROL_VALUE_MAP["panel-radius"],
 			"none"
 		),
-		panelHeight: switcher.classList.contains(
-			"fu-content-switcher--match-panel-height"
-		)
-			? "match"
-			: "natural",
 	});
 
 	const syncButtonState = (panel, controlName, value) => {
@@ -139,13 +117,6 @@
 		syncButtonState(panel, "switcher-background", values.switcherBackground);
 		syncButtonState(panel, "panel-background", values.panelBackground);
 		syncButtonState(panel, "panel-radius", values.panelRadius);
-
-		const panelHeightSelect = panel.querySelector(
-			'select[data-demo-control="panel-height"]'
-		);
-		if (panelHeightSelect) {
-			panelHeightSelect.value = values.panelHeight;
-		}
 	};
 
 	const applyClassControl = (switcher, controlName, value) => {
@@ -161,15 +132,6 @@
 		}
 	};
 
-	const applyPanelHeightControl = (switcher, value) => {
-		if (value === "match") {
-			switcher.classList.add("fu-content-switcher--match-panel-height");
-			return;
-		}
-
-		switcher.classList.remove("fu-content-switcher--match-panel-height");
-	};
-
 	const initContentSwitcherDemoPanel = () => {
 		const panel = document.querySelector(PANEL_SELECTOR);
 		const toggle = document.querySelector(TOGGLE_SELECTOR);
@@ -180,9 +142,6 @@
 		panel.dataset.demoPanelInitialized = "true";
 
 		const closeButton = panel.querySelector(CLOSE_SELECTOR);
-		const panelHeightSelect = panel.querySelector(
-			'select[data-demo-control="panel-height"]'
-		);
 		const prefersReducedMotion = window.matchMedia(
 			"(prefers-reduced-motion: reduce)"
 		);
@@ -268,58 +227,6 @@
 
 		const originalClassName = switcher.className;
 
-		const setPanelHeightToMatchTallest = ({ triggerRefresh = true } = {}) => {
-			let changed = false;
-
-			if (
-				!switcher.classList.contains("fu-content-switcher--match-panel-height")
-			) {
-				applyPanelHeightControl(switcher, "match");
-				changed = true;
-			}
-
-			if (panelHeightSelect && panelHeightSelect.value !== "match") {
-				panelHeightSelect.value = "match";
-			}
-
-			if (triggerRefresh && changed) {
-				triggerSwitcherRefresh();
-			}
-
-			return changed;
-		};
-
-		const resetPanelHeightToNatural = ({ triggerRefresh = true } = {}) => {
-			let changed = false;
-
-			if (
-				switcher.classList.contains("fu-content-switcher--match-panel-height")
-			) {
-				applyPanelHeightControl(switcher, "natural");
-				changed = true;
-			}
-
-			if (panelHeightSelect && panelHeightSelect.value !== "natural") {
-				panelHeightSelect.value = "natural";
-			}
-
-			if (
-				switcher.style.getPropertyValue("--fu-switcher-panel-height").trim() !==
-				""
-			) {
-				switcher.style.removeProperty("--fu-switcher-panel-height");
-				changed = true;
-			}
-
-			if (triggerRefresh && changed) {
-				triggerSwitcherRefresh();
-			}
-
-			return changed;
-		};
-
-		syncUI(panel, readValuesFromClassList(switcher));
-		setPanelHeightToMatchTallest({ triggerRefresh: false });
 		syncUI(panel, readValuesFromClassList(switcher));
 		triggerSwitcherRefresh();
 
@@ -345,10 +252,6 @@
 
 				applyClassControl(switcher, controlName, value);
 				syncButtonState(panel, controlName, value);
-				if (controlName === "display-style") {
-					switcher.style.removeProperty("--fu-switcher-panel-height");
-					requestPanelHeightRefresh(switcher);
-				}
 				triggerSwitcherRefresh();
 				return;
 			}
@@ -357,31 +260,9 @@
 			if (resetButton) {
 				event.preventDefault();
 				switcher.className = originalClassName;
-				switcher.style.removeProperty("--fu-switcher-panel-height");
-				resetPanelHeightToNatural({ triggerRefresh: false });
-				setPanelHeightToMatchTallest({ triggerRefresh: false });
 				syncUI(panel, readValuesFromClassList(switcher));
-				requestPanelHeightRefresh(switcher);
 				triggerSwitcherRefresh();
 			}
-		});
-
-		panel.addEventListener("change", (event) => {
-			const select = event.target.closest(
-				'select[data-demo-control="panel-height"]'
-			);
-			if (!select) {
-				return;
-			}
-
-			applyPanelHeightControl(switcher, select.value);
-			if (select.value === "natural") {
-				switcher.style.removeProperty("--fu-switcher-panel-height");
-			} else {
-				switcher.style.removeProperty("--fu-switcher-panel-height");
-				requestPanelHeightRefresh(switcher);
-			}
-			triggerSwitcherRefresh();
 		});
 
 		toggle.addEventListener("click", (event) => {

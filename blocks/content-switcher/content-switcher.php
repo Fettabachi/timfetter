@@ -807,7 +807,8 @@ if (function_exists('get_permalink')) {
                             class="fu-content-switcher__panel-inner"
                             role="tabpanel"
                             aria-labelledby="<?php echo esc_attr($panel['tab_id']); ?>"
-                            <?php echo $is_active ? '' : 'hidden'; ?>>
+                            <?php if (!$is_active) : echo $panel_height_behavior === 'match_tallest' ? 'aria-hidden="true" inert' : 'hidden';
+                            endif; ?>>
                             <?php echo $panel['rendered']; ?>
                         </div>
                     </div>

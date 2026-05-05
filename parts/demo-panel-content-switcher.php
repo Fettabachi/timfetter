@@ -53,14 +53,6 @@
             </div>
         </div>
 
-        <div class="fu-demo-group fu-demo-group--panel-height" data-demo-group="panel-height">
-            <label for="fu-cs-demo-panel-height">Panel Height</label>
-            <select id="fu-cs-demo-panel-height" class="fu-demo-select" data-demo-control="panel-height">
-                <option value="natural">Natural</option>
-                <option value="match" selected>Match Tallest</option>
-            </select>
-        </div>
-
         <button type="button" class="fu-demo-reset">Reset View</button>
     </div>
 </div>
