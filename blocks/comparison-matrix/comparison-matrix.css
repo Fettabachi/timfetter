@@ -1,0 +1,29 @@
+/*
+ * FU Comparison Matrix Block
+ * Phase 1 scaffold: minimal scoped styles only.
+ */
+
+.fu-comparison-matrix {
+	--matrix-surface: #ffffff;
+	--matrix-border: rgba(13, 59, 102, 0.12);
+	--matrix-text: var(--fu-blue, #0d3b66);
+	--matrix-muted: rgba(13, 59, 102, 0.68);
+	--matrix-accent: var(--fu-orange, #f95738);
+	--matrix-shell-max: 72rem;
+	--matrix-gap: clamp(1rem, 2vw, 1.5rem);
+
+	box-sizing: border-box;
+	color: var(--matrix-text);
+	max-width: var(--matrix-shell-max);
+	margin-inline: auto;
+}
+
+/* Scaffold placeholder — remove in Phase 3 */
+.fu-comparison-matrix__placeholder {
+	border: 2px dashed var(--matrix-border);
+	border-radius: 4px;
+	color: var(--matrix-muted);
+	font-size: 0.875rem;
+	padding: 2rem;
+	text-align: center;
+}

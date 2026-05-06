@@ -1,0 +1,19 @@
+{
+	"name": "acf/fu-comparison-matrix",
+	"title": "FU Comparison Matrix",
+	"description": "A flexible comparison table for plans, services, products, or packages.",
+	"apiVersion": 3,
+	"category": "formatting",
+	"icon": "grid-view",
+	"keywords": ["comparison", "matrix", "table", "pricing", "plans"],
+	"style": "file:./comparison-matrix.css",
+	"editorStyle": "file:./comparison-matrix.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"anchor": true,
+		"html": false
+	}
+}
