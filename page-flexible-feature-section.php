@@ -39,7 +39,7 @@ get_header();
 
                     <div class="fu-portfolio-piece__lead-media">
                         <figure class="fu-portfolio-piece__lead-figure">
-                            <img src="http://tim-fetter.local/wp-content/uploads/2026/04/workflow-4r.jpg" alt="Flexible Feature Section hero example showing content and media working together in a structured layout.">
+                            <img src="http://tim-fetter.local/wp-content/uploads/2026/05/page-flexible-feature-hero.webp" alt="Flexible Feature Section hero example showing content and media working together in a structured layout.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">Designed to handle real copy, responsive layout shifts, and visual variation without losing structure.</p>
                     </div>

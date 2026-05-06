@@ -53,7 +53,7 @@ get_header();
                     <div class="fu-portfolio-piece__lead-media">
                         <figure class="fu-portfolio-piece__lead-figure">
                             <img
-                                src="/wp-content/uploads/2026/05/content-switcher-page-hero.jpg"
+                                src="/wp-content/uploads/2026/05/page-switcher-hero.webp"
                                 alt="Content Switcher block process collage showing planning, editor controls, and front-end interaction.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">
@@ -91,7 +91,7 @@ get_header();
 
                     <p class="fu-portfolio-piece__demo-caption">
                         <strong>Try it:</strong> Click the settings button to explore curated front-end controls for display
-                        style, backgrounds, and radius. These controls mirror a small subset of the options
+                        style, backgrounds, and border radius. These controls mirror a small subset of the options
                         available to editors inside WordPress.
                     </p>
 

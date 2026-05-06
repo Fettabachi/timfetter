@@ -1,0 +1,146 @@
+```text
+Create a 4:3 portfolio hero image for a WordPress / ACF block called “[BLOCK NAME].”
+
+The image should feel like a polished portfolio case-study hero for a front-end WordPress developer. Use a structured split-panel montage composition that tells a clear process story:
+
+Plan → Build → Result
+
+Overall style:
+- premium editorial portfolio image
+- realistic desk / laptop / notebook workspace
+- clean, professional, slightly cinematic
+- balanced mid-tone lighting: not too dark, not too bright
+- dark-theme code editor where code is shown
+- dark or refined WordPress editor UI where editor controls are shown
+- crisp split composition, usually one large planning panel and two smaller build/result panels
+- no rounded outer corners
+- no large decorative headline text over the entire image
+- no people
+- no logos except subtle WordPress-like editor UI if needed
+- no watermark
+- fill the full 4:3 frame edge-to-edge
+
+Composition:
+Use a three-part split montage:
+1. Plan panel
+2. Build panel
+3. Result panel
+
+Plan panel:
+Show a notebook, sketchbook, or planning sheet on a realistic desk. Include a hand-drawn wireframe or checklist for “[BLOCK NAME].” The sketch should communicate the structure of the block, not just generic web design.
+
+Include planning notes related to:
+- content structure
+- editor controls
+- responsive behavior
+- reusable layout patterns
+- accessibility or interaction states if relevant
+
+Build panel:
+Show a laptop with a dark-theme code editor. The code should look like realistic WordPress / PHP / ACF block implementation code related to “[BLOCK NAME].”
+
+The code should feel specific to the block. It can include field names, render logic, layout classes, taxonomy/filtering logic, media handling, or component state depending on the block.
+
+Result panel:
+Show a polished front-end preview of the block and, when useful, part of a WordPress/Gutenberg-style editor sidebar with relevant controls.
+
+The result should show the real value of the block:
+- what the visitor/editor sees
+- what controls the editor can adjust
+- how the component behaves as a reusable system
+
+For this specific block:
+Block name:
+[BLOCK NAME]
+
+Use case:
+[USE CASE]
+
+Content model:
+[CONTENT MODEL]
+
+Key strength:
+[KEY STRENGTH]
+
+The hero should visually communicate:
+[ONE-SENTENCE VALUE PROPOSITION]
+
+Specific things to show:
+- [SPECIFIC VISUAL DETAIL 1]
+- [SPECIFIC VISUAL DETAIL 2]
+- [SPECIFIC VISUAL DETAIL 3]
+- [SPECIFIC VISUAL DETAIL 4]
+
+Tone:
+Use a balanced version of the workspace montage style:
+- lighter than an overly dark moody scene
+- richer and more polished than a bright generic mockup
+- warm desk materials with cool navy / charcoal UI tones
+- dark screens for code and editor interfaces
+- readable notebook/wireframe area
+- cohesive enough to belong in a series with other portfolio block heroes
+```
+
+## Short version for future use
+
+```text
+Create a 4:3 portfolio hero image for a WordPress / ACF block called “[BLOCK NAME].”
+
+Use a premium split-panel workspace montage style that tells a Plan → Build → Result story.
+
+Show:
+1. A planning notebook or wireframe for the block.
+2. A laptop with dark-theme WordPress / PHP / ACF implementation code.
+3. A polished front-end preview of the block with a dark or refined WordPress editor/settings UI.
+
+Style:
+- realistic desk/laptop/notebook workspace
+- balanced mid-tone lighting, not too dark and not too bright
+- premium editorial portfolio feel
+- clean split composition
+- no rounded outer corners
+- no large decorative text overlays
+- no people
+- full 4:3 frame
+
+Make the visual details specific to this block:
+[DESCRIBE BLOCK PURPOSE, CONTROLS, FRONT-END RESULT, AND KEY FEATURE]
+```
+
+## Useful follow-up prompts
+
+When it is too dark:
+
+```text
+Lighten the overall image and lift the workspace shadows, but keep the code editor and WordPress editor UI in dark theme. Preserve the same composition and content.
+```
+
+When it is too bright:
+
+```text
+Make the image moderately darker and richer, with more premium editorial contrast. Keep it readable and not overly dark. Preserve the same composition and content.
+```
+
+When the image feels generic:
+
+```text
+Make the planning notes, code, and front-end preview more specific to “[BLOCK NAME].” The image should clearly communicate this exact WordPress / ACF block, not generic web design.
+```
+
+When the tones do not match the other hero images:
+
+```text
+Adjust the overall tone so it feels like part of the same portfolio hero image series: balanced mid-tone workspace lighting, dark code/editor screens, clean split montage, realistic desk materials, and restrained navy / charcoal accents.
+```
+
+When it adds rounded corners:
+
+```text
+Remove the rounded outer corners. The image should fill the full 4:3 frame edge-to-edge with square corners.
+```
+
+The key phrase to reuse is:
+
+```text
+balanced mid-tone lighting, dark code/editor screens, split-panel Plan → Build → Result montage
+```

@@ -48,7 +48,7 @@ get_header();
                     <div class="fu-portfolio-piece__lead-media">
                         <figure class="fu-portfolio-piece__lead-figure">
                             <img
-                                src="<?php echo esc_url(home_url('/wp-content/uploads/2026/04/page-banner-hero.jpg')); ?>"
+                                src="<?php echo esc_url(home_url('/wp-content/uploads/2026/05/page-banner-hero.webp')); ?>"
                                 alt="Page Banner block process collage showing planning, front-end implementation, and editor controls.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">

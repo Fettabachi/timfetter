@@ -40,7 +40,7 @@ get_header();
 
                     <div class="fu-portfolio-piece__lead-media">
                         <figure class="fu-portfolio-piece__lead-figure">
-                            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2026/04/planning-and-execution.jpg')); ?>" alt="Planning, wireframing, and building process collage for the Filtered Content Grid project.">
+                            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2026/05/page-filtered-content-grid-hero.webp')); ?>" alt="Planning, wireframing, and building process collage for the Filtered Content Grid project.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">Built as a focused WordPress content component: structured data underneath, polished interaction on the front end.</p>
                     </div>
