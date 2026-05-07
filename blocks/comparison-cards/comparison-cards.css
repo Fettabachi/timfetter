@@ -4,13 +4,14 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Block-level custom properties (override per variant below)
+   Block-level custom properties
    -------------------------------------------------------------------------- */
 
 .fu-comparison-cards {
 	/* Local palette (single-source color values for this block). */
 	--cc-color-ink: #1f1f1f;
 	--cc-color-muted-dark: #606060;
+	--cc-color-section-muted: #555;
 	--cc-color-subtle-mid: #7a7a7a;
 	--cc-color-border-light: #e0e0e0;
 	--cc-color-section-light: #f7f7f5;
@@ -20,20 +21,25 @@
 	--cc-color-cream: #efe3c8;
 	--cc-color-muted-light: #d2dae3;
 	--cc-color-subtle-light: #c3ccd7;
+	--cc-color-feature-body-dark: #dce3ec;
 	--cc-color-warm-focus: #ffe7a8;
+	--cc-color-focus-default: #153a5d;
 	--cc-color-included: #7ddf9f;
 	--cc-color-limited: #ffd28c;
+	--cc-color-not-included-strike: #b9b9b9;
 	--cc-color-not-included-strike-light: #d7deea;
 	--cc-color-card-dark-bg: rgba(255, 255, 255, 0.08);
 	--cc-color-card-dark-border: rgba(255, 255, 255, 0.38);
 	--cc-color-divider-dark: rgba(255, 255, 255, 0.2);
 	--cc-color-divider-light: rgba(0, 0, 0, 0.08);
+	--cc-color-empty-text: #888;
+	--cc-color-empty-border: #ddd;
 
 	--cc-gap: var(--fu-space-md);
 	--cc-padding-block: var(--fu-space-xl);
 	--cc-inner-max-width: 1200px;
 
-	/* Semantic role defaults (variants override source roles, not repeated literals). */
+	/* Semantic source roles. Variants override these, not repeated literals. */
 	--cc-control-surface: var(--fu-blue);
 	--cc-control-text: var(--fu-white);
 	--cc-featured-accent: var(--fu-orange);
@@ -41,7 +47,7 @@
 
 	--cc-section-bg: transparent;
 	--cc-section-text: var(--fu-blue);
-	--cc-section-muted: #555;
+	--cc-section-muted: var(--cc-color-section-muted);
 	--cc-section-eyebrow: var(--fu-orange);
 
 	/* Card surface */
@@ -53,22 +59,23 @@
 	--cc-card-radius: var(--fu-radius-lg);
 	--cc-card-padding: var(--fu-space-md);
 
+	/* Featured roles derived from one accent source. */
 	--cc-featured-border-color: var(--cc-featured-accent);
 	--cc-featured-badge-bg: var(--cc-featured-accent);
 	--cc-featured-badge-color: var(--cc-featured-accent-text);
-
-	/* Badge (non-featured) */
-	--cc-badge-bg: var(--cc-control-surface);
-	--cc-badge-color: var(--cc-control-text);
-
-	/* Buttons and focus */
-	--cc-button-bg: var(--cc-control-surface);
-	--cc-button-text: var(--cc-control-text);
-	--cc-button-border: var(--cc-control-surface);
 	--cc-featured-button-bg: var(--cc-featured-accent);
 	--cc-featured-button-text: var(--cc-featured-accent-text);
 	--cc-featured-button-border: var(--cc-featured-accent);
-	--cc-focus-ring: #153a5d;
+
+	/* Non-featured badge/button roles derived from one control source. */
+	--cc-badge-bg: var(--cc-control-surface);
+	--cc-badge-color: var(--cc-control-text);
+	--cc-button-bg: var(--cc-control-surface);
+	--cc-button-text: var(--cc-control-text);
+	--cc-button-border: var(--cc-control-surface);
+
+	/* Focus */
+	--cc-focus-ring: var(--cc-color-focus-default);
 
 	/* Feature state icon colors */
 	--cc-icon-included: var(--success);
@@ -78,7 +85,7 @@
 	--cc-feature-body-text: inherit;
 	--cc-feature-divider: var(--cc-color-divider-light);
 	--cc-feature-not-included-text: var(--cc-color-subtle-mid);
-	--cc-feature-not-included-strike: #b9b9b9;
+	--cc-feature-not-included-strike: var(--cc-color-not-included-strike);
 
 	padding-block: var(--cc-padding-block);
 	background-color: var(--cc-section-bg);
@@ -96,14 +103,12 @@
 .fu-comparison-cards--bg-none,
 .fu-comparison-cards--bg-light,
 .fu-comparison-cards--bg-brand-tinted {
-	/* Light-side themes share the same featured accent source. */
 	--cc-featured-accent: var(--cc-color-orange);
 	--cc-featured-accent-text: var(--fu-white);
 	--cc-focus-ring: var(--fu-blue);
 }
 
 .fu-comparison-cards--bg-none {
-	/* Keep non-featured controls neutral so orange featured accents feel intentional. */
 	--cc-control-surface: var(--cc-color-neutral-dark);
 	--cc-control-text: var(--fu-white);
 }
@@ -123,7 +128,6 @@
 	--cc-featured-accent: var(--cc-color-orange-soft);
 	--cc-featured-accent-text: var(--cc-color-ink);
 
-	/* Replace dark blue non-featured controls with light neutral surfaces on charcoal. */
 	--cc-control-surface: var(--cc-color-cream);
 	--cc-control-text: var(--cc-color-ink);
 	--cc-focus-ring: var(--cc-color-warm-focus);
@@ -132,7 +136,7 @@
 	--cc-icon-not-included: var(--cc-color-subtle-light);
 	--cc-icon-limited: var(--cc-color-limited);
 	--cc-icon-highlighted: var(--cc-color-orange-soft);
-	--cc-feature-body-text: #dce3ec;
+	--cc-feature-body-text: var(--cc-color-feature-body-dark);
 	--cc-feature-divider: var(--cc-color-divider-dark);
 	--cc-feature-not-included-text: var(--cc-color-subtle-light);
 	--cc-feature-not-included-strike: var(--cc-color-not-included-strike-light);
@@ -172,10 +176,6 @@
 	margin: 0 0 var(--fu-space-xs);
 }
 
-.fu-comparison-cards--bg-dark .fu-comparison-cards__eyebrow {
-	color: var(--cc-section-eyebrow);
-}
-
 .fu-comparison-cards__heading {
 	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 	font-weight: 700;
@@ -184,19 +184,11 @@
 	margin: 0 0 var(--fu-space-sm);
 }
 
-.fu-comparison-cards--bg-dark .fu-comparison-cards__heading {
-	color: var(--cc-section-text);
-}
-
 .fu-comparison-cards__intro {
 	font-size: clamp(1rem, 1.5vw, 1.125rem);
 	color: var(--cc-section-muted);
 	line-height: 1.6;
 	margin: 0;
-}
-
-.fu-comparison-cards--bg-dark .fu-comparison-cards__intro {
-	color: var(--cc-section-muted);
 }
 
 /* --------------------------------------------------------------------------
@@ -381,7 +373,8 @@
 
 /* Auto layout: 2 columns at medium viewports */
 @media (min-width: 640px) {
-	.fu-comparison-cards--layout-auto .fu-comparison-cards__grid {
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
@@ -397,7 +390,8 @@
 
 /* Auto layout: fills available space at wide viewports */
 @media (min-width: 900px) {
-	.fu-comparison-cards--layout-auto .fu-comparison-cards__grid {
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	}
 
@@ -419,17 +413,15 @@
 	grid-column: 1 / -1;
 	text-align: center;
 	padding: var(--fu-space-lg);
-	color: #888;
+	color: var(--cc-color-empty-text);
 	font-size: 0.9375rem;
-	border: 2px dashed #ddd;
+	border: 2px dashed var(--cc-color-empty-border);
 	border-radius: var(--fu-radius-md);
 	margin: 0;
 }
 
 /* Admin/editor helper styles */
-/* Let the content switcher and switcher panel take full width in the editor. */
 .editor-styles-wrapper .wp-block-acf-fu-comparison-cards,
-.acf-block-component .wp-block-acf-fu-comparison-cards,
 .acf-block-component .wp-block-acf-fu-comparison-cards {
 	max-width: 100%;
 }

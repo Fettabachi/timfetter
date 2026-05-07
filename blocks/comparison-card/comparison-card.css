@@ -76,19 +76,11 @@
 	margin: 0 0 0.375rem;
 }
 
-.fu-comparison-cards--bg-dark .fu-comparison-card__title {
-	color: var(--cc-card-text);
-}
-
 .fu-comparison-card__description {
 	font-size: 0.9375rem;
 	color: var(--cc-card-muted);
 	line-height: 1.5;
 	margin: 0;
-}
-
-.fu-comparison-cards--bg-dark .fu-comparison-card__description {
-	color: var(--cc-card-muted);
 }
 
 /* --------------------------------------------------------------------------
@@ -123,11 +115,6 @@
 	color: var(--cc-card-text);
 	line-height: 1;
 	margin-inline-end: 0.15rem;
-}
-
-.fu-comparison-cards--bg-dark .fu-comparison-card__price-value,
-.fu-comparison-cards--bg-dark .fu-comparison-card__price-prefix {
-	color: var(--cc-card-text);
 }
 
 .fu-comparison-card__price-suffix {
@@ -234,10 +221,6 @@
 	border-top: 1px solid var(--cc-feature-divider);
 }
 
-.fu-comparison-cards--bg-dark .fu-comparison-card__feature-content li + li {
-	border-top-color: var(--cc-feature-divider);
-}
-
 /* Not-included: strikethrough on list items (non-color cue) */
 
 .fu-comparison-card__feature-group--not-included
@@ -254,19 +237,6 @@
 	.fu-comparison-card__feature-content
 	li {
 	font-weight: 600;
-}
-
-/* Dark background adjustments */
-
-.fu-comparison-cards--bg-dark .fu-comparison-card__feature-content {
-	color: var(--cc-feature-body-text);
-}
-
-.fu-comparison-cards--bg-dark
-	.fu-comparison-card__feature-group--not-included
-	.fu-comparison-card__feature-content
-	li {
-	color: var(--cc-feature-not-included-text);
 }
 
 /* --------------------------------------------------------------------------
@@ -297,18 +267,17 @@
 }
 
 .fu-comparison-card__btn:hover {
-	color: var(--cc-button-text);
-	outline: 2px solid var(--cc-button-bg);
+	outline-color: var(--cc-button-bg);
 	outline-offset: 3px;
+	color: var(--cc-button-text);
 }
 
 .fu-comparison-card__btn:focus-visible {
-	color: var(--cc-button-text);
-	outline: 2px solid var(--cc-focus-ring);
+	outline-color: var(--cc-focus-ring);
 	outline-offset: 3px;
 }
 
-/* Featured card — inverted default button color */
+/* Featured card — accent button color */
 .fu-comparison-card--featured .fu-comparison-card__btn {
 	background-color: var(--cc-featured-button-bg);
 	color: var(--cc-featured-button-text);
@@ -316,13 +285,11 @@
 }
 
 .fu-comparison-card--featured .fu-comparison-card__btn:hover {
-	color: var(--cc-featured-button-text);
 	outline-color: var(--cc-featured-button-bg);
 	outline-offset: 3px;
 }
 
 .fu-comparison-card--featured .fu-comparison-card__btn:focus-visible {
-	color: var(--cc-featured-button-text);
 	outline-color: var(--cc-focus-ring);
 	outline-offset: 3px;
 }
