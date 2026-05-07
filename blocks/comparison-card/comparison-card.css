@@ -54,6 +54,7 @@
 	display: inline-block;
 	background-color: var(--cc-badge-bg);
 	color: var(--cc-badge-color);
+	border: 1px solid var(--cc-badge-border);
 	font-size: 0.6875rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -267,9 +268,11 @@
 }
 
 .fu-comparison-card__btn:hover {
-	outline-color: var(--cc-button-bg);
-	outline-offset: 3px;
-	color: var(--cc-button-text);
+	background-color: var(--cc-button-hover-bg);
+	border-color: var(--cc-button-hover-border);
+	color: var(--cc-button-hover-text);
+	outline-color: var(--cc-button-hover-outline);
+	outline-offset: var(--cc-button-hover-outline-offset);
 }
 
 .fu-comparison-card__btn:focus-visible {
@@ -285,8 +288,11 @@
 }
 
 .fu-comparison-card--featured .fu-comparison-card__btn:hover {
-	outline-color: var(--cc-featured-button-bg);
-	outline-offset: 3px;
+	background-color: var(--cc-featured-button-hover-bg);
+	border-color: var(--cc-featured-button-hover-border);
+	color: var(--cc-featured-button-hover-text);
+	outline-color: var(--cc-featured-button-hover-outline);
+	outline-offset: var(--cc-featured-button-hover-outline-offset);
 }
 
 .fu-comparison-card--featured .fu-comparison-card__btn:focus-visible {

@@ -16,7 +16,11 @@
 	--cc-color-border-light: #e0e0e0;
 	--cc-color-section-light: #f7f7f5;
 	--cc-color-orange: #f95738;
+	--cc-color-orange-strong: #cf482e;
 	--cc-color-orange-soft: #ffb070;
+	--cc-color-navy-dark: #07111f;
+	--cc-color-navy: #103f67;
+	--cc-color-navy-badge: #0f4773;
 	--cc-color-neutral-dark: #2f3136;
 	--cc-color-cream: #efe3c8;
 	--cc-color-muted-light: #d2dae3;
@@ -29,7 +33,11 @@
 	--cc-color-not-included-strike: #b9b9b9;
 	--cc-color-not-included-strike-light: #d7deea;
 	--cc-color-card-dark-bg: rgba(255, 255, 255, 0.08);
-	--cc-color-card-dark-border: rgba(255, 255, 255, 0.38);
+	--cc-color-card-dark-border: rgba(255, 255, 255, 0.28);
+	--cc-color-control-badge-dark: rgba(255, 255, 255, 0.14);
+	--cc-color-control-badge-border-dark: rgba(255, 255, 255, 0.16);
+	--cc-color-control-border-dark: rgba(255, 255, 255, 0.55);
+	--cc-color-control-hover-dark: rgba(255, 255, 255, 0.12);
 	--cc-color-divider-dark: rgba(255, 255, 255, 0.2);
 	--cc-color-divider-light: rgba(0, 0, 0, 0.08);
 	--cc-color-empty-text: #888;
@@ -42,6 +50,7 @@
 	/* Semantic source roles. Variants override these, not repeated literals. */
 	--cc-control-surface: var(--fu-blue);
 	--cc-control-text: var(--fu-white);
+	--cc-control-border: var(--cc-control-surface);
 	--cc-featured-accent: var(--fu-orange);
 	--cc-featured-accent-text: var(--cc-color-ink);
 
@@ -70,9 +79,22 @@
 	/* Non-featured badge/button roles derived from one control source. */
 	--cc-badge-bg: var(--cc-control-surface);
 	--cc-badge-color: var(--cc-control-text);
+	--cc-badge-border: transparent;
 	--cc-button-bg: var(--cc-control-surface);
 	--cc-button-text: var(--cc-control-text);
-	--cc-button-border: var(--cc-control-surface);
+	--cc-button-border: var(--cc-control-border);
+	--cc-button-hover-bg: var(--cc-button-bg);
+	--cc-button-hover-text: var(--cc-button-text);
+	--cc-button-hover-border: var(--cc-button-border);
+	--cc-button-outline: var(--cc-button-bg);
+	--cc-button-hover-outline: var(--cc-button-outline);
+	--cc-button-hover-outline-offset: 3px;
+	--cc-featured-button-hover-bg: var(--cc-featured-button-bg);
+	--cc-featured-button-hover-text: var(--cc-featured-button-text);
+	--cc-featured-button-hover-border: var(--cc-featured-button-border);
+	--cc-featured-button-outline: var(--cc-featured-button-bg);
+	--cc-featured-button-hover-outline: var(--cc-featured-button-outline);
+	--cc-featured-button-hover-outline-offset: 3px;
 
 	/* Focus */
 	--cc-focus-ring: var(--cc-color-focus-default);
@@ -88,7 +110,7 @@
 	--cc-feature-not-included-strike: var(--cc-color-not-included-strike);
 
 	padding-block: var(--cc-padding-block);
-	background-color: var(--cc-section-bg);
+	background: var(--cc-section-bg);
 	color: var(--cc-section-text);
 }
 
@@ -114,10 +136,14 @@
 }
 
 .fu-comparison-cards--bg-dark {
-	--cc-section-bg: var(--fu-black);
+	--cc-section-bg: linear-gradient(
+		180deg,
+		var(--cc-color-navy) 0%,
+		var(--cc-color-navy-dark) 100%
+	);
 	--cc-section-text: var(--fu-white);
 	--cc-section-muted: var(--cc-color-muted-light);
-	--cc-section-eyebrow: var(--fu-yellow);
+	--cc-section-eyebrow: var(--fu-orange);
 
 	--cc-card-bg: var(--cc-color-card-dark-bg);
 	--cc-card-border-color: var(--cc-color-card-dark-border);
@@ -125,17 +151,27 @@
 	--cc-card-muted: var(--cc-color-muted-light);
 	--cc-card-subtle: var(--cc-color-subtle-light);
 
-	--cc-featured-accent: var(--cc-color-orange-soft);
-	--cc-featured-accent-text: var(--cc-color-ink);
+	--cc-featured-accent: var(--cc-color-orange-strong);
+	--cc-featured-accent-text: var(--fu-white);
 
-	--cc-control-surface: var(--cc-color-cream);
-	--cc-control-text: var(--cc-color-ink);
-	--cc-focus-ring: var(--cc-color-warm-focus);
+	--cc-control-surface: transparent;
+	--cc-control-text: var(--fu-white);
+	--cc-control-border: var(--cc-color-control-border-dark);
+	--cc-badge-bg: var(--cc-color-control-badge-dark);
+	--cc-badge-border: var(--cc-color-control-badge-border-dark);
+	--cc-button-hover-bg: var(--cc-color-control-hover-dark);
+	--cc-button-hover-text: var(--fu-white);
+	--cc-button-hover-border: var(--cc-color-control-border-dark);
+	--cc-button-outline: var(--fu-white);
+	--cc-button-hover-outline: transparent;
+	--cc-button-hover-outline-offset: 0;
+	--cc-featured-button-outline: var(--cc-featured-button-bg);
+	--cc-focus-ring: var(--fu-white);
 
 	--cc-icon-included: var(--cc-color-included);
 	--cc-icon-not-included: var(--cc-color-subtle-light);
-	--cc-icon-limited: var(--cc-color-limited);
-	--cc-icon-highlighted: var(--cc-color-orange-soft);
+	--cc-icon-limited: var(--cc-color-orange);
+	--cc-icon-highlighted: var(--fu-orange);
 	--cc-feature-body-text: var(--cc-color-feature-body-dark);
 	--cc-feature-divider: var(--cc-color-divider-dark);
 	--cc-feature-not-included-text: var(--cc-color-subtle-light);
