@@ -1,0 +1,21 @@
+{
+	"name": "acf/fu-comparison-cards",
+	"title": "Comparison Cards",
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "columns",
+	"description": "A structured comparison card section for memberships, service tiers, packages, or product options.",
+	"style": "file:./comparison-cards.css",
+	"editorStyle": "file:./comparison-cards.css",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": true,
+		"html": false,
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

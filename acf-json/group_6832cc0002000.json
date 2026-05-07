@@ -1,0 +1,539 @@
+{
+	"key": "group_6832cc0002000",
+	"title": "Block: Comparison Card",
+	"fields": [
+		{
+			"key": "field_6832cc0002001",
+			"label": "Content",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 1,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0002002",
+			"label": "Card Title",
+			"name": "card_title",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "The name of this tier, plan, or option.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Community",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0002003",
+			"label": "Badge / Label",
+			"name": "card_badge",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional short label shown above the title, e.g. “Most Popular”.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": 30,
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Most Popular",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0002004",
+			"label": "Description",
+			"name": "card_description",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "Optional short description shown below the title.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"rows": 2,
+			"placeholder": "",
+			"new_lines": ""
+		},
+		{
+			"key": "field_6832cc0002005",
+			"label": "Content End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_6832cc0002006",
+			"label": "Card Options",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0002007",
+			"label": "Featured Card",
+			"name": "card_featured",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Highlights this card with an accent border to draw attention to the recommended option.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "Featured",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_6832cc0002008",
+			"label": "Card Options End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_6832cc0002009",
+			"label": "Pricing",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0002010",
+			"label": "Show Pricing",
+			"name": "card_show_pricing",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Enable to show a price on this card.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "Show Pricing",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_6832cc0002011",
+			"label": "Price Prefix",
+			"name": "card_price_prefix",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional text shown before the price, such as 'Starting at', 'From', or 'As low as'. Do not use this for the currency symbol.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6832cc0002010",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Starting at",
+			"maxlength": 60,
+			"allow_in_bindings": 0,
+			"placeholder": "Starting at",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0002012",
+			"label": "Price",
+			"name": "card_price",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "The main price value, including the currency symbol when needed, e.g. '$19', 'EUR 19', 'Free', or 'Custom'.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6832cc0002010",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": 20,
+			"allow_in_bindings": 0,
+			"placeholder": "$19",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0002013",
+			"label": "Price Suffix",
+			"name": "card_price_suffix",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Text shown after the price, e.g. “/mo”.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6832cc0002010",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "/mo",
+			"maxlength": 20,
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0002014",
+			"label": "Price Note",
+			"name": "card_price_note",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional small note below the price, e.g. “Billed annually”.",
+			"required": 0,
+			"conditional_logic": [
+				[
+					{
+						"field": "field_6832cc0002010",
+						"operator": "==",
+						"value": "1"
+					}
+				]
+			],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": 80,
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0002015",
+			"label": "Pricing End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_6832cc0002016",
+			"label": "CTA",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0002018",
+			"label": "CTA Link",
+			"name": "card_btn_link",
+			"aria-label": "",
+			"type": "link",
+			"instructions": "Select the destination and link text for this card’s call-to-action.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"allow_in_bindings": 0,
+			"placeholder": ""
+		},
+		{
+			"key": "field_6832cc0002019",
+			"label": "CTA End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_6832cc0002020",
+			"label": "Features",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 1,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0002021",
+			"label": "Included Features",
+			"name": "card_feat_included",
+			"aria-label": "",
+			"type": "wysiwyg",
+			"instructions": "Use a bulleted list. Each item is one included feature.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"tabs": "visual",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"delay": 0
+		},
+		{
+			"key": "field_6832cc0002022",
+			"label": "Limited Features",
+			"name": "card_feat_limited",
+			"aria-label": "",
+			"type": "wysiwyg",
+			"instructions": "Optional. Use a bulleted list for features available with restrictions.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"tabs": "visual",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"delay": 0
+		},
+		{
+			"key": "field_6832cc0002023",
+			"label": "Not Included Features",
+			"name": "card_feat_not_included",
+			"aria-label": "",
+			"type": "wysiwyg",
+			"instructions": "Optional. Use a bulleted list for features not available on this tier.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"tabs": "visual",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"delay": 0
+		},
+		{
+			"key": "field_6832cc0002024",
+			"label": "Highlighted Features",
+			"name": "card_feat_highlighted",
+			"aria-label": "",
+			"type": "wysiwyg",
+			"instructions": "Optional. Use a bulleted list for standout benefits you want to call attention to.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"tabs": "visual",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"delay": 0
+		},
+		{
+			"key": "field_6832cc0002025",
+			"label": "Features End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/fu-comparison-card"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1778171700
+}

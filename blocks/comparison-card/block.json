@@ -1,0 +1,21 @@
+{
+	"name": "acf/fu-comparison-card",
+	"title": "Comparison Card",
+	"description": "A single comparison card. Must be placed inside a Comparison Cards block.",
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "id-alt",
+	"parent": ["acf/fu-comparison-cards"],
+	"style": "file:./comparison-card.css",
+	"editorStyle": "file:./comparison-card.css",
+	"supports": {
+		"anchor": false,
+		"jsx": true,
+		"html": false,
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

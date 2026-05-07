@@ -1,0 +1,448 @@
+/* ==========================================================================
+   Comparison Cards Block
+   Block root: .fu-comparison-cards
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Block-level custom properties (override per variant below)
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-cards {
+	--cc-gap: var(--fu-space-md);
+	--cc-padding-block: var(--fu-space-xl);
+	--cc-inner-max-width: 1200px;
+
+	/* Contrast-safe local palette for this block.
+	   Variants override these variables instead of hard-coding colors on elements. */
+	--cc-section-bg: transparent;
+	--cc-section-text: var(--fu-blue);
+	--cc-section-muted: #555;
+	--cc-section-eyebrow: var(--fu-orange);
+
+	/* Card surface */
+	--cc-card-bg: var(--fu-white);
+	--cc-card-border-color: #e0e0e0;
+	--cc-card-text: var(--fu-blue);
+	--cc-card-muted: #606060;
+	--cc-card-subtle: #7a7a7a;
+	--cc-card-radius: var(--fu-radius-lg);
+	--cc-card-padding: var(--fu-space-md);
+
+	--cc-featured-border-color: var(--fu-orange);
+	--cc-featured-badge-bg: var(--fu-orange);
+	--cc-featured-badge-color: #1f1f1f;
+
+	/* Badge (non-featured) */
+	--cc-badge-bg: var(--fu-blue);
+	--cc-badge-color: var(--fu-white);
+
+	/* Buttons and focus */
+	--cc-button-bg: var(--fu-blue);
+	--cc-button-text: var(--fu-white);
+	--cc-button-border: transparent;
+	/* --cc-button-hover-bg: var(--fu-orange); */
+	--cc-button-hover-bg: var(--fu-blue);
+	--cc-button-hover-text: #1f1f1f;
+	--cc-button-hover-border: var(--fu-blue);
+	--cc-featured-button-bg: var(--fu-orange);
+	--cc-featured-button-text: #1f1f1f;
+	--cc-featured-button-border: var(--fu-orange);
+	--cc-featured-button-hover-bg: var(--fu-blue);
+	--cc-featured-button-hover-text: var(--fu-white);
+	--cc-featured-button-hover-border: var(--fu-blue);
+	--cc-featured-button-hover-focus-ring: var(--fu-orange);
+	--cc-focus-ring: #153a5d;
+
+	/* Feature state icon colors */
+	--cc-icon-included: var(--success);
+	--cc-icon-not-included: #7a7a7a;
+	--cc-icon-limited: var(--fu-yellow-dark);
+	--cc-icon-highlighted: var(--fu-orange);
+	--cc-feature-body-text: inherit;
+	--cc-feature-divider: rgba(0, 0, 0, 0.08);
+	--cc-feature-not-included-text: #7a7a7a;
+	--cc-feature-not-included-strike: #b9b9b9;
+
+	padding-block: var(--cc-padding-block);
+	background-color: var(--cc-section-bg);
+	color: var(--cc-section-text);
+}
+
+/* --------------------------------------------------------------------------
+   Background style variants
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-cards--bg-light {
+	--cc-section-bg: #f7f7f5;
+}
+
+.fu-comparison-cards--bg-none,
+.fu-comparison-cards--bg-light,
+.fu-comparison-cards--bg-brand-tinted {
+	/* Darker featured orange surfaces support white text on light/tinted themes. */
+	--cc-featured-border-color: #f95738;
+	--cc-featured-badge-bg: #f95738;
+	--cc-featured-badge-color: var(--fu-white);
+	--cc-featured-button-bg: #f95738;
+	--cc-featured-button-text: var(--fu-white);
+	--cc-featured-button-border: #f95738;
+	--cc-featured-button-hover-bg: #f95738;
+	--cc-featured-button-hover-text: var(--fu-white);
+	--cc-featured-button-hover-border: #f95738;
+	--cc-focus-ring: var(--fu-blue);
+}
+
+.fu-comparison-cards--bg-none {
+	/* Keep non-featured controls neutral so orange featured accents feel intentional. */
+	--cc-badge-bg: #2f3136;
+	--cc-badge-color: var(--fu-white);
+
+	--cc-button-bg: #2f3136;
+	--cc-button-text: var(--fu-white);
+	--cc-button-border: #2f3136;
+	--cc-button-hover-bg: var(--fu-orange);
+	--cc-button-hover-text: #1f1f1f;
+	--cc-button-hover-border: var(--fu-orange);
+}
+
+.fu-comparison-cards--bg-dark {
+	--cc-section-bg: var(--fu-black);
+	--cc-section-text: var(--fu-white);
+	--cc-section-muted: #d2dae3;
+	--cc-section-eyebrow: var(--fu-yellow);
+
+	--cc-card-bg: rgba(255, 255, 255, 0.08);
+	--cc-card-border-color: rgba(255, 255, 255, 0.38);
+	--cc-card-text: var(--fu-white);
+	--cc-card-muted: #d2dae3;
+	--cc-card-subtle: #c3ccd7;
+
+	--cc-featured-border-color: #ffb070;
+	--cc-featured-badge-bg: #ffb070;
+	--cc-featured-badge-color: #1f1f1f;
+
+	/* Replace dark blue non-featured controls with light neutral surfaces on charcoal. */
+	--cc-badge-bg: #efe3c8;
+	--cc-badge-color: #1f1f1f;
+
+	--cc-button-bg: #efe3c8;
+	--cc-button-text: #1f1f1f;
+	--cc-button-border: #efe3c8;
+	--cc-button-hover-bg: #ffd28c;
+
+	--cc-button-hover-text: #1f1f1f;
+	--cc-button-hover-border: #ffd28c;
+
+	--cc-featured-button-bg: #ffb070;
+	--cc-featured-button-text: #1f1f1f;
+	--cc-featured-button-border: #ffb070;
+	--cc-featured-button-hover-bg: #ffc58c;
+	--cc-featured-button-hover-text: #1f1f1f;
+	--cc-featured-button-hover-border: #ffc58c;
+	--cc-focus-ring: #ffe7a8;
+
+	--cc-icon-included: #7ddf9f;
+	--cc-icon-not-included: #c3ccd7;
+	--cc-icon-limited: #ffd28c;
+	--cc-icon-highlighted: #ffb070;
+	--cc-feature-body-text: #dce3ec;
+	--cc-feature-divider: rgba(255, 255, 255, 0.2);
+	--cc-feature-not-included-text: #c3ccd7;
+	--cc-feature-not-included-strike: #d7deea;
+}
+
+.fu-comparison-cards--bg-brand-tinted {
+	--cc-section-bg: var(--fu-beige);
+}
+
+/* --------------------------------------------------------------------------
+   Inner wrapper
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-cards__inner {
+	max-width: var(--cc-inner-max-width);
+	margin-inline: auto;
+	padding-inline: var(--fu-space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Section header
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-cards__header {
+	text-align: center;
+	max-width: 68ch;
+	margin-inline: auto;
+	margin-bottom: var(--fu-space-lg);
+}
+
+.fu-comparison-cards__eyebrow {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--cc-section-eyebrow);
+	margin: 0 0 var(--fu-space-xs);
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-cards__eyebrow {
+	color: var(--cc-section-eyebrow);
+}
+
+.fu-comparison-cards__heading {
+	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+	font-weight: 700;
+	color: var(--cc-section-text);
+	line-height: 1.15;
+	margin: 0 0 var(--fu-space-sm);
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-cards__heading {
+	color: var(--cc-section-text);
+}
+
+.fu-comparison-cards__intro {
+	font-size: clamp(1rem, 1.5vw, 1.125rem);
+	color: var(--cc-section-muted);
+	line-height: 1.6;
+	margin: 0;
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-cards__intro {
+	color: var(--cc-section-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Card grid — mobile first: single column
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-cards__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--cc-gap);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Editor parity: ACF/Gutenberg inserts an InnerBlocks wrapper inside the grid.
+   Make that wrapper the active grid container so cards lay out like front end. */
+.fu-comparison-cards__grid > .acf-innerblocks-container,
+.fu-comparison-cards__grid > .block-editor-block-list__layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--cc-gap);
+	width: 100%;
+	min-width: 0;
+	align-items: stretch;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Editor wrappers around child blocks should stretch so card internals can equalize height. */
+.fu-comparison-cards__grid
+	> .acf-innerblocks-container
+	> .block-editor-block-list__block,
+.fu-comparison-cards__grid
+	> .block-editor-block-list__layout
+	> .block-editor-block-list__block,
+.fu-comparison-cards__grid
+	> .acf-innerblocks-container
+	> .wp-block-acf-fu-comparison-card,
+.fu-comparison-cards__grid
+	> .block-editor-block-list__layout
+	> .wp-block-acf-fu-comparison-card {
+	height: 100%;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+	justify-self: stretch;
+	align-self: stretch;
+	display: flex;
+}
+
+.fu-comparison-cards__grid
+	> .acf-innerblocks-container
+	> .block-editor-block-list__block
+	> .wp-block,
+.fu-comparison-cards__grid
+	> .block-editor-block-list__layout
+	> .block-editor-block-list__block
+	> .wp-block {
+	height: 100%;
+	display: flex;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+.fu-comparison-cards__grid .block-editor-block-list__block-edit,
+.fu-comparison-cards__grid .wp-block-acf-fu-comparison-card {
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+.fu-comparison-cards__grid
+	.wp-block-acf-fu-comparison-card
+	> .acf-block-preview {
+	height: 100%;
+	display: flex;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+.fu-comparison-cards__grid
+	.block-editor-block-list__block
+	> .acf-block-preview {
+	display: flex;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+.fu-comparison-cards__grid
+	.wp-block-acf-fu-comparison-card
+	> .acf-block-preview
+	> .acf-block-component {
+	display: flex;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+.fu-comparison-cards__grid
+	.wp-block-acf-fu-comparison-card
+	.fu-comparison-card {
+	height: 100%;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+.fu-comparison-cards__grid
+	.wp-block-acf-fu-comparison-card
+	.fu-comparison-card__article {
+	height: 100%;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+/* Explicit layouts — frontend: columns on .fu-comparison-cards__grid (cards render
+   directly inside it). Editor: columns on .acf-innerblocks-container only (that
+   wrapper becomes the active grid; the outer .fu-comparison-cards__grid must not
+   also declare columns or it creates a double-grid conflict). */
+
+/* Frontend only — in the editor, .acf-innerblocks-container is always a direct
+   child of .fu-comparison-cards__grid, so :not(:has(...)) reliably excludes it. */
+.fu-comparison-cards--layout-2-col
+	.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fu-comparison-cards--layout-3-col
+	.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Editor only */
+.fu-comparison-cards--layout-2-col
+	.fu-comparison-cards__grid
+	> .acf-innerblocks-container,
+.fu-comparison-cards--layout-2-col
+	.fu-comparison-cards__grid
+	> .block-editor-block-list__layout {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fu-comparison-cards--layout-3-col
+	.fu-comparison-cards__grid
+	> .acf-innerblocks-container,
+.fu-comparison-cards--layout-3-col
+	.fu-comparison-cards__grid
+	> .block-editor-block-list__layout {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Mobile: stack explicit layouts to a single column below 640px */
+@media (max-width: 639px) {
+	.fu-comparison-cards--layout-2-col
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)),
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
+		grid-template-columns: 1fr;
+	}
+
+	.fu-comparison-cards--layout-2-col
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container,
+	.fu-comparison-cards--layout-2-col
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout,
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container,
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Auto layout: 2 columns at medium viewports */
+@media (min-width: 640px) {
+	.fu-comparison-cards--layout-auto .fu-comparison-cards__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container,
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Auto layout: fills available space at wide viewports */
+@media (min-width: 900px) {
+	.fu-comparison-cards--layout-auto .fu-comparison-cards__grid {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	}
+
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container,
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Empty state notice — shown in editor when no child cards have been added yet
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-cards__empty-notice {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: var(--fu-space-lg);
+	color: #888;
+	font-size: 0.9375rem;
+	border: 2px dashed #ddd;
+	border-radius: var(--fu-radius-md);
+	margin: 0;
+}
+
+/* Admin/editor helper styles */
+/* Let the content switcher and switcher panel take full width in the editor. */
+.editor-styles-wrapper .wp-block-acf-fu-comparison-cards,
+.acf-block-component .wp-block-acf-fu-comparison-cards,
+.acf-block-component .wp-block-acf-fu-comparison-cards {
+	max-width: 100%;
+}

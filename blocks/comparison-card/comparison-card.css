@@ -1,0 +1,317 @@
+/* ==========================================================================
+   Comparison Card — Single card block
+   Block root: .fu-comparison-card
+   Rendered as a grid item inside .fu-comparison-cards__grid.
+   CSS custom properties are inherited from the parent .fu-comparison-cards wrapper.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Card grid item — stretch to full grid cell height
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card {
+	display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   Card article — flex column so CTA pins to bottom
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__article {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: var(--cc-card-bg);
+	border-radius: var(--cc-card-radius);
+	padding: var(--cc-card-padding);
+}
+
+/* Card style: elevated */
+.fu-comparison-cards--style-elevated .fu-comparison-card__article {
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Card style: bordered */
+.fu-comparison-cards--style-bordered .fu-comparison-card__article {
+	border: 1px solid var(--cc-card-border-color);
+}
+
+/* Featured card — accent border overrides card style */
+.fu-comparison-card--featured .fu-comparison-card__article {
+	border: 2px solid var(--cc-featured-border-color);
+	box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Card header (badge, title, description)
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__header {
+	margin-bottom: var(--fu-space-sm);
+}
+
+.fu-comparison-card__badge {
+	display: inline-block;
+	background-color: var(--cc-badge-bg);
+	color: var(--cc-badge-color);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	padding: 0.2em 0.65em;
+	border-radius: var(--fu-radius-sm);
+	margin-bottom: var(--fu-space-xs);
+}
+
+.fu-comparison-card--featured .fu-comparison-card__badge {
+	background-color: var(--cc-featured-badge-bg);
+	color: var(--cc-featured-badge-color);
+}
+
+.fu-comparison-card__title {
+	font-size: 1.375rem;
+	font-weight: 700;
+	color: var(--cc-card-text);
+	line-height: 1.2;
+	margin: 0 0 0.375rem;
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-card__title {
+	color: var(--cc-card-text);
+}
+
+.fu-comparison-card__description {
+	font-size: 0.9375rem;
+	color: var(--cc-card-muted);
+	line-height: 1.5;
+	margin: 0;
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-card__description {
+	color: var(--cc-card-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Pricing
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__pricing {
+	padding-block: var(--fu-space-sm);
+	border-block: 1px solid var(--cc-card-border-color);
+	margin-block: var(--fu-space-sm);
+}
+
+.fu-comparison-card__price-line {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 0;
+}
+
+.fu-comparison-card__price-prefix {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--cc-card-text);
+	align-self: flex-start;
+	margin-top: 0.4em;
+	margin-inline-end: 0.35rem;
+}
+
+.fu-comparison-card__price-value {
+	font-size: 2.75rem;
+	font-weight: 800;
+	color: var(--cc-card-text);
+	line-height: 1;
+	margin-inline-end: 0.15rem;
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-card__price-value,
+.fu-comparison-cards--bg-dark .fu-comparison-card__price-prefix {
+	color: var(--cc-card-text);
+}
+
+.fu-comparison-card__price-suffix {
+	font-size: 0.9375rem;
+	font-weight: 400;
+	color: var(--cc-card-subtle);
+}
+
+.fu-comparison-card__price-note {
+	font-size: 0.8125rem;
+	color: var(--cc-card-subtle);
+	margin: 0.25rem 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Features area
+   flex-grow pushes the CTA area to the card bottom regardless of content height
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__features {
+	flex-grow: 1;
+	margin: 0 0 var(--fu-space-sm);
+	display: flex;
+	flex-direction: column;
+	gap: var(--fu-space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Feature group — one section per state (included, limited, etc.)
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__feature-group {
+	font-size: 0.9375rem;
+	line-height: 1.5;
+}
+
+/* Group label: visible text + decorative icon */
+
+.fu-comparison-card__feature-group-label {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	margin: 0 0 0.35rem;
+}
+
+.fu-comparison-card__feature-group-icon {
+	font-size: 0.875rem;
+	line-height: 1;
+	flex-shrink: 0;
+}
+
+/* State-specific label and icon colors */
+
+.fu-comparison-card__feature-group--included
+	.fu-comparison-card__feature-group-label {
+	color: var(--cc-icon-included);
+}
+
+.fu-comparison-card__feature-group--not-included
+	.fu-comparison-card__feature-group-label {
+	color: var(--cc-icon-not-included);
+}
+
+.fu-comparison-card__feature-group--limited
+	.fu-comparison-card__feature-group-label {
+	color: var(--cc-icon-limited);
+}
+
+.fu-comparison-card__feature-group--highlighted
+	.fu-comparison-card__feature-group-label {
+	color: var(--cc-icon-highlighted);
+}
+
+/* --------------------------------------------------------------------------
+   Feature content — WYSIWYG output area
+   Reset any editor margins; normalize list presentation
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__feature-content {
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--cc-feature-body-text);
+}
+
+.fu-comparison-card__feature-content > * {
+	margin: 0;
+}
+
+.fu-comparison-card__feature-content ul,
+.fu-comparison-card__feature-content ol {
+	margin: 0;
+	padding-left: 1.25rem;
+}
+
+.fu-comparison-card__feature-content li {
+	padding-block: 0.2rem;
+}
+
+.fu-comparison-card__feature-content li + li {
+	border-top: 1px solid var(--cc-feature-divider);
+}
+
+.fu-comparison-cards--bg-dark .fu-comparison-card__feature-content li + li {
+	border-top-color: var(--cc-feature-divider);
+}
+
+/* Not-included: strikethrough on list items (non-color cue) */
+
+.fu-comparison-card__feature-group--not-included
+	.fu-comparison-card__feature-content
+	li {
+	color: var(--cc-feature-not-included-text);
+	text-decoration: line-through;
+	text-decoration-color: var(--cc-feature-not-included-strike);
+}
+
+/* Highlighted: bold on list items (non-color cue) */
+
+.fu-comparison-card__feature-group--highlighted
+	.fu-comparison-card__feature-content
+	li {
+	font-weight: 600;
+}
+
+/* Dark background adjustments */
+
+.fu-comparison-cards--bg-dark .fu-comparison-card__feature-content {
+	color: var(--cc-feature-body-text);
+}
+
+.fu-comparison-cards--bg-dark
+	.fu-comparison-card__feature-group--not-included
+	.fu-comparison-card__feature-content
+	li {
+	color: var(--cc-feature-not-included-text);
+}
+
+/* --------------------------------------------------------------------------
+   CTA / Actions — margin-top: auto pins it to the card bottom
+   -------------------------------------------------------------------------- */
+
+.fu-comparison-card__actions {
+	margin-top: auto;
+	padding-top: var(--fu-space-sm);
+}
+
+.fu-comparison-card__btn {
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding: 0.75rem 1.25rem;
+	background-color: var(--cc-button-bg);
+	color: var(--cc-button-text);
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.25;
+	border-radius: var(--fu-radius-md);
+	border: 2px solid var(--cc-button-border);
+	text-decoration: none;
+	transition: var(--fu-transition-fast);
+}
+
+.fu-comparison-card__btn:hover,
+.fu-comparison-card__btn:focus-visible {
+	color: var(--cc-button-text);
+	outline: 2px solid var(--cc-focus-ring);
+	outline-offset: 3px;
+}
+
+/* Featured card — inverted default button color */
+.fu-comparison-card--featured .fu-comparison-card__btn {
+	background-color: var(--cc-featured-button-bg);
+	color: var(--cc-featured-button-text);
+	border-color: var(--cc-featured-button-border);
+}
+
+.fu-comparison-card--featured .fu-comparison-card__btn:hover,
+.fu-comparison-card--featured .fu-comparison-card__btn:focus-visible {
+	background-color: var(--cc-featured-button-hover-bg);
+	color: var(--cc-featured-button-hover-text);
+	border-color: var(--cc-featured-button-hover-border);
+	outline-color: var(--cc-featured-button-hover-focus-ring);
+}

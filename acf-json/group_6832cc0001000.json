@@ -1,0 +1,232 @@
+{
+	"key": "group_6832cc0001000",
+	"title": "Block: Comparison Cards",
+	"fields": [
+		{
+			"key": "field_6832cc0001001",
+			"label": "Section Header",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 1,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0001002",
+			"label": "Eyebrow",
+			"name": "cc_eyebrow",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional short label above the heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Membership Options",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0001003",
+			"label": "Heading",
+			"name": "cc_heading",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Section heading shown above the cards.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Choose the Right Membership",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_6832cc0001004",
+			"label": "Intro Text",
+			"name": "cc_intro",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "Optional supporting text shown below the heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"rows": 3,
+			"placeholder": "",
+			"new_lines": ""
+		},
+		{
+			"key": "field_6832cc0001005",
+			"label": "Section Header End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_6832cc0001006",
+			"label": "Layout & Style",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_6832cc0001007",
+			"label": "Layout",
+			"name": "cc_layout",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Auto adjusts columns based on card count. 2-col and 3-col lock the grid.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"auto": "Auto",
+				"2-col": "2 Columns",
+				"3-col": "3 Columns"
+			},
+			"default_value": "auto",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_6832cc0001008",
+			"label": "Card Style",
+			"name": "cc_card_style",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Controls the visual treatment of each card.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"clean": "Clean",
+				"elevated": "Elevated",
+				"bordered": "Bordered"
+			},
+			"default_value": "elevated",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_6832cc0001009",
+			"label": "Background Style",
+			"name": "cc_bg_style",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Sets the background color of the entire section.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"none": "None",
+				"light": "Light",
+				"dark": "Dark",
+				"brand-tinted": "Brand Tinted"
+			},
+			"default_value": "none",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_6832cc0001010",
+			"label": "Layout & Style End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/fu-comparison-cards"
+			}
+		]
+	],
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"active": true,
+	"modified": 1778101260
+}
