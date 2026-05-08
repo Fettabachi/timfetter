@@ -294,11 +294,13 @@
 	flex: 0 0 auto;
 }
 
-.fu-content-switcher-demo-shell {
+.fu-content-switcher-demo-shell,
+.fu-comparison-cards-demo-shell {
 	position: relative;
 }
 
-.fu-content-switcher-config-toggle {
+.fu-content-switcher-config-toggle,
+.fu-comparison-cards-config-toggle {
 	position: absolute;
 	top: 12px;
 	right: 12px;
@@ -317,8 +319,33 @@
 	transition: opacity 0.2s, box-shadow 0.2s;
 }
 
-.fu-content-switcher-config-toggle.is-active {
+.fu-content-switcher-config-toggle.is-active,
+.fu-comparison-cards-config-toggle.is-active {
 	box-shadow: 0 0 0 2px #fff inset;
+}
+
+.fu-demo-ui[data-demo-type="comparison-cards"] .fu-demo-btns--text button {
+	padding: 8px 6px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.fu-demo-ui[data-demo-type="comparison-cards"] .fu-demo-btns--wrap {
+	flex-wrap: wrap;
+}
+
+.fu-demo-ui[data-demo-type="comparison-cards"] .fu-demo-btns--wrap button {
+	flex: 1 1 calc(50% - 6px);
+}
+
+.fu-demo-ui[data-demo-type="comparison-cards"] .fu-demo-group--desktop-only {
+	display: none;
+}
+
+@media (min-width: 1024px) {
+	.fu-demo-ui[data-demo-type="comparison-cards"] .fu-demo-group--desktop-only {
+		display: block;
+	}
 }
 
 @media (max-width: 63.99rem) {

@@ -44,11 +44,14 @@ function base_scripts()
     $is_content_switcher_demo = is_page_template('page-content-switcher.php')
         || 'page-content-switcher.php' === $current_template_slug
         || is_page('content-switcher');
+    $is_comparison_cards_demo = is_page_template('page-comparison-cards.php')
+        || 'page-comparison-cards.php' === $current_template_slug
+        || is_page('comparison-cards');
     $is_page_banner_demo = function_exists('fu_should_load_page_banner_demo_panel')
         ? fu_should_load_page_banner_demo_panel()
         : false;
 
-    if ($is_content_switcher_demo || $is_page_banner_demo) {
+    if ($is_content_switcher_demo || $is_page_banner_demo || $is_comparison_cards_demo) {
         wp_enqueue_style(
             'fu-demo-panel',
             get_theme_file_uri('/css/blocks/demo-panel.css'),
@@ -56,13 +59,15 @@ function base_scripts()
             filemtime(get_theme_file_path('/css/blocks/demo-panel.css'))
         );
 
-        wp_enqueue_script(
-            'fu-demo-panel',
-            get_theme_file_uri('/src/blocks/demo-panel.js'),
-            array(),
-            filemtime(get_theme_file_path('/src/blocks/demo-panel.js')),
-            true
-        );
+        if ($is_page_banner_demo) {
+            wp_enqueue_script(
+                'fu-demo-panel',
+                get_theme_file_uri('/src/blocks/demo-panel.js'),
+                array(),
+                filemtime(get_theme_file_path('/src/blocks/demo-panel.js')),
+                true
+            );
+        }
 
         if ($is_content_switcher_demo) {
             wp_enqueue_script(
@@ -73,6 +78,16 @@ function base_scripts()
                 true
             );
         }
+    }
+
+    if ($is_comparison_cards_demo) {
+        wp_enqueue_script(
+            'fu-demo-panel-comparison-cards',
+            get_theme_file_uri('/src/blocks/demo-panel-comparison-cards.js'),
+            array(),
+            filemtime(get_theme_file_path('/src/blocks/demo-panel-comparison-cards.js')),
+            true
+        );
     }
 }
 add_action('wp_enqueue_scripts', 'base_scripts');

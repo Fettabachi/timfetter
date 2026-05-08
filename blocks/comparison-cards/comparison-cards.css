@@ -34,6 +34,16 @@
 	--cc-color-not-included-strike-light: #d7deea;
 	--cc-color-card-dark-bg: rgba(255, 255, 255, 0.08);
 	--cc-color-card-dark-border: rgba(255, 255, 255, 0.28);
+
+	/* Dark bg + card-style palette: one source per variant, no scattered literals. */
+	--cc-color-card-dark-clean-bg: rgba(255, 255, 255, 0.055);
+	--cc-color-card-dark-clean-border: rgba(255, 255, 255, 0.18);
+	--cc-color-card-dark-elevated-bg: rgba(255, 255, 255, 0.085);
+	--cc-color-card-dark-elevated-border: rgba(255, 255, 255, 0.24);
+	--cc-color-card-dark-elevated-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+	--cc-color-card-dark-bordered-bg: rgba(255, 255, 255, 0.045);
+	--cc-color-card-dark-bordered-border: rgba(255, 255, 255, 0.38);
+
 	--cc-color-control-badge-dark: rgba(255, 255, 255, 0.14);
 	--cc-color-control-badge-border-dark: rgba(255, 255, 255, 0.16);
 	--cc-color-control-border-dark: rgba(255, 255, 255, 0.55);
@@ -180,6 +190,23 @@
 	--cc-feature-divider: var(--cc-color-divider-dark);
 	--cc-feature-not-included-text: var(--cc-color-subtle-light);
 	--cc-feature-not-included-strike: var(--cc-color-not-included-strike-light);
+}
+
+/* Dark background + card style: per-variant surface and border overrides.
+   These must come after --bg-dark so they win over the generic dark base values. */
+.fu-comparison-cards--bg-dark.fu-comparison-cards--style-clean {
+	--cc-card-bg: var(--cc-color-card-dark-clean-bg);
+	--cc-card-border-color: var(--cc-color-card-dark-clean-border);
+}
+
+.fu-comparison-cards--bg-dark.fu-comparison-cards--style-elevated {
+	--cc-card-bg: var(--cc-color-card-dark-elevated-bg);
+	--cc-card-border-color: var(--cc-color-card-dark-elevated-border);
+}
+
+.fu-comparison-cards--bg-dark.fu-comparison-cards--style-bordered {
+	--cc-card-bg: var(--cc-color-card-dark-bordered-bg);
+	--cc-card-border-color: var(--cc-color-card-dark-bordered-border);
 }
 
 .fu-comparison-cards--bg-brand-tinted {

@@ -43,6 +43,41 @@
 }
 
 /* --------------------------------------------------------------------------
+   Dark background: style-variant article overrides
+   Scoped to --bg-dark so light/none/brand-tinted variants are unaffected.
+   Featured card override at the end re-asserts orange border at equal specificity
+   but later source order, ensuring it wins regardless of card style.
+   -------------------------------------------------------------------------- */
+
+/* Clean: add a quiet border so it reads as a card surface; suppress any shadow. */
+.fu-comparison-cards--bg-dark.fu-comparison-cards--style-clean
+	.fu-comparison-card__article {
+	border: 1px solid var(--cc-card-border-color);
+	box-shadow: none;
+}
+
+/* Elevated: replace the barely-visible light-mode shadow with a deeper one. */
+.fu-comparison-cards--bg-dark.fu-comparison-cards--style-elevated
+	.fu-comparison-card__article {
+	box-shadow: var(--cc-color-card-dark-elevated-shadow);
+}
+
+/* Bordered: heavier 2px outline is the defining characteristic; no shadow. */
+.fu-comparison-cards--bg-dark.fu-comparison-cards--style-bordered
+	.fu-comparison-card__article {
+	border: 2px solid var(--cc-card-border-color);
+	box-shadow: none;
+}
+
+/* Featured: re-assert orange accent border and shadow over all dark style rules. */
+.fu-comparison-cards--bg-dark
+	.fu-comparison-card--featured
+	.fu-comparison-card__article {
+	border: 2px solid var(--cc-featured-border-color);
+	box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------------------------------
    Card header (badge, title, description)
    -------------------------------------------------------------------------- */
 
