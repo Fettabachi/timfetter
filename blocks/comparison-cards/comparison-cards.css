@@ -119,7 +119,11 @@
    -------------------------------------------------------------------------- */
 
 .fu-comparison-cards--bg-light {
-	--cc-section-bg: var(--cc-color-section-light);
+	--cc-section-bg: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--fu-blue) 8%, var(--fu-white)),
+		color-mix(in srgb, var(--cc-color-ink) 6%, var(--fu-white))
+	);
 }
 
 .fu-comparison-cards--bg-none,
@@ -358,11 +362,6 @@
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.fu-comparison-cards--layout-3-col
-	.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 /* Editor only */
 .fu-comparison-cards--layout-2-col
 	.fu-comparison-cards__grid
@@ -371,15 +370,6 @@
 	.fu-comparison-cards__grid
 	> .block-editor-block-list__layout {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.fu-comparison-cards--layout-3-col
-	.fu-comparison-cards__grid
-	> .acf-innerblocks-container,
-.fu-comparison-cards--layout-3-col
-	.fu-comparison-cards__grid
-	> .block-editor-block-list__layout {
-	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 /* Mobile: stack explicit layouts to a single column below 640px */
@@ -407,9 +397,11 @@
 	}
 }
 
-/* Auto layout: 2 columns at medium viewports */
+/* 2 columns at tablet — auto layout and explicit 3-col layout */
 @media (min-width: 640px) {
 	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)),
+	.fu-comparison-cards--layout-3-col
 		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
@@ -418,14 +410,20 @@
 		.fu-comparison-cards__grid
 		> .acf-innerblocks-container,
 	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout,
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container,
+	.fu-comparison-cards--layout-3-col
 		.fu-comparison-cards__grid
 		> .block-editor-block-list__layout {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
-/* Auto layout: fills available space at wide viewports */
-@media (min-width: 900px) {
+/* Auto layout fills available space; explicit 3-col activates at wide viewports */
+@media (min-width: 1024px) {
 	.fu-comparison-cards--layout-auto
 		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -438,6 +436,20 @@
 		.fu-comparison-cards__grid
 		> .block-editor-block-list__layout {
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	}
+
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container,
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
 

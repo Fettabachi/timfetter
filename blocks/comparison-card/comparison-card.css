@@ -264,7 +264,8 @@
 	outline: 2px solid transparent;
 	outline-offset: 0;
 	text-decoration: none;
-	transition: outline-color 160ms ease, outline-offset 160ms ease;
+	transition: background-color 160ms ease, border-color 160ms ease,
+		outline-color 160ms ease, outline-offset 160ms ease;
 }
 
 .fu-comparison-card__btn:hover {
