@@ -37,9 +37,9 @@
             <p class="fu-demo-group-label" id="fu-cc-demo-background-label">Background Style</p>
             <div class="fu-demo-btns fu-demo-btns--text fu-demo-btns--wrap" role="group" aria-labelledby="fu-cc-demo-background-label">
                 <button type="button" aria-pressed="false" data-demo-control="background-style" data-demo-value="none">None</button>
-                <button type="button" aria-pressed="false" data-demo-control="background-style" data-demo-value="light">Light</button>
+                <button type="button" aria-pressed="false" data-demo-control="background-style" data-demo-value="light">Cool Tint</button>
                 <button type="button" class="is-active" aria-pressed="true" data-demo-control="background-style" data-demo-value="dark">Dark</button>
-                <button type="button" aria-pressed="false" data-demo-control="background-style" data-demo-value="brand-tinted">Brand Tinted</button>
+                <button type="button" aria-pressed="false" data-demo-control="background-style" data-demo-value="brand-tinted">Warm Tint</button>
             </div>
         </div>
 

@@ -185,9 +185,9 @@
 			},
 			"choices": {
 				"none": "None",
-				"light": "Light",
+				"light": "Cool Tint",
 				"dark": "Dark",
-				"brand-tinted": "Brand Tinted"
+				"brand-tinted": "Warm Tint"
 			},
 			"default_value": "none",
 			"return_format": "value",

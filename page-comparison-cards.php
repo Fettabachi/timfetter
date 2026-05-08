@@ -163,7 +163,7 @@ get_header();
                             <li><strong>Editor-specific handling</strong>—Gutenberg InnerBlocks wrappers are styled separately to match front-end output.</li>
                             <li><strong>Optional pricing</strong>—prefix, value, suffix, and note fields work independently.</li>
                             <li><strong>Safe WYSIWYG output</strong>—feature content is rendered through WordPress content filters.</li>
-                            <li><strong>Design-token theming</strong>—CSS custom properties allow multi-variant styling (None, Light, Dark, Brand Tinted).</li>
+                            <li><strong>Design-token theming</strong>—CSS custom properties allow multi-variant styling (None, Cool Tint, Dark, Warm Tint).</li>
                             <li><strong>Token cleanup</strong>—no scattered hard-coded colors, all values are source variables or derived semantic roles.</li>
                         </ul>
                     </div>
