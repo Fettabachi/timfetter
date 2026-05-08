@@ -372,8 +372,8 @@
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* Mobile: stack explicit layouts to a single column below 640px */
-@media (max-width: 639px) {
+/* Mobile: stack explicit layouts to a single column below 768px */
+@media (max-width: 767px) {
 	.fu-comparison-cards--layout-2-col
 		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)),
 	.fu-comparison-cards--layout-3-col
@@ -398,7 +398,7 @@
 }
 
 /* 2 columns at tablet — auto layout and explicit 3-col layout */
-@media (min-width: 640px) {
+@media (min-width: 768px) {
 	.fu-comparison-cards--layout-auto
 		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container)),
 	.fu-comparison-cards--layout-3-col
@@ -456,6 +456,88 @@
 /* --------------------------------------------------------------------------
    Empty state notice — shown in editor when no child cards have been added yet
    -------------------------------------------------------------------------- */
+
+/* Tablet orphan spanning: at 768px–1023px, allow odd final card to span full width
+   in 2-column layouts before 3-column desktop activates. */
+@media (min-width: 768px) and (max-width: 1023px) {
+	/* Frontend: Auto and 3-col layouts get orphan spanning */
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container))
+		> .fu-comparison-card:last-child:nth-child(odd),
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid:not(:has(> .acf-innerblocks-container))
+		> .fu-comparison-card:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+
+	/* Editor: Auto and 3-col layouts get orphan spanning for wrapper elements */
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container
+		> .block-editor-block-list__block[data-type="acf/fu-comparison-card"]:nth-last-child(1
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]):nth-child(odd
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]),
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container
+		> .wp-block-acf-fu-comparison-card:nth-last-child(1
+			of
+			.wp-block-acf-fu-comparison-card):nth-child(odd
+			of
+			.wp-block-acf-fu-comparison-card),
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout
+		> .block-editor-block-list__block[data-type="acf/fu-comparison-card"]:nth-last-child(1
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]):nth-child(odd
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]),
+	.fu-comparison-cards--layout-auto
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout
+		> .wp-block-acf-fu-comparison-card:nth-last-child(1
+			of
+			.wp-block-acf-fu-comparison-card):nth-child(odd
+			of
+			.wp-block-acf-fu-comparison-card),
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container
+		> .block-editor-block-list__block[data-type="acf/fu-comparison-card"]:nth-last-child(1
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]):nth-child(odd
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]),
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .acf-innerblocks-container
+		> .wp-block-acf-fu-comparison-card:nth-last-child(1
+			of
+			.wp-block-acf-fu-comparison-card):nth-child(odd
+			of
+			.wp-block-acf-fu-comparison-card),
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout
+		> .block-editor-block-list__block[data-type="acf/fu-comparison-card"]:nth-last-child(1
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]):nth-child(odd
+			of
+			.block-editor-block-list__block[data-type="acf/fu-comparison-card"]),
+	.fu-comparison-cards--layout-3-col
+		.fu-comparison-cards__grid
+		> .block-editor-block-list__layout
+		> .wp-block-acf-fu-comparison-card:nth-last-child(1
+			of
+			.wp-block-acf-fu-comparison-card):nth-child(odd
+			of
+			.wp-block-acf-fu-comparison-card) {
+		grid-column: 1 / -1;
+	}
+}
 
 .fu-comparison-cards__empty-notice {
 	grid-column: 1 / -1;
