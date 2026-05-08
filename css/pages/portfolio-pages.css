@@ -520,6 +520,7 @@
 
 .fu-portfolio-piece__demo-caption {
 	margin: 1rem 0 0;
+	/* text-wrap-style: balance; */
 }
 
 .fu-portfolio-piece__closing-inner {

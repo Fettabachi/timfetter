@@ -297,6 +297,7 @@
 .fu-content-switcher-demo-shell,
 .fu-comparison-cards-demo-shell {
 	position: relative;
+	margin-top: 1rem;
 }
 
 .fu-content-switcher-config-toggle,
