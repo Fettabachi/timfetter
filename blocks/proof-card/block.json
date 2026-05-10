@@ -1,0 +1,21 @@
+{
+	"name": "acf/fu-proof-card",
+	"title": "Proof Card",
+	"description": "A single proof card. Must be placed inside a Proof Cards block.",
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "id-alt",
+	"parent": ["acf/fu-proof-cards"],
+	"style": "file:./proof-card.css",
+	"editorStyle": "file:./proof-card.css",
+	"supports": {
+		"anchor": false,
+		"jsx": true,
+		"html": false,
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

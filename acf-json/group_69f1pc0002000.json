@@ -1,0 +1,283 @@
+{
+	"key": "group_69f1pc0002000",
+	"title": "Block: Proof Card",
+	"fields": [
+		{
+			"key": "field_69f1pc0002001",
+			"label": "Proof Content",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 1,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_69f1pc0002002",
+			"label": "Card Label",
+			"name": "card_label",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional label, e.g. Client Result or Case Study.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": 40,
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Client Result",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0002003",
+			"label": "Metric Value",
+			"name": "metric_value",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional result, e.g. 42%, 3x, 24 hrs.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": 20,
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. 42%",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0002004",
+			"label": "Metric Label",
+			"name": "metric_label",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Explains the metric.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. increase in qualified inquiries",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0002005",
+			"label": "Statement",
+			"name": "statement",
+			"aria-label": "",
+			"type": "wysiwyg",
+			"instructions": "Main quote, review excerpt, result statement, or case-study highlight.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"allow_in_bindings": 0,
+			"tabs": "visual",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"delay": 0
+		},
+		{
+			"key": "field_69f1pc0002008",
+			"label": "Proof Content End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_69f1pc0002009",
+			"label": "Source",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_69f1pc0002006",
+			"label": "Source Name",
+			"name": "source_name",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Person, client, organization, or source.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. BrightPath Dental",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0002007",
+			"label": "Source Detail",
+			"name": "source_detail",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Role, company, project type, or attribution.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Service landing page redesign",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0002011",
+			"label": "Image / Logo",
+			"name": "image_logo",
+			"aria-label": "",
+			"type": "image",
+			"instructions": "Optional source image or logo.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"library": "all",
+			"min_width": "",
+			"min_height": "",
+			"min_size": "",
+			"max_width": "",
+			"max_height": "",
+			"max_size": "",
+			"mime_types": "",
+			"allow_in_bindings": 0,
+			"preview_size": "thumbnail"
+		},
+		{
+			"key": "field_69f1pc0002012",
+			"label": "Link",
+			"name": "link",
+			"aria-label": "",
+			"type": "link",
+			"instructions": "Optional case study, review, or proof source.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"allow_in_bindings": 0
+		},
+		{
+			"key": "field_69f1pc0002010",
+			"label": "Featured Card",
+			"name": "featured_card",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Applies stronger visual treatment.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "Featured",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
+			"key": "field_69f1pc0002013",
+			"label": "Source End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/fu-proof-card"
+			}
+		]
+	],
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"active": true,
+	"modified": 1778287100
+}

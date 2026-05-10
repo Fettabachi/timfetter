@@ -1,0 +1,7 @@
+/* Proof Card child block styles rely on section-level variables from .fu-proof-cards. */
+
+.editor-styles-wrapper .wp-block-acf-fu-proof-card,
+.acf-block-component .wp-block-acf-fu-proof-card {
+	width: 100%;
+	max-width: none;
+}

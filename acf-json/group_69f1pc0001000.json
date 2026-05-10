@@ -1,0 +1,231 @@
+{
+	"key": "group_69f1pc0001000",
+	"title": "Block: Proof Cards",
+	"fields": [
+		{
+			"key": "field_69f1pc0001001",
+			"label": "Section Header",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 1,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_69f1pc0001002",
+			"label": "Eyebrow",
+			"name": "pc_eyebrow",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Optional short label above the heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Client Proof & Project Outcomes",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0001003",
+			"label": "Heading",
+			"name": "pc_heading",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Section heading shown above the cards.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "e.g. Proof that connects feedback to outcomes",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_69f1pc0001004",
+			"label": "Intro",
+			"name": "pc_intro",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "Optional supporting text shown below the heading.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"rows": 3,
+			"placeholder": "",
+			"new_lines": ""
+		},
+		{
+			"key": "field_69f1pc0001005",
+			"label": "Section Header End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		},
+		{
+			"key": "field_69f1pc0001006",
+			"label": "Layout & Style",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 0
+		},
+		{
+			"key": "field_69f1pc0001007",
+			"label": "Layout",
+			"name": "pc_layout",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Grid uses a uniform responsive grid. Featured Layout gives cards marked as Featured a wider treatment on larger screens.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"grid": "Grid",
+				"featured-first": "Featured Layout"
+			},
+			"default_value": "grid",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_69f1pc0001008",
+			"label": "Card Style",
+			"name": "pc_card_style",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Controls the visual treatment of each card surface.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"default": "Default",
+				"bordered": "Bordered",
+				"elevated": "Elevated"
+			},
+			"default_value": "default",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_69f1pc0001009",
+			"label": "Background Style",
+			"name": "pc_bg_style",
+			"aria-label": "",
+			"type": "button_group",
+			"instructions": "Sets the background color of the entire section.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"none": "None",
+				"cool": "Cool Tint",
+				"dark": "Dark",
+				"warm": "Warm Tint"
+			},
+			"default_value": "none",
+			"return_format": "value",
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"layout": "horizontal"
+		},
+		{
+			"key": "field_69f1pc000100a",
+			"label": "Layout & Style End",
+			"name": "",
+			"aria-label": "",
+			"type": "accordion",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"open": 0,
+			"multi_expand": 0,
+			"endpoint": 1
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/fu-proof-cards"
+			}
+		]
+	],
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"active": true,
+	"modified": 1778287000
+}

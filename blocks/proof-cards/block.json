@@ -1,0 +1,29 @@
+{
+	"name": "acf/fu-proof-cards",
+	"title": "Proof Cards",
+	"apiVersion": 3,
+	"category": "layout",
+	"icon": "format-quote",
+	"description": "Displays structured testimonial, outcome, metric, and credibility cards in a responsive proof grid.",
+	"keywords": [
+		"proof",
+		"testimonial",
+		"results",
+		"credibility",
+		"metrics",
+		"cards"
+	],
+	"style": "file:./proof-cards.css",
+	"editorStyle": "file:./proof-cards.css",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"jsx": true,
+		"html": false,
+		"customClassName": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	}
+}

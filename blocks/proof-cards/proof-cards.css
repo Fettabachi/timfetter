@@ -1,0 +1,725 @@
+/* ==========================================================================
+   Proof Cards Block
+   Block root: .fu-proof-cards
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Block-level custom properties
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards {
+	/* Local palette — single-source color values for this block. */
+	--pc-color-ink: #1f1f1f;
+	--pc-color-muted-dark: #5a5a5a;
+	--pc-color-subtle-mid: #7a7a7a;
+	--pc-color-border-light: #e2e2e0;
+	--pc-color-surface-light: #f7f7f5;
+	--pc-color-navy-dark: #07111f;
+	--pc-color-navy: #103f67;
+	--pc-color-muted-light: #d2dae3;
+	--pc-color-subtle-light: #c3ccd7;
+	--pc-color-warm-surface: #fdf6ec;
+	--pc-color-card-dark-bg: rgba(255, 255, 255, 0.1);
+	--pc-color-card-dark-border: rgba(255, 255, 255, 0.17);
+	--pc-color-card-dark-elevated-bg: rgba(255, 255, 255, 0.12);
+	--pc-color-card-dark-elevated-border: rgba(255, 255, 255, 0.2);
+	--pc-color-card-dark-bordered-bg: rgba(255, 255, 255, 0.08);
+	--pc-color-card-dark-bordered-border: rgba(255, 255, 255, 0.28);
+	--pc-color-empty-text: #888;
+	--pc-color-empty-border: #ddd;
+	--pc-color-focus-default: #153a5d;
+	--pc-color-focus-dark: #ffffff;
+
+	/* Layout & spacing */
+	--pc-gap: var(--fu-space-md);
+	--pc-padding-block: var(--fu-space-xl);
+	--pc-container-max: 1200px;
+	--pc-card-padding: var(--fu-space-md);
+	--pc-card-radius: var(--fu-radius-lg);
+
+	/* Semantic roles — variants override these, not scattered literals. */
+	--pc-section-bg: transparent;
+	--pc-section-text: var(--fu-blue);
+	--pc-section-muted: var(--pc-color-muted-dark);
+	--pc-section-eyebrow: var(--fu-orange);
+
+	/* Card surface */
+	--pc-card-bg: var(--fu-white);
+	--pc-card-border: var(--pc-color-border-light);
+	--pc-card-shadow: none;
+	--pc-card-text: var(--fu-blue);
+	--pc-card-muted: var(--pc-color-muted-dark);
+	--pc-card-subtle: var(--pc-color-subtle-mid);
+
+	/* Featured card accent */
+	--pc-featured-accent: color-mix(
+		in srgb,
+		var(--pc-card-text) 30%,
+		transparent
+	);
+	--pc-featured-bg: color-mix(
+		in srgb,
+		var(--pc-card-bg) 85%,
+		var(--pc-color-surface-light)
+	);
+	--pc-featured-border: color-mix(
+		in srgb,
+		var(--pc-card-text) 16%,
+		var(--pc-card-border)
+	);
+	--pc-featured-shadow: var(--pc-card-shadow);
+
+	/* Metric display */
+	--pc-metric-color: var(--fu-blue);
+	--pc-metric-label-color: var(--pc-color-muted-dark);
+
+	/* Label pill */
+	--pc-label-bg: transparent;
+	--pc-label-color: var(--fu-orange);
+	--pc-label-border: currentColor;
+
+	/* Link */
+	--pc-link-color: var(--fu-blue);
+
+	/* Source attribution */
+	--pc-source-bg: transparent;
+	--pc-source-border: color-mix(in srgb, var(--pc-card-text) 12%, transparent);
+	--pc-source-name: var(--pc-card-text);
+	--pc-source-detail: var(--pc-card-muted);
+	--pc-source-image-bg: color-mix(in srgb, var(--pc-card-text) 3%, transparent);
+	--pc-source-image-border: color-mix(
+		in srgb,
+		var(--pc-card-text) 12%,
+		transparent
+	);
+
+	/* Focus ring */
+	--pc-focus-ring: var(--pc-color-focus-default);
+
+	padding-block: var(--pc-padding-block);
+	background: var(--pc-section-bg);
+	color: var(--pc-section-text);
+}
+
+/* --------------------------------------------------------------------------
+   Background style variants
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards--bg-cool {
+	--pc-section-bg: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--fu-blue) 6%, var(--fu-white)),
+		color-mix(in srgb, var(--pc-color-ink) 5%, var(--fu-white))
+	);
+	--pc-card-bg: color-mix(in srgb, var(--fu-blue) 3%, var(--fu-white));
+	--pc-featured-bg: color-mix(in srgb, var(--fu-blue) 8%, var(--fu-white));
+}
+
+.fu-proof-cards--bg-warm {
+	--pc-section-bg: var(--fu-beige);
+	--pc-card-bg: color-mix(
+		in srgb,
+		var(--pc-color-warm-surface) 42%,
+		var(--fu-white)
+	);
+	--pc-featured-bg: color-mix(
+		in srgb,
+		var(--pc-color-warm-surface) 68%,
+		var(--fu-white)
+	);
+}
+
+.fu-proof-cards--bg-none {
+	--pc-card-bg: color-mix(
+		in srgb,
+		var(--pc-color-surface-light) 36%,
+		var(--fu-white)
+	);
+	--pc-featured-bg: color-mix(
+		in srgb,
+		var(--pc-color-surface-light) 64%,
+		var(--fu-white)
+	);
+}
+
+.fu-proof-cards--bg-dark {
+	--pc-section-bg: radial-gradient(
+			120% 120% at 0% 0%,
+			color-mix(in srgb, var(--pc-color-muted-light) 9%, transparent) 0%,
+			transparent 56%
+		),
+		linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--pc-color-navy) 92%, #0e1f34) 0%,
+			color-mix(in srgb, var(--pc-color-navy-dark) 84%, #10233c) 52%,
+			color-mix(in srgb, var(--pc-color-navy-dark) 90%, #000000) 100%
+		);
+	--pc-section-text: var(--fu-white);
+	--pc-section-muted: var(--pc-color-muted-light);
+	--pc-section-eyebrow: var(--fu-orange);
+
+	--pc-card-bg: var(--pc-color-card-dark-bg);
+	--pc-card-border: var(--pc-color-card-dark-border);
+	--pc-card-text: var(--fu-white);
+	--pc-card-muted: var(--pc-color-muted-light);
+	--pc-card-subtle: var(--pc-color-subtle-light);
+
+	--pc-metric-color: var(--fu-white);
+	--pc-metric-label-color: var(--pc-color-muted-light);
+
+	--pc-label-color: var(--fu-orange);
+	--pc-link-color: var(--fu-white);
+	--pc-focus-ring: var(--pc-color-focus-dark);
+	--pc-source-bg: transparent;
+	--pc-source-border: color-mix(in srgb, var(--pc-card-text) 17%, transparent);
+	--pc-source-name: var(--pc-card-text);
+	--pc-source-detail: var(--pc-card-muted);
+	--pc-source-image-bg: color-mix(in srgb, var(--pc-card-text) 8%, transparent);
+	--pc-source-image-border: color-mix(
+		in srgb,
+		var(--pc-card-text) 20%,
+		transparent
+	);
+	--pc-featured-bg: rgba(255, 255, 255, 0.155);
+	--pc-featured-border: color-mix(
+		in srgb,
+		var(--pc-card-text) 25%,
+		var(--pc-card-border)
+	);
+	--pc-featured-shadow: 0 20px 46px rgba(0, 0, 0, 0.28),
+		0 1px 0 rgba(255, 255, 255, 0.05) inset;
+}
+
+/* Dark + card style overrides */
+.fu-proof-cards--bg-dark.fu-proof-cards--style-elevated {
+	--pc-card-bg: var(--pc-color-card-dark-elevated-bg);
+	--pc-card-border: var(--pc-color-card-dark-elevated-border);
+}
+
+.fu-proof-cards--bg-dark.fu-proof-cards--style-bordered {
+	--pc-card-bg: var(--pc-color-card-dark-bordered-bg);
+	--pc-card-border: var(--pc-color-card-dark-bordered-border);
+}
+
+/* Dark elevated style needs a little extra depth to separate from the section
+   without creating a harsh floating effect. */
+.fu-proof-cards--bg-dark.fu-proof-cards--style-elevated .fu-proof-card {
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28),
+		0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+/* --------------------------------------------------------------------------
+   Card style variants
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards--style-default .fu-proof-card {
+	--pc-card-shadow: none;
+	border: 1px solid var(--pc-card-border);
+}
+
+.fu-proof-cards--style-bordered .fu-proof-card {
+	--pc-card-shadow: none;
+	border: 2px solid var(--pc-card-border);
+}
+
+.fu-proof-cards--style-elevated .fu-proof-card {
+	--pc-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08),
+		0 1px 4px rgba(0, 0, 0, 0.04);
+	border: 1px solid var(--pc-card-border);
+}
+
+/* --------------------------------------------------------------------------
+   Inner container
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards__container {
+	max-width: var(--pc-container-max);
+	margin-inline: auto;
+	padding-inline: var(--fu-space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Section header
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards__header {
+	text-align: center;
+	max-width: 68ch;
+	margin-inline: auto;
+	margin-bottom: var(--fu-space-lg);
+}
+
+.fu-proof-cards__eyebrow {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--pc-section-eyebrow);
+	margin: 0 0 var(--fu-space-xs);
+}
+
+.fu-proof-cards__heading {
+	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+	font-weight: 700;
+	color: var(--pc-section-text);
+	line-height: 1.15;
+	margin: 0 0 var(--fu-space-sm);
+}
+
+.fu-proof-cards__intro {
+	font-size: clamp(1rem, 1.5vw, 1.125rem);
+	color: var(--pc-section-muted);
+	line-height: 1.6;
+	margin: 0;
+	text-wrap: balance;
+}
+
+/* --------------------------------------------------------------------------
+   Card grid — mobile first: single column
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--pc-gap);
+	margin: 0;
+	padding: 0;
+}
+
+/* Editor parity: make InnerBlocks wrappers act as the active grid container. */
+.fu-proof-cards__grid > .acf-innerblocks-container,
+.fu-proof-cards__grid > .block-editor-block-list__layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--pc-gap);
+	width: 100%;
+	min-width: 0;
+	align-items: stretch;
+	margin: 0;
+	padding: 0;
+}
+
+/* Stretch editor child wrappers so cards fill each grid cell. */
+.fu-proof-cards__grid
+	> .acf-innerblocks-container
+	> .block-editor-block-list__block,
+.fu-proof-cards__grid
+	> .block-editor-block-list__layout
+	> .block-editor-block-list__block,
+.fu-proof-cards__grid
+	> .acf-innerblocks-container
+	> .wp-block-acf-fu-proof-card,
+.fu-proof-cards__grid
+	> .block-editor-block-list__layout
+	> .wp-block-acf-fu-proof-card {
+	height: 100%;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+	justify-self: stretch;
+	align-self: stretch;
+	display: flex;
+}
+
+.fu-proof-cards__grid
+	> .acf-innerblocks-container
+	> .block-editor-block-list__block
+	> .wp-block,
+.fu-proof-cards__grid
+	> .block-editor-block-list__layout
+	> .block-editor-block-list__block
+	> .wp-block,
+.fu-proof-cards__grid .wp-block-acf-fu-proof-card > .acf-block-preview,
+.fu-proof-cards__grid
+	.wp-block-acf-fu-proof-card
+	> .acf-block-preview
+	> .acf-block-component {
+	display: flex;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+	height: 100%;
+}
+
+.fu-proof-cards__grid .wp-block-acf-fu-proof-card .fu-proof-card {
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	min-width: 0;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+	/* Frontend only: child cards render directly in grid. */
+	.fu-proof-cards__grid:not(:has(> .acf-innerblocks-container)) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	/* Editor only: InnerBlocks wrapper is the active grid container. */
+	.fu-proof-cards__grid > .acf-innerblocks-container,
+	.fu-proof-cards__grid > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Desktop: auto-fit 3 columns for grid layout */
+@media (min-width: 1024px) {
+	.fu-proof-cards--layout-grid
+		.fu-proof-cards__grid:not(:has(> .acf-innerblocks-container)) {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+
+	.fu-proof-cards--layout-grid
+		.fu-proof-cards__grid
+		> .acf-innerblocks-container,
+	.fu-proof-cards--layout-grid
+		.fu-proof-cards__grid
+		> .block-editor-block-list__layout {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Featured First layout
+   -------------------------------------------------------------------------- */
+
+/* Featured cards span two columns at tablet+ in featured-first layout.
+   Frontend spans the card article; editor spans the matching block wrappers. */
+@media (min-width: 768px) {
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid:not(:has(> .acf-innerblocks-container))
+		> .fu-proof-card--featured {
+		grid-column: span 2;
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid
+		> .acf-innerblocks-container
+		> .wp-block-acf-fu-proof-card:has(.fu-proof-card--featured),
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid
+		> .acf-innerblocks-container
+		> .block-editor-block-list__block[data-type="acf/fu-proof-card"]:has(.fu-proof-card--featured),
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid
+		> .block-editor-block-list__layout
+		.wp-block-acf-fu-proof-card:has(.fu-proof-card--featured),
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid
+		> .block-editor-block-list__layout
+		.block-editor-block-list__block[data-type="acf/fu-proof-card"]:has(.fu-proof-card--featured) {
+		grid-column: span 2;
+	}
+}
+
+/* At desktop in featured-first, keep 3-column underlying grid so standard
+   cards sit 3 across and featured spans 2 of those columns cleanly. */
+@media (min-width: 1024px) {
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid:not(:has(> .acf-innerblocks-container)) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid
+		> .acf-innerblocks-container,
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-cards__grid
+		> .block-editor-block-list__layout {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Odd-card orphan spanning — tablet 2-column range
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.fu-proof-cards--layout-grid
+		.fu-proof-cards__grid
+		> .fu-proof-card:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Card base
+   -------------------------------------------------------------------------- */
+
+.fu-proof-card {
+	background: var(--pc-card-bg);
+	border-radius: var(--pc-card-radius);
+	box-shadow: var(--pc-card-shadow);
+	padding: var(--pc-card-padding);
+	color: var(--pc-card-text);
+	display: flex;
+	flex-direction: column;
+	gap: var(--fu-space-sm);
+	position: relative;
+	transition: box-shadow 0.2s ease;
+	min-width: 0;
+}
+
+/* Featured card visual distinction */
+.fu-proof-card--featured {
+	background: var(--pc-featured-bg);
+	border-color: var(--pc-featured-border);
+	box-shadow: var(--pc-featured-shadow);
+}
+
+.fu-proof-cards--style-bordered .fu-proof-card--featured {
+	border-width: 2px;
+}
+
+.fu-proof-cards--style-elevated .fu-proof-card--featured {
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13),
+		0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+/* At wider sizes, featured cards should use extra horizontal space with
+   stronger rhythm and controlled line length instead of feeling stretched. */
+@media (min-width: 768px) {
+	.fu-proof-cards--layout-featured-first .fu-proof-card--featured {
+		padding: clamp(1.2rem, 2vw, 1.7rem);
+		padding-top: clamp(1.35rem, 2vw, 1.75rem);
+		gap: clamp(0.95rem, 1.5vw, 1.35rem);
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__metric-value {
+		font-size: clamp(2.2rem, 4vw, 3rem);
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__statement,
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__source {
+		max-width: 68ch;
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__statement
+		p {
+		font-size: clamp(1.04rem, 1.52vw, 1.2rem);
+		line-height: 1.74;
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured:has(.fu-proof-card__metric)
+		.fu-proof-card__metric-value {
+		font-size: clamp(2.45rem, 4.6vw, 3.35rem);
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__source {
+		padding-top: clamp(1.1rem, 1.7vw, 1.25rem);
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__link {
+		font-size: 0.9rem;
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured:not(:has(.fu-proof-card__metric))
+		.fu-proof-card__statement {
+		max-width: 64ch;
+	}
+}
+
+@media (min-width: 1024px) {
+	.fu-proof-cards--layout-featured-first .fu-proof-card--featured {
+		padding: clamp(1.4rem, 2.1vw, 2.15rem);
+		padding-top: clamp(1.55rem, 2.2vw, 1.95rem);
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__statement {
+		max-width: 65ch;
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__source {
+		max-width: 44ch;
+	}
+
+	.fu-proof-cards--layout-featured-first
+		.fu-proof-card--featured
+		.fu-proof-card__link {
+		margin-top: clamp(0.2rem, 0.6vw, 0.45rem);
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Card label
+   -------------------------------------------------------------------------- */
+
+.fu-proof-card__label {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--pc-label-color);
+	margin: 0;
+	line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Metric display
+   -------------------------------------------------------------------------- */
+
+.fu-proof-card__metric {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+}
+
+.fu-proof-card__metric-value {
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-weight: 800;
+	line-height: 1;
+	color: var(--pc-metric-color);
+	margin: 0;
+	letter-spacing: -0.02em;
+}
+
+.fu-proof-card__metric-label {
+	font-size: 0.875rem;
+	color: var(--pc-metric-label-color);
+	line-height: 1.4;
+	margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Statement / blockquote
+   -------------------------------------------------------------------------- */
+
+.fu-proof-card__statement {
+	margin: 0;
+	padding: 0;
+	border: none;
+	flex: 1; /* Push source to bottom of card. */
+}
+
+.fu-proof-card__statement p {
+	font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+	line-height: 1.65;
+	color: var(--pc-card-text);
+	margin: 0;
+	font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Source attribution footer
+   -------------------------------------------------------------------------- */
+
+.fu-proof-card__source {
+	display: flex;
+	align-items: center;
+	gap: var(--fu-space-sm);
+	margin-top: auto;
+	padding: clamp(1rem, 2vw, 1.25rem) 0 0;
+	border-top: 1px solid var(--pc-source-border);
+	background: var(--pc-source-bg);
+	color: inherit;
+	text-align: left;
+}
+
+.fu-proof-card__image-wrap {
+	flex-shrink: 0;
+}
+
+.fu-proof-card__image {
+	width: clamp(2.5rem, 5vw, 2.75rem);
+	height: clamp(2.5rem, 5vw, 2.75rem);
+	border-radius: 0.625rem;
+	object-fit: cover;
+	display: block;
+	background: var(--pc-source-image-bg);
+	border: 1px solid var(--pc-source-image-border);
+}
+
+.fu-proof-card__source-text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	min-width: 0;
+}
+
+.fu-proof-card__source-name {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--pc-source-name);
+	margin: 0;
+	line-height: 1.25;
+}
+
+.fu-proof-card__source-detail {
+	font-size: 0.78125rem;
+	color: var(--pc-source-detail);
+	margin: 0;
+	line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   Card link
+   -------------------------------------------------------------------------- */
+
+.fu-proof-card__link {
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--pc-link-color);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	margin-top: auto;
+}
+
+.fu-proof-card__link:hover {
+	text-decoration-thickness: 2px;
+}
+
+.fu-proof-card__link:focus-visible {
+	outline: 2px solid var(--pc-focus-ring);
+	outline-offset: 3px;
+	border-radius: var(--fu-radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Empty state notice — shown in editor when no cards have been added yet
+   -------------------------------------------------------------------------- */
+
+.fu-proof-cards__empty-notice {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: var(--fu-space-lg);
+	color: var(--pc-color-empty-text);
+	font-size: 0.9375rem;
+	border: 2px dashed var(--pc-color-empty-border);
+	border-radius: var(--fu-radius-md);
+	margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Editor parity
+   -------------------------------------------------------------------------- */
+
+.editor-styles-wrapper .wp-block-acf-fu-proof-cards,
+.acf-block-component .wp-block-acf-fu-proof-cards {
+	max-width: 100%;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.fu-proof-card {
+		transition: none;
+	}
+}
