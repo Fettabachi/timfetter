@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title>BrightPath Dental mark</title>
+  <desc>Fictional logo mark for a proof card demo.</desc>
+  <rect width="96" height="96" rx="24" fill="#0d3b66"/>
+  <circle cx="48" cy="38" r="18" fill="#ffffff" opacity="0.14"/>
+  <text x="48" y="57" text-anchor="middle" font-family="Raleway, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">BD</text>
+  <rect x="24" y="68" width="48" height="6" rx="3" fill="#f95738" opacity="0.72"/>
+</svg>

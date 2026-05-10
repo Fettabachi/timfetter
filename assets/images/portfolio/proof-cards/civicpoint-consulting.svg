@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title>CivicPoint Consulting mark</title>
+  <desc>Fictional logo mark for a proof card demo.</desc>
+  <rect width="96" height="96" rx="24" fill="#e9eef3"/>
+  <circle cx="48" cy="48" r="24" fill="#103f67" opacity="0.12"/>
+  <path d="M48 24l16 8v16c0 11-7 19-16 24-9-5-16-13-16-24V32l16-8z" fill="#103f67" opacity="0.86"/>
+  <text x="48" y="58" text-anchor="middle" font-family="Raleway, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">CP</text>
+</svg>
