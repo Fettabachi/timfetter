@@ -105,6 +105,27 @@
 			"delay": 0
 		},
 		{
+			"key": "field_69f1pc0002014",
+			"label": "Treat Statement as Quote",
+			"name": "treat_statement_as_quote",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Adds decorative quote styling for testimonial-style statements.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"allow_in_bindings": 0,
+			"ui_on_text": "Quote",
+			"ui_off_text": "",
+			"ui": 1
+		},
+		{
 			"key": "field_69f1pc0002008",
 			"label": "Proof Content End",
 			"name": "",

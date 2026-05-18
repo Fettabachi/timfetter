@@ -24,6 +24,7 @@ $featured_raw  = get_field('featured_card');
 $image      = is_array($image) ? $image : array();
 $link_raw   = is_array($link_raw) ? $link_raw : array();
 $is_featured = $featured_raw === null ? false : (bool) $featured_raw;
+$is_quote    = (bool) get_field('treat_statement_as_quote');
 
 $link_url    = trim((string) ($link_raw['url'] ?? ''));
 $link_text   = trim((string) ($link_raw['title'] ?? ''));
@@ -57,6 +58,10 @@ if ($is_featured) {
     $card_classes[] = 'fu-proof-card--featured';
 }
 
+if ($is_quote) {
+    $card_classes[] = 'fu-proof-card--is-quote';
+}
+
 ?>
 <article class="<?php echo esc_attr(implode(' ', $card_classes)); ?>" role="listitem">
 
@@ -73,8 +78,10 @@ if ($is_featured) {
 
     <?php if ($has_statement) : ?>
         <blockquote class="fu-proof-card__statement">
-            <?php echo $statement_markup; // Sanitized with wp_kses_post above. phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-            ?>
+            <div class="fu-proof-card__statement-inner">
+                <?php echo $statement_markup; // Sanitized with wp_kses_post above. phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                ?>
+            </div>
         </blockquote>
     <?php endif; ?>
 

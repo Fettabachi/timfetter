@@ -73,102 +73,6 @@ add_action('wp_enqueue_scripts', function () {
         margin-top: clamp(1.75rem, 3vw, 2.5rem);
     }
 
-    /* Logo proof row — compact credibility strip */
-    .fu-proof-logo-row {
-        padding-block: clamp(1.5rem, 3vw, 2.25rem);
-    }
-
-    .fu-proof-logo-row__header {
-        margin-bottom: clamp(1rem, 2vw, 1.5rem);
-    }
-
-    .fu-proof-logo-row__eyebrow {
-        display: block;
-        color: rgba(13, 59, 102, 0.65);
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 0.4rem;
-    }
-
-    .fu-proof-logo-row__heading {
-        margin: 0 0 0.4rem;
-        color: var(--fu-blue, #0d3b66);
-        font-family: "Raleway", sans-serif;
-        font-size: clamp(1.2rem, 2vw, 1.55rem);
-        font-weight: 600;
-        line-height: 1.15;
-        letter-spacing: -0.015em;
-    }
-
-    .fu-proof-logo-row__intro {
-        margin: 0;
-        color: rgba(13, 59, 102, 0.7);
-        font-size: clamp(0.88rem, 1.3vw, 0.97rem);
-        line-height: 1.65;
-        max-width: 56ch;
-    }
-
-    .fu-proof-logo-row__grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
-        gap: clamp(0.6rem, 1.5vw, 0.875rem);
-    }
-
-    .fu-proof-logo-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.35rem;
-        padding: 0.75rem 0.6rem 0.7rem;
-        border: 1px solid rgba(13, 59, 102, 0.1);
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.88);
-        text-align: center;
-    }
-
-    .fu-proof-logo-card__media {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 2rem;
-        flex-shrink: 0;
-    }
-
-    .fu-proof-logo-card__image {
-        display: block;
-        max-width: min(6rem, 100%);
-        max-height: 1.75rem;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-    }
-
-    .fu-proof-logo-card__mark {
-        display: block;
-        width: 1.75rem;
-        height: 1.75rem;
-        flex-shrink: 0;
-    }
-
-    .fu-proof-logo-card__name {
-        margin: 0;
-        color: var(--fu-blue, #0d3b66);
-        font-size: 0.75rem;
-        font-weight: 700;
-        line-height: 1.25;
-    }
-
-    .fu-proof-logo-card__detail {
-        margin: 0;
-        color: rgba(13, 59, 102, 0.52);
-        font-size: 0.68rem;
-        line-height: 1.3;
-    }
-
     @media (max-width: 1024px) {
         .fu-proof-cards-portfolio .fu-portfolio-piece__lead-inner {
             grid-template-columns: 1fr;
@@ -253,6 +157,9 @@ if (! function_exists('fu_proof_cards_demo_card_markup')) {
         if (! empty($card['featured'])) {
             $classes[] = 'fu-proof-card--featured';
         }
+        if (! empty($card['is_quote'])) {
+            $classes[] = 'fu-proof-card--is-quote';
+        }
 
         $label = trim((string) ($card['label'] ?? ''));
         $metric_value = trim((string) ($card['metric_value'] ?? ''));
@@ -286,7 +193,9 @@ if (! function_exists('fu_proof_cards_demo_card_markup')) {
 
             <?php if ($statement !== '') : ?>
                 <blockquote class="fu-proof-card__statement">
-                    <p><?php echo esc_html($statement); ?></p>
+                    <div class="fu-proof-card__statement-inner">
+                        <p><?php echo esc_html($statement); ?></p>
+                    </div>
                 </blockquote>
             <?php endif; ?>
 
@@ -395,6 +304,7 @@ $proof_cards_demos = array(
             ),
             array(
                 'label' => 'Agency Feedback',
+                'is_quote' => true,
                 'statement' => 'The block gave our client enough flexibility to manage the section themselves without breaking the design.',
                 'source_name' => 'Northstar Studio',
                 'source_detail' => 'WordPress implementation partner',
@@ -519,6 +429,7 @@ $proof_cards_demos = array(
         'bg_style' => 'warm',
         'cards' => array(
             array(
+                'is_quote' => true,
                 'statement' => 'The finished page felt polished, responsive, and easy for our team to update after launch.',
                 'source_name' => 'Elevate Fitness',
                 'source_detail' => 'Service website refresh',
@@ -529,6 +440,7 @@ $proof_cards_demos = array(
                 ),
             ),
             array(
+                'is_quote' => true,
                 'statement' => 'The implementation matched the design closely and handled the responsive details we usually have to clean up later.',
                 'source_name' => 'Creative Director',
                 'source_detail' => 'Agency handoff',
@@ -542,6 +454,7 @@ $proof_cards_demos = array(
                 ),
             ),
             array(
+                'is_quote' => true,
                 'statement' => 'We finally had a section that made our customer feedback feel organized instead of scattered across the page.',
                 'source_name' => 'Marketing Coordinator',
                 'source_detail' => 'Content cleanup project',
@@ -683,104 +596,6 @@ $proof_cards_demos = array(
 
                 <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['main_showcase']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
-
-                <section class="fu-proof-logo-row" id="logo-proof" aria-label="Logo proof examples">
-                    <div class="fu-case-section__inner">
-                        <header class="fu-proof-logo-row__header">
-                            <span class="fu-proof-logo-row__eyebrow">Logo Proof</span>
-                            <h2 class="fu-proof-logo-row__heading">Credibility signals without a full testimonial</h2>
-                            <p class="fu-proof-logo-row__intro">Some proof does not need a quote or metric. Proof Cards can support lightweight source proof when a section needs to show trusted organizations, partners, platforms, or client categories.</p>
-                        </header>
-                        <div class="fu-proof-logo-row__grid">
-                            <?php
-                            $logo_proof_items = array(
-                                array(
-                                    'name'       => 'BrightPath Dental',
-                                    'detail'     => 'Service business',
-                                    'src'        => get_theme_file_uri('/assets/images/portfolio/proof-cards/brightpath-dental.svg'),
-                                    'initials'   => 'BD',
-                                    'background' => '#103f67',
-                                    'foreground' => '#ffffff',
-                                ),
-                                array(
-                                    'name'       => 'Northstar Studio',
-                                    'detail'     => 'Agency partner',
-                                    'src'        => get_theme_file_uri('/assets/images/portfolio/proof-cards/northstar-studio.svg'),
-                                    'initials'   => 'NS',
-                                    'background' => '#1a2e4a',
-                                    'foreground' => '#f4c842',
-                                ),
-                                array(
-                                    'name'       => 'Elevate Fitness',
-                                    'detail'     => 'Local service brand',
-                                    'src'        => get_theme_file_uri('/assets/images/portfolio/proof-cards/elevate-fitness.svg'),
-                                    'initials'   => 'EF',
-                                    'background' => '#e8f4e8',
-                                    'foreground' => '#2a6d2a',
-                                ),
-                                array(
-                                    'name'       => 'CivicPoint Consulting',
-                                    'detail'     => 'Professional services',
-                                    'src'        => get_theme_file_uri('/assets/images/portfolio/proof-cards/civicpoint-consulting.svg'),
-                                    'initials'   => 'CP',
-                                    'background' => '#f0f4fa',
-                                    'foreground' => '#1a3a6b',
-                                ),
-                                array(
-                                    'name'       => 'Atlas Analytics',
-                                    'detail'     => 'B2B platform',
-                                    'src'        => get_theme_file_uri('/assets/images/portfolio/proof-cards/atlas-analytics.svg'),
-                                    'initials'   => 'AA',
-                                    'background' => '#0d2233',
-                                    'foreground' => '#5bc4f5',
-                                ),
-                                array(
-                                    'name'       => 'Fieldstone Services',
-                                    'detail'     => 'Regional service provider',
-                                    'src'        => get_theme_file_uri('/assets/images/portfolio/proof-cards/fieldstone-services.svg'),
-                                    'initials'   => 'FS',
-                                    'background' => '#f5ede2',
-                                    'foreground' => '#7a4f28',
-                                ),
-                            );
-                            foreach ($logo_proof_items as $item) :
-                                $item_src  = trim((string) ($item['src'] ?? ''));
-                                $item_name = esc_html((string) ($item['name'] ?? ''));
-                                $item_det  = esc_html((string) ($item['detail'] ?? ''));
-                                $initials  = strtoupper((string) ($item['initials'] ?? ''));
-                                $bg        = esc_attr((string) ($item['background'] ?? '#103f67'));
-                                $fg        = esc_attr((string) ($item['foreground'] ?? '#ffffff'));
-                            ?>
-                                <div class="fu-proof-logo-card">
-                                    <div class="fu-proof-logo-card__media">
-                                        <?php if ($item_src !== '') : ?>
-                                            <img
-                                                class="fu-proof-logo-card__image"
-                                                src="<?php echo esc_url($item_src); ?>"
-                                                alt=""
-                                                aria-hidden="true"
-                                                loading="lazy"
-                                                decoding="async">
-                                        <?php else : ?>
-                                            <svg class="fu-proof-logo-card__mark" viewBox="0 0 64 64" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="64" height="64" rx="16" fill="<?php echo $bg; // phpcs:ignore 
-                                                                                            ?>" />
-                                                <text x="32" y="42" text-anchor="middle" font-family="Raleway, Arial, sans-serif" font-size="22" font-weight="700" fill="<?php echo $fg; // phpcs:ignore 
-                                                                                                                                                                            ?>"><?php echo esc_html($initials); ?></text>
-                                            </svg>
-                                        <?php endif; ?>
-                                    </div>
-                                    <p class="fu-proof-logo-card__name"><?php echo $item_name; // phpcs:ignore 
-                                                                        ?></p>
-                                    <?php if ($item_det !== '') : ?>
-                                        <p class="fu-proof-logo-card__detail"><?php echo $item_det; // phpcs:ignore 
-                                                                                ?></p>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </section>
 
                 <section class="fu-case-section" id="use-cases">
                     <div class="fu-case-section__inner">

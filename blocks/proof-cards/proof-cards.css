@@ -96,6 +96,9 @@
 	/* Focus ring */
 	--pc-focus-ring: var(--pc-color-focus-default);
 
+	/* Quote accent — used by .fu-proof-card--is-quote */
+	--pc-quote-accent: color-mix(in srgb, var(--pc-card-text) 30%, transparent);
+
 	padding-block: var(--pc-padding-block);
 	background: var(--pc-section-bg);
 	color: var(--pc-section-text);
@@ -188,6 +191,7 @@
 	);
 	--pc-featured-shadow: 0 20px 46px rgba(0, 0, 0, 0.28),
 		0 1px 0 rgba(255, 255, 255, 0.05) inset;
+	--pc-quote-accent: color-mix(in srgb, var(--pc-color-muted-light) 55%, transparent);
 }
 
 /* Dark + card style overrides */
@@ -609,12 +613,26 @@
 	flex: 1; /* Push source to bottom of card. */
 }
 
+.fu-proof-card__statement-inner {
+	margin: 0;
+}
+
 .fu-proof-card__statement p {
 	font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
 	line-height: 1.65;
 	color: var(--pc-card-text);
 	margin: 0;
 	font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Quote treatment modifier
+   -------------------------------------------------------------------------- */
+
+
+.fu-proof-card--is-quote .fu-proof-card__statement-inner {
+	padding-inline-start: clamp(0.875rem, 1.5vw, 1.1rem);
+	border-inline-start: 2px solid var(--pc-quote-accent);
 }
 
 /* --------------------------------------------------------------------------
