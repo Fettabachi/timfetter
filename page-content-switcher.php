@@ -7,6 +7,18 @@
  */
 
 get_header();
+
+$resolve_portfolio_page_url = static function ($slug) {
+    $page = get_page_by_path($slug);
+
+    return $page ? get_permalink($page) : '';
+};
+
+$editor_experience_url = $resolve_portfolio_page_url('editor-experience');
+
+if ($editor_experience_url === '') {
+    $editor_experience_url = home_url('/editor-experience/');
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-content-switcher-portfolio'); ?>>
@@ -256,6 +268,16 @@ get_header();
                             is reused. Editorial control stays with the team—display style, panel content, and deep link behavior
                             are all managed within the block editor, with no theme customization required.
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fu-case-section fu-editor-handoff-callout">
+                <div class="fu-case-section__inner">
+                    <div class="fu-principles__item">
+                        <h3>Want to see how these blocks are handed off?</h3>
+                        <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
+                        <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
                     </div>
                 </div>
             </section>

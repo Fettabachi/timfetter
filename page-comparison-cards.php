@@ -7,6 +7,18 @@
  */
 
 get_header();
+
+$resolve_portfolio_page_url = static function ($slug) {
+    $page = get_page_by_path($slug);
+
+    return $page ? get_permalink($page) : '';
+};
+
+$editor_experience_url = $resolve_portfolio_page_url('editor-experience');
+
+if ($editor_experience_url === '') {
+    $editor_experience_url = home_url('/editor-experience/');
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-comparison-cards-portfolio'); ?>>
@@ -178,6 +190,16 @@ get_header();
                         <p>The result is a comparison block that feels polished on the front end and manageable in the editor. It works for memberships, service tiers, packages, programs, or product options—without locking the client into a rigid pricing-table model.</p>
 
                         <p>The parent/child architecture means editors never have to dig into dense nested fields. Each option is its own block, making comparison content as easy to manage as any other page block.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fu-case-section fu-editor-handoff-callout">
+                <div class="fu-case-section__inner">
+                    <div class="fu-principles__item">
+                        <h3>Want to see how these blocks are handed off?</h3>
+                        <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
+                        <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
                     </div>
                 </div>
             </section>

@@ -14,6 +14,12 @@ $resolve_portfolio_page_url = static function ($slug) {
     return $page ? get_permalink($page) : '';
 };
 
+$editor_experience_url = $resolve_portfolio_page_url('editor-experience');
+
+if ($editor_experience_url === '') {
+    $editor_experience_url = home_url('/editor-experience/');
+}
+
 $block_collection = array(
     array(
         'title' => 'Page Banner',
@@ -415,6 +421,21 @@ CSS
                         <p>Parent and child blocks handle card and panel systems more cleanly than dense repeaters, guided controls replace unlimited layout freedom, canvas previews reduce guesswork, and the whole approach makes agency handoff easier.</p>
                         <p>Proof Cards is a good example: it started as a repeater because the content model looked simple, but testing showed that multiple items were painful to manage in the sidebar. The final version uses one child block per proof item.</p>
                     </div>
+                </div>
+            </section>
+
+            <section class="fu-system-editor-callout" id="editor-handoff-companion" aria-labelledby="editor-callout-heading">
+                <div class="fu-system-editor-callout__inner">
+                    <a class="fu-system-editor-callout__card" href="<?php echo esc_url($editor_experience_url); ?>">
+                        <span class="fu-system-editor-callout__card-heading">
+                            <span class="fu-system-editor-callout__eyebrow">Companion piece</span>
+                            <h2 id="editor-callout-heading">Built for the people who maintain the site</h2>
+                        </span>
+                        <span class="fu-system-editor-callout__card-body">
+                            <p>The block system is designed around more than front-end output. Each block includes editing boundaries, guided controls, and reusable content patterns so clients and agencies can keep pages consistent after launch.</p>
+                            <span class="fu-system-editor-callout__link">View the editor experience <span aria-hidden="true">&rarr;</span></span>
+                        </span>
+                    </a>
                 </div>
             </section>
 

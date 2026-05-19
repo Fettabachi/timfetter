@@ -526,7 +526,20 @@ $proof_cards_demos = array(
     ),
 );
     ?>
-    <?php get_header(); ?>
+    <?php get_header();
+
+    $resolve_portfolio_page_url = static function ($slug) {
+        $page = get_page_by_path($slug);
+
+        return $page ? get_permalink($page) : '';
+    };
+
+    $editor_experience_url = $resolve_portfolio_page_url('editor-experience');
+
+    if ($editor_experience_url === '') {
+        $editor_experience_url = home_url('/editor-experience/');
+    }
+    ?>
 
     <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-proof-cards-portfolio'); ?>>
         <div class="container">
@@ -675,6 +688,16 @@ $proof_cards_demos = array(
                         <div class="fu-case-section__body">
                             <p>Proof Cards helps clients present testimonials, outcomes, metrics, logos, and source details in a consistent system. Instead of scattering proof across several one-off sections, the same block can adapt to service pages, landing pages, home pages, resource hubs, and case-study previews.</p>
                             <p>That makes the content easier to maintain and the trust signals easier to scan. For teams that need editorial flexibility without layout chaos, the block creates a better publishing pattern from the start.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="fu-case-section fu-editor-handoff-callout">
+                    <div class="fu-case-section__inner">
+                        <div class="fu-principles__item">
+                            <h3>Want to see how these blocks are handed off?</h3>
+                            <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
+                            <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
                         </div>
                     </div>
                 </section>
