@@ -203,6 +203,57 @@ wp_add_inline_style(
     line-height: 1.55;
 }
 
+.fu-acf-block-system-portfolio .fu-system-block-card {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card h3 {
+    color: var(--fu-blue, #0d3b66);
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--fu-blue, #0d3b66);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card__arrow {
+    transition: transform 180ms ease;
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card:hover .fu-system-block-card__arrow,
+.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible .fu-system-block-card__arrow {
+    transform: translateX(0.2rem);
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card:hover,
+.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible {
+    border-color: rgba(13, 59, 102, 0.24);
+    box-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
+    transform: translateY(-2px);
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible {
+    outline: 3px solid rgba(13, 59, 102, 0.3);
+    outline-offset: 4px;
+}
+
+.fu-acf-block-system-portfolio .fu-system-block-card--disabled {
+    cursor: default;
+}
+
 @media (max-width: 1024px) {
     .fu-acf-block-system-portfolio .fu-portfolio-piece__lead-copy,
     .fu-acf-block-system-portfolio .fu-portfolio-piece__lead-body {
@@ -270,27 +321,25 @@ CSS
                 <div class="fu-case-section__inner">
                     <p class="fu-case-section__eyebrow">System Workflow</p>
                     <h2 class="fu-case-section__heading">How the system works</h2>
-                    <p class="fu-case-section__intro">Each block follows the same basic path: define the content model, expose safe editor controls, render accessible front-end output, and keep the pattern reusable across pages.</p>
+                    <p class="fu-case-section__body">Each block follows the same basic path: define the content model, expose safe editor controls, render accessible front-end output, and keep the pattern reusable across pages.</p>
 
-                    <div class="fu-system-workflow__grid">
-                        <div class="fu-system-workflow__card">
-                            <span class="fu-system-workflow__number">01</span>
-                            <h3>Content Model</h3>
+                    <div class="fu-principles__grid fu-principles__grid--2col" aria-label="System Workflow principles">
+                        <div class="fu-principles__item fu-principles__item--compact">
+
+                            <h3><span class="fu-principles__number">1. </span>Content Model</h3>
                             <p>Structured fields define the content the page actually needs.</p>
                         </div>
-                        <div class="fu-system-workflow__card">
-                            <span class="fu-system-workflow__number">02</span>
-                            <h3>Editor Controls</h3>
+                        <div class="fu-principles__item fu-principles__item--compact">
+
+                            <h3><span class="fu-principles__number">2. </span>Editor Controls</h3>
                             <p>Guided settings give editors safe layout and style choices.</p>
                         </div>
-                        <div class="fu-system-workflow__card">
-                            <span class="fu-system-workflow__number">03</span>
-                            <h3>Front-End Output</h3>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3><span class="fu-principles__number">3. </span>Front-End Output</h3>
                             <p>Semantic markup and responsive CSS turn those choices into stable interfaces.</p>
                         </div>
-                        <div class="fu-system-workflow__card">
-                            <span class="fu-system-workflow__number">04</span>
-                            <h3>Reusable System</h3>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3><span class="fu-principles__number">4. </span>Reusable System</h3>
                             <p>The same patterns can be reused across pages, brands, and site types.</p>
                         </div>
                     </div>
@@ -319,17 +368,20 @@ CSS
                     <div class="fu-principles__grid" aria-label="Portfolio block examples">
                         <?php foreach ($block_collection as $block) : ?>
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
-                            <div class="fu-principles__item">
-                                <p class="fu-case-section__eyebrow">Portfolio Piece</p>
-                                <h3>
-                                    <?php if ($block_url !== '') : ?>
-                                        <a href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page"><?php echo esc_html($block['title']); ?></a>
-                                    <?php else : ?>
-                                        <?php echo esc_html($block['title']); ?>
-                                    <?php endif; ?>
-                                </h3>
-                                <p><?php echo esc_html($block['description']); ?></p>
-                            </div>
+                            <?php if ($block_url !== '') : ?>
+                                <a class="fu-principles__item fu-system-block-card" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
+                                    <p class="fu-case-section__eyebrow">Portfolio Piece</p>
+                                    <h3><?php echo esc_html($block['title']); ?></h3>
+                                    <p><?php echo esc_html($block['description']); ?></p>
+                                    <span class="fu-system-block-card__action">View case study <span class="fu-system-block-card__arrow" aria-hidden="true">&rarr;</span></span>
+                                </a>
+                            <?php else : ?>
+                                <div class="fu-principles__item fu-system-block-card fu-system-block-card--disabled">
+                                    <p class="fu-case-section__eyebrow">Portfolio Piece</p>
+                                    <h3><?php echo esc_html($block['title']); ?></h3>
+                                    <p><?php echo esc_html($block['description']); ?></p>
+                                </div>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
