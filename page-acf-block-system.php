@@ -323,42 +323,57 @@ CSS
                 </div>
             </section>
 
-            <section class="fu-case-section" id="system-workflow">
+            <section class="fu-case-section fu-system-workflow" id="system-workflow" aria-labelledby="system-workflow-heading">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">System Workflow</p>
-                    <h2 class="fu-case-section__heading">How the system works</h2>
-                    <p class="fu-case-section__body">Each block follows the same basic path: define the content model, expose safe editor controls, render accessible front-end output, and keep the pattern reusable across pages.</p>
-
-                    <div class="fu-principles__grid fu-principles__grid--2col" aria-label="System Workflow principles">
-                        <div class="fu-principles__item fu-principles__item--compact">
-
-                            <h3><span class="fu-principles__number">1. </span>Content Model</h3>
-                            <p>Structured fields define the content the page actually needs.</p>
-                        </div>
-                        <div class="fu-principles__item fu-principles__item--compact">
-
-                            <h3><span class="fu-principles__number">2. </span>Editor Controls</h3>
-                            <p>Guided settings give editors safe layout and style choices.</p>
-                        </div>
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3><span class="fu-principles__number">3. </span>Front-End Output</h3>
-                            <p>Semantic markup and responsive CSS turn those choices into stable interfaces.</p>
-                        </div>
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3><span class="fu-principles__number">4. </span>Reusable System</h3>
-                            <p>The same patterns can be reused across pages, brands, and site types.</p>
-                        </div>
+                    <div class="fu-system-workflow__header">
+                        <p class="fu-system-workflow__eyebrow">System workflow</p>
+                        <h2 id="system-workflow-heading">How the system works</h2>
+                        <p>Each block connects four decisions that are often handled separately: the content model, the editor controls, the front-end output, and the way the pattern can be reused.</p>
                     </div>
+
+                    <ol class="fu-system-workflow__panel" aria-label="Block system workflow">
+                        <li class="fu-system-workflow__item">
+                            <h3>Content Model</h3>
+                            <p>Start with the real content shape, not just the layout.</p>
+                        </li>
+                        <li class="fu-system-workflow__item">
+                            <h3>Editor Controls</h3>
+                            <p>Map safe editing options to that content structure.</p>
+                        </li>
+                        <li class="fu-system-workflow__item">
+                            <h3>Front-End Output</h3>
+                            <p>Render the content as accessible, responsive markup.</p>
+                        </li>
+                        <li class="fu-system-workflow__item">
+                            <h3>Reusable System</h3>
+                            <p>Repeat the pattern across pages, brands, or content types.</p>
+                        </li>
+                    </ol>
                 </div>
             </section>
 
-            <section class="fu-case-section" id="why-this-system">
-                <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Why This System Exists</p>
-                    <h2 class="fu-case-section__heading">Reusable blocks should solve editing problems, not just layout problems</h2>
-                    <div class="fu-case-section__body">
-                        <p>Clients often need flexible page sections, but too much freedom can create inconsistent layouts and difficult handoffs. This block system gives editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
-                        <p>It avoids fragile one-off sections, avoids overly broad page-builder freedom, gives editors meaningful controls, and keeps layouts predictable after handoff.</p>
+            <section class="fu-system-purpose" id="why-this-system" aria-labelledby="system-purpose-heading">
+                <div class="fu-system-purpose__inner">
+                    <div class="fu-system-purpose__content">
+                        <p class="fu-system-purpose__eyebrow">Why this system exists</p>
+                        <h2 id="system-purpose-heading">Reusable blocks should solve editing problems, not just layout problems.</h2>
+                        <p>Clients often need flexible page sections, but the real problem is usually maintaining structure after launch. This block system gives editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
+                        <p>It avoids handing editors unlimited layout freedom while still giving them enough control to publish useful, on-brand pages without developer help.</p>
+                    </div>
+
+                    <div class="fu-system-purpose__principles" aria-label="System purpose principles">
+                        <div class="fu-system-purpose__principle">
+                            <span class="fu-system-purpose__principle-label">Content first</span>
+                            <span class="fu-system-purpose__principle-text">Fields and blocks are modeled around real content decisions.</span>
+                        </div>
+                        <div class="fu-system-purpose__principle">
+                            <span class="fu-system-purpose__principle-label">Guardrails over guesswork</span>
+                            <span class="fu-system-purpose__principle-text">Editors get useful choices without being asked to rebuild layouts.</span>
+                        </div>
+                        <div class="fu-system-purpose__principle">
+                            <span class="fu-system-purpose__principle-label">Maintainable after handoff</span>
+                            <span class="fu-system-purpose__principle-text">The system is designed to stay consistent as new content is added.</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -401,13 +416,41 @@ CSS
                         <p>The details change from block to block, but the architecture stays consistent. These principles guide how the system is structured, edited, and maintained.</p>
                     </div>
 
-                    <div class="fu-principles__grid" aria-label="Shared principles">
-                        <?php foreach ($shared_principles as $principle) : ?>
-                            <div class="fu-principles__item">
-                                <h3><?php echo esc_html($principle['title']); ?></h3>
-                                <p><?php echo esc_html($principle['description']); ?></p>
+                    <div class="fu-system-principle-groups" aria-label="Shared principles">
+                        <article class="fu-system-principle-group">
+                            <div class="fu-system-principle-group__header">
+                                <span class="fu-system-principle-group__eyebrow">Principle group</span>
+                                <h3>Content structure</h3>
                             </div>
-                        <?php endforeach; ?>
+                            <p>Blocks are modeled around real content decisions so the same pattern can be reused without becoming a loose layout builder.</p>
+                            <ul>
+                                <li>Structured content</li>
+                                <li>Scoped, reusable data</li>
+                            </ul>
+                        </article>
+                        <article class="fu-system-principle-group">
+                            <div class="fu-system-principle-group__header">
+                                <span class="fu-system-principle-group__eyebrow">Principle group</span>
+                                <h3>Editor experience</h3>
+                            </div>
+                            <p>Controls are grouped around safe editing decisions, with previews and defaults that reduce guesswork after launch.</p>
+                            <ul>
+                                <li>Editor-first controls</li>
+                                <li>Canvas-aware editing</li>
+                                <li>Front-end/editor parity</li>
+                            </ul>
+                        </article>
+                        <article class="fu-system-principle-group">
+                            <div class="fu-system-principle-group__header">
+                                <span class="fu-system-principle-group__eyebrow">Principle group</span>
+                                <h3>Production quality</h3>
+                            </div>
+                            <p>The front-end output remains responsive, accessible, and consistent even as editors add new content.</p>
+                            <ul>
+                                <li>Accessible markup</li>
+                                <li>Responsive by default</li>
+                            </ul>
+                        </article>
                     </div>
                 </div>
             </section>

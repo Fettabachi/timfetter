@@ -642,6 +642,274 @@
 	color: rgba(13, 59, 102, 0.8);
 }
 
+.fu-system-purpose {
+	margin-block: clamp(4rem, 8vw, 6.5rem);
+}
+
+.fu-system-purpose__inner {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+	gap: clamp(1.5rem, 4vw, 3rem);
+	align-items: start;
+	padding: clamp(1.75rem, 4vw, 3rem);
+	border: 1px solid rgba(13, 59, 102, 0.12);
+	border-radius: 28px;
+	background: radial-gradient(
+			circle at 12% 18%,
+			rgba(96, 165, 250, 0.12),
+			transparent 22rem
+		),
+		linear-gradient(
+			135deg,
+			rgba(248, 251, 254, 0.98),
+			rgba(238, 246, 252, 0.92)
+		);
+	box-shadow: 0 18px 48px rgba(13, 59, 102, 0.06);
+}
+
+.fu-system-purpose__eyebrow {
+	margin: 0 0 0.8rem;
+	color: rgba(13, 59, 102, 0.68);
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.fu-system-purpose__content h2 {
+	max-width: 15ch;
+	margin: 0;
+	color: var(--fu-blue, #0d3b66);
+	font-family: "Raleway", sans-serif;
+	font-size: clamp(2rem, 4.5vw, 4rem);
+	font-weight: 600;
+	line-height: 0.98;
+	letter-spacing: -0.02em;
+	text-wrap: pretty;
+}
+
+.fu-system-purpose__content p {
+	max-width: 66ch;
+	margin: 1.1rem 0 0;
+	color: rgba(13, 59, 102, 0.82);
+	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+	line-height: 1.65;
+	text-wrap: pretty;
+}
+
+.fu-system-purpose__principles {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.fu-system-purpose__principle {
+	padding: 1rem;
+	border: 1px solid rgba(13, 59, 102, 0.12);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.78);
+	box-shadow: 0 10px 28px rgba(13, 59, 102, 0.05);
+}
+
+.fu-system-purpose__principle-label,
+.fu-system-purpose__principle-text {
+	display: block;
+}
+
+.fu-system-purpose__principle-label {
+	color: var(--fu-blue, #0d3b66);
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.fu-system-purpose__principle-text {
+	margin-top: 0.4rem;
+	color: rgba(13, 59, 102, 0.78);
+	line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+	.fu-system-purpose__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.fu-system-purpose__content h2 {
+		max-width: none;
+	}
+}
+
+// How the system works — connected framework panel
+.fu-system-workflow {
+	margin-top: clamp(2rem, 3vw, 3rem);
+}
+
+.fu-system-workflow__eyebrow {
+	margin: 0;
+	color: rgba(13, 59, 102, 0.65);
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.fu-system-workflow__header h2 {
+	margin: 0.45rem 0 0;
+	color: var(--fu-blue, #0d3b66);
+	font-family: "Raleway", sans-serif;
+	font-size: clamp(1.9rem, 1.5rem + 1.8vw, 2.7rem);
+	font-weight: 700;
+	line-height: 1.06;
+	letter-spacing: -0.02em;
+	text-wrap: pretty;
+}
+
+.fu-system-workflow__header p {
+	max-width: 80ch;
+	margin: 0.9rem 0 0;
+	color: rgba(13, 59, 102, 0.8);
+	font-size: clamp(0.98rem, 0.92rem + 0.2vw, 1.08rem);
+	line-height: 1.65;
+	text-wrap: pretty;
+}
+
+.fu-system-workflow__panel {
+	list-style: none;
+	margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+	padding: clamp(1.5rem, 4vw, 2.5rem);
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: clamp(1rem, 2vw, 2.5rem) clamp(1.4rem, 3vw, 2rem);
+	border-radius: 12px;
+	background: radial-gradient(
+			circle at 18% 20%,
+			rgba(96, 165, 250, 0.22),
+			transparent 28rem
+		),
+		linear-gradient(135deg, #08233f 0%, #0d3b66 52%, #061827 100%);
+	box-shadow: 0 22px 54px rgba(13, 59, 102, 0.18);
+}
+
+.fu-system-workflow__item {
+	position: relative;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+
+	&::after {
+		content: none;
+	}
+}
+
+.fu-system-workflow__number {
+	display: none;
+}
+
+.fu-system-workflow__item h3 {
+	margin: 0 0 0.5rem;
+	color: #fff;
+	font-size: clamp(1.1rem, 1rem + 0.5vw, 1.45rem);
+	font-weight: 800;
+	line-height: 1.15;
+	text-wrap: pretty;
+}
+
+.fu-system-workflow__item p {
+	margin: 0;
+	color: rgba(239, 246, 255, 0.82);
+	color: rgb(239, 246, 255);
+	font-size: clamp(0.95rem, 0.9rem + 0.18vw, 1.05rem);
+	line-height: 1.55;
+	text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+	.fu-system-workflow__panel {
+		grid-template-columns: 1fr;
+	}
+}
+
+// Shared principles — editorial groups
+.fu-system-principle-groups {
+	margin-top: 2rem;
+}
+
+.fu-system-principle-group {
+	display: grid;
+	grid-template-columns: minmax(11rem, 0.6fr) minmax(0, 1.4fr) minmax(0, 0.9fr);
+	align-items: start;
+	gap: clamp(1rem, 3vw, 2.5rem);
+	padding-block: 1.75rem;
+	border-top: 1px solid rgba(13, 59, 102, 0.12);
+
+	&:last-child {
+		border-bottom: 1px solid rgba(13, 59, 102, 0.12);
+	}
+}
+
+.fu-system-principle-group__eyebrow {
+	display: block;
+	margin-bottom: 0.35rem;
+	color: rgba(13, 59, 102, 0.45);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+.fu-system-principle-group__header h3 {
+	margin: 0;
+	color: var(--fu-blue, #0d3b66);
+	font-family: "Raleway", sans-serif;
+	font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.fu-system-principle-group > p {
+	margin: 0;
+	color: rgba(13, 59, 102, 0.78);
+	font-size: clamp(0.93rem, 0.88rem + 0.2vw, 1.03rem);
+	line-height: 1.65;
+	text-wrap: pretty;
+}
+
+.fu-system-principle-group > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.fu-system-principle-group > ul li {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	color: rgba(13, 59, 102, 0.78);
+	font-size: 0.9rem;
+	font-weight: 600;
+
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		display: block;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: rgba(13, 59, 102, 0.3);
+	}
+}
+
+@media (max-width: 860px) {
+	.fu-system-principle-group {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+}
+
 .fu-system-editor-callout {
 	width: 100vw;
 	margin-left: 50%;
