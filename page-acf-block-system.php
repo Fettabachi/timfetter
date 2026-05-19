@@ -311,7 +311,7 @@ CSS
                                 <img src="<?php echo esc_url($acf_block_system_hero_image_url); ?>" alt="ACF block system planning notebook, WordPress implementation code, and reusable block previews.">
                             </figure>
 
-                            <p class="fu-system-hero__visual-caption">A reusable WordPress block system built around structured content, editor-safe controls, and portable front-end patterns.</p>
+                            <p class="fu-portfolio-piece__lead-caption">A reusable WordPress block system built around structured content, editor-safe controls, and portable front-end patterns.</p>
                         </div>
                     </div>
                 </div>

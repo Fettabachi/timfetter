@@ -56,47 +56,16 @@ if ($portfolio_url === '') {
                         </div>
                     </div>
 
-                    <div class="fu-portfolio-piece__lead-media" aria-label="Editor experience visual placeholder">
-                        <div class="fu-portfolio-piece__lead-figure fu-editor-experience__placeholder" role="img" aria-label="Placeholder montage showing editor controls, structured content, and front-end output">
-                            <div class="fu-editor-experience__placeholder-head" aria-hidden="true">
-                                <span class="fu-editor-experience__placeholder-chip">Future montage</span>
-                                <span class="fu-editor-experience__placeholder-chip">Gutenberg + front end</span>
-                            </div>
+                    <div class="fu-portfolio-piece__lead-media" aria-label="Editor Experience &amp; Handoff visual">
+                        <figure class="fu-portfolio-piece__lead-figure">
+                            <img
+                                src="<?php echo esc_url(content_url('/uploads/2026/05/page-editor-experience-handoff-hero.webp')); ?>"
+                                alt="Polished editor-to-front-end montage showing structured block controls, reusable content, protected layout settings, and a matching front-end preview."
+                                loading="eager"
+                                decoding="async" />
+                        </figure>
 
-                            <div class="fu-editor-experience__placeholder-grid" aria-hidden="true">
-                                <div class="fu-editor-experience__placeholder-card">
-                                    <p class="fu-editor-experience__placeholder-label">Editor controls</p>
-                                    <div class="fu-editor-experience__placeholder-lines">
-                                        <span class="fu-editor-experience__placeholder-line"></span>
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--short"></span>
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--mid"></span>
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--short"></span>
-                                    </div>
-                                </div>
-
-                                <div class="fu-editor-experience__placeholder-card">
-                                    <p class="fu-editor-experience__placeholder-label">Structured content</p>
-                                    <div class="fu-editor-experience__placeholder-lines">
-                                        <span class="fu-editor-experience__placeholder-line"></span>
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--mid"></span>
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--short"></span>
-                                        <span class="fu-editor-experience__placeholder-line"></span>
-                                    </div>
-                                </div>
-
-                                <div class="fu-editor-experience__placeholder-card">
-                                    <p class="fu-editor-experience__placeholder-label">Front-end output</p>
-                                    <div class="fu-editor-experience__placeholder-lines">
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--mid"></span>
-                                        <span class="fu-editor-experience__placeholder-line"></span>
-                                        <span class="fu-editor-experience__placeholder-line fu-editor-experience__placeholder-line--short"></span>
-                                        <span class="fu-editor-experience__placeholder-line"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="fu-portfolio-piece__lead-caption">Placeholder visual for a future editor montage showing controls, content structure, and front-end parity.</p>
+                        <p class="fu-portfolio-piece__lead-caption">A visual overview of the block editing experience: guided controls, structured content, protected layout decisions, and the front-end result they support.</p>
                     </div>
                 </div>
             </section>
