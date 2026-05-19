@@ -27,24 +27,8 @@ add_action('wp_enqueue_scripts', function () {
     wp_add_inline_style(
         'our-main-styles',
         '
-    .fu-proof-cards-portfolio .fu-portfolio-piece__lead-inner {
-        grid-template-columns: minmax(0, 0.96fr) minmax(360px, 1.14fr);
-        gap: clamp(1.75rem, 3vw, 3rem);
-        align-items: center;
-        padding: clamp(1.7rem, 4.2vw, 2.4rem);
-    }
-
-    .fu-proof-cards-portfolio .fu-portfolio-piece__lead-copy {
-        max-width: 42rem;
-    }
-
     .fu-proof-cards-portfolio .fu-portfolio-piece__lead-body {
         max-width: 44rem;
-    }
-
-    .fu-proof-cards-portfolio .fu-portfolio-piece__lead-media {
-        align-self: center;
-        justify-self: stretch;
     }
 
     .fu-proof-cards-portfolio .fu-portfolio-piece__lead-figure {

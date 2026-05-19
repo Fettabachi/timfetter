@@ -1966,7 +1966,6 @@ html :where(.editor-styles-wrapper) {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: center;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 252, 0.98) 100%);
 }
 
