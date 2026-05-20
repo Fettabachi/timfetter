@@ -2531,6 +2531,105 @@ html :where(.editor-styles-wrapper) {
     grid-template-columns: 1fr;
   }
 }
+.fu-system-builder-note {
+  margin-block: clamp(4rem, 8vw, 6.5rem);
+}
+
+.fu-system-builder-note__inner {
+  max-width: 920px;
+  margin-inline: auto;
+  padding: clamp(1.7rem, 4vw, 2.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 26px;
+  background: radial-gradient(circle at 18% 18%, rgba(96, 165, 250, 0.2), transparent 28rem), linear-gradient(135deg, #08233f 0%, #0d3b66 52%, #061827 100%);
+  box-shadow: 0 22px 54px rgba(13, 59, 102, 0.18);
+}
+
+.fu-system-builder-note__content {
+  max-width: 800px;
+}
+
+.fu-system-builder-note__eyebrow {
+  margin: 0 0 0.65rem;
+  color: rgba(219, 234, 254, 0.86);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fu-system-builder-note__content h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  text-wrap: pretty;
+}
+
+.fu-system-builder-note__content p {
+  max-width: 76ch;
+  margin: 1rem 0 0;
+  color: rgba(239, 246, 255, 0.84);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.fu-system-builder-note__statement {
+  padding-left: 1rem;
+  border-left: 3px solid rgba(219, 234, 254, 0.65);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+}
+
+.fu-system-builder-note__comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+  padding-top: clamp(1.2rem, 3vw, 1.6rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.fu-system-builder-note__group h3 {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fu-system-builder-note__group ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fu-system-builder-note__group li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: rgba(239, 246, 255, 0.84);
+  line-height: 1.45;
+}
+
+.fu-system-builder-note__group li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(219, 234, 254, 0.95);
+  font-weight: 900;
+}
+
+@media (max-width: 760px) {
+  .fu-system-builder-note__comparison {
+    grid-template-columns: 1fr;
+  }
+}
 .fu-system-principle-groups {
   margin-top: 2rem;
 }

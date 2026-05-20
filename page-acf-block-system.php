@@ -502,6 +502,40 @@ CSS
                 </div>
             </section>
 
+            <section class="fu-system-builder-note" aria-labelledby="system-builder-note-heading">
+                <div class="fu-system-builder-note__inner">
+                    <div class="fu-system-builder-note__content">
+                        <p class="fu-system-builder-note__eyebrow">Common question</p>
+                        <h2 id="system-builder-note-heading">Reusable components without the page-builder tradeoffs</h2>
+                        <p>Page builders can offer reusable components, global updates, and visual editing workflows. For some projects, that is the right tool. The tradeoff is that they often introduce a larger platform layer: more interface to learn, more generated markup, more plugin dependency, more licensing cost, and more long-term lock-in.</p>
+                        <p>This ACF Block system takes a more focused approach. It turns approved design patterns into reusable WordPress-native components, giving editors the controls they need while keeping structure, markup, styling, and responsive behavior closer to the theme.</p>
+                        <p class="fu-system-builder-note__statement">The difference is not whether reuse is possible. The difference is how much platform overhead the project needs to carry to get there.</p>
+                    </div>
+
+                    <div class="fu-system-builder-note__comparison" aria-label="Page builder and ACF block comparison">
+                        <div class="fu-system-builder-note__group">
+                            <h3>Page builders are useful when</h3>
+                            <ul>
+                                <li>Teams need broad visual composition tools</li>
+                                <li>Designers or editors need to assemble many layouts visually</li>
+                                <li>Global builder components are already part of the workflow</li>
+                                <li>The project accepts the platform tradeoffs</li>
+                            </ul>
+                        </div>
+
+                        <div class="fu-system-builder-note__group">
+                            <h3>ACF Blocks are useful when</h3>
+                            <ul>
+                                <li>The site needs reusable components without a full builder layer</li>
+                                <li>The editing experience should be simpler and more guided</li>
+                                <li>Markup, performance, and theme control matter</li>
+                                <li>The client wants fewer dependencies and less lock-in</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="fu-case-section fu-system-value" id="client-value" aria-labelledby="system-value-heading">
                 <div class="fu-case-section__inner">
                     <div class="fu-system-value__header">
