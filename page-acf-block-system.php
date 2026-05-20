@@ -502,39 +502,67 @@ CSS
                 </div>
             </section>
 
-            <section class="fu-case-section" id="client-value">
+            <section class="fu-case-section fu-system-value" id="client-value" aria-labelledby="system-value-heading">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Client Value</p>
-                    <h2 class="fu-case-section__heading">Why this matters for clients and agencies</h2>
-                    <div class="fu-case-section__body">
-                        <p>Reusable blocks help clients build and maintain pages faster while reducing design drift and developer dependency. The same patterns also give agencies a clearer foundation for future work.</p>
+                    <div class="fu-system-value__header">
+                        <p class="fu-system-value__eyebrow">Client value</p>
+                        <h2 id="system-value-heading">Why this matters for clients and agencies</h2>
+                        <p>Reusable blocks help clients maintain pages without losing design quality, while giving agencies a cleaner system to document, extend, and hand off.</p>
                     </div>
 
-                    <div class="fu-principles__grid" aria-label="Client and agency value">
-                        <?php foreach ($value_cards as $card) : ?>
-                            <div class="fu-principles__item">
-                                <h3><?php echo esc_html($card['title']); ?></h3>
-                                <p><?php echo esc_html($card['description']); ?></p>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="fu-system-value__grid" aria-label="Client and agency value">
+                        <article class="fu-system-value__panel">
+                            <h3>For clients</h3>
+                            <p>Editors get useful controls without being asked to make layout decisions that should belong to the system.</p>
+                            <ul>
+                                <li>Update pages without rebuilding layouts</li>
+                                <li>Keep content on-brand after launch</li>
+                                <li>Reduce dependency on developer support</li>
+                            </ul>
+                        </article>
+
+                        <article class="fu-system-value__panel">
+                            <h3>For agencies</h3>
+                            <p>The system creates repeatable implementation patterns that are easier to explain, maintain, and extend.</p>
+                            <ul>
+                                <li>Hand off clearer editing patterns</li>
+                                <li>Reuse proven components across pages</li>
+                                <li>Reduce long-term support friction</li>
+                            </ul>
+                        </article>
                     </div>
                 </div>
             </section>
 
-            <section class="fu-case-section" id="use-cases">
-                <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Use Cases</p>
-                    <h2 class="fu-case-section__heading">Where this system fits</h2>
-                    <div class="fu-case-section__body">
-                        <ul class="fu-case-section__list">
-                            <li>Service business websites</li>
-                            <li>Agency-built marketing sites</li>
-                            <li>Resource libraries</li>
-                            <li>Landing pages</li>
-                            <li>Membership and pricing pages</li>
-                            <li>Case-study and testimonial sections</li>
-                            <li>Content-heavy WordPress builds</li>
-                        </ul>
+            <section class="fu-case-section fu-system-fit" id="use-cases" aria-labelledby="system-fit-heading">
+                <div class="fu-case-section__inner fu-system-fit__inner">
+                    <div class="fu-system-fit__intro">
+                        <p class="fu-system-fit__eyebrow">Use cases</p>
+                        <h2 id="system-fit-heading">Where this system fits</h2>
+                        <p>This approach is a good fit for WordPress builds where editors need repeatable page sections, structured content, and safe control after launch.</p>
+                    </div>
+
+                    <div class="fu-system-fit__lists" aria-label="Use case groups">
+                        <div class="fu-system-fit__group">
+                            <h3>Best for</h3>
+                            <ul>
+                                <li>Service business websites</li>
+                                <li>Agency-built marketing sites</li>
+                                <li>Resource libraries</li>
+                                <li>Landing pages</li>
+                                <li>Membership and pricing pages</li>
+                                <li>Case-study and testimonial sections</li>
+                            </ul>
+                        </div>
+
+                        <div class="fu-system-fit__group">
+                            <h3>Especially useful when</h3>
+                            <ul>
+                                <li>Editors need to add content after launch</li>
+                                <li>Layout consistency matters</li>
+                                <li>The site needs reusable patterns instead of one-off sections</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
