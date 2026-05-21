@@ -1,233 +1,366 @@
 <?php
 //Template Name: Home
 ?>
+<?php
+$resolve_page_url = static function ($slug) {
+    $page = get_page_by_path($slug);
+
+    return $page ? get_permalink($page) : home_url('/' . trim($slug, '/') . '/');
+};
+
+$resolve_portfolio_item = static function ($title, $slug) {
+    $post = get_page_by_path($slug, OBJECT, 'portfolio-items');
+
+    if ($post) {
+        return $post;
+    }
+
+    $matches = get_posts(array(
+        'post_type'      => 'portfolio-items',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        's'              => $title,
+    ));
+
+    foreach ($matches as $match) {
+        if (strcasecmp(trim(wp_strip_all_tags($match->post_title)), $title) === 0) {
+            return $match;
+        }
+    }
+
+    return !empty($matches) ? $matches[0] : null;
+};
+
+$service_lanes = array(
+    array(
+        'title' => 'WordPress Development Support',
+        'summary' => 'Theme and template work, ACF Blocks, structured content, page-builder cleanup, responsive fixes, reusable components, editor-friendly implementation, and ongoing site improvements.',
+        'points' => array(
+            'WordPress theme and template work',
+            'ACF Blocks and structured content',
+            'Page-builder support or cleanup',
+            'Responsive fixes and reusable components',
+            'Editor-friendly implementation',
+            'Ongoing site improvements',
+        ),
+    ),
+    array(
+        'title' => 'Interactive Front-End Prototypes',
+        'summary' => 'HTML/CSS/JS prototypes, clickable proof-of-concepts, UI flows clients can review before full development, and handoff-ready front-end thinking.',
+        'points' => array(
+            'HTML/CSS/JS prototypes',
+            'Clickable proof-of-concepts',
+            'UI flows clients can review before full development',
+            'Fast front-end demos before .NET or backend implementation',
+            'Responsive prototype polish',
+            'Handoff-ready front-end thinking',
+        ),
+    ),
+);
+
+$good_fit_points = array(
+    array(
+        'title' => 'Agency overflow support',
+        'summary' => 'Front-end implementation backup when your internal team is at capacity.',
+    ),
+    array(
+        'title' => 'Small business WordPress support',
+        'summary' => 'Theme and template help, content structure updates, and practical improvements.',
+    ),
+    array(
+        'title' => 'Prototype-first projects',
+        'summary' => 'Clickable front-end flows before full backend or .NET implementation.',
+    ),
+    array(
+        'title' => 'Cleanup and ongoing polish',
+        'summary' => 'Responsive fixes, component cleanup, and steady iteration on existing sites.',
+    ),
+    array(
+        'title' => 'Design-ready implementation',
+        'summary' => 'When design direction exists and the team needs reliable front-end execution.',
+    ),
+);
+
+$recent_systems = array(
+    array(
+        'title' => 'Editor Experience & Handoff',
+        'slug' => 'editor-experience',
+        'summary' => 'How I structure blocks so editors can make real updates without breaking layout, accessibility, or the front end.',
+    ),
+    array(
+        'title' => 'ACF Block System Overview',
+        'slug' => 'acf-block-system',
+        'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
+    ),
+    array(
+        'title' => 'Filtered Content Grid',
+        'slug' => 'filtered-content-grid',
+        'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
+    ),
+    array(
+        'title' => 'Content Switcher',
+        'slug' => 'content-switcher',
+        'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
+    ),
+    array(
+        'title' => 'Comparison Cards',
+        'slug' => 'comparison-cards',
+        'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
+    ),
+    array(
+        'title' => 'Proof Cards',
+        'slug' => 'proof-cards',
+        'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
+    ),
+    array(
+        'title' => 'Page Banner',
+        'slug' => 'page-banner',
+        'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
+    ),
+    array(
+        'title' => 'Flexible Feature Section',
+        'slug' => 'flexible-feature-section',
+        'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
+    ),
+);
+
+$earlier_work = array(
+    array(
+        'title' => 'Omni Hotels & Resorts',
+        'slug' => 'omni-hotels-resorts',
+        'summary' => 'WordPress builds, custom templates, responsive implementation, and front-end support for hospitality work.',
+    ),
+    array(
+        'title' => 'National University',
+        'slug' => 'national-university',
+        'summary' => 'Structured page builds and responsive implementation for a higher-education client with a large content surface.',
+    ),
+    array(
+        'title' => 'Fibroid Foundation',
+        'slug' => 'fibroid-foundation',
+        'summary' => 'Content updates, WordPress implementation, and front-end support for nonprofit communication needs.',
+    ),
+    array(
+        'title' => 'Blackberry Farm & Blackberry Mountain',
+        'slug' => 'blackberry-farm-blackberry-mountain',
+        'summary' => 'Polished responsive implementation and supporting front-end work for hospitality and destination branding.',
+    ),
+);
+?>
 <?php get_header(); ?>
 
 <main id="main" class="site-main" role="main">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
-            <article>
-                <div class="entry-content">
-                    <?php the_content(); ?>
-
-                    <?php
-                    if (have_rows('page_content')) :
-                        while (have_rows('page_content')) : the_row(); ?>
-                            <div class="container home-wrap" id="hello">
-                                <div class="grid-row">
-                                    <div class="col-md-8 col-md-8-center text-center">
-                                        <div class="landing-pname">
-                                            <h1>Hello, I'm Tim Fetter.</h1>
-                                        </div>
-                                        <div class="landing-intro"><?php the_sub_field('intro_blurb'); ?></div>
-                                    </div>
-                                </div>
-                                <div class="align-center">
-                                    <a class="btn--gold btn--resume" target="_blank" href="<?php the_sub_field('resume_link'); ?>">View My Resum&Eacute;</a>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <!-- end page_content -->
-                </div><!-- .entry-content -->
-            </article>
-        <?php endwhile; ?>
-    <?php endif; ?>
-
-    <div id="portfolio" class="content-wrap-in portfolio-wrap">
-        <div class="container">
-            <h2 class="text-center">Portfolio</h2>
-        </div>
-        <div class="container">
-
             <?php
+            $resume_link = '';
 
-            // Portfolio Items
-            $posts = get_posts(array(
-                'post_type'         => 'portfolio-items',
-                'posts_per_page'    => -1
-            ));
+            if (have_rows('page_content')) {
+                while (have_rows('page_content')) : the_row();
+                    $resume_link = get_sub_field('resume_link');
 
-            if ($posts) :
-                $dialog_counter = 1; ?>
+                    if (!empty($resume_link)) {
+                        break;
+                    }
+                endwhile;
+            }
+            ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class('fu-home'); ?>>
+                <div class="entry-content">
+                    <section class="fu-home__hero" id="home-hero">
+                        <div class="fu-home__section-inner fu-home__hero-panel">
+                            <div class="fu-home__hero-copy">
+                                <p class="fu-home__eyebrow">WordPress support, front-end implementation, and interactive prototypes</p>
+                                <h1 class="fu-home__title">Front-end development for WordPress sites and interactive prototypes.</h1>
+                                <p class="fu-home__lede">I help agencies and small businesses turn designs, content needs, and early product ideas into clean, responsive web experiences - from maintainable WordPress builds to HTML/CSS/JS prototypes clients can review before full development.</p>
 
-                <?php foreach ($posts as $post) :
+                                <div class="fu-home__actions">
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Let's Talk About Your Project</a>
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#recent-wordpress-systems">View Recent Work</a>
+                                </div>
 
-                    setup_postdata($post)
+                                <?php if (!empty($resume_link)) : ?>
+                                    <p class="fu-home__resume-link">
+                                        <a href="<?php echo esc_url($resume_link); ?>" target="_blank" rel="noopener">Resume available on request</a>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </section>
 
-                ?>
-                    <div class="portfolio-item">
-                        <div class="grid-row">
-                            <div class="col-md-4 portfolio-image"><?php the_post_thumbnail(); ?></div>
-                            <div class="col-md-8 portfolio-details">
-                                <div class="portfolio-detail-content">
-                                    <h3><?php the_title(); ?></h3>
-                                    <?php
-                                    $portfolioContent = get_field('portfolio_content');
-                                    if (have_rows('portfolio_content')) :
-                                        $subTitle = $portfolioContent['website_sub_title'];
-                                        $skills = $portfolioContent['skills'];
-                                        $images = $portfolioContent['images'];
-                                        while (have_rows('portfolio_content')) : the_row();
-                                            if ($subTitle) : { ?>
-                                                    <h4><?php echo $subTitle; ?></h4>
-                                    <?php }
-                                            endif;
-                                        endwhile;
-                                    endif;
-                                    ?>
-                                    <div class="info-text">
-                                        <p>
-                                            <?php if (has_excerpt()) {
-                                                echo get_the_excerpt();
-                                            } else {
-                                                echo wp_trim_words(get_the_content(), 20);
-                                            } ?>
-                                        </p>
-                                    </div>
-                                    <button class="btn--gold btn--view-more" data-a11y-dialog-show="dialog_<?php echo $dialog_counter; ?>"><span>See More</span>
-                                    </button>
+                    <section class="fu-home__section fu-home__services" aria-labelledby="home-services-heading">
+                        <div class="fu-home__section-inner">
+                            <div class="fu-home__section-head">
+                                <p class="fu-home__eyebrow">How I can help</p>
+                                <h2 id="home-services-heading">Service lanes</h2>
+                            </div>
+
+                            <div class="fu-home__service-grid">
+                                <?php foreach ($service_lanes as $lane) : ?>
+                                    <article class="fu-home__service-card">
+                                        <h3><?php echo esc_html($lane['title']); ?></h3>
+                                        <p class="fu-home__service-summary"><?php echo esc_html($lane['summary']); ?></p>
+                                        <ul class="fu-home__service-list">
+                                            <?php foreach ($lane['points'] as $point) : ?>
+                                                <li><?php echo esc_html($point); ?></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </article>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="fu-home__section fu-home__fit" aria-labelledby="home-fit-heading">
+                        <div class="fu-home__section-inner fu-home__section-inner--narrow">
+                            <div class="fu-home__section-head fu-home__section-head--compact">
+                                <p class="fu-home__eyebrow">A good fit for</p>
+                                <h2 id="home-fit-heading">Reliable front-end help when you need an extra hand</h2>
+                            </div>
+
+                            <ul class="fu-home__fit-list" aria-label="Who this work is a good fit for">
+                                <?php foreach ($good_fit_points as $point) : ?>
+                                    <li>
+                                        <span class="fu-home__fit-icon" aria-hidden="true"></span>
+                                        <div>
+                                            <strong><?php echo esc_html($point['title']); ?></strong>
+                                            <p><?php echo esc_html($point['summary']); ?></p>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="fu-home__section fu-home__recent-work" id="recent-wordpress-systems" aria-labelledby="recent-wordpress-systems-heading">
+                        <div class="fu-home__section-inner">
+                            <div class="fu-home__section-head">
+                                <p class="fu-home__eyebrow">Recent WordPress systems</p>
+                                <h2 id="recent-wordpress-systems-heading">Maintainable WordPress systems, not just finished pages</h2>
+                                <p>These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
+                            </div>
+
+                            <div class="fu-home__systems-grid">
+                                <?php foreach ($recent_systems as $system) : ?>
+                                    <?php $system_url = $resolve_page_url($system['slug']); ?>
+                                    <a class="fu-home__system-card" href="<?php echo esc_url($system_url); ?>">
+                                        <p class="fu-home__system-kicker">Case Study</p>
+                                        <h3><?php echo esc_html($system['title']); ?></h3>
+                                        <p><?php echo esc_html($system['summary']); ?></p>
+                                        <span class="fu-home__system-link">View case study</span>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <div class="fu-home__section-footer">
+                                <a class="fu-home__text-link" href="<?php echo esc_url($resolve_page_url('acf-block-system')); ?>">View the WordPress system case studies</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="fu-home__section fu-home__prototype" aria-labelledby="prototype-heading">
+                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__prototype-panel">
+                            <div class="fu-home__prototype-copy">
+                                <p class="fu-home__eyebrow">Interactive prototypes before full development</p>
+                                <h2 id="prototype-heading">Prototype support that helps teams validate the idea first</h2>
+                                <p>I can build HTML/CSS/JS prototypes, clickable flows, and front-end proof-of-concepts that agencies or teams can review, test, and show to clients before senior developers rebuild the product in .NET or another backend stack.</p>
+                                <div class="fu-home__prototype-actions">
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Discuss a Prototype</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php $dialog_counter++; ?>
-                <?php endforeach; ?>
-                <?php wp_reset_postdata(); ?>
-            <?php endif; ?>
-        </div><!-- portfolio-items -->
-    </div><!-- #portfolio -->
+                    </section>
 
-    <?php
-    // Portfolio Items
-    $posts = get_posts(array(
-        'post_type'         => 'portfolio-items',
-        'posts_per_page'    => -1
-    ));
+                    <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
+                        <div class="fu-home__section-inner">
+                            <div class="fu-home__section-head">
+                                <p class="fu-home__eyebrow">Earlier client work</p>
+                                <h2 id="earlier-client-work-heading">Supporting credibility, not the main event</h2>
+                                <p>Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
+                            </div>
 
-    if ($posts) :
-        $dialog_counter = 1; ?>
-
-        <?php foreach ($posts as $post) :
-            setup_postdata($post)
-        ?>
-            <!-- a11y-dialog -->
-            <div class="dialog-container" data-a11y-dialog="dialog_<?php echo $dialog_counter; ?>" id="modal_<?php echo $dialog_counter; ?>" role="dialog" aria-hidden="true" aria-labelledby="dialog-title-<?php echo $dialog_counter; ?>" aria-describedby="dialog-description-<?php echo $dialog_counter; ?>">
-                <div class="dialog-overlay" data-a11y-dialog-hide></div>
-
-                <!-- dialog-content -->
-                <div class="dialog-content" role="document">
-                    <div class="dialog-body">
-                        <div class="container">
-                            <?php
-                            $portfolioContent = get_field('portfolio_content');
-                            if (have_rows('portfolio_content')) :
-                                $subTitle = $portfolioContent['website_sub_title'];
-                                $skills = $portfolioContent['skills'];
-                                $links = $portfolioContent['website_links'];
-                                if ($links) {
-                                    $linksCount = count($links);
-                                }
-                                $home_page_image = $portfolioContent['home_page_image'];
-                                $home_page_image_scroll_duration = $portfolioContent['image_scroll_duration'];
-                                $images = $portfolioContent['images'];
-                                while (have_rows('portfolio_content')) : the_row();
-                            ?>
-                                    <div class="dialog-info-wrap">
-                                        <button type="button" data-a11y-dialog-hide aria-label="Close this dialog window" class="dialog-close black-close ui-btn ui-shadow ui-corner-all">
-                                            <svg class="icon icon-close">
-                                                <use xlink:href="#icon-close"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dialog-info-item">
-                                            <h3 id="dialog-title-<?php echo $dialog_counter; ?>"><?php the_title(); ?></h3>
-
-                                            <?php if ($subTitle) : ?>
-                                                <h4><?php echo $subTitle; ?></h4>
+                            <div class="fu-home__legacy-grid">
+                                <?php foreach ($earlier_work as $index => $item) : ?>
+                                    <?php
+                                    $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
+                                    $dialog_id = 'home_work_dialog_' . ($index + 1);
+                                    ?>
+                                    <article class="fu-home__legacy-card">
+                                        <div class="fu-home__legacy-card-media">
+                                            <?php if ($portfolio_post && has_post_thumbnail($portfolio_post)) : ?>
+                                                <?php echo get_the_post_thumbnail($portfolio_post, 'medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
                                             <?php endif; ?>
-
-                                            <div id="dialog-description-<?php echo $dialog_counter; ?>" class="info-text"><?php the_content(); ?></div>
-
-                                            <?php if ($skills) : ?>
-                                                <h5 class="dialog-info-meta-title">Skills</h5>
-                                                <div class="tags">
-                                                    <?php foreach ($skills as $skill) : ?>
-                                                        <span class="label <?php echo $skill['value']; ?>"><?php echo $skill['label']; ?></span>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                            <?php endif; ?>
-
-                                            <?php if (have_rows('website_links')) :
-                                                if ($linksCount > 1) {
-                                                    $metaTitle = "Project Links";
-                                                } else {
-                                                    $metaTitle = "Project Link";
-                                                } ?>
-                                                <h5 class="dialog-info-meta-title"><?php echo $metaTitle; ?></h5>
-                                                <div class="dialog-site-links">
-                                                    <?php
-                                                    while (have_rows('website_links')) : the_row();
-                                                        $link = get_sub_field('link');
-                                                        if ($link) :
-                                                            $link_url = $link['url'];
-                                                            $link_title = $link['title'];
-                                                            $link_target = $link['target'] ? $link['target'] : '_blank';
-                                                    ?>
-                                                            <div><a class="btn--gold btn--link" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">Visit <?php echo esc_html($link_title); ?></a></div>
-                                                        <?php endif; ?>
-                                                    <?php endwhile; ?>
-                                                </div>
-                                            <?php endif; ?>
-
                                         </div>
-                                    </div>
-                                    <div class="dialog-image-wrap">
-                                        <?php
-                                        $home_page_image = get_sub_field('home_page_image');
-                                        $home_page_image_scroll_duration = (float) get_sub_field('image_scroll_duration');
 
-                                        if (!empty($home_page_image)) : ?>
-                                            <div class="site-demo">
-                                                <div class="site-demo_laptop">
-                                                    <img src="/wp-content/uploads/2024/03/macbook-pro.png" alt="" />
-                                                </div>
-                                                <div class="site-demo_website">
-                                                    <img src="<?php echo esc_url($home_page_image['url']); ?>" alt="<?php echo esc_attr($home_page_image['alt']); ?>" style="transition-duration: <?php echo esc_attr($home_page_image_scroll_duration); ?>s;" />
+                                        <div class="fu-home__legacy-card-body">
+                                            <p class="fu-home__legacy-card-kicker">Earlier client work</p>
+                                            <h3><?php echo esc_html($portfolio_post ? $portfolio_post->post_title : $item['title']); ?></h3>
+                                            <p><?php echo esc_html($item['summary']); ?></p>
+
+                                            <?php if ($portfolio_post) : ?>
+                                                <button class="btn--gold btn--view-more fu-home__legacy-button" data-a11y-dialog-show="<?php echo esc_attr($dialog_id); ?>"><span>See More</span></button>
+                                            <?php endif; ?>
+                                        </div>
+                                    </article>
+
+                                    <?php if ($portfolio_post) : ?>
+                                        <div class="dialog-container" data-a11y-dialog="<?php echo esc_attr($dialog_id); ?>" id="<?php echo esc_attr($dialog_id . '_modal'); ?>" role="dialog" aria-hidden="true" aria-labelledby="<?php echo esc_attr($dialog_id . '_title'); ?>" aria-describedby="<?php echo esc_attr($dialog_id . '_description'); ?>">
+                                            <div class="dialog-overlay" data-a11y-dialog-hide></div>
+
+                                            <div class="dialog-content" role="document">
+                                                <div class="dialog-body">
+                                                    <div class="container">
+                                                        <div class="dialog-info-wrap">
+                                                            <button type="button" data-a11y-dialog-hide aria-label="Close this dialog window" class="dialog-close black-close ui-btn ui-shadow ui-corner-all">
+                                                                <svg class="icon icon-close">
+                                                                    <use xlink:href="#icon-close"></use>
+                                                                </svg>
+                                                            </button>
+
+                                                            <div class="dialog-info-item">
+                                                                <h3 id="<?php echo esc_attr($dialog_id . '_title'); ?>"><?php echo esc_html($portfolio_post->post_title); ?></h3>
+                                                                <div id="<?php echo esc_attr($dialog_id . '_description'); ?>" class="info-text">
+                                                                    <?php echo wp_kses_post(apply_filters('the_content', $portfolio_post->post_content)); ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="dialog-image-wrap">
+                                                            <?php if (has_post_thumbnail($portfolio_post)) : ?>
+                                                                <?php echo get_the_post_thumbnail($portfolio_post, 'large'); ?>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        <?php endif; ?>
-                                        <?php
-                                        if (have_rows('images')) :
-                                            while (have_rows('images')) : the_row();
-                                                $image = get_sub_field('image');
-                                                if (!empty($image)) :
-                                                    $url = $image['url'];
-                                                    $alt = $image['alt'];
-                                                    $size = 'small-image';
-                                                    $small_image = $image['sizes'][$size];
-                                                    $width = $image['sizes'][$size . '-width'];
-                                                    $height = $image['sizes'][$size . '-height'];
-                                        ?>
-                                                    <img src="<?php echo $small_image; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-                                                <?php endif; ?>
-                                            <?php endwhile; ?>
-                                        <?php endif; ?>
-                                        <div class="embed-container">
-                                            <?php the_sub_field('video'); ?>
                                         </div>
-                                    </div>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <div class="fu-home__section-footer fu-home__section-footer--compact">
+                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">View More Client Work</a>
+                            </div>
                         </div>
-                        <!-- container -->
-                    </div>
+                    </section>
+
+                    <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
+                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel">
+                            <div class="fu-home__cta-copy">
+                                <p class="fu-home__eyebrow">Need reliable front-end help?</p>
+                                <h2 id="final-cta-heading">Smaller projects, overflow support, prototype builds, and ongoing site updates.</h2>
+                                <p>I’m available for smaller projects, agency overflow support, WordPress improvements, prototype builds, and ongoing site updates.</p>
+                            </div>
+
+                            <div class="fu-home__cta-actions">
+                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
+                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#recent-wordpress-systems">View Recent Work</a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <!-- /dialog-content -->
-            </div>
-            <!-- /modal -->
-            <?php $dialog_counter++; ?>
-        <?php endforeach; ?>
-        <?php wp_reset_postdata(); ?>
+            </article>
+        <?php endwhile; ?>
     <?php endif; ?>
 
 </main><!-- #main -->
