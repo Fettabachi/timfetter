@@ -21,12 +21,12 @@ $selectionBackgroundColor: #ab977a;
 	--color-brand-primary: #0d3b66; /* University Blue */
 	--color-brand-secondary: #f95738; /* University Orange */
 	--color-brand-accent: #f4d35e; /* University Yellow */
-	--color-brand-dark-accent: #ee964b; /* University Yellow */
+	--color-brand-dark-accent: #ee964b; /* Deep Amber */
 	--color-brand-light: #faf0ca; /* Beige / Cream */
 	--success: #198754;
 	--warning: #ac2020;
 
-	/* Semantic Mapping (What we use in our blocks) */
+	/* Brand aliases / legacy project tokens */
 	--fu-blue: var(--color-brand-primary);
 	--fu-orange: var(--color-brand-secondary);
 	--fu-yellow: var(--color-brand-accent);
@@ -34,6 +34,34 @@ $selectionBackgroundColor: #ab977a;
 	--fu-beige: var(--color-brand-light);
 	--fu-white: #ffffff;
 	--fu-black: #222222;
+
+	/* Semantic usage tokens */
+	/* Text */
+	--fu-text-body: #17324d;
+	--fu-text-heading: var(--fu-blue);
+	--fu-text-muted: rgba(13, 59, 102, 0.72);
+
+	/* Surfaces */
+	--fu-surface: var(--fu-white);
+	--fu-surface-alt: rgba(248, 251, 254, 0.96);
+	--fu-surface-inverse: #08263f;
+
+	/* Borders */
+	--fu-border: rgba(13, 59, 102, 0.1);
+	--fu-border-strong: rgba(13, 59, 102, 0.2);
+
+	/* Actions */
+	--fu-action-bg: var(--fu-blue);
+	--fu-action-bg-hover: var(--fu-surface-inverse);
+	--fu-action-text: var(--fu-white);
+	--fu-action-secondary-bg: rgba(255, 255, 255, 0.9);
+	--fu-action-secondary-border: rgba(13, 59, 102, 0.16);
+	--fu-action-secondary-text: var(--fu-text-body);
+
+	/* Shadows */
+	--fu-shadow-card: 0 12px 24px rgba(13, 59, 102, 0.05);
+	--fu-shadow-panel: 0 22px 46px rgba(13, 59, 102, 0.08);
+	--fu-shadow-card-hover: 0 18px 44px rgba(13, 59, 102, 0.1);
 
 	/* Spacing System */
 	--fu-space-xs: 0.5rem;
