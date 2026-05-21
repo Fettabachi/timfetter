@@ -813,10 +813,18 @@ h2 {
   --fu-home-surface: rgba(255, 255, 255, 0.92);
   --fu-home-surface-alt: rgba(248, 251, 254, 0.96);
   --fu-home-text: #17324d;
-  --fu-home-muted: rgba(13, 59, 102, 0.82);
+  --fu-home-heading: #0d3b66;
+  --fu-home-muted: rgba(13, 59, 102, 0.72);
   --fu-home-border: rgba(13, 59, 102, 0.1);
+  --fu-home-border-strong: rgba(13, 59, 102, 0.2);
   --fu-home-accent: #0d3b66;
   --fu-home-accent-strong: #08263f;
+  --fu-home-container-max: 70rem;
+  --fu-home-container-narrow-max: 52rem;
+  --fu-home-gutter: 2rem;
+  --fu-home-panel-shadow: 0 22px 46px rgba(13, 59, 102, 0.08);
+  --fu-home-card-shadow: 0 12px 24px rgba(13, 59, 102, 0.05);
+  --fu-home-card-shadow-hover: 0 18px 44px rgba(13, 59, 102, 0.1);
   color: var(--fu-home-text);
   background: #ffffff;
   padding-bottom: clamp(4rem, 8vw, 6.5rem);
@@ -830,13 +838,16 @@ h2 {
   padding-block: clamp(2.75rem, 6vw, 4.75rem);
 }
 
+.fu-home__container,
+.fu-home__container--wide,
 .fu-home__section-inner {
-  width: min(100% - 2rem, 70rem);
+  width: min(100% - var(--fu-home-gutter), var(--fu-home-container-max));
   margin: 0 auto;
 }
 
+.fu-home__container--narrow,
 .fu-home__section-inner--narrow {
-  width: min(100% - 2rem, 52rem);
+  width: min(100% - var(--fu-home-gutter), var(--fu-home-container-narrow-max));
 }
 
 .fu-home__section-head {
@@ -844,6 +855,7 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+.fu-home__section-heading,
 .fu-home__section-head h2 {
   margin: 0.35rem 0 0.75rem;
   font-size: clamp(1.9rem, 1.4rem + 2vw, 3rem);
@@ -851,9 +863,11 @@ h2 {
   letter-spacing: -0.02em;
 }
 
-.fu-home__section-head p {
+.fu-home__section-copy,
+.fu-home__section-head p:not(.fu-home__eyebrow),
+.fu-home__prototype-copy p:not(.fu-home__eyebrow) {
   margin: 1rem 0 0;
-  color: rgba(13, 59, 102, 0.78);
+  color: var(--fu-home-muted);
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
   line-height: 1.65;
   text-wrap: pretty;
@@ -868,7 +882,7 @@ h2 {
   align-items: center;
   gap: 0;
   margin: 0;
-  color: rgba(13, 59, 102, 0.72);
+  color: var(--fu-home-muted);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -880,6 +894,7 @@ h2 {
   padding-block: clamp(2rem, 4vw, 3.5rem) 1rem;
 }
 
+.fu-home__panel,
 .fu-home__hero-panel,
 .fu-home__prototype-panel,
 .fu-home__cta-panel {
@@ -887,18 +902,18 @@ h2 {
   border: 1px solid var(--fu-home-border);
   border-radius: 30px;
   background: var(--fu-home-surface);
-  box-shadow: 0 22px 46px rgba(13, 59, 102, 0.08);
+  box-shadow: var(--fu-home-panel-shadow);
 }
 
 .fu-home__hero-panel {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(1.35rem, 3vw, 2.4rem);
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--fu-home-surface);
 }
 
 .fu-home__title {
-  margin: 0.9rem 0 0.9rem;
+  margin: 0.9rem 0;
   font-size: clamp(2.55rem, 5.9vw, 4.65rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
@@ -906,7 +921,7 @@ h2 {
 
 .fu-home__lede {
   margin: 0;
-  color: rgba(13, 59, 102, 0.82);
+  color: var(--fu-home-muted);
   font-size: clamp(1rem, 1.45vw, 1.08rem);
   line-height: 1.75;
 }
@@ -944,45 +959,12 @@ h2 {
   text-underline-offset: 0.16em;
 }
 
-.fu-home__hero-side {
-  display: none;
-}
-
+.fu-home__hero-side,
 .fu-home__hero-figure {
   display: none;
 }
 
-.fu-home__hero-visual-card {
-  padding: 1rem 0.95rem;
-  border: 1px solid rgba(13, 59, 102, 0.12);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 10px 22px rgba(13, 59, 102, 0.06);
-  color: var(--fu-home-text);
-  line-height: 1.45;
-  display: grid;
-  gap: 0.45rem;
-}
-
-.fu-home__hero-visual-card--alt {
-  background: rgba(247, 250, 253, 0.96);
-}
-
-.fu-home__hero-visual-kicker {
-  color: rgba(13, 59, 102, 0.72);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.fu-home__hero-caption {
-  margin: 0;
-  font-size: 0.94rem;
-  color: rgba(13, 59, 102, 0.72);
-  line-height: 1.65;
-}
-
+.fu-home__card-grid,
 .fu-home__service-grid,
 .fu-home__systems-grid,
 .fu-home__legacy-grid {
@@ -1043,19 +1025,21 @@ h2 {
   background: rgba(255, 255, 255, 0.4);
 }
 
+.fu-home__card,
 .fu-home__service-card,
 .fu-home__system-card,
 .fu-home__legacy-card {
-  border: 1px solid rgba(13, 59, 102, 0.09);
+  border: 1px solid var(--fu-home-border);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 12px 24px rgba(13, 59, 102, 0.05);
+  background: var(--fu-home-surface);
+  box-shadow: var(--fu-home-card-shadow);
 }
 
 .fu-home__service-card {
   padding: 1.3rem 1.25rem 1.35rem;
 }
 
+.fu-home__card-title,
 .fu-home__service-card h3,
 .fu-home__system-card h3,
 .fu-home__legacy-card h3 {
@@ -1064,21 +1048,22 @@ h2 {
   line-height: 1.25;
 }
 
+.fu-home__card-text,
 .fu-home__service-summary,
-.fu-home__system-card p,
+.fu-home__system-card > p:not(.fu-home__system-kicker),
 .fu-home__legacy-card p,
-.fu-home__prototype-copy p,
 .fu-home__cta-copy p {
-  color: rgba(13, 59, 102, 0.82);
+  color: var(--fu-home-muted);
   line-height: 1.7;
 }
 
 .fu-home__cta-copy h2 {
   margin: 0 !important;
 }
+
 .fu-home__cta-copy p:not(.fu-home__eyebrow) {
   margin: 1rem 0 0;
-  color: rgba(13, 59, 102, 0.78);
+  color: var(--fu-home-muted);
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
   line-height: 1.65;
   text-wrap: pretty;
@@ -1124,9 +1109,9 @@ h2 {
 
 .fu-home__fit-list li {
   padding: clamp(1rem, 2vw, 1.25rem) clamp(1rem, 2vw, 1.25rem) clamp(1.05rem, 2vw, 1.35rem);
-  border: 1px solid rgba(13, 59, 102, 0.1);
+  border: 1px solid var(--fu-home-border);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--fu-home-surface);
   box-shadow: 0 10px 22px rgba(13, 59, 102, 0.04);
   color: var(--fu-home-text);
   line-height: 1.5;
@@ -1138,7 +1123,7 @@ h2 {
 }
 
 .fu-home__fit-list li:hover {
-  border-color: rgba(13, 59, 102, 0.18);
+  border-color: var(--fu-home-border-strong);
   box-shadow: 0 12px 28px rgba(13, 59, 102, 0.06);
 }
 
@@ -1159,26 +1144,23 @@ h2 {
 
 .fu-home__fit-list p {
   margin: 0.35rem 0 0;
-  color: rgba(13, 59, 102, 0.74);
+  color: var(--fu-home-muted);
   font-size: 0.94rem;
   line-height: 1.55;
 }
 
 .fu-home__systems-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
 }
 
 .fu-home__system-card {
   display: flex;
   flex-direction: column;
-  /* gap: 0.7rem; */
   padding: clamp(1.1rem, 2vw, 1.35rem);
-  border: 1px solid rgba(13, 59, 102, 0.1);
+  border: 1px solid var(--fu-home-border);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 12px 24px rgba(13, 59, 102, 0.05);
+  background: var(--fu-home-surface);
+  box-shadow: var(--fu-home-card-shadow);
   color: inherit;
   text-decoration: none;
   transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
@@ -1186,8 +1168,8 @@ h2 {
 
 .fu-home__system-card:hover,
 .fu-home__system-card:focus-visible {
-  border-color: rgba(13, 59, 102, 0.2);
-  box-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
+  border-color: var(--fu-home-border-strong);
+  box-shadow: var(--fu-home-card-shadow-hover);
   transform: translateY(-2px);
   outline: none;
 }
@@ -1197,9 +1179,11 @@ h2 {
   outline-offset: 4px;
 }
 
-.fu-home__system-kicker {
+.fu-home__card-kicker,
+.fu-home__system-kicker,
+.fu-home__legacy-card-kicker {
   display: inline-flex;
-  color: rgba(13, 59, 102, 0.72);
+  color: var(--fu-home-muted);
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1207,21 +1191,23 @@ h2 {
   text-transform: uppercase;
 }
 
+.fu-home__legacy-card-kicker {
+  margin: 0 !important;
+}
+
 .fu-home__system-card h3 {
   margin: 0.5rem 0;
   font-size: 1.1rem;
   line-height: 1.3;
-  color: rgba(13, 59, 102, 0.8);
+  color: var(--fu-home-heading);
   font-weight: 600;
 }
 
-.fu-home__system-card p {
+.fu-home__system-card > p:not(.fu-home__system-kicker) {
   margin: 0;
-  color: var(--fu-blue, #0d3b66);
+  color: var(--fu-home-muted);
   font-size: 0.95rem;
   line-height: 1.6;
-  /* font-weight: 700;
-  letter-spacing: 0.14em; */
 }
 
 .fu-home__system-link {
@@ -1230,7 +1216,7 @@ h2 {
   gap: 0.35rem;
   margin-top: auto;
   padding-top: 0.8rem;
-  color: #0d3b66;
+  color: var(--fu-home-accent);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -1248,17 +1234,6 @@ h2 {
   transform: translateX(0.2rem);
 }
 
-.fu-home__legacy-card-kicker {
-  display: inline-flex;
-  margin: 0 !important;
-  color: rgba(13, 59, 102, 0.72);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
 .fu-home__section-footer {
   margin-top: 1rem;
 }
@@ -1273,7 +1248,7 @@ h2 {
 }
 
 .fu-home__cta-panel {
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--fu-home-surface);
 }
 
 .fu-home__cta-panel .fu-home__cta-copy p:last-child,
@@ -1299,7 +1274,7 @@ h2 {
 
 .fu-home__legacy-card:hover,
 .fu-home__legacy-card:focus-within {
-  border-color: rgba(13, 59, 102, 0.2);
+  border-color: var(--fu-home-border-strong);
   box-shadow: 0 18px 34px rgba(13, 59, 102, 0.08);
   transform: translateY(-2px);
 }
@@ -1353,11 +1328,8 @@ h2 {
 }
 
 @media (max-width: 767px) {
-  .fu-home__section-inner {
-    width: min(100% - 1rem, 70rem);
-  }
-  .fu-home__section-inner--narrow {
-    width: min(100% - 1rem, 52rem);
+  .fu-home {
+    --fu-home-gutter: 1rem;
   }
   .fu-home__hero-panel,
   .fu-home__prototype-panel,
