@@ -417,24 +417,11 @@ h2 {
 }
 
 .fu-home {
-	--fu-home-bg: #ffffff;
-	--fu-home-surface: rgba(255, 255, 255, 0.92);
-	--fu-home-surface-alt: rgba(248, 251, 254, 0.96);
-	--fu-home-text: #17324d;
-	--fu-home-heading: #0d3b66;
-	--fu-home-muted: rgba(13, 59, 102, 0.72);
-	--fu-home-border: rgba(13, 59, 102, 0.1);
-	--fu-home-border-strong: rgba(13, 59, 102, 0.2);
-	--fu-home-accent: #0d3b66;
-	--fu-home-accent-strong: #08263f;
 	--fu-home-container-max: 70rem;
 	--fu-home-container-narrow-max: 52rem;
 	--fu-home-gutter: 2rem;
-	--fu-home-panel-shadow: 0 22px 46px rgba(13, 59, 102, 0.08);
-	--fu-home-card-shadow: 0 12px 24px rgba(13, 59, 102, 0.05);
-	--fu-home-card-shadow-hover: 0 18px 44px rgba(13, 59, 102, 0.1);
-	color: var(--fu-home-text);
-	background: #ffffff;
+	color: var(--fu-text-body);
+	background: var(--fu-surface);
 	padding-bottom: clamp(4rem, 8vw, 6.5rem);
 }
 
@@ -475,7 +462,7 @@ h2 {
 .fu-home__section-head p:not(.fu-home__eyebrow),
 .fu-home__prototype-copy p:not(.fu-home__eyebrow) {
 	margin: 1rem 0 0;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
 	line-height: 1.65;
 	text-wrap: pretty;
@@ -490,7 +477,7 @@ h2 {
 	align-items: center;
 	gap: 0;
 	margin: 0;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: 0.82rem;
 	font-weight: 700;
 	letter-spacing: 0.14em;
@@ -507,17 +494,17 @@ h2 {
 .fu-home__prototype-panel,
 .fu-home__cta-panel {
 	padding: clamp(1.4rem, 3vw, 2.35rem);
-	border: 1px solid var(--fu-home-border);
+	border: 1px solid var(--fu-border);
 	border-radius: 30px;
-	background: var(--fu-home-surface);
-	box-shadow: var(--fu-home-panel-shadow);
+	background: var(--fu-surface);
+	box-shadow: var(--fu-shadow-panel);
 }
 
 .fu-home__hero-panel {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: clamp(1.35rem, 3vw, 2.4rem);
-	background: var(--fu-home-surface);
+	background: var(--fu-surface);
 }
 
 .fu-home__title {
@@ -529,7 +516,7 @@ h2 {
 
 .fu-home__lede {
 	margin: 0;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 1.45vw, 1.08rem);
 	line-height: 1.75;
 }
@@ -561,7 +548,7 @@ h2 {
 
 .fu-home__resume-link a,
 .fu-home__text-link {
-	color: var(--fu-home-accent);
+	color: var(--fu-action-bg);
 	text-decoration: underline;
 	text-decoration-thickness: 2px;
 	text-underline-offset: 0.16em;
@@ -637,10 +624,10 @@ h2 {
 .fu-home__service-card,
 .fu-home__system-card,
 .fu-home__legacy-card {
-	border: 1px solid var(--fu-home-border);
+	border: 1px solid var(--fu-border);
 	border-radius: 24px;
-	background: var(--fu-home-surface);
-	box-shadow: var(--fu-home-card-shadow);
+	background: var(--fu-surface);
+	box-shadow: var(--fu-shadow-card);
 }
 
 .fu-home__service-card {
@@ -661,7 +648,7 @@ h2 {
 .fu-home__system-card > p:not(.fu-home__system-kicker),
 .fu-home__legacy-card p,
 .fu-home__cta-copy p {
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	line-height: 1.7;
 }
 
@@ -671,7 +658,7 @@ h2 {
 
 .fu-home__cta-copy p:not(.fu-home__eyebrow) {
 	margin: 1rem 0 0;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
 	line-height: 1.65;
 	text-wrap: pretty;
@@ -703,7 +690,7 @@ h2 {
 	width: 0.45rem;
 	height: 0.45rem;
 	border-radius: 999px;
-	background: var(--fu-home-accent);
+	background: var(--fu-action-bg);
 }
 
 .fu-home__fit-list {
@@ -718,11 +705,11 @@ h2 {
 .fu-home__fit-list li {
 	padding: clamp(1rem, 2vw, 1.25rem) clamp(1rem, 2vw, 1.25rem)
 		clamp(1.05rem, 2vw, 1.35rem);
-	border: 1px solid var(--fu-home-border);
+	border: 1px solid var(--fu-border);
 	border-radius: 18px;
-	background: var(--fu-home-surface);
+	background: var(--fu-surface);
 	box-shadow: 0 10px 22px rgba(13, 59, 102, 0.04);
-	color: var(--fu-home-text);
+	color: var(--fu-text-body);
 	line-height: 1.5;
 	display: grid;
 	grid-template-columns: auto 1fr;
@@ -732,7 +719,7 @@ h2 {
 }
 
 .fu-home__fit-list li:hover {
-	border-color: var(--fu-home-border-strong);
+	border-color: var(--fu-border-strong);
 	box-shadow: 0 12px 28px rgba(13, 59, 102, 0.06);
 }
 
@@ -741,7 +728,7 @@ h2 {
 	height: 0.7rem;
 	margin-top: 0.4rem;
 	border-radius: 999px;
-	background: var(--fu-home-accent);
+	background: var(--fu-action-bg);
 	box-shadow: 0 0 0 4px rgba(13, 59, 102, 0.08);
 }
 
@@ -753,7 +740,7 @@ h2 {
 
 .fu-home__fit-list p {
 	margin: 0.35rem 0 0;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: 0.94rem;
 	line-height: 1.55;
 }
@@ -766,10 +753,10 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	padding: clamp(1.1rem, 2vw, 1.35rem);
-	border: 1px solid var(--fu-home-border);
+	border: 1px solid var(--fu-border);
 	border-radius: 22px;
-	background: var(--fu-home-surface);
-	box-shadow: var(--fu-home-card-shadow);
+	background: var(--fu-surface);
+	box-shadow: var(--fu-shadow-card);
 	color: inherit;
 	text-decoration: none;
 	transition: border-color 0.22s ease, box-shadow 0.22s ease,
@@ -778,8 +765,8 @@ h2 {
 
 .fu-home__system-card:hover,
 .fu-home__system-card:focus-visible {
-	border-color: var(--fu-home-border-strong);
-	box-shadow: var(--fu-home-card-shadow-hover);
+	border-color: var(--fu-border-strong);
+	box-shadow: var(--fu-shadow-card-hover);
 	transform: translateY(-2px);
 	outline: none;
 }
@@ -793,7 +780,7 @@ h2 {
 .fu-home__system-kicker,
 .fu-home__legacy-card-kicker {
 	display: inline-flex;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: 0.74rem;
 	font-weight: 800;
 	letter-spacing: 0.12em;
@@ -809,13 +796,13 @@ h2 {
 	margin: 0.5rem 0;
 	font-size: 1.1rem;
 	line-height: 1.3;
-	color: var(--fu-home-heading);
+	color: var(--fu-text-heading);
 	font-weight: 600;
 }
 
 .fu-home__system-card > p:not(.fu-home__system-kicker) {
 	margin: 0;
-	color: var(--fu-home-muted);
+	color: var(--fu-text-muted);
 	font-size: 0.95rem;
 	line-height: 1.6;
 }
@@ -826,7 +813,7 @@ h2 {
 	gap: 0.35rem;
 	margin-top: auto;
 	padding-top: 0.8rem;
-	color: var(--fu-home-accent);
+	color: var(--fu-action-bg);
 	font-size: 0.82rem;
 	font-weight: 800;
 	letter-spacing: 0.06em;
@@ -862,7 +849,7 @@ h2 {
 }
 
 .fu-home__cta-panel {
-	background: var(--fu-home-surface);
+	background: var(--fu-surface);
 }
 
 .fu-home__cta-panel .fu-home__cta-copy p:last-child,
@@ -889,7 +876,7 @@ h2 {
 
 .fu-home__legacy-card:hover,
 .fu-home__legacy-card:focus-within {
-	border-color: var(--fu-home-border-strong);
+	border-color: var(--fu-border-strong);
 	box-shadow: 0 18px 34px rgba(13, 59, 102, 0.08);
 	transform: translateY(-2px);
 }

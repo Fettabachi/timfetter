@@ -1,12 +1,12 @@
 .fu-portfolio {
 	--fu-portfolio-bg: #f6f8fb;
-	--fcg-surface: #ffffff;
+	--fcg-surface: var(--fu-surface);
 	--fcg-surface-alt: #eef3f8;
-	--fcg-text: #17324d;
+	--fcg-text: var(--fu-text-body);
 	--fcg-muted: #56708a;
 	--fcg-line: #d6e0ea;
-	--fcg-accent: #0d3b66;
-	--fcg-accent-strong: #08263f;
+	--fcg-accent: var(--fu-action-bg);
+	--fcg-accent-strong: var(--fu-action-bg-hover);
 	--fcg-radius-xl: 24px;
 	--fcg-radius-lg: 18px;
 	--fcg-radius-md: 14px;
@@ -35,7 +35,7 @@
 .fu-portfolio__panel,
 .fu-portfolio__callout,
 .fu-portfolio__closing {
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	background: rgba(255, 255, 255, 0.92);
 	border-radius: 28px;
 }
@@ -130,18 +130,18 @@
 
 .fu-portfolio__button--primary {
 	background: var(--fcg-accent);
-	color: #ffffff;
+	color: var(--fu-action-text);
 }
 
 .fu-portfolio__button--primary:hover,
 .fu-portfolio__button--primary:focus-visible {
 	background: var(--fcg-accent-strong);
-	color: #ffffff;
+	color: var(--fu-action-text);
 }
 
 .fu-portfolio__button--secondary {
-	background: rgba(255, 255, 255, 0.9);
-	border: 1px solid rgba(13, 59, 102, 0.16);
+	background: var(--fu-action-secondary-bg);
+	border: 1px solid var(--fu-action-secondary-border);
 	color: var(--fcg-text);
 }
 
@@ -191,7 +191,7 @@
 .fu-portfolio__hero-figure {
 	overflow: hidden;
 	border-radius: 24px;
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	background: #dfe8f1;
 	aspect-ratio: 4 / 3;
 }
@@ -327,7 +327,7 @@
 }
 
 .fu-portfolio__note:hover {
-	border-color: rgba(13, 59, 102, 0.16);
+	border-color: var(--fu-action-secondary-border);
 	background: #f2f6fa;
 }
 
@@ -413,7 +413,7 @@
 .fu-portfolio-piece__lead-inner,
 .fu-portfolio-piece__demo-panel-inner,
 .fu-portfolio-piece__closing-inner {
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	border-radius: 28px;
 	background: rgba(255, 255, 255, 0.92);
 }
@@ -461,7 +461,7 @@
 	margin: 0;
 	overflow: hidden;
 	border-radius: 24px;
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	background: #dfe8f1;
 	aspect-ratio: 4 / 3;
 }
@@ -476,7 +476,7 @@
 .fu-portfolio-piece__lead-caption,
 .fu-portfolio-piece__demo-caption,
 .fu-portfolio-piece__closing-body {
-	color: rgba(13, 59, 102, 0.72);
+	color: var(--fu-text-muted);
 	font-size: 0.96rem;
 	line-height: 1.65;
 }
@@ -570,20 +570,20 @@
 }
 
 .fu-portfolio-piece__button--primary {
-	background: #0d3b66;
-	color: #fff;
+	background: var(--fu-action-bg);
+	color: var(--fu-action-text);
 }
 
 .fu-portfolio-piece__button--primary:hover,
 .fu-portfolio-piece__button--primary:focus-visible {
-	background: #08263f;
-	color: #fff;
+	background: var(--fu-surface-inverse);
+	color: var(--fu-action-text);
 }
 
 .fu-portfolio-piece__button--secondary {
 	background: rgba(255, 255, 255, 0.9);
-	border: 1px solid rgba(13, 59, 102, 0.16);
-	color: #17324d;
+	border: 1px solid var(--fu-action-secondary-border);
+	color: var(--fu-text-body);
 }
 
 .fu-principles {
@@ -592,7 +592,7 @@
 
 .fu-principles__inner {
 	margin: 0 auto;
-	max-width: min(100% - 2rem, 64rem);
+	max-width: min(100% - (var(--fu-gutter) * 2), var(--fu-container-m));
 }
 
 .fu-principles__eyebrow {
@@ -622,7 +622,7 @@
 
 .fu-principles__item {
 	padding: 1.25rem 1.25rem 1.35rem;
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	border-radius: 16px;
 	background: rgba(255, 255, 255, 0.85);
 }
@@ -1475,7 +1475,7 @@
 	margin: 1.5rem 0 0;
 	overflow: hidden;
 	border-radius: 20px;
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	background: #e8eef4;
 	max-width: 50rem;
 	aspect-ratio: 16 / 9;
@@ -1545,7 +1545,7 @@
 }
 
 .fu-resource-single__eyebrow {
-	color: rgba(13, 59, 102, 0.72);
+	color: var(--fu-text-muted);
 	font-size: 0.82rem;
 	font-weight: 700;
 	letter-spacing: 0.14em;
@@ -1571,7 +1571,7 @@
 
 .fu-resource-single__related-card {
 	padding: 1.1rem 1.1rem 1.2rem;
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid var(--fu-border);
 	border-radius: 18px;
 	background: rgba(255, 255, 255, 0.92);
 	transition: border-color 0.22s ease, background-color 0.22s ease;
@@ -1579,7 +1579,7 @@
 
 .fu-resource-single__related-card:hover,
 .fu-resource-single__related-card:focus-within {
-	border-color: rgba(13, 59, 102, 0.2);
+	border-color: var(--fu-border-strong);
 	background: #ffffff;
 }
 
@@ -1598,7 +1598,7 @@
 
 .fu-resource-single__related-card h3 a:hover,
 .fu-resource-single__related-card h3 a:focus-visible {
-	color: #08263f;
+	color: var(--fu-surface-inverse);
 	outline: none;
 }
 
@@ -1803,7 +1803,7 @@
 	.fu-system-block-card:hover,
 	.fu-system-block-card:focus-visible {
 		border-color: rgba(13, 59, 102, 0.24);
-		box-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
+		box-shadow: var(--fu-shadow-card-hover);
 		transform: translateY(-2px);
 	}
 
@@ -1846,7 +1846,7 @@
 /* Optional: if you decide to make the second banner left-aligned, this gives you a contextual note style nearby */
 .fu-page-banner-portfolio__variation-note {
 	margin-top: 0.75rem;
-	color: rgba(13, 59, 102, 0.72);
+	color: var(--fu-text-muted);
 	font-size: 0.94rem;
 	line-height: 1.65;
 }
