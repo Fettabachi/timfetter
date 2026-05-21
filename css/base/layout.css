@@ -26,7 +26,9 @@
 :root {
 	/* Container widths */
 	--fu-container-s: 48rem;
+	--fu-container-readable: 52rem;
 	--fu-container-m: 64rem;
+	--fu-container-page: 70rem;
 	--fu-container-l: 78rem;
 	--fu-container-xl: 90rem;
 
@@ -59,6 +61,14 @@
 
 .container--m {
 	--fu-container-max: var(--fu-container-m);
+}
+
+.container--readable {
+	--fu-container-max: var(--fu-container-readable);
+}
+
+.container--page {
+	--fu-container-max: var(--fu-container-page);
 }
 
 .container--l {
