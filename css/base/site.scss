@@ -40,7 +40,7 @@ html {
 }
 
 body {
-	color: $text;
+	color: var(--fu-text-body);
 	padding: 0;
 	margin: 0;
 	background-color: #fff;
@@ -104,7 +104,7 @@ h2 {
 h3 {
 	font-size: 1.75em;
 	font-weight: 600;
-	color: $blue_black;
+	color: var(--fu-text-heading);
 	margin-top: 32px;
 	margin-bottom: 1px;
 	font-family: "Raleway", sans-serif;
@@ -384,8 +384,7 @@ address {
 h1,
 h2 {
 	margin-bottom: 20px;
-	color: $blue_black;
-	/* font-size: 2.5em; */
+	color: var(--fu-text-heading);
 	font-size: 2.25rem;
 	font-weight: 300;
 	letter-spacing: 0.25px;
