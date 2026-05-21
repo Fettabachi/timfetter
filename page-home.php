@@ -236,7 +236,7 @@ $earlier_work = array(
                         <div class="fu-home__section-inner">
                             <div class="fu-home__section-head">
                                 <p class="fu-home__eyebrow">Recent WordPress systems</p>
-                                <h2 id="recent-wordpress-systems-heading">Maintainable WordPress systems, not just finished pages</h2>
+                                <h2 id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
                                 <p>These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
                             </div>
 
@@ -275,7 +275,7 @@ $earlier_work = array(
                         <div class="fu-home__section-inner">
                             <div class="fu-home__section-head">
                                 <p class="fu-home__eyebrow">Earlier client work</p>
-                                <h2 id="earlier-client-work-heading">Supporting credibility, not the main event</h2>
+                                <h2 id="earlier-client-work-heading">Selected previous client work</h2>
                                 <p>Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
                             </div>
 
