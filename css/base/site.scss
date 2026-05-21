@@ -416,8 +416,8 @@ h2 {
 }
 
 .fu-home {
-	--fu-home-container-max: 70rem;
-	--fu-home-container-narrow-max: 52rem;
+	--fu-home-container-max: var(--fu-container-page);
+	--fu-home-container-narrow-max: var(--fu-container-readable);
 	--fu-home-gutter: 2rem;
 	color: var(--fu-text-body);
 	background: var(--fu-surface);
