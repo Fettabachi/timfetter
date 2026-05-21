@@ -531,13 +531,15 @@ h2 {
 }
 
 .fu-home .fu-portfolio-piece__button--secondary {
-	border-color: rgba(13, 59, 102, 0.3);
+	border-color: var(--fu-button-secondary-border);
 	box-shadow: inset 0 0 0 1px rgba(13, 59, 102, 0.06);
 }
 
 .fu-home .fu-portfolio-piece__button--secondary:hover,
 .fu-home .fu-portfolio-piece__button--secondary:focus-visible {
-	border-color: rgba(13, 59, 102, 0.46);
+	background: var(--fu-button-secondary-bg-hover);
+	border-color: var(--fu-button-secondary-border);
+	color: var(--fu-button-secondary-text);
 }
 
 .fu-home__resume-link {

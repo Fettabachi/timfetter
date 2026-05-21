@@ -129,26 +129,27 @@
 }
 
 .fu-portfolio__button--primary {
-	background: var(--fcg-accent);
-	color: var(--fu-action-text);
+	background: var(--fu-button-primary-bg);
+	color: var(--fu-button-primary-text);
 }
 
 .fu-portfolio__button--primary:hover,
 .fu-portfolio__button--primary:focus-visible {
-	background: var(--fcg-accent-strong);
-	color: var(--fu-action-text);
+	background: var(--fu-button-primary-bg-hover);
+	color: var(--fu-button-primary-text);
 }
 
 .fu-portfolio__button--secondary {
-	background: var(--fu-action-secondary-bg);
-	border: 1px solid var(--fu-action-secondary-border);
-	color: var(--fcg-text);
+	background: var(--fu-button-secondary-bg);
+	border: 1px solid var(--fu-button-secondary-border);
+	color: var(--fu-button-secondary-text);
 }
 
 .fu-portfolio__button--secondary:hover,
 .fu-portfolio__button--secondary:focus-visible {
-	border-color: rgba(13, 59, 102, 0.28);
-	color: var(--fcg-text);
+	background: var(--fu-button-secondary-bg-hover);
+	border-color: var(--fu-button-secondary-border);
+	color: var(--fu-button-secondary-text);
 }
 
 /* restored meta item shape */
@@ -570,20 +571,27 @@
 }
 
 .fu-portfolio-piece__button--primary {
-	background: var(--fu-action-bg);
-	color: var(--fu-action-text);
+	background: var(--fu-button-primary-bg);
+	color: var(--fu-button-primary-text);
 }
 
 .fu-portfolio-piece__button--primary:hover,
 .fu-portfolio-piece__button--primary:focus-visible {
-	background: var(--fu-surface-inverse);
-	color: var(--fu-action-text);
+	background: var(--fu-button-primary-bg-hover);
+	color: var(--fu-button-primary-text);
 }
 
 .fu-portfolio-piece__button--secondary {
-	background: var(--fu-action-secondary-bg);
-	border: 1px solid var(--fu-action-secondary-border);
-	color: var(--fu-text-body);
+	background: var(--fu-button-secondary-bg);
+	border: 1px solid var(--fu-button-secondary-border);
+	color: var(--fu-button-secondary-text);
+}
+
+.fu-portfolio-piece__button--secondary:hover,
+.fu-portfolio-piece__button--secondary:focus-visible {
+	background: var(--fu-button-secondary-bg-hover);
+	border-color: var(--fu-button-secondary-border);
+	color: var(--fu-button-secondary-text);
 }
 
 .fu-principles {

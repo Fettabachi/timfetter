@@ -58,6 +58,15 @@ $selectionBackgroundColor: #ab977a;
 	--fu-action-secondary-border: rgba(13, 59, 102, 0.16);
 	--fu-action-secondary-text: var(--fu-text-body);
 
+	/* Buttons */
+	--fu-button-primary-bg: var(--fu-action-bg);
+	--fu-button-primary-bg-hover: var(--fu-action-bg-hover);
+	--fu-button-primary-text: var(--fu-white);
+	--fu-button-secondary-bg: var(--fu-action-secondary-bg);
+	--fu-button-secondary-bg-hover: var(--fu-surface-alt);
+	--fu-button-secondary-border: var(--fu-action-secondary-border);
+	--fu-button-secondary-text: var(--fu-text-body);
+
 	/* Shadows */
 	--fu-shadow-card: 0 12px 24px rgba(13, 59, 102, 0.05);
 	--fu-shadow-panel: 0 22px 46px rgba(13, 59, 102, 0.08);
