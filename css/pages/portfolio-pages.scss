@@ -1411,7 +1411,7 @@
 
 .fu-resource-single__inner {
 	margin: 0 auto;
-	max-width: min(100%, 70rem);
+	max-width: min(100%, var(--fu-container-page));
 }
 
 .fu-resource-single__back {
