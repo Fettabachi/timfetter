@@ -86,41 +86,49 @@ $recent_systems = array(
         'title' => 'Editor Experience & Handoff',
         'slug' => 'editor-experience',
         'summary' => 'How I structure blocks so editors can make real updates without breaking layout, accessibility, or the front end.',
+        'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
     ),
     array(
         'title' => 'ACF Block System Overview',
         'slug' => 'acf-block-system',
         'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
+        'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
+        'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
+        'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
+        'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
+        'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
     ),
     array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
         'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
+        'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
+        'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
     ),
 );
 
@@ -244,10 +252,22 @@ $earlier_work = array(
                                 <?php foreach ($recent_systems as $system) : ?>
                                     <?php $system_url = $resolve_page_url($system['slug']); ?>
                                     <a class="fu-home__system-card" href="<?php echo esc_url($system_url); ?>">
-                                        <p class="fu-home__system-kicker">Case Study</p>
-                                        <h3><?php echo esc_html($system['title']); ?></h3>
-                                        <p><?php echo esc_html($system['summary']); ?></p>
-                                        <span class="fu-home__system-link">View case study</span>
+                                        <?php if (!empty($system['image'])) : ?>
+                                            <div class="fu-home__system-media">
+                                                <img class="fu-home__system-thumb"
+                                                    src="<?php echo esc_url(content_url($system['image'])); ?>"
+                                                    alt=""
+                                                    loading="lazy"
+                                                    width="600"
+                                                    height="450">
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="fu-home__system-body">
+                                            <p class="fu-home__system-kicker">Case Study</p>
+                                            <h3><?php echo esc_html($system['title']); ?></h3>
+                                            <p><?php echo esc_html($system['summary']); ?></p>
+                                            <span class="fu-home__system-link">View case study</span>
+                                        </div>
                                     </a>
                                 <?php endforeach; ?>
                             </div>
