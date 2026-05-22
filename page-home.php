@@ -248,12 +248,12 @@ $earlier_work = array(
                                 <p>These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
                             </div>
 
-                            <div class="fu-home__systems-grid">
+                            <div class="fu-home__systems-grid fu-work-grid">
                                 <?php foreach ($recent_systems as $system) : ?>
                                     <?php $system_url = $resolve_page_url($system['slug']); ?>
-                                    <a class="fu-home__system-card" href="<?php echo esc_url($system_url); ?>">
+                                    <a class="fu-home__system-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($system_url); ?>">
                                         <?php if (!empty($system['image'])) : ?>
-                                            <div class="fu-home__system-media">
+                                            <div class="fu-home__system-media fu-work-card__media">
                                                 <img class="fu-home__system-thumb"
                                                     src="<?php echo esc_url(content_url($system['image'])); ?>"
                                                     alt=""
@@ -262,11 +262,11 @@ $earlier_work = array(
                                                     height="450">
                                             </div>
                                         <?php endif; ?>
-                                        <div class="fu-home__system-body">
-                                            <p class="fu-home__system-kicker">Case Study</p>
-                                            <h3><?php echo esc_html($system['title']); ?></h3>
-                                            <p><?php echo esc_html($system['summary']); ?></p>
-                                            <span class="fu-home__system-link">View case study</span>
+                                        <div class="fu-home__system-body fu-work-card__body">
+                                            <p class="fu-home__system-kicker fu-work-card__kicker">Case Study</p>
+                                            <h3 class="fu-work-card__title"><?php echo esc_html($system['title']); ?></h3>
+                                            <p class="fu-work-card__text"><?php echo esc_html($system['summary']); ?></p>
+                                            <span class="fu-home__system-link fu-work-card__link">View case study</span>
                                         </div>
                                     </a>
                                 <?php endforeach; ?>
@@ -299,23 +299,23 @@ $earlier_work = array(
                                 <p>Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
                             </div>
 
-                            <div class="fu-home__legacy-grid">
+                            <div class="fu-home__legacy-grid fu-work-grid">
                                 <?php foreach ($earlier_work as $index => $item) : ?>
                                     <?php
                                     $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
                                     $dialog_id = 'home_work_dialog_' . ($index + 1);
                                     ?>
-                                    <article class="fu-home__legacy-card">
-                                        <div class="fu-home__legacy-card-media">
+                                    <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
+                                        <div class="fu-home__legacy-card-media fu-work-card__media">
                                             <?php if ($portfolio_post && has_post_thumbnail($portfolio_post)) : ?>
                                                 <?php echo get_the_post_thumbnail($portfolio_post, 'medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
                                             <?php endif; ?>
                                         </div>
 
-                                        <div class="fu-home__legacy-card-body">
-                                            <p class="fu-home__legacy-card-kicker">Earlier client work</p>
-                                            <h3><?php echo esc_html($portfolio_post ? $portfolio_post->post_title : $item['title']); ?></h3>
-                                            <p><?php echo esc_html($item['summary']); ?></p>
+                                        <div class="fu-home__legacy-card-body fu-work-card__body">
+                                            <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Earlier client work</p>
+                                            <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post ? $portfolio_post->post_title : $item['title']); ?></h3>
+                                            <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
 
                                             <?php if ($portfolio_post) : ?>
                                                 <button class="btn--gold btn--view-more fu-home__legacy-button" data-a11y-dialog-show="<?php echo esc_attr($dialog_id); ?>"><span>See More</span></button>
