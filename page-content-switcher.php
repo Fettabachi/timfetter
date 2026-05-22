@@ -77,9 +77,9 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section" id="overview">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading">The Problem with Content-Heavy Pages</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">The Problem with Content-Heavy Pages</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             Pages that cover a lot of ground tend to become long, repetitive, or hard to scan. Editors end up
                             stacking sections that cover similar topics, and visitors have to scroll through content that doesn't
@@ -173,9 +173,9 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section" id="editor-experience">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Editor Experience</p>
-                    <h2 class="fu-case-section__heading">Two Distinct Roles, One Consistent Component</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">Two Distinct Roles, One Consistent Component</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             The parent block owns the switcher-level configuration: display style, nav behavior, spacing,
                             backgrounds, border radius, and shared visual settings. These apply across all panels and define
@@ -200,9 +200,9 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section" id="implementation">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Implementation</p>
-                    <h2 class="fu-case-section__heading">One Component, Multiple Display Modes, Accessible by Architecture</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">One Component, Multiple Display Modes, Accessible by Architecture</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p class="fu-content-switcher-portfolio__implementation-intro">
                             The block uses a parent/child ACF architecture so the switcher owns the configuration while each
                             panel manages its own content. The front end is built around accessible tab semantics, scoped
@@ -252,9 +252,9 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section" id="outcome">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading">Less One-Off Work, More Consistent Publishing</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">Less One-Off Work, More Consistent Publishing</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             Teams using this block spend less time building custom layout sections for structured content and more
                             time publishing. The same component handles service comparisons, audience-based messaging, feature

@@ -38,6 +38,7 @@ $selectionBackgroundColor: #ab977a;
 	/* Semantic usage tokens */
 	/* Text */
 	--fu-text-body: #17324d;
+	--fu-text-body-portfolio: var(--fu-text-muted);
 	--fu-text-heading: var(--fu-blue);
 	--fu-text-muted: rgba(13, 59, 102, 0.72);
 	--fu-text-on-inverse: var(--fu-white);

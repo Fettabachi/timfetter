@@ -72,9 +72,9 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading">A More Flexible Banner Without a Messy Editing Experience</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">A More Flexible Banner Without a Messy Editing Experience</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             Page banners are often either too rigid to be useful or so configurable that they become hard for editors to trust. This block was designed to strike a better balance.</p>
 
@@ -150,9 +150,9 @@ if ($editor_experience_url === '') {
             <section id="editor-experience" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Editor Experience</p>
-                    <h2 class="fu-case-section__heading">A Better Demo on the Front End, a Broader Toolset in the Editor</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">A Better Demo on the Front End, a Broader Toolset in the Editor</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             The front-end controls on this page are included to help reviewers interact with the component, but the real value lives in the editor experience.
                         </p>
@@ -166,9 +166,9 @@ if ($editor_experience_url === '') {
             <section id="implementation" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Implementation</p>
-                    <h2 class="fu-case-section__heading">Flexible Media, Predictable Output</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">Flexible Media, Predictable Output</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             The block was built with ACF Pro inside a custom WordPress theme structure that keeps markup, styles, and behavior scoped and maintainable.
                         </p>
@@ -183,9 +183,9 @@ if ($editor_experience_url === '') {
             <section id="outcome" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading">A Reusable Hero Component for Real WordPress Builds</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">A Reusable Hero Component for Real WordPress Builds</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>
                             This component makes it easier to reuse high-impact page headers across different types of content without rebuilding layouts each time.
                         </p>

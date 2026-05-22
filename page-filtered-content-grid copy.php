@@ -50,8 +50,8 @@ get_header();
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading">A Better Way to Browse Structured Content</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">A Better Way to Browse Structured Content</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>As content libraries grow, they often become harder to browse. Category archive pages can feel clunky, and manually curated layouts become difficult to maintain.</p>
                         <p>This block provides instant category filtering without page reloads, helping visitors narrow content quickly while editors continue managing entries as structured WordPress content.</p>
                     </div>
@@ -68,8 +68,8 @@ get_header();
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Editor Controls</p>
-                    <h2 class="fu-case-section__heading">Focused Controls Instead of an Overloaded Settings Panel</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Focused Controls Instead of an Overloaded Settings Panel</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>The control set was intentionally kept tight: heading, intro text, CTA label, excerpt visibility, item count, and empty-state messaging.</p>
                         <p>The goal is to give editors flexibility where it matters without turning the block into a universal data-builder UI.</p>
                     </div>
@@ -79,8 +79,8 @@ get_header();
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Implementation</p>
-                    <h2 class="fu-case-section__heading">Server-Rendered First, Enhanced on the Front End</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Server-Rendered First, Enhanced on the Front End</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>The block uses a server-rendered initial state for stability, then enhances the experience with front-end filtering through the WordPress REST API.</p>
                         <p>The implementation was kept intentionally restrained to prioritize portability, editor/frontend parity, and a clean editing experience.</p>
                     </div>
@@ -90,8 +90,8 @@ get_header();
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading">Adaptable Beyond This Demo</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Adaptable Beyond This Demo</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>This example uses a Resource content model, but the same block pattern can support case studies, service libraries, team directories, or other structured content collections.</p>
                         <p>The result is a reusable component that improves content discovery while keeping the editing workflow simple and scalable.</p>
                     </div>

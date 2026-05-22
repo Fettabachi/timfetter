@@ -49,8 +49,8 @@ get_header();
             <section id="overview" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading">A More Reliable Way to Build Feature Sections</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">A More Reliable Way to Build Feature Sections</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Feature sections often break down when real content is introduced. Variations in copy length, imagery, and screen size can quickly create imbalance, especially at tablet widths.</p>
                         <p>This block was designed to reduce that friction by limiting unnecessary controls and preventing invalid layout combinations. The result is a component that stays predictable without sacrificing flexibility.</p>
                     </div>
@@ -64,8 +64,8 @@ get_header();
             <section id="outcome" class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading">Flexible for Editors, Reliable on the Front End</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Flexible for Editors, Reliable on the Front End</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>This block was built to solve a practical problem: creating flexible content sections that don’t break when real content is introduced. By limiting invalid layout combinations and focusing on predictable behavior, it produces consistent results across a wide range of use cases.</p>
 
                         <p>The same component can be reused across landing pages, service sections, and internal content without redesigning layouts for each scenario. Editors get meaningful flexibility, while the structure ensures the front-end remains balanced and reliable.</p>

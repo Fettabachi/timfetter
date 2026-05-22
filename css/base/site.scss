@@ -434,6 +434,9 @@ h2 {
 .fu-home__section-heading,
 .fu-home__section-head h2 {
 	margin: 0.35rem 0 0.75rem;
+}
+
+.fu-home__section-head h2:not(.fu-section-heading) {
 	font-size: clamp(1.9rem, 1.4rem + 2vw, 3rem);
 	line-height: 1.1;
 	letter-spacing: -0.02em;
@@ -443,6 +446,11 @@ h2 {
 .fu-home__section-head p:not(.fu-eyebrow),
 .fu-home__prototype-copy p:not(.fu-eyebrow) {
 	margin: 1rem 0 0;
+}
+
+.fu-home__section-copy,
+.fu-home__section-head p:not(.fu-eyebrow):not(.fu-section-lede),
+.fu-home__prototype-copy p:not(.fu-eyebrow):not(.fu-section-lede) {
 	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
 	line-height: 1.65;

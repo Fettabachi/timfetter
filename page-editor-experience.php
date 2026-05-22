@@ -73,9 +73,9 @@ if ($portfolio_url === '') {
 
             <section class="fu-case-section" id="handoff-test">
                 <div class="fu-case-section__inner">
-                    <h2 class="fu-case-section__heading">The real test starts after launch</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">The real test starts after launch</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Many WordPress projects look polished on launch day, but become difficult to maintain once editors start adding new content, swapping media, or building new pages. The editing experience matters because it determines whether the site can keep its structure and design quality after handoff.</p>
 
                         <p>These blocks are designed so editors can update meaningful content without being handed enough control to accidentally break the system.</p>
@@ -85,7 +85,7 @@ if ($portfolio_url === '') {
 
             <section class="fu-case-section" id="safe-change-boundaries">
                 <div class="fu-case-section__inner">
-                    <h2 class="fu-case-section__heading">What editors can safely change</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">What editors can safely change</h2>
 
                     <div class="fu-editor-experience__handoff-grid">
                         <div class="fu-editor-experience__handoff-card">
@@ -117,9 +117,9 @@ if ($portfolio_url === '') {
 
             <section class="fu-case-section" id="editing-model">
                 <div class="fu-case-section__inner">
-                    <h2 class="fu-case-section__heading">The editing model depends on the content</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">The editing model depends on the content</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Some blocks only need a focused set of fields. Others work better when each item becomes its own child block. The goal is to choose the editing model that makes future updates clearer, safer, and easier to maintain.</p>
                     </div>
 
@@ -188,7 +188,7 @@ if ($portfolio_url === '') {
 
             <section class="fu-case-section" id="example-blocks">
                 <div class="fu-case-section__inner">
-                    <h2 class="fu-case-section__heading">Examples from the block system</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">Examples from the block system</h2>
 
                     <div class="fu-editor-experience__examples-grid" aria-label="Example block cards">
                         <a class="fu-editor-experience__example-card" href="<?php echo esc_url($page_banner_url !== '' ? $page_banner_url : home_url('/page-banner/')); ?>" aria-label="View case study: Page Banner">
@@ -224,9 +224,9 @@ if ($portfolio_url === '') {
 
             <section class="fu-case-section" id="handoff-value">
                 <div class="fu-case-section__inner">
-                    <h2 class="fu-case-section__heading">Built for the next person who edits the page</h2>
+                    <h2 class="fu-case-section__heading fu-section-heading">Built for the next person who edits the page</h2>
 
-                    <div class="fu-case-section__body">
+                    <div class="fu-case-section__body fu-section-body">
                         <p>A clean front end is only one part of the job. These blocks are designed so agencies and clients can hand off pages with clear editing boundaries, reusable content patterns, and fewer opportunities for accidental layout damage.</p>
                     </div>
 

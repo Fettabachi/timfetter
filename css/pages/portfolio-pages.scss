@@ -443,7 +443,7 @@
 }
 
 .fu-portfolio-piece__lead-body {
-	color: rgba(13, 59, 102, 0.82);
+	color: var(--fu-text-body-portfolio);
 	font-size: clamp(1rem, 0.97rem + 0.2vw, 1.08rem);
 	line-height: 1.75;
 	max-width: 40rem;
@@ -684,25 +684,15 @@
 	margin: 0 0 0.8rem;
 }
 
-.fu-system-purpose__content h2 {
+.fu-system-purpose__content .fu-section-heading--feature {
 	max-width: 15ch;
-	margin: 0;
-	color: var(--fu-blue);
-	font-family: "Raleway", sans-serif;
 	font-size: clamp(2rem, 4.5vw, 4rem);
-	font-weight: 600;
 	line-height: 0.98;
-	letter-spacing: -0.02em;
-	text-wrap: pretty;
 }
 
-.fu-system-purpose__content p:not(.fu-eyebrow) {
+.fu-system-purpose__content .fu-section-lede {
 	max-width: 66ch;
 	margin: 1.1rem 0 0;
-	color: rgba(13, 59, 102, 0.82);
-	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
-	line-height: 1.65;
-	text-wrap: pretty;
 }
 
 .fu-system-purpose__principles {
@@ -742,7 +732,7 @@
 		grid-template-columns: 1fr;
 	}
 
-	.fu-system-purpose__content h2 {
+	.fu-system-purpose__content .fu-section-heading--feature {
 		max-width: none;
 	}
 }
@@ -756,24 +746,14 @@
 	margin: 0;
 }
 
-.fu-system-workflow__header h2 {
+.fu-system-workflow__header .fu-section-heading--compact {
 	margin: 0.45rem 0 0;
-	color: var(--fu-blue);
-	font-family: "Raleway", sans-serif;
-	font-size: clamp(1.9rem, 1.5rem + 1.8vw, 2.7rem);
-	font-weight: 700;
-	line-height: 1.06;
-	letter-spacing: -0.02em;
-	text-wrap: pretty;
 }
 
-.fu-system-workflow__header p:not(.fu-eyebrow) {
+.fu-system-workflow__header .fu-section-lede {
 	max-width: 80ch;
 	margin: 0.9rem 0 0;
-	color: rgba(13, 59, 102, 0.8);
 	font-size: clamp(0.98rem, 0.92rem + 0.2vw, 1.08rem);
-	line-height: 1.65;
-	text-wrap: pretty;
 }
 
 .fu-system-workflow__panel {
@@ -845,22 +825,13 @@
 	margin: 0 0 0.65rem;
 }
 
-.fu-system-value__header h2 {
+.fu-system-value__header .fu-section-heading--feature {
 	margin: 0;
-	color: var(--fu-blue);
-	font-family: "Raleway", sans-serif;
 	font-size: clamp(2rem, 4vw, 3.4rem);
-	font-weight: 700;
-	line-height: 1;
-	text-wrap: pretty;
 }
 
-.fu-system-value__header p:not(.fu-eyebrow) {
+.fu-system-value__header .fu-section-lede {
 	margin: 1rem 0 0;
-	color: rgba(13, 59, 102, 0.78);
-	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
-	line-height: 1.65;
-	text-wrap: pretty;
 }
 
 .fu-system-value__grid {
@@ -955,22 +926,15 @@
 	margin: 0 0 0.65rem;
 }
 
-.fu-system-fit__intro h2 {
+.fu-system-fit__intro .fu-section-heading--feature {
 	margin: 0;
-	color: #fff;
-	font-family: "Raleway", sans-serif;
-	font-size: clamp(2rem, 4vw, 3.25rem);
-	font-weight: 700;
-	line-height: 1;
-	text-wrap: pretty;
+	color: var(--fu-text-on-inverse);
 }
 
-.fu-system-fit__intro p:not(.fu-eyebrow) {
+.fu-system-fit__intro .fu-section-lede {
 	max-width: 68ch;
 	margin: 1rem 0 0;
-	color: rgba(239, 246, 255, 0.84);
-	line-height: 1.65;
-	text-wrap: pretty;
+	color: var(--fu-text-muted-on-inverse);
 }
 
 .fu-system-fit__lists {
@@ -1048,22 +1012,15 @@
 	margin: 0 0 0.65rem;
 }
 
-.fu-system-builder-note__content h2 {
+.fu-system-builder-note__content .fu-section-heading--feature {
 	margin: 0;
-	color: #fff;
-	font-family: "Raleway", sans-serif;
-	font-size: clamp(2rem, 4vw, 3.25rem);
-	font-weight: 700;
-	line-height: 1;
-	text-wrap: pretty;
+	color: var(--fu-text-on-inverse);
 }
 
-.fu-system-builder-note__content p:not(.fu-eyebrow) {
+.fu-system-builder-note__content .fu-section-lede {
 	max-width: 76ch;
 	margin: 1rem 0 0;
-	color: rgba(239, 246, 255, 0.84);
-	line-height: 1.65;
-	text-wrap: pretty;
+	color: var(--fu-text-muted-on-inverse);
 }
 
 .fu-system-builder-note__statement {
@@ -1472,7 +1429,7 @@
 }
 
 .fu-resource-single__content {
-	color: rgba(13, 59, 102, 0.82);
+	color: var(--fu-text-body-portfolio);
 	font-size: 1rem;
 	line-height: 1.8;
 	max-width: 50rem;
@@ -2030,7 +1987,7 @@
 	grid-template-columns: 1rem 1fr;
 	gap: 0.65rem;
 	align-items: start;
-	color: rgba(13, 59, 102, 0.82);
+	color: var(--fu-text-body-portfolio);
 }
 
 .fu-editor-experience__handoff-card .fu-case-section__list li::before {
@@ -2176,7 +2133,7 @@
 	margin: 0;
 	font-size: 0.91rem;
 	line-height: 1.6;
-	color: rgba(13, 59, 102, 0.82);
+	color: var(--fu-text-body-portfolio);
 }
 
 .fu-editor-experience__example-card {
@@ -2236,7 +2193,7 @@
 
 .fu-editor-experience__example-card p {
 	margin: 0;
-	color: rgba(13, 59, 102, 0.82);
+	color: var(--fu-text-body-portfolio);
 	line-height: 1.55;
 	overflow-wrap: anywhere;
 }

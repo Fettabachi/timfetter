@@ -200,7 +200,7 @@ $earlier_work = array(
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
                                 <p class="fu-eyebrow fu-eyebrow--inverse">How I can help</p>
-                                <h2 id="home-services-heading">Service lanes</h2>
+                                <h2 class="fu-section-heading" id="home-services-heading">Service lanes</h2>
                             </div>
 
                             <div class="fu-home__service-grid">
@@ -223,7 +223,7 @@ $earlier_work = array(
                         <div class="fu-home__section-inner fu-home__section-inner--narrow container container--readable">
                             <div class="fu-home__section-head fu-home__section-head--compact">
                                 <p class="fu-eyebrow">A good fit for</p>
-                                <h2 id="home-fit-heading">Reliable front-end help when you need an extra hand</h2>
+                                <h2 class="fu-section-heading" id="home-fit-heading">Reliable front-end help when you need an extra hand</h2>
                             </div>
 
                             <ul class="fu-home__fit-list" aria-label="Who this work is a good fit for">
@@ -244,8 +244,8 @@ $earlier_work = array(
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
                                 <p class="fu-eyebrow">Recent WordPress systems</p>
-                                <h2 id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
-                                <p>These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
+                                <h2 class="fu-section-heading" id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
+                                <p class="fu-section-lede">These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
                             </div>
 
                             <div class="fu-home__systems-grid fu-work-grid">

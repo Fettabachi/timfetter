@@ -161,8 +161,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-case-section__inner">
                     <div class="fu-system-workflow__header">
                         <p class="fu-eyebrow">System workflow</p>
-                        <h2 id="system-workflow-heading">How the system works</h2>
-                        <p>Each block connects four decisions that are often handled separately: the content model, the editor controls, the front-end output, and the way the pattern can be reused.</p>
+                        <h2 class="fu-section-heading fu-section-heading--compact" id="system-workflow-heading">How the system works</h2>
+                        <p class="fu-section-lede">Each block connects four decisions that are often handled separately: the content model, the editor controls, the front-end output, and the way the pattern can be reused.</p>
                     </div>
 
                     <ol class="fu-system-workflow__panel" aria-label="Block system workflow">
@@ -190,9 +190,9 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-system-purpose__inner">
                     <div class="fu-system-purpose__content">
                         <p class="fu-eyebrow">Why this system exists</p>
-                        <h2 id="system-purpose-heading">Reusable blocks should solve editing problems, not just layout problems.</h2>
-                        <p>Clients often need flexible page sections, but the real problem is usually maintaining structure after launch. This block system gives editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
-                        <p>It avoids handing editors unlimited layout freedom while still giving them enough control to publish useful, on-brand pages without developer help.</p>
+                        <h2 class="fu-section-heading fu-section-heading--feature" id="system-purpose-heading">Reusable blocks should solve editing problems, not just layout problems.</h2>
+                        <p class="fu-section-lede">Clients often need flexible page sections, but the real problem is usually maintaining structure after launch. This block system gives editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
+                        <p class="fu-section-lede">It avoids handing editors unlimited layout freedom while still giving them enough control to publish useful, on-brand pages without developer help.</p>
                     </div>
 
                     <div class="fu-system-purpose__principles" aria-label="System purpose principles">
@@ -215,8 +215,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section" id="block-collection">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Block Collection</p>
-                    <h2 class="fu-case-section__heading">The block collection</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
                     </div>
 
@@ -245,8 +245,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section" id="shared-principles">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Shared Principles</p>
-                    <h2 class="fu-case-section__heading">Shared principles behind the system</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Shared principles behind the system</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>The details change from block to block, but the architecture stays consistent. These principles guide how the system is structured, edited, and maintained.</p>
                     </div>
 
@@ -292,8 +292,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section" id="editor-experience">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Editor Experience</p>
-                    <h2 class="fu-case-section__heading">Designed for the person editing the page after launch</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Designed for the person editing the page after launch</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>The system is not just about front-end polish. It is built around a manageable workflow for the editor who will keep using it after the handoff.</p>
                         <p>Parent and child blocks handle card and panel systems more cleanly than dense repeaters, guided controls replace unlimited layout freedom, canvas previews reduce guesswork, and the whole approach makes agency handoff easier.</p>
                         <p>Proof Cards is a good example: it started as a repeater because the content model looked simple, but testing showed that multiple items were painful to manage in the sidebar. The final version uses one child block per proof item.</p>
@@ -319,8 +319,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section" id="technical-approach">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Technical Approach</p>
-                    <h2 class="fu-case-section__heading">Technical approach</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Technical approach</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>The implementation stays readable for clients and agencies while still using the right WordPress primitives under the hood.</p>
 
                         <ul class="fu-case-section__list">
@@ -340,9 +340,9 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-system-builder-note__inner">
                     <div class="fu-system-builder-note__content">
                         <p class="fu-eyebrow fu-eyebrow--inverse">Common question</p>
-                        <h2 id="system-builder-note-heading">Reusable components without the page-builder tradeoffs</h2>
-                        <p>Page builders can offer reusable components, global updates, and visual editing workflows. For some projects, that is the right tool. The tradeoff is that they often introduce a larger platform layer: more interface to learn, more generated markup, more plugin dependency, more licensing cost, and more long-term lock-in.</p>
-                        <p>This ACF Block system takes a more focused approach. It turns approved design patterns into reusable WordPress-native components, giving editors the controls they need while keeping structure, markup, styling, and responsive behavior closer to the theme.</p>
+                        <h2 class="fu-section-heading fu-section-heading--feature" id="system-builder-note-heading">Reusable components without the page-builder tradeoffs</h2>
+                        <p class="fu-section-lede">Page builders can offer reusable components, global updates, and visual editing workflows. For some projects, that is the right tool. The tradeoff is that they often introduce a larger platform layer: more interface to learn, more generated markup, more plugin dependency, more licensing cost, and more long-term lock-in.</p>
+                        <p class="fu-section-lede">This ACF Block system takes a more focused approach. It turns approved design patterns into reusable WordPress-native components, giving editors the controls they need while keeping structure, markup, styling, and responsive behavior closer to the theme.</p>
                         <p class="fu-system-builder-note__statement">The difference is not whether reuse is possible. The difference is how much platform overhead the project needs to carry to get there.</p>
                     </div>
 
@@ -374,8 +374,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-case-section__inner">
                     <div class="fu-system-value__header">
                         <p class="fu-eyebrow">Client value</p>
-                        <h2 id="system-value-heading">Why this matters for clients and agencies</h2>
-                        <p>Reusable blocks help clients maintain pages without losing design quality, while giving agencies a cleaner system to document, extend, and hand off.</p>
+                        <h2 class="fu-section-heading fu-section-heading--feature" id="system-value-heading">Why this matters for clients and agencies</h2>
+                        <p class="fu-section-lede">Reusable blocks help clients maintain pages without losing design quality, while giving agencies a cleaner system to document, extend, and hand off.</p>
                     </div>
 
                     <div class="fu-system-value__grid" aria-label="Client and agency value">
@@ -406,8 +406,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-case-section__inner fu-system-fit__inner">
                     <div class="fu-system-fit__intro">
                         <p class="fu-eyebrow fu-eyebrow--inverse">Use cases</p>
-                        <h2 id="system-fit-heading">Where this system fits</h2>
-                        <p>This approach is a good fit for WordPress builds where editors need repeatable page sections, structured content, and safe control after launch.</p>
+                        <h2 class="fu-section-heading fu-section-heading--feature" id="system-fit-heading">Where this system fits</h2>
+                        <p class="fu-section-lede">This approach is a good fit for WordPress builds where editors need repeatable page sections, structured content, and safe control after launch.</p>
                     </div>
 
                     <div class="fu-system-fit__lists" aria-label="Use case groups">

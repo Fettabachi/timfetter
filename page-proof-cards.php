@@ -583,8 +583,8 @@ $proof_cards_demos = array(
                 <section class="fu-case-section" id="problem-purpose">
                     <div class="fu-case-section__inner">
                         <p class="fu-eyebrow">Overview</p>
-                        <h2 class="fu-case-section__heading">From generic testimonials to structured proof</h2>
-                        <div class="fu-case-section__body">
+                        <h2 class="fu-case-section__heading fu-section-heading">From generic testimonials to structured proof</h2>
+                        <div class="fu-case-section__body fu-section-body">
                             <p>Most testimonial sections stop at a quote, name, and title. Proof Cards gives editors a more useful structure: outcome metrics, proof statements, source details, optional images or logos, and links to deeper case studies or reviews.</p>
                             <p>The point is not just attractive cards. It’s a better content model for trust signals, so editors can reuse the same pattern wherever credibility matters.</p>
                         </div>
@@ -597,8 +597,8 @@ $proof_cards_demos = array(
                 <section class="fu-case-section" id="use-cases">
                     <div class="fu-case-section__inner">
                         <p class="fu-eyebrow">Use Cases</p>
-                        <h2 class="fu-case-section__heading">One proof system, multiple use cases</h2>
-                        <div class="fu-case-section__body">
+                        <h2 class="fu-case-section__heading fu-section-heading">One proof system, multiple use cases</h2>
+                        <div class="fu-case-section__body fu-section-body">
                             <p>The same block can support metric-heavy proof, quote-first testimonials, agency handoff notes, and lighter case-study snippets without changing the underlying pattern.</p>
                         </div>
                     </div>
@@ -612,8 +612,8 @@ $proof_cards_demos = array(
                 <section class="fu-case-section fu-proof-cards-bridge" id="use-case-shift">
                     <div class="fu-case-section__inner">
                         <p class="fu-eyebrow">Use Case Shift</p>
-                        <h2 class="fu-case-section__heading">From client feedback to implementation proof</h2>
-                        <div class="fu-case-section__body">
+                        <h2 class="fu-case-section__heading fu-section-heading">From client feedback to implementation proof</h2>
+                        <div class="fu-case-section__body fu-section-body">
                             <p>Proof Cards is not limited to customer quotes. The same structure can highlight measurable outcomes, technical decisions, editor experience, and reusable WordPress architecture.</p>
                         </div>
                     </div>
@@ -625,8 +625,8 @@ $proof_cards_demos = array(
                 <section class="fu-case-section" id="editor-experience">
                     <div class="fu-case-section__inner">
                         <p class="fu-eyebrow">Editor Experience</p>
-                        <h2 class="fu-case-section__heading">Designed around the editor, not just the front end</h2>
-                        <div class="fu-case-section__body">
+                        <h2 class="fu-case-section__heading fu-section-heading">Designed around the editor, not just the front end</h2>
+                        <div class="fu-case-section__body fu-section-body">
                             <p>The first version used a repeater, which made sense for the data model but failed the real editor test: multiple cards became difficult to manage in the Gutenberg sidebar. The final version uses one child block per proof card, giving editors a clearer canvas-level workflow for selecting, editing, duplicating, and reordering proof items.</p>
                             <p>Parent controls handle the section heading, background, layout, and card style. Child blocks hold the proof content itself, including the statement, metrics, source details, links, and optional media or logo support.</p>
                         </div>
@@ -659,8 +659,8 @@ $proof_cards_demos = array(
                 <section class="fu-case-section" id="technical-approach">
                     <div class="fu-case-section__inner">
                         <p class="fu-eyebrow">Technical Notes</p>
-                        <h2 class="fu-case-section__heading">Technical approach</h2>
-                        <div class="fu-case-section__body">
+                        <h2 class="fu-case-section__heading fu-section-heading">Technical approach</h2>
+                        <div class="fu-case-section__body fu-section-body">
                             <p>The implementation uses ACF parent/child blocks, InnerBlocks, structured fields, a limited WYSIWYG statement field, scoped CSS variables, and responsive CSS Grid. It supports optional logos and images, accessible source attribution, and rebrandable styling without requiring JavaScript in v1.</p>
                         </div>
 
@@ -684,8 +684,8 @@ $proof_cards_demos = array(
                 <section class="fu-case-section" id="portfolio-value">
                     <div class="fu-case-section__inner">
                         <p class="fu-eyebrow">Portfolio Value</p>
-                        <h2 class="fu-case-section__heading">Why this matters for clients</h2>
-                        <div class="fu-case-section__body">
+                        <h2 class="fu-case-section__heading fu-section-heading">Why this matters for clients</h2>
+                        <div class="fu-case-section__body fu-section-body">
                             <p>Proof Cards helps clients present testimonials, outcomes, metrics, logos, and source details in a consistent system. Instead of scattering proof across several one-off sections, the same block can adapt to service pages, landing pages, home pages, resource hubs, and case-study previews.</p>
                             <p>That makes the content easier to maintain and the trust signals easier to scan. For teams that need editorial flexibility without layout chaos, the block creates a better publishing pattern from the start.</p>
                         </div>

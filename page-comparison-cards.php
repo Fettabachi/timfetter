@@ -65,8 +65,8 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">The Problem</p>
-                    <h2 class="fu-case-section__heading">Comparison Content Is Common, But Editing It Shouldn't Be Difficult</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Comparison Content Is Common, But Editing It Shouldn't Be Difficult</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Comparison content is everywhere on client sites—pricing tables, membership tiers, service packages, product options. But building it often means asking editors to work inside dense repeater fields, nested tables, or overly rigid pricing layouts that feel disconnected from the actual page content.</p>
 
                         <p>A comparison block needs to be structured enough to stay consistent while still feeling natural for editors to update and expand.</p>
@@ -111,8 +111,8 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">The Approach</p>
-                    <h2 class="fu-case-section__heading">Parent Controls Layout, Each Card Controls Its Own Content</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Parent Controls Layout, Each Card Controls Its Own Content</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Instead of placing every option inside a single repeater, the Comparison Cards block uses a parent/child architecture where:</p>
 
                         <ul class="fu-case-section__list">
@@ -130,8 +130,8 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Editor Experience</p>
-                    <h2 class="fu-case-section__heading">Designed for the Block Canvas, Not a Settings Panel</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Designed for the Block Canvas, Not a Settings Panel</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Instead of using a crowded repeater or a complex settings interface, each comparison option is an individual child block in the canvas. This keeps the editing surface focused and natural.</p>
 
                         <ul class="fu-case-section__list">
@@ -148,8 +148,8 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Accessible Design</p>
-                    <h2 class="fu-case-section__heading">Feature States That Work Without Color Alone</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Feature States That Work Without Color Alone</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>Comparison cards often rely on color to communicate feature inclusion or limitations. This block uses semantic structure and multiple cues:</p>
 
                         <ul class="fu-case-section__list">
@@ -166,8 +166,8 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Technical Highlights</p>
-                    <h2 class="fu-case-section__heading">Built for Scale and Maintainability</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">Built for Scale and Maintainability</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <ul class="fu-case-section__list">
                             <li><strong>ACF parent/child blocks</strong>—InnerBlocks API for native block management.</li>
                             <li><strong>CSS Grid responsive layout</strong>—mobile 1-col, tablet 2-col, desktop 3-col with intentional breakpoints.</li>
@@ -185,8 +185,8 @@ if ($editor_experience_url === '') {
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
                     <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading">A Reusable Comparison System That Works Across Contexts</h2>
-                    <div class="fu-case-section__body">
+                    <h2 class="fu-case-section__heading fu-section-heading">A Reusable Comparison System That Works Across Contexts</h2>
+                    <div class="fu-case-section__body fu-section-body">
                         <p>The result is a comparison block that feels polished on the front end and manageable in the editor. It works for memberships, service tiers, packages, programs, or product options—without locking the client into a rigid pricing-table model.</p>
 
                         <p>The parent/child architecture means editors never have to dig into dense nested fields. Each option is its own block, making comparison content as easy to manage as any other page block.</p>
