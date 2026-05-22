@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media'); ?>>
     <div class="container">
         <div class="entry-content">
             <section id="lead" class="fu-portfolio-piece__lead">
@@ -20,21 +20,6 @@ get_header();
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered section block built to stay balanced with real content. It gives editors meaningful layout flexibility while preventing combinations that weaken the design or responsiveness.</p>
                         </div>
-
-                        <div class="fu-portfolio-piece__meta">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Use Case</span>
-                                <span class="fu-portfolio-piece__meta-value">Content sections, landing pages, calls to action</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">Flexible layout + guided editor controls</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                                <span class="fu-portfolio-piece__meta-value">Constraint-driven flexibility</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="fu-portfolio-piece__lead-media">
@@ -42,6 +27,21 @@ get_header();
                             <img src="http://tim-fetter.local/wp-content/uploads/2026/05/page-flexible-feature-hero.webp" alt="Flexible Feature Section hero example showing content and media working together in a structured layout.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">Designed to handle real copy, responsive layout shifts, and visual variation without losing structure.</p>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Use Case</span>
+                            <span class="fu-portfolio-piece__meta-value">Content sections, landing pages, calls to action</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                            <span class="fu-portfolio-piece__meta-value">Flexible layout + guided editor controls</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Key Strength</span>
+                            <span class="fu-portfolio-piece__meta-value">Constraint-driven flexibility</span>
+                        </div>
                     </div>
                 </div>
             </section>

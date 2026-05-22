@@ -21,7 +21,7 @@ if ($editor_experience_url === '') {
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-comparison-cards-portfolio'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-comparison-cards-portfolio'); ?>>
     <div class="container">
         <div class="entry-content">
 
@@ -33,21 +33,6 @@ if ($editor_experience_url === '') {
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable WordPress comparison block for memberships, service tiers, packages, and product options—built around editor-friendly card blocks, optional pricing, accessible feature states, and responsive layouts.</p>
                         </div>
-
-                        <div class="fu-portfolio-piece__meta">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Use Case</span>
-                                <span class="fu-portfolio-piece__meta-value">Pricing, membership tiers, plan comparisons</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">Parent/child block architecture</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                                <span class="fu-portfolio-piece__meta-value">Canvas editing, no dense repeaters</span>
-                            </div>
-                        </div>
                     </div>
                     <div class="fu-portfolio-piece__lead-media">
                         <figure class="fu-portfolio-piece__lead-figure">
@@ -58,6 +43,21 @@ if ($editor_experience_url === '') {
                         <p class="fu-portfolio-piece__lead-caption">
                             A parent/child block system—built for the canvas, not for nested repeaters—designed to keep comparison content natural to edit while staying visually consistent.
                         </p>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Use Case</span>
+                            <span class="fu-portfolio-piece__meta-value">Pricing, membership tiers, plan comparisons</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                            <span class="fu-portfolio-piece__meta-value">Parent/child block architecture</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Key Strength</span>
+                            <span class="fu-portfolio-piece__meta-value">Canvas editing, no dense repeaters</span>
+                        </div>
                     </div>
                 </div>
             </section>

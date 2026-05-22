@@ -112,175 +112,9 @@ $value_cards = array(
 );
 
 $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-block-system-hero.webp');
-
-wp_add_inline_style(
-    'our-main-styles',
-    <<<CSS
-.fu-acf-block-system-portfolio .fu-portfolio-piece__lead-inner {
-    align-items: center;
-    gap: clamp(1.5rem, 3vw, 2.75rem);
-}
-
-.fu-acf-block-system-portfolio .fu-portfolio-piece__lead-copy,
-.fu-acf-block-system-portfolio .fu-portfolio-piece__lead-media {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.fu-acf-block-system-portfolio .fu-portfolio-piece__lead-copy {
-    max-width: 40rem;
-}
-
-.fu-acf-block-system-portfolio .fu-portfolio-piece__lead-body {
-    max-width: 38rem;
-}
-
-.fu-system-hero__visual {
-    width: 100%;
-    display: grid;
-}
-
-.fu-system-hero__visual-caption {
-    margin: 0.9rem 0 0;
-    color: rgba(13, 59, 102, 0.72);
-    font-size: 0.92rem;
-    line-height: 1.55;
-}
-
-.fu-system-workflow {
-    margin-top: clamp(2.25rem, 1.5rem + 2vw, 3.5rem);
-    padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
-}
-
-.fu-system-workflow__inner {
-    margin: 0 auto;
-    max-width: min(100% - 2rem, 64rem);
-}
-
-.fu-system-workflow__intro {
-    max-width: 52rem;
-    color: rgba(13, 59, 102, 0.82);
-    font-size: clamp(1rem, 0.97rem + 0.2vw, 1.08rem);
-    line-height: 1.7;
-}
-
-.fu-system-workflow__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1.25rem;
-}
-
-.fu-system-workflow__card {
-    padding: 1.15rem 1.1rem 1.2rem;
-    border: 1px solid rgba(13, 59, 102, 0.1);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 10px 22px rgba(13, 59, 102, 0.04);
-}
-
-.fu-system-workflow__number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 2.15rem;
-    height: 2.15rem;
-    margin-bottom: 0.8rem;
-    border-radius: 999px;
-    background: rgba(13, 59, 102, 0.08);
-    color: var(--fu-blue, #0d3b66);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-}
-
-.fu-system-workflow__card h3 {
-    margin: 0 0 0.35rem;
-    color: var(--fu-blue, #0d3b66);
-    font-size: 1.02rem;
-    line-height: 1.25;
-}
-
-.fu-system-workflow__card p {
-    margin: 0;
-    color: rgba(13, 59, 102, 0.78);
-    font-size: 0.94rem;
-    line-height: 1.55;
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card {
-    display: flex;
-    flex-direction: column;
-    color: inherit;
-    text-decoration: none;
-    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card h3 {
-    color: var(--fu-blue, #0d3b66);
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card__action {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    margin-top: auto;
-    padding-top: 1rem;
-    color: var(--fu-blue, #0d3b66);
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    line-height: 1.2;
-    text-transform: uppercase;
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card__arrow {
-    transition: transform 180ms ease;
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card:hover .fu-system-block-card__arrow,
-.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible .fu-system-block-card__arrow {
-    transform: translateX(0.2rem);
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card:hover,
-.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible {
-    border-color: rgba(13, 59, 102, 0.24);
-    box-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
-    transform: translateY(-2px);
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible {
-    outline: 3px solid rgba(13, 59, 102, 0.3);
-    outline-offset: 4px;
-}
-
-.fu-acf-block-system-portfolio .fu-system-block-card--disabled {
-    cursor: default;
-}
-
-@media (max-width: 1024px) {
-    .fu-acf-block-system-portfolio .fu-portfolio-piece__lead-copy,
-    .fu-acf-block-system-portfolio .fu-portfolio-piece__lead-body {
-        max-width: none;
-    }
-
-    .fu-system-workflow__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 760px) {
-    .fu-system-workflow__grid {
-        grid-template-columns: 1fr;
-    }
-}
-CSS
-);
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-acf-block-system-portfolio'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-acf-block-system-portfolio'); ?>>
     <div class="container">
         <div class="entry-content">
 
@@ -294,21 +128,6 @@ CSS
                             <p>A collection of reusable WordPress blocks built around structured content, guided editor controls, responsive layouts, accessible markup, and portable styling.</p>
                             <p>These blocks are designed to help clients and agencies build flexible pages without relying on fragile one-off templates or overwhelming editors with freeform layout decisions.</p>
                         </div>
-
-                        <div class="fu-portfolio-piece__meta" aria-label="System pillars">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">Structured ACF fields and parent/child blocks</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Editor Experience</span>
-                                <span class="fu-portfolio-piece__meta-value">Guided controls and canvas editing</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Front-End Approach</span>
-                                <span class="fu-portfolio-piece__meta-value">Responsive CSS, accessible markup, scoped styles</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="fu-portfolio-piece__lead-media" aria-label="ACF Block System Hero Visual">
@@ -318,6 +137,21 @@ CSS
                             </figure>
 
                             <p class="fu-portfolio-piece__lead-caption">A reusable WordPress block system built around structured content, editor-safe controls, and portable front-end patterns.</p>
+                        </div>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row" aria-label="System pillars">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                            <span class="fu-portfolio-piece__meta-value">Structured ACF fields and parent/child blocks</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Editor Experience</span>
+                            <span class="fu-portfolio-piece__meta-value">Guided controls and canvas editing</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Front-End Approach</span>
+                            <span class="fu-portfolio-piece__meta-value">Responsive CSS, accessible markup, scoped styles</span>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media'); ?>>
     <div class="container">
         <div class="entry-content">
 
@@ -21,21 +21,6 @@ get_header();
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered block for browsing structured content by category with smooth, no-reload filtering. Built to make growing content libraries easier to explore without making the editing experience harder.</p>
                         </div>
-
-                        <div class="fu-portfolio-piece__meta">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Use Case</span>
-                                <span class="fu-portfolio-piece__meta-value">Resource Library</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">CPT + Taxonomy</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                                <span class="fu-portfolio-piece__meta-value">Smooth front-end filtering</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="fu-portfolio-piece__lead-media">
@@ -43,6 +28,21 @@ get_header();
                             <img src="<?php echo esc_url(home_url('/wp-content/uploads/2026/05/page-filtered-content-grid-hero.webp')); ?>" alt="Planning, wireframing, and building process collage for the Filtered Content Grid project.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">Built as a focused WordPress content component: structured data underneath, polished interaction on the front end.</p>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Use Case</span>
+                            <span class="fu-portfolio-piece__meta-value">Resource Library</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                            <span class="fu-portfolio-piece__meta-value">CPT + Taxonomy</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Key Strength</span>
+                            <span class="fu-portfolio-piece__meta-value">Smooth front-end filtering</span>
+                        </div>
                     </div>
                 </div>
             </section>

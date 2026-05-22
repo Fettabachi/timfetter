@@ -21,7 +21,7 @@ if ($editor_experience_url === '') {
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-content-switcher-portfolio'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-content-switcher-portfolio'); ?>>
     <div class="container">
         <div class="entry-content">
 
@@ -44,23 +44,6 @@ if ($editor_experience_url === '') {
                                 without requiring any custom development.
                             </p>
                         </div>
-
-                        <div class="fu-portfolio-piece__meta">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Use Case</span>
-                                <span class="fu-portfolio-piece__meta-value">Tabs, section switchers, audience-based content</span>
-                            </div>
-
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">Structured child panels with guided controls</span>
-                            </div>
-
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                                <span class="fu-portfolio-piece__meta-value">Structured panels with accessible interaction and reusable display styles</span>
-                            </div>
-                        </div>
                     </div>
                     <div class="fu-portfolio-piece__lead-media">
                         <figure class="fu-portfolio-piece__lead-figure">
@@ -72,6 +55,21 @@ if ($editor_experience_url === '') {
                             A reusable content system—not just a tabs block—designed to handle structured information
                             at the component level while keeping editing predictable.
                         </p>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Use Case</span>
+                            <span class="fu-portfolio-piece__meta-value">Tabs, section switchers, audience-based content</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                            <span class="fu-portfolio-piece__meta-value">Structured child panels with guided controls</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Key Strength</span>
+                            <span class="fu-portfolio-piece__meta-value">Structured panels with accessible interaction and reusable display styles</span>
+                        </div>
                     </div>
                 </div>
             </section>

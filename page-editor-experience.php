@@ -26,7 +26,7 @@ if ($portfolio_url === '') {
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-editor-experience'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-editor-experience'); ?>>
     <div class="container">
         <div class="entry-content">
 
@@ -40,20 +40,6 @@ if ($portfolio_url === '') {
                             <p>Reusable WordPress blocks are only successful if the next person can update them confidently. This showcase explains how each block is structured to give editors useful control while protecting layout, accessibility, and design consistency.</p>
                         </div>
 
-                        <div class="fu-portfolio-piece__meta" aria-label="Editor experience summary">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Guided Controls</span>
-                                <span class="fu-portfolio-piece__meta-value">Editors get meaningful choices without needing to understand the code behind the layout.</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Structured Content</span>
-                                <span class="fu-portfolio-piece__meta-value">Blocks are modeled around real content patterns, not just visual sections on a page.</span>
-                            </div>
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Safer Handoff</span>
-                                <span class="fu-portfolio-piece__meta-value">Design, accessibility, and responsive behavior stay protected as content changes over time.</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="fu-portfolio-piece__lead-media" aria-label="Editor Experience &amp; Handoff visual">
@@ -66,6 +52,21 @@ if ($portfolio_url === '') {
                         </figure>
 
                         <p class="fu-portfolio-piece__lead-caption">A visual overview of the block editing experience: guided controls, structured content, protected layout decisions, and the front-end result they support.</p>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row" aria-label="Editor experience summary">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Guided Controls</span>
+                            <span class="fu-portfolio-piece__meta-value">Editors get meaningful choices without needing to understand the code behind the layout.</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Structured Content</span>
+                            <span class="fu-portfolio-piece__meta-value">Blocks are modeled around real content patterns, not just visual sections on a page.</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Safer Handoff</span>
+                            <span class="fu-portfolio-piece__meta-value">Design, accessibility, and responsive behavior stay protected as content changes over time.</span>
+                        </div>
                     </div>
                 </div>
             </section>

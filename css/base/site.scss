@@ -421,6 +421,7 @@ h2 {
 	--fu-home-gutter: 1.5rem;
 	color: var(--fu-text-body);
 	background: var(--fu-surface);
+	padding-block-start: clamp(2rem, 1.5rem + 2vw, 4rem);
 	padding-bottom: clamp(4rem, 8vw, 6.5rem);
 }
 
@@ -428,10 +429,6 @@ h2 {
 	.fu-home {
 		--fu-home-gutter: 1rem;
 	}
-}
-
-.fu-home .entry-content {
-	margin-block-start: 0;
 }
 
 .fu-home__section {
@@ -494,7 +491,7 @@ h2 {
 }
 
 .fu-home__hero {
-	padding-block: clamp(2rem, 4vw, 3.5rem) 1rem;
+	padding-block-end: clamp(1.75rem, 1.25rem + 1.6vw, 3rem);
 }
 
 .fu-home__panel,

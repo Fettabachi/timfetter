@@ -21,7 +21,7 @@ if ($editor_experience_url === '') {
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-page-banner-portfolio'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-page-banner-portfolio'); ?>>
     <div class="container">
         <div class="entry-content">
 
@@ -38,23 +38,6 @@ if ($editor_experience_url === '') {
                                 It supports both video and image backgrounds, overlay and readability controls, and flexible content layout—all within an editor experience that closely reflects the final front-end result.
                             </p>
                         </div>
-
-                        <div class="fu-portfolio-piece__meta">
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Use Case</span>
-                                <span class="fu-portfolio-piece__meta-value">Hero banners, page intros, campaign headers</span>
-                            </div>
-
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">Media-driven layout + guided editor controls</span>
-                            </div>
-
-                            <div class="fu-portfolio-piece__meta-item">
-                                <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                                <span class="fu-portfolio-piece__meta-value">Editor parity with flexible presentation</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="fu-portfolio-piece__lead-media">
@@ -67,6 +50,21 @@ if ($editor_experience_url === '') {
                             Built as a reusable WordPress component with a polished front end, thoughtful defaults,
                             and a stronger editor experience behind the scenes.
                         </p>
+                    </div>
+
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Use Case</span>
+                            <span class="fu-portfolio-piece__meta-value">Hero banners, page intros, campaign headers</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                            <span class="fu-portfolio-piece__meta-value">Media-driven layout + guided editor controls</span>
+                        </div>
+                        <div class="fu-portfolio-piece__meta-item">
+                            <span class="fu-portfolio-piece__meta-label">Key Strength</span>
+                            <span class="fu-portfolio-piece__meta-value">Editor parity with flexible presentation</span>
+                        </div>
                     </div>
                 </div>
             </section>

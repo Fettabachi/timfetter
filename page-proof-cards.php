@@ -541,7 +541,7 @@ $proof_cards_demos = array(
     }
     ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-proof-cards-portfolio'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-proof-cards-portfolio'); ?>>
         <div class="container">
             <div class="entry-content">
 
@@ -554,21 +554,6 @@ $proof_cards_demos = array(
                                 <p>Proof Cards is a structured social proof block for WordPress that helps editors combine testimonials, metrics, client outcomes, logos, and source attribution in one reusable system.</p>
                                 <p>Instead of building one-off testimonial sections, teams can reuse the same pattern wherever proof needs to feel credible and easy to manage.</p>
                             </div>
-
-                            <div class="fu-portfolio-piece__meta">
-                                <div class="fu-portfolio-piece__meta-item">
-                                    <span class="fu-portfolio-piece__meta-label">Use Case</span>
-                                    <span class="fu-portfolio-piece__meta-value">Testimonials, outcomes, client proof</span>
-                                </div>
-                                <div class="fu-portfolio-piece__meta-item">
-                                    <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                    <span class="fu-portfolio-piece__meta-value">Parent/child block architecture</span>
-                                </div>
-                                <div class="fu-portfolio-piece__meta-item">
-                                    <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                                    <span class="fu-portfolio-piece__meta-value">Structured proof, canvas editing</span>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="fu-portfolio-piece__lead-media">
@@ -576,6 +561,21 @@ $proof_cards_demos = array(
                                 <img src="<?php echo esc_url($proof_cards_hero_media_uri); ?>" alt="Proof Cards ACF block planning notebook, implementation code, and WordPress editor preview.">
                             </figure>
                             <p class="fu-portfolio-piece__lead-caption">A parent/child block system for turning quotes, outcomes, metrics, and source details into reusable proof sections.</p>
+                        </div>
+
+                        <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
+                            <div class="fu-portfolio-piece__meta-item">
+                                <span class="fu-portfolio-piece__meta-label">Use Case</span>
+                                <span class="fu-portfolio-piece__meta-value">Testimonials, outcomes, client proof</span>
+                            </div>
+                            <div class="fu-portfolio-piece__meta-item">
+                                <span class="fu-portfolio-piece__meta-label">Content Model</span>
+                                <span class="fu-portfolio-piece__meta-value">Parent/child block architecture</span>
+                            </div>
+                            <div class="fu-portfolio-piece__meta-item">
+                                <span class="fu-portfolio-piece__meta-label">Key Strength</span>
+                                <span class="fu-portfolio-piece__meta-value">Structured proof, canvas editing</span>
+                            </div>
                         </div>
                     </div>
                 </section>
