@@ -69,7 +69,7 @@ $good_fit_points = array(
     ),
     array(
         'title' => 'Prototype-first projects',
-        'summary' => 'Clickable front-end flows before full backend or .NET implementation.',
+        'summary' => 'Clickable front-end flows before full production development.',
     ),
     array(
         'title' => 'Cleanup and ongoing polish',
