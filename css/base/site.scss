@@ -452,7 +452,7 @@ h2 {
 
 .fu-home__section-head {
 	max-width: 46rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: var(--fu-grid-gap-md);
 }
 
 .fu-home__section-heading,
@@ -570,7 +570,7 @@ h2 {
 .fu-home__service-grid,
 .fu-work-grid {
 	display: grid;
-	gap: 1rem;
+	gap: var(--fu-grid-gap-sm);
 }
 
 .fu-home__service-grid {
