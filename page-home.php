@@ -176,7 +176,7 @@ $earlier_work = array(
             <article id="post-<?php the_ID(); ?>" <?php post_class('fu-home'); ?>>
                 <div class="entry-content">
                     <section class="fu-home__hero" id="home-hero">
-                        <div class="fu-home__section-inner fu-home__hero-panel">
+                        <div class="fu-home__section-inner fu-home__hero-panel container container--page">
                             <div class="fu-home__hero-copy">
                                 <p class="fu-home__eyebrow">WordPress support, front-end implementation, and interactive prototypes</p>
                                 <h1 class="fu-home__title">Front-end development for WordPress sites and interactive prototypes.</h1>
@@ -197,7 +197,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__services" aria-labelledby="home-services-heading">
-                        <div class="fu-home__section-inner">
+                        <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
                                 <p class="fu-home__eyebrow">How I can help</p>
                                 <h2 id="home-services-heading">Service lanes</h2>
@@ -220,7 +220,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__fit" aria-labelledby="home-fit-heading">
-                        <div class="fu-home__section-inner fu-home__section-inner--narrow">
+                        <div class="fu-home__section-inner fu-home__section-inner--narrow container container--readable">
                             <div class="fu-home__section-head fu-home__section-head--compact">
                                 <p class="fu-home__eyebrow">A good fit for</p>
                                 <h2 id="home-fit-heading">Reliable front-end help when you need an extra hand</h2>
@@ -241,7 +241,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__recent-work" id="recent-wordpress-systems" aria-labelledby="recent-wordpress-systems-heading">
-                        <div class="fu-home__section-inner">
+                        <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
                                 <p class="fu-home__eyebrow">Recent WordPress systems</p>
                                 <h2 id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
@@ -279,7 +279,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__prototype" aria-labelledby="prototype-heading">
-                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__prototype-panel">
+                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__prototype-panel container container--readable">
                             <div class="fu-home__prototype-copy">
                                 <p class="fu-home__eyebrow">Interactive prototypes before full development</p>
                                 <h2 id="prototype-heading">Prototype support that helps teams validate the idea first</h2>
@@ -292,7 +292,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
-                        <div class="fu-home__section-inner">
+                        <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
                                 <p class="fu-home__eyebrow">Earlier client work</p>
                                 <h2 id="earlier-client-work-heading">Selected previous client work</h2>
@@ -365,7 +365,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
-                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel">
+                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel container container--readable">
                             <div class="fu-home__cta-copy">
                                 <p class="fu-home__eyebrow">Need reliable front-end help?</p>
                                 <h2 id="final-cta-heading">Smaller projects, overflow support, prototype builds, and ongoing site updates.</h2>
