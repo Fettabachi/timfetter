@@ -548,7 +548,7 @@ $proof_cards_demos = array(
                 <section class="fu-portfolio-piece__lead" id="proof-cards-lead">
                     <div class="fu-portfolio-piece__lead-inner">
                         <div class="fu-portfolio-piece__lead-copy">
-                            <p class="fu-case-section__eyebrow">ACF Block Portfolio</p>
+                            <p class="fu-eyebrow">ACF Block Portfolio</p>
                             <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                             <div class="fu-portfolio-piece__lead-body">
                                 <p>Proof Cards is a structured social proof block for WordPress that helps editors combine testimonials, metrics, client outcomes, logos, and source attribution in one reusable system.</p>
@@ -582,7 +582,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-case-section" id="problem-purpose">
                     <div class="fu-case-section__inner">
-                        <p class="fu-case-section__eyebrow">Overview</p>
+                        <p class="fu-eyebrow">Overview</p>
                         <h2 class="fu-case-section__heading">From generic testimonials to structured proof</h2>
                         <div class="fu-case-section__body">
                             <p>Most testimonial sections stop at a quote, name, and title. Proof Cards gives editors a more useful structure: outcome metrics, proof statements, source details, optional images or logos, and links to deeper case studies or reviews.</p>
@@ -596,7 +596,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-case-section" id="use-cases">
                     <div class="fu-case-section__inner">
-                        <p class="fu-case-section__eyebrow">Use Cases</p>
+                        <p class="fu-eyebrow">Use Cases</p>
                         <h2 class="fu-case-section__heading">One proof system, multiple use cases</h2>
                         <div class="fu-case-section__body">
                             <p>The same block can support metric-heavy proof, quote-first testimonials, agency handoff notes, and lighter case-study snippets without changing the underlying pattern.</p>
@@ -611,7 +611,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-case-section fu-proof-cards-bridge" id="use-case-shift">
                     <div class="fu-case-section__inner">
-                        <p class="fu-case-section__eyebrow">Use Case Shift</p>
+                        <p class="fu-eyebrow">Use Case Shift</p>
                         <h2 class="fu-case-section__heading">From client feedback to implementation proof</h2>
                         <div class="fu-case-section__body">
                             <p>Proof Cards is not limited to customer quotes. The same structure can highlight measurable outcomes, technical decisions, editor experience, and reusable WordPress architecture.</p>
@@ -624,7 +624,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-case-section" id="editor-experience">
                     <div class="fu-case-section__inner">
-                        <p class="fu-case-section__eyebrow">Editor Experience</p>
+                        <p class="fu-eyebrow">Editor Experience</p>
                         <h2 class="fu-case-section__heading">Designed around the editor, not just the front end</h2>
                         <div class="fu-case-section__body">
                             <p>The first version used a repeater, which made sense for the data model but failed the real editor test: multiple cards became difficult to manage in the Gutenberg sidebar. The final version uses one child block per proof card, giving editors a clearer canvas-level workflow for selecting, editing, duplicating, and reordering proof items.</p>
@@ -658,7 +658,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-case-section" id="technical-approach">
                     <div class="fu-case-section__inner">
-                        <p class="fu-case-section__eyebrow">Technical Notes</p>
+                        <p class="fu-eyebrow">Technical Notes</p>
                         <h2 class="fu-case-section__heading">Technical approach</h2>
                         <div class="fu-case-section__body">
                             <p>The implementation uses ACF parent/child blocks, InnerBlocks, structured fields, a limited WYSIWYG statement field, scoped CSS variables, and responsive CSS Grid. It supports optional logos and images, accessible source attribution, and rebrandable styling without requiring JavaScript in v1.</p>
@@ -683,7 +683,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-case-section" id="portfolio-value">
                     <div class="fu-case-section__inner">
-                        <p class="fu-case-section__eyebrow">Portfolio Value</p>
+                        <p class="fu-eyebrow">Portfolio Value</p>
                         <h2 class="fu-case-section__heading">Why this matters for clients</h2>
                         <div class="fu-case-section__body">
                             <p>Proof Cards helps clients present testimonials, outcomes, metrics, logos, and source details in a consistent system. Instead of scattering proof across several one-off sections, the same block can adapt to service pages, landing pages, home pages, resource hubs, and case-study previews.</p>
@@ -704,7 +704,7 @@ $proof_cards_demos = array(
 
                 <section class="fu-portfolio-piece__closing">
                     <div class="fu-portfolio-piece__closing-inner">
-                        <p class="fu-case-section__eyebrow">Closing Thought</p>
+                        <p class="fu-eyebrow">Closing Thought</p>
                         <h2 class="fu-portfolio-piece__closing-heading">Need a better way to structure proof content?</h2>
                         <p class="fu-portfolio-piece__closing-body">I build WordPress components that help editors present credibility clearly, reuse content intelligently, and keep the front end consistent.</p>
 

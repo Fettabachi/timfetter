@@ -28,7 +28,7 @@ if ($editor_experience_url === '') {
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
 
                         <div class="fu-portfolio-piece__lead-body">
@@ -71,7 +71,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Overview</p>
+                    <p class="fu-eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading">A More Flexible Banner Without a Messy Editing Experience</h2>
 
                     <div class="fu-case-section__body">
@@ -91,7 +91,7 @@ if ($editor_experience_url === '') {
                     </div>
 
                     <div class="fu-page-banner-portfolio__demo-head">
-                        <p class="fu-case-section__eyebrow">Live Component Preview</p>
+                        <p class="fu-eyebrow">Live Component Preview</p>
                         <h2 class="fu-page-banner-portfolio__demo-heading">Interactive Banner Configurations</h2>
                     </div>
 
@@ -119,7 +119,7 @@ if ($editor_experience_url === '') {
 
             <section id="design-principles" class="fu-principles">
                 <div class="fu-principles__inner">
-                    <p class="fu-principles__eyebrow">Design Principles Behind This Block</p>
+                    <p class="fu-eyebrow">Design Principles Behind This Block</p>
                     <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
 
                     <div class="fu-principles__grid">
@@ -149,7 +149,7 @@ if ($editor_experience_url === '') {
 
             <section id="editor-experience" class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Editor Experience</p>
+                    <p class="fu-eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading">A Better Demo on the Front End, a Broader Toolset in the Editor</h2>
 
                     <div class="fu-case-section__body">
@@ -165,7 +165,7 @@ if ($editor_experience_url === '') {
 
             <section id="implementation" class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Implementation</p>
+                    <p class="fu-eyebrow">Implementation</p>
                     <h2 class="fu-case-section__heading">Flexible Media, Predictable Output</h2>
 
                     <div class="fu-case-section__body">
@@ -182,7 +182,7 @@ if ($editor_experience_url === '') {
 
             <section id="outcome" class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Outcome</p>
+                    <p class="fu-eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">A Reusable Hero Component for Real WordPress Builds</h2>
 
                     <div class="fu-case-section__body">
@@ -209,7 +209,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-portfolio-piece__closing">
                 <div class="fu-portfolio-piece__closing-inner">
-                    <p class="fu-case-section__eyebrow">Closing Thought</p>
+                    <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a flexible banner system that stays consistent and still works well for editors?</h2>
                     <p class="fu-portfolio-piece__closing-body">
                         I build WordPress components that balance front-end presentation with practical editing workflows, so teams can publish with more confidence and fewer layout constraints.

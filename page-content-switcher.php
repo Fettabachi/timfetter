@@ -28,7 +28,7 @@ if ($editor_experience_url === '') {
             <section id="content-switcher-overview" class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
 
                         <div class="fu-portfolio-piece__lead-body">
@@ -76,7 +76,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section" id="overview">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Overview</p>
+                    <p class="fu-eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading">The Problem with Content-Heavy Pages</h2>
 
                     <div class="fu-case-section__body">
@@ -97,7 +97,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-portfolio-piece__demo-panel" id="live-demo">
                 <div class="fu-portfolio-piece__demo-panel-inner">
-                    <p class="fu-case-section__eyebrow">Live Component Preview</p>
+                    <p class="fu-eyebrow">Live Component Preview</p>
 
                     <p class="fu-portfolio-piece__demo-caption">
                         <strong>Try it:</strong> Click the settings button to explore curated front-end controls for display
@@ -133,7 +133,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-principles" id="design-principles">
                 <div class="fu-principles__inner">
-                    <p class="fu-principles__eyebrow">Design Principles</p>
+                    <p class="fu-eyebrow">Design Principles</p>
 
                     <p class="fu-content-switcher-portfolio__principles-intro">
                         Each decision in this block was made to reduce the gap between what an editor can do and what the front end
@@ -172,7 +172,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section" id="editor-experience">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Editor Experience</p>
+                    <p class="fu-eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading">Two Distinct Roles, One Consistent Component</h2>
 
                     <div class="fu-case-section__body">
@@ -199,7 +199,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section" id="implementation">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Implementation</p>
+                    <p class="fu-eyebrow">Implementation</p>
                     <h2 class="fu-case-section__heading">One Component, Multiple Display Modes, Accessible by Architecture</h2>
 
                     <div class="fu-case-section__body">
@@ -251,7 +251,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section" id="outcome">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Outcome</p>
+                    <p class="fu-eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">Less One-Off Work, More Consistent Publishing</h2>
 
                     <div class="fu-case-section__body">
@@ -282,7 +282,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-portfolio-piece__closing">
                 <div class="fu-portfolio-piece__closing-inner">
-                    <p class="fu-case-section__eyebrow">Closing Thought</p>
+                    <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a structured content component that editors can actually use?</h2>
                     <p class="fu-portfolio-piece__closing-body">
                         I build WordPress blocks that solve real content problems — structured panels, accessible interactions, and editor controls that hold up in production.

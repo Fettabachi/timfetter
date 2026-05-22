@@ -80,7 +80,7 @@ $related_resources = new WP_Query($related_args);
             <?php if ($related_resources->have_posts()) : ?>
                 <section class="fu-resource-single__related">
                     <div class="fu-resource-single__related-head">
-                        <p class="fu-resource-single__eyebrow">Related Resources</p>
+                        <p class="fu-eyebrow">Related Resources</p>
                         <h2>You might also find these useful</h2>
                     </div>
 

@@ -16,7 +16,7 @@ get_header();
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered block for browsing structured content by category with smooth, no-reload filtering. Built to make growing content libraries easier to explore without making the editing experience harder.</p>
@@ -49,7 +49,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Overview</p>
+                    <p class="fu-eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading">A Better Way to Browse Structured Content</h2>
                     <div class="fu-case-section__body">
                         <p>As content libraries grow, they often become harder to browse. Category archive pages can feel clunky, and manually curated layouts become difficult to maintain.</p>
@@ -67,7 +67,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Editor Controls</p>
+                    <p class="fu-eyebrow">Editor Controls</p>
                     <h2 class="fu-case-section__heading">Focused Controls Instead of an Overloaded Settings Panel</h2>
                     <div class="fu-case-section__body">
                         <p>The control set was intentionally kept tight: heading, intro text, CTA label, excerpt visibility, item count, and empty-state messaging.</p>
@@ -78,7 +78,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Implementation</p>
+                    <p class="fu-eyebrow">Implementation</p>
                     <h2 class="fu-case-section__heading">Server-Rendered First, Enhanced on the Front End</h2>
                     <div class="fu-case-section__body">
                         <p>The block uses a server-rendered initial state for stability, then enhances the experience with front-end filtering through the WordPress REST API.</p>
@@ -89,7 +89,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Outcome</p>
+                    <p class="fu-eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">Adaptable Beyond This Demo</h2>
                     <div class="fu-case-section__body">
                         <p>This example uses a Resource content model, but the same block pattern can support case studies, service libraries, team directories, or other structured content collections.</p>

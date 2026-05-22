@@ -28,7 +28,7 @@ if ($editor_experience_url === '') {
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable WordPress comparison block for memberships, service tiers, packages, and product options—built around editor-friendly card blocks, optional pricing, accessible feature states, and responsive layouts.</p>
@@ -64,7 +64,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">The Problem</p>
+                    <p class="fu-eyebrow">The Problem</p>
                     <h2 class="fu-case-section__heading">Comparison Content Is Common, But Editing It Shouldn't Be Difficult</h2>
                     <div class="fu-case-section__body">
                         <p>Comparison content is everywhere on client sites—pricing tables, membership tiers, service packages, product options. But building it often means asking editors to work inside dense repeater fields, nested tables, or overly rigid pricing layouts that feel disconnected from the actual page content.</p>
@@ -76,7 +76,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-portfolio-piece__demo-panel" id="live-demo">
                 <div class="fu-portfolio-piece__demo-panel-inner">
-                    <p class="fu-case-section__eyebrow">Live Component Preview</p>
+                    <p class="fu-eyebrow">Live Component Preview</p>
 
                     <p class="fu-portfolio-piece__demo-caption">
                         <strong>Try it:</strong> Click the settings button to preview layout, card style,
@@ -110,7 +110,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">The Approach</p>
+                    <p class="fu-eyebrow">The Approach</p>
                     <h2 class="fu-case-section__heading">Parent Controls Layout, Each Card Controls Its Own Content</h2>
                     <div class="fu-case-section__body">
                         <p>Instead of placing every option inside a single repeater, the Comparison Cards block uses a parent/child architecture where:</p>
@@ -129,7 +129,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Editor Experience</p>
+                    <p class="fu-eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading">Designed for the Block Canvas, Not a Settings Panel</h2>
                     <div class="fu-case-section__body">
                         <p>Instead of using a crowded repeater or a complex settings interface, each comparison option is an individual child block in the canvas. This keeps the editing surface focused and natural.</p>
@@ -147,7 +147,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Accessible Design</p>
+                    <p class="fu-eyebrow">Accessible Design</p>
                     <h2 class="fu-case-section__heading">Feature States That Work Without Color Alone</h2>
                     <div class="fu-case-section__body">
                         <p>Comparison cards often rely on color to communicate feature inclusion or limitations. This block uses semantic structure and multiple cues:</p>
@@ -165,7 +165,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Technical Highlights</p>
+                    <p class="fu-eyebrow">Technical Highlights</p>
                     <h2 class="fu-case-section__heading">Built for Scale and Maintainability</h2>
                     <div class="fu-case-section__body">
                         <ul class="fu-case-section__list">
@@ -184,7 +184,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Outcome</p>
+                    <p class="fu-eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">A Reusable Comparison System That Works Across Contexts</h2>
                     <div class="fu-case-section__body">
                         <p>The result is a comparison block that feels polished on the front end and manageable in the editor. It works for memberships, service tiers, packages, programs, or product options—without locking the client into a rigid pricing-table model.</p>
@@ -206,7 +206,7 @@ if ($editor_experience_url === '') {
 
             <section class="fu-portfolio-piece__closing">
                 <div class="fu-portfolio-piece__closing-inner">
-                    <p class="fu-case-section__eyebrow">Closing Thought</p>
+                    <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a better way to build and manage comparison content?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build WordPress components that make content easier to edit, easier to style, and easier for visitors to understand.</p>
 

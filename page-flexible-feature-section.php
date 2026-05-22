@@ -15,7 +15,7 @@ get_header();
             <section id="lead" class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block</p>
                         <h1 class="fu-portfolio-piece__lead-heading">Flexible Feature Section</h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered section block built to stay balanced with real content. It gives editors meaningful layout flexibility while preventing combinations that weaken the design or responsiveness.</p>
@@ -48,7 +48,7 @@ get_header();
 
             <section id="overview" class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Overview</p>
+                    <p class="fu-eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading">A More Reliable Way to Build Feature Sections</h2>
                     <div class="fu-case-section__body">
                         <p>Feature sections often break down when real content is introduced. Variations in copy length, imagery, and screen size can quickly create imbalance, especially at tablet widths.</p>
@@ -63,7 +63,7 @@ get_header();
 
             <section id="outcome" class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Outcome</p>
+                    <p class="fu-eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">Flexible for Editors, Reliable on the Front End</h2>
                     <div class="fu-case-section__body">
                         <p>This block was built to solve a practical problem: creating flexible content sections that don’t break when real content is introduced. By limiting invalid layout combinations and focusing on predictable behavior, it produces consistent results across a wide range of use cases.</p>
@@ -75,7 +75,7 @@ get_header();
 
             <section class="fu-portfolio-piece__closing">
                 <div class="fu-portfolio-piece__closing-inner">
-                    <p class="fu-case-section__eyebrow">Closing Thought</p>
+                    <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a flexible section system that still feels controlled?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build WordPress components that give editors useful flexibility without sacrificing layout consistency or front-end quality.</p>
 

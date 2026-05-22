@@ -33,7 +33,7 @@ if ($portfolio_url === '') {
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">ACF Block System</p>
+                        <p class="fu-eyebrow">ACF Block System</p>
                         <h1 class="fu-portfolio-piece__lead-heading">Editor Experience &amp; Handoff</h1>
 
                         <div class="fu-portfolio-piece__lead-body">

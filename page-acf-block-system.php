@@ -121,7 +121,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block Portfolio</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block Portfolio</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
 
                         <div class="fu-portfolio-piece__lead-body">
@@ -160,7 +160,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section fu-system-workflow" id="system-workflow" aria-labelledby="system-workflow-heading">
                 <div class="fu-case-section__inner">
                     <div class="fu-system-workflow__header">
-                        <p class="fu-system-workflow__eyebrow">System workflow</p>
+                        <p class="fu-eyebrow">System workflow</p>
                         <h2 id="system-workflow-heading">How the system works</h2>
                         <p>Each block connects four decisions that are often handled separately: the content model, the editor controls, the front-end output, and the way the pattern can be reused.</p>
                     </div>
@@ -189,7 +189,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-system-purpose" id="why-this-system" aria-labelledby="system-purpose-heading">
                 <div class="fu-system-purpose__inner">
                     <div class="fu-system-purpose__content">
-                        <p class="fu-system-purpose__eyebrow">Why this system exists</p>
+                        <p class="fu-eyebrow">Why this system exists</p>
                         <h2 id="system-purpose-heading">Reusable blocks should solve editing problems, not just layout problems.</h2>
                         <p>Clients often need flexible page sections, but the real problem is usually maintaining structure after launch. This block system gives editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
                         <p>It avoids handing editors unlimited layout freedom while still giving them enough control to publish useful, on-brand pages without developer help.</p>
@@ -214,7 +214,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 
             <section class="fu-case-section" id="block-collection">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Block Collection</p>
+                    <p class="fu-eyebrow">Block Collection</p>
                     <h2 class="fu-case-section__heading">The block collection</h2>
                     <div class="fu-case-section__body">
                         <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
@@ -225,14 +225,14 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
                             <?php if ($block_url !== '') : ?>
                                 <a class="fu-principles__item fu-system-block-card" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
-                                    <p class="fu-case-section__eyebrow">Portfolio Piece</p>
+                                    <p class="fu-eyebrow">Portfolio Piece</p>
                                     <h3><?php echo esc_html($block['title']); ?></h3>
                                     <p><?php echo esc_html($block['description']); ?></p>
                                     <span class="fu-system-block-card__action">View case study <span class="fu-system-block-card__arrow" aria-hidden="true">&rarr;</span></span>
                                 </a>
                             <?php else : ?>
                                 <div class="fu-principles__item fu-system-block-card fu-system-block-card--disabled">
-                                    <p class="fu-case-section__eyebrow">Portfolio Piece</p>
+                                    <p class="fu-eyebrow">Portfolio Piece</p>
                                     <h3><?php echo esc_html($block['title']); ?></h3>
                                     <p><?php echo esc_html($block['description']); ?></p>
                                 </div>
@@ -244,7 +244,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 
             <section class="fu-case-section" id="shared-principles">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Shared Principles</p>
+                    <p class="fu-eyebrow">Shared Principles</p>
                     <h2 class="fu-case-section__heading">Shared principles behind the system</h2>
                     <div class="fu-case-section__body">
                         <p>The details change from block to block, but the architecture stays consistent. These principles guide how the system is structured, edited, and maintained.</p>
@@ -291,7 +291,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 
             <section class="fu-case-section" id="editor-experience">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Editor Experience</p>
+                    <p class="fu-eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading">Designed for the person editing the page after launch</h2>
                     <div class="fu-case-section__body">
                         <p>The system is not just about front-end polish. It is built around a manageable workflow for the editor who will keep using it after the handoff.</p>
@@ -305,7 +305,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-system-editor-callout__inner">
                     <a class="fu-system-editor-callout__card" href="<?php echo esc_url($editor_experience_url); ?>">
                         <span class="fu-system-editor-callout__card-heading">
-                            <span class="fu-system-editor-callout__eyebrow">Companion piece</span>
+                            <span class="fu-eyebrow fu-eyebrow--inverse">Companion piece</span>
                             <h2 id="editor-callout-heading">Built for the people who maintain the site</h2>
                         </span>
                         <span class="fu-system-editor-callout__card-body">
@@ -318,7 +318,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 
             <section class="fu-case-section" id="technical-approach">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Technical Approach</p>
+                    <p class="fu-eyebrow">Technical Approach</p>
                     <h2 class="fu-case-section__heading">Technical approach</h2>
                     <div class="fu-case-section__body">
                         <p>The implementation stays readable for clients and agencies while still using the right WordPress primitives under the hood.</p>
@@ -339,7 +339,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-system-builder-note" aria-labelledby="system-builder-note-heading">
                 <div class="fu-system-builder-note__inner">
                     <div class="fu-system-builder-note__content">
-                        <p class="fu-system-builder-note__eyebrow">Common question</p>
+                        <p class="fu-eyebrow fu-eyebrow--inverse">Common question</p>
                         <h2 id="system-builder-note-heading">Reusable components without the page-builder tradeoffs</h2>
                         <p>Page builders can offer reusable components, global updates, and visual editing workflows. For some projects, that is the right tool. The tradeoff is that they often introduce a larger platform layer: more interface to learn, more generated markup, more plugin dependency, more licensing cost, and more long-term lock-in.</p>
                         <p>This ACF Block system takes a more focused approach. It turns approved design patterns into reusable WordPress-native components, giving editors the controls they need while keeping structure, markup, styling, and responsive behavior closer to the theme.</p>
@@ -373,7 +373,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section fu-system-value" id="client-value" aria-labelledby="system-value-heading">
                 <div class="fu-case-section__inner">
                     <div class="fu-system-value__header">
-                        <p class="fu-system-value__eyebrow">Client value</p>
+                        <p class="fu-eyebrow">Client value</p>
                         <h2 id="system-value-heading">Why this matters for clients and agencies</h2>
                         <p>Reusable blocks help clients maintain pages without losing design quality, while giving agencies a cleaner system to document, extend, and hand off.</p>
                     </div>
@@ -405,7 +405,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <section class="fu-case-section fu-system-fit" id="use-cases" aria-labelledby="system-fit-heading">
                 <div class="fu-case-section__inner fu-system-fit__inner">
                     <div class="fu-system-fit__intro">
-                        <p class="fu-system-fit__eyebrow">Use cases</p>
+                        <p class="fu-eyebrow fu-eyebrow--inverse">Use cases</p>
                         <h2 id="system-fit-heading">Where this system fits</h2>
                         <p>This approach is a good fit for WordPress builds where editors need repeatable page sections, structured content, and safe control after launch.</p>
                     </div>
@@ -437,7 +437,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 
             <section class="fu-portfolio-piece__closing">
                 <div class="fu-portfolio-piece__closing-inner">
-                    <p class="fu-case-section__eyebrow">Closing Thought</p>
+                    <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need reusable WordPress blocks built around your content model?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build structured, editor-friendly WordPress components that help clients manage real content without sacrificing design quality, accessibility, or maintainability.</p>
 

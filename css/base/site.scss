@@ -416,38 +416,14 @@ h2 {
 }
 
 .fu-home {
-	--fu-home-container-max: var(--fu-container-page);
-	--fu-home-container-narrow-max: var(--fu-container-readable);
-	--fu-home-gutter: 1.5rem;
 	color: var(--fu-text-body);
 	background: var(--fu-surface);
 	padding-block-start: clamp(2rem, 1.5rem + 2vw, 4rem);
 	padding-bottom: clamp(4rem, 8vw, 6.5rem);
 }
 
-@media (min-width: 80rem) {
-	.fu-home {
-		--fu-home-gutter: 1rem;
-	}
-}
-
 .fu-home__section {
 	padding-block: clamp(2.75rem, 6vw, 4.75rem);
-}
-
-.fu-home__container,
-.fu-home__container--wide,
-.fu-home__section-inner {
-	width: min(100% - (var(--fu-home-gutter) * 2), var(--fu-home-container-max));
-	margin: 0 auto;
-}
-
-.fu-home__container--narrow,
-.fu-home__section-inner--narrow {
-	width: min(
-		100% - (var(--fu-home-gutter) * 2),
-		var(--fu-home-container-narrow-max)
-	);
 }
 
 .fu-home__section-head {
@@ -464,8 +440,8 @@ h2 {
 }
 
 .fu-home__section-copy,
-.fu-home__section-head p:not(.fu-home__eyebrow),
-.fu-home__prototype-copy p:not(.fu-home__eyebrow) {
+.fu-home__section-head p:not(.fu-eyebrow),
+.fu-home__prototype-copy p:not(.fu-eyebrow) {
 	margin: 1rem 0 0;
 	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
@@ -477,17 +453,21 @@ h2 {
 	margin-bottom: 1rem;
 }
 
-.fu-home__eyebrow {
+.fu-eyebrow {
 	display: inline-flex;
 	align-items: center;
 	gap: 0;
-	margin: 0;
 	color: var(--fu-text-muted);
-	font-size: 0.82rem;
+	font-size: 0.8125rem;
 	font-weight: 700;
 	letter-spacing: 0.14em;
 	line-height: 1.2;
+	margin: 0;
 	text-transform: uppercase;
+}
+
+.fu-eyebrow--inverse {
+	color: var(--fu-text-muted-on-inverse);
 }
 
 .fu-home__hero {
@@ -591,8 +571,7 @@ h2 {
 }
 
 .fu-home__services .fu-home__section-head,
-.fu-home__services .fu-home__section-head p,
-.fu-home__services .fu-home__eyebrow {
+.fu-home__services .fu-home__section-head p:not(.fu-eyebrow) {
 	color: rgba(219, 234, 254, 0.88);
 }
 
@@ -659,7 +638,7 @@ h2 {
 	margin: 0 !important;
 }
 
-.fu-home__cta-copy p:not(.fu-home__eyebrow) {
+.fu-home__cta-copy p:not(.fu-eyebrow) {
 	margin: 1rem 0 0;
 	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
@@ -919,10 +898,6 @@ h2 {
 }
 
 @media (max-width: 767px) {
-	.fu-home {
-		--fu-home-gutter: 1.5rem;
-	}
-
 	.fu-home__hero-panel,
 	.fu-home__prototype-panel,
 	.fu-home__cta-panel {

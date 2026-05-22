@@ -3,17 +3,13 @@
 }
 
 .fu-case-section__inner {
-	margin: 0 auto;
-	max-width: min(100% - 2rem, 52rem);
+	width: 100%;
+	max-width: var(--fu-container-readable);
+	margin-inline: auto;
 }
 
-.fu-case-section__eyebrow {
-	color: rgba(13, 59, 102, 0.72);
-	font-size: 0.82rem;
-	font-weight: 800;
-	letter-spacing: 0.14em;
+.fu-case-section .fu-eyebrow {
 	margin: 0 0 0.85rem;
-	text-transform: uppercase;
 }
 
 .fu-case-section__heading {

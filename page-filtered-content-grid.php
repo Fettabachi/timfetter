@@ -16,7 +16,7 @@ get_header();
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-case-section__eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">WordPress / ACF Block</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered block for browsing structured content by category with smooth, no-reload filtering. Built to make growing content libraries easier to explore without making the editing experience harder.</p>
@@ -49,7 +49,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Overview</p>
+                    <p class="fu-eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading">A Better Way to Browse Structured Content</h2>
                     <div class="fu-case-section__body">
                         <p>As content libraries grow, they often become harder to browse. Category archive pages can feel clunky, and manually curated layouts become difficult to maintain.</p>
@@ -67,7 +67,7 @@ get_header();
 
             <section class="fu-principles">
                 <div class="fu-principles__inner">
-                    <p class="fu-principles__eyebrow">Design Principles Behind This Block</p>
+                    <p class="fu-eyebrow">Design Principles Behind This Block</p>
                     <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
 
                     <div class="fu-principles__grid">
@@ -91,7 +91,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Editor Experience</p>
+                    <p class="fu-eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading">Editors Don’t Need a Complex Settings Panel to Use This</h2>
                     <div class="fu-case-section__body">
                         <p>The block focuses on a small set of meaningful controls: heading, intro text, CTA label, excerpt visibility, item count, and empty-state messaging.</p>
@@ -103,7 +103,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Implementation</p>
+                    <p class="fu-eyebrow">Implementation</p>
                     <h2 class="fu-case-section__heading">Stable First Load, Enhanced Interaction</h2>
                     <div class="fu-case-section__body">
                         <p>The grid is server-rendered on initial load to ensure consistent output and avoid layout shifts. From there, filtering is handled on the front end using the WordPress REST API.</p>
@@ -115,7 +115,7 @@ get_header();
 
             <section class="fu-case-section">
                 <div class="fu-case-section__inner">
-                    <p class="fu-case-section__eyebrow">Outcome</p>
+                    <p class="fu-eyebrow">Outcome</p>
                     <h2 class="fu-case-section__heading">Reusable Across Real Content Systems</h2>
                     <div class="fu-case-section__body">
                         <p>This block was built to improve how structured content is browsed, without adding complexity to how it’s managed. By combining a clear content model with fast front-end filtering, it produces a smoother experience for both editors and users.</p>
@@ -127,7 +127,7 @@ get_header();
 
             <section class="fu-portfolio-piece__closing">
                 <div class="fu-portfolio-piece__closing-inner">
-                    <p class="fu-case-section__eyebrow">Closing Thought</p>
+                    <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a better way to organize and browse structured content?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build WordPress components that make content easier to manage, easier to scale, and easier for visitors to use.</p>
 

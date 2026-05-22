@@ -178,7 +178,7 @@ $earlier_work = array(
                     <section class="fu-home__hero" id="home-hero">
                         <div class="fu-home__section-inner fu-home__hero-panel container container--page">
                             <div class="fu-home__hero-copy">
-                                <p class="fu-home__eyebrow">WordPress support, front-end implementation, and interactive prototypes</p>
+                                <p class="fu-eyebrow">WordPress support, front-end implementation, and interactive prototypes</p>
                                 <h1 class="fu-home__title">Front-end development for WordPress sites and interactive prototypes.</h1>
                                 <p class="fu-home__lede">I help agencies and small businesses turn designs, content needs, and early product ideas into clean, responsive web experiences - from maintainable WordPress builds to HTML/CSS/JS prototypes clients can review before full development.</p>
 
@@ -199,7 +199,7 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__services" aria-labelledby="home-services-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
-                                <p class="fu-home__eyebrow">How I can help</p>
+                                <p class="fu-eyebrow fu-eyebrow--inverse">How I can help</p>
                                 <h2 id="home-services-heading">Service lanes</h2>
                             </div>
 
@@ -222,7 +222,7 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__fit" aria-labelledby="home-fit-heading">
                         <div class="fu-home__section-inner fu-home__section-inner--narrow container container--readable">
                             <div class="fu-home__section-head fu-home__section-head--compact">
-                                <p class="fu-home__eyebrow">A good fit for</p>
+                                <p class="fu-eyebrow">A good fit for</p>
                                 <h2 id="home-fit-heading">Reliable front-end help when you need an extra hand</h2>
                             </div>
 
@@ -243,7 +243,7 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__recent-work" id="recent-wordpress-systems" aria-labelledby="recent-wordpress-systems-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
-                                <p class="fu-home__eyebrow">Recent WordPress systems</p>
+                                <p class="fu-eyebrow">Recent WordPress systems</p>
                                 <h2 id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
                                 <p>These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
                             </div>
@@ -281,7 +281,7 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__prototype" aria-labelledby="prototype-heading">
                         <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__prototype-panel container container--readable">
                             <div class="fu-home__prototype-copy">
-                                <p class="fu-home__eyebrow">Interactive prototypes before full development</p>
+                                <p class="fu-eyebrow">Interactive prototypes before full development</p>
                                 <h2 id="prototype-heading">Prototype support that helps teams validate the idea first</h2>
                                 <p>I can build HTML/CSS/JS prototypes, clickable flows, and front-end proof-of-concepts that agencies or teams can review, test, and show to clients before senior developers rebuild the product in .NET or another backend stack.</p>
                                 <div class="fu-home__prototype-actions">
@@ -294,7 +294,7 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
-                                <p class="fu-home__eyebrow">Earlier client work</p>
+                                <p class="fu-eyebrow">Earlier client work</p>
                                 <h2 id="earlier-client-work-heading">Selected previous client work</h2>
                                 <p>Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
                             </div>
@@ -367,7 +367,7 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
                         <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel container container--readable">
                             <div class="fu-home__cta-copy">
-                                <p class="fu-home__eyebrow">Need reliable front-end help?</p>
+                                <p class="fu-eyebrow">Need reliable front-end help?</p>
                                 <h2 id="final-cta-heading">Smaller projects, overflow support, prototype builds, and ongoing site updates.</h2>
                                 <p>I’m available for smaller projects, agency overflow support, WordPress improvements, prototype builds, and ongoing site updates.</p>
                             </div>
