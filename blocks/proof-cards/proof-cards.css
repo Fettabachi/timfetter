@@ -191,7 +191,11 @@
 	);
 	--pc-featured-shadow: 0 20px 46px rgba(0, 0, 0, 0.28),
 		0 1px 0 rgba(255, 255, 255, 0.05) inset;
-	--pc-quote-accent: color-mix(in srgb, var(--pc-color-muted-light) 55%, transparent);
+	--pc-quote-accent: color-mix(
+		in srgb,
+		var(--pc-color-muted-light) 55%,
+		transparent
+	);
 }
 
 /* Dark + card style overrides */
@@ -264,7 +268,6 @@
 
 .fu-proof-cards__heading {
 	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-	font-weight: 700;
 	color: var(--pc-section-text);
 	line-height: 1.15;
 	margin: 0 0 var(--fu-space-sm);
@@ -628,7 +631,6 @@
 /* --------------------------------------------------------------------------
    Quote treatment modifier
    -------------------------------------------------------------------------- */
-
 
 .fu-proof-card--is-quote .fu-proof-card__statement-inner {
 	padding-inline-start: clamp(0.875rem, 1.5vw, 1.1rem);

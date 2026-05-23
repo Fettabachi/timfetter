@@ -20,6 +20,11 @@ get_header();
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered block for browsing structured content by category with smooth, no-reload filtering. Built to make growing content libraries easier to explore without making the editing experience harder.</p>
+                            <ul class="fu-portfolio-piece__lead-points">
+                                <li>CPT and taxonomy structure instead of hard-coded content groups</li>
+                                <li>No-reload filtering that keeps the page feeling fast</li>
+                                <li>Responsive card layouts designed for growing content libraries</li>
+                            </ul>
                         </div>
                     </div>
 

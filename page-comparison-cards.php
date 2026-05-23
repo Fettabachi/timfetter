@@ -32,6 +32,11 @@ if ($editor_experience_url === '') {
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable WordPress comparison block for memberships, service tiers, packages, and product options—built around editor-friendly card blocks, optional pricing, accessible feature states, and responsive layouts.</p>
+                            <ul class="fu-portfolio-piece__lead-points">
+                                <li>Parent/child card structure instead of dense repeater fields</li>
+                                <li>Optional pricing and feature states without rigid table markup</li>
+                                <li>Responsive comparison layouts that stay readable on small screens</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="fu-portfolio-piece__lead-media">

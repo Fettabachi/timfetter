@@ -38,6 +38,10 @@ if ($portfolio_url === '') {
 
                         <div class="fu-portfolio-piece__lead-body">
                             <p>Reusable WordPress blocks are only successful if the next person can update them confidently. This showcase explains how each block is structured to give editors useful control while protecting layout, accessibility, and design consistency.</p>
+                            <ul class="fu-portfolio-piece__lead-points">
+                                <li>Clear editing boundaries for content and layout decisions</li>
+                                <li>Reusable patterns that reduce one-off fixes after launch</li>
+                            </ul>
                         </div>
 
                     </div>
@@ -83,7 +87,7 @@ if ($portfolio_url === '') {
                 </div>
             </section>
 
-            <section class="fu-case-section" id="safe-change-boundaries">
+            <section class="fu-case-section fu-editor-safety--dark" id="safe-change-boundaries">
                 <div class="fu-case-section__inner">
                     <h2 class="fu-case-section__heading fu-section-heading">What editors can safely change</h2>
 

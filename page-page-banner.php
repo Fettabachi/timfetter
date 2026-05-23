@@ -37,6 +37,10 @@ if ($editor_experience_url === '') {
 
                                 It supports both video and image backgrounds, overlay and readability controls, and flexible content layout—all within an editor experience that closely reflects the final front-end result.
                             </p>
+                            <ul class="fu-portfolio-piece__lead-points">
+                                <li>Image and video backgrounds with readability controls</li>
+                                <li>Editor-safe alignment, overlay, and focal-point options</li>
+                            </ul>
                         </div>
                     </div>
 

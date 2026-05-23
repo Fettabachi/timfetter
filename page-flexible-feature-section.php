@@ -19,6 +19,11 @@ get_header();
                         <h1 class="fu-portfolio-piece__lead-heading">Flexible Feature Section</h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered section block built to stay balanced with real content. It gives editors meaningful layout flexibility while preventing combinations that weaken the design or responsiveness.</p>
+                            <ul class="fu-portfolio-piece__lead-points">
+                                <li>Guided layout options instead of open-ended design decisions</li>
+                                <li>Responsive media/text combinations that stay balanced</li>
+                                <li>Editor controls that protect spacing, readability, and hierarchy</li>
+                            </ul>
                         </div>
                     </div>
 
