@@ -1921,12 +1921,23 @@
 }
 
 /* Editor Experience & Handoff page */
-.fu-editor-experience__handoff-grid,
-.fu-editor-experience__examples-grid {
+.fu-editor-experience__handoff-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: clamp(1rem, 2vw, 1.25rem);
 	margin-top: 1.35rem;
+}
+
+.fu-editor-experience__examples-grid {
+	margin-top: 1.35rem;
+}
+
+#example-blocks .fu-case-section__inner {
+	max-width: none;
+}
+
+#example-blocks .fu-editor-experience__examples-head {
+	max-width: 46rem;
 }
 
 .fu-editor-experience__handoff-card {
@@ -2123,90 +2134,8 @@
 	color: var(--fu-text-body-portfolio);
 }
 
-.fu-editor-experience__example-card {
-	display: flex;
-	flex-direction: column;
-	min-width: 0;
-	min-height: 100%;
-	padding: clamp(1.1rem, 2vw, 1.35rem);
-	border: 1px solid rgba(13, 59, 102, 0.14);
-	border-radius: 16px;
-	background: linear-gradient(
-		180deg,
-		rgba(255, 255, 255, 0.98),
-		rgba(248, 251, 254, 0.96)
-	);
-	color: var(--fu-blue);
-	text-decoration: none;
-	box-shadow: 0 10px 28px rgba(13, 59, 102, 0.06);
-	transition: transform 180ms ease, border-color 180ms ease,
-		box-shadow 180ms ease;
-}
-
-.fu-editor-experience__example-card:hover,
-.fu-editor-experience__example-card:focus-visible {
-	border-color: rgba(13, 59, 102, 0.28);
-	box-shadow: 0 18px 42px rgba(13, 59, 102, 0.12);
-	transform: translateY(-2px);
-}
-
-.fu-editor-experience__example-card:focus-visible {
-	outline: 3px solid rgba(13, 59, 102, 0.28);
-	outline-offset: 4px;
-}
-
-.fu-editor-experience__example-kicker {
-	display: inline-flex;
-	align-self: flex-start;
-	margin-bottom: 0.7rem;
-	padding: 0.22rem 0.62rem;
-	border: 1px solid rgba(13, 59, 102, 0.22);
-	border-radius: 999px;
-	background: rgba(13, 59, 102, 0.06);
-	color: rgba(13, 59, 102, 0.86);
-	font-size: 0.72rem;
-	font-weight: 800;
-	letter-spacing: 0.05em;
-	line-height: 1.2;
-	text-transform: uppercase;
-}
-
-.fu-editor-experience__example-title {
-	margin: 0 0 0.55rem;
-	color: var(--fu-blue);
-	font-size: clamp(1.2rem, 1rem + 0.65vw, 1.55rem);
-	line-height: 1.15;
-}
-
-.fu-editor-experience__example-card p {
-	margin: 0;
-	color: var(--fu-text-body-portfolio);
-	line-height: 1.55;
+.fu-editor-experience__example-card .fu-work-card__text {
 	overflow-wrap: anywhere;
-}
-
-.fu-editor-experience__example-link {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.35rem;
-	margin-top: auto;
-	padding-top: 1.15rem;
-	color: var(--fu-blue);
-	font-size: 0.8rem;
-	font-weight: 800;
-	letter-spacing: 0.06em;
-	line-height: 1.2;
-	text-transform: uppercase;
-}
-
-.fu-editor-experience__example-arrow {
-	transition: transform 180ms ease;
-}
-
-.fu-editor-experience__example-card:hover .fu-editor-experience__example-arrow,
-.fu-editor-experience__example-card:focus-visible
-	.fu-editor-experience__example-arrow {
-	transform: translateX(0.18rem);
 }
 
 .fu-editor-experience__value-grid {
@@ -2289,9 +2218,20 @@
 }
 
 @media (max-width: 860px) {
-	.fu-editor-experience__examples-grid,
 	.fu-editor-experience__handoff-grid {
 		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 768px) {
+	.fu-editor-experience__examples-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 1100px) {
+	.fu-editor-experience__examples-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }
 

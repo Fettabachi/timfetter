@@ -189,36 +189,80 @@ if ($portfolio_url === '') {
             </section>
 
             <section class="fu-case-section" id="example-blocks">
-                <div class="fu-case-section__inner">
-                    <h2 class="fu-case-section__heading fu-section-heading">Examples from the block system</h2>
+                <div class="fu-case-section__inner container container--page">
+                    <div class="fu-editor-experience__examples-head">
+                        <p class="fu-eyebrow">Block system examples</p>
+                        <h2 class="fu-section-heading">Examples from the block system</h2>
+                        <p class="fu-section-lede">These examples show how the same block-system approach supports reusable layouts, safer editing, and consistent front-end presentation across different content patterns.</p>
+                    </div>
 
-                    <div class="fu-editor-experience__examples-grid" aria-label="Example block cards">
-                        <a class="fu-editor-experience__example-card" href="<?php echo esc_url($page_banner_url !== '' ? $page_banner_url : home_url('/page-banner/')); ?>" aria-label="View case study: Page Banner">
-                            <span class="fu-editor-experience__example-kicker">Guided field controls</span>
-                            <h3 class="fu-editor-experience__example-title">Page Banner</h3>
-                            <p>Editors can adjust media, overlay, alignment, and visibility options while the block protects readability and responsive behavior.</p>
-                            <span class="fu-editor-experience__example-link">View case study <span class="fu-editor-experience__example-arrow" aria-hidden="true">&rarr;</span></span>
+                    <div class="fu-editor-experience__examples-grid fu-work-grid" aria-label="Example block cards">
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($page_banner_url !== '' ? $page_banner_url : home_url('/page-banner/')); ?>" aria-label="View case study: Page Banner">
+                            <div class="fu-editor-experience__example-media fu-work-card__media">
+                                <img
+                                    src="<?php echo esc_url(content_url('/uploads/2026/05/page-banner-hero-600x450.webp')); ?>"
+                                    alt=""
+                                    loading="lazy"
+                                    width="600"
+                                    height="450">
+                            </div>
+                            <div class="fu-editor-experience__example-body fu-work-card__body">
+                                <span class="fu-editor-experience__example-kicker fu-work-card__kicker">Guided field controls</span>
+                                <h3 class="fu-editor-experience__example-title fu-work-card__title">Page Banner</h3>
+                                <p class="fu-work-card__text">Editors can adjust media, overlay, alignment, and visibility options while the block protects readability and responsive behavior.</p>
+                                <span class="fu-editor-experience__example-link fu-work-card__link">View case study</span>
+                            </div>
                         </a>
 
-                        <a class="fu-editor-experience__example-card" href="<?php echo esc_url($content_switcher_url !== '' ? $content_switcher_url : home_url('/content-switcher/')); ?>" aria-label="View case study: Content Switcher">
-                            <span class="fu-editor-experience__example-kicker">Parent/child blocks</span>
-                            <h3 class="fu-editor-experience__example-title">Content Switcher</h3>
-                            <p>Editors manage structured panels while the block handles tab behavior, deep links, keyboard support, and mobile fallback.</p>
-                            <span class="fu-editor-experience__example-link">View case study <span class="fu-editor-experience__example-arrow" aria-hidden="true">&rarr;</span></span>
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($content_switcher_url !== '' ? $content_switcher_url : home_url('/content-switcher/')); ?>" aria-label="View case study: Content Switcher">
+                            <div class="fu-editor-experience__example-media fu-work-card__media">
+                                <img
+                                    src="<?php echo esc_url(content_url('/uploads/2026/05/page-switcher-hero-600x450.webp')); ?>"
+                                    alt=""
+                                    loading="lazy"
+                                    width="600"
+                                    height="450">
+                            </div>
+                            <div class="fu-editor-experience__example-body fu-work-card__body">
+                                <span class="fu-editor-experience__example-kicker fu-work-card__kicker">Parent/child blocks</span>
+                                <h3 class="fu-editor-experience__example-title fu-work-card__title">Content Switcher</h3>
+                                <p class="fu-work-card__text">Editors manage structured panels while the block handles tab behavior, deep links, keyboard support, and mobile fallback.</p>
+                                <span class="fu-editor-experience__example-link fu-work-card__link">View case study</span>
+                            </div>
                         </a>
 
-                        <a class="fu-editor-experience__example-card" href="<?php echo esc_url($comparison_cards_url !== '' ? $comparison_cards_url : home_url('/comparison-cards/')); ?>" aria-label="View case study: Comparison Cards">
-                            <span class="fu-editor-experience__example-kicker">Parent/child blocks</span>
-                            <h3 class="fu-editor-experience__example-title">Comparison Cards</h3>
-                            <p>Editors manage individual comparison cards, optional pricing, and grouped features while the layout remains consistent.</p>
-                            <span class="fu-editor-experience__example-link">View case study <span class="fu-editor-experience__example-arrow" aria-hidden="true">&rarr;</span></span>
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($comparison_cards_url !== '' ? $comparison_cards_url : home_url('/comparison-cards/')); ?>" aria-label="View case study: Comparison Cards">
+                            <div class="fu-editor-experience__example-media fu-work-card__media">
+                                <img
+                                    src="<?php echo esc_url(content_url('/uploads/2026/05/page-comparison-cards-hero-600x450.webp')); ?>"
+                                    alt=""
+                                    loading="lazy"
+                                    width="600"
+                                    height="450">
+                            </div>
+                            <div class="fu-editor-experience__example-body fu-work-card__body">
+                                <span class="fu-editor-experience__example-kicker fu-work-card__kicker">Parent/child blocks</span>
+                                <h3 class="fu-editor-experience__example-title fu-work-card__title">Comparison Cards</h3>
+                                <p class="fu-work-card__text">Editors manage individual comparison cards, optional pricing, and grouped features while the layout remains consistent.</p>
+                                <span class="fu-editor-experience__example-link fu-work-card__link">View case study</span>
+                            </div>
                         </a>
 
-                        <a class="fu-editor-experience__example-card" href="<?php echo esc_url($proof_cards_url !== '' ? $proof_cards_url : home_url('/proof-cards/')); ?>" aria-label="View case study: Proof Cards">
-                            <span class="fu-editor-experience__example-kicker">Parent/child blocks</span>
-                            <h3 class="fu-editor-experience__example-title">Proof Cards</h3>
-                            <p>Editors manage testimonials, results, metrics, source details, and optional media without inventing a new layout each time.</p>
-                            <span class="fu-editor-experience__example-link">View case study <span class="fu-editor-experience__example-arrow" aria-hidden="true">&rarr;</span></span>
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($proof_cards_url !== '' ? $proof_cards_url : home_url('/proof-cards/')); ?>" aria-label="View case study: Proof Cards">
+                            <div class="fu-editor-experience__example-media fu-work-card__media">
+                                <img
+                                    src="<?php echo esc_url(content_url('/uploads/2026/05/page-proof-cards-hero-600x450.webp')); ?>"
+                                    alt=""
+                                    loading="lazy"
+                                    width="600"
+                                    height="450">
+                            </div>
+                            <div class="fu-editor-experience__example-body fu-work-card__body">
+                                <span class="fu-editor-experience__example-kicker fu-work-card__kicker">Parent/child blocks</span>
+                                <h3 class="fu-editor-experience__example-title fu-work-card__title">Proof Cards</h3>
+                                <p class="fu-work-card__text">Editors manage testimonials, results, metrics, source details, and optional media without inventing a new layout each time.</p>
+                                <span class="fu-editor-experience__example-link fu-work-card__link">View case study</span>
+                            </div>
                         </a>
                     </div>
                 </div>
