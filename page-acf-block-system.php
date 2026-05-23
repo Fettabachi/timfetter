@@ -436,7 +436,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             </section>
 
             <section class="fu-portfolio-piece__closing">
-                <div class="fu-cta-panel--dark--x fu-portfolio-piece__closing-inner fu-cta-panel">
+                <div class="fu-cta-panel--dark fu-cta-panel--dark--x fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need reusable WordPress blocks built around your content model?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build structured, editor-friendly WordPress components that help clients manage real content without sacrificing design quality, accessibility, or maintainability.</p>

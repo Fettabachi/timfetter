@@ -205,7 +205,7 @@ if ($editor_experience_url === '') {
             </section>
 
             <section class="fu-portfolio-piece__closing">
-                <div class="fu-portfolio-piece__closing-inner fu-cta-panel">
+                <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a better way to build and manage comparison content?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build WordPress components that make content easier to edit, easier to style, and easier for visitors to understand.</p>

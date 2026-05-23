@@ -123,7 +123,9 @@ if ($portfolio_url === '') {
                         <p>Some blocks only need a focused set of fields. Others work better when each item becomes its own child block. The goal is to choose the editing model that makes future updates clearer, safer, and easier to maintain.</p>
                     </div>
 
-                    <p class="fu-editor-experience__model-statement"><strong>I choose the editing model based on how someone will maintain the content later, not just how the front end looks.</strong></p>
+                    <div class="fu-card--is-quote">
+                        <p class="fu-editor-experience__model-statement">I choose the editing model based on how someone will maintain the content later, not just how the front end looks.</p>
+                    </div>
 
                     <div class="fu-editor-experience__model-grid" aria-label="Editing model options">
                         <article class="fu-editor-experience__model-card">
@@ -297,7 +299,7 @@ if ($portfolio_url === '') {
             </section>
 
             <section class="fu-portfolio-piece__closing" id="editor-experience-cta">
-                <div class="fu-portfolio-piece__closing-inner fu-cta-panel">
+                <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <h2 class="fu-portfolio-piece__closing-heading">A block system that lasts beyond launch</h2>
                     <p class="fu-portfolio-piece__closing-body">The same structure that makes these blocks reusable also makes them easier to hand off, document, and extend.</p>
 

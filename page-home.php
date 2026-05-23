@@ -176,7 +176,7 @@ $earlier_work = array(
             <article id="post-<?php the_ID(); ?>" <?php post_class('fu-home'); ?>>
                 <div class="entry-content">
                     <section class="fu-home__hero" id="home-hero">
-                        <div class="fu-home__section-inner fu-home__hero-panel container container--page">
+                        <div class="fu-home__section-inner fu-home__hero-panel container">
                             <div class="fu-home__hero-copy">
                                 <p class="fu-eyebrow">WordPress support, front-end implementation, and interactive prototypes</p>
                                 <h1 class="fu-home__title">Front-end development for WordPress sites and interactive prototypes.</h1>

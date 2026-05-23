@@ -529,7 +529,7 @@ h2 {
 
 h3 {
   font-size: 1.75em;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--fu-text-heading);
   margin-top: 32px;
   margin-bottom: 1px;
@@ -2580,7 +2580,6 @@ html :where(.editor-styles-wrapper) {
   color: var(--fu-blue);
   font-family: "Raleway", sans-serif;
   font-size: clamp(2.4rem, 2.583vw + 1.795rem, 4rem);
-  font-weight: 500;
   line-height: 0.97;
   letter-spacing: -0.02em;
   /* max-width: 10ch; */
@@ -2897,7 +2896,6 @@ html :where(.editor-styles-wrapper) {
   margin: 0 0 0.5rem;
   color: #fff;
   font-size: clamp(1.1rem, 1rem + 0.5vw, 1.45rem);
-  font-weight: 800;
   line-height: 1.15;
   text-wrap: pretty;
 }
@@ -3777,7 +3775,6 @@ html :where(.editor-styles-wrapper) {
 }
 .fu-portfolio-piece--hero-media .fu-portfolio-piece__lead-heading {
   margin: 0.9rem 0 0.95rem;
-  font-weight: 400;
   letter-spacing: -0.03em;
 }
 .fu-portfolio-piece--hero-media .fu-portfolio-piece__lead .fu-eyebrow {
@@ -4026,15 +4023,28 @@ html :where(.editor-styles-wrapper) {
   flex-shrink: 0;
 }
 
-.fu-editor-experience__model-statement {
+.fu-card--is-quote {
+  --pc-quote-accent: color-mix(in srgb, #d2dae3 55%, transparent);
   margin: 1rem 0 1.25rem;
-  padding: 0.9rem 1rem;
-  border-left: 4px solid var(--fu-blue);
-  border-radius: 8px;
-  background: rgba(13, 59, 102, 0.06);
-  color: rgba(13, 59, 102, 0.92);
+  margin: clamp(2.5rem, 6vw, 4.5rem) -3rem;
+  padding-inline-start: clamp(0.875rem, 1.5vw, 1.1rem);
+  padding: clamp(0.875rem, 1.5vw, 1.1rem);
+  background: linear-gradient(135deg, #08233f 0%, #0d3b66 52%, #061827 100%);
+  border-radius: 12px;
+}
+@media (max-width: 940px) {
+  .fu-card--is-quote {
+    margin: clamp(2rem, 8vw, 4rem) 0;
+  }
+}
+
+.fu-editor-experience__model-statement {
+  padding-left: clamp(0.875rem, 1.5vw, 0.5rem);
+  color: var(--fu-white);
+  border-inline-start: 2px solid var(--pc-quote-accent);
   font-size: clamp(1.05rem, 1rem + 0.25vw, 1.18rem);
   line-height: 1.5;
+  font-weight: 300;
 }
 
 .fu-editor-experience__model-grid {
@@ -4252,6 +4262,7 @@ html :where(.editor-styles-wrapper) {
   justify-content: center;
   gap: 1rem;
   height: 2.25rem;
+  width: 2.25rem;
   margin-bottom: 0.6rem;
   border-radius: 50%;
   background: rgba(13, 59, 102, 0.08);
