@@ -365,14 +365,14 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
-                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel container container--readable">
+                        <div class="fu-cta-panel--dark fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel fu-cta-panel container">
                             <div class="fu-home__cta-copy">
                                 <p class="fu-eyebrow">Need reliable front-end help?</p>
                                 <h2 id="final-cta-heading">Smaller projects, overflow support, prototype builds, and ongoing site updates.</h2>
                                 <p>I’m available for smaller projects, agency overflow support, WordPress improvements, prototype builds, and ongoing site updates.</p>
                             </div>
 
-                            <div class="fu-home__cta-actions">
+                            <div class="fu-home__cta-actions fu-cta-panel__actions">
                                 <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
                                 <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#recent-wordpress-systems">View Recent Work</a>
                             </div>

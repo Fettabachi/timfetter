@@ -205,12 +205,12 @@ if ($editor_experience_url === '') {
             </section>
 
             <section class="fu-portfolio-piece__closing">
-                <div class="fu-portfolio-piece__closing-inner">
+                <div class="fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a better way to build and manage comparison content?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build WordPress components that make content easier to edit, easier to style, and easier for visitors to understand.</p>
 
-                    <div class="fu-portfolio-piece__actions">
+                    <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">Back to Portfolio</a>
                     </div>

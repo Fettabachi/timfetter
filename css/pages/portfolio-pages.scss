@@ -412,8 +412,7 @@
 }
 
 .fu-portfolio-piece__lead-inner,
-.fu-portfolio-piece__demo-panel-inner,
-.fu-portfolio-piece__closing-inner {
+.fu-portfolio-piece__demo-panel-inner {
 	border: 1px solid var(--fu-border);
 	border-radius: 28px;
 	background: rgba(255, 255, 255, 0.92);
@@ -529,30 +528,8 @@
 	/* text-wrap-style: balance; */
 }
 
-.fu-portfolio-piece__demo-panel .fu-eyebrow,
-.fu-portfolio-piece__closing .fu-eyebrow {
+.fu-portfolio-piece__demo-panel .fu-eyebrow {
 	margin: 0 0 0.85rem;
-}
-
-.fu-portfolio-piece__closing-inner {
-	padding: clamp(1.4rem, 3vw, 2rem);
-	background: linear-gradient(
-		135deg,
-		rgba(13, 59, 102, 0.06) 0%,
-		rgba(255, 255, 255, 0.95) 45%,
-		rgba(255, 255, 255, 0.92) 100%
-	);
-}
-
-.fu-portfolio-piece__closing-heading {
-	margin: 0.75rem 0 0.65rem;
-	color: var(--fu-blue);
-	font-family: "Raleway", sans-serif;
-	font-size: clamp(2rem, 4vw, 3.05rem);
-	font-weight: 600;
-	line-height: 1;
-	letter-spacing: -0.02em;
-	max-width: 24ch;
 }
 
 .fu-portfolio-piece__actions {

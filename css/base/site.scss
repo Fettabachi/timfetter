@@ -478,14 +478,103 @@ h2 {
 	color: var(--fu-text-muted-on-inverse);
 }
 
+/* ---- Reusable CTA Panel ---- */
+
+.fu-cta-panel {
+	padding: clamp(1.4rem, 3vw, 2.35rem);
+	border: 1px solid var(--fu-border);
+	border-radius: 28px;
+	background: var(--fu-surface);
+	box-shadow: var(--fu-shadow-panel);
+}
+
+.fu-cta-panel .fu-eyebrow {
+	margin: 0 0 0.75rem;
+}
+
+.fu-cta-panel h2 {
+	margin: 0 0 0.65rem;
+	color: var(--fu-text-heading);
+	font-family: "Raleway", sans-serif;
+	font-size: clamp(2rem, 3.5vw, 2.8rem);
+	font-weight: 300;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	max-width: 32ch;
+}
+
+.fu-cta-panel p:not(.fu-eyebrow) {
+	margin: 0.65rem 0 0;
+	color: var(--fu-text-muted);
+	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.08rem);
+	line-height: 1.65;
+	text-wrap: pretty;
+	max-width: 90ch;
+}
+
+.fu-cta-panel__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9rem;
+	margin-top: 1.5rem;
+}
+
+/* Dark mode */
+.fu-cta-panel--dark {
+	background: linear-gradient(135deg, #08233f 0%, #0d3b66 52%, #061827 100%);
+	border-color: rgba(255, 255, 255, 0.14);
+	box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+}
+
+.fu-cta-panel--dark .fu-eyebrow {
+	color: rgba(255, 255, 255, 0.84);
+}
+
+.fu-cta-panel--dark h2 {
+	color: var(--fu-text-on-inverse);
+}
+
+.fu-cta-panel--dark p:not(.fu-eyebrow) {
+	color: var(--fu-text-muted-on-inverse);
+}
+
+.fu-cta-panel--dark .fu-portfolio-piece__button--primary {
+	background: var(--fu-white);
+	border-color: var(--fu-white);
+	color: var(--fu-surface-inverse);
+	box-shadow: var(--fu-shadow-panel);
+}
+
+.fu-cta-panel--dark .fu-portfolio-piece__button--primary:hover,
+.fu-cta-panel--dark .fu-portfolio-piece__button--primary:focus-visible {
+	background: var(--fu-white);
+	border-color: var(--fu-white);
+	color: var(--fu-surface-inverse);
+}
+
+.fu-cta-panel--dark .fu-portfolio-piece__button--secondary {
+	background: transparent;
+	border-color: var(--fu-white);
+	color: var(--fu-text-on-inverse);
+}
+
+.fu-cta-panel.fu-cta-panel--dark .fu-portfolio-piece__button--secondary:hover,
+.fu-cta-panel.fu-cta-panel--dark
+	.fu-portfolio-piece__button--secondary:focus-visible {
+	background: transparent;
+	border-color: var(--fu-white);
+	color: var(--fu-text-on-inverse);
+}
+
+/* ---- End Reusable CTA Panel ---- */
+
 .fu-home__hero {
 	padding-block-end: clamp(1.75rem, 1.25rem + 1.6vw, 3rem);
 }
 
 .fu-home__panel,
 .fu-home__hero-panel,
-.fu-home__prototype-panel,
-.fu-home__cta-panel {
+.fu-home__prototype-panel {
 	padding: clamp(1.4rem, 3vw, 2.35rem);
 	border: 1px solid var(--fu-border);
 	border-radius: 30px;
@@ -515,7 +604,6 @@ h2 {
 }
 
 .fu-home__actions,
-.fu-home__cta-actions,
 .fu-home__prototype-actions {
 	display: flex;
 	flex-wrap: wrap;
@@ -533,6 +621,12 @@ h2 {
 	background: var(--fu-button-secondary-bg-hover);
 	border-color: var(--fu-button-secondary-border);
 	color: var(--fu-button-secondary-text);
+}
+
+.fu-home .fu-cta-panel--dark .fu-portfolio-piece__button--secondary {
+	background: transparent;
+	border-color: var(--fu-white);
+	color: var(--fu-text-on-inverse);
 }
 
 .fu-home__resume-link {
@@ -636,22 +730,9 @@ h2 {
 
 .fu-home__card-text,
 .fu-home__service-summary,
-.fu-work-card__text,
-.fu-home__cta-copy p {
+.fu-work-card__text {
 	color: var(--fu-text-muted);
 	line-height: 1.7;
-}
-
-.fu-home__cta-copy h2 {
-	margin: 0 !important;
-}
-
-.fu-home__cta-copy p:not(.fu-eyebrow) {
-	margin: 1rem 0 0;
-	color: var(--fu-text-muted);
-	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
-	line-height: 1.65;
-	text-wrap: pretty;
 }
 
 .fu-home__service-summary {
@@ -860,12 +941,8 @@ h2 {
 	margin-top: 1rem;
 }
 
-.fu-home__prototype-panel,
-.fu-home__cta-panel {
-	display: block;
-}
-
 .fu-home__prototype-panel {
+	display: block;
 	background: linear-gradient(
 		135deg,
 		rgba(255, 255, 255, 0.95) 0%,
@@ -873,17 +950,11 @@ h2 {
 	);
 }
 
-.fu-home__cta-panel {
-	background: var(--fu-surface);
-}
-
-.fu-home__cta-panel .fu-home__cta-copy p:last-child,
 .fu-home__prototype-copy p:last-child {
 	margin-bottom: 0;
 }
 
-.fu-home__prototype-actions,
-.fu-home__cta-actions {
+.fu-home__prototype-actions {
 	margin-top: 1.35rem;
 }
 
@@ -907,8 +978,7 @@ h2 {
 
 @media (max-width: 767px) {
 	.fu-home__hero-panel,
-	.fu-home__prototype-panel,
-	.fu-home__cta-panel {
+	.fu-home__prototype-panel {
 		border-radius: 24px;
 	}
 

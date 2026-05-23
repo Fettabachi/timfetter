@@ -297,11 +297,11 @@ if ($portfolio_url === '') {
             </section>
 
             <section class="fu-portfolio-piece__closing" id="editor-experience-cta">
-                <div class="fu-portfolio-piece__closing-inner">
+                <div class="fu-portfolio-piece__closing-inner fu-cta-panel">
                     <h2 class="fu-portfolio-piece__closing-heading">A block system that lasts beyond launch</h2>
                     <p class="fu-portfolio-piece__closing-body">The same structure that makes these blocks reusable also makes them easier to hand off, document, and extend.</p>
 
-                    <div class="fu-portfolio-piece__actions">
+                    <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <?php if ($acf_block_system_url !== '') : ?>
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url($acf_block_system_url); ?>">View the ACF Block System</a>
                         <?php endif; ?>

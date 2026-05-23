@@ -703,12 +703,12 @@ $proof_cards_demos = array(
                 </section>
 
                 <section class="fu-portfolio-piece__closing">
-                    <div class="fu-portfolio-piece__closing-inner">
+                    <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                         <p class="fu-eyebrow">Closing Thought</p>
                         <h2 class="fu-portfolio-piece__closing-heading">Need a better way to structure proof content?</h2>
                         <p class="fu-portfolio-piece__closing-body">I build WordPress components that help editors present credibility clearly, reuse content intelligently, and keep the front end consistent.</p>
 
-                        <div class="fu-portfolio-piece__actions">
+                        <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">Back to Portfolio</a>
                         </div>

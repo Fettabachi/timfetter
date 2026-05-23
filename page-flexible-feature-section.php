@@ -74,12 +74,12 @@ get_header();
             </section>
 
             <section class="fu-portfolio-piece__closing">
-                <div class="fu-portfolio-piece__closing-inner">
+                <div class="fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a flexible section system that still feels controlled?</h2>
                     <p class="fu-portfolio-piece__closing-body">I build WordPress components that give editors useful flexibility without sacrificing layout consistency or front-end quality.</p>
 
-                    <div class="fu-portfolio-piece__actions">
+                    <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">Back to Portfolio</a>
                     </div>
