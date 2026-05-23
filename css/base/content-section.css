@@ -1,15 +1,30 @@
+.fu-content-section,
 .fu-case-section {
 	padding-block: clamp(3rem, 2.2rem + 3vw, 5.5rem);
 }
 
+.fu-content-section__inner,
 .fu-case-section__inner {
 	width: 100%;
 	max-width: var(--fu-container-readable);
 	margin-inline: auto;
 }
 
+.fu-content-section__inner {
+	max-width: none;
+}
+
+.fu-content-section .fu-eyebrow,
 .fu-case-section .fu-eyebrow {
 	margin: 0 0 0.85rem;
+}
+
+.fu-section-head {
+	max-width: 46rem;
+}
+
+.fu-section-head + * {
+	margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .fu-section-heading,
@@ -80,8 +95,13 @@
 
 /* Add space between stacked sections */
 .fu-feature-section + .fu-feature-section,
+.fu-feature-section + .fu-content-section,
 .fu-feature-section + .fu-case-section,
+.fu-content-section + .fu-feature-section,
 .fu-case-section + .fu-feature-section,
+.fu-content-section + .fu-content-section,
+.fu-content-section + .fu-case-section,
+.fu-case-section + .fu-content-section,
 .fu-case-section + .fu-case-section {
 	/* margin-top: clamp(1.5rem, 1.871vw + 1.061rem, 2.5rem); */
 	margin-top: 0;

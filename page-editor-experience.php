@@ -188,9 +188,9 @@ if ($portfolio_url === '') {
                 </div>
             </section>
 
-            <section class="fu-case-section" id="example-blocks">
-                <div class="fu-case-section__inner container container--page">
-                    <div class="fu-editor-experience__examples-head">
+            <section class="fu-content-section" id="example-blocks">
+                <div class="fu-content-section__inner container container--page">
+                    <div class="fu-section-head">
                         <p class="fu-eyebrow">Block system examples</p>
                         <h2 class="fu-section-heading">Examples from the block system</h2>
                         <p class="fu-section-lede">These examples show how the same block-system approach supports reusable layouts, safer editing, and consistent front-end presentation across different content patterns.</p>

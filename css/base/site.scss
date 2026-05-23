@@ -819,6 +819,7 @@ h2 {
 .fu-work-grid {
 	gap: var(--fu-grid-gap-md);
 	grid-template-columns: 1fr;
+	margin-top: clamp(1.5rem, 3vw, 2rem);
 }
 
 .fu-work-card {

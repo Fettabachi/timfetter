@@ -1747,61 +1747,38 @@
 
 /* ACF Block System: page-specific extras (block collection cards only) */
 .fu-acf-block-system-portfolio {
+	#block-collection .fu-content-section__inner,
+	#block-collection .fu-case-section__inner {
+		max-width: none;
+	}
+
+	/* .fu-system-block-grid {
+		margin-top: 0;
+	} */
+
 	.fu-system-block-card {
-		display: flex;
-		flex-direction: column;
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.fu-system-block-card:visited {
 		color: inherit;
 	}
 
-	.fu-system-block-card__action {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		width: fit-content;
-		margin-top: auto;
-		padding-top: clamp(1rem, 2vw, 1.35rem);
-		color: var(--fu-blue);
-		font-size: 0.82rem;
-		font-weight: 800;
-		letter-spacing: 0.04em;
-		line-height: 1.2;
-		text-decoration: none;
-		text-transform: uppercase;
-	}
-
-	.fu-system-block-card:visited .fu-system-block-card__action {
-		color: var(--fu-blue);
-	}
-
-	.fu-system-block-card__arrow {
-		display: inline-block;
-		transition: transform 180ms ease;
-	}
-
-	.fu-system-block-card:hover,
-	.fu-system-block-card:focus-visible {
-		border-color: rgba(13, 59, 102, 0.24);
-		box-shadow: var(--fu-shadow-card-hover);
-		transform: translateY(-2px);
-	}
-
-	.fu-system-block-card:hover .fu-system-block-card__arrow,
-	.fu-system-block-card:focus-visible .fu-system-block-card__arrow {
-		transform: translateX(0.2rem);
-	}
-
-	.fu-system-block-card:focus-visible {
-		outline: 3px solid rgba(13, 59, 102, 0.3);
-		outline-offset: 4px;
+	.fu-system-block-card .fu-work-card__text {
+		overflow-wrap: anywhere;
 	}
 
 	.fu-system-block-card--disabled {
 		cursor: default;
+		opacity: 0.92;
+	}
+}
+
+@media (min-width: 768px) {
+	.fu-system-block-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 1100px) {
+	.fu-system-block-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
 
@@ -1929,15 +1906,12 @@
 }
 
 .fu-editor-experience__examples-grid {
-	margin-top: 1.35rem;
+	margin-top: 0;
 }
 
+#example-blocks .fu-content-section__inner,
 #example-blocks .fu-case-section__inner {
 	max-width: none;
-}
-
-#example-blocks .fu-editor-experience__examples-head {
-	max-width: 46rem;
 }
 
 .fu-editor-experience__handoff-card {

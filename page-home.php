@@ -240,9 +240,9 @@ $earlier_work = array(
                         </div>
                     </section>
 
-                    <section class="fu-home__section fu-home__recent-work" id="recent-wordpress-systems" aria-labelledby="recent-wordpress-systems-heading">
-                        <div class="fu-home__section-inner container container--page">
-                            <div class="fu-home__section-head">
+                    <section class="fu-content-section fu-home__recent-work" id="recent-wordpress-systems" aria-labelledby="recent-wordpress-systems-heading">
+                        <div class="fu-content-section__inner container container--page">
+                            <div class="fu-section-head">
                                 <p class="fu-eyebrow">Recent WordPress systems</p>
                                 <h2 class="fu-section-heading" id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
                                 <p class="fu-section-lede">These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
@@ -293,10 +293,10 @@ $earlier_work = array(
 
                     <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
                         <div class="fu-home__section-inner container container--page">
-                            <div class="fu-home__section-head">
+                            <div class="fu-section-head">
                                 <p class="fu-eyebrow">Earlier client work</p>
-                                <h2 id="earlier-client-work-heading">Selected previous client work</h2>
-                                <p>Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
+                                <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected previous client work</h2>
+                                <p class="fu-section-lede">Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
                             </div>
 
                             <div class="fu-home__legacy-grid fu-work-grid">

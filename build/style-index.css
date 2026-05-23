@@ -109,18 +109,33 @@ button {
   -webkit-appearance: button;
 }
 
+.fu-content-section,
 .fu-case-section {
   padding-block: clamp(3rem, 2.2rem + 3vw, 5.5rem);
 }
 
+.fu-content-section__inner,
 .fu-case-section__inner {
   width: 100%;
   max-width: var(--fu-container-readable);
   margin-inline: auto;
 }
 
+.fu-content-section__inner {
+  max-width: none;
+}
+
+.fu-content-section .fu-eyebrow,
 .fu-case-section .fu-eyebrow {
   margin: 0 0 0.85rem;
+}
+
+.fu-section-head {
+  max-width: 46rem;
+}
+
+.fu-section-head + * {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .fu-section-heading,
@@ -191,8 +206,13 @@ button {
 
 /* Add space between stacked sections */
 .fu-feature-section + .fu-feature-section,
+.fu-feature-section + .fu-content-section,
 .fu-feature-section + .fu-case-section,
+.fu-content-section + .fu-feature-section,
 .fu-case-section + .fu-feature-section,
+.fu-content-section + .fu-content-section,
+.fu-content-section + .fu-case-section,
+.fu-case-section + .fu-content-section,
 .fu-case-section + .fu-case-section {
   /* margin-top: clamp(1.5rem, 1.871vw + 1.061rem, 2.5rem); */
   margin-top: 0;
@@ -1232,6 +1252,7 @@ h2 {
 .fu-work-grid {
   gap: var(--fu-grid-gap-md);
   grid-template-columns: 1fr;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
 }
 
 .fu-work-card {
@@ -3810,56 +3831,36 @@ html :where(.editor-styles-wrapper) {
 }
 
 /* ACF Block System: page-specific extras (block collection cards only) */
+.fu-acf-block-system-portfolio {
+  /* .fu-system-block-grid {
+  	margin-top: 0;
+  } */
+}
+.fu-acf-block-system-portfolio #block-collection .fu-content-section__inner,
+.fu-acf-block-system-portfolio #block-collection .fu-case-section__inner {
+  max-width: none;
+}
 .fu-acf-block-system-portfolio .fu-system-block-card {
-  display: flex;
-  flex-direction: column;
-  color: inherit;
-  text-decoration: none;
-}
-.fu-acf-block-system-portfolio .fu-system-block-card:visited {
   color: inherit;
 }
-.fu-acf-block-system-portfolio .fu-system-block-card__action {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-top: auto;
-  padding-top: clamp(1rem, 2vw, 1.35rem);
-  color: var(--fu-blue);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.fu-acf-block-system-portfolio .fu-system-block-card:visited .fu-system-block-card__action {
-  color: var(--fu-blue);
-}
-.fu-acf-block-system-portfolio .fu-system-block-card__arrow {
-  display: inline-block;
-  transition: transform 180ms ease;
-}
-.fu-acf-block-system-portfolio .fu-system-block-card:hover,
-.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible {
-  border-color: rgba(13, 59, 102, 0.24);
-  box-shadow: var(--fu-shadow-card-hover);
-  transform: translateY(-2px);
-}
-.fu-acf-block-system-portfolio .fu-system-block-card:hover .fu-system-block-card__arrow,
-.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible .fu-system-block-card__arrow {
-  transform: translateX(0.2rem);
-}
-.fu-acf-block-system-portfolio .fu-system-block-card:focus-visible {
-  outline: 3px solid rgba(13, 59, 102, 0.3);
-  outline-offset: 4px;
+.fu-acf-block-system-portfolio .fu-system-block-card .fu-work-card__text {
+  overflow-wrap: anywhere;
 }
 .fu-acf-block-system-portfolio .fu-system-block-card--disabled {
   cursor: default;
+  opacity: 0.92;
 }
 
+@media (min-width: 768px) {
+  .fu-system-block-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .fu-system-block-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 @media (max-width: 860px) {
   .fu-portfolio-piece--hero-media .fu-portfolio-piece__lead-inner {
     grid-template-columns: 1fr;
@@ -3968,15 +3969,12 @@ html :where(.editor-styles-wrapper) {
 }
 
 .fu-editor-experience__examples-grid {
-  margin-top: 1.35rem;
+  margin-top: 0;
 }
 
+#example-blocks .fu-content-section__inner,
 #example-blocks .fu-case-section__inner {
   max-width: none;
-}
-
-#example-blocks .fu-editor-experience__examples-head {
-  max-width: 46rem;
 }
 
 .fu-editor-experience__handoff-card {

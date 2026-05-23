@@ -24,31 +24,37 @@ $block_collection = array(
     array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
+        'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
         'description' => 'Media-driven page banners with image and video backgrounds, overlay controls, and editor-friendly readability settings.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
+        'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
         'description' => 'A reusable media and text layout for service sections, feature callouts, and content-led landing page sections.',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
+        'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
         'description' => 'A CPT and taxonomy-powered resource grid with smooth no-reload filtering and a structured content model.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
+        'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
         'description' => 'A parent/child panel system with tabs, pills, vertical layouts, mobile fallback, deep links, and keyboard support.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
+        'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
         'description' => 'Editor-friendly comparison cards for pricing, memberships, service tiers, and product options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
+        'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
         'description' => 'Structured social proof cards for testimonials, outcomes, metrics, source details, and credibility signals.',
     ),
 );
@@ -212,29 +218,51 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 </div>
             </section>
 
-            <section class="fu-case-section" id="block-collection">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Block Collection</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
+            <section class="fu-content-section" id="block-collection">
+                <div class="fu-content-section__inner container container--page">
+                    <div class="fu-section-head">
+                        <p class="fu-eyebrow">Block Collection</p>
+                        <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
+                        <div class="fu-case-section__body fu-section-body">
+                            <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
+                        </div>
                     </div>
 
-                    <div class="fu-principles__grid" aria-label="Portfolio block examples">
+                    <div class="fu-system-block-grid fu-work-grid" aria-label="Portfolio block examples">
                         <?php foreach ($block_collection as $block) : ?>
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
                             <?php if ($block_url !== '') : ?>
-                                <a class="fu-principles__item fu-system-block-card" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
-                                    <p class="fu-eyebrow">Portfolio Piece</p>
-                                    <h3><?php echo esc_html($block['title']); ?></h3>
-                                    <p><?php echo esc_html($block['description']); ?></p>
-                                    <span class="fu-system-block-card__action">View case study <span class="fu-system-block-card__arrow" aria-hidden="true">&rarr;</span></span>
+                                <a class="fu-system-block-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
+                                    <div class="fu-system-block-card__media fu-work-card__media">
+                                        <img
+                                            src="<?php echo esc_url(content_url($block['image'])); ?>"
+                                            alt=""
+                                            loading="lazy"
+                                            width="600"
+                                            height="450">
+                                    </div>
+                                    <div class="fu-system-block-card__body fu-work-card__body">
+                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                        <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
+                                        <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
+                                        <span class="fu-system-block-card__action fu-work-card__link">View case study</span>
+                                    </div>
                                 </a>
                             <?php else : ?>
-                                <div class="fu-principles__item fu-system-block-card fu-system-block-card--disabled">
-                                    <p class="fu-eyebrow">Portfolio Piece</p>
-                                    <h3><?php echo esc_html($block['title']); ?></h3>
-                                    <p><?php echo esc_html($block['description']); ?></p>
+                                <div class="fu-system-block-card fu-work-card fu-system-block-card--disabled">
+                                    <div class="fu-system-block-card__media fu-work-card__media">
+                                        <img
+                                            src="<?php echo esc_url(content_url($block['image'])); ?>"
+                                            alt=""
+                                            loading="lazy"
+                                            width="600"
+                                            height="450">
+                                    </div>
+                                    <div class="fu-system-block-card__body fu-work-card__body">
+                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                        <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
+                                        <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
+                                    </div>
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
