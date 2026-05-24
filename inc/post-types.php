@@ -18,6 +18,11 @@ function tf_portfolio_items_register_post_type()
             'not_found_in_trash' => 'No portfolio items found in Trash'
         ),
         'public' => true,
+        'has_archive' => 'work',
+        'rewrite' => array(
+            'slug' => 'work',
+            'with_front' => false,
+        ),
         'supports' => array(
             'title',
             'editor',
