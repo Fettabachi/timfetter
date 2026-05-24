@@ -364,39 +364,6 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 </div>
             </section>
 
-            <section class="fu-system-builder-note" aria-labelledby="system-builder-note-heading">
-                <div class="fu-system-builder-note__inner">
-                    <div class="fu-system-builder-note__content">
-                        <p class="fu-eyebrow fu-eyebrow--inverse">Common question</p>
-                        <h2 class="fu-section-heading fu-section-heading--feature" id="system-builder-note-heading">Reusable components without the page-builder tradeoffs</h2>
-                        <p class="fu-section-lede">Page builders can offer reusable components, global updates, and visual editing workflows. For some projects, that is the right tool. The tradeoff is that they often introduce a larger platform layer: more interface to learn, more generated markup, more plugin dependency, more licensing cost, and more long-term lock-in.</p>
-                        <p class="fu-section-lede">This ACF Block system takes a more focused approach. It turns approved design patterns into reusable WordPress-native components, giving editors the controls they need while keeping structure, markup, styling, and responsive behavior closer to the theme.</p>
-                        <p class="fu-system-builder-note__statement">The difference is not whether reuse is possible. The difference is how much platform overhead the project needs to carry to get there.</p>
-                    </div>
-
-                    <div class="fu-system-builder-note__comparison" aria-label="Page builder and ACF block comparison">
-                        <div class="fu-system-builder-note__group">
-                            <h3>Page builders are useful when</h3>
-                            <ul>
-                                <li>Teams need broad visual composition tools</li>
-                                <li>Designers or editors need to assemble many layouts visually</li>
-                                <li>Global builder components are already part of the workflow</li>
-                                <li>The project accepts the platform tradeoffs</li>
-                            </ul>
-                        </div>
-
-                        <div class="fu-system-builder-note__group">
-                            <h3>ACF Blocks are useful when</h3>
-                            <ul>
-                                <li>The site needs reusable components without a full builder layer</li>
-                                <li>The editing experience should be simpler and more guided</li>
-                                <li>Markup, performance, and theme control matter</li>
-                                <li>The client wants fewer dependencies and less lock-in</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <section class="fu-case-section fu-system-value" id="client-value" aria-labelledby="system-value-heading">
                 <div class="fu-case-section__inner">
@@ -430,35 +397,50 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 </div>
             </section>
 
-            <section class="fu-case-section fu-system-fit" id="use-cases" aria-labelledby="system-fit-heading">
-                <div class="fu-case-section__inner fu-system-fit__inner">
-                    <div class="fu-system-fit__intro">
-                        <p class="fu-eyebrow fu-eyebrow--inverse">Use cases</p>
-                        <h2 class="fu-section-heading fu-section-heading--feature" id="system-fit-heading">Where this system fits</h2>
-                        <p class="fu-section-lede">This approach is a good fit for WordPress builds where editors need repeatable page sections, structured content, and safe control after launch.</p>
+            <section class="fu-content-section fu-system-fit" id="use-cases" aria-labelledby="system-fit-heading">
+                <div class="fu-content-section__inner container container--page">
+                    <div class="fu-section-head">
+                        <p class="fu-eyebrow">Common question</p>
+                        <h2 class="fu-section-heading" id="system-fit-heading">Where this system fits</h2>
+                        <p class="fu-section-lede">Different WordPress projects need different editing models. I work across page builders, ACF Blocks, and custom block approaches depending on how much freedom, structure, and editor engineering the project actually needs.</p>
                     </div>
 
-                    <div class="fu-system-fit__lists" aria-label="Use case groups">
-                        <div class="fu-system-fit__group">
-                            <h3>Best for</h3>
+                    <div class="fu-system-fit__grid" aria-label="Decision comparison for editing models">
+                        <article class="fu-system-fit__card">
+                            <h3>Page builders are useful when</h3>
                             <ul>
-                                <li>Service business websites</li>
-                                <li>Agency-built marketing sites</li>
-                                <li>Resource libraries</li>
-                                <li>Landing pages</li>
-                                <li>Membership and pricing pages</li>
-                                <li>Case-study and testimonial sections</li>
+                                <li>Teams need broad visual composition tools</li>
+                                <li>Designers or editors need to assemble many layout variations</li>
+                                <li>Global builder components are already part of the workflow</li>
+                                <li>The project accepts the platform tradeoffs</li>
                             </ul>
-                        </div>
+                        </article>
 
-                        <div class="fu-system-fit__group">
-                            <h3>Especially useful when</h3>
+                        <article class="fu-system-fit__card">
+                            <h3>ACF Blocks are useful when</h3>
                             <ul>
-                                <li>Editors need to add content after launch</li>
-                                <li>Layout consistency matters</li>
-                                <li>The site needs reusable patterns instead of one-off sections</li>
+                                <li>The site needs reusable components without a full builder layer</li>
+                                <li>Editors need guided fields and a block preview that stays close to the final page</li>
+                                <li>The front-end pattern is the important part</li>
+                                <li>Markup, performance, and theme control matter</li>
+                                <li>The client wants fewer dependencies and less long-term lock-in</li>
                             </ul>
-                        </div>
+                        </article>
+
+                        <article class="fu-system-fit__card">
+                            <h3>Custom Gutenberg blocks are useful when</h3>
+                            <ul>
+                                <li>The editor UI needs custom React behavior</li>
+                                <li>The block has complex state, interactions, or nested editing logic</li>
+                                <li>The block belongs in a reusable plugin or product</li>
+                                <li>The editing experience needs to differ significantly from standard field controls</li>
+                                <li>Long-term JavaScript maintenance is part of the plan</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="fu-card--is-quote fu-card--is-quote-light fu-card--breakout fu-system-fit__quote">
+                        <p class="fu-system-fit__quote-statement">The choice is not ACF Blocks versus Gutenberg. The choice is how much custom editor engineering the project actually needs.</p>
                     </div>
                 </div>
             </section>
