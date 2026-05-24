@@ -262,8 +262,8 @@ if (!$portfolio_archive_url) {
                     </div>
                 <?php endif; ?>
 
-                <div class="fu-section-body">
-                    <p><a class="fu-work-card__link" href="<?php echo esc_url($portfolio_archive_url); ?>">Back to Work</a></p>
+                <div class="fu-section-body fu-portfolio-single__back">
+                    <p><a class="fu-work-card__link fu-portfolio-single__back-link" href="<?php echo esc_url($portfolio_archive_url); ?>">Back to Work</a></p>
                 </div>
             </div>
         </section>
