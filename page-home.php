@@ -142,22 +142,22 @@ $earlier_work = array(
     array(
         'title' => 'Omni Hotels & Resorts',
         'slug' => 'omni-hotels-resorts',
-        'summary' => 'WordPress builds, custom templates, responsive implementation, and front-end support for hospitality work.',
+        'summary' => 'Front-end implementation, CMS updates, reusable templates, and production support for hospitality site work inside an established team workflow.',
     ),
     array(
         'title' => 'National University',
         'slug' => 'national-university',
-        'summary' => 'Structured page builds and responsive implementation for a higher-education client with a large content surface.',
+        'summary' => 'Responsive front-end implementation, CMS/page-builder updates, and reusable page support across a large higher-education content surface.',
     ),
     array(
         'title' => 'Fibroid Foundation',
         'slug' => 'fibroid-foundation',
-        'summary' => 'Content updates, WordPress implementation, and front-end support for nonprofit communication needs.',
+        'summary' => 'WordPress support, content updates, front-end refinements, and requested implementation work for an active nonprofit site.',
     ),
     array(
         'title' => 'Blackberry Farm & Blackberry Mountain',
         'slug' => 'blackberry-farm-blackberry-mountain',
-        'summary' => 'Polished responsive implementation and supporting front-end work for hospitality and destination branding.',
+        'summary' => 'Front-end implementation, responsive UI refinements, reusable component updates, and ongoing production support for hospitality web properties.',
     ),
 );
 ?>
@@ -300,9 +300,9 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-section-head">
-                                <p class="fu-eyebrow">Earlier client work</p>
-                                <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected previous client work</h2>
-                                <p class="fu-section-lede">Earlier projects include WordPress builds, custom templates, responsive implementation, content updates, and support for hospitality, education, healthcare, nonprofit, real estate, and technology clients.</p>
+                                <p class="fu-eyebrow">Selected contract work</p>
+                                <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected Contract Work</h2>
+                                <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
                             </div>
 
                             <div class="fu-home__legacy-grid fu-work-grid">
@@ -319,7 +319,7 @@ $earlier_work = array(
                                             </div>
 
                                             <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Earlier client work</p>
+                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post->post_title); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                                 <span class="fu-work-card__link">View case study</span>
@@ -329,7 +329,7 @@ $earlier_work = array(
                                         <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
                                             <div class="fu-home__legacy-card-media fu-work-card__media"></div>
                                             <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Earlier client work</p>
+                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($item['title']); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                             </div>

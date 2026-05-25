@@ -230,8 +230,8 @@ $get_portfolio_focus_labels = static function ($post_id) {
 
             <div class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="earlier-client-work-heading">
                 <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Earlier Client Work</h2>
-                    <p class="fu-section-lede">Selected client projects from earlier WordPress, front-end, support, and implementation work.</p>
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Selected Contract Work</h2>
+                    <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
                 </div>
 
                 <?php if (have_posts()) : ?>

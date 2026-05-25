@@ -196,6 +196,111 @@ $get_portfolio_external_links = static function ($post_id) {
     return $unique_links;
 };
 
+$get_portfolio_supporting_images = static function ($post_id) {
+    $portfolio_content = get_field('portfolio_content', $post_id);
+
+    if (!is_array($portfolio_content) || empty($portfolio_content['images']) || !is_array($portfolio_content['images'])) {
+        return array();
+    }
+
+    $images = array();
+
+    foreach ($portfolio_content['images'] as $image_row) {
+        if (!is_array($image_row) || empty($image_row['image'])) {
+            continue;
+        }
+
+        $raw_image = $image_row['image'];
+        $acf_image_caption = '';
+        $attachment_caption = '';
+        $normalized_image = array(
+            'id' => 0,
+            'url' => '',
+            'alt' => '',
+            'caption' => '',
+            'title' => '',
+            'description' => '',
+        );
+
+        if (!empty($image_row['contribution_title']) && is_string($image_row['contribution_title'])) {
+            $normalized_image['title'] = trim($image_row['contribution_title']);
+        }
+
+        if (!empty($image_row['contribution_description']) && is_string($image_row['contribution_description'])) {
+            $normalized_image['description'] = trim($image_row['contribution_description']);
+        }
+
+        if (is_numeric($raw_image)) {
+            $normalized_image['id'] = (int) $raw_image;
+        } elseif (is_array($raw_image)) {
+            if (!empty($raw_image['ID']) && is_numeric($raw_image['ID'])) {
+                $normalized_image['id'] = (int) $raw_image['ID'];
+            } elseif (!empty($raw_image['id']) && is_numeric($raw_image['id'])) {
+                $normalized_image['id'] = (int) $raw_image['id'];
+            }
+
+            if (!empty($raw_image['url']) && is_string($raw_image['url'])) {
+                $normalized_image['url'] = trim($raw_image['url']);
+            }
+
+            if (!empty($raw_image['alt']) && is_string($raw_image['alt'])) {
+                $normalized_image['alt'] = trim($raw_image['alt']);
+            }
+
+            if (!empty($raw_image['caption']) && is_string($raw_image['caption'])) {
+                $acf_image_caption = trim($raw_image['caption']);
+            }
+        } elseif (is_string($raw_image) && trim($raw_image) !== '') {
+            $normalized_image['url'] = trim($raw_image);
+        }
+
+        if ($normalized_image['id'] > 0) {
+            $attachment_url = wp_get_attachment_url($normalized_image['id']);
+            if (is_string($attachment_url) && $attachment_url !== '') {
+                $normalized_image['url'] = $attachment_url;
+            }
+
+            if ($normalized_image['alt'] === '') {
+                $attachment_alt = get_post_meta($normalized_image['id'], '_wp_attachment_image_alt', true);
+                if (is_string($attachment_alt) && trim($attachment_alt) !== '') {
+                    $normalized_image['alt'] = trim($attachment_alt);
+                }
+            }
+
+            $attachment_caption_value = wp_get_attachment_caption($normalized_image['id']);
+            if (is_string($attachment_caption_value) && trim($attachment_caption_value) !== '') {
+                $attachment_caption = trim($attachment_caption_value);
+            }
+        }
+
+        if ($normalized_image['caption'] === '') {
+            if ($attachment_caption !== '') {
+                $normalized_image['caption'] = $attachment_caption;
+            } elseif ($acf_image_caption !== '') {
+                $normalized_image['caption'] = $acf_image_caption;
+            } elseif ($normalized_image['alt'] !== '') {
+                $normalized_image['caption'] = $normalized_image['alt'];
+            }
+        }
+
+        if ($normalized_image['title'] === '') {
+            if ($normalized_image['caption'] !== '') {
+                $normalized_image['title'] = $normalized_image['caption'];
+            } elseif ($normalized_image['alt'] !== '') {
+                $normalized_image['title'] = $normalized_image['alt'];
+            }
+        }
+
+        if ($normalized_image['id'] <= 0 && $normalized_image['url'] === '') {
+            continue;
+        }
+
+        $images[] = $normalized_image;
+    }
+
+    return $images;
+};
+
 $portfolio_archive_url = get_post_type_archive_link('portfolio-items');
 
 if (!$portfolio_archive_url) {
@@ -209,6 +314,7 @@ if (!$portfolio_archive_url) {
         $portfolio_subtitle = $get_portfolio_subtitle(get_the_ID());
         $portfolio_focus_labels = $get_portfolio_focus_labels(get_the_ID());
         $portfolio_external_links = $get_portfolio_external_links(get_the_ID());
+        $portfolio_supporting_images = $get_portfolio_supporting_images(get_the_ID());
         $portfolio_has_content = trim(wp_strip_all_tags(get_the_content())) !== '';
         ?>
 
@@ -234,6 +340,41 @@ if (!$portfolio_archive_url) {
                     <div class="fu-section-body fu-prose">
                         <h2 class="fu-section-heading fu-section-heading--compact">Overview</h2>
                         <?php the_content(); ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($portfolio_supporting_images)) : ?>
+                    <div class="fu-section-body fu-portfolio-single__contributions">
+                        <h2 class="fu-section-heading fu-section-heading--compact">Selected Contributions</h2>
+                        <p class="fu-section-lede">A closer look at specific interface pieces, reusable sections, and content modules I supported.</p>
+
+                        <div class="fu-portfolio-single__contribution-list" aria-label="Selected contribution images">
+                            <?php foreach ($portfolio_supporting_images as $supporting_image) : ?>
+                                <article class="fu-portfolio-single__contribution">
+                                    <div class="fu-portfolio-single__contribution-content">
+                                        <?php if ($supporting_image['title'] !== '') : ?>
+                                            <h3 class="fu-portfolio-single__contribution-title"><?php echo esc_html($supporting_image['title']); ?></h3>
+                                        <?php endif; ?>
+
+                                        <?php if ($supporting_image['description'] !== '') : ?>
+                                            <p class="fu-portfolio-single__contribution-description"><?php echo esc_html($supporting_image['description']); ?></p>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <figure class="fu-portfolio-single__contribution-media">
+                                        <?php if ($supporting_image['id'] > 0) : ?>
+                                            <?php echo wp_get_attachment_image($supporting_image['id'], 'large', false, array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                        <?php else : ?>
+                                            <img
+                                                src="<?php echo esc_url($supporting_image['url']); ?>"
+                                                alt="<?php echo esc_attr($supporting_image['alt']); ?>"
+                                                loading="lazy"
+                                                decoding="async">
+                                        <?php endif; ?>
+                                    </figure>
+                                </article>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 <?php endif; ?>
 
