@@ -8,6 +8,66 @@
 
 get_header();
 
+$resolve_page_url = static function ($slug) {
+    $page = get_page_by_path($slug);
+
+    return $page ? get_permalink($page) : home_url('/' . trim($slug, '/') . '/');
+};
+
+$featured_systems = array(
+    array(
+        'title' => 'ACF Block System Overview',
+        'slug' => 'acf-block-system',
+        'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
+        'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
+    ),
+    array(
+        'title' => 'Editor Experience & Handoff',
+        'slug' => 'editor-experience',
+        'summary' => 'How blocks are structured so editors can make real updates without breaking layout, accessibility, or the front end.',
+        'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
+    ),
+);
+
+$acf_block_case_studies = array(
+    array(
+        'title' => 'Filtered Content Grid',
+        'slug' => 'filtered-content-grid',
+        'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
+        'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
+    ),
+    array(
+        'title' => 'Content Switcher',
+        'slug' => 'content-switcher',
+        'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
+        'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
+    ),
+    array(
+        'title' => 'Comparison Cards',
+        'slug' => 'comparison-cards',
+        'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
+        'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
+    ),
+    array(
+        'title' => 'Proof Cards',
+        'slug' => 'proof-cards',
+        'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
+        'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
+    ),
+    array(
+        'title' => 'Page Banner',
+        'slug' => 'page-banner',
+        'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
+        'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
+    ),
+    array(
+        'title' => 'Flexible Feature Section',
+        'slug' => 'flexible-feature-section',
+        'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
+        'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
+    ),
+);
+
 $get_portfolio_card_kicker = static function ($post_id) {
     $kicker_fields = array(
         'work_type',
@@ -96,7 +156,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
 ?>
 
 <main id="primary" class="site-main">
-    <section class="fu-content-section" aria-labelledby="portfolio-archive-heading">
+    <section class="fu-content-section fu-work-archive" aria-labelledby="portfolio-archive-heading">
         <div class="fu-content-section__inner container container--page">
             <div class="fu-section-head">
                 <p class="fu-eyebrow">Selected Work</p>
@@ -104,50 +164,120 @@ $get_portfolio_focus_labels = static function ($post_id) {
                 <p class="fu-section-lede">A curated look at WordPress, front-end, and prototype work focused on structured content, editor-friendly systems, responsive implementation, and maintainable handoff.</p>
             </div>
 
-            <?php if (have_posts()) : ?>
-                <div class="fu-work-grid fu-work-grid--archive" aria-label="Portfolio case studies">
-                    <?php while (have_posts()) : the_post(); ?>
-                        <?php
-                        $portfolio_card_link = get_permalink();
-                        $portfolio_card_kicker = $get_portfolio_card_kicker(get_the_ID());
-                        $portfolio_focus_labels = $get_portfolio_focus_labels(get_the_ID());
-                        $portfolio_excerpt = has_excerpt() ? get_the_excerpt() : wp_trim_words(wp_strip_all_tags(get_the_content()), 26);
-                        ?>
+            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--featured" aria-labelledby="featured-systems-heading">
+                <div class="fu-section-head">
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="featured-systems-heading">Featured WordPress Systems</h2>
+                    <p class="fu-section-lede">Reusable WordPress systems focused on structured content, editor experience, maintainable handoff, and front-end implementation.</p>
+                </div>
 
-                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($portfolio_card_link); ?>">
-                            <?php if (has_post_thumbnail()) : ?>
+                <div class="fu-work-grid fu-work-grid--archive fu-work-archive__grid--featured" aria-label="Featured systems case studies">
+                    <?php foreach ($featured_systems as $system) : ?>
+                        <?php $system_url = $resolve_page_url($system['slug']); ?>
+                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($system_url); ?>">
+                            <?php if (!empty($system['image'])) : ?>
                                 <div class="fu-work-card__media">
-                                    <?php the_post_thumbnail('medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                    <img
+                                        src="<?php echo esc_url(content_url($system['image'])); ?>"
+                                        alt=""
+                                        loading="lazy"
+                                        width="600"
+                                        height="450">
                                 </div>
                             <?php endif; ?>
 
                             <div class="fu-work-card__body">
-                                <?php if ($portfolio_card_kicker !== '') : ?>
-                                    <p class="fu-work-card__kicker"><?php echo esc_html($portfolio_card_kicker); ?></p>
-                                <?php endif; ?>
-
-                                <h2 class="fu-work-card__title"><?php the_title(); ?></h2>
-
-                                <?php if ($portfolio_excerpt !== '') : ?>
-                                    <p class="fu-work-card__text"><?php echo esc_html($portfolio_excerpt); ?></p>
-                                <?php endif; ?>
-
-                                <?php if (!empty($portfolio_focus_labels)) : ?>
-                                    <p class="fu-work-card__text"><strong>Focus:</strong> <?php echo esc_html(implode(', ', array_slice($portfolio_focus_labels, 0, 4))); ?></p>
-                                <?php endif; ?>
-
+                                <p class="fu-work-card__kicker">Featured system</p>
+                                <h3 class="fu-work-card__title"><?php echo esc_html($system['title']); ?></h3>
+                                <p class="fu-work-card__text"><?php echo esc_html($system['summary']); ?></p>
                                 <span class="fu-work-card__link">View case study</span>
                             </div>
                         </a>
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--case-studies" aria-labelledby="acf-block-case-studies-heading">
+                <div class="fu-section-head">
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="acf-block-case-studies-heading">Individual ACF Block Builds</h2>
+                    <p class="fu-section-lede">Individual block builds that show how flexible editing controls, responsive front-end design, and cleaner content models work together.</p>
                 </div>
 
-                <?php the_posts_navigation(); ?>
-            <?php else : ?>
-                <div class="fu-section-body fu-prose">
-                    <p>No portfolio items are published yet. New case studies will appear here soon.</p>
+                <div class="fu-work-grid fu-work-grid--archive" aria-label="ACF block case studies">
+                    <?php foreach ($acf_block_case_studies as $case_study) : ?>
+                        <?php $case_study_url = $resolve_page_url($case_study['slug']); ?>
+                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($case_study_url); ?>">
+                            <?php if (!empty($case_study['image'])) : ?>
+                                <div class="fu-work-card__media">
+                                    <img
+                                        src="<?php echo esc_url(content_url($case_study['image'])); ?>"
+                                        alt=""
+                                        loading="lazy"
+                                        width="600"
+                                        height="450">
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="fu-work-card__body">
+                                <p class="fu-work-card__kicker">ACF block case study</p>
+                                <h3 class="fu-work-card__title"><?php echo esc_html($case_study['title']); ?></h3>
+                                <p class="fu-work-card__text"><?php echo esc_html($case_study['summary']); ?></p>
+                                <span class="fu-work-card__link">View case study</span>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
-            <?php endif; ?>
+            </div>
+
+            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="earlier-client-work-heading">
+                <div class="fu-section-head">
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Earlier Client Work</h2>
+                    <p class="fu-section-lede">Selected client projects from earlier WordPress, front-end, support, and implementation work.</p>
+                </div>
+
+                <?php if (have_posts()) : ?>
+                    <div class="fu-work-grid fu-work-grid--archive" aria-label="Portfolio case studies">
+                        <?php while (have_posts()) : the_post(); ?>
+                            <?php
+                            $portfolio_card_link = get_permalink();
+                            $portfolio_card_kicker = $get_portfolio_card_kicker(get_the_ID());
+                            $portfolio_focus_labels = $get_portfolio_focus_labels(get_the_ID());
+                            $portfolio_excerpt = has_excerpt() ? get_the_excerpt() : wp_trim_words(wp_strip_all_tags(get_the_content()), 26);
+                            ?>
+
+                            <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($portfolio_card_link); ?>">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <div class="fu-work-card__media">
+                                        <?php the_post_thumbnail('medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="fu-work-card__body">
+                                    <?php if ($portfolio_card_kicker !== '') : ?>
+                                        <p class="fu-work-card__kicker"><?php echo esc_html($portfolio_card_kicker); ?></p>
+                                    <?php endif; ?>
+
+                                    <h2 class="fu-work-card__title"><?php the_title(); ?></h2>
+
+                                    <?php if ($portfolio_excerpt !== '') : ?>
+                                        <p class="fu-work-card__text"><?php echo esc_html($portfolio_excerpt); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($portfolio_focus_labels)) : ?>
+                                        <p class="fu-work-card__text"><strong>Focus:</strong> <?php echo esc_html(implode(', ', array_slice($portfolio_focus_labels, 0, 4))); ?></p>
+                                    <?php endif; ?>
+
+                                    <span class="fu-work-card__link">View case study</span>
+                                </div>
+                            </a>
+                        <?php endwhile; ?>
+                    </div>
+
+                <?php else : ?>
+                    <div class="fu-prose">
+                        <p>No earlier client work items are published yet. New projects will appear here soon.</p>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
     </section>
 </main>
