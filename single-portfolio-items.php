@@ -256,7 +256,7 @@ if (!$portfolio_archive_url) {
                                     class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary"
                                     href="<?php echo esc_url($external_link['url']); ?>"
                                     <?php echo $external_link_target !== '' ? ' target="' . esc_attr($external_link_target) . '"' : ''; ?>
-                                    <?php echo $external_link_rel !== '' ? ' rel="' . esc_attr($external_link_rel) . '"' : ''; ?>><?php echo esc_html($external_link['title']); ?></a>
+                                    <?php echo $external_link_rel !== '' ? ' rel="' . esc_attr($external_link_rel) . '"' : ''; ?>><?php echo esc_html($external_link['title']); ?><span class="screen-reader-text"> opens external site</span></a>
                             <?php endforeach; ?>
                         </div>
                     </div>

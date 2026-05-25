@@ -1034,10 +1034,12 @@ p.fu-work-card__text {
 }
 
 .fu-portfolio-single .fu-portfolio-piece__button::after {
-	content: " →";
+	content: " ↗";
 	display: inline-block;
 	margin-left: 0.25em;
-	transition: transform 180ms ease;
+	transition: transform 0.18s ease;
+	font-size: 0.7em;
+	font-weight: 600;
 }
 
 .fu-portfolio-single .fu-portfolio-piece__button:hover,
@@ -1051,7 +1053,7 @@ p.fu-work-card__text {
 
 .fu-portfolio-single .fu-portfolio-piece__button:hover::after,
 .fu-portfolio-single .fu-portfolio-piece__button:focus-visible::after {
-	transform: translateX(0.18rem);
+	transform: translate(0.16rem, -0.08rem);
 }
 
 .fu-portfolio-single__back-link {
@@ -1117,7 +1119,6 @@ p.fu-work-card__text {
 }
 
 .fu-work-card--legacy .fu-home__legacy-button {
-	display: none;
 	border-radius: 18px;
 }
 
@@ -1126,7 +1127,6 @@ p.fu-work-card__text {
 }
 
 .fu-home__section-footer--compact {
-	display: none;
 	margin-top: 1.25rem;
 }
 

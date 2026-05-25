@@ -31,6 +31,12 @@ $resolve_portfolio_item = static function ($title, $slug) {
     return !empty($matches) ? $matches[0] : null;
 };
 
+$portfolio_archive_url = get_post_type_archive_link('portfolio-items');
+
+if (!$portfolio_archive_url) {
+    $portfolio_archive_url = home_url('/work/');
+}
+
 $service_lanes = array(
     array(
         'title' => 'WordPress Development Support',
@@ -303,63 +309,37 @@ $earlier_work = array(
                                 <?php foreach ($earlier_work as $index => $item) : ?>
                                     <?php
                                     $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
-                                    $dialog_id = 'home_work_dialog_' . ($index + 1);
                                     ?>
-                                    <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
-                                        <div class="fu-home__legacy-card-media fu-work-card__media">
-                                            <?php if ($portfolio_post && has_post_thumbnail($portfolio_post)) : ?>
-                                                <?php echo get_the_post_thumbnail($portfolio_post, 'medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
-                                            <?php endif; ?>
-                                        </div>
-
-                                        <div class="fu-home__legacy-card-body fu-work-card__body">
-                                            <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Earlier client work</p>
-                                            <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post ? $portfolio_post->post_title : $item['title']); ?></h3>
-                                            <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
-
-                                            <?php if ($portfolio_post) : ?>
-                                                <button class="btn--gold btn--view-more fu-home__legacy-button" data-a11y-dialog-show="<?php echo esc_attr($dialog_id); ?>"><span>See More</span></button>
-                                            <?php endif; ?>
-                                        </div>
-                                    </article>
-
                                     <?php if ($portfolio_post) : ?>
-                                        <div class="dialog-container" data-a11y-dialog="<?php echo esc_attr($dialog_id); ?>" id="<?php echo esc_attr($dialog_id . '_modal'); ?>" role="dialog" aria-hidden="true" aria-labelledby="<?php echo esc_attr($dialog_id . '_title'); ?>" aria-describedby="<?php echo esc_attr($dialog_id . '_description'); ?>">
-                                            <div class="dialog-overlay" data-a11y-dialog-hide></div>
-
-                                            <div class="dialog-content" role="document">
-                                                <div class="dialog-body">
-                                                    <div class="container">
-                                                        <div class="dialog-info-wrap">
-                                                            <button type="button" data-a11y-dialog-hide aria-label="Close this dialog window" class="dialog-close black-close ui-btn ui-shadow ui-corner-all">
-                                                                <svg class="icon icon-close">
-                                                                    <use xlink:href="#icon-close"></use>
-                                                                </svg>
-                                                            </button>
-
-                                                            <div class="dialog-info-item">
-                                                                <h3 id="<?php echo esc_attr($dialog_id . '_title'); ?>"><?php echo esc_html($portfolio_post->post_title); ?></h3>
-                                                                <div id="<?php echo esc_attr($dialog_id . '_description'); ?>" class="info-text">
-                                                                    <?php echo wp_kses_post(apply_filters('the_content', $portfolio_post->post_content)); ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="dialog-image-wrap">
-                                                            <?php if (has_post_thumbnail($portfolio_post)) : ?>
-                                                                <?php echo get_the_post_thumbnail($portfolio_post, 'large'); ?>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <a class="fu-home__legacy-card fu-work-card fu-work-card--linked" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
+                                            <div class="fu-home__legacy-card-media fu-work-card__media">
+                                                <?php if (has_post_thumbnail($portfolio_post)) : ?>
+                                                    <?php echo get_the_post_thumbnail($portfolio_post, 'medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                                <?php endif; ?>
                                             </div>
-                                        </div>
+
+                                            <div class="fu-home__legacy-card-body fu-work-card__body">
+                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Earlier client work</p>
+                                                <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post->post_title); ?></h3>
+                                                <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
+                                                <span class="fu-work-card__link">View case study</span>
+                                            </div>
+                                        </a>
+                                    <?php else : ?>
+                                        <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
+                                            <div class="fu-home__legacy-card-media fu-work-card__media"></div>
+                                            <div class="fu-home__legacy-card-body fu-work-card__body">
+                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Earlier client work</p>
+                                                <h3 class="fu-work-card__title"><?php echo esc_html($item['title']); ?></h3>
+                                                <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
+                                            </div>
+                                        </article>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
 
                             <div class="fu-home__section-footer fu-home__section-footer--compact">
-                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">View More Client Work</a>
+                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_archive_url); ?>">View all work</a>
                             </div>
                         </div>
                     </section>
