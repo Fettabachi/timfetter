@@ -326,6 +326,9 @@ if (!$portfolio_archive_url) {
                     <?php if ($portfolio_subtitle !== '') : ?>
                         <p class="fu-section-lede"><?php echo esc_html($portfolio_subtitle); ?></p>
                     <?php endif; ?>
+                    <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
+                        <p class="fu-section-lede fu-section-lede--prototype">A self-contained HTML, CSS, and JavaScript prototype for testing project milestone states, responsive timeline layouts, and client-facing workflow language before production development.</p>
+                    <?php endif; ?>
                 </div>
 
                 <?php if (has_post_thumbnail()) : ?>
@@ -351,6 +354,20 @@ if (!$portfolio_archive_url) {
             <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
                 <div class="fu-content-section__inner container container--l">
                     <?php get_template_part('parts/prototypes/client-project-timeline'); ?>
+                </div>
+                <div class="fu-content-section__inner container container--readable fu-portfolio-prototype-summary">
+                    <div class="fu-portfolio-prototype-summary__item">
+                        <h2 class="fu-section-heading fu-section-heading--compact">Prototype Purpose</h2>
+                        <p>This prototype makes workflow states testable before production implementation, including milestone counts, in-between progress states, responsive layout behavior, and client-facing status details.</p>
+                    </div>
+                    <div class="fu-portfolio-prototype-summary__item">
+                        <h2 class="fu-section-heading fu-section-heading--compact">What This Demonstrates</h2>
+                        <p>The component supports milestone and continuous progress modes, configurable workflow lengths, automatic progress updates, horizontal and vertical layouts, and responsive behavior that switches to a vertical timeline when horizontal labels become too cramped.</p>
+                    </div>
+                    <div class="fu-portfolio-prototype-summary__item">
+                        <h2 class="fu-section-heading fu-section-heading--compact">How This Could Work on Your Website</h2>
+                        <p>This type of timeline could be managed manually through editable CMS fields, connected to structured project data, or updated from an internal system or API. For WordPress, it could become an ACF-powered block or template component. For larger applications, the same front-end pattern could consume project status data from an API.</p>
+                    </div>
                 </div>
             <?php endif; ?>
 
