@@ -343,6 +343,19 @@ if (!$portfolio_archive_url) {
                     </div>
                 <?php endif; ?>
 
+
+                <?php // Conditionally render the demo outside the readable container. 
+                ?>
+            </div> <!-- End .fu-content-section__inner.container.container--readable -->
+
+            <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
+                <div class="fu-content-section__inner container container--l">
+                    <?php get_template_part('parts/prototypes/client-project-timeline'); ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="fu-content-section__inner container container--readable">
+
                 <?php if (!empty($portfolio_supporting_images)) : ?>
                     <div class="fu-section-body fu-portfolio-single__contributions">
                         <h2 class="fu-section-heading fu-section-heading--compact">Selected Contributions</h2>

@@ -92,6 +92,25 @@ function base_scripts()
 }
 add_action('wp_enqueue_scripts', 'base_scripts');
 
+// Conditionally enqueue Client Project Timeline prototype assets for the correct portfolio item only.
+add_action('wp_enqueue_scripts', function () {
+    if (is_singular('portfolio-items') && get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') {
+        wp_enqueue_style(
+            'client-project-timeline',
+            get_theme_file_uri('/assets/prototypes/client-project-timeline/client-project-timeline.css'),
+            [],
+            filemtime(get_theme_file_path('/assets/prototypes/client-project-timeline/client-project-timeline.css'))
+        );
+        wp_enqueue_script(
+            'client-project-timeline',
+            get_theme_file_uri('/assets/prototypes/client-project-timeline/client-project-timeline.js'),
+            [],
+            filemtime(get_theme_file_path('/assets/prototypes/client-project-timeline/client-project-timeline.js')),
+            true
+        );
+    }
+});
+
 function fu_normalize_title_spacing($title)
 {
     if (is_admin() || '' === $title) {

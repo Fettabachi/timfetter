@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Client Project Timeline</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <main class="page-shell">
+            <section class="hero-copy" aria-labelledby="page-title">
+                <p class="eyebrow">Interactive component demo</p>
+                <h1 id="page-title">Client Project Timeline</h1>
+                <p class="hero-description">A configurable milestone tracker for agency projects, client approvals, and delivery workflows.</p>
+            </section>
+
+            <div class="progress-bar">
+                <section class="timeline-preview" aria-labelledby="timeline-preview-title" data-layout="auto">
+                    <header class="timeline-preview__header">
+                        <p class="timeline-preview__eyebrow">Live workflow status</p>
+                        <h2 id="timeline-preview-title">Website Redesign Timeline</h2>
+                        <p class="timeline-preview__description">Track project movement from brief intake through approval, production, and final handoff.</p>
+                    </header>
+                    <div class="progress-bar-wrapper">
+                        <div class="hard-stop-labels" id="hard-stop-labels"></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-markers" id="progress-markers"></div>
+                            <div class="progress-bar-background">
+                                <div class="progress-indicator" id="progress-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="intermediate-label-container" id="intermediate-label-container"></div>
+                    </div>
+
+                    <div class="vertical-timeline" id="vertical-timeline"></div>
+                </section>
+
+                <div class="controls">
+                    <h2>Demo Controls</h2>
+                    <div>
+                        <div class="control-label-row">
+                            <label for="progress-mode">Tracking Mode:</label>
+                            <span class="control-tooltip">
+                                <button type="button" class="control-tooltip__trigger info-button" aria-describedby="mode-description" tabindex="0" aria-label="Show tracking mode help">
+                                    <span aria-hidden="true">&#9432;</span>
+                                </button>
+                                <span id="mode-description" class="control-tooltip__content" role="tooltip">
+                                    <strong>Milestone mode</strong> shows completed project stages only. <strong>Continuous mode</strong> adds half-step states for in-between moments, such as reviews, checkpoints, or approvals in progress.
+                                </span>
+                            </span>
+                        </div>
+                        <select id="progress-mode">
+                            <option value="milestone" selected>Milestone</option>
+                            <option value="continuous">Continuous</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="control-label-row">
+                            <label for="total-steps">Milestones:</label>
+                            <span class="control-tooltip">
+                                <button type="button" class="control-tooltip__trigger info-button" aria-describedby="milestones-description" aria-label="Show milestone count help">
+                                    <span aria-hidden="true">&#9432;</span>
+                                </button>
+                                <span id="milestones-description" class="control-tooltip__content" role="tooltip"> Choose how many major stages the workflow should include. Each count uses a complete start-to-finish milestone set. </span>
+                            </span>
+                        </div>
+                        <select id="total-steps">
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="control-label-row">
+                            <label for="current-step" id="current-step-label">Current Progress</label>
+                            <span class="control-tooltip">
+                                <button type="button" class="control-tooltip__trigger info-button" aria-describedby="progress-description" aria-label="Show current progress help">
+                                    <span aria-hidden="true">&#9432;</span>
+                                </button>
+                                <span id="progress-description" class="control-tooltip__content" role="tooltip"> Select the current stage. In continuous mode, half-step values show in-between progress states. </span>
+                            </span>
+                        </div>
+                        <select id="current-step"></select>
+                    </div>
+                    <div>
+                        <div class="control-label-row">
+                            <label for="timeline-layout">Timeline Layout:</label>
+                            <span class="control-tooltip control-tooltip--align-left">
+                                <button type="button" class="control-tooltip__trigger info-button" aria-describedby="layout-description" aria-label="Show timeline layout help">
+                                    <span aria-hidden="true">&#9432;</span>
+                                </button>
+                                <span id="layout-description" class="control-tooltip__content" role="tooltip"> Auto uses the horizontal timeline when space allows and switches to the vertical timeline on smaller screens. Horizontal and Vertical force a specific layout. </span>
+                            </span>
+                        </div>
+                        <select id="timeline-layout">
+                            <option value="auto" selected>Auto</option>
+                            <option value="horizontal">Horizontal</option>
+                            <option value="vertical">Vertical</option>
+                        </select>
+                    </div>
+                    <!-- <button id="update-button">Update Timeline</button> -->
+                </div>
+
+                <section class="project-notes-section">
+                    <section class="project-notes" id="project-details" aria-labelledby="project-details-title">
+                        <h2 id="project-details-title">Prototype Purpose</h2>
+                        <p>This prototype makes workflow states testable before production implementation, including milestone counts, in-between progress states, and client-facing status details.</p>
+                    </section>
+                    <section class="project-notes" id="project-explanation" aria-labelledby="project-explanation-title">
+                        <h2 id="project-explanation-title">How this could work on your website</h2>
+                        <p>
+                            This type of timeline could be managed manually through editable CMS fields, connected to structured project data, or updated from an internal system/API depending on the workflow. For WordPress, it could be built as an ACF-powered block or template component. For larger
+                            applications, the same front-end pattern could consume project status data from an API.
+                        </p>
+                    </section>
+                </section>
+            </div>
+        </main>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
