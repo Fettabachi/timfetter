@@ -89,7 +89,7 @@ $frontend_prototypes = array(
         'slug' => 'project-scope-estimator',
         'summary' => 'A guided HTML, CSS, and JavaScript prototype that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
         // TODO: Replace with dedicated Project Scope Estimator cover image.
-        'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
+        'image' => content_url('/uploads/2026/05/client-project-scope-cover.webp'),
         'eyebrow' => 'Interactive Front-End Prototype',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Conditional UI', 'Form Logic'),
         'cta' => 'View Prototype',
@@ -99,7 +99,7 @@ $frontend_prototypes = array(
         'slug' => 'content-approval-checklist',
         'summary' => 'A responsive checklist prototype for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
         // TODO: Replace with dedicated Content Approval Checklist cover image.
-        'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
+        'image' => content_url('/uploads/2026/05/client-project-content-approval-cover.webp'),
         'eyebrow' => 'Interactive Front-End Prototype',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
         'cta' => 'View Prototype',
