@@ -124,6 +124,20 @@ add_action('wp_enqueue_scripts', function () {
                 filemtime(get_theme_file_path('/assets/prototypes/project-scope-estimator/project-scope-estimator.js')),
                 true
             );
+        } elseif ($slug === 'content-approval-checklist') {
+            wp_enqueue_style(
+                'content-approval-checklist',
+                get_theme_file_uri('/assets/prototypes/content-approval-checklist/content-approval-checklist.css'),
+                [],
+                filemtime(get_theme_file_path('/assets/prototypes/content-approval-checklist/content-approval-checklist.css'))
+            );
+            wp_enqueue_script(
+                'content-approval-checklist',
+                get_theme_file_uri('/assets/prototypes/content-approval-checklist/content-approval-checklist.js'),
+                [],
+                filemtime(get_theme_file_path('/assets/prototypes/content-approval-checklist/content-approval-checklist.js')),
+                true
+            );
         }
     }
 });

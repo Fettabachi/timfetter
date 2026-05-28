@@ -1,0 +1,650 @@
+/* Content Approval Checklist Prototype Styles */
+.fu-content-approval-checklist-demo {
+	--fu-blue: #0d3b66;
+	--fu-navy: #08233f;
+	--fu-ink: #10243d;
+	--fu-bg: #f8fafc;
+	--fu-card-bg: #ffffff;
+	--fu-border: #d8e3ef;
+	--fu-border-soft: #e8eef5;
+	--fu-muted: #64748b;
+	--fu-muted-strong: #475569;
+	--fu-radius: 28px;
+	--fu-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+	--fu-focus: #60a5fa;
+	margin-block: clamp(2.5rem, 4vw, 4.5rem);
+	margin-inline: auto;
+	max-width: min(100%, 1120px);
+}
+
+.fu-content-approval-checklist-demo *,
+.fu-content-approval-checklist-demo *::before,
+.fu-content-approval-checklist-demo *::after {
+	box-sizing: border-box;
+}
+
+.fu-content-approval-checklist-demo .fu-demo-shell {
+	width: 100%;
+	margin-inline: auto;
+	padding: clamp(1.25rem, 2.8vw, 1.8rem);
+	overflow: hidden;
+	background: linear-gradient(135deg, #08233f, #0d3b66 52%, #061827);
+	border: 1px solid hsla(0, 0%, 100%, 0.14);
+	border-radius: var(--fu-radius);
+	box-shadow: var(--fu-shadow);
+}
+
+.fu-content-approval-checklist-demo .fu-demo-shell__framing {
+	max-width: 74ch;
+	margin: 0 auto clamp(2rem, 4vw, 3rem);
+	text-align: center;
+}
+
+.fu-content-approval-checklist-demo .fu-demo-shell__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 0 0.65rem;
+	color: #93c5fd;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.fu-content-approval-checklist-demo .fu-demo-shell__heading {
+	margin: 0 0 0.7rem;
+	color: #f8fafc;
+	font-family: "Raleway", sans-serif;
+	font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.55rem);
+	font-weight: 300;
+	line-height: 1.12;
+}
+
+.fu-content-approval-checklist-demo .fu-demo-shell__instruction {
+	max-width: 62ch;
+	margin: 0 auto;
+	color: #cbd5e1;
+	font-size: clamp(0.98rem, 0.95rem + 0.18vw, 1.08rem);
+	line-height: 1.55;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__workspace,
+.fu-content-approval-checklist-demo .fu-checklist__main-panel {
+	display: grid;
+	gap: clamp(1.25rem, 2.5vw, 2rem);
+	min-width: 0;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__checklist-card,
+.fu-content-approval-checklist-demo .fu-checklist__summary-card {
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+	padding: clamp(1.15rem, 2.6vw, 2rem);
+	background: var(--fu-card-bg);
+	border: 1px solid rgba(13, 59, 102, 0.08);
+	border-radius: var(--fu-radius);
+	box-shadow: 0 2px 8px rgba(13, 59, 102, 0.06);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__controls-row {
+	display: grid;
+	grid-template-columns: minmax(14rem, 30rem) 1fr;
+	gap: 1.35rem 2.5rem;
+	align-items: end;
+	margin-bottom: clamp(1.45rem, 3vw, 2.25rem);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__workflow-type {
+	display: grid;
+	gap: 0.35rem;
+	min-width: 0;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__workflow-type label,
+.fu-content-approval-checklist-demo .fu-checklist__status-filter-label {
+	margin: 0;
+	color: #334155;
+	font-size: 0.95rem;
+	font-weight: 800;
+	line-height: 1.25;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__workflow-type select {
+	width: 100%;
+	min-width: 0;
+	appearance: none;
+	-webkit-appearance: none;
+	padding: 0.7rem 2.65rem 0.7rem 1rem;
+	color: #334155;
+	font: inherit;
+	font-size: 1rem;
+	font-weight: 550;
+	line-height: 1.2;
+	background-color: #f8fafc;
+	background-image: url('data:image/svg+xml;utf8,<svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M6 8l4 4 4-4" stroke="%2364748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+	background-repeat: no-repeat;
+	background-position: right 0.95rem center;
+	background-size: 1.15rem 1.15rem;
+	border: 1.5px solid #cbd5e1;
+	border-radius: 0.85rem;
+	outline: none;
+	transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__workflow-type
+	select:focus-visible {
+	border-color: var(--fu-focus);
+	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.28);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__workflow-helper {
+	grid-column: 1 / -1;
+	margin: 0;
+	max-width: none;
+	color: var(--fu-muted);
+	font-size: 0.75rem;
+	line-height: 1.4;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-filter-group {
+	display: grid;
+	gap: 0.55rem;
+	align-content: end;
+	min-width: 0;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	min-width: 0;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__filter-btn {
+	appearance: none;
+	min-width: 4.2rem;
+	padding: 0.42rem 1rem;
+	cursor: pointer;
+	color: var(--fu-blue);
+	background: #f1f5f9;
+	border: 1px solid var(--fu-border);
+	border-radius: 999px;
+	font: inherit;
+	font-size: 0.92rem;
+	font-weight: 700;
+	line-height: 1.15;
+	outline: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease,
+		box-shadow 0.15s ease, color 0.15s ease;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__filter-btn--active,
+.fu-content-approval-checklist-demo
+	.fu-checklist__filter-btn[aria-pressed="true"] {
+	color: #ffffff;
+	background: var(--fu-blue);
+	border-color: var(--fu-blue);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__filter-btn:focus-visible {
+	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.34);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__group {
+	display: grid;
+	margin-top: clamp(1.25rem, 2.4vw, 1.85rem);
+	margin-top: clamp(1.25rem, 4vw, 3rem);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__group:first-child {
+	margin-top: 0;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__group-title {
+	margin: 0 0 0.35rem;
+	color: var(--fu-blue);
+	font-family: Open Sans, sans-serif;
+	font-size: 1.02rem;
+	font-weight: 800;
+	line-height: 1.25;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__item-row {
+	display: grid;
+	grid-template-columns: minmax(10rem, 1fr) minmax(25rem, auto);
+	align-items: center;
+	gap: 0.65rem 1rem;
+	min-width: 0;
+	padding: 0.7rem 0.6rem;
+	background: #ffffff;
+	border-bottom: 1px solid var(--fu-border-soft);
+
+	&:first-of-type {
+		border-top: 1px solid var(--fu-border-soft);
+	}
+}
+
+/* .fu-content-approval-checklist-demo .fu-checklist__item-row--alt {
+	background: #f8fafc;
+} */
+
+.fu-content-approval-checklist-demo .fu-checklist__item-label {
+	min-width: 0;
+	padding-right: 0.5rem;
+	color: var(--fu-blue);
+	font-size: 1rem;
+	font-weight: 550;
+	line-height: 1.35;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__item-status {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.45rem;
+	min-width: 0;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-pill {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-width: 0;
+	min-height: 2rem;
+	padding: 0.38rem 0.8rem;
+	cursor: pointer;
+	user-select: none;
+	color: var(--fu-blue);
+	background: #eaf1f8;
+	border: 1.5px solid #c3d2e3;
+	border-radius: 999px;
+	box-shadow: inset 0 -1px 0 rgba(13, 59, 102, 0.08);
+	font-size: 0.9rem;
+	font-weight: 600;
+	line-height: 1.1;
+	text-align: center;
+	transition: background-color 0.16s ease, border-color 0.16s ease,
+		box-shadow 0.16s ease, color 0.16s ease;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-pill span {
+	pointer-events: none;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-pill:hover {
+	background: #dfeaf5;
+	border-color: #abc0d7;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-pill--active {
+	color: #ffffff;
+	background: var(--fu-blue);
+	border-color: var(--fu-blue);
+	box-shadow: 0 4px 10px rgba(13, 59, 102, 0.18);
+
+	&:hover {
+		background: var(--fu-blue);
+		border-color: var(--fu-blue);
+	}
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__status-pill:focus-within {
+	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.34);
+	z-index: 2;
+}
+
+.fu-visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__empty-state {
+	display: grid;
+	place-items: center;
+	min-height: 14rem;
+	padding: 2rem;
+	text-align: center;
+	background: #f8fafc;
+	border: 1px dashed #cbd5e1;
+	border-radius: 1.25rem;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__empty-state h3 {
+	margin: 0 0 0.35rem;
+	color: var(--fu-blue);
+	font-size: 1.08rem;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__empty-state p {
+	margin: 0;
+	color: var(--fu-muted);
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__summary-card {
+	display: grid;
+	gap: 1.05rem;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__summary-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__summary-title {
+	color: var(--fu-blue);
+	font-size: 1.08rem;
+	font-weight: 750;
+	line-height: 1.25;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__readiness-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.32rem 0.72rem;
+	color: var(--fu-blue);
+	background: #eaf1f8;
+	border: 1px solid #c3d2e3;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 750;
+	line-height: 1.1;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__readiness-badge[data-badge="Ready"] {
+	color: #17613a;
+	background: #e7f8ee;
+	border-color: #b7ebc9;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__readiness-badge[data-badge="Needs Review"] {
+	color: #8a5600;
+	background: #fff7df;
+	border-color: #f6dfa0;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__readiness-badge[data-badge="Blocked"] {
+	color: #9f1d1d;
+	background: #ffeded;
+	border-color: #ffc4c4;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__progress-area {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__progress-label {
+	color: var(--fu-muted-strong);
+	font-size: 0.86rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__progressbar {
+	width: 100%;
+	height: 0.72rem;
+	appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	border-radius: 999px;
+	background: #edf2f7;
+	overflow: hidden;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__progressbar::-webkit-progress-bar {
+	background: #edf2f7;
+	border-radius: 999px;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__progressbar::-webkit-progress-value {
+	background: linear-gradient(90deg, #0d3b66, #17719f);
+	border-radius: 999px;
+}
+
+.fu-content-approval-checklist-demo
+	.fu-checklist__progressbar::-moz-progress-bar {
+	background: linear-gradient(90deg, #0d3b66, #17719f);
+	border-radius: 999px;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__progressbar-markers {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	color: #94a3b8;
+	font-size: 0.78rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__metrics-row {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.75rem;
+	margin-top: 0.15rem;
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__metric {
+	display: grid;
+	gap: 0.15rem;
+	padding: 0.75rem;
+	background: #f8fafc;
+	border: 1px solid var(--fu-border-soft);
+	border-radius: 1rem;
+	text-align: center;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__metric-value {
+	display: block;
+	color: var(--fu-blue);
+	font-size: 1.25rem;
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__metric-label {
+	display: block;
+	color: var(--fu-muted);
+	font-size: 0.74rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	line-height: 1.2;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__guidance-heading {
+	margin-top: 0.4rem;
+	color: var(--fu-muted-strong);
+	font-size: 1rem;
+	font-weight: 750;
+	line-height: 1.25;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__summary-list {
+	display: grid;
+	gap: 0.45rem;
+	margin: 0;
+	padding-left: 1.2rem;
+	color: #334155;
+	font-size: 0.95rem;
+	line-height: 1.55;
+}
+
+.fu-content-approval-checklist-demo .fu-checklist__summary-list li::marker {
+	color: var(--fu-blue);
+}
+
+.fu-content-approval-checklist-demo .fu-prototype-note {
+	margin-top: clamp(1.5rem, 3vw, 2.5rem);
+	padding: 1.1rem 1.5rem;
+	color: #e0e7ef;
+	background: rgba(13, 59, 102, 0.18);
+	border-radius: 1rem;
+	font-size: 1.01rem;
+	line-height: 1.55;
+	text-align: center;
+}
+
+.fu-content-approval-checklist-demo .fu-prototype-note p {
+	max-width: 76ch;
+	margin: 0 auto;
+}
+
+.fu-portfolio-prototype-summary {
+	display: grid;
+	gap: clamp(2rem, 4vw, 3.25rem);
+	margin-top: clamp(3rem, 6vw, 5rem);
+	margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.fu-portfolio-prototype-summary__item {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.fu-portfolio-prototype-summary__item p {
+	max-width: 68ch;
+	margin: 0;
+	color: var(--fu-text-muted, #496a8f);
+	font-size: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
+	line-height: 1.65;
+}
+
+@media (max-width: 860px) {
+	.fu-content-approval-checklist-demo .fu-demo-shell {
+		padding: clamp(1rem, 4vw, 1.35rem);
+	}
+
+	.fu-content-approval-checklist-demo .fu-demo-shell__framing {
+		margin-bottom: 1.75rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__checklist-card,
+	.fu-content-approval-checklist-demo .fu-checklist__summary-card {
+		padding: clamp(1rem, 5vw, 1.4rem);
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__controls-row {
+		grid-template-columns: 1fr;
+		gap: 0.55rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__workflow-type {
+		max-width: none;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__workflow-helper {
+		margin: 0.15rem 0 0.9rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__status-filter-group {
+		gap: 0.5rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__status-filter {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.55rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__filter-btn {
+		width: 100%;
+		min-width: 0;
+		padding-inline: 0.75rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__group {
+		gap: 0.55rem;
+		margin-top: 1.45rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__item-row {
+		grid-template-columns: 1fr;
+		gap: 0.7rem;
+		padding: 0.95rem;
+		border: 1px solid var(--fu-border-soft);
+		border-radius: 1rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__item-row--alt {
+		background: #f8fafc;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__item-label {
+		padding-right: 0;
+		font-size: 1rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__item-status {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.55rem;
+		width: 100%;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__status-pill {
+		width: 100%;
+		min-height: 2.35rem;
+		padding: 0.45rem 0.5rem;
+		font-size: 0.92rem;
+	}
+}
+
+@media (max-width: 520px) {
+	.fu-content-approval-checklist-demo {
+		margin-block: 2rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-demo-shell {
+		border-radius: 22px;
+	}
+
+	.fu-content-approval-checklist-demo .fu-demo-shell__heading {
+		font-size: clamp(1.6rem, 9vw, 2.05rem);
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__checklist-card,
+	.fu-content-approval-checklist-demo .fu-checklist__summary-card {
+		border-radius: 20px;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__status-filter,
+	.fu-content-approval-checklist-demo .fu-checklist__item-status {
+		grid-template-columns: 1fr;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__status-pill,
+	.fu-content-approval-checklist-demo .fu-checklist__filter-btn {
+		font-size: 0.9rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-checklist__progressbar-markers {
+		font-size: 0.68rem;
+	}
+
+	.fu-content-approval-checklist-demo .fu-prototype-note {
+		font-size: 0.92rem;
+	}
+}

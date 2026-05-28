@@ -94,12 +94,23 @@ $frontend_prototypes = array(
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Conditional UI', 'Form Logic'),
         'cta' => 'View Prototype',
     ),
+    array(
+        'title' => 'Content Approval Checklist',
+        'slug' => 'content-approval-checklist',
+        'summary' => 'A responsive checklist prototype for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
+        // TODO: Replace with dedicated Content Approval Checklist cover image.
+        'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
+        'eyebrow' => 'Interactive Front-End Prototype',
+        'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
+        'cta' => 'View Prototype',
+    ),
 );
 
 // Prototype grouping and exclusion setup.
 $prototype_slugs = array(
     'client-project-timeline',
     'project-scope-estimator',
+    'content-approval-checklist',
 );
 
 $prototype_post_ids = array();
