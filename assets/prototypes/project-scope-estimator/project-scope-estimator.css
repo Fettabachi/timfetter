@@ -1,0 +1,384 @@
+/* Project Scope Estimator Prototype Styles */
+/* --- Project Scope Estimator: Timeline Visual Alignment --- */
+.fu-project-scope-estimator-demo {
+	--fu-blue: #0d3b66;
+	--fu-bg: #f8fafc;
+	--fu-card-bg: #fff;
+	--fu-border: #e5e7eb;
+	--fu-muted: #64748b;
+	--fu-radius: 28px;
+	--fu-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+	--fu-green: #059669;
+	--fu-yellow: #eab308;
+	--fu-red: #dc2626;
+	margin-block: clamp(2.5rem, 4vw, 4.5rem);
+	margin-inline: auto;
+	max-width: min(100%, 1120px);
+}
+.fu-project-scope-estimator-demo .fu-demo-shell {
+	padding: clamp(1.25rem, 2.8vw, 1.8rem);
+	margin-inline: auto;
+	background: linear-gradient(135deg, #08233f, #0d3b66 52%, #061827);
+	border: 1px solid hsla(0, 0%, 100%, 0.14);
+	border-radius: var(--fu-radius);
+	box-shadow: var(--fu-shadow);
+}
+.fu-project-scope-estimator-demo .fu-demo-shell__framing {
+	text-align: center;
+	margin-bottom: 2.5rem;
+}
+.fu-project-scope-estimator-demo .fu-demo-shell__eyebrow {
+	align-items: center;
+	color: #93c5fd;
+	display: inline-flex;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	gap: 0;
+	letter-spacing: 0.14em;
+	line-height: 1.2;
+	margin: 0;
+	text-transform: uppercase;
+}
+.fu-project-scope-estimator-demo .fu-demo-shell__heading {
+	font-family: "Raleway", sans-serif;
+	font-size: clamp(1.5rem, 1.1rem + 2vw, 2.2rem);
+	font-weight: 300;
+	margin: 0 0 0.7rem 0;
+	color: #f8fafc;
+}
+.fu-project-scope-estimator-demo .fu-demo-shell__instruction {
+	color: #cbd5e1;
+	font-size: 1rem;
+	margin: 0 0 2.2rem 0;
+	max-width: 70ch;
+	margin-inline: auto;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__panels {
+	display: flex;
+	gap: 2.5rem;
+	flex-wrap: wrap;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__workspace {
+	align-items: stretch;
+	width: 100%;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__input-panel,
+.fu-project-scope-estimator-demo .fu-scope-estimator__output-panel {
+	height: 100%;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__output-content {
+	display: grid;
+	align-content: start;
+	gap: 1.1rem;
+	height: 100%;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__input-panel,
+.fu-project-scope-estimator-demo .fu-scope-estimator__output-panel {
+	background: var(--fu-card-bg);
+	border: 1px solid var(--fu-border);
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(30, 41, 59, 0.04);
+	padding: 1.5rem 1.25rem;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__input-panel {
+	flex: 1 1 320px;
+	min-width: 260px;
+	max-width: 340px;
+	display: grid;
+	gap: 1.5rem;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__output-panel {
+	flex: 2 1 340px;
+	min-width: 260px;
+	display: grid;
+	gap: 1.5rem;
+	height: stretch;
+	border-width: 2px;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__fieldset {
+	border: none;
+	padding: 0;
+	margin: 0 0 0.5rem 0;
+	display: grid;
+	gap: 0.5rem;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__fieldset legend {
+	font-size: 1rem;
+	font-weight: 600;
+	color: #1e293b;
+	margin-bottom: 0.25rem;
+}
+.fu-project-scope-estimator-demo label {
+	font-size: 0.98rem;
+	color: #334155;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	cursor: pointer;
+}
+.fu-project-scope-estimator-demo select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	accent-color: var(--fu-blue);
+}
+/* Custom checkbox styling */
+.fu-project-scope-estimator-demo input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 1.1em;
+	height: 1.1em;
+	border: 2px solid #cbd5e1;
+	border-radius: 4px;
+	background: #fff;
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	margin: 0;
+	cursor: pointer;
+	transition: border-color 0.15s, box-shadow 0.15s;
+}
+.fu-project-scope-estimator-demo input[type="checkbox"]:checked {
+	background: var(--fu-blue);
+	border-color: var(--fu-blue);
+}
+.fu-project-scope-estimator-demo input[type="checkbox"]:checked::after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0.25em;
+	top: 0.01em;
+	width: 0.38em;
+	height: 0.7em;
+	border: solid #fff;
+	border-width: 0 0.18em 0.18em 0;
+	border-radius: 1px;
+	transform: rotate(45deg);
+	box-sizing: border-box;
+}
+.fu-project-scope-estimator-demo input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--fu-blue);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 2px #bfdbfe;
+}
+.fu-project-scope-estimator-demo select {
+	width: 100%;
+	padding: 10px 30px 10px 12px;
+	border-radius: 10px;
+	border: 1px solid #cbd5e1;
+	background-color: #fff;
+	background-image: url('data:image/svg+xml;utf8,<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5" stroke="%23374151" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+	background-repeat: no-repeat;
+	background-position: right 8px center;
+	background-size: 22px 22px;
+	color: #111827;
+	box-sizing: border-box;
+	font-size: 1rem;
+	margin-top: 0.15em;
+}
+
+/* Lower summary/case-study section polish for Timeline parity */
+.fu-portfolio-prototype-summary {
+	display: grid;
+	gap: clamp(2rem, 4vw, 3.25rem);
+	margin-top: clamp(3rem, 6vw, 5rem);
+	margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+.fu-portfolio-prototype-summary__item {
+	display: grid;
+	gap: 0.75rem;
+}
+.fu-portfolio-prototype-summary__item p {
+	margin: 0;
+	max-width: 68ch;
+	color: var(--fu-text-muted, var(--fu-muted));
+	font-size: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
+	line-height: 1.65;
+}
+
+/* Output panel hierarchy */
+.fu-project-scope-estimator-demo .scope-estimator__section {
+	margin-bottom: 1.1rem;
+}
+.fu-project-scope-estimator-demo .scope-estimator__section-title {
+	font-size: 1.08rem;
+	font-weight: 600;
+	color: #334155;
+	margin-bottom: 0.4em;
+	letter-spacing: 0.01em;
+}
+.fu-project-scope-estimator-demo .scope-estimator__summary-list {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.7em;
+}
+.fu-project-scope-estimator-demo .scope-estimator__summary-list div {
+	display: flex;
+	gap: 0.7em;
+	align-items: flex-start;
+}
+.fu-project-scope-estimator-demo .scope-estimator__summary-list dt {
+	min-width: 7.5em;
+	color: #334155;
+	font-weight: 500;
+	font-size: 1em;
+	margin: 0;
+	line-height: 1.5;
+}
+.fu-project-scope-estimator-demo .scope-estimator__summary-list dd {
+	margin: 0;
+	color: #334155;
+	font-weight: 400;
+	font-size: 1em;
+	line-height: 1.5;
+}
+.fu-project-scope-estimator-demo .scope-estimator__needs-list {
+	margin: 0.1em 0 0.1em 1.1em;
+	padding: 0;
+	list-style: disc;
+	color: #334155;
+	font-size: 1em;
+	line-height: 1.5;
+}
+.fu-project-scope-estimator-demo select:focus {
+	outline: 3px solid var(--fu-blue) 33;
+	border-color: var(--fu-blue);
+}
+.fu-project-scope-estimator-demo select:focus-visible {
+	outline: 3px solid var(--fu-blue) 66;
+	border-color: var(--fu-blue);
+}
+.fu-project-scope-estimator-demo input[type="checkbox"] {
+	width: 1.1em;
+	height: 1.1em;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__complexity {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #0f172a;
+	margin-bottom: 0.2em;
+	display: flex;
+	align-items: center;
+	gap: 0.7em;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__complexity-label {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #334155;
+}
+.fu-project-scope-estimator-demo
+	.fu-scope-estimator__complexity-value[data-complexity-level] {
+	margin-left: 0.2em;
+	font-weight: 600;
+	padding: 0.08em 0.7em 0.08em 0.7em;
+	border-radius: 999px;
+	font-size: 0.75em;
+	background: #f1f5f9;
+	color: var(--fu-blue);
+	box-shadow: 0 1px 4px rgba(30, 41, 59, 0.07);
+	border: 1.2px solid #e0e7ef;
+	display: inline-block;
+	letter-spacing: 0.01em;
+	vertical-align: middle;
+	line-height: 1.3;
+}
+.fu-project-scope-estimator-demo
+	.fu-scope-estimator__complexity-value[data-complexity-level="Low"] {
+	background: #ecfdf5;
+	color: var(--fu-green);
+	border-color: #bbf7d0;
+}
+.fu-project-scope-estimator-demo
+	.fu-scope-estimator__complexity-value[data-complexity-level="Moderate"] {
+	background: #fef9c3;
+	color: #b45309;
+	border-color: #fde68a;
+}
+.fu-project-scope-estimator-demo
+	.fu-scope-estimator__complexity-value[data-complexity-level="High"] {
+	background: #fee2e2;
+	color: var(--fu-red);
+	border-color: #fecaca;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__suggested-label,
+.fu-project-scope-estimator-demo .fu-scope-estimator__handoff-label,
+.fu-project-scope-estimator-demo .fu-scope-estimator__next-label {
+	display: block;
+	font-weight: 600;
+	color: #334155;
+	margin-bottom: 0.1em;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__suggested-value,
+.fu-project-scope-estimator-demo .fu-scope-estimator__handoff-value {
+	display: block;
+	margin-bottom: 0.2em;
+	color: #334155;
+	font-size: 1rem;
+}
+.fu-project-scope-estimator-demo .fu-scope-estimator__next-list {
+	margin: 0.2em 0 0 1.2em;
+	padding: 0;
+	color: #64748b;
+	font-size: 0.98rem;
+}
+.fu-project-scope-estimator-demo .fu-prototype-note {
+	margin-top: 2.5rem;
+	color: #cbd5e1;
+	font-size: 0.97rem;
+	text-align: center;
+	max-width: 70ch;
+	margin-inline: auto;
+}
+.fu-project-scope-estimator-demo {
+	.fu-scope-estimator__summary-list {
+		display: grid;
+		gap: 0.7rem;
+		margin: 0;
+	}
+
+	.fu-scope-estimator__summary-list > div {
+		display: grid;
+		grid-template-columns: minmax(7.5rem, max-content) minmax(0, 1fr);
+		gap: 0.75rem 1rem;
+		align-items: start;
+	}
+
+	.fu-scope-estimator__summary-list dt,
+	.fu-scope-estimator__summary-list dd {
+		margin: 0;
+		color: #334155;
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.fu-scope-estimator__summary-list dt {
+		font-weight: 650;
+	}
+
+	.fu-scope-estimator__summary-list dd {
+		min-width: 0;
+	}
+
+	.fu-scope-estimator__selected-needs {
+		display: grid;
+		gap: 0.25rem;
+		margin: 0;
+		padding-left: 1.1rem;
+	}
+
+	.fu-scope-estimator__selected-needs li {
+		margin: 0;
+	}
+}
+
+@media (max-width: 900px) {
+	.fu-project-scope-estimator-demo .fu-scope-estimator__panels {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.fu-project-scope-estimator-demo .fu-scope-estimator__input-panel,
+	.fu-project-scope-estimator-demo .fu-scope-estimator__output-panel {
+		max-width: 100%;
+	}
+}

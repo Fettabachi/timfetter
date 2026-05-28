@@ -328,6 +328,8 @@ if (!$portfolio_archive_url) {
                     <?php endif; ?>
                     <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
                         <p class="fu-section-lede fu-section-lede--prototype">A self-contained HTML, CSS, and JavaScript prototype for testing project milestone states, responsive timeline layouts, and client-facing workflow language before production development.</p>
+                    <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'project-scope-estimator') : ?>
+                        <p class="fu-section-lede fu-section-lede--prototype">A guided front-end prototype for turning early project requirements into a clearer scope summary before production planning or developer handoff.</p>
                     <?php endif; ?>
                 </div>
 
@@ -367,6 +369,24 @@ if (!$portfolio_archive_url) {
                     <div class="fu-portfolio-prototype-summary__item">
                         <h2 class="fu-section-heading fu-section-heading--compact">How This Could Work on Your Website</h2>
                         <p>This type of timeline could be managed manually through editable CMS fields, connected to structured project data, or updated from an internal system or API. For WordPress, it could become an ACF-powered block or template component. For larger applications, the same front-end pattern could consume project status data from an API.</p>
+                    </div>
+                </div>
+            <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'project-scope-estimator') : ?>
+                <div class="fu-content-section__inner container container--l">
+                    <?php get_template_part('parts/prototypes/project-scope-estimator'); ?>
+                </div>
+                <div class="fu-content-section__inner container container--readable fu-portfolio-prototype-summary">
+                    <div class="fu-portfolio-prototype-summary__item">
+                        <h2 class="fu-section-heading fu-section-heading--compact">Prototype Purpose</h2>
+                        <p>This prototype turns early project details into a testable scope summary, helping teams identify complexity, readiness gaps, and next steps before production begins.</p>
+                    </div>
+                    <div class="fu-portfolio-prototype-summary__item">
+                        <h2 class="fu-section-heading fu-section-heading--compact">What This Demonstrates</h2>
+                        <p>The interface combines conditional form logic, feature selection, readiness states, dynamic scoring, and responsive summary output in a lightweight front-end prototype.</p>
+                    </div>
+                    <div class="fu-portfolio-prototype-summary__item">
+                        <h2 class="fu-section-heading fu-section-heading--compact">How This Could Work on Your Website</h2>
+                        <p>In production, this pattern could be connected to a CMS, lead form, project intake workflow, or internal planning tool. The generated summary could be copied, printed, emailed, or submitted into an intake system, giving teams a clearer handoff record before deeper implementation.</p>
                     </div>
                 </div>
             <?php endif; ?>
