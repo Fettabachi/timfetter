@@ -14,6 +14,11 @@ $resolve_page_url = static function ($slug) {
     return $page ? get_permalink($page) : home_url('/' . trim($slug, '/') . '/');
 };
 
+$resolve_portfolio_item_url = static function ($slug) {
+    $item = get_page_by_path($slug, OBJECT, 'portfolio-items');
+    return $item ? get_permalink($item) : home_url('/work/' . trim($slug, '/') . '/');
+};
+
 $featured_systems = array(
     array(
         'title' => 'ACF Block System Overview',
@@ -67,6 +72,34 @@ $acf_block_case_studies = array(
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
     ),
 );
+
+$frontend_prototypes = array(
+    array(
+        'title' => 'Client Project Timeline',
+        'slug' => 'client-project-timeline',
+        'summary' => 'A configurable HTML, CSS, and JavaScript milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
+        // TODO: Replace with dedicated Client Project Timeline cover image.
+        'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
+        'eyebrow' => 'Interactive Front-End Prototype',
+        'focus' => array('HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Prototype Logic'),
+        'cta' => 'View Prototype',
+    ),
+);
+
+// Prototype grouping and exclusion setup.
+$prototype_slugs = array(
+    'client-project-timeline',
+);
+
+$prototype_post_ids = array();
+
+foreach ($prototype_slugs as $prototype_slug) {
+    $prototype_post = get_page_by_path($prototype_slug, OBJECT, 'portfolio-items');
+
+    if ($prototype_post && !empty($prototype_post->ID)) {
+        $prototype_post_ids[] = (int) $prototype_post->ID;
+    }
+}
 
 $get_portfolio_card_kicker = static function ($post_id) {
     $kicker_fields = array(
@@ -228,15 +261,60 @@ $get_portfolio_focus_labels = static function ($post_id) {
                 </div>
             </div>
 
+            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--prototypes" aria-labelledby="frontend-prototypes-heading">
+                <div class="fu-section-head">
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Front-End Prototypes</h2>
+                    <p class="fu-section-lede">Interactive HTML, CSS, and JavaScript prototypes that make interface behavior, responsive states, and handoff logic easier to test before production development.</p>
+                </div>
+                <div class="fu-work-grid fu-work-grid--archive" aria-label="Front-End Prototypes">
+                    <?php foreach ($frontend_prototypes as $prototype) : ?>
+                        <?php $prototype_url = $resolve_portfolio_item_url($prototype['slug']); ?>
+                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($prototype_url); ?>">
+                            <?php if (!empty($prototype['image'])) : ?>
+                                <div class="fu-work-card__media">
+                                    <img
+                                        src="<?php echo esc_url($prototype['image']); ?>"
+                                        alt=""
+                                        loading="lazy"
+                                        width="600"
+                                        height="450">
+                                </div>
+                            <?php endif; ?>
+                            <div class="fu-work-card__body">
+                                <p class="fu-work-card__kicker"><?php echo esc_html($prototype['eyebrow']); ?></p>
+                                <h3 class="fu-work-card__title"><?php echo esc_html($prototype['title']); ?></h3>
+                                <p class="fu-work-card__text"><?php echo esc_html($prototype['summary']); ?></p>
+                                <p class="fu-work-card__text"><strong>Focus:</strong> <?php echo esc_html(implode(', ', $prototype['focus'])); ?></p>
+                                <span class="fu-work-card__link"><?php echo esc_html($prototype['cta']); ?></span>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
             <div class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="earlier-client-work-heading">
                 <div class="fu-section-head">
                     <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Selected Contract Work</h2>
                     <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
                 </div>
 
-                <?php if (have_posts()) : ?>
+                <?php
+                // Use explicit WP_Query to exclude prototype items from contract work
+                $selected_contract_work_limit = 6;
+
+                $contract_work_query = new WP_Query(array(
+                    'post_type'      => 'portfolio-items',
+                    'posts_per_page' => $selected_contract_work_limit,
+                    'post__not_in'   => $prototype_post_ids,
+                    'orderby'        => array(
+                        'menu_order' => 'ASC',
+                        'date'       => 'DESC',
+                    ),
+                ));
+                ?>
+                <?php if ($contract_work_query->have_posts()) : ?>
                     <div class="fu-work-grid fu-work-grid--archive" aria-label="Portfolio case studies">
-                        <?php while (have_posts()) : the_post(); ?>
+                        <?php while ($contract_work_query->have_posts()) : $contract_work_query->the_post(); ?>
                             <?php
                             $portfolio_card_link = get_permalink();
                             $portfolio_card_kicker = $get_portfolio_card_kicker(get_the_ID());
@@ -270,8 +348,8 @@ $get_portfolio_focus_labels = static function ($post_id) {
                                 </div>
                             </a>
                         <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     </div>
-
                 <?php else : ?>
                     <div class="fu-prose">
                         <p>No earlier client work items are published yet. New projects will appear here soon.</p>

@@ -27,7 +27,8 @@ function tf_portfolio_items_register_post_type()
             'title',
             'editor',
             'excerpt',
-            'thumbnail'
+            'thumbnail',
+            'page-attributes',
         )
     ));
 }
