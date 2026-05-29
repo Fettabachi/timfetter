@@ -284,15 +284,49 @@ $earlier_work = array(
                         </div>
                     </section>
 
-                    <section class="fu-home__section fu-home__prototype" aria-labelledby="prototype-heading">
-                        <div class="fu-home__section-inner fu-home__section-inner--narrow fu-home__prototype-panel container container--readable">
-                            <div class="fu-home__prototype-copy">
-                                <p class="fu-eyebrow">Interactive prototypes before full development</p>
-                                <h2 id="prototype-heading">Prototype support that helps teams validate the idea first</h2>
-                                <p>I can build HTML/CSS/JS prototypes, clickable flows, and front-end proof-of-concepts that agencies or teams can review, test, and show to clients before senior developers rebuild the product in .NET or another backend stack.</p>
-                                <div class="fu-home__prototype-actions">
-                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Discuss a Prototype</a>
-                                </div>
+                    <!-- Front-End Prototypes Section -->
+                    <section class="fu-home-prototypes fu-content-section" aria-labelledby="home-prototypes-heading">
+                        <div class="fu-content-section__inner container container--page">
+                            <div class="fu-section-head fu-home-prototypes__header">
+                                <p class="fu-eyebrow">Prototype Work</p>
+                                <h2 class="fu-section-heading" id="home-prototypes-heading">Front-End Prototypes</h2>
+                                <p class="fu-section-lede">Interactive HTML, CSS, and JavaScript prototypes that make UI behavior, responsive states, workflow logic, and handoff details easier to test before production development.</p>
+                                <p class="fu-section-lede fu-home-prototypes__support">These focused demos help teams validate workflows, reduce ambiguity, and move faster before a final build in WordPress, .NET, or another production system.</p>
+                            </div>
+                            <div class="fu-home-prototypes__grid grid grid--gap-md grid--auto-cards">
+                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/client-project-timeline/">
+                                    <div class="fu-home-prototypes__media fu-work-card__media">
+                                        <img src="<?php echo esc_url(content_url('/uploads/2026/05/client-project-timeline-cover.webp')); ?>" alt="" loading="lazy" width="600" height="450">
+                                    </div>
+                                    <div class="fu-home-prototypes__content fu-work-card__body">
+                                        <h3 class="fu-work-card__title">Client Project Timeline</h3>
+                                        <p class="fu-work-card__text">A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior.</p>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                    </div>
+                                </a>
+                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/project-scope-estimator/">
+                                    <div class="fu-home-prototypes__media fu-work-card__media">
+                                        <img src="<?php echo esc_url(content_url('/uploads/2026/05/client-project-scope-cover.webp')); ?>" alt="" loading="lazy" width="600" height="450">
+                                    </div>
+                                    <div class="fu-home-prototypes__content fu-work-card__body">
+                                        <h3 class="fu-work-card__title">Project Scope Estimator</h3>
+                                        <p class="fu-work-card__text">A guided estimator that turns early project details into a clearer scope summary before production planning.</p>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                    </div>
+                                </a>
+                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/content-approval-checklist/">
+                                    <div class="fu-home-prototypes__media fu-work-card__media">
+                                        <img src="<?php echo esc_url(content_url('/uploads/2026/05/client-project-content-approval-cover.webp')); ?>" alt="" loading="lazy" width="600" height="450">
+                                    </div>
+                                    <div class="fu-home-prototypes__content fu-work-card__body">
+                                        <h3 class="fu-work-card__title">Content Approval Checklist</h3>
+                                        <p class="fu-work-card__text">A responsive checklist for reviewing content readiness, blockers, approvals, and launch-readiness states.</p>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="fu-home-prototypes__footer">
+                                <a class="fu-home__text-link fu-home-prototypes__section-cta" href="/work/#front-end-prototypes">View Prototype Work</a>
                             </div>
                         </div>
                     </section>
@@ -337,10 +371,12 @@ $earlier_work = array(
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
-
-                            <div class="fu-home__section-footer fu-home__section-footer--compact">
-                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_archive_url); ?>">View all work</a>
+                            <div class="fu-home-contract-work__footer">
+                                <a class="fu-home__text-link fu-home-contract-work__section-cta" href="/work/#contract-work">View Contract Work</a>
                             </div>
+                            <!-- <div class="fu-home__section-footer fu-home__section-footer--compact">
+                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_archive_url); ?>">View all work</a>
+                            </div> -->
                         </div>
                     </section>
 
@@ -366,3 +402,11 @@ $earlier_work = array(
 </main><!-- #main -->
 
 <?php get_footer(); ?>
+
+<?php
+// Enqueue homepage prototypes CSS only for the homepage
+add_action('wp_enqueue_scripts', function () {
+    if (is_front_page() || is_page_template('page-home.php')) {
+        wp_enqueue_style('fu-home-prototypes', get_template_directory_uri() . '/css/pages/home-prototypes.css', array(), null);
+    }
+});

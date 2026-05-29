@@ -1189,8 +1189,10 @@ p.fu-work-card__text {
 	margin-top: clamp(1.75rem, 4vw, 2.5rem);
 }
 
-.fu-home__section-footer {
-	margin-top: 1rem;
+.fu-home__section-footer,
+.fu-home-prototypes__footer,
+.fu-home-contract-work__footer {
+	margin-top: 2rem;
 }
 
 .fu-home__prototype-panel {
