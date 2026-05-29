@@ -335,6 +335,21 @@
 	opacity: 0.7;
 }
 
+/* style the Forminator success message */
+.page-contact
+	.fu-contact-page
+	.forminator-ui#forminator-module-2033.forminator-design--default
+	.forminator-response-message.forminator-success {
+	background-color: #244f75;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+
+	p {
+		color: #fff;
+	}
+}
+
 @media (min-width: 860px) {
 	.page-contact .fu-contact-page__layout {
 		grid-template-columns: minmax(22rem, 0.95fr) minmax(26rem, 1.05fr);
