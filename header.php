@@ -35,8 +35,8 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="site-branding">
-                        <a class="site-logo" href="mailto:timfettermail@gmail.com">
-                            timfettermail@gmail.com
+                        <a class="site-logo" href="/">
+                            Tim Fetter
                         </a>
                     </div>
                     <nav id="site-navigation" class="main-navigation" role="navigation">

@@ -42,7 +42,7 @@
   --fu-surface: var(--fu-white);
   --fu-surface-alt: rgba(248, 251, 254, 0.96);
   --fu-surface-inverse: #08263f;
-  --fu-surface-header: #0f1726;
+  --fu-surface-header: var(--fu-blue);
   --fu-surface-footer: #0f1726;
   /* Borders */
   --fu-border: rgba(13, 59, 102, 0.1);
@@ -699,8 +699,9 @@ address {
 }
 
 .site-branding {
+  display: inline-flex;
+  align-items: center;
   text-align: center;
-  float: left;
   overflow: hidden;
 }
 
@@ -709,17 +710,25 @@ address {
   margin-left: auto;
 }
 
-.main-navigation ul {
+.main-navigation {
   display: flex;
-  width: 100%;
-  min-height: 50px;
-  list-style: none;
-  text-align: center;
-  margin: 0;
-  padding-left: 0;
+  align-items: center;
 }
 
-.site-branding,
+.main-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+
 .main-navigation li {
   display: inline-flex;
   align-items: center;
@@ -733,6 +742,8 @@ address {
 
 .site-branding > a,
 .main-navigation a {
+  display: inline-flex;
+  align-items: center;
   padding: 9px 16px;
   color: var(--fu-text-on-inverse);
   font-family: raleway;
@@ -740,6 +751,7 @@ address {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 .site-branding > a:focus-visible,
@@ -758,57 +770,71 @@ address {
   color: var(--fu-link-accent-legacy);
 }
 
+/*
+ * Mobile menu is intentionally disabled for now.
+ * Keep the toggle markup and JS available for future nav expansion,
+ * but hide the hamburger and keep the simple 3-link nav visible.
+ */
 .menu-toggle {
   display: none;
 }
 
-/* the mobile menu */
+.icon-bar {
+  display: block;
+}
+
+/* Simple visible nav on small screens */
 @media screen and (max-width: 767px) {
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 4px;
-    padding: 4px;
-    background-color: var(--fu-button-legacy-bg);
-    border-radius: 3px;
-    z-index: 1000;
+  .site-header {
+    padding: 0.6rem 0;
   }
-  .icon-bar {
-    display: block;
-    margin: 4px;
-    width: 22px;
-    height: 2px;
-    border-radius: 1px;
-    background-color: #000;
+  .header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
   }
-  .main-navigation ul {
-    display: block;
-    height: 0;
-    min-height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
+  .site-branding {
+    flex: 0 0 auto;
+    margin: 0;
+    z-index: 10;
   }
-  .main-navigation ul.mobile-menu {
-    height: 130px;
+  #site-navigation {
+    flex: 1 1 auto;
+    margin-left: 0;
   }
   .main-navigation {
     float: none;
-    width: 100%;
-  }
-  .main-navigation.toggled ul {
-    height: 44px;
+    width: auto;
   }
   .main-navigation ul {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: clamp(0.35rem, 2vw, 0.75rem);
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    text-align: right;
+    transition: none;
   }
-  .site-branding {
-    /* width: 172px; */
-    margin: 0 auto;
-    z-index: 10;
+  .main-navigation li {
+    display: inline-flex;
+  }
+  .main-navigation a {
+    padding: 0.55rem 0.35rem;
+    font-size: clamp(0.72rem, 2.7vw, 0.86rem);
+    letter-spacing: 0.08em;
+  }
+  .site-branding > a {
+    padding-right: 0.5rem;
+    font-size: clamp(0.82rem, 3vw, 1rem);
+    letter-spacing: 0.08em;
+  }
+  .menu-toggle {
+    display: none;
   }
 }
-/* end (max-width: 767px) */
 .home-wrap {
   padding-top: 8em;
   padding-bottom: 3em;
