@@ -26,8 +26,8 @@
                             ?>
 		                </nav>
 
-		                <a class="site-footer__email" href="mailto:timfettermail@gmail.com">
-		                    timfettermail@gmail.com
+		                <a class="site-footer__email" href="mailto:contact@timfetter.com">
+		                    contact@timfetter.com
 		                </a>
 		            </div>
 		        </div>
