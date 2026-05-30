@@ -14,9 +14,16 @@
 
 		            <div class="site-footer__links">
 		                <nav class="site-footer__nav" aria-label="<?php esc_attr_e('Footer navigation', 'base'); ?>">
-		                    <a href="/">Home</a>
-		                    <a href="/work/">Work</a>
-		                    <a href="/contact/">Contact</a>
+		                    <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'primary',
+                                    'container'      => false,
+                                    'menu_class'     => 'site-footer__menu',
+                                    'depth'          => 1,
+                                )
+                            );
+                            ?>
 		                </nav>
 
 		                <a class="site-footer__email" href="mailto:timfettermail@gmail.com">

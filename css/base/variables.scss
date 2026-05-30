@@ -54,8 +54,9 @@ $selectionBackgroundColor: #ab977a;
 		#0d3b66 52%,
 		#061827 100%
 	);
+	--fu-gradient-lux-darkest: #061827;
 	--fu-surface-header: var(--fu-gradient-lux);
-	--fu-surface-footer: var(--fu-gradient-lux);
+	--fu-surface-footer: var(--fu-gradient-lux-darkest);
 
 	/* Borders */
 	--fu-border: rgba(13, 59, 102, 0.1);
