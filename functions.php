@@ -14,6 +14,7 @@ if (!function_exists('base_setup')) :
     {
         add_theme_support('editor-styles');
         add_theme_support('post-thumbnails');
+        add_theme_support('title-tag');
         add_image_size('small-image', 600);
         add_image_size('wide-image', 1400);
         add_image_size('extra-wide-image', 2000);
@@ -25,6 +26,23 @@ if (!function_exists('base_setup')) :
     }
 endif;
 add_action('after_setup_theme', 'base_setup');
+
+function timfetter_document_title_separator($sep)
+{
+    return '|';
+}
+add_filter('document_title_separator', 'timfetter_document_title_separator');
+
+function timfetter_document_title_parts($title)
+{
+    if (is_front_page()) {
+        $title['title'] = 'Tim Fetter';
+        $title['tagline'] = 'WordPress & Front-End Developer';
+    }
+
+    return $title;
+}
+add_filter('document_title_parts', 'timfetter_document_title_parts');
 
 
 //Enqueue scripts and styles.

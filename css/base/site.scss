@@ -307,15 +307,21 @@ address {
 	}
 }
 
-.site-branding > a {
-	padding: 9px 16px 9px 0;
-	text-transform: initial;
-	transition: opacity 0.2s ease;
+.site-branding {
+	> a {
+		gap: 0.75ch;
+		padding: 9px 16px 9px 0;
+		text-transform: initial;
+		transition: opacity 0.2s ease;
+	}
 
-	&:hover,
-	&:focus-visible {
-		color: var(--fu-text-on-inverse);
-		opacity: 0.82;
+	.site-logo__icon {
+		display: inline-flex;
+		width: 1rem;
+	}
+
+	.site-logo__text {
+		font-size: 1rem;
 	}
 }
 
@@ -427,7 +433,7 @@ address {
 		--nav-link-padding-x: 0.35rem;
 
 		padding: 0.55rem var(--nav-link-padding-x);
-		font-size: clamp(0.72rem, 2.7vw, 0.86rem);
+		font-size: 0.85rem;
 		letter-spacing: 0.08em;
 	}
 

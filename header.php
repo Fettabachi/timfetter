@@ -13,7 +13,6 @@
     <meta name="theme-color" content="#0d3b66">
     <meta name="msapplication-TileColor" content="#0d3b66">
     <meta name="msapplication-config" content="<?php echo esc_url(get_theme_file_uri('/assets/favicons/browserconfig.xml')); ?>">
-    <title>Tim Fetter | Web Developer</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKFVCPJGEY"></script>
     <script>
@@ -39,7 +38,10 @@
                 <div class="header-wrap">
                     <div class="site-branding">
                         <a class="site-logo" href="/">
-                            Tim Fetter
+                            <span class="site-logo__icon">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-white.webp'); ?>" alt="Tim Fetter Logo">
+                            </span>
+                            <span class="site-logo__text">Tim Fetter</span>
                         </a>
                     </div>
                     <nav id="site-navigation" class="main-navigation" role="navigation">
