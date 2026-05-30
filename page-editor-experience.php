@@ -19,10 +19,10 @@ $page_banner_url = $resolve_portfolio_page_url('page-banner');
 $content_switcher_url = $resolve_portfolio_page_url('content-switcher');
 $comparison_cards_url = $resolve_portfolio_page_url('comparison-cards');
 $proof_cards_url = $resolve_portfolio_page_url('proof-cards');
-$portfolio_url = $resolve_portfolio_page_url('portfolio');
+$portfolio_url = $resolve_portfolio_page_url('work');
 
 if ($portfolio_url === '') {
-    $portfolio_url = home_url('/portfolio/');
+    $portfolio_url = home_url('/work/');
 }
 ?>
 

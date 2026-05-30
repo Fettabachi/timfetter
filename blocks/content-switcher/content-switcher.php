@@ -90,7 +90,7 @@ if (!function_exists('fu_content_switcher_get_seed_panels')) {
                 'cta_1_size' => 'medium',
                 'cta_2' => array(
                     'title' => 'View Portfolio',
-                    'url' => '/portfolio/',
+                    'url' => '/work/',
                     'target' => '',
                 ),
                 'cta_2_style' => 'text',

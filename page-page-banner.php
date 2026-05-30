@@ -221,7 +221,7 @@ if ($editor_experience_url === '') {
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
-                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">Back to Portfolio</a>
+                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
                     </div>
                 </div>
             </section>

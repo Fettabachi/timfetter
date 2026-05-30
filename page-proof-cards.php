@@ -282,7 +282,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'Service landing page redesign',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/portfolio/proof-cards/brightpath-dental.svg'),
+                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/brightpath-dental.svg'),
                     'alt' => '',
                 ),
             ),
@@ -294,7 +294,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'WordPress implementation partner',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/portfolio/proof-cards/northstar-studio.svg'),
+                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/northstar-studio.svg'),
                     'alt' => '',
                 ),
             ),
@@ -325,7 +325,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'Multi-page WordPress rollout',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/portfolio/proof-cards/fieldstone-services.svg'),
+                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/fieldstone-services.svg'),
                     'alt' => '',
                 ),
             ),
@@ -419,7 +419,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'Service website refresh',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/portfolio/proof-cards/elevate-fitness.svg'),
+                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/elevate-fitness.svg'),
                     'alt' => '',
                 ),
             ),
@@ -710,7 +710,7 @@ $proof_cards_demos = array(
 
                         <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
-                            <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/portfolio/')); ?>">Back to Portfolio</a>
+                            <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
                         </div>
                     </div>
                 </section>

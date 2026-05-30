@@ -106,8 +106,8 @@ get_header();
                         I build WordPress components that make content easier to manage, easier to scale, and easier for visitors to use.
                     </p>
                     <div class="fu-portfolio__actions" style="margin-top:1.5rem;">
-                        <a class="fu-portfolio__button fu-portfolio__button--primary" href="http://tim-fetter.local/contact/">Start a Conversation</a>
-                        <a class="fu-portfolio__button fu-portfolio__button--secondary" href="http://tim-fetter.local/portfolio/">Back to Portfolio</a>
+                        <a class="fu-portfolio__button fu-portfolio__button--primary" href="/contact/">Start a Conversation</a>
+                        <a class="fu-portfolio__button fu-portfolio__button--secondary" href="/work/">Back to Portfolio</a>
                     </div>
                 </div>
             </section>
