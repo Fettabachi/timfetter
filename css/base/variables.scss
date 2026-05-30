@@ -48,8 +48,14 @@ $selectionBackgroundColor: #ab977a;
 	--fu-surface: var(--fu-white);
 	--fu-surface-alt: rgba(248, 251, 254, 0.96);
 	--fu-surface-inverse: #08263f;
-	--fu-surface-header: var(--fu-blue);
-	--fu-surface-footer: #0f1726;
+	--fu-gradient-lux: linear-gradient(
+		135deg,
+		#08233f 0%,
+		#0d3b66 52%,
+		#061827 100%
+	);
+	--fu-surface-header: var(--fu-gradient-lux);
+	--fu-surface-footer: var(--fu-gradient-lux);
 
 	/* Borders */
 	--fu-border: rgba(13, 59, 102, 0.1);

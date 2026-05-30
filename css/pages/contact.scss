@@ -12,7 +12,7 @@
 	margin: clamp(3rem, 6vw, 5rem) auto;
 	padding: clamp(2rem, 5vw, 4rem);
 	color: var(--fu-white, #fff);
-	background: linear-gradient(135deg, #08233f 0%, #0d3b66 52%, #061827 100%);
+	background: var(--fu-gradient-lux);
 	border: 1px solid rgba(255, 255, 255, 0.12);
 	border-radius: 28px;
 	box-shadow: 0 1.5rem 4rem rgba(6, 24, 39, 0.18);
