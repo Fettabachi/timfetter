@@ -264,6 +264,12 @@ if (! function_exists('fu_proof_cards_demo_section_markup')) {
 
 $proof_cards_hero_media_uri = '/wp-content/uploads/2026/05/page-proof-cards-hero.webp';
 
+$proof_cards_logo_uri = static function ($filename) {
+    return wp_make_link_relative(
+        get_theme_file_uri('/assets/images/work/proof-cards/' . ltrim((string) $filename, '/'))
+    );
+};
+
 $proof_cards_demos = array(
     'main_showcase' => array(
         'eyebrow' => 'Client Proof & Project Outcomes',
@@ -282,7 +288,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'Service landing page redesign',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/brightpath-dental.svg'),
+                    'src' => $proof_cards_logo_uri('brightpath-dental.svg'),
                     'alt' => '',
                 ),
             ),
@@ -294,7 +300,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'WordPress implementation partner',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/northstar-studio.svg'),
+                    'src' => $proof_cards_logo_uri('northstar-studio.svg'),
                     'alt' => '',
                 ),
             ),
@@ -325,7 +331,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'Multi-page WordPress rollout',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/fieldstone-services.svg'),
+                    'src' => $proof_cards_logo_uri('fieldstone-services.svg'),
                     'alt' => '',
                 ),
             ),
@@ -419,7 +425,7 @@ $proof_cards_demos = array(
                 'source_detail' => 'Service website refresh',
                 'media' => array(
                     'type' => 'logo',
-                    'src' => get_theme_file_uri('/assets/images/work/proof-cards/elevate-fitness.svg'),
+                    'src' => $proof_cards_logo_uri('elevate-fitness.svg'),
                     'alt' => '',
                 ),
             ),
