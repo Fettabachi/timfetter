@@ -25,12 +25,14 @@ $featured_systems = array(
         'slug' => 'acf-block-system',
         'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
         'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing reusable WordPress block system overview and structured content.',
     ),
     array(
         'title' => 'Editor Experience & Handoff',
         'slug' => 'editor-experience',
         'summary' => 'How blocks are structured so editors can make real updates without breaking layout, accessibility, or the front end.',
         'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing block editor experience and handoff with accessibility and layout controls.',
     ),
 );
 
@@ -40,36 +42,42 @@ $acf_block_case_studies = array(
         'slug' => 'filtered-content-grid',
         'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a filterable content grid with category and taxonomy controls.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a content switcher block with tabs and accessible panel navigation.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing comparison cards for plans, services, and product options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing proof cards with testimonials, metrics, and credibility signals.',
     ),
     array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
         'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
     ),
 );
 
@@ -80,6 +88,7 @@ $frontend_prototypes = array(
         'summary' => 'A configurable HTML, CSS, and JavaScript milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
         // TODO: Replace with dedicated Client Project Timeline cover image.
         'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
+        'alt' => 'Prototype interface showing project milestones, timeline phases, and delivery status.',
         'eyebrow' => 'Interactive Front-End Prototype',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Prototype Logic'),
         'cta' => 'View Prototype',
@@ -90,6 +99,7 @@ $frontend_prototypes = array(
         'summary' => 'A guided HTML, CSS, and JavaScript prototype that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
         // TODO: Replace with dedicated Project Scope Estimator cover image.
         'image' => content_url('/uploads/2026/05/client-project-scope-cover.webp'),
+        'alt' => 'Prototype interface showing project scope options, complexity indicators, and summary details.',
         'eyebrow' => 'Interactive Front-End Prototype',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Conditional UI', 'Form Logic'),
         'cta' => 'View Prototype',
@@ -100,6 +110,7 @@ $frontend_prototypes = array(
         'summary' => 'A responsive checklist prototype for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
         // TODO: Replace with dedicated Content Approval Checklist cover image.
         'image' => content_url('/uploads/2026/05/client-project-content-approval-cover.webp'),
+        'alt' => 'Prototype interface showing content review tasks, approval status, and launch readiness.',
         'eyebrow' => 'Interactive Front-End Prototype',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
         'cta' => 'View Prototype',
@@ -233,7 +244,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
                                 <div class="fu-work-card__media">
                                     <img
                                         src="<?php echo esc_url(content_url($system['image'])); ?>"
-                                        alt=""
+                                        alt="<?php echo esc_attr($system['alt'] ?? ''); ?>"
                                         loading="lazy"
                                         width="600"
                                         height="450">
@@ -265,7 +276,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
                                 <div class="fu-work-card__media">
                                     <img
                                         src="<?php echo esc_url(content_url($case_study['image'])); ?>"
-                                        alt=""
+                                        alt="<?php echo esc_attr($case_study['alt'] ?? ''); ?>"
                                         loading="lazy"
                                         width="600"
                                         height="450">
@@ -296,7 +307,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
                                 <div class="fu-work-card__media">
                                     <img
                                         src="<?php echo esc_url($prototype['image']); ?>"
-                                        alt=""
+                                        alt="<?php echo esc_attr($prototype['alt'] ?? ''); ?>"
                                         loading="lazy"
                                         width="600"
                                         height="450">
@@ -347,7 +358,17 @@ $get_portfolio_focus_labels = static function ($post_id) {
                             <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($portfolio_card_link); ?>">
                                 <?php if (has_post_thumbnail()) : ?>
                                     <div class="fu-work-card__media">
-                                        <?php the_post_thumbnail('medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                        <?php
+                                        $thumbnail_id = get_post_thumbnail_id();
+                                        $alt          = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                                        $fallback_alt = $alt ? $alt : get_the_title();
+
+                                        the_post_thumbnail('medium_large', array(
+                                            'loading'  => 'lazy',
+                                            'decoding' => 'async',
+                                            'alt'      => esc_attr($fallback_alt),
+                                        ));
+                                        ?>
                                     </div>
                                 <?php endif; ?>
 

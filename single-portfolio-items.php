@@ -338,7 +338,17 @@ if (!$portfolio_archive_url) {
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="fu-portfolio-single__media-frame">
                         <figure class="fu-work-card__media fu-portfolio-single__media">
-                            <?php the_post_thumbnail('large', array('loading' => 'eager', 'decoding' => 'async')); ?>
+                            <?php
+                            $thumbnail_id  = get_post_thumbnail_id();
+                            $alt           = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                            $fallback_alt  = $alt ? $alt : get_the_title();
+
+                            the_post_thumbnail('large', array(
+                                'loading'  => 'eager',
+                                'decoding' => 'async',
+                                'alt'      => esc_attr($fallback_alt),
+                            ));
+                            ?>
                         </figure>
                     </div>
                 <?php endif; ?>

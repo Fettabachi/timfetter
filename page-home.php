@@ -93,48 +93,56 @@ $recent_systems = array(
         'slug' => 'editor-experience',
         'summary' => 'How I structure blocks so editors can make real updates without breaking layout, accessibility, or the front end.',
         'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
+        'alt' => 'Editor Experience & Handoff portfolio hero showing structured block editing and front-end preview concepts.',
     ),
     array(
         'title' => 'ACF Block System Overview',
         'slug' => 'acf-block-system',
         'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
         'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
+        'alt' => 'ACF Block System portfolio hero showing reusable WordPress block patterns and structured content.',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
+        'alt' => 'Filtered Content Grid portfolio hero showing planning, filtering, and structured content organization.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
+        'alt' => 'Content Switcher portfolio hero showing tabbed content panels and responsive editor controls.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
+        'alt' => 'Comparison Cards portfolio hero showing structured service comparison cards and editor-friendly options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
+        'alt' => 'Proof Cards portfolio hero showing testimonials, metrics, and social proof card patterns.',
     ),
     array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
         'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
+        'alt' => 'Page Banner portfolio hero showing a flexible WordPress hero component with media and readability controls.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
+        'alt' => 'Flexible Feature Section portfolio hero showing balanced content and media layout options.',
     ),
 );
 
@@ -261,8 +269,8 @@ $earlier_work = array(
                                         <?php if (!empty($system['image'])) : ?>
                                             <div class="fu-home__system-media fu-work-card__media">
                                                 <img class="fu-home__system-thumb"
-                                                    src="<?php echo esc_url(content_url($system['image'])); ?>"
-                                                    alt=""
+                                                    src="<?php echo esc_url(wp_make_link_relative(content_url($system['image']))); ?>"
+                                                    alt="<?php echo esc_attr($system['alt'] ?? ''); ?>"
                                                     loading="lazy"
                                                     width="600"
                                                     height="450">
@@ -296,7 +304,7 @@ $earlier_work = array(
                             <div class="fu-home-prototypes__grid grid grid--gap-md grid--auto-cards">
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/client-project-timeline/">
                                     <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(content_url('/uploads/2026/05/client-project-timeline-cover.webp')); ?>" alt="" loading="lazy" width="600" height="450">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-timeline-cover.webp'))); ?>" alt="Project timeline interface showing phases, milestones, and delivery status." loading="lazy" width="600" height="450">
                                     </div>
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Client Project Timeline</h3>
@@ -306,7 +314,7 @@ $earlier_work = array(
                                 </a>
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/project-scope-estimator/">
                                     <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(content_url('/uploads/2026/05/client-project-scope-cover.webp')); ?>" alt="" loading="lazy" width="600" height="450">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-scope-cover.webp'))); ?>" alt="Project scope interface showing grouped deliverables, priorities, and project details." loading="lazy" width="600" height="450">
                                     </div>
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Project Scope Estimator</h3>
@@ -316,7 +324,7 @@ $earlier_work = array(
                                 </a>
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/content-approval-checklist/">
                                     <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(content_url('/uploads/2026/05/client-project-content-approval-cover.webp')); ?>" alt="" loading="lazy" width="600" height="450">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-content-approval-cover.webp'))); ?>" alt="Content approval checklist interface showing content readiness, blockers, approvals, and launch-readiness states." loading="lazy" width="600" height="450">
                                     </div>
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Content Approval Checklist</h3>
@@ -348,7 +356,27 @@ $earlier_work = array(
                                         <a class="fu-home__legacy-card fu-work-card fu-work-card--linked" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
                                             <div class="fu-home__legacy-card-media fu-work-card__media">
                                                 <?php if (has_post_thumbnail($portfolio_post)) : ?>
-                                                    <?php echo get_the_post_thumbnail($portfolio_post, 'medium_large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                                    <?php
+                                                    $thumbnail_id = get_post_thumbnail_id($portfolio_post);
+                                                    $thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+
+                                                    if (!$thumbnail_alt) {
+                                                        $thumbnail_alt = sprintf(
+                                                            '%s project thumbnail.',
+                                                            get_the_title($portfolio_post)
+                                                        );
+                                                    }
+
+                                                    echo get_the_post_thumbnail(
+                                                        $portfolio_post,
+                                                        'medium_large',
+                                                        array(
+                                                            'loading'  => 'lazy',
+                                                            'decoding' => 'async',
+                                                            'alt'      => $thumbnail_alt,
+                                                        )
+                                                    );
+                                                    ?>
                                                 <?php endif; ?>
                                             </div>
 

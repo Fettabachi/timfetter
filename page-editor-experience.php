@@ -205,7 +205,7 @@ if ($portfolio_url === '') {
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-banner-hero-600x450.webp')); ?>"
-                                    alt=""
+                                    alt="Portfolio hero showing a flexible page banner with media and readability controls."
                                     loading="lazy"
                                     width="600"
                                     height="450">
@@ -222,7 +222,7 @@ if ($portfolio_url === '') {
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-switcher-hero-600x450.webp')); ?>"
-                                    alt=""
+                                    alt="Portfolio hero showing tabbed content panels and responsive switching controls."
                                     loading="lazy"
                                     width="600"
                                     height="450">
@@ -239,7 +239,7 @@ if ($portfolio_url === '') {
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-comparison-cards-hero-600x450.webp')); ?>"
-                                    alt=""
+                                    alt="Portfolio hero showing comparison cards arranged in a responsive grid."
                                     loading="lazy"
                                     width="600"
                                     height="450">
@@ -256,7 +256,7 @@ if ($portfolio_url === '') {
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-proof-cards-hero-600x450.webp')); ?>"
-                                    alt=""
+                                    alt="Portfolio hero showing proof cards with metrics, testimonials, and credibility signals."
                                     loading="lazy"
                                     width="600"
                                     height="450">

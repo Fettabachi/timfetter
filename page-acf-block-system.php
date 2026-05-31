@@ -25,36 +25,42 @@ $block_collection = array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
         'description' => 'Media-driven page banners with image and video backgrounds, overlay controls, and editor-friendly readability settings.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
         'description' => 'A reusable media and text layout for service sections, feature callouts, and content-led landing page sections.',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a filterable content grid with category and taxonomy controls.',
         'description' => 'A CPT and taxonomy-powered resource grid with smooth no-reload filtering and a structured content model.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a content switcher block with tabs and accessible panel navigation.',
         'description' => 'A parent/child panel system with tabs, pills, vertical layouts, mobile fallback, deep links, and keyboard support.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing comparison cards for plans, services, and product options.',
         'description' => 'Editor-friendly comparison cards for pricing, memberships, service tiers, and product options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing proof cards with testimonials, metrics, and credibility signals.',
         'description' => 'Structured social proof cards for testimonials, outcomes, metrics, source details, and credibility signals.',
     ),
 );
@@ -235,8 +241,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                 <a class="fu-system-block-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
                                     <div class="fu-system-block-card__media fu-work-card__media">
                                         <img
-                                            src="<?php echo esc_url(content_url($block['image'])); ?>"
-                                            alt=""
+                                            src="<?php echo esc_url(wp_make_link_relative(content_url($block['image']))); ?>"
+                                            alt="<?php echo esc_attr($block['alt'] ?? ''); ?>"
                                             loading="lazy"
                                             width="600"
                                             height="450">
@@ -253,7 +259,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                     <div class="fu-system-block-card__media fu-work-card__media">
                                         <img
                                             src="<?php echo esc_url(content_url($block['image'])); ?>"
-                                            alt=""
+                                            alt="<?php echo esc_attr($block['alt'] ?? ''); ?>"
                                             loading="lazy"
                                             width="600"
                                             height="450">
