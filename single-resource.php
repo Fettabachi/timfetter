@@ -87,12 +87,15 @@ $related_resources = new WP_Query($related_args);
                     <div class="fu-resource-single__related-grid">
                         <?php while ($related_resources->have_posts()) : $related_resources->the_post(); ?>
                             <article class="fu-resource-single__related-card">
-                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                <?php if (has_excerpt()) : ?>
-                                    <div class="fu-resource-single__related-excerpt">
-                                        <?php the_excerpt(); ?>
-                                    </div>
-                                <?php endif; ?>
+                                <a class="fu-resource-single__related-card-link" href="<?php echo esc_url(get_permalink()); ?>">
+                                    <h3><?php echo esc_html(get_the_title()); ?></h3>
+
+                                    <?php if (has_excerpt()) : ?>
+                                        <div class="fu-resource-single__related-excerpt">
+                                            <?php echo wp_kses_post(wpautop(get_the_excerpt())); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </a>
                             </article>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>

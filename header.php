@@ -15,16 +15,6 @@
     <meta name="msapplication-config" content="<?php echo esc_url(get_theme_file_uri('/assets/favicons/browserconfig.xml')); ?>">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKFVCPJGEY"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-HKFVCPJGEY');
-    </script>
 
     <?php wp_head(); ?>
 </head>
