@@ -86,7 +86,6 @@ $frontend_prototypes = array(
         'title' => 'Client Project Timeline',
         'slug' => 'client-project-timeline',
         'summary' => 'A configurable HTML, CSS, and JavaScript milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
-        // TODO: Replace with dedicated Client Project Timeline cover image.
         'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
         'alt' => 'Prototype interface showing project milestones, timeline phases, and delivery status.',
         'eyebrow' => 'Interactive Front-End Prototype',
@@ -97,7 +96,6 @@ $frontend_prototypes = array(
         'title' => 'Project Scope Estimator',
         'slug' => 'project-scope-estimator',
         'summary' => 'A guided HTML, CSS, and JavaScript prototype that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
-        // TODO: Replace with dedicated Project Scope Estimator cover image.
         'image' => content_url('/uploads/2026/05/client-project-scope-cover.webp'),
         'alt' => 'Prototype interface showing project scope options, complexity indicators, and summary details.',
         'eyebrow' => 'Interactive Front-End Prototype',
@@ -108,7 +106,6 @@ $frontend_prototypes = array(
         'title' => 'Content Approval Checklist',
         'slug' => 'content-approval-checklist',
         'summary' => 'A responsive checklist prototype for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
-        // TODO: Replace with dedicated Content Approval Checklist cover image.
         'image' => content_url('/uploads/2026/05/client-project-content-approval-cover.webp'),
         'alt' => 'Prototype interface showing content review tasks, approval status, and launch readiness.',
         'eyebrow' => 'Interactive Front-End Prototype',
