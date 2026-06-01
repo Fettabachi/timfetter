@@ -11,3 +11,17 @@
 
 @import "pages/portfolio-pages";
 @import "pages/contact";
+
+/* Enable native cross-document view transitions */
+@view-transition {
+	navigation: auto;
+}
+
+/* Accessibility: Turn it off gracefully for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
