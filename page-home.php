@@ -297,9 +297,9 @@ $earlier_work = array(
                         <div class="fu-content-section__inner container container--page">
                             <div class="fu-section-head fu-home-prototypes__header">
                                 <p class="fu-eyebrow">Prototype Work</p>
-                                <h2 class="fu-section-heading" id="home-prototypes-heading">Front-End Prototypes</h2>
-                                <p class="fu-section-lede">Interactive HTML, CSS, and JavaScript prototypes that make UI behavior, responsive states, workflow logic, and handoff details easier to test before production development.</p>
-                                <p class="fu-section-lede fu-home-prototypes__support">These focused demos help teams validate workflows, reduce ambiguity, and move faster before a final build in WordPress, .NET, or another production system.</p>
+                                <h2 class="fu-section-heading" id="home-prototypes-heading">Selected Prototype Examples</h2>
+                                <p class="fu-section-lede">Interactive HTML, CSS, and JavaScript prototypes that make UI behavior, workflow logic, responsive states, and handoff details easier to evaluate before production development begins.</p>
+                                <p class="fu-section-lede fu-home-prototypes__support">These examples are not meant to replace production systems. They show how a focused prototype can help teams test ideas, clarify requirements, and make better decisions before committing to a final build.</p>
                             </div>
                             <div class="fu-home-prototypes__grid grid grid--gap-md grid--auto-cards">
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/client-project-timeline/">
@@ -324,7 +324,7 @@ $earlier_work = array(
                                 </a>
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/content-approval-checklist/">
                                     <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-content-approval-cover.webp'))); ?>" alt="Content approval checklist interface showing content readiness, blockers, approvals, and launch-readiness states." loading="lazy" width="600" height="450">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/06/client-project-content-approval-cover.webp'))); ?>" alt="Content approval checklist interface showing content readiness, blockers, approvals, and launch-readiness states." loading="lazy" width="600" height="450">
                                     </div>
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Content Approval Checklist</h3>

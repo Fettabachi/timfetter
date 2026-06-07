@@ -327,11 +327,11 @@ if (!$portfolio_archive_url) {
                         <p class="fu-section-lede"><?php echo esc_html($portfolio_subtitle); ?></p>
                     <?php endif; ?>
                     <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
-                        <p class="fu-section-lede fu-section-lede--prototype">A self-contained HTML, CSS, and JavaScript prototype for testing project milestone states, responsive timeline layouts, and client-facing workflow language before production development.</p>
+                        <p class="fu-section-lede fu-section-lede--prototype">A self-contained HTML, CSS, and JavaScript prototype for testing milestone states, responsive timeline behavior, and client-facing workflow language before production development begins.</p>
                     <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'project-scope-estimator') : ?>
-                        <p class="fu-section-lede fu-section-lede--prototype">A guided front-end prototype for turning early project requirements into a clearer scope summary before production planning or developer handoff.</p>
+                        <p class="fu-section-lede fu-section-lede--prototype">A focused front-end prototype for testing scope logic, readiness states, and handoff language before a production estimate or planning workflow is finalized.</p>
                     <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'content-approval-checklist') : ?>
-                        <p class="fu-section-lede fu-section-lede--prototype">A self-contained HTML, CSS, and JavaScript prototype for testing review status, approval gaps, and launch blockers before a site or campaign moves into final production handoff.</p>
+                        <p class="fu-section-lede fu-section-lede--prototype">A focused front-end prototype for testing review states, approval gaps, blockers, and launch-readiness behavior before final production handoff.</p>
                     <?php endif; ?>
                 </div>
 
@@ -379,8 +379,8 @@ if (!$portfolio_archive_url) {
                         <p>The component supports milestone and continuous progress modes, configurable workflow lengths, automatic progress updates, horizontal and vertical layouts, and responsive behavior that switches to a vertical timeline when horizontal labels become too cramped.</p>
                     </div>
                     <div class="fu-portfolio-prototype-summary__item">
-                        <h2 class="fu-section-heading fu-section-heading--compact">How This Could Work on Your Website</h2>
-                        <p>This type of timeline could be managed manually through editable CMS fields, connected to structured project data, or updated from an internal system or API. For WordPress, it could become an ACF-powered block or template component. For larger applications, the same front-end pattern could consume project status data from an API.</p>
+                        <h2 class="fu-section-heading fu-section-heading--compact">How This Helps Before Production</h2>
+                        <p>A prototype like this can help teams test project-status language, milestone behavior, responsive layout limits, and stakeholder expectations before those ideas are rebuilt in a production system.</p>
                     </div>
                 </div>
             <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'project-scope-estimator') : ?>
@@ -397,8 +397,8 @@ if (!$portfolio_archive_url) {
                         <p>The interface combines conditional form logic, feature selection, readiness states, dynamic scoring, and responsive summary output in a lightweight front-end prototype.</p>
                     </div>
                     <div class="fu-portfolio-prototype-summary__item">
-                        <h2 class="fu-section-heading fu-section-heading--compact">How This Could Work on Your Website</h2>
-                        <p>In production, this pattern could be connected to a CMS, lead form, project intake workflow, or internal planning tool. The generated summary could be copied, printed, emailed, or submitted into an intake system, giving teams a clearer handoff record before deeper implementation.</p>
+                        <h2 class="fu-section-heading fu-section-heading--compact">How This Helps Before Production</h2>
+                        <p>A prototype like this can help teams test intake questions, scoring logic, summary language, and handoff expectations before connecting the workflow to a CMS, form system, CRM, or internal planning tool.</p>
                     </div>
                 </div>
             <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'content-approval-checklist') : ?>
@@ -415,8 +415,8 @@ if (!$portfolio_archive_url) {
                         <p>The interface combines grouped checklist items, status filtering, progress calculation, blocker counts, and conditional launch-readiness messaging in a responsive front-end prototype.</p>
                     </div>
                     <div class="fu-portfolio-prototype-summary__item">
-                        <h2 class="fu-section-heading fu-section-heading--compact">How This Could Work on Your Website</h2>
-                        <p>In production, this pattern could connect to CMS fields, project management data, editorial workflows, or an internal approval system. The checklist could help teams review content, resolve blockers, and document launch readiness before final deployment.</p>
+                        <h2 class="fu-section-heading fu-section-heading--compact">How This Helps Before Production</h2>
+                        <p>A prototype like this can help teams test approval language, review states, blocker visibility, and launch-readiness expectations before those ideas are committed to a CMS, project management system, or internal workflow.</p>
                     </div>
                 </div>
             <?php endif; ?>
