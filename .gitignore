@@ -72,3 +72,5 @@ assets/img/.DS_Store
 
 # Local runtime artifacts #
 php_errorlog
+
+deploy.sh
