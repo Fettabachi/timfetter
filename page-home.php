@@ -70,20 +70,20 @@ $good_fit_points = array(
         'summary' => 'Front-end implementation backup when your internal team is at capacity.',
     ),
     array(
-        'title' => 'Small business WordPress support',
-        'summary' => 'Theme and template help, content structure updates, and practical improvements.',
+        'title' => 'Design-ready implementation',
+        'summary' => 'When design direction exists and the team needs reliable front-end execution.',
     ),
     array(
-        'title' => 'Prototype-first projects',
-        'summary' => 'Clickable front-end flows before full production development.',
+        'title' => 'Small business WordPress support',
+        'summary' => 'Theme and template help, content structure updates, and practical improvements.',
     ),
     array(
         'title' => 'Cleanup and ongoing polish',
         'summary' => 'Responsive fixes, component cleanup, and steady iteration on existing sites.',
     ),
     array(
-        'title' => 'Design-ready implementation',
-        'summary' => 'When design direction exists and the team needs reliable front-end execution.',
+        'title' => 'UI flows and interaction states',
+        'summary' => 'Front-end screens that help teams clarify behavior before production.',
     ),
 );
 
