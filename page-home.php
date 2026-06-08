@@ -51,15 +51,15 @@ $service_lanes = array(
         ),
     ),
     array(
-        'title' => 'Interactive Front-End Prototypes',
-        'summary' => 'HTML/CSS/JS prototypes, clickable proof-of-concepts, UI flows clients can review before full development, and handoff-ready front-end thinking.',
+        'title' => 'Front-End Design & UI Implementation',
+        'summary' => 'Responsive HTML, CSS, and JavaScript implementation for custom layouts, interface states, workflow screens, and front-end polish that may live inside WordPress or another production system.',
         'points' => array(
-            'HTML/CSS/JS prototypes',
-            'Clickable proof-of-concepts',
-            'UI flows clients can review before full development',
-            'Fast front-end demos before .NET or backend implementation',
-            'Responsive prototype polish',
-            'Handoff-ready front-end thinking',
+            'Responsive HTML/CSS/JS implementation',
+            'Custom UI layouts and content sections',
+            'Interactive states and workflow screens',
+            'Front-end polish for existing designs',
+            'Clickable demos when behavior needs review',
+            'Handoff-ready markup and styling',
         ),
     ),
 );
@@ -192,9 +192,9 @@ $earlier_work = array(
                     <section class="fu-home__hero" id="home-hero">
                         <div class="fu-home__section-inner fu-home__hero-panel container">
                             <div class="fu-home__hero-copy">
-                                <p class="fu-eyebrow">WordPress support, front-end implementation, and interactive prototypes</p>
-                                <h1 class="fu-home__title">Front-end development for WordPress sites and interactive prototypes.</h1>
-                                <p class="fu-home__lede">I help agencies and small businesses turn designs, content needs, and early product ideas into clean, responsive web experiences - from maintainable WordPress builds to HTML/CSS/JS prototypes clients can review before full development.</p>
+                                <p class="fu-eyebrow">WordPress development, front-end design, and UI implementation</p>
+                                <h1 class="fu-home__title">Front-end development for WordPress sites and custom web interfaces.</h1>
+                                <p class="fu-home__lede">I help agencies and small businesses turn designs, content needs, and UI ideas into clean, responsive web experiences — from maintainable WordPress builds and ACF-powered components to custom front-end layouts, interaction states, and workflow screens.</p>
 
                                 <div class="fu-home__actions">
                                     <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Let's Talk About Your Project</a>
@@ -292,53 +292,6 @@ $earlier_work = array(
                         </div>
                     </section>
 
-                    <!-- Front-End Prototypes Section -->
-                    <section class="fu-home-prototypes fu-content-section" aria-labelledby="home-prototypes-heading">
-                        <div class="fu-content-section__inner container container--page">
-                            <div class="fu-section-head fu-home-prototypes__header">
-                                <p class="fu-eyebrow">Prototype Work</p>
-                                <h2 class="fu-section-heading" id="home-prototypes-heading">Selected Prototype Examples</h2>
-                                <p class="fu-section-lede">Interactive HTML, CSS, and JavaScript prototypes that make UI behavior, workflow logic, responsive states, and handoff details easier to evaluate before production development begins.</p>
-                                <p class="fu-section-lede fu-home-prototypes__support">These examples are not meant to replace production systems. They show how a focused prototype can help teams test ideas, clarify requirements, and make better decisions before committing to a final build.</p>
-                            </div>
-                            <div class="fu-home-prototypes__grid grid grid--gap-md grid--auto-cards">
-                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/client-project-timeline/">
-                                    <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-timeline-cover.webp'))); ?>" alt="Project timeline interface showing phases, milestones, and delivery status." loading="lazy" width="600" height="450">
-                                    </div>
-                                    <div class="fu-home-prototypes__content fu-work-card__body">
-                                        <h3 class="fu-work-card__title">Client Project Timeline</h3>
-                                        <p class="fu-work-card__text">A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior.</p>
-                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
-                                    </div>
-                                </a>
-                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/project-scope-estimator/">
-                                    <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-scope-cover.webp'))); ?>" alt="Project scope interface showing grouped deliverables, priorities, and project details." loading="lazy" width="600" height="450">
-                                    </div>
-                                    <div class="fu-home-prototypes__content fu-work-card__body">
-                                        <h3 class="fu-work-card__title">Project Scope Estimator</h3>
-                                        <p class="fu-work-card__text">A guided estimator that turns early project details into a clearer scope summary before production planning.</p>
-                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
-                                    </div>
-                                </a>
-                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/content-approval-checklist/">
-                                    <div class="fu-home-prototypes__media fu-work-card__media">
-                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/06/client-project-content-approval-cover.webp'))); ?>" alt="Content approval checklist interface showing content readiness, blockers, approvals, and launch-readiness states." loading="lazy" width="600" height="450">
-                                    </div>
-                                    <div class="fu-home-prototypes__content fu-work-card__body">
-                                        <h3 class="fu-work-card__title">Content Approval Checklist</h3>
-                                        <p class="fu-work-card__text">A responsive checklist for reviewing content readiness, blockers, approvals, and launch-readiness states.</p>
-                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="fu-home-prototypes__footer">
-                                <a class="fu-home__text-link fu-home-prototypes__section-cta" href="/work/#front-end-prototypes">View Prototype Work</a>
-                            </div>
-                        </div>
-                    </section>
-
                     <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-section-head">
@@ -408,12 +361,60 @@ $earlier_work = array(
                         </div>
                     </section>
 
+
+                    <!-- Front-End Prototypes Section -->
+                    <section class="fu-home-prototypes fu-content-section" aria-labelledby="home-prototypes-heading">
+                        <div class="fu-content-section__inner container container--page">
+                            <div class="fu-section-head fu-home-prototypes__header">
+                                <p class="fu-eyebrow">UI Implementation</p>
+                                <h2 class="fu-section-heading" id="home-prototypes-heading">Front-End UI Examples</h2>
+                                <p class="fu-section-lede">HTML, CSS, and JavaScript examples showing responsive interfaces, interaction states, workflow screens, and front-end polish before production work begins.</p>
+                                <p class="fu-section-lede fu-home-prototypes__support">These examples are not meant to replace production systems. They show how focused front-end work can help teams test ideas, clarify requirements, and make better decisions before production development begins.</p>
+                            </div>
+                            <div class="fu-home-prototypes__grid grid grid--gap-md grid--auto-cards">
+                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/client-project-timeline/">
+                                    <div class="fu-home-prototypes__media fu-work-card__media">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-timeline-cover.webp'))); ?>" alt="Project timeline interface showing phases, milestones, and delivery status." loading="lazy" width="600" height="450">
+                                    </div>
+                                    <div class="fu-home-prototypes__content fu-work-card__body">
+                                        <h3 class="fu-work-card__title">Client Project Timeline</h3>
+                                        <p class="fu-work-card__text">A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior.</p>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                    </div>
+                                </a>
+                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/project-scope-estimator/">
+                                    <div class="fu-home-prototypes__media fu-work-card__media">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/05/client-project-scope-cover.webp'))); ?>" alt="Project scope interface showing grouped deliverables, priorities, and project details." loading="lazy" width="600" height="450">
+                                    </div>
+                                    <div class="fu-home-prototypes__content fu-work-card__body">
+                                        <h3 class="fu-work-card__title">Project Scope Estimator</h3>
+                                        <p class="fu-work-card__text">A guided estimator that turns early project details into a clearer scope summary before production planning.</p>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                    </div>
+                                </a>
+                                <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/content-approval-checklist/">
+                                    <div class="fu-home-prototypes__media fu-work-card__media">
+                                        <img src="<?php echo esc_url(wp_make_link_relative(content_url('/uploads/2026/06/client-project-content-approval-cover.webp'))); ?>" alt="Content approval checklist interface showing content readiness, blockers, approvals, and launch-readiness states." loading="lazy" width="600" height="450">
+                                    </div>
+                                    <div class="fu-home-prototypes__content fu-work-card__body">
+                                        <h3 class="fu-work-card__title">Content Approval Checklist</h3>
+                                        <p class="fu-work-card__text">A responsive checklist for reviewing content readiness, blockers, approvals, and launch-readiness states.</p>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="fu-home-prototypes__footer">
+                                <a class="fu-home__text-link fu-home-prototypes__section-cta" href="/work/#front-end-prototypes">View UI Examples</a>
+                            </div>
+                        </div>
+                    </section>
+
                     <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
                         <div class="fu-cta-panel--dark fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel fu-cta-panel container">
                             <div class="fu-home__cta-copy">
                                 <p class="fu-eyebrow">Need reliable front-end help?</p>
-                                <h2 id="final-cta-heading">Smaller projects, overflow support, prototype builds, and ongoing site updates.</h2>
-                                <p>I’m available for smaller projects, agency overflow support, WordPress improvements, prototype builds, and ongoing site updates.</p>
+                                <h2 id="final-cta-heading">Reliable front-end help for scoped projects, overflow work, and ongoing site updates.</h2>
+                                <p>I’m available for scoped front-end work, agency overflow support, WordPress improvements, custom UI implementation, and ongoing site updates.</p>
                             </div>
 
                             <div class="fu-home__cta-actions fu-cta-panel__actions">

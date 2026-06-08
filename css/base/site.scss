@@ -1031,6 +1031,15 @@ h2 {
 	aspect-ratio: auto;
 }
 
+// Align prototype images from top to prevent cropping of important text
+.fu-work-archive__group--prototypes
+	.fu-work-grid--archive
+	.fu-work-card__media
+	img {
+	-o-object-position: center top;
+	object-position: center top;
+}
+
 .fu-work-grid--archive .fu-work-card__text {
 	margin-top: 0.65rem;
 	line-height: 1.55;

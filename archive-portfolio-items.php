@@ -85,32 +85,32 @@ $frontend_prototypes = array(
     array(
         'title' => 'Client Project Timeline',
         'slug' => 'client-project-timeline',
-        'summary' => 'A configurable HTML, CSS, and JavaScript milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
+        'summary' => 'A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
         'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
         'alt' => 'Prototype interface showing project milestones, timeline phases, and delivery status.',
-        'eyebrow' => 'Interactive Front-End Prototype',
+        'eyebrow' => 'Front-End UI Example',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Prototype Logic'),
-        'cta' => 'View Prototype',
+        'cta' => 'View UI Example',
     ),
     array(
         'title' => 'Project Scope Estimator',
         'slug' => 'project-scope-estimator',
-        'summary' => 'A guided HTML, CSS, and JavaScript prototype that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
+        'summary' => 'A guided interface that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
         'image' => content_url('/uploads/2026/05/client-project-scope-cover.webp'),
         'alt' => 'Prototype interface showing project scope options, complexity indicators, and summary details.',
-        'eyebrow' => 'Interactive Front-End Prototype',
+        'eyebrow' => 'Front-End UI Example',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Conditional UI', 'Form Logic'),
-        'cta' => 'View Prototype',
+        'cta' => 'View UI Example',
     ),
     array(
         'title' => 'Content Approval Checklist',
         'slug' => 'content-approval-checklist',
-        'summary' => 'A responsive checklist prototype for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
+        'summary' => 'A responsive checklist interface for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
         'image' => content_url('/uploads/2026/06/client-project-content-approval-cover.webp'),
         'alt' => 'Prototype interface showing content review tasks, approval status, and launch readiness.',
-        'eyebrow' => 'Interactive Front-End Prototype',
+        'eyebrow' => 'Front-End UI Example',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
-        'cta' => 'View Prototype',
+        'cta' => 'View UI Example',
     ),
 );
 
@@ -291,37 +291,6 @@ $get_portfolio_focus_labels = static function ($post_id) {
                 </div>
             </div>
 
-            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--prototypes" id="front-end-prototypes" aria-labelledby="frontend-prototypes-heading">
-                <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Front-End Prototypes</h2>
-                    <p class="fu-section-lede">Interactive HTML, CSS, and JavaScript prototypes that make interface behavior, responsive states, and handoff logic easier to test before production development.</p>
-                </div>
-                <div class="fu-work-grid fu-work-grid--archive" aria-label="Front-End Prototypes">
-                    <?php foreach ($frontend_prototypes as $prototype) : ?>
-                        <?php $prototype_url = $resolve_portfolio_item_url($prototype['slug']); ?>
-                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($prototype_url); ?>">
-                            <?php if (!empty($prototype['image'])) : ?>
-                                <div class="fu-work-card__media">
-                                    <img
-                                        src="<?php echo esc_url($prototype['image']); ?>"
-                                        alt="<?php echo esc_attr($prototype['alt'] ?? ''); ?>"
-                                        loading="lazy"
-                                        width="600"
-                                        height="450">
-                                </div>
-                            <?php endif; ?>
-                            <div class="fu-work-card__body">
-                                <p class="fu-work-card__kicker"><?php echo esc_html($prototype['eyebrow']); ?></p>
-                                <h3 class="fu-work-card__title"><?php echo esc_html($prototype['title']); ?></h3>
-                                <p class="fu-work-card__text"><?php echo esc_html($prototype['summary']); ?></p>
-                                <p class="fu-work-card__text"><strong>Focus:</strong> <?php echo esc_html(implode(', ', $prototype['focus'])); ?></p>
-                                <span class="fu-work-card__link"><?php echo esc_html($prototype['cta']); ?></span>
-                            </div>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-
             <div id="contract-work" class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="earlier-client-work-heading">
                 <div class="fu-section-head">
                     <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Selected Contract Work</h2>
@@ -396,6 +365,38 @@ $get_portfolio_focus_labels = static function ($post_id) {
                     </div>
                 <?php endif; ?>
             </div>
+
+            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--prototypes" id="front-end-prototypes" aria-labelledby="frontend-prototypes-heading">
+                <div class="fu-section-head">
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Front-End UI Examples</h2>
+                    <p class="fu-section-lede">HTML, CSS, and JavaScript examples showing responsive interface layouts, interaction states, workflow screens, and front-end polish before production work begins.</p>
+                </div>
+                <div class="fu-work-grid fu-work-grid--archive" aria-label="Front-End UI Examples">
+                    <?php foreach ($frontend_prototypes as $prototype) : ?>
+                        <?php $prototype_url = $resolve_portfolio_item_url($prototype['slug']); ?>
+                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($prototype_url); ?>">
+                            <?php if (!empty($prototype['image'])) : ?>
+                                <div class="fu-work-card__media">
+                                    <img
+                                        src="<?php echo esc_url($prototype['image']); ?>"
+                                        alt="<?php echo esc_attr($prototype['alt'] ?? ''); ?>"
+                                        loading="lazy"
+                                        width="600"
+                                        height="450">
+                                </div>
+                            <?php endif; ?>
+                            <div class="fu-work-card__body">
+                                <p class="fu-work-card__kicker"><?php echo esc_html($prototype['eyebrow']); ?></p>
+                                <h3 class="fu-work-card__title"><?php echo esc_html($prototype['title']); ?></h3>
+                                <p class="fu-work-card__text"><?php echo esc_html($prototype['summary']); ?></p>
+                                <p class="fu-work-card__text"><strong>Focus:</strong> <?php echo esc_html(implode(', ', $prototype['focus'])); ?></p>
+                                <span class="fu-work-card__link"><?php echo esc_html($prototype['cta']); ?></span>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
         </div>
     </section>
 </main>
