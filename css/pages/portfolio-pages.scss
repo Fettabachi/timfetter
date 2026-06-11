@@ -1905,12 +1905,123 @@
 }
 
 .fu-editor-experience__examples-grid {
+	gap: 0;
 	margin-top: 0;
 }
 
-#example-blocks .fu-content-section__inner,
-#example-blocks .fu-case-section__inner {
-	max-width: none;
+#example-blocks .fu-editor-experience__examples-showcase {
+	margin-top: clamp(1.25rem, 3vw, 2rem);
+	padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.75rem, 4vw, 3rem);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 28px;
+	background: var(--fu-gradient-lux);
+	box-shadow: 0 22px 54px rgba(13, 59, 102, 0.18);
+	color: var(--fu-text-on-inverse);
+}
+
+#example-blocks .fu-editor-experience__example-card {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(1rem, 3vw, 1.6rem);
+	padding-block: clamp(2rem, 5vw, 3.5rem);
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	overflow: visible;
+	color: inherit;
+}
+
+#example-blocks .fu-editor-experience__example-card:first-child {
+	padding-top: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+#example-blocks
+	.fu-editor-experience__example-card
+	+ .fu-editor-experience__example-card {
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#example-blocks .fu-editor-experience__example-card:hover,
+#example-blocks .fu-editor-experience__example-card:focus-within {
+	border-color: rgba(255, 255, 255, 0.14);
+	box-shadow: none;
+}
+
+#example-blocks .fu-editor-experience__example-media {
+	border-radius: 22px;
+	background: var(--fu-surface-alt);
+	box-shadow: 0 14px 34px rgba(13, 59, 102, 0.07);
+	overflow: hidden;
+}
+
+#example-blocks .fu-editor-experience__example-media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	object-position: center;
+}
+
+#example-blocks .fu-editor-experience__example-body {
+	justify-content: center;
+	max-width: 42rem;
+	padding: 0;
+}
+
+#example-blocks .fu-editor-experience__example-kicker {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+}
+
+#example-blocks .fu-editor-experience__example-title {
+	margin-top: 0.7rem;
+	color: var(--fu-text-on-inverse);
+	font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+}
+
+#example-blocks .fu-work-card__text {
+	max-width: 34rem;
+	margin-top: 1rem;
+	color: rgba(239, 246, 255, 0.82);
+	font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+	line-height: 1.75;
+}
+
+#example-blocks .fu-editor-experience__example-link {
+	margin-top: 1.3rem;
+	padding-top: 0;
+	color: rgba(255, 255, 255, 0.92);
+	font-size: 0.8rem;
+	letter-spacing: 0.05em;
+}
+
+#example-blocks .fu-editor-experience__examples-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9rem;
+	margin-top: clamp(1.5rem, 3vw, 2.25rem);
+	padding-top: clamp(1.5rem, 3vw, 2.25rem);
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#example-blocks .fu-editor-experience__examples-collection-link {
+	background: var(--fu-white);
+	border-color: var(--fu-white);
+	box-shadow: var(--fu-shadow-panel);
+	color: var(--fu-surface-inverse);
+}
+
+#example-blocks .fu-editor-experience__examples-collection-link:hover,
+#example-blocks .fu-editor-experience__examples-collection-link:focus-visible {
+	background: var(--fu-white);
+	border-color: var(--fu-white);
+	color: var(--fu-surface-inverse);
 }
 
 .fu-editor-experience__handoff-card {
@@ -2199,15 +2310,99 @@
 	}
 }
 
+@media (max-width: 859px) {
+	#example-blocks .fu-editor-experience__example-media {
+		width: 100%;
+		max-width: 400px;
+	}
+}
+
 @media (min-width: 768px) {
 	.fu-editor-experience__examples-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
+@media (min-width: 768px) and (max-width: 859px) {
+	#example-blocks .fu-editor-experience__examples-grid {
+		gap: 1rem 5rem;
+	}
+
+	#example-blocks .fu-editor-experience__example-card {
+		padding-top: clamp(0.75rem, 2vw, 1.25rem);
+	}
+
+	#example-blocks
+		.fu-editor-experience__example-card
+		+ .fu-editor-experience__example-card {
+		border-top: 0;
+	}
+
+	#example-blocks .fu-editor-experience__example-card:nth-child(n + 3) {
+		padding-top: 3rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.14);
+	}
+}
+
+@media (min-width: 860px) {
+	#example-blocks .fu-editor-experience__examples-grid {
+		grid-template-columns: 1fr;
+	}
+
+	#example-blocks .fu-editor-experience__example-card {
+		flex-direction: row;
+		align-items: center;
+		gap: clamp(1.5rem, 4vw, 3rem);
+		padding-right: clamp(1rem, 4vw, 4rem);
+		padding-left: 0;
+	}
+
+	#example-blocks .fu-editor-experience__example-card:nth-child(even) {
+		flex-direction: row-reverse;
+		padding-right: 0;
+		padding-left: clamp(1rem, 4vw, 4rem);
+	}
+
+	#example-blocks .fu-editor-experience__example-media {
+		flex: 0 0 42%;
+	}
+
+	#example-blocks .fu-editor-experience__example-body {
+		flex: 1 1 58%;
+		min-width: 0;
+	}
+
+	#example-blocks
+		.fu-editor-experience__example-card:nth-child(odd)
+		.fu-editor-experience__example-body {
+		transform: translateX(clamp(-1rem, -1.5vw, -0.5rem));
+	}
+
+	#example-blocks
+		.fu-editor-experience__example-card:nth-child(even)
+		.fu-editor-experience__example-body {
+		transform: translateX(clamp(1rem, 2.5vw, 2rem));
+	}
+
+	#example-blocks .fu-editor-experience__example-media img {
+		height: clamp(220px, 24vw, 300px);
+		aspect-ratio: auto;
+	}
+}
+
+@media (min-width: 1024px) {
+	#example-blocks .fu-editor-experience__example-card {
+		padding-block: clamp(2.75rem, 5vw, 4rem);
+	}
+}
+
 @media (min-width: 1100px) {
 	.fu-editor-experience__examples-grid {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	#example-blocks .fu-editor-experience__examples-grid {
+		grid-template-columns: 1fr;
 	}
 }
 
