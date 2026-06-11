@@ -90,6 +90,7 @@ $good_fit_points = array(
 $recent_systems = array(
     array(
         'title' => 'Editor Experience & Handoff',
+        'label' => 'Editor Workflow',
         'slug' => 'editor-experience',
         'summary' => 'How I structure blocks so editors can make real updates without breaking layout, accessibility, or the front end.',
         'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
@@ -97,6 +98,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'ACF Block System Overview',
+        'label' => 'Block System',
         'slug' => 'acf-block-system',
         'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
         'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
@@ -104,6 +106,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'Filtered Content Grid',
+        'label' => 'Content Library',
         'slug' => 'filtered-content-grid',
         'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
@@ -111,6 +114,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'Content Switcher',
+        'label' => 'Interactive UI',
         'slug' => 'content-switcher',
         'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
@@ -118,6 +122,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'Comparison Cards',
+        'label' => 'Comparison Content',
         'slug' => 'comparison-cards',
         'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
@@ -125,6 +130,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'Proof Cards',
+        'label' => 'Social Proof',
         'slug' => 'proof-cards',
         'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
@@ -132,6 +138,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'Page Banner',
+        'label' => 'Hero System',
         'slug' => 'page-banner',
         'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
@@ -139,6 +146,7 @@ $recent_systems = array(
     ),
     array(
         'title' => 'Flexible Feature Section',
+        'label' => 'Layout System',
         'slug' => 'flexible-feature-section',
         'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
@@ -257,37 +265,39 @@ $earlier_work = array(
                     <section class="fu-content-section fu-home__recent-work" id="recent-wordpress-systems" aria-labelledby="recent-wordpress-systems-heading">
                         <div class="fu-content-section__inner container container--page">
                             <div class="fu-section-head">
-                                <p class="fu-eyebrow">Recent WordPress systems</p>
-                                <h2 class="fu-section-heading" id="recent-wordpress-systems-heading">Recent WordPress systems and implementation examples</h2>
-                                <p class="fu-section-lede">These recent case-study pages show how I think about structured content, editor-friendly components, and front-end implementation that holds up over time.</p>
+                                <p class="fu-eyebrow">Recent WordPress Work</p>
+                                <h2 class="fu-section-heading" id="recent-wordpress-systems-heading">WordPress blocks built to be easy to update</h2>
+                                <p class="fu-section-lede">These examples show how I build flexible blocks that look polished on the front end and stay manageable for the people editing them behind the scenes.</p>
                             </div>
 
-                            <div class="fu-home__systems-grid fu-work-grid">
-                                <?php foreach ($recent_systems as $system) : ?>
-                                    <?php $system_url = $resolve_page_url($system['slug']); ?>
-                                    <a class="fu-home__system-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($system_url); ?>">
-                                        <?php if (!empty($system['image'])) : ?>
-                                            <div class="fu-home__system-media fu-work-card__media">
-                                                <img class="fu-home__system-thumb"
-                                                    src="<?php echo esc_url(wp_make_link_relative(content_url($system['image']))); ?>"
-                                                    alt="<?php echo esc_attr($system['alt'] ?? ''); ?>"
-                                                    loading="lazy"
-                                                    width="600"
-                                                    height="450">
+                            <div class="fu-home__systems-showcase">
+                                <div class="fu-home__systems-grid fu-work-grid">
+                                    <?php foreach (array_slice($recent_systems, 0, 4) as $system) : ?>
+                                        <?php $system_url = $resolve_page_url($system['slug']); ?>
+                                        <a class="fu-home__system-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($system_url); ?>">
+                                            <?php if (!empty($system['image'])) : ?>
+                                                <div class="fu-home__system-media fu-work-card__media">
+                                                    <img class="fu-home__system-thumb"
+                                                        src="<?php echo esc_url(wp_make_link_relative(content_url($system['image']))); ?>"
+                                                        alt="<?php echo esc_attr($system['alt'] ?? ''); ?>"
+                                                        loading="lazy"
+                                                        width="600"
+                                                        height="450">
+                                                </div>
+                                            <?php endif; ?>
+                                            <div class="fu-home__system-body fu-work-card__body">
+                                                <p class="fu-home__system-kicker fu-work-card__kicker"><?php echo esc_html($system['label'] ?? 'Case Study'); ?></p>
+                                                <h3 class="fu-work-card__title"><?php echo esc_html($system['title']); ?></h3>
+                                                <p class="fu-work-card__text"><?php echo esc_html($system['summary']); ?></p>
+                                                <span class="fu-home__system-link fu-work-card__link">View case study</span>
                                             </div>
-                                        <?php endif; ?>
-                                        <div class="fu-home__system-body fu-work-card__body">
-                                            <p class="fu-home__system-kicker fu-work-card__kicker">Case Study</p>
-                                            <h3 class="fu-work-card__title"><?php echo esc_html($system['title']); ?></h3>
-                                            <p class="fu-work-card__text"><?php echo esc_html($system['summary']); ?></p>
-                                            <span class="fu-home__system-link fu-work-card__link">View case study</span>
-                                        </div>
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
 
-                            <div class="fu-home__section-footer">
-                                <a class="fu-home__text-link" href="<?php echo esc_url($resolve_page_url('acf-block-system')); ?>">View the WordPress system case studies</a>
+                                <div class="fu-home__section-footer">
+                                    <a class="fu-home__systems-collection-link fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url($resolve_page_url('acf-block-system')); ?>">View More WordPress Blocks</a>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -295,8 +305,8 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__earlier-work" id="earlier-client-work" aria-labelledby="earlier-client-work-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-section-head">
-                                <p class="fu-eyebrow">Selected contract work</p>
-                                <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected Contract Work</h2>
+                                <p class="fu-eyebrow">Earlier work</p>
+                                <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected Client Work</h2>
                                 <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
                             </div>
 
@@ -353,7 +363,7 @@ $earlier_work = array(
                                 <?php endforeach; ?>
                             </div>
                             <div class="fu-home-contract-work__footer">
-                                <a class="fu-home__text-link fu-home-contract-work__section-cta" href="/work/#contract-work">View Contract Work</a>
+                                <a class="fu-home-contract-work__section-cta fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="/work/#contract-work">View More Contract Work</a>
                             </div>
                             <!-- <div class="fu-home__section-footer fu-home__section-footer--compact">
                                 <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_archive_url); ?>">View all work</a>
@@ -404,7 +414,7 @@ $earlier_work = array(
                                 </a>
                             </div>
                             <div class="fu-home-prototypes__footer">
-                                <a class="fu-home__text-link fu-home-prototypes__section-cta" href="/work/#front-end-prototypes">View UI Examples</a>
+                                <a class="fu-home-prototypes__section-cta fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="/work/#front-end-prototypes">View UI Examples</a>
                             </div>
                         </div>
                     </section>

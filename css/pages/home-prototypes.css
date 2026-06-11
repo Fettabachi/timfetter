@@ -59,13 +59,6 @@
 	margin-top: 2.2rem;
 	text-align: center;
 }
-.fu-home-prototypes__section-cta {
-	font-size: 1.08rem;
-	font-weight: 600;
-	color: var(--fu-blue, #0d3b66);
-	text-decoration: underline;
-	text-underline-offset: 2px;
-}
 @media (max-width: 900px) {
 	.fu-home-prototypes__grid {
 		grid-template-columns: 1fr 1fr !important;
