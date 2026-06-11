@@ -2349,6 +2349,10 @@
 		grid-template-columns: 1fr;
 	}
 
+	#example-blocks .fu-section-head {
+		margin-inline: clamp(1rem, 3vw, 2rem);
+	}
+
 	#example-blocks .fu-editor-experience__example-card {
 		flex-direction: row;
 		align-items: center;
