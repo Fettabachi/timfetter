@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LinkedIn Banner - Tim Fetter</title>
+
+		<style>
+			:root {
+				--fu-blue: #0d3b66;
+				--fu-blue-dark: #061827;
+				--fu-blue-mid: #08233f;
+				--fu-orange: #f95738;
+				--fu-yellow: #f4d35e;
+				--fu-beige: #faf0ca;
+				--fu-white: #ffffff;
+
+				/* Replace this with your actual token if it's already defined elsewhere */
+				--fu-gradient-lux: linear-gradient(
+					135deg,
+					#08233f 0%,
+					#0d3b66 55%,
+					#061827 100%
+				);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				background: #e5e5e5;
+				font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+					BlinkMacSystemFont, "Segoe UI", sans-serif;
+			}
+
+			.linkedin-banner {
+				position: relative;
+				width: 1584px;
+				height: 396px;
+				overflow: hidden;
+				background: var(--fu-gradient-lux);
+				color: var(--fu-white);
+			}
+
+			/* faint grid */
+			.linkedin-banner::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background-image: linear-gradient(
+						rgba(255, 255, 255, 0.055) 1px,
+						transparent 1px
+					),
+					linear-gradient(
+						90deg,
+						rgba(255, 255, 255, 0.055) 1px,
+						transparent 1px
+					);
+				background-size: 44px 44px;
+				pointer-events: none;
+			}
+
+			/* subtle darkening behind text for readability */
+			.linkedin-banner::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(
+					90deg,
+					rgba(6, 24, 39, 0.58) 0%,
+					rgba(6, 24, 39, 0.26) 42%,
+					rgba(6, 24, 39, 0.06) 100%
+				);
+				pointer-events: none;
+			}
+
+			.banner-content {
+				position: relative;
+				z-index: 2;
+				height: 100%;
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) 340px;
+				align-items: center;
+				gap: 32px;
+				padding: 58px 110px 58px 390px;
+			}
+
+			.banner-text {
+				max-width: 780px;
+			}
+
+			.banner-kicker {
+				margin: 0 0 4px;
+				color: #fe4d20;
+				font-size: 22px;
+				font-weight: 700;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+			}
+
+			.banner-title {
+				margin: 0;
+				max-width: 760px;
+				color: var(--fu-white);
+				font-size: 76px;
+				font-weight: 300;
+				line-height: 1.03;
+				letter-spacing: -0.045em;
+			}
+
+			.banner-subtitle {
+				margin: 24px 0 0;
+				color: rgba(255, 255, 255, 0.84);
+				font-size: 27px;
+				font-weight: 400;
+				line-height: 1.35;
+				letter-spacing: -0.015em;
+			}
+
+			.banner-logo-wrap {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+			}
+
+			.banner-logo {
+				width: 235px;
+				max-width: 100%;
+				height: auto;
+				display: block;
+				filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.18));
+			}
+
+			.profile-photo-safe-zone {
+				position: absolute;
+				z-index: 4;
+				left: 110px;
+				bottom: -72px;
+				width: 210px;
+				height: 210px;
+				border-radius: 999px;
+				border: 4px dashed rgba(255, 255, 255, 0.28);
+				background: rgba(255, 255, 255, 0.04);
+				display: grid;
+				place-items: center;
+				color: rgba(255, 255, 255, 0.55);
+				font-size: 18px;
+				text-align: center;
+				line-height: 1.2;
+			}
+
+			.profile-photo-safe-zone span {
+				transform: translateY(-34px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="linkedin-banner">
+			<div class="banner-content">
+				<div class="banner-text">
+					<p class="banner-kicker">Tim Fetter</p>
+
+					<h1 class="banner-title">WordPress Developer</h1>
+
+					<p class="banner-subtitle">
+						Custom Themes · ACF Systems · Interactive Prototypes
+					</p>
+				</div>
+
+				<div class="banner-logo-wrap" aria-hidden="true">
+					<img class="banner-logo" src="assets/images/logo-white.webp" alt="" />
+				</div>
+			</div>
+
+			<!-- Remove before final screenshot -->
+			<!-- <div class="profile-photo-safe-zone">
+				<span>Profile<br />photo area</span>
+			</div> -->
+		</div>
+	</body>
+</html>
