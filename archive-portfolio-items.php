@@ -373,10 +373,10 @@ $get_portfolio_focus_labels = static function ($post_id) {
                     <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Front-End UI Examples</h2>
                     <p class="fu-section-lede">HTML, CSS, and JavaScript examples showing responsive interface layouts, interaction states, workflow screens, and front-end polish before production work begins.</p>
                 </div>
-                <div class="fu-work-grid fu-work-grid--archive" aria-label="Front-End UI Examples">
+                <div class="fu-work-grid fu-work-grid--archive fu-work-archive__prototype-list" aria-label="Front-End UI Examples">
                     <?php foreach ($frontend_prototypes as $prototype) : ?>
                         <?php $prototype_url = $resolve_portfolio_item_url($prototype['slug']); ?>
-                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($prototype_url); ?>">
+                        <a class="fu-work-card fu-work-card--linked fu-work-card--prototype" href="<?php echo esc_url($prototype_url); ?>">
                             <?php if (!empty($prototype['image'])) : ?>
                                 <div class="fu-work-card__media">
                                     <img
