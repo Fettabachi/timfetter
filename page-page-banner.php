@@ -22,10 +22,10 @@ if ($editor_experience_url === '') {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-page-banner-portfolio'); ?>>
-    <div class="container">
-        <div class="entry-content">
+    <div class="entry-content">
 
-            <section class="fu-portfolio-piece__lead">
+        <section class="fu-portfolio-piece__lead">
+            <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-eyebrow">WordPress / ACF Block</p>
@@ -71,57 +71,59 @@ if ($editor_experience_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">A More Flexible Banner Without a Messy Editing Experience</h2>
+        <section class="fu-case-section">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Overview</p>
+                <h2 class="fu-case-section__heading fu-section-heading">A More Flexible Banner Without a Messy Editing Experience</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            Page banners are often either too rigid to be useful or so configurable that they become hard for editors to trust. This block was designed to strike a better balance.</p>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        Page banners are often either too rigid to be useful or so configurable that they become hard for editors to trust. This block was designed to strike a better balance.</p>
 
-                        <p>It supports both video and image treatments, gives editors meaningful control over presentation, and keeps the experience grounded in a preview that closely reflects the front end.
-                        </p>
-                    </div>
+                    <p>It supports both video and image treatments, gives editors meaningful control over presentation, and keeps the experience grounded in a preview that closely reflects the front end.
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-portfolio-piece__demo-panel fu-page-banner-portfolio__demo-panel" id="live-demo">
-                <div class="fu-portfolio-piece__demo-panel-inner">
-                    <div class="fu-portfolio__hint">
-                        <span>Try the live controls</span>
-                    </div>
+        <section class="fu-portfolio-piece__demo-panel fu-page-banner-portfolio__demo-panel" id="live-demo">
+            <div class="fu-portfolio-piece__demo-panel-inner container">
+                <div class="fu-portfolio__hint">
+                    <span>Try the live controls</span>
+                </div>
 
-                    <div class="fu-page-banner-portfolio__demo-head">
-                        <p class="fu-eyebrow">Live Component Preview</p>
-                        <h2 class="fu-page-banner-portfolio__demo-heading">Interactive Banner Configurations</h2>
-                    </div>
+                <div class="fu-page-banner-portfolio__demo-head">
+                    <p class="fu-eyebrow">Live Component Preview</p>
+                    <h2 class="fu-page-banner-portfolio__demo-heading">Interactive Banner Configurations</h2>
+                </div>
 
-                    <div class="fu-page-banner-portfolio__demo-note" role="note" aria-label="Demo instructions">
-                        <p>
-                            <strong>Try it:</strong> Open the settings button on each banner to explore the front-end
-                            demo controls. These expose only a curated subset of the options available to editors
-                            inside WordPress.
-                        </p>
-                    </div>
-
-                    <div class="fu-page-banner-portfolio__demo-stage">
-                        <?php the_content(); ?>
-                    </div>
-
-                    <p class="fu-portfolio-piece__demo-caption">
-                        This example shows the same component configured in two different ways to demonstrate how it adapts to different content needs while maintaining a consistent editing experience.</p>
-
-                    <p class="fu-portfolio-piece__demo-caption">
-                        The front-end controls shown here expose a curated subset of the available options. The full set of controls is available to editors within the WordPress block editor.
+                <div class="fu-page-banner-portfolio__demo-note" role="note" aria-label="Demo instructions">
+                    <p>
+                        <strong>Try it:</strong> Open the settings button on each banner to explore the front-end
+                        demo controls. These expose only a curated subset of the options available to editors
+                        inside WordPress.
                     </p>
                 </div>
 
-            </section>
+                <div class="fu-page-banner-portfolio__demo-stage">
+                    <?php the_content(); ?>
+                </div>
 
-            <section id="design-principles" class="fu-principles">
+                <p class="fu-portfolio-piece__demo-caption">
+                    This example shows the same component configured in two different ways to demonstrate how it adapts to different content needs while maintaining a consistent editing experience.</p>
+
+                <p class="fu-portfolio-piece__demo-caption">
+                    The front-end controls shown here expose a curated subset of the available options. The full set of controls is available to editors within the WordPress block editor.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="design-principles" class="fu-principles">
+            <div class="container container--page">
                 <div class="fu-principles__inner">
                     <p class="fu-eyebrow">Design Principles Behind This Block</p>
                     <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
@@ -149,69 +151,71 @@ if ($editor_experience_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="editor-experience" class="fu-case-section">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Editor Experience</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">A Better Demo on the Front End, a Broader Toolset in the Editor</h2>
+        <section id="editor-experience" class="fu-case-section">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Editor Experience</p>
+                <h2 class="fu-case-section__heading fu-section-heading">A Better Demo on the Front End, a Broader Toolset in the Editor</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            The front-end controls on this page are included to help reviewers interact with the component, but the real value lives in the editor experience.
-                        </p>
-                        <p>
-                            Inside Gutenberg, editors have access to a broader set of controls for media, overlays, layout, visibility, and presentation. The block is designed so the editor preview closely reflects the final front-end result, reducing guesswork and iteration.
-                        </p>
-                    </div>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        The front-end controls on this page are included to help reviewers interact with the component, but the real value lives in the editor experience.
+                    </p>
+                    <p>
+                        Inside Gutenberg, editors have access to a broader set of controls for media, overlays, layout, visibility, and presentation. The block is designed so the editor preview closely reflects the final front-end result, reducing guesswork and iteration.
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="implementation" class="fu-case-section">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Implementation</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">Flexible Media, Predictable Output</h2>
+        <section id="implementation" class="fu-case-section">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Implementation</p>
+                <h2 class="fu-case-section__heading fu-section-heading">Flexible Media, Predictable Output</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            The block was built with ACF Pro inside a custom WordPress theme structure that keeps markup, styles, and behavior scoped and maintainable.
-                        </p>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        The block was built with ACF Pro inside a custom WordPress theme structure that keeps markup, styles, and behavior scoped and maintainable.
+                    </p>
 
-                        <p>
-                            PHP handles rendering, CSS shapes the presentation, and JavaScript supports preview parity and richer media behavior. The result is a flexible component that remains predictable across different use cases.
-                        </p>
-                    </div>
+                    <p>
+                        PHP handles rendering, CSS shapes the presentation, and JavaScript supports preview parity and richer media behavior. The result is a flexible component that remains predictable across different use cases.
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="outcome" class="fu-case-section">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">A Reusable Hero Component for Real WordPress Builds</h2>
+        <section id="outcome" class="fu-case-section">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Outcome</p>
+                <h2 class="fu-case-section__heading fu-section-heading">A Reusable Hero Component for Real WordPress Builds</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            This component makes it easier to reuse high-impact page headers across different types of content without rebuilding layouts each time.
-                        </p>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        This component makes it easier to reuse high-impact page headers across different types of content without rebuilding layouts each time.
+                    </p>
 
-                        <p>
-                            It reduces one-off development requests while giving content teams more control over presentation, making it a practical solution for real-world WordPress builds.
-                        </p>
-                    </div>
+                    <p>
+                        It reduces one-off development requests while giving content teams more control over presentation, making it a practical solution for real-world WordPress builds.
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section fu-editor-handoff-callout">
-                <div class="fu-case-section__inner">
-                    <div class="fu-principles__item">
-                        <h3>Want to see how these blocks are handed off?</h3>
-                        <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
-                        <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
-                    </div>
+        <section class="fu-case-section fu-editor-handoff-callout">
+            <div class="fu-case-section__inner container container--readable">
+                <div class="fu-principles__item">
+                    <h3>Want to see how these blocks are handed off?</h3>
+                    <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
+                    <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-portfolio-piece__closing">
+        <section class="fu-portfolio-piece__closing">
+            <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a flexible banner system that stays consistent and still works well for editors?</h2>
@@ -224,9 +228,9 @@ if ($editor_experience_url === '') {
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
     </div>
 </article>
 
