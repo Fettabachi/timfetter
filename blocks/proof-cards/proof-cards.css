@@ -33,6 +33,7 @@
 	/* Layout & spacing */
 	--pc-gap: var(--fu-space-md);
 	--pc-padding-block: var(--fu-space-xl);
+	--pc-section-spacing-block: clamp(2rem, 1.5rem + 2vw, 3rem);
 	--pc-container-max: 1200px;
 	--pc-card-padding: var(--fu-space-md);
 	--pc-card-radius: var(--fu-radius-lg);
@@ -99,8 +100,7 @@
 	/* Quote accent — used by .fu-proof-card--is-quote */
 	--pc-quote-accent: color-mix(in srgb, var(--pc-card-text) 30%, transparent);
 
-	padding-block: var(--pc-padding-block);
-	background: var(--pc-section-bg);
+	padding-block: var(--pc-section-spacing-block);
 	color: var(--pc-section-text);
 }
 
@@ -240,10 +240,32 @@
    Inner container
    -------------------------------------------------------------------------- */
 
+.fu-proof-cards__panel {
+	padding-block: var(--pc-padding-block);
+	background: var(--pc-section-bg);
+	color: var(--pc-section-text);
+	box-shadow: 0 18px 48px rgba(13, 59, 102, 0.06);
+	overflow: hidden;
+}
+
+.fu-proof-cards--bg-none .fu-proof-cards__panel {
+	border-color: transparent;
+	box-shadow: none;
+}
+
+.fu-proof-cards--bg-dark .fu-proof-cards__panel {
+	border-color: rgba(255, 255, 255, 0.14);
+	box-shadow: 0 22px 54px rgba(13, 59, 102, 0.18);
+}
+
 .fu-proof-cards__container {
 	max-width: var(--pc-container-max);
 	margin-inline: auto;
 	padding-inline: var(--fu-space-md);
+}
+
+.fu-proof-cards--bg-none .fu-proof-cards__container {
+	padding-inline: 0;
 }
 
 /* --------------------------------------------------------------------------

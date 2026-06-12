@@ -234,26 +234,30 @@ if (! function_exists('fu_proof_cards_demo_section_markup')) {
         ob_start();
     ?>
         <section<?php echo $section_id !== '' ? ' id="' . esc_attr($section_id) . '"' : ''; ?> class="<?php echo esc_attr(implode(' ', array_filter($classes))); ?>">
-            <div class="fu-proof-cards__container">
-                <?php if ($eyebrow !== '' || $heading !== '' || $intro !== '') : ?>
-                    <header class="fu-proof-cards__header">
-                        <?php if ($eyebrow !== '') : ?>
-                            <p class="fu-proof-cards__eyebrow"><?php echo esc_html($eyebrow); ?></p>
+            <div class="container">
+                <div class="fu-proof-cards__panel">
+                    <div class="fu-proof-cards__container">
+                        <?php if ($eyebrow !== '' || $heading !== '' || $intro !== '') : ?>
+                            <header class="fu-proof-cards__header">
+                                <?php if ($eyebrow !== '') : ?>
+                                    <p class="fu-proof-cards__eyebrow"><?php echo esc_html($eyebrow); ?></p>
+                                <?php endif; ?>
+                                <?php if ($heading !== '') : ?>
+                                    <h2 class="fu-proof-cards__heading"><?php echo esc_html($heading); ?></h2>
+                                <?php endif; ?>
+                                <?php if ($intro !== '') : ?>
+                                    <p class="fu-proof-cards__intro"><?php echo esc_html($intro); ?></p>
+                                <?php endif; ?>
+                            </header>
                         <?php endif; ?>
-                        <?php if ($heading !== '') : ?>
-                            <h2 class="fu-proof-cards__heading"><?php echo esc_html($heading); ?></h2>
-                        <?php endif; ?>
-                        <?php if ($intro !== '') : ?>
-                            <p class="fu-proof-cards__intro"><?php echo esc_html($intro); ?></p>
-                        <?php endif; ?>
-                    </header>
-                <?php endif; ?>
 
-                <div class="fu-proof-cards__grid" role="list">
-                    <?php foreach ($cards as $card) : ?>
-                        <?php echo fu_proof_cards_demo_card_markup((array) $card); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                        ?>
-                    <?php endforeach; ?>
+                        <div class="fu-proof-cards__grid" role="list">
+                            <?php foreach ($cards as $card) : ?>
+                                <?php echo fu_proof_cards_demo_card_markup((array) $card); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             </section>
@@ -548,10 +552,10 @@ $proof_cards_demos = array(
     ?>
 
     <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-proof-cards-portfolio'); ?>>
-        <div class="container">
-            <div class="entry-content">
+        <div class="entry-content">
 
-                <section class="fu-portfolio-piece__lead" id="proof-cards-lead">
+            <section class="fu-portfolio-piece__lead" id="proof-cards-lead">
+                <div class="container">
                     <div class="fu-portfolio-piece__lead-inner">
                         <div class="fu-portfolio-piece__lead-copy">
                             <p class="fu-eyebrow">ACF Block Portfolio</p>
@@ -584,131 +588,133 @@ $proof_cards_demos = array(
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="fu-case-section" id="problem-purpose">
-                    <div class="fu-case-section__inner">
-                        <p class="fu-eyebrow">Overview</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">From generic testimonials to structured proof</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>Most testimonial sections stop at a quote, name, and title. Proof Cards gives editors a more useful structure: outcome metrics, proof statements, source details, optional images or logos, and links to deeper case studies or reviews.</p>
-                            <p>The point is not just attractive cards. It’s a better content model for trust signals, so editors can reuse the same pattern wherever credibility matters.</p>
+            <section class="fu-case-section" id="problem-purpose">
+                <div class="fu-case-section__inner container container--readable">
+                    <p class="fu-eyebrow">Overview</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">From generic testimonials to structured proof</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>Most testimonial sections stop at a quote, name, and title. Proof Cards gives editors a more useful structure: outcome metrics, proof statements, source details, optional images or logos, and links to deeper case studies or reviews.</p>
+                        <p>The point is not just attractive cards. It’s a better content model for trust signals, so editors can reuse the same pattern wherever credibility matters.</p>
+                    </div>
+                </div>
+            </section>
+
+            <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['main_showcase']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+            ?>
+
+            <section class="fu-case-section" id="use-cases">
+                <div class="fu-case-section__inner container container--readable">
+                    <p class="fu-eyebrow">Use Cases</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">One proof system, multiple use cases</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>The same block can support metric-heavy proof, quote-first testimonials, agency handoff notes, and lighter case-study snippets without changing the underlying pattern.</p>
+                    </div>
+                </div>
+            </section>
+
+            <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['campaign_results']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+            ?>
+            <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['testimonial_grid']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+            ?>
+
+            <section class="fu-case-section fu-proof-cards-bridge" id="use-case-shift">
+                <div class="fu-case-section__inner container container--readable">
+                    <p class="fu-eyebrow">Use Case Shift</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">From client feedback to implementation proof</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>Proof Cards is not limited to customer quotes. The same structure can highlight measurable outcomes, technical decisions, editor experience, and reusable WordPress architecture.</p>
+                    </div>
+                </div>
+            </section>
+
+            <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['dark_credibility']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+            ?>
+
+            <section class="fu-case-section" id="editor-experience">
+                <div class="fu-case-section__inner container container--readable">
+                    <p class="fu-eyebrow">Editor Experience</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">Designed around the editor, not just the front end</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>The first version used a repeater, which made sense for the data model but failed the real editor test: multiple cards became difficult to manage in the Gutenberg sidebar. The final version uses one child block per proof card, giving editors a clearer canvas-level workflow for selecting, editing, duplicating, and reordering proof items.</p>
+                        <p>Parent controls handle the section heading, background, layout, and card style. Child blocks hold the proof content itself, including the statement, metrics, source details, links, and optional media or logo support.</p>
+                    </div>
+
+                    <div class="fu-principles__grid fu-principles__grid--compact fu-proof-page__spaced-grid" aria-label="Proof Cards editor principles">
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Parent block controls the frame</h3>
+                            <p>Section heading, background, layout, and card style stay at the parent level.</p>
+                        </div>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Child blocks hold proof content</h3>
+                            <p>Each proof card is its own unit, so editors can duplicate and reorder freely.</p>
+                        </div>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Statement stays guided</h3>
+                            <p>The proof statement uses a limited WYSIWYG editor instead of a full content sandbox.</p>
+                        </div>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Media stays optional</h3>
+                            <p>Logos, initials, or images can support the source without dominating the card.</p>
+                        </div>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Responsive Grid stays stable</h3>
+                            <p>Layout relies on semantic markup and CSS Grid instead of JavaScript-driven behavior.</p>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['main_showcase']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                ?>
+            <section class="fu-case-section" id="technical-approach">
+                <div class="fu-case-section__inner container container--readable">
+                    <p class="fu-eyebrow">Technical Notes</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">Technical approach</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>The implementation uses ACF parent/child blocks, InnerBlocks, structured fields, a limited WYSIWYG statement field, scoped CSS variables, and responsive CSS Grid. It supports optional logos and images, accessible source attribution, and rebrandable styling without requiring JavaScript in v1.</p>
+                    </div>
 
-                <section class="fu-case-section" id="use-cases">
-                    <div class="fu-case-section__inner">
-                        <p class="fu-eyebrow">Use Cases</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">One proof system, multiple use cases</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>The same block can support metric-heavy proof, quote-first testimonials, agency handoff notes, and lighter case-study snippets without changing the underlying pattern.</p>
+                    <div class="fu-principles__grid fu-principles__grid--compact fu-proof-page__spaced-grid" aria-label="Technical approach highlights">
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Structured ACF Fields</h3>
+                            <p>Each card maps to a clear content model instead of a freeform repeater.</p>
+                        </div>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Scoped CSS Variables</h3>
+                            <p>Colors, surfaces, and accents can follow the site brand without global overrides.</p>
+                        </div>
+                        <div class="fu-principles__item fu-principles__item--compact">
+                            <h3>Accessible Source Structure</h3>
+                            <p>Metrics, statements, source details, and optional media are kept semantically distinct.</p>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['campaign_results']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                ?>
-                <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['testimonial_grid']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                ?>
-
-                <section class="fu-case-section fu-proof-cards-bridge" id="use-case-shift">
-                    <div class="fu-case-section__inner">
-                        <p class="fu-eyebrow">Use Case Shift</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">From client feedback to implementation proof</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>Proof Cards is not limited to customer quotes. The same structure can highlight measurable outcomes, technical decisions, editor experience, and reusable WordPress architecture.</p>
-                        </div>
+            <section class="fu-case-section" id="portfolio-value">
+                <div class="fu-case-section__inner container container--readable">
+                    <p class="fu-eyebrow">Portfolio Value</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">Why this matters for clients</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>Proof Cards helps clients present testimonials, outcomes, metrics, logos, and source details in a consistent system. Instead of scattering proof across several one-off sections, the same block can adapt to service pages, landing pages, home pages, resource hubs, and case-study previews.</p>
+                        <p>That makes the content easier to maintain and the trust signals easier to scan. For teams that need editorial flexibility without layout chaos, the block creates a better publishing pattern from the start.</p>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <?php echo fu_proof_cards_demo_section_markup($proof_cards_demos['dark_credibility']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                ?>
-
-                <section class="fu-case-section" id="editor-experience">
-                    <div class="fu-case-section__inner">
-                        <p class="fu-eyebrow">Editor Experience</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">Designed around the editor, not just the front end</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>The first version used a repeater, which made sense for the data model but failed the real editor test: multiple cards became difficult to manage in the Gutenberg sidebar. The final version uses one child block per proof card, giving editors a clearer canvas-level workflow for selecting, editing, duplicating, and reordering proof items.</p>
-                            <p>Parent controls handle the section heading, background, layout, and card style. Child blocks hold the proof content itself, including the statement, metrics, source details, links, and optional media or logo support.</p>
-                        </div>
-
-                        <div class="fu-principles__grid fu-principles__grid--compact fu-proof-page__spaced-grid" aria-label="Proof Cards editor principles">
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Parent block controls the frame</h3>
-                                <p>Section heading, background, layout, and card style stay at the parent level.</p>
-                            </div>
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Child blocks hold proof content</h3>
-                                <p>Each proof card is its own unit, so editors can duplicate and reorder freely.</p>
-                            </div>
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Statement stays guided</h3>
-                                <p>The proof statement uses a limited WYSIWYG editor instead of a full content sandbox.</p>
-                            </div>
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Media stays optional</h3>
-                                <p>Logos, initials, or images can support the source without dominating the card.</p>
-                            </div>
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Responsive Grid stays stable</h3>
-                                <p>Layout relies on semantic markup and CSS Grid instead of JavaScript-driven behavior.</p>
-                            </div>
-                        </div>
+            <section class="fu-case-section fu-editor-handoff-callout">
+                <div class="fu-case-section__inner container container--readable">
+                    <div class="fu-principles__item">
+                        <h3>Want to see how these blocks are handed off?</h3>
+                        <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
+                        <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="fu-case-section" id="technical-approach">
-                    <div class="fu-case-section__inner">
-                        <p class="fu-eyebrow">Technical Notes</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">Technical approach</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>The implementation uses ACF parent/child blocks, InnerBlocks, structured fields, a limited WYSIWYG statement field, scoped CSS variables, and responsive CSS Grid. It supports optional logos and images, accessible source attribution, and rebrandable styling without requiring JavaScript in v1.</p>
-                        </div>
-
-                        <div class="fu-principles__grid fu-principles__grid--compact fu-proof-page__spaced-grid" aria-label="Technical approach highlights">
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Structured ACF Fields</h3>
-                                <p>Each card maps to a clear content model instead of a freeform repeater.</p>
-                            </div>
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Scoped CSS Variables</h3>
-                                <p>Colors, surfaces, and accents can follow the site brand without global overrides.</p>
-                            </div>
-                            <div class="fu-principles__item fu-principles__item--compact">
-                                <h3>Accessible Source Structure</h3>
-                                <p>Metrics, statements, source details, and optional media are kept semantically distinct.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="fu-case-section" id="portfolio-value">
-                    <div class="fu-case-section__inner">
-                        <p class="fu-eyebrow">Portfolio Value</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">Why this matters for clients</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>Proof Cards helps clients present testimonials, outcomes, metrics, logos, and source details in a consistent system. Instead of scattering proof across several one-off sections, the same block can adapt to service pages, landing pages, home pages, resource hubs, and case-study previews.</p>
-                            <p>That makes the content easier to maintain and the trust signals easier to scan. For teams that need editorial flexibility without layout chaos, the block creates a better publishing pattern from the start.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="fu-case-section fu-editor-handoff-callout">
-                    <div class="fu-case-section__inner">
-                        <div class="fu-principles__item">
-                            <h3>Want to see how these blocks are handed off?</h3>
-                            <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
-                            <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="fu-portfolio-piece__closing">
+            <section class="fu-portfolio-piece__closing">
+                <div class="container container--page">
                     <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                         <p class="fu-eyebrow">Closing Thought</p>
                         <h2 class="fu-portfolio-piece__closing-heading">Need a better way to structure proof content?</h2>
@@ -719,9 +725,9 @@ $proof_cards_demos = array(
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-            </div>
         </div>
     </article>
 
