@@ -313,17 +313,22 @@
 @media (max-width: 781px) {
 	.fu-filtered-content-grid__filters {
 		gap: 0.6rem;
-		margin-bottom: 1.4rem;
+		margin-bottom: 0;
 		padding-bottom: 0;
 		border-bottom: 0;
 	}
 
 	.fu-filtered-content-grid__filter {
-		width: 100%;
 		justify-content: center;
 	}
 
 	.fu-filtered-content-grid__results {
 		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 640px) and (max-width: 781px) {
+	.fu-filtered-content-grid__results {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
