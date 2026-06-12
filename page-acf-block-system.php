@@ -234,44 +234,49 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </div>
                     </div>
 
-                    <div class="fu-system-block-grid fu-work-grid" aria-label="Portfolio block examples">
-                        <?php foreach ($block_collection as $block) : ?>
-                            <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
-                            <?php if ($block_url !== '') : ?>
-                                <a class="fu-system-block-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
-                                    <div class="fu-system-block-card__media fu-work-card__media">
-                                        <img
-                                            src="<?php echo esc_url(wp_make_link_relative(content_url($block['image']))); ?>"
-                                            alt="<?php echo esc_attr($block['alt'] ?? ''); ?>"
-                                            loading="lazy"
-                                            width="600"
-                                            height="450">
+                </div>
+
+                <div class="fu-system-block-showcase-wrap">
+                    <div class="fu-system-block-showcase">
+                        <div class="fu-system-block-grid fu-work-grid" aria-label="Portfolio block examples">
+                            <?php foreach ($block_collection as $block) : ?>
+                                <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
+                                <?php if ($block_url !== '') : ?>
+                                    <a class="fu-system-block-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
+                                        <div class="fu-system-block-card__media fu-work-card__media">
+                                            <img
+                                                src="<?php echo esc_url(wp_make_link_relative(content_url($block['image']))); ?>"
+                                                alt="<?php echo esc_attr($block['alt'] ?? ''); ?>"
+                                                loading="lazy"
+                                                width="600"
+                                                height="450">
+                                        </div>
+                                        <div class="fu-system-block-card__body fu-work-card__body">
+                                            <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                            <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
+                                            <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
+                                            <span class="fu-system-block-card__action fu-work-card__link">View case study</span>
+                                        </div>
+                                    </a>
+                                <?php else : ?>
+                                    <div class="fu-system-block-card fu-work-card fu-system-block-card--disabled">
+                                        <div class="fu-system-block-card__media fu-work-card__media">
+                                            <img
+                                                src="<?php echo esc_url(content_url($block['image'])); ?>"
+                                                alt="<?php echo esc_attr($block['alt'] ?? ''); ?>"
+                                                loading="lazy"
+                                                width="600"
+                                                height="450">
+                                        </div>
+                                        <div class="fu-system-block-card__body fu-work-card__body">
+                                            <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                            <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
+                                            <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
+                                        </div>
                                     </div>
-                                    <div class="fu-system-block-card__body fu-work-card__body">
-                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
-                                        <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
-                                        <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
-                                        <span class="fu-system-block-card__action fu-work-card__link">View case study</span>
-                                    </div>
-                                </a>
-                            <?php else : ?>
-                                <div class="fu-system-block-card fu-work-card fu-system-block-card--disabled">
-                                    <div class="fu-system-block-card__media fu-work-card__media">
-                                        <img
-                                            src="<?php echo esc_url(content_url($block['image'])); ?>"
-                                            alt="<?php echo esc_attr($block['alt'] ?? ''); ?>"
-                                            loading="lazy"
-                                            width="600"
-                                            height="450">
-                                    </div>
-                                    <div class="fu-system-block-card__body fu-work-card__body">
-                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
-                                        <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
-                                        <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </section>
