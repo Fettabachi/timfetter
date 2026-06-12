@@ -27,10 +27,10 @@ if ($portfolio_url === '') {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-editor-experience'); ?>>
-    <div class="container">
-        <div class="entry-content">
+    <div class="entry-content">
 
-            <section class="fu-portfolio-piece__lead">
+        <section class="fu-portfolio-piece__lead">
+            <div class="container container--page">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-eyebrow">ACF Block System</p>
@@ -73,10 +73,11 @@ if ($portfolio_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section" id="handoff-test">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section" id="handoff-test">
+            <div class="fu-case-section__inner container container--readable">
                     <h2 class="fu-case-section__heading fu-section-heading">The real test starts after launch</h2>
 
                     <div class="fu-case-section__body fu-section-body">
@@ -85,10 +86,10 @@ if ($portfolio_url === '') {
                         <p>These blocks are designed so editors can update meaningful content without being handed enough control to accidentally break the system.</p>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-case-section fu-editor-safety--dark" id="safe-change-boundaries">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section fu-editor-safety--dark" id="safe-change-boundaries">
+            <div class="fu-case-section__inner container container--readable">
                     <h2 class="fu-case-section__heading fu-section-heading">What editors can safely change</h2>
 
                     <div class="fu-editor-experience__handoff-grid">
@@ -117,10 +118,10 @@ if ($portfolio_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-case-section" id="editing-model">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section" id="editing-model">
+            <div class="fu-case-section__inner container container--readable">
                     <h2 class="fu-case-section__heading fu-section-heading">The editing model depends on the content</h2>
 
                     <div class="fu-case-section__body fu-section-body">
@@ -190,10 +191,10 @@ if ($portfolio_url === '') {
                         </article>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-content-section" id="example-blocks">
-                <div class="fu-content-section__inner">
+        <section class="fu-content-section" id="example-blocks">
+            <div class="fu-content-section__inner container container--page">
                     <div class="fu-section-head">
                         <p class="fu-eyebrow">Block system examples</p>
                         <h2 class="fu-section-heading">Examples from the block system</h2>
@@ -276,10 +277,10 @@ if ($portfolio_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-case-section" id="handoff-value">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section" id="handoff-value">
+            <div class="fu-case-section__inner container container--page">
                     <h2 class="fu-case-section__heading fu-section-heading">Built for the next person who edits the page</h2>
 
                     <div class="fu-case-section__body fu-section-body">
@@ -350,9 +351,10 @@ if ($portfolio_url === '') {
                         </article>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-portfolio-piece__closing" id="editor-experience-cta">
+        <section class="fu-portfolio-piece__closing" id="editor-experience-cta">
+            <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <h2 class="fu-portfolio-piece__closing-heading">A block system that lasts beyond launch</h2>
                     <p class="fu-portfolio-piece__closing-body">The same structure that makes these blocks reusable also makes them easier to hand off, document, and extend.</p>
@@ -364,9 +366,9 @@ if ($portfolio_url === '') {
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_url); ?>">Explore the block case studies</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
     </div>
 </article>
 
