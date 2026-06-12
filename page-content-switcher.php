@@ -22,10 +22,10 @@ if ($editor_experience_url === '') {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-content-switcher-portfolio'); ?>>
-    <div class="container">
-        <div class="entry-content">
+    <div class="entry-content">
 
-            <section id="content-switcher-overview" class="fu-portfolio-piece__lead">
+        <section id="content-switcher-overview" class="fu-portfolio-piece__lead">
+            <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-eyebrow">WordPress / ACF Block</p>
@@ -72,66 +72,68 @@ if ($editor_experience_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section" id="overview">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">The Problem with Content-Heavy Pages</h2>
+        <section class="fu-case-section" id="overview">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Overview</p>
+                <h2 class="fu-case-section__heading fu-section-heading">The Problem with Content-Heavy Pages</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            Pages that cover a lot of ground tend to become long, repetitive, or hard to scan. Editors end up
-                            stacking sections that cover similar topics, and visitors have to scroll through content that doesn't
-                            apply to them.
-                        </p>
-
-                        <p>
-                            Structured switcher panels offer a better model: group related content into clearly labeled sections,
-                            let visitors navigate directly to what they need, and give editors a consistent publishing pattern
-                            instead of rebuilding layouts from scratch each time.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="fu-portfolio-piece__demo-panel" id="live-demo">
-                <div class="fu-portfolio-piece__demo-panel-inner">
-                    <p class="fu-eyebrow">Live Component Preview</p>
-
-                    <p class="fu-portfolio-piece__demo-caption">
-                        <strong>Try it:</strong> Click the settings button to explore curated front-end controls for display
-                        style, backgrounds, and border radius. These controls mirror a small subset of the options
-                        available to editors inside WordPress.
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        Pages that cover a lot of ground tend to become long, repetitive, or hard to scan. Editors end up
+                        stacking sections that cover similar topics, and visitors have to scroll through content that doesn't
+                        apply to them.
                     </p>
 
-                    <p class="fu-portfolio-piece__demo-caption">
-                        Switch between panels to see how each section can manage its own layout, media, highlights, and
-                        buttons while staying inside the same reusable component.
+                    <p>
+                        Structured switcher panels offer a better model: group related content into clearly labeled sections,
+                        let visitors navigate directly to what they need, and give editors a consistent publishing pattern
+                        instead of rebuilding layouts from scratch each time.
                     </p>
-
-                    <div class="fu-content-switcher-demo-shell" data-fu-content-switcher-demo-target>
-                        <button
-                            type="button"
-                            class="fu-content-switcher-config-toggle"
-                            data-fu-content-switcher-demo-toggle
-                            aria-label="Content Switcher Controls"
-                            title="Content Switcher Controls"
-                            aria-controls="fuContentSwitcherDemoPanel"
-                            aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 24px; height: 24px">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-
-                        <?php the_content(); ?>
-                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <?php get_template_part('parts/demo-panel-content-switcher'); ?>
+        <section class="fu-portfolio-piece__demo-panel" id="live-demo">
+            <div class="fu-portfolio-piece__demo-panel-inner container">
+                <p class="fu-eyebrow">Live Component Preview</p>
 
-            <section class="fu-principles" id="design-principles">
+                <p class="fu-portfolio-piece__demo-caption">
+                    <strong>Try it:</strong> Click the settings button to explore curated front-end controls for display
+                    style, backgrounds, and border radius. These controls mirror a small subset of the options
+                    available to editors inside WordPress.
+                </p>
+
+                <p class="fu-portfolio-piece__demo-caption">
+                    Switch between panels to see how each section can manage its own layout, media, highlights, and
+                    buttons while staying inside the same reusable component.
+                </p>
+
+                <div class="fu-content-switcher-demo-shell" data-fu-content-switcher-demo-target>
+                    <button
+                        type="button"
+                        class="fu-content-switcher-config-toggle"
+                        data-fu-content-switcher-demo-toggle
+                        aria-label="Content Switcher Controls"
+                        title="Content Switcher Controls"
+                        aria-controls="fuContentSwitcherDemoPanel"
+                        aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 24px; height: 24px">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+
+                    <?php the_content(); ?>
+                </div>
+            </div>
+        </section>
+
+        <?php get_template_part('parts/demo-panel-content-switcher'); ?>
+
+        <section class="fu-principles" id="design-principles">
+            <div class="container container--page">
                 <div class="fu-principles__inner">
                     <p class="fu-eyebrow">Design Principles</p>
 
@@ -168,119 +170,121 @@ if ($editor_experience_url === '') {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section" id="editor-experience">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Editor Experience</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">Two Distinct Roles, One Consistent Component</h2>
+        <section class="fu-case-section" id="editor-experience">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Editor Experience</p>
+                <h2 class="fu-case-section__heading fu-section-heading">Two Distinct Roles, One Consistent Component</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            The parent block owns the switcher-level configuration: display style, nav behavior, spacing,
-                            backgrounds, border radius, and shared visual settings. These apply across all panels and define
-                            how the component looks and behaves as a unit.
-                        </p>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        The parent block owns the switcher-level configuration: display style, nav behavior, spacing,
+                        backgrounds, border radius, and shared visual settings. These apply across all panels and define
+                        how the component looks and behaves as a unit.
+                    </p>
 
-                        <p>
-                            Each child panel controls its own content independently: label, icon, panel media, body content,
-                            highlight items, call-to-action buttons, and a deep link anchor. That separation makes it easy to
-                            update or reorder panels without affecting the overall structure.
-                        </p>
+                    <p>
+                        Each child panel controls its own content independently: label, icon, panel media, body content,
+                        highlight items, call-to-action buttons, and a deep link anchor. That separation makes it easy to
+                        update or reorder panels without affecting the overall structure.
+                    </p>
 
-                        <p>
-                            The editor also includes utility controls that only appear in the block editor—panel identification
-                            labels and a one-click deep link copy tool—so editors can navigate and share specific panels without
-                            any of those utilities appearing on the public front end.
-                        </p>
+                    <p>
+                        The editor also includes utility controls that only appear in the block editor—panel identification
+                        labels and a one-click deep link copy tool—so editors can navigate and share specific panels without
+                        any of those utilities appearing on the public front end.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fu-case-section" id="implementation">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Implementation</p>
+                <h2 class="fu-case-section__heading fu-section-heading">One Component, Multiple Display Modes, Accessible by Architecture</h2>
+
+                <div class="fu-case-section__body fu-section-body">
+                    <p class="fu-content-switcher-portfolio__implementation-intro">
+                        The block uses a parent/child ACF architecture so the switcher owns the configuration while each
+                        panel manages its own content. The front end is built around accessible tab semantics, scoped
+                        instance data, responsive fallbacks, and modifier-driven display variants instead of one-off templates.
+                    </p>
+                </div>
+
+                <div class="fu-principles__grid fu-principles__grid--compact" aria-label="Implementation capabilities">
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Parent/Child ACF Architecture</h3>
+                        <p>Parent settings control the switcher while each panel manages its own content.</p>
+                    </div>
+
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Accessible Tab Semantics</h3>
+                        <p>Server-rendered tab and tabpanel markup supports assistive technology.</p>
+                    </div>
+
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Keyboard Navigation</h3>
+                        <p>Arrow-key interaction follows the selected horizontal or vertical orientation.</p>
+                    </div>
+
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Instance-Safe Deep Links</h3>
+                        <p>Panel hashes are scoped so multiple switchers can coexist on one page.</p>
+                    </div>
+
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Responsive Accordion Fallback</h3>
+                        <p>Small screens use a mobile-friendly panel pattern without a separate block.</p>
+                    </div>
+
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Scoped CSS Variables</h3>
+                        <p>Display variants share one system instead of duplicated stylesheets.</p>
+                    </div>
+
+                    <div class="fu-principles__item fu-principles__item--compact">
+                        <h3>Matched Panel Height</h3>
+                        <p>Editors can reduce layout shift when panel content varies.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section" id="implementation">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Implementation</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">One Component, Multiple Display Modes, Accessible by Architecture</h2>
+        <section class="fu-case-section" id="outcome">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Outcome</p>
+                <h2 class="fu-case-section__heading fu-section-heading">Less One-Off Work, More Consistent Publishing</h2>
 
-                    <div class="fu-case-section__body fu-section-body">
-                        <p class="fu-content-switcher-portfolio__implementation-intro">
-                            The block uses a parent/child ACF architecture so the switcher owns the configuration while each
-                            panel manages its own content. The front end is built around accessible tab semantics, scoped
-                            instance data, responsive fallbacks, and modifier-driven display variants instead of one-off templates.
-                        </p>
-                    </div>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>
+                        Teams using this block spend less time building custom layout sections for structured content and more
+                        time publishing. The same component handles service comparisons, audience-based messaging, feature
+                        groups, and tabbed reference content without requiring a new block for each use case.
+                    </p>
 
-                    <div class="fu-principles__grid fu-principles__grid--compact" aria-label="Implementation capabilities">
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Parent/Child ACF Architecture</h3>
-                            <p>Parent settings control the switcher while each panel manages its own content.</p>
-                        </div>
-
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Accessible Tab Semantics</h3>
-                            <p>Server-rendered tab and tabpanel markup supports assistive technology.</p>
-                        </div>
-
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Keyboard Navigation</h3>
-                            <p>Arrow-key interaction follows the selected horizontal or vertical orientation.</p>
-                        </div>
-
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Instance-Safe Deep Links</h3>
-                            <p>Panel hashes are scoped so multiple switchers can coexist on one page.</p>
-                        </div>
-
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Responsive Accordion Fallback</h3>
-                            <p>Small screens use a mobile-friendly panel pattern without a separate block.</p>
-                        </div>
-
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Scoped CSS Variables</h3>
-                            <p>Display variants share one system instead of duplicated stylesheets.</p>
-                        </div>
-
-                        <div class="fu-principles__item fu-principles__item--compact">
-                            <h3>Matched Panel Height</h3>
-                            <p>Editors can reduce layout shift when panel content varies.</p>
-                        </div>
-                    </div>
+                    <p>
+                        Accessibility is built in rather than retrofitted, so there's no additional QA burden when the block
+                        is reused. Editorial control stays with the team—display style, panel content, and deep link behavior
+                        are all managed within the block editor, with no theme customization required.
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section" id="outcome">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">Less One-Off Work, More Consistent Publishing</h2>
-
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>
-                            Teams using this block spend less time building custom layout sections for structured content and more
-                            time publishing. The same component handles service comparisons, audience-based messaging, feature
-                            groups, and tabbed reference content without requiring a new block for each use case.
-                        </p>
-
-                        <p>
-                            Accessibility is built in rather than retrofitted, so there's no additional QA burden when the block
-                            is reused. Editorial control stays with the team—display style, panel content, and deep link behavior
-                            are all managed within the block editor, with no theme customization required.
-                        </p>
-                    </div>
+        <section class="fu-case-section fu-editor-handoff-callout">
+            <div class="fu-case-section__inner container container--readable">
+                <div class="fu-principles__item">
+                    <h3>Want to see how these blocks are handed off?</h3>
+                    <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
+                    <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section fu-editor-handoff-callout">
-                <div class="fu-case-section__inner">
-                    <div class="fu-principles__item">
-                        <h3>Want to see how these blocks are handed off?</h3>
-                        <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
-                        <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="fu-portfolio-piece__closing">
+        <section class="fu-portfolio-piece__closing">
+            <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a structured content component that editors can actually use?</h2>
@@ -293,9 +297,9 @@ if ($editor_experience_url === '') {
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
     </div>
 </article>
 
