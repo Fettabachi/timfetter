@@ -38,6 +38,20 @@ $featured_systems = array(
 
 $acf_block_case_studies = array(
     array(
+        'title' => 'Page Banner',
+        'slug' => 'page-banner',
+        'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
+        'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
+    ),
+    array(
+        'title' => 'Flexible Feature Section',
+        'slug' => 'flexible-feature-section',
+        'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
+        'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
+    ),
+    array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
@@ -64,20 +78,6 @@ $acf_block_case_studies = array(
         'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
         'alt'   => 'Portfolio hero showing proof cards with testimonials, metrics, and credibility signals.',
-    ),
-    array(
-        'title' => 'Page Banner',
-        'slug' => 'page-banner',
-        'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
-        'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
-    ),
-    array(
-        'title' => 'Flexible Feature Section',
-        'slug' => 'flexible-feature-section',
-        'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
-        'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
     ),
 );
 
@@ -233,10 +233,10 @@ $get_portfolio_focus_labels = static function ($post_id) {
                     <p class="fu-section-lede">Reusable WordPress systems focused on structured content, editor experience, maintainable handoff, and front-end implementation.</p>
                 </div>
 
-                <div class="fu-work-grid fu-work-grid--archive fu-work-archive__grid--featured" aria-label="Featured systems case studies">
+                <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-wordpress-card-grid--featured fu-work-archive__grid--featured" aria-label="Featured systems case studies">
                     <?php foreach ($featured_systems as $system) : ?>
                         <?php $system_url = $resolve_page_url($system['slug']); ?>
-                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($system_url); ?>">
+                        <a class="fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($system_url); ?>">
                             <?php if (!empty($system['image'])) : ?>
                                 <div class="fu-work-card__media">
                                     <img
@@ -266,10 +266,10 @@ $get_portfolio_focus_labels = static function ($post_id) {
                 </div>
 
                 <div class="fu-work-archive__acf-showcase">
-                    <div class="fu-work-grid fu-work-grid--archive fu-work-archive__acf-grid" aria-label="ACF block case studies">
+                    <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-work-archive__acf-grid" aria-label="ACF block case studies">
                         <?php foreach ($acf_block_case_studies as $case_study) : ?>
                             <?php $case_study_url = $resolve_page_url($case_study['slug']); ?>
-                            <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($case_study_url); ?>">
+                            <a class="fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($case_study_url); ?>">
                                 <?php if (!empty($case_study['image'])) : ?>
                                     <div class="fu-work-card__media">
                                         <img

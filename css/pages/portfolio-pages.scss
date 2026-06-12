@@ -1724,6 +1724,18 @@
 
 /* ACF Block System: page-specific extras (block collection cards only) */
 .fu-acf-block-system-portfolio {
+	#block-collection .fu-section-head {
+		margin-bottom: clamp(1rem, 2vw, 1.35rem);
+	}
+
+	#block-collection .fu-section-heading {
+		margin-bottom: 0.6rem;
+	}
+
+	#block-collection .fu-section-lede {
+		margin-top: 0;
+	}
+
 	.fu-system-block-card {
 		color: inherit;
 	}
@@ -1747,6 +1759,7 @@
 @media (min-width: 1100px) {
 	.fu-system-block-grid {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: clamp(1.4rem, 3vw, 2rem);
 	}
 }
 

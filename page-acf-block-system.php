@@ -232,17 +232,15 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-section-head">
                     <p class="fu-eyebrow">Block Collection</p>
                     <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
-                    </div>
+                    <p class="fu-section-lede">Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
                 </div>
 
                 <div class="fu-system-block-showcase">
-                    <div class="fu-system-block-grid fu-work-grid" aria-label="Portfolio block examples">
+                    <div class="fu-system-block-grid fu-work-grid fu-wordpress-card-grid" aria-label="Portfolio block examples">
                         <?php foreach ($block_collection as $block) : ?>
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
                             <?php if ($block_url !== '') : ?>
-                                <a class="fu-system-block-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
+                                <a class="fu-system-block-card fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($block_url); ?>" aria-label="View the <?php echo esc_attr($block['title']); ?> portfolio page">
                                     <div class="fu-system-block-card__media fu-work-card__media">
                                         <img
                                             src="<?php echo esc_url(wp_make_link_relative(content_url($block['image']))); ?>"
@@ -259,7 +257,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                     </div>
                                 </a>
                             <?php else : ?>
-                                <div class="fu-system-block-card fu-work-card fu-system-block-card--disabled">
+                                <div class="fu-system-block-card fu-work-card fu-work-card--wordpress fu-system-block-card--disabled">
                                     <div class="fu-system-block-card__media fu-work-card__media">
                                         <img
                                             src="<?php echo esc_url(content_url($block['image'])); ?>"
