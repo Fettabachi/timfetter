@@ -127,10 +127,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media fu-acf-block-system-portfolio'); ?>>
-    <div class="container">
-        <div class="entry-content">
+    <div class="entry-content">
 
-            <section class="fu-portfolio-piece__lead">
+        <section class="fu-portfolio-piece__lead">
+            <div class="container container--page">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-eyebrow">WordPress / ACF Block Portfolio</p>
@@ -167,10 +167,11 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section fu-system-workflow" id="system-workflow" aria-labelledby="system-workflow-heading">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section fu-system-workflow" id="system-workflow" aria-labelledby="system-workflow-heading">
+            <div class="fu-case-section__inner container container--readable">
                     <div class="fu-system-workflow__header">
                         <p class="fu-eyebrow">System workflow</p>
                         <h2 class="fu-section-heading fu-section-heading--compact" id="system-workflow-heading">How the system works</h2>
@@ -196,9 +197,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </li>
                     </ol>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-system-purpose" id="why-this-system" aria-labelledby="system-purpose-heading">
+        <section class="fu-system-purpose" id="why-this-system" aria-labelledby="system-purpose-heading">
+            <div class="container container--l">
                 <div class="fu-system-purpose__inner">
                     <div class="fu-system-purpose__content">
                         <p class="fu-eyebrow">Why this system exists</p>
@@ -222,18 +224,20 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-content-section" id="block-collection">
-                <div class="fu-content-section__inner container container--page">
-                    <div class="fu-section-head">
-                        <p class="fu-eyebrow">Block Collection</p>
-                        <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
-                        <div class="fu-case-section__body fu-section-body">
-                            <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
-                        </div>
+        <section class="fu-content-section" id="block-collection">
+            <div class="fu-content-section__inner container container--page">
+                <div class="fu-section-head">
+                    <p class="fu-eyebrow">Block Collection</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
+                    <div class="fu-case-section__body fu-section-body">
+                        <p>Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
                     </div>
+                </div>
 
+                <div class="fu-system-block-showcase">
                     <div class="fu-system-block-grid fu-work-grid" aria-label="Portfolio block examples">
                         <?php foreach ($block_collection as $block) : ?>
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
@@ -274,10 +278,11 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <?php endforeach; ?>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-case-section" id="shared-principles">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section" id="shared-principles">
+            <div class="fu-case-section__inner container container--readable">
                     <p class="fu-eyebrow">Shared Principles</p>
                     <h2 class="fu-case-section__heading fu-section-heading">Shared principles behind the system</h2>
                     <div class="fu-case-section__body fu-section-body">
@@ -321,10 +326,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </article>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-case-section" id="editor-experience">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section" id="editor-experience">
+            <div class="fu-case-section__inner container container--readable">
                     <p class="fu-eyebrow">Editor Experience</p>
                     <h2 class="fu-case-section__heading fu-section-heading">Designed for the person editing the page after launch</h2>
                     <div class="fu-case-section__body fu-section-body">
@@ -333,10 +338,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <p>Proof Cards is a good example: it started as a repeater because the content model looked simple, but testing showed that multiple items were painful to manage in the sidebar. The final version uses one child block per proof item.</p>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-system-editor-callout" id="editor-handoff-companion" aria-labelledby="editor-callout-heading">
-                <div class="fu-system-editor-callout__inner">
+        <section class="fu-system-editor-callout" id="editor-handoff-companion" aria-labelledby="editor-callout-heading">
+            <div class="fu-system-editor-callout__inner container container--page">
                     <a class="fu-system-editor-callout__card" href="<?php echo esc_url($editor_experience_url); ?>">
                         <span class="fu-system-editor-callout__card-heading">
                             <span class="fu-eyebrow fu-eyebrow--inverse">Companion piece</span>
@@ -348,10 +353,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </span>
                     </a>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-case-section" id="technical-approach">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section" id="technical-approach">
+            <div class="fu-case-section__inner container container--readable">
                     <p class="fu-eyebrow">Technical Approach</p>
                     <h2 class="fu-case-section__heading fu-section-heading">Technical approach</h2>
                     <div class="fu-case-section__body fu-section-body">
@@ -368,11 +373,11 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </ul>
                     </div>
                 </div>
-            </section>
+        </section>
 
 
-            <section class="fu-case-section fu-system-value" id="client-value" aria-labelledby="system-value-heading">
-                <div class="fu-case-section__inner">
+        <section class="fu-case-section fu-system-value" id="client-value" aria-labelledby="system-value-heading">
+            <div class="fu-case-section__inner container container--readable">
                     <div class="fu-system-value__header">
                         <p class="fu-eyebrow">Client value</p>
                         <h2 class="fu-section-heading fu-section-heading--feature" id="system-value-heading">Why this matters for clients and agencies</h2>
@@ -401,10 +406,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </article>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-content-section fu-system-fit" id="use-cases" aria-labelledby="system-fit-heading">
-                <div class="fu-content-section__inner container container--page">
+        <section class="fu-content-section fu-system-fit" id="use-cases" aria-labelledby="system-fit-heading">
+            <div class="fu-content-section__inner container container--page">
                     <div class="fu-section-head">
                         <p class="fu-eyebrow">Common question</p>
                         <h2 class="fu-section-heading" id="system-fit-heading">Where this system fits</h2>
@@ -449,9 +454,10 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <p class="fu-system-fit__quote-statement">The choice is not ACF Blocks versus Gutenberg. The choice is how much custom editor engineering the project actually needs.</p>
                     </div>
                 </div>
-            </section>
+        </section>
 
-            <section class="fu-portfolio-piece__closing">
+        <section class="fu-portfolio-piece__closing">
+            <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-cta-panel--dark--x fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need reusable WordPress blocks built around your content model?</h2>
@@ -462,9 +468,9 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#block-collection">View individual block examples</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
     </div>
 </article>
 

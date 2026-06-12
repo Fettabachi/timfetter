@@ -1116,11 +1116,6 @@
 		var(--fu-gradient-lux);
 }
 
-.fu-system-editor-callout__inner {
-	width: min(100% - 2rem, 1120px);
-	margin-inline: auto;
-}
-
 .fu-system-editor-callout__card {
 	display: grid;
 	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -1729,15 +1724,6 @@
 
 /* ACF Block System: page-specific extras (block collection cards only) */
 .fu-acf-block-system-portfolio {
-	#block-collection .fu-content-section__inner,
-	#block-collection .fu-case-section__inner {
-		max-width: none;
-	}
-
-	/* .fu-system-block-grid {
-		margin-top: 0;
-	} */
-
 	.fu-system-block-card {
 		color: inherit;
 	}
