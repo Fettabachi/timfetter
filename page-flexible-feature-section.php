@@ -10,9 +10,9 @@ get_header();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-portfolio-piece fu-portfolio-piece--hero-media'); ?>>
-    <div class="container">
-        <div class="entry-content">
-            <section id="lead" class="fu-portfolio-piece__lead">
+    <div class="entry-content">
+        <section id="lead" class="fu-portfolio-piece__lead">
+            <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-eyebrow">WordPress / ACF Block</p>
@@ -49,36 +49,40 @@ get_header();
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="overview" class="fu-case-section">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Overview</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">A More Reliable Way to Build Feature Sections</h2>
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>Feature sections often break down when real content is introduced. Variations in copy length, imagery, and screen size can quickly create imbalance, especially at tablet widths.</p>
-                        <p>This block was designed to reduce that friction by limiting unnecessary controls and preventing invalid layout combinations. The result is a component that stays predictable without sacrificing flexibility.</p>
-                    </div>
+        <section id="overview" class="fu-case-section">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Overview</p>
+                <h2 class="fu-case-section__heading fu-section-heading">A More Reliable Way to Build Feature Sections</h2>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>Feature sections often break down when real content is introduced. Variations in copy length, imagery, and screen size can quickly create imbalance, especially at tablet widths.</p>
+                    <p>This block was designed to reduce that friction by limiting unnecessary controls and preventing invalid layout combinations. The result is a component that stays predictable without sacrificing flexibility.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-portfolio-piece__lead">
+        <section class="fu-portfolio-piece__lead">
+            <div class="container">
                 <?php the_content(); ?>
-            </section>
+            </div>
+        </section>
 
-            <section id="outcome" class="fu-case-section">
-                <div class="fu-case-section__inner">
-                    <p class="fu-eyebrow">Outcome</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">Flexible for Editors, Reliable on the Front End</h2>
-                    <div class="fu-case-section__body fu-section-body">
-                        <p>This block was built to solve a practical problem: creating flexible content sections that don’t break when real content is introduced. By limiting invalid layout combinations and focusing on predictable behavior, it produces consistent results across a wide range of use cases.</p>
+        <section id="outcome" class="fu-case-section">
+            <div class="fu-case-section__inner container container--readable">
+                <p class="fu-eyebrow">Outcome</p>
+                <h2 class="fu-case-section__heading fu-section-heading">Flexible for Editors, Reliable on the Front End</h2>
+                <div class="fu-case-section__body fu-section-body">
+                    <p>This block was built to solve a practical problem: creating flexible content sections that don’t break when real content is introduced. By limiting invalid layout combinations and focusing on predictable behavior, it produces consistent results across a wide range of use cases.</p>
 
-                        <p>The same component can be reused across landing pages, service sections, and internal content without redesigning layouts for each scenario. Editors get meaningful flexibility, while the structure ensures the front-end remains balanced and reliable.</p>
-                    </div>
+                    <p>The same component can be reused across landing pages, service sections, and internal content without redesigning layouts for each scenario. Editors get meaningful flexibility, while the structure ensures the front-end remains balanced and reliable.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fu-portfolio-piece__closing">
+        <section class="fu-portfolio-piece__closing">
+            <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
                     <h2 class="fu-portfolio-piece__closing-heading">Need a flexible section system that still feels controlled?</h2>
@@ -89,9 +93,8 @@ get_header();
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
                     </div>
                 </div>
-            </section>
-
-        </div>
+            </div>
+        </section>
     </div>
 </article>
 
