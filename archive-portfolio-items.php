@@ -31,7 +31,7 @@ $featured_systems = array(
         'title' => 'Editor Experience & Handoff',
         'slug' => 'editor-experience',
         'summary' => 'How blocks are structured so editors can make real updates without breaking layout, accessibility, or the front end.',
-        'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
+        'image' => '/uploads/2026/06/page-editor-experience-handoff-hero.webp',
         'alt'   => 'Portfolio hero showing block editor experience and handoff with accessibility and layout controls.',
     ),
 );
@@ -265,29 +265,31 @@ $get_portfolio_focus_labels = static function ($post_id) {
                     <p class="fu-section-lede">Individual block builds that show how flexible editing controls, responsive front-end design, and cleaner content models work together.</p>
                 </div>
 
-                <div class="fu-work-grid fu-work-grid--archive" aria-label="ACF block case studies">
-                    <?php foreach ($acf_block_case_studies as $case_study) : ?>
-                        <?php $case_study_url = $resolve_page_url($case_study['slug']); ?>
-                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($case_study_url); ?>">
-                            <?php if (!empty($case_study['image'])) : ?>
-                                <div class="fu-work-card__media">
-                                    <img
-                                        src="<?php echo esc_url(content_url($case_study['image'])); ?>"
-                                        alt="<?php echo esc_attr($case_study['alt'] ?? ''); ?>"
-                                        loading="lazy"
-                                        width="600"
-                                        height="450">
-                                </div>
-                            <?php endif; ?>
+                <div class="fu-work-archive__acf-showcase">
+                    <div class="fu-work-grid fu-work-grid--archive fu-work-archive__acf-grid" aria-label="ACF block case studies">
+                        <?php foreach ($acf_block_case_studies as $case_study) : ?>
+                            <?php $case_study_url = $resolve_page_url($case_study['slug']); ?>
+                            <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($case_study_url); ?>">
+                                <?php if (!empty($case_study['image'])) : ?>
+                                    <div class="fu-work-card__media">
+                                        <img
+                                            src="<?php echo esc_url(content_url($case_study['image'])); ?>"
+                                            alt="<?php echo esc_attr($case_study['alt'] ?? ''); ?>"
+                                            loading="lazy"
+                                            width="600"
+                                            height="450">
+                                    </div>
+                                <?php endif; ?>
 
-                            <div class="fu-work-card__body">
-                                <p class="fu-work-card__kicker">ACF block case study</p>
-                                <h3 class="fu-work-card__title"><?php echo esc_html($case_study['title']); ?></h3>
-                                <p class="fu-work-card__text"><?php echo esc_html($case_study['summary']); ?></p>
-                                <span class="fu-work-card__link">View case study</span>
-                            </div>
-                        </a>
-                    <?php endforeach; ?>
+                                <div class="fu-work-card__body">
+                                    <p class="fu-work-card__kicker">ACF block case study</p>
+                                    <h3 class="fu-work-card__title"><?php echo esc_html($case_study['title']); ?></h3>
+                                    <p class="fu-work-card__text"><?php echo esc_html($case_study['summary']); ?></p>
+                                    <span class="fu-work-card__link">View case study</span>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
 

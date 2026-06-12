@@ -49,7 +49,7 @@ if ($portfolio_url === '') {
                     <div class="fu-portfolio-piece__lead-media" aria-label="Editor Experience &amp; Handoff visual">
                         <figure class="fu-portfolio-piece__lead-figure">
                             <img
-                                src="<?php echo esc_url(content_url('/uploads/2026/05/page-editor-experience-handoff-hero.webp')); ?>"
+                                src="<?php echo esc_url(content_url('/uploads/2026/06/page-editor-experience-handoff-hero.webp')); ?>"
                                 alt="Polished editor-to-front-end montage showing structured block controls, reusable content, protected layout settings, and a matching front-end preview."
                                 loading="eager"
                                 decoding="async" />

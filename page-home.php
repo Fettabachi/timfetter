@@ -93,7 +93,7 @@ $recent_systems = array(
         'label' => 'Editor Workflow',
         'slug' => 'editor-experience',
         'summary' => 'How I structure blocks so editors can make real updates without breaking layout, accessibility, or the front end.',
-        'image' => '/uploads/2026/05/page-editor-experience-handoff-hero-600x450.webp',
+        'image' => '/uploads/2026/06/page-editor-experience-handoff-hero.webp',
         'alt' => 'Editor Experience & Handoff portfolio hero showing structured block editing and front-end preview concepts.',
     ),
     array(
