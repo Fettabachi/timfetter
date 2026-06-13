@@ -494,6 +494,16 @@ if (!$portfolio_archive_url) {
             );
             ?>
 
+            <?php
+            get_template_part(
+                'parts/prototype-navigation',
+                null,
+                array(
+                    'current' => get_post_field('post_name', get_the_ID()),
+                )
+            );
+            ?>
+
             <div class="fu-content-section__inner container container--page">
                 <div class="fu-section-body fu-portfolio-single__back">
                     <p><a class="fu-work-card__link fu-portfolio-single__back-link" href="<?php echo esc_url($portfolio_archive_url); ?>">Back to Work</a></p>
