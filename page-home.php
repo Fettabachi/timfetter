@@ -89,20 +89,20 @@ $good_fit_points = array(
 
 $recent_systems = array(
     array(
-        'title' => 'Editor Experience & Handoff',
-        'label' => 'Editor Workflow',
-        'slug' => 'editor-experience',
-        'summary' => 'How I structure blocks so editors can make real updates without breaking layout, accessibility, or the front end.',
-        'image' => '/uploads/2026/06/page-editor-experience-handoff-hero.webp',
-        'alt' => 'Editor Experience & Handoff portfolio hero showing structured block editing and front-end preview concepts.',
+        'title' => 'Page Banner',
+        'label' => 'Hero System',
+        'slug' => 'page-banner',
+        'image' => '/uploads/2026/05/page-banner-hero.webp',
+        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
+        'summary' => 'Media-driven page banners with image and video backgrounds, overlay controls, and editor-friendly readability settings.',
     ),
     array(
-        'title' => 'ACF Block System Overview',
-        'label' => 'Block System',
-        'slug' => 'acf-block-system',
-        'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
-        'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
-        'alt' => 'ACF Block System portfolio hero showing reusable WordPress block patterns and structured content.',
+        'title' => 'Flexible Feature Section',
+        'label' => 'Layout System',
+        'slug' => 'flexible-feature-section',
+        'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
+        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
+        'summary' => 'A reusable media and text layout for service sections, feature callouts, and content-led landing page sections.',
     ),
     array(
         'title' => 'Filtered Content Grid',
@@ -420,7 +420,7 @@ $earlier_work = array(
                     </section>
 
                     <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
-                        <div class="fu-cta-panel--dark fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel fu-cta-panel container">
+                        <div class="fu-cta-panel--dark fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel fu-cta-panel container container--page">
                             <div class="fu-home__cta-copy">
                                 <p class="fu-eyebrow">Need reliable front-end help?</p>
                                 <h2 id="final-cta-heading">Reliable front-end help for scoped projects, overflow work, and ongoing site updates.</h2>
