@@ -283,6 +283,16 @@ if ($editor_experience_url === '') {
             </div>
         </section>
 
+        <?php
+        get_template_part(
+            'parts/block-navigation',
+            null,
+            array(
+                'current' => 'content-switcher',
+            )
+        );
+        ?>
+
         <section class="fu-portfolio-piece__closing">
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
