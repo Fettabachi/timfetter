@@ -454,6 +454,16 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             </div>
         </section>
 
+        <?php
+        get_template_part(
+            'parts/wordpress-system-navigation',
+            null,
+            array(
+                'current' => 'acf-block-system',
+            )
+        );
+        ?>
+
         <section class="fu-portfolio-piece__closing">
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-cta-panel--dark--x fu-portfolio-piece__closing-inner fu-cta-panel">

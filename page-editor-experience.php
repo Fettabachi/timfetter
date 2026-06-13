@@ -353,6 +353,16 @@ if ($portfolio_url === '') {
             </div>
         </section>
 
+        <?php
+        get_template_part(
+            'parts/wordpress-system-navigation',
+            null,
+            array(
+                'current' => 'editor-experience',
+            )
+        );
+        ?>
+
         <section class="fu-portfolio-piece__closing" id="editor-experience-cta">
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
