@@ -271,10 +271,33 @@ $earlier_work = array(
                             </div>
 
                             <div class="fu-home__systems-showcase">
-                                <div class="fu-home__systems-grid fu-work-grid">
-                                    <?php foreach (array_slice($recent_systems, 0, 4) as $system) : ?>
+                                <?php $featured_system = $recent_systems[0]; ?>
+                                <?php $featured_system_url = $resolve_page_url($featured_system['slug']); ?>
+                                <div class="fu-home__systems-featured fu-work-grid fu-wordpress-card-grid" aria-label="Featured WordPress block example">
+                                    <a class="fu-home__system-card fu-home__system-card--featured fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($featured_system_url); ?>">
+                                        <?php if (!empty($featured_system['image'])) : ?>
+                                            <div class="fu-home__system-media fu-work-card__media">
+                                                <img class="fu-home__system-thumb"
+                                                    src="<?php echo esc_url(wp_make_link_relative(content_url($featured_system['image']))); ?>"
+                                                    alt="<?php echo esc_attr($featured_system['alt'] ?? ''); ?>"
+                                                    loading="lazy"
+                                                    width="600"
+                                                    height="450">
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="fu-home__system-body fu-work-card__body">
+                                            <p class="fu-home__system-kicker fu-work-card__kicker"><?php echo esc_html($featured_system['label'] ?? 'Case Study'); ?></p>
+                                            <h3 class="fu-work-card__title"><?php echo esc_html($featured_system['title']); ?></h3>
+                                            <p class="fu-work-card__text"><?php echo esc_html($featured_system['summary']); ?></p>
+                                            <span class="fu-home__system-link fu-work-card__link">View case study</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="fu-home__systems-grid fu-work-grid fu-wordpress-card-grid" aria-label="Curated WordPress block examples">
+                                    <?php foreach (array_slice($recent_systems, 1, 3) as $system) : ?>
                                         <?php $system_url = $resolve_page_url($system['slug']); ?>
-                                        <a class="fu-home__system-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($system_url); ?>">
+                                        <a class="fu-home__system-card fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($system_url); ?>">
                                             <?php if (!empty($system['image'])) : ?>
                                                 <div class="fu-home__system-media fu-work-card__media">
                                                     <img class="fu-home__system-thumb"

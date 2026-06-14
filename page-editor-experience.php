@@ -17,7 +17,6 @@ $resolve_portfolio_page_url = static function ($slug) {
 $acf_block_system_url = $resolve_portfolio_page_url('acf-block-system');
 $page_banner_url = $resolve_portfolio_page_url('page-banner');
 $content_switcher_url = $resolve_portfolio_page_url('content-switcher');
-$comparison_cards_url = $resolve_portfolio_page_url('comparison-cards');
 $proof_cards_url = $resolve_portfolio_page_url('proof-cards');
 $portfolio_url = $resolve_portfolio_page_url('work');
 
@@ -202,8 +201,8 @@ if ($portfolio_url === '') {
                 </div>
 
                 <div class="fu-editor-experience__examples-showcase">
-                    <div class="fu-editor-experience__examples-grid fu-work-grid" aria-label="Example block cards">
-                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($page_banner_url !== '' ? $page_banner_url : home_url('/page-banner/')); ?>" aria-label="View case study: Page Banner">
+                    <div class="fu-editor-experience__examples-grid fu-work-grid fu-wordpress-card-grid" aria-label="Example block cards">
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($page_banner_url !== '' ? $page_banner_url : home_url('/page-banner/')); ?>" aria-label="View case study: Page Banner">
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-banner-hero-600x450.webp')); ?>"
@@ -220,7 +219,7 @@ if ($portfolio_url === '') {
                             </div>
                         </a>
 
-                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($content_switcher_url !== '' ? $content_switcher_url : home_url('/content-switcher/')); ?>" aria-label="View case study: Content Switcher">
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($content_switcher_url !== '' ? $content_switcher_url : home_url('/content-switcher/')); ?>" aria-label="View case study: Content Switcher">
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-switcher-hero-600x450.webp')); ?>"
@@ -237,24 +236,7 @@ if ($portfolio_url === '') {
                             </div>
                         </a>
 
-                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($comparison_cards_url !== '' ? $comparison_cards_url : home_url('/comparison-cards/')); ?>" aria-label="View case study: Comparison Cards">
-                            <div class="fu-editor-experience__example-media fu-work-card__media">
-                                <img
-                                    src="<?php echo esc_url(content_url('/uploads/2026/05/page-comparison-cards-hero-600x450.webp')); ?>"
-                                    alt="Portfolio hero showing comparison cards arranged in a responsive grid."
-                                    loading="lazy"
-                                    width="600"
-                                    height="450">
-                            </div>
-                            <div class="fu-editor-experience__example-body fu-work-card__body">
-                                <span class="fu-editor-experience__example-kicker fu-work-card__kicker">Parent/child blocks</span>
-                                <h3 class="fu-editor-experience__example-title fu-work-card__title">Comparison Cards</h3>
-                                <p class="fu-work-card__text">Editors manage individual comparison cards, optional pricing, and grouped features while the layout remains consistent.</p>
-                                <span class="fu-editor-experience__example-link fu-work-card__link">View case study</span>
-                            </div>
-                        </a>
-
-                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked" href="<?php echo esc_url($proof_cards_url !== '' ? $proof_cards_url : home_url('/proof-cards/')); ?>" aria-label="View case study: Proof Cards">
+                        <a class="fu-editor-experience__example-card fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($proof_cards_url !== '' ? $proof_cards_url : home_url('/proof-cards/')); ?>" aria-label="View case study: Proof Cards">
                             <div class="fu-editor-experience__example-media fu-work-card__media">
                                 <img
                                     src="<?php echo esc_url(content_url('/uploads/2026/05/page-proof-cards-hero-600x450.webp')); ?>"
