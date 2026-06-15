@@ -1,0 +1,137 @@
+{
+	"key": "group_68c800furtherreading",
+	"title": "Resource: Further Reading",
+	"fields": [
+		{
+			"key": "field_68c800furtherreading_links",
+			"label": "Further Reading Links",
+			"name": "further_reading_links",
+			"aria-label": "",
+			"type": "repeater",
+			"instructions": "Optional curated links shown near the bottom of Resource pages.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"layout": "block",
+			"pagination": 0,
+			"min": 0,
+			"max": 3,
+			"collapsed": "field_68c800furtherreading_title",
+			"button_label": "Add Further Reading Link",
+			"rows_per_page": 20,
+			"sub_fields": [
+				{
+					"key": "field_68c800furtherreading_title",
+					"label": "Link Title",
+					"name": "link_title",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "The visible title for this reference.",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"allow_in_bindings": 0,
+					"placeholder": "Accessibility fundamentals",
+					"prepend": "",
+					"append": "",
+					"parent_repeater": "field_68c800furtherreading_links"
+				},
+				{
+					"key": "field_68c800furtherreading_source",
+					"label": "Source Label",
+					"name": "source_label",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "Short source name, such as MDN, W3C WAI, or WordPress Developer Docs.",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"allow_in_bindings": 0,
+					"placeholder": "MDN",
+					"prepend": "",
+					"append": "",
+					"parent_repeater": "field_68c800furtherreading_links"
+				},
+				{
+					"key": "field_68c800furtherreading_url",
+					"label": "URL",
+					"name": "url",
+					"aria-label": "",
+					"type": "url",
+					"instructions": "Full external URL for the reference.",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "100",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": "https://developer.mozilla.org/",
+					"allow_in_bindings": 0,
+					"parent_repeater": "field_68c800furtherreading_links"
+				},
+				{
+					"key": "field_68c800furtherreading_description",
+					"label": "Short Description",
+					"name": "short_description",
+					"aria-label": "",
+					"type": "textarea",
+					"instructions": "Optional one-sentence note about why this link is useful.",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "100",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"allow_in_bindings": 0,
+					"rows": 2,
+					"placeholder": "",
+					"new_lines": "",
+					"parent_repeater": "field_68c800furtherreading_links"
+				}
+			]
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "resource"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Optional curated external references for Resource single pages.",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1781471829
+}
