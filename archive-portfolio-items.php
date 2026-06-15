@@ -21,9 +21,9 @@ $resolve_portfolio_item_url = static function ($slug) {
 
 $featured_systems = array(
     array(
-        'title' => 'ACF Block System Overview',
+        'title' => 'Editor-Friendly Sections',
         'slug' => 'acf-block-system',
-        'summary' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
+        'summary' => 'A set of reusable WordPress sections built with ACF Blocks so pages can be updated without rebuilding layouts from scratch.',
         'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
         'alt'   => 'Portfolio hero showing reusable WordPress block system overview and structured content.',
     ),
@@ -111,6 +111,27 @@ $frontend_prototypes = array(
         'eyebrow' => 'Front-End UI Example',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
         'cta' => 'View UI Example',
+    ),
+);
+
+$starting_examples = array(
+    array(
+        'title' => 'WordPress pages that are easier to update',
+        'target' => '#reusable-wordpress-sections',
+        'summary' => 'Reusable sections, editor-friendly controls, and handoff details for teams that need maintainable WordPress content.',
+        'cta' => 'Scroll to WordPress sections ↓',
+    ),
+    array(
+        'title' => 'Existing site support and implementation',
+        'target' => '#contract-work',
+        'summary' => 'Client work involving responsive polish, content updates, template cleanup, and production-ready front-end fixes.',
+        'cta' => 'Scroll to selected client work ↓',
+    ),
+    array(
+        'title' => 'Custom front-end UI examples',
+        'target' => '#front-end-prototypes',
+        'summary' => 'Interactive prototypes for workflows, planning tools, approval states, and interface logic before production buildout.',
+        'cta' => 'Scroll to UI examples ↓',
     ),
 );
 
@@ -222,51 +243,39 @@ $get_portfolio_focus_labels = static function ($post_id) {
     <section class="fu-content-section fu-work-archive" aria-labelledby="portfolio-archive-heading">
         <div class="fu-content-section__inner container container--page">
             <div class="fu-section-head">
-                <p class="fu-eyebrow">Selected Work</p>
+                <!-- <p class="fu-eyebrow">Selected Work</p> -->
                 <h1 class="fu-section-heading" id="portfolio-archive-heading">Portfolio</h1>
-                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work focused on reusable systems, responsive polish, editor-friendly workflows, and maintainable handoff.</p>
+                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work focused on reusable sections, responsive polish, editor-friendly workflows, and maintainable handoff.</p>
             </div>
 
-            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--featured" aria-labelledby="featured-systems-heading">
-                <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="featured-systems-heading">Featured WordPress Systems</h2>
-                    <p class="fu-section-lede">Larger WordPress examples that show how I think through structure, editor control, reusable patterns, and maintainability beyond a single page build.</p>
+            <section class="fu-section-body fu-work-archive__group fu-work-archive__group--start fu-work-archive__start" aria-labelledby="work-start-heading">
+                <div class="fu-work-archive__start-inner">
+                    <div class="fu-section-head fu-work-archive__start-head">
+                        <p class="fu-eyebrow">Start Here</p>
+                        <h2 class="fu-section-heading fu-section-heading--compact" id="work-start-heading">Find the examples closest to your project</h2>
+                        <p class="fu-section-lede">Not every visitor needs to review the full portfolio. Use these starting points to jump to the work that best matches the kind of help you need.</p>
+                    </div>
+
+                    <nav class="fu-work-archive__start-grid" aria-label="Portfolio section starting points">
+                        <?php foreach ($starting_examples as $example) : ?>
+                            <a class="fu-work-archive__start-card" href="<?php echo esc_url($example['target']); ?>">
+                                <h3 class="fu-work-archive__start-card-title"><?php echo esc_html($example['title']); ?></h3>
+                                <p class="fu-work-archive__start-card-text"><?php echo esc_html($example['summary']); ?></p>
+                                <span class="fu-work-archive__start-card-link"><?php echo esc_html($example['cta']); ?></span>
+                            </a>
+                        <?php endforeach; ?>
+                    </nav>
                 </div>
+            </section>
 
-                <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-wordpress-card-grid--featured fu-work-archive__grid--featured" aria-label="Featured systems case studies">
-                    <?php foreach ($featured_systems as $system) : ?>
-                        <?php $system_url = $resolve_page_url($system['slug']); ?>
-                        <a class="fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($system_url); ?>">
-                            <?php if (!empty($system['image'])) : ?>
-                                <div class="fu-work-card__media">
-                                    <img
-                                        src="<?php echo esc_url(content_url($system['image'])); ?>"
-                                        alt="<?php echo esc_attr($system['alt'] ?? ''); ?>"
-                                        loading="lazy"
-                                        width="600"
-                                        height="450">
-                                </div>
-                            <?php endif; ?>
-
-                            <div class="fu-work-card__body">
-                                <p class="fu-work-card__kicker">Featured system</p>
-                                <h3 class="fu-work-card__title"><?php echo esc_html($system['title']); ?></h3>
-                                <p class="fu-work-card__text"><?php echo esc_html($system['summary']); ?></p>
-                                <span class="fu-work-card__link">View case study</span>
-                            </div>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-
-            <div class="fu-section-body fu-work-archive__group fu-work-archive__group--case-studies" aria-labelledby="acf-block-case-studies-heading">
+            <div id="reusable-wordpress-sections" class="fu-section-body fu-work-archive__group fu-work-archive__group--case-studies" aria-labelledby="reusable-wordpress-sections-heading">
                 <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="acf-block-case-studies-heading">Individual ACF Block Builds</h2>
-                    <p class="fu-section-lede">Focused ACF block builds that solve specific editing and layout problems with reusable, front-end-ready WordPress components.</p>
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="reusable-wordpress-sections-heading">Reusable WordPress Sections</h2>
+                    <p class="fu-section-lede">Focused ACF block examples designed to solve common editing, layout, and content-management problems.</p>
                 </div>
 
                 <div class="fu-work-archive__acf-showcase">
-                    <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-work-archive__acf-grid" aria-label="ACF block case studies">
+                    <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-work-archive__acf-grid" aria-label="Reusable WordPress section examples">
                         <?php foreach ($acf_block_case_studies as $case_study) : ?>
                             <?php $case_study_url = $resolve_page_url($case_study['slug']); ?>
                             <a class="fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($case_study_url); ?>">
@@ -293,9 +302,41 @@ $get_portfolio_focus_labels = static function ($post_id) {
                 </div>
             </div>
 
-            <div id="contract-work" class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="earlier-client-work-heading">
+            <div id="wordpress-editing-handoff-examples" class="fu-section-body fu-work-archive__group fu-work-archive__group--featured" aria-labelledby="wordpress-editing-handoff-heading">
                 <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Selected Contract Work</h2>
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="wordpress-editing-handoff-heading">WordPress Editing &amp; Handoff Examples</h2>
+                    <p class="fu-section-lede">A closer look at how reusable sections, editor controls, and handoff details help pages stay easier to maintain.</p>
+                </div>
+
+                <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-wordpress-card-grid--featured fu-work-archive__grid--featured" aria-label="WordPress editing and handoff examples">
+                    <?php foreach ($featured_systems as $system) : ?>
+                        <?php $system_url = $resolve_page_url($system['slug']); ?>
+                        <a class="fu-work-card fu-work-card--linked fu-work-card--wordpress" href="<?php echo esc_url($system_url); ?>">
+                            <?php if (!empty($system['image'])) : ?>
+                                <div class="fu-work-card__media">
+                                    <img
+                                        src="<?php echo esc_url(content_url($system['image'])); ?>"
+                                        alt="<?php echo esc_attr($system['alt'] ?? ''); ?>"
+                                        loading="lazy"
+                                        width="600"
+                                        height="450">
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="fu-work-card__body">
+                                <p class="fu-work-card__kicker">Editor-friendly example</p>
+                                <h3 class="fu-work-card__title"><?php echo esc_html($system['title']); ?></h3>
+                                <p class="fu-work-card__text"><?php echo esc_html($system['summary']); ?></p>
+                                <span class="fu-work-card__link">View case study</span>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div id="contract-work" class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="selected-client-work-heading">
+                <div class="fu-section-head">
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="selected-client-work-heading">Selected Client Work</h2>
                     <p class="fu-section-lede">Production projects where I supported existing teams with implementation, responsive polish, CMS updates, reusable templates, and steady front-end cleanup.</p>
                 </div>
 

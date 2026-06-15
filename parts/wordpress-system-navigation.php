@@ -1,6 +1,6 @@
 <?php
 /**
- * Contextual navigation for featured WordPress system pages.
+ * Contextual navigation for featured WordPress build pages.
  *
  * @package Tim_Fetter_Portfolio
  */
@@ -9,8 +9,8 @@ $current = isset($args['current']) ? sanitize_key($args['current']) : '';
 
 $systems = array(
     'acf-block-system'  => array(
-        'label'       => 'ACF Block System Overview',
-        'description' => 'A broader look at the block system approach, including reusable patterns, structured content, and safer handoff.',
+        'label'       => 'Reusable WordPress Blocks',
+        'description' => 'A broader look at reusable sections, structured content, editor-friendly controls, and safer handoff.',
     ),
     'editor-experience' => array(
         'label'       => 'Editor Experience & Handoff',
@@ -37,10 +37,10 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
 <section class="fu-block-navigation fu-wordpress-system-navigation" aria-labelledby="fu-wordpress-system-navigation-heading">
     <div class="container container--page">
         <div class="fu-block-navigation__inner">
-            <nav class="fu-block-navigation__pager" aria-label="Previous and next featured WordPress systems">
+            <nav class="fu-block-navigation__pager" aria-label="Previous and next related WordPress case studies">
                 <?php if ($previous_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--previous" href="<?php echo esc_url($resolve_system_url($previous_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">&larr; Previous system</span>
+                        <span class="fu-block-navigation__pager-kicker">&larr; Previous case study</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($systems[$previous_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -49,7 +49,7 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
 
                 <?php if ($next_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--next" href="<?php echo esc_url($resolve_system_url($next_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">Next system &rarr;</span>
+                        <span class="fu-block-navigation__pager-kicker">Next case study &rarr;</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($systems[$next_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -58,14 +58,14 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
             </nav>
 
             <div class="fu-block-navigation__header">
-                <p class="fu-eyebrow">Featured WordPress systems</p>
-                <h2 id="fu-wordpress-system-navigation-heading" class="fu-block-navigation__heading">Explore more WordPress systems</h2>
+                <p class="fu-eyebrow">Related WordPress work</p>
+                <h2 id="fu-wordpress-system-navigation-heading" class="fu-block-navigation__heading">Explore more editor-friendly WordPress work</h2>
                 <p class="fu-block-navigation__intro">
-                    Larger WordPress examples showing how reusable blocks, editor workflows, and structured templates can work together as a maintainable site-building system.
+                    Examples showing how reusable sections, editor workflows, and structured templates can support maintainable pages after handoff.
                 </p>
             </div>
 
-            <nav class="fu-block-navigation__collection" aria-label="Featured WordPress system collection">
+            <nav class="fu-block-navigation__collection" aria-label="Related WordPress work links">
                 <ul class="fu-block-navigation__grid">
                     <?php foreach ($systems as $key => $system) : ?>
                         <li class="fu-block-navigation__item">

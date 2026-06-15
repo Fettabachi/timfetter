@@ -32,7 +32,7 @@ if ($portfolio_url === '') {
             <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-eyebrow">ACF Block System</p>
+                        <p class="fu-eyebrow">Editor Experience</p>
                         <h1 class="fu-portfolio-piece__lead-heading">Editor Experience &amp; Handoff</h1>
 
                         <div class="fu-portfolio-piece__lead-body">
@@ -82,7 +82,7 @@ if ($portfolio_url === '') {
                 <div class="fu-case-section__body fu-section-body">
                     <p>Many WordPress projects look polished on launch day, but become difficult to maintain once editors start adding new content, swapping media, or building new pages. The editing experience matters because it determines whether the site can keep its structure and design quality after handoff.</p>
 
-                    <p>These blocks are designed so editors can update meaningful content without being handed enough control to accidentally break the system.</p>
+                    <p>These blocks are designed so editors can update meaningful content without being handed enough control to accidentally break the layout.</p>
                 </div>
             </div>
         </section>
@@ -105,7 +105,7 @@ if ($portfolio_url === '') {
                     </div>
 
                     <div class="fu-editor-experience__handoff-card fu-editor-experience__handoff-card--protects">
-                        <h3>What the system protects</h3>
+                        <h3>What the block structure protects</h3>
                         <ul class="fu-case-section__list">
                             <li>Responsive layout behavior</li>
                             <li>Spacing and visual rhythm</li>
@@ -195,9 +195,9 @@ if ($portfolio_url === '') {
         <section class="fu-content-section" id="example-blocks">
             <div class="fu-content-section__inner container container--page">
                 <div class="fu-section-head">
-                    <p class="fu-eyebrow">Block system examples</p>
-                    <h2 class="fu-section-heading">Examples from the block system</h2>
-                    <p class="fu-section-lede">These examples show how the same block-system approach supports reusable layouts, safer editing, and consistent front-end presentation across different content patterns.</p>
+                    <p class="fu-eyebrow">Editor-friendly blocks</p>
+                    <h2 class="fu-section-heading">Reusable blocks in practice</h2>
+                    <p class="fu-section-lede">These examples show how reusable sections support flexible layouts, safer editing, and consistent front-end presentation across different content patterns.</p>
                 </div>
 
                 <div class="fu-editor-experience__examples-showcase">
@@ -263,7 +263,7 @@ if ($portfolio_url === '') {
 
         <section class="fu-case-section" id="handoff-value">
             <div class="fu-case-section__inner container container--page">
-                <h2 class="fu-case-section__heading fu-section-heading">Built for the next person who edits the page</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">Designed for the next person who edits the page</h2>
 
                 <div class="fu-case-section__body fu-section-body">
                     <p>A clean front end is only one part of the job. These blocks are designed so agencies and clients can hand off pages with clear editing boundaries, reusable content patterns, and fewer opportunities for accidental layout damage.</p>
@@ -308,7 +308,7 @@ if ($portfolio_url === '') {
                             </svg>
                         </span>
                         <h3>Cleaner agency handoff</h3>
-                        <p>The editing experience is easier to explain because the system guides what can and cannot change.</p>
+                        <p>The editing experience is easier to explain because the available controls make clear what can and cannot change.</p>
                     </article>
                     <article class="fu-editor-experience__value-card">
                         <span class="fu-editor-experience__value-badge" aria-hidden="true">
@@ -319,7 +319,7 @@ if ($portfolio_url === '') {
                             </svg>
                         </span>
                         <h3>Reusable patterns</h3>
-                        <p>Content teams can build new pages from proven block patterns instead of reinventing layouts each time.</p>
+                        <p>Content teams can create new pages from proven block patterns instead of reinventing layouts each time.</p>
                     </article>
                     <article class="fu-editor-experience__value-card">
                         <span class="fu-editor-experience__value-badge" aria-hidden="true">
@@ -329,7 +329,7 @@ if ($portfolio_url === '') {
                             </svg>
                         </span>
                         <h3>Design consistency over time</h3>
-                        <p>The system helps teams preserve branding and visual quality long after the initial launch.</p>
+                        <p>Reusable sections help teams preserve branding and visual quality long after the initial launch.</p>
                     </article>
                 </div>
             </div>
@@ -348,14 +348,14 @@ if ($portfolio_url === '') {
         <section class="fu-portfolio-piece__closing" id="editor-experience-cta">
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
-                    <h2 class="fu-portfolio-piece__closing-heading">A block system that lasts beyond launch</h2>
-                    <p class="fu-portfolio-piece__closing-body">The same structure that makes these blocks reusable also makes them easier to hand off, document, and extend.</p>
+                    <h2 class="fu-portfolio-piece__closing-heading">Reusable blocks that stay useful after launch</h2>
+                    <p class="fu-portfolio-piece__closing-body">Reusable sections work best when they are easy to hand off, document, and extend after the original build is complete.</p>
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <?php if ($acf_block_system_url !== '') : ?>
-                            <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url($acf_block_system_url); ?>">View the ACF Block System</a>
+                            <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url($acf_block_system_url); ?>">View the reusable blocks case study</a>
                         <?php endif; ?>
-                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_url); ?>">Explore the block case studies</a>
+                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_url); ?>">Explore more work</a>
                     </div>
                 </div>
             </div>

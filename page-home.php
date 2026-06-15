@@ -165,11 +165,11 @@ $earlier_work = array(
         'slug' => 'national-university',
         'summary' => 'Responsive front-end implementation, CMS/page-builder updates, and reusable page support across a large higher-education content surface.',
     ),
-    array(
-        'title' => 'Fibroid Foundation',
-        'slug' => 'fibroid-foundation',
-        'summary' => 'WordPress support, content updates, front-end refinements, and requested implementation work for an active nonprofit site.',
-    ),
+    // array(
+    //     'title' => 'Fibroid Foundation',
+    //     'slug' => 'fibroid-foundation',
+    //     'summary' => 'WordPress support, content updates, front-end refinements, and requested implementation work for an active nonprofit site.',
+    // ),
     array(
         'title' => 'Blackberry Farm & Blackberry Mountain',
         'slug' => 'blackberry-farm-blackberry-mountain',
@@ -205,8 +205,8 @@ $earlier_work = array(
                                 <p class="fu-home__lede">I help agencies and small businesses build clean, responsive web experiences with reusable systems, careful implementation, and handoff-ready editing workflows.</p>
 
                                 <div class="fu-home__actions">
-                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Let's Talk About Your Project</a>
-                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#recent-wordpress-systems">View Recent Work</a>
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#service-lanes">See How I Can Help</a>
                                 </div>
 
                                 <?php if (!empty($resume_link)) : ?>
@@ -218,7 +218,7 @@ $earlier_work = array(
                         </div>
                     </section>
 
-                    <section class="fu-home__section fu-home__services" aria-labelledby="home-services-heading">
+                    <section id="service-lanes" class="fu-home__section fu-home__services" aria-labelledby="home-services-heading">
                         <div class="fu-home__section-inner container container--page">
                             <div class="fu-home__section-head">
                                 <p class="fu-eyebrow fu-eyebrow--inverse">How I can help</p>
