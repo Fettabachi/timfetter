@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Live portfolio system audit demo.
  *
@@ -33,7 +34,10 @@ $audit_resource_url = wp_make_link_relative($audit_resource_url);
             </div>
 
             <p class="fu-portfolio-audit__resource-link">
-                <a href="<?php echo esc_url($audit_resource_url); ?>">Read the full resource: How the WordPress Abilities API Can Make Site Features Safer and More Useful</a>
+                <a href="/resources/wordpress-abilities-api-site-features/">
+                    Read how the WordPress Abilities API supports safer site features
+                    <span aria-hidden="true">→</span>
+                </a>
             </p>
 
             <div class="fu-portfolio-audit__fallback" data-audit-fallback hidden>

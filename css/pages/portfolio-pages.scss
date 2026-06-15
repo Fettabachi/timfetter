@@ -2232,6 +2232,36 @@
 	margin-bottom: 0;
 }
 
+.fu-resource-demo-link a,
+.fu-portfolio-audit__resource-link a {
+	color: var(--fu-blue);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.fu-resource-demo-link a span,
+.fu-portfolio-audit__resource-link a span {
+	display: inline-block;
+	margin-left: 0.25em;
+	transition: transform 180ms ease;
+}
+
+.fu-resource-demo-link a:hover,
+.fu-resource-demo-link a:focus-visible,
+.fu-portfolio-audit__resource-link a:hover,
+.fu-portfolio-audit__resource-link a:focus-visible {
+	color: var(--fu-orange);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+.fu-resource-demo-link a:hover span,
+.fu-resource-demo-link a:focus-visible span,
+.fu-portfolio-audit__resource-link a:hover span,
+.fu-portfolio-audit__resource-link a:focus-visible span {
+	transform: translateX(0.15em);
+}
+
 @media (max-width: 900px) {
 	.fu-resource-single__related-grid {
 		grid-template-columns: 1fr;
