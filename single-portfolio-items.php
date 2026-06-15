@@ -316,21 +316,28 @@ if (!$portfolio_archive_url) {
         $portfolio_external_links = $get_portfolio_external_links(get_the_ID());
         $portfolio_supporting_images = $get_portfolio_supporting_images(get_the_ID());
         $portfolio_has_content = trim(wp_strip_all_tags(get_the_content())) !== '';
+        $portfolio_slug = get_post_field('post_name', get_the_ID());
+        $prototype_slugs = array(
+            'client-project-timeline',
+            'project-scope-estimator',
+            'content-approval-checklist',
+        );
+        $portfolio_eyebrow = in_array($portfolio_slug, $prototype_slugs, true) ? 'Front-End UI Example' : 'Selected Client Work';
         ?>
 
         <section class="fu-content-section fu-portfolio-single" aria-labelledby="portfolio-single-heading">
             <div class="fu-content-section__inner container container--readable">
                 <div class="fu-section-head">
-                    <p class="fu-eyebrow">Portfolio</p>
+                    <p class="fu-eyebrow"><?php echo esc_html($portfolio_eyebrow); ?></p>
                     <h1 class="fu-section-heading" id="portfolio-single-heading"><?php the_title(); ?></h1>
                     <?php if ($portfolio_subtitle !== '') : ?>
                         <p class="fu-section-lede"><?php echo esc_html($portfolio_subtitle); ?></p>
                     <?php endif; ?>
-                    <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
+                    <?php if ($portfolio_slug === 'client-project-timeline') : ?>
                         <p class="fu-section-lede fu-section-lede--prototype">A self-contained front-end UI example for testing milestone states, responsive timeline behavior, and client-facing workflow language before production development begins.</p>
-                    <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'project-scope-estimator') : ?>
+                    <?php elseif ($portfolio_slug === 'project-scope-estimator') : ?>
                         <p class="fu-section-lede fu-section-lede--prototype">A focused front-end UI example for testing scope logic, readiness states, and handoff language before a production estimate or planning workflow is finalized.</p>
-                    <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'content-approval-checklist') : ?>
+                    <?php elseif ($portfolio_slug === 'content-approval-checklist') : ?>
                         <p class="fu-section-lede fu-section-lede--prototype">A focused front-end UI example for testing review states, approval gaps, blockers, and launch-readiness behavior before final production handoff.</p>
                     <?php endif; ?>
                 </div>

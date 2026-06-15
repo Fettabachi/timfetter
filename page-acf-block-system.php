@@ -25,42 +25,42 @@ $block_collection = array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
+        'alt'   => 'Reusable WordPress section example showing a flexible page banner with media and readability controls.',
         'description' => 'Media-driven page banners with image and video backgrounds, overlay controls, and editor-friendly readability settings.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
+        'alt'   => 'Reusable WordPress section example showing a flexible feature section with balanced content and media.',
         'description' => 'A reusable media and text layout for service sections, feature callouts, and content-led landing page sections.',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a filterable content grid with category and taxonomy controls.',
+        'alt'   => 'Reusable WordPress section example showing a filterable content grid with category and taxonomy controls.',
         'description' => 'A CPT and taxonomy-powered resource grid with smooth no-reload filtering and a structured content model.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a content switcher block with tabs and accessible panel navigation.',
+        'alt'   => 'Reusable WordPress section example showing a content switcher block with tabs and accessible panel navigation.',
         'description' => 'A parent/child panel pattern with tabs, pills, vertical layouts, mobile fallback, deep links, and keyboard support.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing comparison cards for plans, services, and product options.',
+        'alt'   => 'Reusable WordPress section example showing comparison cards for plans, services, and product options.',
         'description' => 'Editor-friendly comparison cards for pricing, memberships, service tiers, and product options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing proof cards with testimonials, metrics, and credibility signals.',
+        'alt'   => 'Reusable WordPress section example showing proof cards with testimonials, metrics, and credibility signals.',
         'description' => 'Structured social proof cards for testimonials, outcomes, metrics, source details, and credibility signals.',
     ),
 );
@@ -133,7 +133,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-eyebrow">WordPress / ACF Block Portfolio</p>
+                        <p class="fu-eyebrow">Reusable WordPress Sections</p>
                         <h1 class="fu-portfolio-piece__lead-heading">Reusable WordPress Blocks for Editor-Friendly Pages</h1>
 
                         <div class="fu-portfolio-piece__lead-body">
@@ -236,7 +236,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 </div>
 
                 <div class="fu-system-block-showcase">
-                    <div class="fu-system-block-grid fu-work-grid fu-wordpress-card-grid" aria-label="Portfolio block examples">
+                    <div class="fu-system-block-grid fu-work-grid fu-wordpress-card-grid" aria-label="Reusable WordPress section examples">
                         <?php foreach ($block_collection as $block) : ?>
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
                             <?php if ($block_url !== '') : ?>
@@ -250,7 +250,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                             height="450">
                                     </div>
                                     <div class="fu-system-block-card__body fu-work-card__body">
-                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Block Example</p>
                                         <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
                                         <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
                                         <span class="fu-system-block-card__action fu-work-card__link">View case study</span>
@@ -267,7 +267,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                             height="450">
                                     </div>
                                     <div class="fu-system-block-card__body fu-work-card__body">
-                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Block Example</p>
                                         <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
                                         <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
                                     </div>

@@ -25,14 +25,14 @@ $featured_systems = array(
         'slug' => 'acf-block-system',
         'summary' => 'A set of reusable WordPress sections built with ACF Blocks so pages can be updated without rebuilding layouts from scratch.',
         'image' => '/uploads/2026/05/page-block-system-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing reusable WordPress block system overview and structured content.',
+        'alt'   => 'Work example showing reusable WordPress block system overview and structured content.',
     ),
     array(
         'title' => 'Editor Experience & Handoff',
         'slug' => 'editor-experience',
         'summary' => 'How blocks are structured so editors can make real updates without breaking layout, accessibility, or the front end.',
         'image' => '/uploads/2026/06/page-editor-experience-handoff-hero.webp',
-        'alt'   => 'Portfolio hero showing block editor experience and handoff with accessibility and layout controls.',
+        'alt'   => 'Work example showing block editor experience and handoff with accessibility and layout controls.',
     ),
 );
 
@@ -42,42 +42,42 @@ $acf_block_case_studies = array(
         'slug' => 'page-banner',
         'summary' => 'A flexible hero/header component with media controls, readability settings, and consistent responsive output.',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
+        'alt'   => 'Work example showing a flexible page banner with media and readability controls.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'summary' => 'A reusable content-and-media section designed to stay balanced with real-world copy and layouts.',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
+        'alt'   => 'Work example showing a flexible feature section with balanced content and media.',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'summary' => 'A structured content system with instant filtering that stays stable on load and responsive in use.',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a filterable content grid with category and taxonomy controls.',
+        'alt'   => 'Work example showing a filterable content grid with category and taxonomy controls.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'summary' => 'A parent/child block system for tabs, panels, and accessible switching with mobile fallback.',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a content switcher block with tabs and accessible panel navigation.',
+        'alt'   => 'Work example showing a content switcher block with tabs and accessible panel navigation.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'summary' => 'Structured comparison cards for plans, services, and options without relying on a dense repeater interface.',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing comparison cards for plans, services, and product options.',
+        'alt'   => 'Work example showing comparison cards for plans, services, and product options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'summary' => 'A social-proof system for outcomes, metrics, and credibility signals that still feels maintainable.',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing proof cards with testimonials, metrics, and credibility signals.',
+        'alt'   => 'Work example showing proof cards with testimonials, metrics, and credibility signals.',
     ),
 );
 
@@ -243,8 +243,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
     <section class="fu-content-section fu-work-archive" aria-labelledby="portfolio-archive-heading">
         <div class="fu-content-section__inner container container--page">
             <div class="fu-section-head">
-                <!-- <p class="fu-eyebrow">Selected Work</p> -->
-                <h1 class="fu-section-heading" id="portfolio-archive-heading">Portfolio</h1>
+                <h1 class="fu-section-heading" id="portfolio-archive-heading">Work</h1>
                 <p class="fu-section-lede">A curated look at WordPress and front-end implementation work focused on reusable sections, responsive polish, editor-friendly workflows, and maintainable handoff.</p>
             </div>
 
@@ -256,7 +255,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
                         <p class="fu-section-lede">Not every visitor needs to review the full portfolio. Use these starting points to jump to the work that best matches the kind of help you need.</p>
                     </div>
 
-                    <nav class="fu-work-archive__start-grid" aria-label="Portfolio section starting points">
+                    <nav class="fu-work-archive__start-grid" aria-label="Work section starting points">
                         <?php foreach ($starting_examples as $example) : ?>
                             <a class="fu-work-archive__start-card" href="<?php echo esc_url($example['target']); ?>">
                                 <h3 class="fu-work-archive__start-card-title"><?php echo esc_html($example['title']); ?></h3>
@@ -355,7 +354,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
                 ));
                 ?>
                 <?php if ($contract_work_query->have_posts()) : ?>
-                    <div class="fu-work-grid fu-work-grid--archive" aria-label="Portfolio case studies">
+                    <div class="fu-work-grid fu-work-grid--archive" aria-label="Work case studies">
                         <?php while ($contract_work_query->have_posts()) : $contract_work_query->the_post(); ?>
                             <?php
                             $portfolio_card_link = get_permalink();

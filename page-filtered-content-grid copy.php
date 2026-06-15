@@ -16,7 +16,7 @@ get_header();
             <section class="fu-portfolio-piece__lead">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered block for browsing structured content by category with smooth, no-reload filtering. Built to make growing content libraries easier to explore without making the editing experience harder.</p>
@@ -107,7 +107,7 @@ get_header();
                     </p>
                     <div class="fu-portfolio__actions" style="margin-top:1.5rem;">
                         <a class="fu-portfolio__button fu-portfolio__button--primary" href="/contact/">Start a Conversation</a>
-                        <a class="fu-portfolio__button fu-portfolio__button--secondary" href="/work/">Back to Portfolio</a>
+                        <a class="fu-portfolio__button fu-portfolio__button--secondary" href="/work/">Back to Work</a>
                     </div>
                 </div>
             </section>

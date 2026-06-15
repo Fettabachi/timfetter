@@ -38,7 +38,7 @@
 
         <div id="portfolio" class="content-wrap-in portfolio-wrap">
             <div class="container">
-                <h2 class="text-center">Portfolio</h2>
+                <h2 class="text-center">Work</h2>
             </div>
             <div class="container">
 
