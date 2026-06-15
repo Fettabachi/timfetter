@@ -65,6 +65,9 @@ function base_scripts()
     $is_comparison_cards_demo = is_page_template('page-comparison-cards.php')
         || 'page-comparison-cards.php' === $current_template_slug
         || is_page('comparison-cards');
+    $is_portfolio_audit_demo = is_page_template('page-acf-block-system.php')
+        || 'page-acf-block-system.php' === $current_template_slug
+        || is_page('acf-block-system');
     $is_page_banner_demo = function_exists('fu_should_load_page_banner_demo_panel')
         ? fu_should_load_page_banner_demo_panel()
         : false;
@@ -104,6 +107,16 @@ function base_scripts()
             get_theme_file_uri('/src/blocks/demo-panel-comparison-cards.js'),
             array(),
             filemtime(get_theme_file_path('/src/blocks/demo-panel-comparison-cards.js')),
+            true
+        );
+    }
+
+    if ($is_portfolio_audit_demo) {
+        wp_enqueue_script(
+            'fu-portfolio-system-audit',
+            get_theme_file_uri('/src/portfolio-system-audit.js'),
+            array(),
+            filemtime(get_theme_file_path('/src/portfolio-system-audit.js')),
             true
         );
     }

@@ -353,6 +353,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             </div>
         </section>
 
+        <?php get_template_part('parts/portfolio-system-audit-demo'); ?>
+
         <section class="fu-case-section" id="technical-approach">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Technical Approach</p>

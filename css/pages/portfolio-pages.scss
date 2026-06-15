@@ -1413,6 +1413,239 @@
 	}
 }
 
+.fu-portfolio-audit {
+	--fu-portfolio-audit-border: rgba(13, 59, 102, 0.12);
+	--fu-portfolio-audit-muted: rgba(13, 59, 102, 0.72);
+	--fu-portfolio-audit-surface: linear-gradient(
+		145deg,
+		rgba(255, 255, 255, 0.98),
+		rgba(248, 251, 254, 0.94)
+	);
+	margin-block: clamp(4rem, 8vw, 6rem);
+}
+
+.fu-portfolio-audit__panel {
+	padding: clamp(1.35rem, 3vw, 2rem);
+	border: 1px solid var(--fu-portfolio-audit-border);
+	border-radius: 18px;
+	background: var(--fu-portfolio-audit-surface);
+	box-shadow: 0 14px 36px rgba(13, 59, 102, 0.07);
+}
+
+.fu-portfolio-audit__header .fu-eyebrow {
+	margin: 0 0 0.65rem;
+}
+
+.fu-portfolio-audit__header .fu-section-heading {
+	margin: 0;
+}
+
+.fu-portfolio-audit__header .fu-section-lede {
+	margin: 0.9rem 0 0;
+	color: var(--fu-portfolio-audit-muted);
+}
+
+.fu-portfolio-audit__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.85rem 1rem;
+	margin-top: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.fu-portfolio-audit__button {
+	border: 0;
+	cursor: pointer;
+}
+
+.fu-portfolio-audit__button:disabled {
+	cursor: wait;
+	opacity: 0.76;
+	transform: none;
+}
+
+.fu-portfolio-audit__status {
+	margin: 0;
+	color: var(--fu-portfolio-audit-muted);
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.fu-portfolio-audit__resource-link {
+	margin: 0.85rem 0 0;
+	font-size: 0.95rem;
+	line-height: 1.55;
+}
+
+.fu-portfolio-audit__resource-link a {
+	color: var(--fu-blue);
+	font-weight: 700;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+
+.fu-portfolio-audit__resource-link a:hover,
+.fu-portfolio-audit__resource-link a:focus-visible {
+	color: var(--fu-action-bg-hover);
+}
+
+.fu-portfolio-audit__fallback,
+.fu-portfolio-audit__error,
+.fu-portfolio-audit__empty {
+	margin: 1.1rem 0 0;
+	padding: 0.9rem 1rem;
+	border: 1px solid rgba(242, 148, 59, 0.34);
+	border-radius: 8px;
+	background: rgba(242, 148, 59, 0.1);
+	color: var(--fu-blue);
+	font-size: 0.94rem;
+	line-height: 1.5;
+}
+
+.fu-portfolio-audit__results {
+	display: grid;
+	gap: 0.75rem;
+	margin-top: 1.25rem;
+}
+
+.fu-portfolio-audit__check {
+	display: grid;
+	grid-template-columns: minmax(5.25rem, auto) minmax(0, 1fr);
+	gap: 0.9rem;
+	align-items: start;
+	padding: 1rem;
+	border: 1px solid var(--fu-portfolio-audit-border);
+	border-radius: 8px;
+	background: var(--fu-white);
+}
+
+.fu-portfolio-audit__check--public {
+	grid-template-columns: 1fr;
+}
+
+.fu-portfolio-audit__check-status {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 1.8rem;
+	padding: 0.32rem 0.62rem;
+	border: 1px solid rgba(13, 59, 102, 0.14);
+	border-radius: 999px;
+	background: rgba(13, 59, 102, 0.06);
+	color: var(--fu-blue);
+	font-size: 0.76rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.fu-portfolio-audit__check--pass .fu-portfolio-audit__check-status {
+	border-color: rgba(13, 59, 102, 0.18);
+	background: rgba(13, 59, 102, 0.08);
+}
+
+.fu-portfolio-audit__check--notice .fu-portfolio-audit__check-status {
+	border-color: rgba(242, 148, 59, 0.34);
+	background: rgba(242, 148, 59, 0.12);
+}
+
+.fu-portfolio-audit__check-body {
+	display: grid;
+	gap: 0.7rem;
+	color: var(--fu-portfolio-audit-muted);
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.fu-portfolio-audit__check-label {
+	color: var(--fu-blue);
+	font-family: "Raleway", sans-serif;
+	font-size: 1rem;
+	line-height: 1.25;
+}
+
+.fu-portfolio-audit__check-copy {
+	display: grid;
+	gap: 0.16rem;
+}
+
+.fu-portfolio-audit__check-term,
+.fu-portfolio-audit__admin-heading {
+	color: rgba(13, 59, 102, 0.58);
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.fu-portfolio-audit__admin-details {
+	display: grid;
+	gap: 0.55rem;
+	margin-top: 0.2rem;
+	padding-top: 0.85rem;
+	border-top: 1px solid var(--fu-portfolio-audit-border);
+}
+
+.fu-portfolio-audit__admin-list {
+	display: grid;
+	gap: 0.45rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.fu-portfolio-audit__admin-list li {
+	position: relative;
+	padding-left: 1rem;
+	color: rgba(13, 59, 102, 0.82);
+}
+
+.fu-portfolio-audit__admin-list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.62em;
+	width: 0.38rem;
+	height: 0.38rem;
+	border-radius: 999px;
+	background: rgba(13, 59, 102, 0.32);
+}
+
+.fu-portfolio-audit__admin-list a {
+	color: var(--fu-blue);
+	font-weight: 700;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+
+.fu-portfolio-audit__admin-list a:hover,
+.fu-portfolio-audit__admin-list a:focus-visible {
+	color: var(--fu-action-bg-hover);
+}
+
+@media (max-width: 560px) {
+	.fu-portfolio-audit__actions {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.fu-portfolio-audit__button {
+		width: 100%;
+	}
+
+	.fu-portfolio-audit__check {
+		grid-template-columns: 1fr;
+	}
+
+	.fu-portfolio-audit__check-status {
+		justify-self: start;
+	}
+}
+
 @media (max-width: 900px) {
 	.fu-principles__grid {
 		grid-template-columns: 1fr;

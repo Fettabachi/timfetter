@@ -57,6 +57,12 @@ if (! function_exists('fu_seed_resources')) {
             ['title' => 'Homepage Content Planning Guide', 'cat' => 'Guides', 'excerpt' => 'A practical framework for organizing homepage messaging, sections, and calls to action before design begins.'],
             ['title' => 'Small Business Website Launch Guide', 'cat' => 'Guides', 'excerpt' => 'A step-by-step guide for preparing content, QA, and launch tasks for a new marketing site.'],
             ['title' => 'Accessibility Review Starter Guide', 'cat' => 'Guides', 'excerpt' => 'An introduction to checking headings, contrast, focus states, and form behavior before launch.'],
+            [
+                'title' => 'How a Read-Only WordPress System Audit Helps Maintain a Site',
+                'slug' => 'read-only-wordpress-system-audit',
+                'cat' => 'Guides',
+                'excerpt' => 'A plain-English look at how a WordPress site can safely surface maintenance checks for editors without exposing private site details to public visitors.',
+            ],
 
             ['title' => 'Service Page Copy Template', 'cat' => 'Templates', 'excerpt' => 'A reusable content outline for building clearer, conversion-focused service pages.'],
             ['title' => 'Project Kickoff Questionnaire Template', 'cat' => 'Templates', 'excerpt' => 'A structured intake template for gathering goals, audiences, features, and content requirements.'],
@@ -85,6 +91,7 @@ if (! function_exists('fu_seed_resources')) {
             $post_id = wp_insert_post(
                 [
                     'post_title'   => $resource['title'],
+                    'post_name'    => $resource['slug'] ?? '',
                     'post_status'  => 'publish',
                     'post_type'    => 'resource',
                     'post_content' => fu_generate_resource_content($resource['title'], $resource['cat']),
@@ -105,6 +112,10 @@ if (! function_exists('fu_seed_resources')) {
 if (! function_exists('fu_generate_resource_content')) {
     function fu_generate_resource_content($title, $category)
     {
+        if ($title === 'How a Read-Only WordPress System Audit Helps Maintain a Site') {
+            return fu_get_read_only_wordpress_system_audit_resource_content();
+        }
+
         $category_openers = [
             'Guides' => "This guide is designed to help teams approach {$title} in a more structured and practical way.",
             'Templates' => "This template is intended to make {$title} easier to plan, organize, and reuse across a project.",
@@ -164,6 +175,41 @@ if (! function_exists('fu_generate_resource_content')) {
         $content .= '</ul>';
 
         return $content;
+    }
+}
+
+if (! function_exists('fu_get_read_only_wordpress_system_audit_resource_content')) {
+    function fu_get_read_only_wordpress_system_audit_resource_content()
+    {
+        return <<<HTML
+<p>A read-only WordPress system audit gives site editors a structured way to understand maintenance needs without turning a public website into a public report card. The goal is not to expose every issue to visitors. The goal is to show that the site can safely evaluate important maintenance signals and give authorized editors useful next steps.</p>
+
+<p>On a public portfolio or marketing site, that distinction matters. Visitors can see what kinds of checks the system is designed to evaluate, while logged-in editors can see live results, issue counts, recommended fixes, and direct edit links when they have permission to act on them.</p>
+
+<h2>What a read-only audit can check</h2>
+
+<p>A safe audit should focus on maintenance signals that help keep public content polished and usable. For example, it can check whether published work items have featured images, whether resources are categorized, whether recent images have alt text, and whether published content contains local development URLs.</p>
+
+<p>Those checks are useful because they point editors toward specific maintenance tasks without creating, updating, or deleting content. The audit only reads approved public content and returns a controlled summary.</p>
+
+<h2>Why public visitors should not see live issues</h2>
+
+<p>Public visitors do not need to know whether a site currently has missing alt text, uncategorized resources, or local URL references. Showing live issue counts publicly can make a site look unfinished and may reveal operational details that should stay private.</p>
+
+<p>A better public demo explains the kinds of checks the system can perform. It can describe what each check evaluates and why it matters, while reserving live diagnostic details for authorized editors.</p>
+
+<h2>What authorized editors can see</h2>
+
+<p>When an editor is logged in and has the right permissions, the same audit can become a guided maintenance checklist. Instead of a vague status report, each row can include the current result, why the check matters, a recommended fix, and links to the published content that needs attention.</p>
+
+<p>That makes the audit actionable. Editors do not have to guess what to fix next, and developers do not have to expose private data to demonstrate that the system works.</p>
+
+<h2>How this fits the WordPress Abilities API</h2>
+
+<p>The WordPress Abilities API can describe and register useful site capabilities in a consistent way. For a portfolio demo, a read-only ability can show how WordPress functionality might be exposed safely while still using a controlled REST endpoint as the public front-end contract.</p>
+
+<p>The important product decision is the boundary: public visitors see an educational demo, and authorized editors see live maintenance guidance. That keeps the feature useful without making private site details part of the public experience.</p>
+HTML;
     }
 }
 
