@@ -1,21 +1,25 @@
 <?php
 
 // Portfolio Items Post Type
-add_action('init', 'tf_portfolio_items_register_post_type');
+add_action('init', 'tf_work_items_register_post_type');
 
-function tf_portfolio_items_register_post_type()
+function tf_work_items_register_post_type()
 {
     register_post_type('portfolio-items', array(
         'labels' => array(
-            'name' => 'Portfolio Items',
-            'singular_name' => 'Portfolio Item',
-            'add_new' => 'Add new portfolio item',
-            'edit_item' => 'Edit portfolio item',
-            'new_item' => 'New portfolio item',
-            'view_item' => 'View portfolio item',
-            'search_items' => 'Search portfolio items',
-            'not_found' => 'No portfolio items found',
-            'not_found_in_trash' => 'No portfolio items found in Trash'
+            'name'               => 'Work',
+            'singular_name'      => 'Work Item',
+            'menu_name'          => 'Work',
+            'name_admin_bar'     => 'Work Item',
+            'add_new'            => 'Add New',
+            'add_new_item'       => 'Add New Work Item',
+            'new_item'           => 'New Work Item',
+            'edit_item'          => 'Edit Work Item',
+            'view_item'          => 'View Work Item',
+            'all_items'          => 'All Work',
+            'search_items'       => 'Search Work',
+            'not_found'          => 'No work found.',
+            'not_found_in_trash' => 'No work found in Trash.',
         ),
         'public' => true,
         'has_archive' => 'work',

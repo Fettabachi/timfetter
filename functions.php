@@ -40,6 +40,10 @@ function timfetter_document_title_parts($title)
         $title['tagline'] = 'WordPress & Front-End Developer';
     }
 
+    if (is_post_type_archive('portfolio-items')) {
+        $title['title'] = 'Work';
+    }
+
     return $title;
 }
 add_filter('document_title_parts', 'timfetter_document_title_parts');
