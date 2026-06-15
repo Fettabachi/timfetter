@@ -10,7 +10,7 @@ $current = isset($args['current']) ? sanitize_key($args['current']) : '';
 $prototypes = array(
     'client-project-timeline'       => array(
         'label'       => 'Client Project Timeline',
-        'description' => 'A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
+        'description' => 'A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production buildout.',
     ),
     'project-scope-estimator'       => array(
         'label'       => 'Project Scope Estimator',
@@ -41,7 +41,7 @@ $next_key       = $current_index < count($prototype_keys) - 1 ? $prototype_keys[
 <section class="fu-block-navigation fu-prototype-navigation" aria-labelledby="fu-prototype-navigation-heading">
     <div class="container container--page">
         <div class="fu-block-navigation__inner">
-            <nav class="fu-block-navigation__pager" aria-label="Previous and next front-end UI examples">
+            <nav class="fu-block-navigation__pager" aria-label="Previous and next Front-End UI Examples">
                 <?php if ($previous_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--previous" href="<?php echo esc_url($resolve_prototype_url($previous_key)); ?>">
                         <span class="fu-block-navigation__pager-kicker">&larr; Previous example</span>
@@ -62,14 +62,14 @@ $next_key       = $current_index < count($prototype_keys) - 1 ? $prototype_keys[
             </nav>
 
             <div class="fu-block-navigation__header">
-                <p class="fu-eyebrow">Front-end UI examples</p>
-                <h2 id="fu-prototype-navigation-heading" class="fu-block-navigation__heading">Explore more front-end UI examples</h2>
+                <p class="fu-eyebrow">Front-End UI Examples</p>
+                <h2 id="fu-prototype-navigation-heading" class="fu-block-navigation__heading">Explore more Front-End UI Examples</h2>
                 <p class="fu-block-navigation__intro">
-                    Interactive front-end examples showing how complex workflows, decision points, and handoff details can be clarified before full production development.
+                    Interactive front-end examples showing how workflows, decision points, state changes, and handoff details can be clarified before full production development.
                 </p>
             </div>
 
-            <nav class="fu-block-navigation__collection" aria-label="Front-end UI example collection">
+            <nav class="fu-block-navigation__collection" aria-label="Front-End UI Example collection">
                 <ul class="fu-block-navigation__grid">
                     <?php foreach ($prototypes as $key => $prototype) : ?>
                         <li class="fu-block-navigation__item">

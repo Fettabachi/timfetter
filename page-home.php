@@ -200,9 +200,9 @@ $earlier_work = array(
                     <section class="fu-home__hero" id="home-hero">
                         <div class="fu-home__section-inner fu-home__hero-panel container">
                             <div class="fu-home__hero-copy">
-                                <p class="fu-eyebrow">WordPress development, front-end design, and UI implementation</p>
-                                <h1 class="fu-home__title">Front-end development for WordPress sites and custom web interfaces.</h1>
-                                <p class="fu-home__lede">I help agencies and small businesses turn designs, content needs, and UI ideas into clean, responsive web experiences — from maintainable WordPress builds and ACF-powered components to custom front-end layouts, interaction states, and workflow screens.</p>
+                                <p class="fu-eyebrow">WordPress development, front-end implementation, and editor-friendly systems</p>
+                                <h1 class="fu-home__title">Polished, maintainable WordPress and front-end experiences.</h1>
+                                <p class="fu-home__lede">I help agencies and small businesses build clean, responsive web experiences with reusable systems, careful implementation, and handoff-ready editing workflows.</p>
 
                                 <div class="fu-home__actions">
                                     <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Let's Talk About Your Project</a>
@@ -395,7 +395,7 @@ $earlier_work = array(
                     </section>
 
 
-                    <!-- Front-End Prototypes Section -->
+                    <!-- Front-End UI Examples Section -->
                     <section class="fu-home-prototypes fu-content-section" aria-labelledby="home-prototypes-heading">
                         <div class="fu-content-section__inner container container--page">
                             <div class="fu-section-head fu-home-prototypes__header">
@@ -412,7 +412,7 @@ $earlier_work = array(
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Client Project Timeline</h3>
                                         <p class="fu-work-card__text">A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior.</p>
-                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View UI Example</span>
                                     </div>
                                 </a>
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/project-scope-estimator/">
@@ -422,7 +422,7 @@ $earlier_work = array(
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Project Scope Estimator</h3>
                                         <p class="fu-work-card__text">A guided estimator that turns early project details into a clearer scope summary before production planning.</p>
-                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View UI Example</span>
                                     </div>
                                 </a>
                                 <a class="fu-home-prototypes__card fu-work-card fu-work-card--linked" href="/work/content-approval-checklist/">
@@ -432,7 +432,7 @@ $earlier_work = array(
                                     <div class="fu-home-prototypes__content fu-work-card__body">
                                         <h3 class="fu-work-card__title">Content Approval Checklist</h3>
                                         <p class="fu-work-card__text">A responsive checklist for reviewing content readiness, blockers, approvals, and launch-readiness states.</p>
-                                        <span class="fu-home-prototypes__cta fu-work-card__link">View Prototype</span>
+                                        <span class="fu-home-prototypes__cta fu-work-card__link">View UI Example</span>
                                     </div>
                                 </a>
                             </div>
@@ -445,9 +445,9 @@ $earlier_work = array(
                     <section class="fu-home__section fu-home__cta" aria-labelledby="final-cta-heading">
                         <div class="fu-cta-panel--dark fu-home__section-inner fu-home__section-inner--narrow fu-home__cta-panel fu-cta-panel container container--page">
                             <div class="fu-home__cta-copy">
-                                <p class="fu-eyebrow">Need reliable front-end help?</p>
-                                <h2 id="final-cta-heading">Reliable front-end help for scoped projects, overflow work, and ongoing site updates.</h2>
-                                <p>I’m available for scoped front-end work, agency overflow support, WordPress improvements, custom UI implementation, and ongoing site updates.</p>
+                                <p class="fu-eyebrow">Need reliable implementation help?</p>
+                                <h2 id="final-cta-heading">WordPress and front-end support for scoped projects, overflow work, and ongoing site updates.</h2>
+                                <p>I’m available for maintainable WordPress improvements, front-end implementation, reusable component work, and practical site cleanup.</p>
                             </div>
 
                             <div class="fu-home__cta-actions fu-cta-panel__actions">

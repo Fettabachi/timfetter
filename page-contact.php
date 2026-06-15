@@ -17,24 +17,24 @@ get_header();
             <p class="fu-kicker">Contact</p>
             <h1>Let’s talk about where I can help</h1>
             <p>
-                I’m available for focused front-end development support, WordPress improvements, reusable component work, custom UI implementation, and ongoing site updates for teams that need extra implementation help.
+                Share a few details about the site, project, timeline, or problem you’re trying to solve. I can help with WordPress work, front-end implementation, responsive polish, cleanup, and editor-friendly enhancements across a range of web projects.
             </p>
         </div>
 
         <div class="fu-contact-page__layout">
             <div class="fu-contact-page__details">
                 <p class="fu-contact-page__eyebrow">How I can help</p>
-                <h2>Service lanes</h2>
+                <h2>Common requests</h2>
 
                 <div class="fu-contact-page__service-stack">
                     <article class="fu-contact-page__service-card">
                         <h3>WordPress Development Support</h3>
                         <p>
-                            Theme and template work, ACF Blocks, structured content, page-builder cleanup, responsive fixes, reusable components, editor-friendly implementation, and ongoing site improvements.
+                            Theme and template updates, ACF Blocks, page-builder cleanup, responsive fixes, and content structures that are easier for editors to maintain.
                         </p>
                         <ul>
                             <li>WordPress theme and template work</li>
-                            <li>ACF Blocks and structured content</li>
+                            <li>ACF Blocks and editor-friendly content fields</li>
                             <li>Page-builder support or cleanup</li>
                             <li>Responsive fixes and reusable components</li>
                         </ul>
@@ -43,7 +43,7 @@ get_header();
                     <article class="fu-contact-page__service-card">
                         <h3>Front-End Design &amp; UI Implementation</h3>
                         <p>
-                            Responsive HTML, CSS, and JavaScript implementation for custom layouts, interface states, workflow screens, and front-end polish that may live inside WordPress or another production system.
+                            Responsive HTML, CSS, and JavaScript implementation for custom layouts, interface states, workflow screens, and production-ready front-end polish.
                         </p>
                         <ul>
                             <li>Responsive HTML/CSS/JS implementation</li>
@@ -58,7 +58,7 @@ get_header();
             <div class="fu-contact-page__form">
                 <h2>Send a message</h2>
                 <p>
-                    Tell me a little about what you’re working on, where things are stuck, or what kind of front-end or WordPress help would make the next step easier.
+                    Share the page, block, bug, design file, or workflow that needs attention, plus any timeline, access, or review details that would help me understand the next step.
                 </p>
 
                 <?php echo do_shortcode('[forminator_form id="2033"]'); ?>

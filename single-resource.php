@@ -66,6 +66,11 @@ if (! function_exists('fu_resource_single_parse_content')) {
         $sections       = [];
         $current        = null;
         $used_heading_ids = [];
+        $highlighted_panel_headings = [
+            'quality check',
+            'how this can provide value to agencies',
+            'how this can provide value to clients',
+        ];
 
         foreach ($parts as $part) {
             if (preg_match('/^<h2\b[^>]*>.*?<\/h2>$/is', trim($part))) {
@@ -95,7 +100,7 @@ if (! function_exists('fu_resource_single_parse_content')) {
                     'title'      => $heading_text,
                     'heading'    => fu_resource_single_add_heading_id($part, $heading_id),
                     'content'    => '',
-                    'is_quality' => strcasecmp($heading_text, 'Quality check') === 0,
+                    'is_quality' => in_array(strtolower($heading_text), $highlighted_panel_headings, true),
                 ];
 
                 continue;
@@ -299,7 +304,7 @@ $resource_glance_items = array_filter(
                 <div class="fu-resource-single__content">
                     <?php
                     if ($resource_content_parts['intro']) :
-                        ?>
+                    ?>
                         <div class="fu-resource-single__intro">
                             <?php echo $resource_content_parts['intro']; ?>
                         </div>

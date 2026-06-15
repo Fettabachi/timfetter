@@ -327,11 +327,11 @@ if (!$portfolio_archive_url) {
                         <p class="fu-section-lede"><?php echo esc_html($portfolio_subtitle); ?></p>
                     <?php endif; ?>
                     <?php if (get_post_field('post_name', get_queried_object_id()) === 'client-project-timeline') : ?>
-                        <p class="fu-section-lede fu-section-lede--prototype">A self-contained HTML, CSS, and JavaScript prototype for testing milestone states, responsive timeline behavior, and client-facing workflow language before production development begins.</p>
+                        <p class="fu-section-lede fu-section-lede--prototype">A self-contained front-end UI example for testing milestone states, responsive timeline behavior, and client-facing workflow language before production development begins.</p>
                     <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'project-scope-estimator') : ?>
-                        <p class="fu-section-lede fu-section-lede--prototype">A focused front-end prototype for testing scope logic, readiness states, and handoff language before a production estimate or planning workflow is finalized.</p>
+                        <p class="fu-section-lede fu-section-lede--prototype">A focused front-end UI example for testing scope logic, readiness states, and handoff language before a production estimate or planning workflow is finalized.</p>
                     <?php elseif (get_post_field('post_name', get_queried_object_id()) === 'content-approval-checklist') : ?>
-                        <p class="fu-section-lede fu-section-lede--prototype">A focused front-end prototype for testing review states, approval gaps, blockers, and launch-readiness behavior before final production handoff.</p>
+                        <p class="fu-section-lede fu-section-lede--prototype">A focused front-end UI example for testing review states, approval gaps, blockers, and launch-readiness behavior before final production handoff.</p>
                     <?php endif; ?>
                 </div>
 
@@ -371,7 +371,7 @@ if (!$portfolio_archive_url) {
                 </div>
                 <div class="fu-content-section__inner container container--readable fu-portfolio-prototype-summary">
                     <div class="fu-portfolio-prototype-summary__item">
-                        <h2 class="fu-section-heading fu-section-heading--compact">Prototype Purpose</h2>
+                        <h2 class="fu-section-heading fu-section-heading--compact">UI Example Purpose</h2>
                         <p>This prototype makes workflow states testable before production implementation, including milestone counts, in-between progress states, responsive layout behavior, and client-facing status details.</p>
                     </div>
                     <div class="fu-portfolio-prototype-summary__item">
@@ -389,7 +389,7 @@ if (!$portfolio_archive_url) {
                 </div>
                 <div class="fu-content-section__inner container container--readable fu-portfolio-prototype-summary">
                     <div class="fu-portfolio-prototype-summary__item">
-                        <h2 class="fu-section-heading fu-section-heading--compact">Prototype Purpose</h2>
+                        <h2 class="fu-section-heading fu-section-heading--compact">UI Example Purpose</h2>
                         <p>This prototype turns early project details into a testable scope summary, helping teams identify complexity, readiness gaps, and next steps before production begins.</p>
                     </div>
                     <div class="fu-portfolio-prototype-summary__item">
@@ -407,7 +407,7 @@ if (!$portfolio_archive_url) {
                 </div>
                 <div class="fu-content-section__inner container container--readable fu-portfolio-prototype-summary">
                     <div class="fu-portfolio-prototype-summary__item">
-                        <h2 class="fu-section-heading fu-section-heading--compact">Prototype Purpose</h2>
+                        <h2 class="fu-section-heading fu-section-heading--compact">UI Example Purpose</h2>
                         <p>This prototype makes review status, approval gaps, and launch blockers visible before a site or campaign moves into final production handoff.</p>
                     </div>
                     <div class="fu-portfolio-prototype-summary__item">

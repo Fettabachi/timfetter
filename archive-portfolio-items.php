@@ -85,11 +85,11 @@ $frontend_prototypes = array(
     array(
         'title' => 'Client Project Timeline',
         'slug' => 'client-project-timeline',
-        'summary' => 'A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production development.',
+        'summary' => 'A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production buildout.',
         'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
-        'alt' => 'Prototype interface showing project milestones, timeline phases, and delivery status.',
+        'alt' => 'Front-end UI example showing project milestones, timeline phases, and delivery status.',
         'eyebrow' => 'Front-End UI Example',
-        'focus' => array('HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Prototype Logic'),
+        'focus' => array('HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Interaction Logic'),
         'cta' => 'View UI Example',
     ),
     array(
@@ -97,7 +97,7 @@ $frontend_prototypes = array(
         'slug' => 'project-scope-estimator',
         'summary' => 'A guided interface that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
         'image' => content_url('/uploads/2026/05/client-project-scope-cover.webp'),
-        'alt' => 'Prototype interface showing project scope options, complexity indicators, and summary details.',
+        'alt' => 'Front-end UI example showing project scope options, complexity indicators, and summary details.',
         'eyebrow' => 'Front-End UI Example',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Conditional UI', 'Form Logic'),
         'cta' => 'View UI Example',
@@ -107,7 +107,7 @@ $frontend_prototypes = array(
         'slug' => 'content-approval-checklist',
         'summary' => 'A responsive checklist interface for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
         'image' => content_url('/uploads/2026/06/client-project-content-approval-cover.webp'),
-        'alt' => 'Prototype interface showing content review tasks, approval status, and launch readiness.',
+        'alt' => 'Front-end UI example showing content review tasks, approval status, and launch readiness.',
         'eyebrow' => 'Front-End UI Example',
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
         'cta' => 'View UI Example',
@@ -224,13 +224,13 @@ $get_portfolio_focus_labels = static function ($post_id) {
             <div class="fu-section-head">
                 <p class="fu-eyebrow">Selected Work</p>
                 <h1 class="fu-section-heading" id="portfolio-archive-heading">Portfolio</h1>
-                <p class="fu-section-lede">A curated look at WordPress, front-end, and prototype work focused on structured content, editor-friendly systems, responsive implementation, and maintainable handoff.</p>
+                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work focused on reusable systems, responsive polish, editor-friendly workflows, and maintainable handoff.</p>
             </div>
 
             <div class="fu-section-body fu-work-archive__group fu-work-archive__group--featured" aria-labelledby="featured-systems-heading">
                 <div class="fu-section-head">
                     <h2 class="fu-section-heading fu-section-heading--compact" id="featured-systems-heading">Featured WordPress Systems</h2>
-                    <p class="fu-section-lede">Reusable WordPress systems focused on structured content, editor experience, maintainable handoff, and front-end implementation.</p>
+                    <p class="fu-section-lede">Larger WordPress examples that show how I think through structure, editor control, reusable patterns, and maintainability beyond a single page build.</p>
                 </div>
 
                 <div class="fu-work-grid fu-work-grid--archive fu-wordpress-card-grid fu-wordpress-card-grid--featured fu-work-archive__grid--featured" aria-label="Featured systems case studies">
@@ -262,7 +262,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
             <div class="fu-section-body fu-work-archive__group fu-work-archive__group--case-studies" aria-labelledby="acf-block-case-studies-heading">
                 <div class="fu-section-head">
                     <h2 class="fu-section-heading fu-section-heading--compact" id="acf-block-case-studies-heading">Individual ACF Block Builds</h2>
-                    <p class="fu-section-lede">Individual block builds that show how flexible editing controls, responsive front-end design, and cleaner content models work together.</p>
+                    <p class="fu-section-lede">Focused ACF block builds that solve specific editing and layout problems with reusable, front-end-ready WordPress components.</p>
                 </div>
 
                 <div class="fu-work-archive__acf-showcase">
@@ -296,7 +296,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
             <div id="contract-work" class="fu-section-body fu-work-archive__group fu-work-archive__group--earlier" aria-labelledby="earlier-client-work-heading">
                 <div class="fu-section-head">
                     <h2 class="fu-section-heading fu-section-heading--compact" id="earlier-client-work-heading">Selected Contract Work</h2>
-                    <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
+                    <p class="fu-section-lede">Production projects where I supported existing teams with implementation, responsive polish, CMS updates, reusable templates, and steady front-end cleanup.</p>
                 </div>
 
                 <?php
@@ -371,7 +371,7 @@ $get_portfolio_focus_labels = static function ($post_id) {
             <div class="fu-section-body fu-work-archive__group fu-work-archive__group--prototypes" id="front-end-prototypes" aria-labelledby="frontend-prototypes-heading">
                 <div class="fu-section-head">
                     <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Front-End UI Examples</h2>
-                    <p class="fu-section-lede">HTML, CSS, and JavaScript examples showing responsive interface layouts, interaction states, workflow screens, and front-end polish before production work begins.</p>
+                    <p class="fu-section-lede">HTML, CSS, and JavaScript examples that make workflows, states, interaction details, and handoff-ready UI thinking easier to review before production buildout.</p>
                 </div>
                 <div class="fu-work-grid fu-work-grid--archive fu-work-archive__prototype-list" aria-label="Front-End UI Examples">
                     <?php foreach ($frontend_prototypes as $prototype) : ?>

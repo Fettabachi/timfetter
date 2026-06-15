@@ -7,8 +7,9 @@
 
 $audit_endpoint = rest_url('timfetter/v1/portfolio-system-audit');
 $audit_nonce = is_user_logged_in() ? wp_create_nonce('wp_rest') : '';
-$audit_resource = get_page_by_path('read-only-wordpress-system-audit', OBJECT, 'resource');
-$audit_resource_url = $audit_resource ? get_permalink($audit_resource) : home_url('/resources/read-only-wordpress-system-audit/');
+$audit_resource = get_page_by_path('wordpress-abilities-api-site-features', OBJECT, 'resource');
+$audit_resource_url = $audit_resource ? get_permalink($audit_resource) : home_url('/resources/wordpress-abilities-api-site-features/');
+$audit_resource_url = wp_make_link_relative($audit_resource_url);
 ?>
 
 <section class="fu-case-section fu-portfolio-audit" id="portfolio-system-audit" aria-labelledby="portfolio-system-audit-heading">
@@ -32,7 +33,7 @@ $audit_resource_url = $audit_resource ? get_permalink($audit_resource) : home_ur
             </div>
 
             <p class="fu-portfolio-audit__resource-link">
-                <a href="<?php echo esc_url($audit_resource_url); ?>">Read the full resource: How a Read-Only WordPress System Audit Helps Maintain a Site</a>
+                <a href="<?php echo esc_url($audit_resource_url); ?>">Read the full resource: How the WordPress Abilities API Can Make Site Features Safer and More Useful</a>
             </p>
 
             <div class="fu-portfolio-audit__fallback" data-audit-fallback hidden>
