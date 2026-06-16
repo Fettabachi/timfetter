@@ -106,7 +106,7 @@
 
 .page-contact .fu-contact-page__service-stack {
 	display: grid;
-	gap: 1rem;
+	gap: 2rem;
 }
 
 .page-contact .fu-contact-page__service-card {
@@ -357,6 +357,8 @@
 
 	.page-contact .fu-contact-page__form {
 		align-self: start;
+        position: relative;
+        top: 2.5rem; /* visually offset the form upwards to better align with the intro/details on larger screens */
 	}
 }
 
