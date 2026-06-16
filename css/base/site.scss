@@ -671,6 +671,7 @@ h2 {
 	font-size: clamp(2.55rem, 5.9vw, 4.65rem);
 	line-height: 0.95;
 	letter-spacing: -0.05em;
+	max-width: 24ch;
 }
 
 .fu-home__lede {
