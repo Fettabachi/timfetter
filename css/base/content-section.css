@@ -35,7 +35,8 @@
 	font-weight: 300;
 	letter-spacing: -0.02em;
 	line-height: 1.1;
-	margin: 0 !important;
+	margin: 0;
+    margin-block-end: 1rem !important;
 	text-wrap: balance;
 }
 
