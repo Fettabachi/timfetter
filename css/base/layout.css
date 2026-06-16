@@ -104,7 +104,14 @@
 
 /* Default children go in the content zone */
 :where(.content-grid)
-	> :where(:not(.content--feature, .content--feature-max, .content--full, .content--full-safe)) {
+	> :where(
+		:not(
+			.content--feature,
+			.content--feature-max,
+			.content--full,
+			.content--full-safe
+		)
+	) {
 	grid-column: content;
 	width: 100%;
 	max-width: 100%;
@@ -130,14 +137,24 @@
 }
 
 /* Make breakout items actually fill their tracks */
-:where(.content--feature, .content--feature-max, .content--full, .content--full-safe) {
+:where(
+	.content--feature,
+	.content--feature-max,
+	.content--full,
+	.content--full-safe
+) {
 	width: 100%;
 	max-width: 100%;
 	min-width: 0;
 }
 
 /* Images fill breakout tracks */
-:where(.content--feature, .content--feature-max, .content--full, .content--full-safe)
+:where(
+		.content--feature,
+		.content--feature-max,
+		.content--full,
+		.content--full-safe
+	)
 	:where(img) {
 	display: block;
 	width: 100%;

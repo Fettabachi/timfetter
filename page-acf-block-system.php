@@ -450,7 +450,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                     </article>
                 </div>
 
-                <div class="fu-card--is-quote fu-card--is-quote-light fu-card--breakout fu-system-fit__quote">
+                <div class="fu-card--is-quote fu-card--breakout fu-system-fit__quote readable-text">
                     <p class="fu-system-fit__quote-statement">The choice is not ACF Blocks versus Gutenberg. The choice is how much custom editor engineering the project actually needs.</p>
                 </div>
             </div>

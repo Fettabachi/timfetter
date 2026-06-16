@@ -691,6 +691,7 @@
 	margin: 0 0 0.8rem;
 }
 
+h2.fu-block-navigation__heading,
 .fu-block-navigation__heading {
 	margin: 0;
 	color: var(--fu-blue);
@@ -1183,7 +1184,13 @@
 	width: 100%;
 	max-width: none;
 	margin-inline: 0;
+    
+    &.readable-text {
+        width: var(--fu-container-readable);
+        margin-inline: auto;
+    }
 }
+
 
 @media (min-width: 760px) {
 	.fu-system-fit__grid {
