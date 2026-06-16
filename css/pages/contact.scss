@@ -32,7 +32,7 @@
 }
 
 .page-contact .fu-contact-page__intro {
-	max-width: 43rem;
+	max-width: 47rem;
 	margin-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
@@ -58,7 +58,7 @@
 }
 
 .page-contact .fu-contact-page__intro h1 {
-	max-width: 13ch;
+	/* max-width: 13ch; */
 	margin-bottom: clamp(1.25rem, 3vw, 1.75rem);
 	color: var(--fu-white, #fff);
 	font-size: clamp(2.8rem, 6vw, 5rem);
@@ -68,7 +68,7 @@
 }
 
 .page-contact .fu-contact-page__intro > p:not(:first-child) {
-	max-width: 38rem;
+	/* max-width: 38rem; */
 	margin-bottom: 0;
 	color: rgba(255, 255, 255, 0.84);
 	font-size: clamp(1rem, 1.4vw, 1.14rem);
@@ -374,7 +374,7 @@
 	}
 
 	.page-contact .fu-contact-page__intro h1 {
-		max-width: 12ch;
+		max-width: 17ch;
 		font-size: clamp(2.2rem, 12vw, 3.1rem);
 	}
 
