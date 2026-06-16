@@ -15,7 +15,7 @@ get_header();
             <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading">Flexible Feature Section</h1>
                         <div class="fu-portfolio-piece__lead-body">
                             <p>A reusable ACF-powered section block built to stay balanced with real content. It gives editors meaningful layout flexibility while preventing combinations that weaken the design or responsiveness.</p>
@@ -100,7 +100,7 @@ get_header();
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
-                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
+                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Work</a>
                     </div>
                 </div>
             </div>

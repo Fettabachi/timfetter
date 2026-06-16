@@ -15,7 +15,7 @@ get_header();
     <div class="fu-contact-page">
         <div class="fu-contact-page__intro">
             <p class="fu-kicker">Contact</p>
-            <h1>Let’s talk about where I can help</h1>
+            <h1>Tell me what you need built, fixed, or improved</h1>
             <p>
                 Share a few details about the site, project, timeline, or problem you’re trying to solve. I can help with WordPress work, front-end implementation, responsive polish, cleanup, and editor-friendly enhancements across a range of web projects.
             </p>

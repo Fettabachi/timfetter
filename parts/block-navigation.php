@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contextual navigation for ACF block case-study pages.
  *
@@ -56,7 +57,7 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
             <nav class="fu-block-navigation__pager" aria-label="Previous and next ACF block builds">
                 <?php if ($previous_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--previous" href="<?php echo esc_url($resolve_block_url($previous_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">&larr; Previous block</span>
+                        <span class="fu-block-navigation__pager-kicker">&larr; Previous section</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($blocks[$previous_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -65,7 +66,7 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
 
                 <?php if ($next_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--next" href="<?php echo esc_url($resolve_block_url($next_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">Next block &rarr;</span>
+                        <span class="fu-block-navigation__pager-kicker">Next section &rarr;</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($blocks[$next_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -74,10 +75,11 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
             </nav>
 
             <div class="fu-block-navigation__header">
-                <p class="fu-eyebrow">ACF block collection</p>
-                <h2 id="fu-block-navigation-heading" class="fu-block-navigation__heading">Explore more ACF block builds</h2>
+                <p class="fu-eyebrow">REUSABLE WORDPRESS SECTIONS</p>
+                <h2 id="fu-block-navigation-heading" class="fu-block-navigation__heading">Explore more reusable sections</h2>
                 <p class="fu-block-navigation__intro">
-                    These blocks are part of a reusable WordPress editing system designed for flexible layouts, cleaner handoff, and a better editor experience.
+                    These reusable sections are designed for flexible content needs, safer editing, and a smoother WordPress editor experience. Explore any example to see how it works and how it can help pages stay easier to update.
+
                 </p>
             </div>
 

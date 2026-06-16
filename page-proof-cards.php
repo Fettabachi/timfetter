@@ -558,7 +558,7 @@ $proof_cards_demos = array(
                 <div class="container">
                     <div class="fu-portfolio-piece__lead-inner">
                         <div class="fu-portfolio-piece__lead-copy">
-                            <p class="fu-eyebrow">ACF Block Portfolio</p>
+                            <p class="fu-eyebrow">Reusable WordPress Section</p>
                             <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                             <div class="fu-portfolio-piece__lead-body">
                                 <p>Proof Cards is a structured social proof block for WordPress that helps editors combine testimonials, metrics, client outcomes, logos, and source attribution in one reusable system.</p>
@@ -694,7 +694,7 @@ $proof_cards_demos = array(
 
             <section class="fu-case-section" id="portfolio-value">
                 <div class="fu-case-section__inner container container--readable">
-                    <p class="fu-eyebrow">Portfolio Value</p>
+                    <p class="fu-eyebrow">Project Value</p>
                     <h2 class="fu-case-section__heading fu-section-heading">Why this matters for clients</h2>
                     <div class="fu-case-section__body fu-section-body">
                         <p>Proof Cards helps clients present testimonials, outcomes, metrics, logos, and source details in a consistent system. Instead of scattering proof across several one-off sections, the same block can adapt to service pages, landing pages, home pages, resource hubs, and case-study previews.</p>
@@ -703,15 +703,15 @@ $proof_cards_demos = array(
                 </div>
             </section>
 
-            <section class="fu-case-section fu-editor-handoff-callout">
-                <div class="fu-case-section__inner container container--readable">
-                    <div class="fu-principles__item">
-                        <h3>Want to see how these blocks are handed off?</h3>
-                        <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
-                        <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
-                    </div>
-                </div>
-            </section>
+            <?php
+            get_template_part(
+                'parts/editor-handoff-callout',
+                null,
+                array(
+                    'url' => $editor_experience_url,
+                )
+            );
+            ?>
 
             <?php
             get_template_part(
@@ -732,7 +732,7 @@ $proof_cards_demos = array(
 
                         <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
-                            <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
+                            <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Work</a>
                         </div>
                     </div>
                 </div>

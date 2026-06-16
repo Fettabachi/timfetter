@@ -28,7 +28,7 @@ if ($editor_experience_url === '') {
             <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-eyebrow">WordPress / ACF Block</p>
+                        <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
 
                         <div class="fu-portfolio-piece__lead-body">
@@ -273,15 +273,15 @@ if ($editor_experience_url === '') {
             </div>
         </section>
 
-        <section class="fu-case-section fu-editor-handoff-callout">
-            <div class="fu-case-section__inner container container--readable">
-                <div class="fu-principles__item">
-                    <h3>Want to see how these blocks are handed off?</h3>
-                    <p>The Editor Experience &amp; Handoff showcase explains how these blocks are structured for safe content updates, guided controls, and long-term maintainability.</p>
-                    <a class="fu-editor-handoff-callout__link" href="<?php echo esc_url($editor_experience_url); ?>">View editor experience &rarr;</a>
-                </div>
-            </div>
-        </section>
+        <?php
+        get_template_part(
+            'parts/editor-handoff-callout',
+            null,
+            array(
+                'url' => $editor_experience_url,
+            )
+        );
+        ?>
 
         <?php
         get_template_part(
@@ -304,7 +304,7 @@ if ($editor_experience_url === '') {
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
-                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Portfolio</a>
+                        <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url(home_url('/work/')); ?>">Back to Work</a>
                     </div>
                 </div>
             </div>

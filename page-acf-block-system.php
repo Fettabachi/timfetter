@@ -25,42 +25,42 @@ $block_collection = array(
         'title' => 'Page Banner',
         'slug' => 'page-banner',
         'image' => '/uploads/2026/05/page-banner-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible page banner with media and readability controls.',
+        'alt'   => 'Reusable WordPress section example showing a flexible page banner with media and readability controls.',
         'description' => 'Media-driven page banners with image and video backgrounds, overlay controls, and editor-friendly readability settings.',
     ),
     array(
         'title' => 'Flexible Feature Section',
         'slug' => 'flexible-feature-section',
         'image' => '/uploads/2026/05/page-flexible-feature-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a flexible feature section with balanced content and media.',
+        'alt'   => 'Reusable WordPress section example showing a flexible feature section with balanced content and media.',
         'description' => 'A reusable media and text layout for service sections, feature callouts, and content-led landing page sections.',
     ),
     array(
         'title' => 'Filtered Content Grid',
         'slug' => 'filtered-content-grid',
         'image' => '/uploads/2026/05/page-filtered-content-grid-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a filterable content grid with category and taxonomy controls.',
+        'alt'   => 'Reusable WordPress section example showing a filterable content grid with category and taxonomy controls.',
         'description' => 'A CPT and taxonomy-powered resource grid with smooth no-reload filtering and a structured content model.',
     ),
     array(
         'title' => 'Content Switcher',
         'slug' => 'content-switcher',
         'image' => '/uploads/2026/05/page-switcher-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing a content switcher block with tabs and accessible panel navigation.',
-        'description' => 'A parent/child panel system with tabs, pills, vertical layouts, mobile fallback, deep links, and keyboard support.',
+        'alt'   => 'Reusable WordPress section example showing a content switcher block with tabs and accessible panel navigation.',
+        'description' => 'A parent/child panel pattern with tabs, pills, vertical layouts, mobile fallback, deep links, and keyboard support.',
     ),
     array(
         'title' => 'Comparison Cards',
         'slug' => 'comparison-cards',
         'image' => '/uploads/2026/05/page-comparison-cards-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing comparison cards for plans, services, and product options.',
+        'alt'   => 'Reusable WordPress section example showing comparison cards for plans, services, and product options.',
         'description' => 'Editor-friendly comparison cards for pricing, memberships, service tiers, and product options.',
     ),
     array(
         'title' => 'Proof Cards',
         'slug' => 'proof-cards',
         'image' => '/uploads/2026/05/page-proof-cards-hero-600x450.webp',
-        'alt'   => 'Portfolio hero showing proof cards with testimonials, metrics, and credibility signals.',
+        'alt'   => 'Reusable WordPress section example showing proof cards with testimonials, metrics, and credibility signals.',
         'description' => 'Structured social proof cards for testimonials, outcomes, metrics, source details, and credibility signals.',
     ),
 );
@@ -111,7 +111,7 @@ $value_cards = array(
     ),
     array(
         'title' => 'More consistent branding',
-        'description' => 'Shared spacing, type, and color tokens keep repeated sections aligned with the visual system.',
+        'description' => 'Shared spacing, type, and color tokens keep repeated sections aligned with the visual direction.',
     ),
     array(
         'title' => 'Better responsive behavior',
@@ -133,26 +133,26 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <div class="container">
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
-                        <p class="fu-eyebrow">WordPress / ACF Block Portfolio</p>
-                        <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
+                        <p class="fu-eyebrow">Reusable WordPress Sections</p>
+                        <h1 class="fu-portfolio-piece__lead-heading">Reusable WordPress Blocks for Editor-Friendly Pages</h1>
 
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>A collection of reusable WordPress blocks built around structured content, guided editor controls, responsive layouts, accessible markup, and portable styling.</p>
-                            <p>These blocks are designed to help clients and agencies build flexible pages without relying on fragile one-off templates or overwhelming editors with freeform layout decisions.</p>
+                            <p>Reusable WordPress blocks built around structured content, guided editor controls, responsive layouts, accessible markup, and portable styling.</p>
+                            <p>These blocks help clients and agencies build pages that stay easier to update without relying on fragile one-off templates or overwhelming editors with freeform layout decisions.</p>
                         </div>
                     </div>
 
-                    <div class="fu-portfolio-piece__lead-media" aria-label="ACF Block System Hero Visual">
+                    <div class="fu-portfolio-piece__lead-media" aria-label="Reusable WordPress blocks hero visual">
                         <div class="fu-system-hero__visual">
                             <figure class="fu-portfolio-piece__lead-figure">
-                                <img src="<?php echo esc_url($acf_block_system_hero_image_url); ?>" alt="ACF block system planning notebook, WordPress implementation code, and reusable block previews.">
+                                <img src="<?php echo esc_url($acf_block_system_hero_image_url); ?>" alt="Reusable WordPress block planning notebook, implementation code, and block previews.">
                             </figure>
 
-                            <p class="fu-portfolio-piece__lead-caption">A reusable WordPress block system built around structured content, editor-safe controls, and portable front-end patterns.</p>
+                            <p class="fu-portfolio-piece__lead-caption">Reusable WordPress blocks built around structured content, editor-safe controls, and portable front-end patterns.</p>
                         </div>
                     </div>
 
-                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row" aria-label="System pillars">
+                    <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row" aria-label="Editor-friendly build pillars">
                         <div class="fu-portfolio-piece__meta-item">
                             <span class="fu-portfolio-piece__meta-label">Content Model</span>
                             <span class="fu-portfolio-piece__meta-value">Structured ACF fields and parent/child blocks</span>
@@ -173,12 +173,12 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
         <section class="fu-case-section fu-system-workflow" id="system-workflow" aria-labelledby="system-workflow-heading">
             <div class="fu-case-section__inner container container--readable">
                 <div class="fu-system-workflow__header">
-                    <p class="fu-eyebrow">System workflow</p>
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="system-workflow-heading">How the system works</h2>
-                    <p class="fu-section-lede">Each block connects four decisions that are often handled separately: the content model, the editor controls, the front-end output, and the way the pattern can be reused.</p>
+                    <p class="fu-eyebrow">Editing workflow</p>
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="system-workflow-heading">How pages stay easy to update</h2>
+                    <p class="fu-section-lede">Each block connects four decisions that are often handled separately: the content model, the editor controls, the front-end output, and the way the pattern can support future pages.</p>
                 </div>
 
-                <ol class="fu-system-workflow__panel" aria-label="Block system workflow">
+                <ol class="fu-system-workflow__panel" aria-label="Reusable block workflow">
                     <li class="fu-system-workflow__item">
                         <h3>Content Model</h3>
                         <p>Start with the real content shape, not just the layout.</p>
@@ -192,8 +192,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <p>Render the content as accessible, responsive markup.</p>
                     </li>
                     <li class="fu-system-workflow__item">
-                        <h3>Reusable System</h3>
-                        <p>Repeat the pattern across pages, brands, or content types.</p>
+                        <h3>Reusable Sections</h3>
+                        <p>Repeat the pattern across pages, brands, or content types without starting over.</p>
                     </li>
                 </ol>
             </div>
@@ -203,13 +203,13 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <div class="container container--l">
                 <div class="fu-system-purpose__inner">
                     <div class="fu-system-purpose__content">
-                        <p class="fu-eyebrow">Why this system exists</p>
+                        <p class="fu-eyebrow">Why this approach exists</p>
                         <h2 class="fu-section-heading fu-section-heading--feature" id="system-purpose-heading">Reusable blocks should solve editing problems, not just layout problems.</h2>
-                        <p class="fu-section-lede">Clients often need flexible page sections, but the real problem is usually maintaining structure after launch. This block system gives editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
+                        <p class="fu-section-lede">Clients often need flexible page sections, but the real problem is usually maintaining structure after launch. Reusable blocks give editors safe controls for real content needs while keeping design, accessibility, and responsive behavior consistent.</p>
                         <p class="fu-section-lede">It avoids handing editors unlimited layout freedom while still giving them enough control to publish useful, on-brand pages without developer help.</p>
                     </div>
 
-                    <div class="fu-system-purpose__principles" aria-label="System purpose principles">
+                    <div class="fu-system-purpose__principles" aria-label="Editor-friendly page principles">
                         <div class="fu-system-purpose__principle">
                             <span class="fu-system-purpose__principle-label">Content first</span>
                             <span class="fu-system-purpose__principle-text">Fields and blocks are modeled around real content decisions.</span>
@@ -220,7 +220,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         </div>
                         <div class="fu-system-purpose__principle">
                             <span class="fu-system-purpose__principle-label">Maintainable after handoff</span>
-                            <span class="fu-system-purpose__principle-text">The system is designed to stay consistent as new content is added.</span>
+                            <span class="fu-system-purpose__principle-text">Pages are designed to stay consistent as new content is added.</span>
                         </div>
                     </div>
                 </div>
@@ -230,13 +230,13 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
         <section class="fu-content-section" id="block-collection">
             <div class="fu-content-section__inner container container--page">
                 <div class="fu-section-head">
-                    <p class="fu-eyebrow">Block Collection</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">The block collection</h2>
-                    <p class="fu-section-lede">Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors a controlled system that still feels flexible in the canvas.</p>
+                    <p class="fu-eyebrow">Reusable Blocks</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">Reusable sections in practice</h2>
+                    <p class="fu-section-lede">Each portfolio piece focuses on a different use case, but they all share the same underlying goal: give editors guided controls that still feel flexible in the canvas.</p>
                 </div>
 
                 <div class="fu-system-block-showcase">
-                    <div class="fu-system-block-grid fu-work-grid fu-wordpress-card-grid" aria-label="Portfolio block examples">
+                    <div class="fu-system-block-grid fu-work-grid fu-wordpress-card-grid" aria-label="Reusable WordPress section examples">
                         <?php foreach ($block_collection as $block) : ?>
                             <?php $block_url = $resolve_portfolio_page_url($block['slug']); ?>
                             <?php if ($block_url !== '') : ?>
@@ -250,7 +250,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                             height="450">
                                     </div>
                                     <div class="fu-system-block-card__body fu-work-card__body">
-                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Block Example</p>
                                         <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
                                         <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
                                         <span class="fu-system-block-card__action fu-work-card__link">View case study</span>
@@ -267,7 +267,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                                             height="450">
                                     </div>
                                     <div class="fu-system-block-card__body fu-work-card__body">
-                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Portfolio Piece</p>
+                                        <p class="fu-system-block-card__kicker fu-work-card__kicker">Block Example</p>
                                         <h3 class="fu-system-block-card__title fu-work-card__title"><?php echo esc_html($block['title']); ?></h3>
                                         <p class="fu-work-card__text"><?php echo esc_html($block['description']); ?></p>
                                     </div>
@@ -282,9 +282,9 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
         <section class="fu-case-section" id="shared-principles">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Shared Principles</p>
-                <h2 class="fu-case-section__heading fu-section-heading">Shared principles behind the system</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">Principles behind easier editing</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>The details change from block to block, but the architecture stays consistent. These principles guide how the system is structured, edited, and maintained.</p>
+                    <p>The details change from block to block, but the approach stays consistent. These principles guide how reusable sections are structured, edited, and maintained.</p>
                 </div>
 
                 <div class="fu-system-principle-groups" aria-label="Shared principles">
@@ -331,8 +331,8 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <p class="fu-eyebrow">Editor Experience</p>
                 <h2 class="fu-case-section__heading fu-section-heading">Designed for the person editing the page after launch</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>The system is not just about front-end polish. It is built around a manageable workflow for the editor who will keep using it after the handoff.</p>
-                    <p>Parent and child blocks handle card and panel systems more cleanly than dense repeaters, guided controls replace unlimited layout freedom, canvas previews reduce guesswork, and the whole approach makes agency handoff easier.</p>
+                    <p>The work is not just about front-end polish. It is built around a manageable workflow for the editor who will keep using the page after the handoff.</p>
+                    <p>Parent and child blocks handle card and panel patterns more cleanly than dense repeaters, guided controls replace unlimited layout freedom, canvas previews reduce guesswork, and the whole approach makes agency handoff easier.</p>
                     <p>Proof Cards is a good example: it started as a repeater because the content model looked simple, but testing showed that multiple items were painful to manage in the sidebar. The final version uses one child block per proof item.</p>
                 </div>
             </div>
@@ -346,7 +346,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <h2 id="editor-callout-heading">Built for the people who maintain the site</h2>
                     </span>
                     <span class="fu-system-editor-callout__card-body">
-                        <p>The block system is designed around more than front-end output. Each block includes editing boundaries, guided controls, and reusable content patterns so clients and agencies can keep pages consistent after launch.</p>
+                        <p>The editing experience is designed around more than front-end output. Each block includes editing boundaries, guided controls, and reusable content patterns so clients and agencies can keep pages consistent after launch.</p>
                         <span class="fu-system-editor-callout__link">View the editor experience <span aria-hidden="true">&rarr;</span></span>
                     </span>
                 </a>
@@ -365,7 +365,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                     <ul class="fu-case-section__list">
                         <li>ACF Blocks and block.json registration for reusable components.</li>
                         <li>ACF JSON field groups for structured, portable content models.</li>
-                        <li>InnerBlocks for parent and child block systems where canvas editing makes sense.</li>
+                        <li>InnerBlocks for parent and child block patterns where canvas editing makes sense.</li>
                         <li>Scoped block CSS and shared design tokens for maintainable styling.</li>
                         <li>Semantic markup and responsive CSS Grid for stable, accessible layouts.</li>
                         <li>JavaScript only where behavior requires it.</li>
@@ -381,13 +381,13 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                 <div class="fu-system-value__header">
                     <p class="fu-eyebrow">Client value</p>
                     <h2 class="fu-section-heading fu-section-heading--feature" id="system-value-heading">Why this matters for clients and agencies</h2>
-                    <p class="fu-section-lede">Reusable blocks help clients maintain pages without losing design quality, while giving agencies a cleaner system to document, extend, and hand off.</p>
+                    <p class="fu-section-lede">Reusable blocks help clients maintain pages without losing design quality, while giving agencies cleaner editing patterns to document, extend, and hand off.</p>
                 </div>
 
                 <div class="fu-system-value__grid" aria-label="Client and agency value">
                     <article class="fu-system-value__panel">
                         <h3>For clients</h3>
-                        <p>Editors get useful controls without being asked to make layout decisions that should belong to the system.</p>
+                        <p>Editors get useful controls without being asked to make layout decisions that should already be handled by the build.</p>
                         <ul>
                             <li>Update pages without rebuilding layouts</li>
                             <li>Keep content on-brand after launch</li>
@@ -397,7 +397,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
 
                     <article class="fu-system-value__panel">
                         <h3>For agencies</h3>
-                        <p>The system creates repeatable implementation patterns that are easier to explain, maintain, and extend.</p>
+                        <p>The approach creates repeatable implementation patterns that are easier to explain, maintain, and extend.</p>
                         <ul>
                             <li>Hand off clearer editing patterns</li>
                             <li>Reuse proven components across pages</li>
@@ -412,7 +412,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
             <div class="fu-content-section__inner container container--page">
                 <div class="fu-section-head">
                     <p class="fu-eyebrow">Common question</p>
-                    <h2 class="fu-section-heading" id="system-fit-heading">Where this system fits</h2>
+                    <h2 class="fu-section-heading" id="system-fit-heading">Where this approach helps</h2>
                     <p class="fu-section-lede">Different WordPress projects need different editing models. I work across page builders, ACF Blocks, and custom block approaches depending on how much freedom, structure, and editor engineering the project actually needs.</p>
                 </div>
 
@@ -423,7 +423,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                             <li>Teams need broad visual composition tools</li>
                             <li>Designers or editors need to assemble many layout variations</li>
                             <li>Global builder components are already part of the workflow</li>
-                            <li>The project accepts the platform tradeoffs</li>
+                            <li>The project accepts the tooling tradeoffs</li>
                         </ul>
                     </article>
 
@@ -450,7 +450,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                     </article>
                 </div>
 
-                <div class="fu-card--is-quote fu-card--is-quote-light fu-card--breakout fu-system-fit__quote">
+                <div class="fu-card--is-quote fu-card--breakout fu-system-fit__quote readable-text">
                     <p class="fu-system-fit__quote-statement">The choice is not ACF Blocks versus Gutenberg. The choice is how much custom editor engineering the project actually needs.</p>
                 </div>
             </div>
