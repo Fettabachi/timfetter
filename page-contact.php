@@ -17,7 +17,7 @@ get_header();
             <p class="fu-kicker">Contact</p>
             <h1>Tell me what you need built, fixed, or improved</h1>
             <p>
-                Share a few details about the site, project, timeline, or problem you’re trying to solve. I can help with WordPress work, front-end implementation, responsive polish, cleanup, and editor-friendly enhancements across a range of web projects.
+                Share a few details about the site, project, timeline, or problem you’re trying to solve.<br> I can help with WordPress work, front-end implementation, responsive polish, cleanup, and editor-friendly enhancements across a range of web projects.
             </p>
         </div>
 
