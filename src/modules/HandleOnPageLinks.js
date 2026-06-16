@@ -1,29 +1,52 @@
 class HandleOnPageLinks {
 	constructor() {
-		this.header = document.querySelector("#masthead");
-		this.headerHeight = this.header ? this.header.offsetHeight : 0;
+		this.headerSelector = "#masthead";
+		this.offset = 30;
 
 		this.handleOnPageLinks();
 		this.handleInitialHash();
 	}
 
+	getHeaderHeight() {
+		const header = document.querySelector(this.headerSelector);
+
+		return header ? header.offsetHeight : 0;
+	}
+
 	getTarget(hash) {
-		if (!hash) {
+		if (!hash || hash === "#") {
 			return null;
 		}
 
-		const id = hash.slice(1);
+		let id = hash.slice(1);
 
-		return (
-			document.querySelector(hash) ||
-			document.querySelector(`[name="${CSS.escape(id)}"]`)
-		);
+		try {
+			id = decodeURIComponent(id);
+		} catch (error) {
+			// Keep the original id if decoding fails.
+		}
+
+		const targetById = document.getElementById(id);
+
+		if (targetById) {
+			return targetById;
+		}
+
+		if (typeof CSS === "undefined" || typeof CSS.escape !== "function") {
+			return null;
+		}
+
+		return document.querySelector(`[name="${CSS.escape(id)}"]`);
 	}
 
 	isSamePageLink(link) {
+		const url = new URL(link.href);
+
 		return (
-			location.pathname.replace(/^\//, "") ===
-				link.pathname.replace(/^\//, "") && location.hostname === link.hostname
+			url.origin === window.location.origin &&
+			url.pathname.replace(/\/$/, "") ===
+				window.location.pathname.replace(/\/$/, "") &&
+			url.search === window.location.search
 		);
 	}
 
@@ -33,13 +56,25 @@ class HandleOnPageLinks {
 		}
 
 		window.requestAnimationFrame(() => {
+			const headerHeight = this.getHeaderHeight();
 			const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+			const prefersReducedMotion = window.matchMedia(
+				"(prefers-reduced-motion: reduce)"
+			).matches;
 
 			window.scrollTo({
-				top: targetTop - this.headerHeight,
-				behavior: "smooth",
+				top: Math.max(targetTop - headerHeight - this.offset, 0),
+				behavior: prefersReducedMotion ? "auto" : "smooth",
 			});
 		});
+	}
+
+	cleanCurrentUrl() {
+		window.history.replaceState(
+			null,
+			"",
+			window.location.pathname + window.location.search
+		);
 	}
 
 	handleOnPageLinks() {
@@ -49,6 +84,17 @@ class HandleOnPageLinks {
 
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
+				if (
+					e.defaultPrevented ||
+					e.metaKey ||
+					e.ctrlKey ||
+					e.shiftKey ||
+					e.altKey ||
+					(link.target && link.target !== "_self")
+				) {
+					return;
+				}
+
 				if (!this.isSamePageLink(link)) {
 					return;
 				}
@@ -62,13 +108,7 @@ class HandleOnPageLinks {
 				e.preventDefault();
 
 				this.scrollToTarget(target);
-
-				// Optional: keep URL clean after same-page scroll.
-				window.history.pushState(
-					null,
-					"",
-					window.location.pathname + window.location.search
-				);
+				this.cleanCurrentUrl();
 			});
 		});
 	}
@@ -84,9 +124,11 @@ class HandleOnPageLinks {
 			return;
 		}
 
-		// Let the browser land first, then correct for the fixed header.
+		// Let the browser land first, then correct for the sticky header.
 		window.requestAnimationFrame(() => {
-			this.scrollToTarget(target);
+			window.requestAnimationFrame(() => {
+				this.scrollToTarget(target);
+			});
 		});
 	}
 }

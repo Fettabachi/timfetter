@@ -12,7 +12,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-    <div class="fu-contact-page">
+    <div class="fu-contact-page container container--page">
         <div class="fu-contact-page__intro">
             <p class="fu-kicker">Contact</p>
             <h1>Tell me what you need built, fixed, or improved</h1>
