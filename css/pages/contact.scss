@@ -13,7 +13,7 @@
 
 .page-contact .fu-contact-page {
 	max-width: var(--fu-container-l, 78rem);
-	margin: 0 auto 3rem;
+	margin: 0 auto;
 	padding: clamp(2rem, 5vw, 4rem);
 	color: var(--fu-white, #fff);
 }
@@ -357,8 +357,7 @@
 
 	.page-contact .fu-contact-page__form {
 		align-self: start;
-        position: relative;
-        top: 2.5rem; /* visually offset the form upwards to better align with the intro/details on larger screens */
+        margin-top: 2.5rem; /* visually offset the form upwards to better align with the intro/details on larger screens */
 	}
 }
 
