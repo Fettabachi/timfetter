@@ -234,9 +234,9 @@ address {
 }
 
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
 	padding: 0.75em 0;
 	background: var(--fu-surface-header);
 	z-index: 3;
@@ -735,6 +735,10 @@ h2 {
 }
 
 .fu-home__service-grid {
+	gap: var(--fu-grid-gap-lg);
+}
+
+.fu-home__service-grid {
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
@@ -865,7 +869,9 @@ h2 {
 	grid-template-columns: auto 1fr;
 	gap: 0.65rem;
 	align-items: start;
-	transition: border-color 0.22s ease, box-shadow 0.22s ease;
+	transition:
+		border-color 0.22s ease,
+		box-shadow 0.22s ease;
 }
 
 .fu-home__fit-list li:hover {
@@ -907,7 +913,9 @@ h2 {
 	overflow: hidden;
 	min-width: 0;
 	color: inherit;
-	transition: border-color 0.22s ease, box-shadow 0.22s ease;
+	transition:
+		border-color 0.22s ease,
+		box-shadow 0.22s ease;
 }
 
 .fu-work-card:hover,
@@ -1170,7 +1178,9 @@ h2 {
 	background: rgba(255, 255, 255, 0.84);
 	color: inherit;
 	text-decoration: none;
-	transition: border-color 0.22s ease, box-shadow 0.22s ease,
+	transition:
+		border-color 0.22s ease,
+		box-shadow 0.22s ease,
 		transform 0.22s ease;
 }
 
@@ -1229,7 +1239,9 @@ h2 {
 	border-radius: 18px;
 	background: var(--fu-surface);
 	box-shadow: 0 14px 34px rgba(13, 59, 102, 0.08);
-	transition: border-color 0.22s ease, box-shadow 0.22s ease,
+	transition:
+		border-color 0.22s ease,
+		box-shadow 0.22s ease,
 		transform 0.22s ease;
 }
 
@@ -1308,8 +1320,11 @@ h2 {
 	background: var(--fu-blue);
 	box-shadow: 0 14px 30px rgba(13, 59, 102, 0.16);
 	color: var(--fu-text-on-inverse);
-	transition: background-color 0.22s ease, border-color 0.22s ease,
-		box-shadow 0.22s ease, transform 0.22s ease;
+	transition:
+		background-color 0.22s ease,
+		border-color 0.22s ease,
+		box-shadow 0.22s ease,
+		transform 0.22s ease;
 }
 
 .fu-wordpress-card-grid--featured .fu-work-card--wordpress {
@@ -1612,7 +1627,9 @@ p.fu-work-card__text {
 	padding: 0.5rem 0.82rem;
 	text-decoration: none;
 	text-transform: uppercase;
-	transition: color 180ms ease, border-color 180ms ease,
+	transition:
+		color 180ms ease,
+		border-color 180ms ease,
 		background-color 180ms ease;
 }
 
@@ -1797,8 +1814,10 @@ p.fu-work-card__text {
 	margin-bottom: 40px;
 	background-color: #fff;
 	overflow: hidden;
-	box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.05),
-		0 0.3px 0.4px hsla(0, 0%, 0%, 0.02), 0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+	box-shadow:
+		0 0 0 1px hsla(0, 0%, 0%, 0.05),
+		0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+		0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
 		0 3.5px 6px hsla(0, 0%, 0%, 0.09);
 
 	@include atTablet {
@@ -2221,9 +2240,12 @@ p.fu-work-card__text {
 	/* aspect-ratio: 6/4.61; */
 	object-fit: cover;
 	border-radius: 6px;
-	box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
-		0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
-		0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+	box-shadow:
+		inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
+		0 0 0 1px hsla(0, 0%, 0%, 0.05),
+		0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+		0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+		0 3.5px 6px hsla(0, 0%, 0%, 0.09);
 
 	&:last-of-type {
 		margin: 0;
