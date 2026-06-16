@@ -200,9 +200,10 @@ $earlier_work = array(
                     <section class="fu-home__hero" id="home-hero">
                         <div class="fu-home__section-inner fu-home__hero-panel container">
                             <div class="fu-home__hero-copy">
-                                <p class="fu-eyebrow">WordPress development, front-end implementation, and editor-friendly systems</p>
+                                <p class="fu-eyebrow">WORDPRESS DEVELOPMENT | FRONT-END IMPLEMENTATION</p>
                                 <h1 class="fu-home__title">Polished, maintainable WordPress and front-end experiences.</h1>
-                                <p class="fu-home__lede">I help agencies and small businesses build clean, responsive web experiences with reusable systems, careful implementation, and handoff-ready editing workflows.</p>
+                                <p class="fu-home__lede">I help agencies, designers, and small businesses bring WordPress designs to life with clean implementation, responsive polish, and pages that are easier to update.
+                                </p>
 
                                 <div class="fu-home__actions">
                                     <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>

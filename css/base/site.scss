@@ -675,6 +675,7 @@ h2 {
 
 .fu-home__lede {
 	margin: 0;
+	max-width: 71ch;
 	color: var(--fu-text-muted);
 	font-size: clamp(1rem, 1.45vw, 1.08rem);
 	line-height: 1.75;
