@@ -33,9 +33,11 @@ if ($editor_experience_url === '') {
 
                         <div class="fu-portfolio-piece__lead-body">
                             <p>
-                                A reusable page banner block built to help editors create flexible, high-impact headers, while giving developers predictable structure and maintainable output.
+                                A reusable page banner built to help editors create flexible, high-impact page headers without sacrificing consistency or maintainability.
+                            </p>
 
-                                It supports both video and image backgrounds, overlay and readability controls, and flexible content layout—all within an editor experience that closely reflects the final front-end result.
+                            <p>
+                                It supports image and video backgrounds, overlay and readability controls, and flexible content layouts within an editor experience that closely reflects the final front-end result.
                             </p>
                             <ul class="fu-portfolio-piece__lead-points">
                                 <li>Image and video backgrounds with readability controls</li>
@@ -81,9 +83,11 @@ if ($editor_experience_url === '') {
 
                 <div class="fu-case-section__body fu-section-body">
                     <p>
-                        Page banners are often either too rigid to be useful or so configurable that they become hard for editors to trust. This block was designed to strike a better balance.</p>
+                        Hero banners often become one-off layouts that are difficult to reuse and frustrating to maintain as content needs evolve.
+                    </p>
 
-                    <p>It supports both video and image treatments, gives editors meaningful control over presentation, and keeps the experience grounded in a preview that closely reflects the front end.
+                    <p>
+                        This component was designed to give editors meaningful flexibility while keeping the underlying structure consistent across different pages. The result is a banner that supports different content needs without becoming harder to maintain over time.
                     </p>
                 </div>
             </div>
@@ -97,7 +101,7 @@ if ($editor_experience_url === '') {
 
                 <div class="fu-page-banner-portfolio__demo-head">
                     <p class="fu-eyebrow">Live Component Preview</p>
-                    <h2 class="fu-page-banner-portfolio__demo-heading">Interactive Banner Configurations</h2>
+                    <h2 class="fu-page-banner-portfolio__demo-heading">One Component. Different Content Needs.</h2>
                 </div>
 
                 <div class="fu-page-banner-portfolio__demo-note" role="note" aria-label="Demo instructions">
@@ -113,10 +117,7 @@ if ($editor_experience_url === '') {
                 </div>
 
                 <p class="fu-portfolio-piece__demo-caption">
-                    This example shows the same component configured in two different ways to demonstrate how it adapts to different content needs while maintaining a consistent editing experience.</p>
-
-                <p class="fu-portfolio-piece__demo-caption">
-                    The front-end controls shown here expose a curated subset of the available options. The full set of controls is available to editors within the WordPress block editor.
+                    The same component adapts to different content needs while providing a consistent editing experience in WordPress.
                 </p>
             </div>
 
@@ -125,8 +126,8 @@ if ($editor_experience_url === '') {
         <section id="design-principles" class="fu-principles">
             <div class="container container--page">
                 <div class="fu-principles__inner">
-                    <p class="fu-eyebrow">Design Principles Behind This Block</p>
-                    <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
+                    <p class="fu-eyebrow">Design Principles</p>
+                    <p class="fu-principles__lede">Every decision in this component balances editor flexibility with predictable implementation and long-term maintainability.</p>
 
                     <div class="fu-principles__grid">
                         <div class="fu-principles__item">
@@ -228,9 +229,9 @@ if ($editor_experience_url === '') {
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
-                    <h2 class="fu-portfolio-piece__closing-heading">Need a flexible banner system that stays consistent and still works well for editors?</h2>
+                    <h2 class="fu-portfolio-piece__closing-heading">Need help implementing maintainable WordPress features?</h2>
                     <p class="fu-portfolio-piece__closing-body">
-                        I build WordPress components that balance front-end presentation with practical editing workflows, so teams can publish with more confidence and fewer layout constraints.
+                        I help agencies and businesses build responsive, maintainable WordPress features—from reusable components and front-end implementation to ongoing improvements for existing sites.
                     </p>
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">

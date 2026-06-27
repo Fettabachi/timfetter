@@ -118,8 +118,11 @@
 	border-radius: 999px;
 	font-weight: 700;
 	text-decoration: none;
-	transition: transform 0.22s ease, background-color 0.22s ease,
-		color 0.22s ease, border-color 0.22s ease;
+	transition:
+		transform 0.22s ease,
+		background-color 0.22s ease,
+		color 0.22s ease,
+		border-color 0.22s ease;
 }
 
 .fu-portfolio__button:hover,
@@ -258,7 +261,9 @@
 	border: 1px solid rgba(13, 59, 102, 0.09);
 	border-radius: 22px;
 	background: rgba(255, 255, 255, 0.9);
-	transition: border-color 0.22s ease, background-color 0.22s ease;
+	transition:
+		border-color 0.22s ease,
+		background-color 0.22s ease;
 }
 
 .fu-portfolio__card:hover,
@@ -324,7 +329,9 @@
 	border-radius: 14px;
 	background: var(--fcg-surface-alt);
 	border: 1px solid var(--fcg-line);
-	transition: border-color 0.22s ease, background-color 0.22s ease;
+	transition:
+		border-color 0.22s ease,
+		background-color 0.22s ease;
 }
 
 .fu-portfolio__note:hover {
@@ -449,6 +456,10 @@
 
 .fu-portfolio-piece__lead-body p {
 	margin: 0;
+
+	&:not(:last-child) {
+		margin-bottom: clamp(1.25rem, 0.476vw + 1.143rem, 1.5rem);
+	}
 }
 
 .fu-portfolio-piece__lead-points {
@@ -579,8 +590,11 @@
 	border-radius: 999px;
 	font-weight: 700;
 	text-decoration: none;
-	transition: transform 0.22s ease, background-color 0.22s ease,
-		color 0.22s ease, border-color 0.22s ease;
+	transition:
+		transform 0.22s ease,
+		background-color 0.22s ease,
+		color 0.22s ease,
+		border-color 0.22s ease;
 }
 .fu-portfolio-piece__button:hover,
 .fu-portfolio-piece__button:focus-visible {
@@ -634,8 +648,11 @@
 	border: 1px solid var(--fu-border);
 	border-radius: 8px;
 	text-decoration: none;
-	transition: background-color 0.22s ease, border-color 0.22s ease,
-		box-shadow 0.22s ease, transform 0.22s ease;
+	transition:
+		background-color 0.22s ease,
+		border-color 0.22s ease,
+		box-shadow 0.22s ease,
+		transform 0.22s ease;
 }
 
 .fu-block-navigation__pager-link {
@@ -806,6 +823,19 @@ h2.fu-block-navigation__heading,
 	color: var(--fu-text-body-portfolio);
 }
 
+.fu-page-banner-portfolio .fu-principles {
+	padding-block-start: clamp(4rem, 3rem + 4vw, 7rem);
+}
+
+.fu-page-banner-portfolio .fu-principles__lede {
+	margin-block: 0.7rem 2rem;
+	font-size: clamp(1.05rem, 1rem + 0.25vw, 1.5rem);
+	font-weight: 400;
+	line-height: 1.75;
+	color: var(--fu-text-heading);
+	max-width: 60ch;
+}
+
 .fu-principles__grid {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -836,7 +866,7 @@ h2.fu-block-navigation__heading,
 	margin: 0;
 	font-size: 0.95rem;
 	line-height: 1.6;
-	color: var(--fu-blue);
+	color: var(--fu-text-body-portfolio);
 }
 
 .fu-system-purpose {
@@ -1184,13 +1214,12 @@ h2.fu-block-navigation__heading,
 	width: 100%;
 	max-width: none;
 	margin-inline: 0;
-    
-    &.readable-text {
-        width: var(--fu-container-readable);
-        margin-inline: auto;
-    }
-}
 
+	&.readable-text {
+		width: var(--fu-container-readable);
+		margin-inline: auto;
+	}
+}
 
 @media (min-width: 760px) {
 	.fu-system-fit__grid {
@@ -1326,7 +1355,9 @@ h2.fu-block-navigation__heading,
 	text-decoration: none;
 	overflow: hidden;
 	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
-	transition: transform 180ms ease, border-color 180ms ease,
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease,
 		box-shadow 180ms ease;
 }
 
@@ -1868,8 +1899,11 @@ h2.fu-block-navigation__heading,
 	font-weight: 700;
 	line-height: 1.2;
 	text-decoration: none;
-	transition: background-color 0.18s ease, border-color 0.18s ease,
-		color 0.18s ease, transform 0.18s ease;
+	transition:
+		background-color 0.18s ease,
+		border-color 0.18s ease,
+		color 0.18s ease,
+		transform 0.18s ease;
 }
 
 .fu-resource-single__section-nav-links a:hover,
@@ -2101,8 +2135,11 @@ h2.fu-block-navigation__heading,
 	);
 	color: inherit;
 	text-decoration: none;
-	transition: border-color 0.18s ease, background-color 0.18s ease,
-		box-shadow 0.18s ease, transform 0.18s ease;
+	transition:
+		border-color 0.18s ease,
+		background-color 0.18s ease,
+		box-shadow 0.18s ease,
+		transform 0.18s ease;
 }
 
 .fu-resource-single__further-reading-link:hover,
@@ -2115,7 +2152,8 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__further-reading-link:focus-visible {
-	box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.14),
+	box-shadow:
+		0 0 0 3px rgba(13, 59, 102, 0.14),
 		0 12px 28px rgba(13, 59, 102, 0.07);
 }
 
@@ -2191,7 +2229,9 @@ h2.fu-block-navigation__heading,
 	border: 1px solid var(--fu-border);
 	border-radius: 18px;
 	background: rgba(255, 255, 255, 0.92);
-	transition: border-color 0.22s ease, background-color 0.22s ease;
+	transition:
+		border-color 0.22s ease,
+		background-color 0.22s ease;
 }
 
 .fu-resource-single__related-card-link {
@@ -2662,8 +2702,11 @@ h2.fu-block-navigation__heading,
 	background: rgba(255, 255, 255, 0.94);
 	border-color: rgba(13, 59, 102, 0.12);
 	box-shadow: 0 10px 24px rgba(13, 59, 102, 0.04);
-	transition: transform 0.22s ease, border-color 0.22s ease,
-		box-shadow 0.22s ease, background-color 0.22s ease;
+	transition:
+		transform 0.22s ease,
+		border-color 0.22s ease,
+		box-shadow 0.22s ease,
+		background-color 0.22s ease;
 }
 
 .fu-principles__item:hover,
@@ -2730,8 +2773,7 @@ h2.fu-block-navigation__heading,
 	color: var(--fu-orange);
 }
 
-.fu-editor-handoff-callout__link:hover
-	.fu-editor-handoff-callout__link-text,
+.fu-editor-handoff-callout__link:hover .fu-editor-handoff-callout__link-text,
 .fu-editor-handoff-callout__link:focus-visible
 	.fu-editor-handoff-callout__link-text {
 	text-decoration: underline;
@@ -2743,8 +2785,7 @@ h2.fu-block-navigation__heading,
 	outline-offset: 4px;
 }
 
-.fu-editor-handoff-callout__link:hover
-	.fu-editor-handoff-callout__link-arrow,
+.fu-editor-handoff-callout__link:hover .fu-editor-handoff-callout__link-arrow,
 .fu-editor-handoff-callout__link:focus-visible
 	.fu-editor-handoff-callout__link-arrow {
 	transform: translateX(0.15em);
@@ -2943,7 +2984,9 @@ h2.fu-block-navigation__heading,
 	border: 1px solid rgba(13, 59, 102, 0.11);
 	border-radius: 16px;
 	box-shadow: 0 4px 16px rgba(13, 59, 102, 0.05);
-	transition: transform 0.22s ease, border-color 0.22s ease,
+	transition:
+		transform 0.22s ease,
+		border-color 0.22s ease,
 		box-shadow 0.22s ease;
 }
 
@@ -3056,7 +3099,9 @@ h2.fu-block-navigation__heading,
 		rgba(244, 248, 252, 0.98)
 	);
 	box-shadow: 0 4px 16px rgba(13, 59, 102, 0.05);
-	transition: transform 0.22s ease, box-shadow 0.22s ease,
+	transition:
+		transform 0.22s ease,
+		box-shadow 0.22s ease,
 		border-color 0.22s ease;
 }
 
