@@ -16,9 +16,9 @@ get_header();
                 <div class="fu-portfolio-piece__lead-inner">
                     <div class="fu-portfolio-piece__lead-copy">
                         <p class="fu-eyebrow">Reusable WordPress Section</p>
-                        <h1 class="fu-portfolio-piece__lead-heading">Flexible Feature Section</h1>
+                        <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>A reusable ACF-powered section block built to stay balanced with real content. It gives editors meaningful layout flexibility while preventing combinations that weaken the design or responsiveness.</p>
+                            <p>A reusable feature section designed to stay balanced with real content. Editors have meaningful layout flexibility while the underlying structure keeps every variation responsive and consistent.</p>
                             <ul class="fu-portfolio-piece__lead-points">
                                 <li>Guided layout options instead of open-ended design decisions</li>
                                 <li>Responsive media/text combinations that stay balanced</li>
@@ -57,8 +57,8 @@ get_header();
                 <p class="fu-eyebrow">Overview</p>
                 <h2 class="fu-case-section__heading fu-section-heading">A More Reliable Way to Build Feature Sections</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>Feature sections often break down when real content is introduced. Variations in copy length, imagery, and screen size can quickly create imbalance, especially at tablet widths.</p>
-                    <p>This block was designed to reduce that friction by limiting unnecessary controls and preventing invalid layout combinations. The result is a component that stays predictable without sacrificing flexibility.</p>
+                    <p>Feature sections often become difficult to maintain as real content replaces placeholder copy. Longer text, uneven imagery, and responsive layouts can quickly introduce inconsistencies.</p>
+                    <p>This component keeps the layout flexible while preventing combinations that weaken the overall presentation. Editors gain useful control without sacrificing consistency.</p>
                 </div>
             </div>
         </section>
