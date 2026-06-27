@@ -127,7 +127,7 @@ if ($editor_experience_url === '') {
             <div class="container container--page">
                 <div class="fu-principles__inner">
                     <p class="fu-eyebrow">Design Principles</p>
-                    <p class="fu-principles__lede">Every decision in this component balances editor flexibility with predictable implementation and long-term maintainability.</p>
+                    <p class="fu-principles__heading fu-case-section__heading">Every decision in this component balances editor flexibility with predictable implementation and long-term maintainability.</p>
 
                     <div class="fu-principles__grid">
                         <div class="fu-principles__item">

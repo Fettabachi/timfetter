@@ -468,6 +468,7 @@
 	border-top: 1px solid var(--fu-border);
 	list-style: none;
 	display: grid;
+	display: none;
 	gap: 0.5rem;
 	max-width: 40rem;
 }
@@ -813,7 +814,11 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-principles .fu-eyebrow {
-	margin-block-end: 0;
+	margin-block-end: 0.85rem;
+}
+
+.fu-principles__heading.fu-case-section__heading {
+	font-size: 1.9rem;
 }
 
 .fu-principles__lede {
