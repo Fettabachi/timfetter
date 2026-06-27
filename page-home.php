@@ -87,6 +87,25 @@ $good_fit_points = array(
     ),
 );
 
+$working_style_items = array(
+    array(
+        'title' => 'Thoughtful implementation',
+        'summary' => 'I turn approved designs and project requirements into responsive, maintainable WordPress pages that behave the way teams expect them to.',
+    ),
+    array(
+        'title' => 'Clear collaboration',
+        'summary' => 'I work comfortably with designers, project managers, and developers, asking questions early and communicating clearly throughout the project.',
+    ),
+    array(
+        'title' => 'Built for handoff',
+        'summary' => 'I think about the editor updating content next month and the developer maintaining the site next year, not just the launch deadline.',
+    ),
+    array(
+        'title' => 'Pride in the details',
+        'summary' => 'I pay attention to the small things that support a better experience for users, editors, and future developers.',
+    ),
+);
+
 $recent_systems = array(
     array(
         'title' => 'Page Banner',
@@ -260,6 +279,28 @@ $earlier_work = array(
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
+                        </div>
+                    </section>
+
+                    <section class="fu-home__section fu-home__working-style" aria-labelledby="home-working-style-heading">
+                        <div class="fu-home__section-inner container container--page">
+                            <div class="fu-home__working-style-layout">
+                                <div class="fu-home__section-head">
+                                    <p class="fu-eyebrow">WORKING TOGETHER</p>
+                                    <h2 class="fu-section-heading" id="home-working-style-heading">How I work</h2>
+                                    <p class="fu-section-lede">Good development is about more than writing code. It's about creating better experiences for the people using the website today and making it easier for the people maintaining it tomorrow.
+                                    </p>
+                                </div>
+
+                                <ul class="fu-home__working-style-list" aria-label="How I work with project teams">
+                                    <?php foreach ($working_style_items as $item) : ?>
+                                        <li>
+                                            <strong><?php echo esc_html($item['title']); ?></strong>
+                                            <p><?php echo esc_html($item['summary']); ?></p>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
                         </div>
                     </section>
 
