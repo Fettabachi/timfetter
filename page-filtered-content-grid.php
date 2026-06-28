@@ -75,7 +75,7 @@ get_header();
             <div class="container container--page">
                 <div class="fu-principles__inner">
                     <p class="fu-eyebrow">Design Principles Behind This Block</p>
-                    <p class="fu-principles__lede">The goal is not just to add filters. The component needs to make content easier to find, safer to manage, and consistent as the library grows.</p>
+                    <p class="fu-principles__heading fu-case-section__heading">The goal is not just to add filters. The component needs to make content easier to find, safer to manage, and consistent as the library grows.</p>
 
                     <div class="fu-principles__grid">
                         <div class="fu-principles__item">
