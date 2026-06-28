@@ -19,11 +19,11 @@ get_header();
                         <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>A reusable ACF-powered block for browsing structured content by category with smooth, no-reload filtering. Built to make growing content libraries easier to explore without making the editing experience harder.</p>
+                            <p>Content libraries become less useful when visitors cannot quickly find what matters. This reusable WordPress section turns growing collections into a clear, filterable browsing experience without making content harder to manage.</p>
                             <ul class="fu-portfolio-piece__lead-points">
-                                <li>CPT and taxonomy structure instead of hard-coded content groups</li>
-                                <li>No-reload filtering that keeps the page feeling fast</li>
-                                <li>Responsive card layouts designed for growing content libraries</li>
+                                <li>Helps visitors narrow large content sets quickly</li>
+                                <li>Keeps entries managed in WordPress instead of one-off layouts</li>
+                                <li>Supports responsive browsing for resource libraries and similar collections</li>
                             </ul>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ get_header();
                         <figure class="fu-portfolio-piece__lead-figure">
                             <img src="<?php echo esc_url(home_url('/wp-content/uploads/2026/05/page-filtered-content-grid-hero.webp')); ?>" alt="Planning, wireframing, and building process collage for the Filtered Content Grid project.">
                         </figure>
-                        <p class="fu-portfolio-piece__lead-caption">Built as a focused WordPress content component: structured data underneath, polished interaction on the front end.</p>
+                        <p class="fu-portfolio-piece__lead-caption">Built as a focused WordPress content component: easier browsing for visitors, predictable management for editors.</p>
                     </div>
 
                     <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
@@ -42,11 +42,11 @@ get_header();
                         </div>
                         <div class="fu-portfolio-piece__meta-item">
                             <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                            <span class="fu-portfolio-piece__meta-value">CPT + Taxonomy</span>
+                            <span class="fu-portfolio-piece__meta-value">WordPress content + categories</span>
                         </div>
                         <div class="fu-portfolio-piece__meta-item">
                             <span class="fu-portfolio-piece__meta-label">Key Strength</span>
-                            <span class="fu-portfolio-piece__meta-value">Smooth front-end filtering</span>
+                            <span class="fu-portfolio-piece__meta-value">Fast content discovery</span>
                         </div>
                     </div>
                 </div>
@@ -56,10 +56,10 @@ get_header();
         <section class="fu-case-section">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Overview</p>
-                <h2 class="fu-case-section__heading fu-section-heading">A Better Way to Browse Structured Content</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">When Content Grows, Browsing Has to Stay Simple</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>As content libraries grow, they often become harder to browse. Category archive pages can feel clunky, and manually curated layouts become difficult to maintain.</p>
-                    <p>This block provides instant category filtering without page reloads, helping visitors narrow content quickly while editors continue managing entries as structured WordPress content.</p>
+                    <p>As libraries expand, visitors need a faster way to get from a broad collection to the item that fits their need.</p>
+                    <p>This section supports that search while keeping content manageable for editors. Entries stay structured in WordPress, and the front end gives users a clearer path through them.</p>
                 </div>
             </div>
         </section>
@@ -75,22 +75,22 @@ get_header();
             <div class="container container--page">
                 <div class="fu-principles__inner">
                     <p class="fu-eyebrow">Design Principles Behind This Block</p>
-                    <p class="fu-principles__lede">Flexible where it matters, consistent where it counts. This block gives editors meaningful control while keeping layout, styling, and output predictable across the site.</p>
+                    <p class="fu-principles__lede">The goal is not just to add filters. The component needs to make content easier to find, safer to manage, and consistent as the library grows.</p>
 
                     <div class="fu-principles__grid">
                         <div class="fu-principles__item">
                             <h3>Start with structured content</h3>
-                            <p>The block is built around a clear content model using post types and taxonomies, so filtering feels natural instead of forced.</p>
+                            <p>Filtering works best when the content model is clear, so categories reflect how people actually browse the library.</p>
                         </div>
 
                         <div class="fu-principles__item">
                             <h3>Keep interactions fast and predictable</h3>
-                            <p>Filtering happens instantly without page reloads, allowing users to explore content quickly without losing context.</p>
+                            <p>Visitors can explore without losing context, waiting through reloads, or backing out of archive pages.</p>
                         </div>
 
                         <div class="fu-principles__item">
                             <h3>Limit controls to what matters</h3>
-                            <p>Editors can adjust key content and display options without turning the block into a complex configuration interface.</p>
+                            <p>Editors get the controls they need without turning routine updates into layout decisions.</p>
                         </div>
                     </div>
                 </div>
@@ -112,11 +112,11 @@ get_header();
         <section class="fu-case-section">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Implementation</p>
-                <h2 class="fu-case-section__heading fu-section-heading">Stable First Load, Enhanced Interaction</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">Reliable First Load, Faster Browsing Afterward</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>The grid is server-rendered on initial load to ensure consistent output and avoid layout shifts. From there, filtering is handled on the front end using the WordPress REST API.</p>
+                    <p>The grid loads with stable markup first, so content remains readable, accessible, and reliable before any enhanced interaction runs.</p>
 
-                    <p>This approach keeps the experience fast and responsive while maintaining a reliable baseline for SEO, accessibility, and content rendering.</p>
+                    <p>Filtering then updates the results in place, keeping the experience responsive while preserving a maintainable WordPress content structure.</p>
                 </div>
             </div>
         </section>
@@ -126,9 +126,9 @@ get_header();
                 <p class="fu-eyebrow">Outcome</p>
                 <h2 class="fu-case-section__heading fu-section-heading">Reusable Across Real Content Systems</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>This block was built to improve how structured content is browsed, without adding complexity to how it’s managed. By combining a clear content model with fast front-end filtering, it produces a smoother experience for both editors and users.</p>
+                    <p>This block improves how structured content is browsed without adding complexity to how it is managed.</p>
 
-                    <p>The same pattern can be applied to resource libraries, case studies, service collections, or team directories—making it a flexible solution for content-heavy sites that need better organization and discoverability.</p>
+                    <p>The same pattern can support resource libraries, case studies, service collections, or team directories where discoverability matters.</p>
                 </div>
             </div>
         </section>
@@ -147,8 +147,8 @@ get_header();
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
-                    <h2 class="fu-portfolio-piece__closing-heading">Need a better way to organize and browse structured content?</h2>
-                    <p class="fu-portfolio-piece__closing-body">I build WordPress components that make content easier to manage, easier to scale, and easier for visitors to use.</p>
+                    <h2 class="fu-portfolio-piece__closing-heading">Need help implementing maintainable WordPress features?</h2>
+                    <p class="fu-portfolio-piece__closing-body">I help agencies build responsive, editor-friendly WordPress features that are easier to ship, support, and hand off.</p>
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
