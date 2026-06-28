@@ -33,15 +33,14 @@ if ($editor_experience_url === '') {
 
                         <div class="fu-portfolio-piece__lead-body">
                             <p>
-                                This is not just a tabs block. It's a structured content system designed to help editors organize
-                                complex page content into clearly scoped panels—with confidence that the layout, interaction, and
-                                visual style will stay consistent across every use.
+                                Some pages need to serve different audiences, services, or decision paths without turning into
+                                a long stack of repeated sections. The Content Switcher gives teams a structured way to organize
+                                that content while keeping the page easy to scan.
                             </p>
 
                             <p>
-                                Editors choose the display style, control spacing and backgrounds, and manage panel content
-                                independently—while the block enforces accessible interaction patterns and responsive behavior
-                                without requiring any custom development.
+                                Editors can update each panel independently while the component protects the layout, interaction,
+                                and responsive behavior that make the pattern dependable in production.
                             </p>
                         </div>
                     </div>
@@ -52,8 +51,8 @@ if ($editor_experience_url === '') {
                                 alt="Content Switcher block process collage showing planning, editor controls, and front-end interaction.">
                         </figure>
                         <p class="fu-portfolio-piece__lead-caption">
-                            A reusable content system—not just a tabs block—designed to handle structured information
-                            at the component level while keeping editing predictable.
+                            A reusable content system designed to help teams organize structured information while keeping
+                            editing predictable.
                         </p>
                     </div>
 
@@ -78,19 +77,19 @@ if ($editor_experience_url === '') {
         <section class="fu-case-section" id="overview">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Overview</p>
-                <h2 class="fu-case-section__heading fu-section-heading">The Problem with Content-Heavy Pages</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">When One Page Needs to Serve More Than One Path</h2>
 
                 <div class="fu-case-section__body fu-section-body">
                     <p>
-                        Pages that cover a lot of ground tend to become long, repetitive, or hard to scan. Editors end up
-                        stacking sections that cover similar topics, and visitors have to scroll through content that doesn't
-                        apply to them.
+                        Some pages need to compare options, speak to multiple audiences, or group related information without
+                        making every visitor read every section. Left unchecked, those pages become long, repetitive, and hard
+                        to scan.
                     </p>
 
                     <p>
-                        Structured switcher panels offer a better model: group related content into clearly labeled sections,
-                        let visitors navigate directly to what they need, and give editors a consistent publishing pattern
-                        instead of rebuilding layouts from scratch each time.
+                        A switcher pattern works when the content belongs together but each path needs its own focused space.
+                        Visitors can move directly to what matters, and editors get a repeatable publishing pattern instead
+                        of rebuilding the layout for every new page.
                     </p>
                 </div>
             </div>
@@ -176,25 +175,24 @@ if ($editor_experience_url === '') {
         <section class="fu-case-section" id="editor-experience">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Editor Experience</p>
-                <h2 class="fu-case-section__heading fu-section-heading">Two Distinct Roles, One Consistent Component</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">Clear Editing Boundaries Without Custom Layout Work</h2>
 
                 <div class="fu-case-section__body fu-section-body">
                     <p>
-                        The parent block owns the switcher-level configuration: display style, nav behavior, spacing,
-                        backgrounds, border radius, and shared visual settings. These apply across all panels and define
-                        how the component looks and behaves as a unit.
+                        Editors should not have to decide where the layout begins and ends every time they update a page.
+                        The switcher keeps the shared presentation in one place, so spacing, backgrounds, navigation, and
+                        responsive behavior stay consistent across every panel.
                     </p>
 
                     <p>
-                        Each child panel controls its own content independently: label, icon, panel media, body content,
-                        highlight items, call-to-action buttons, and a deep link anchor. That separation makes it easy to
-                        update or reorder panels without affecting the overall structure.
+                        Each panel gives editors a clear place to manage the content that belongs to that path: label, icon,
+                        media, body copy, highlights, buttons, and a deep link. Panels can be updated or reordered without
+                        rebuilding the surrounding component.
                     </p>
 
                     <p>
-                        The editor also includes utility controls that only appear in the block editor—panel identification
-                        labels and a one-click deep link copy tool—so editors can navigate and share specific panels without
-                        any of those utilities appearing on the public front end.
+                        Editor-only utilities, including panel labels and one-click deep link copying, support the publishing
+                        workflow without leaking those controls onto the public front end.
                     </p>
                 </div>
             </div>
@@ -203,24 +201,24 @@ if ($editor_experience_url === '') {
         <section class="fu-case-section" id="implementation">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Implementation</p>
-                <h2 class="fu-case-section__heading fu-section-heading">One Component, Multiple Display Modes, Accessible by Architecture</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">Built to Stay Reusable, Accessible, and Predictable</h2>
 
                 <div class="fu-case-section__body fu-section-body">
                     <p class="fu-content-switcher-portfolio__implementation-intro">
-                        The block uses a parent/child ACF architecture so the switcher owns the configuration while each
-                        panel manages its own content. The front end is built around accessible tab semantics, scoped
-                        instance data, responsive fallbacks, and modifier-driven display variants instead of one-off templates.
+                        The block separates shared presentation from panel content so editors get flexibility without
+                        one-off layout work. The front end handles accessible interaction, scoped instance data, responsive
+                        fallbacks, and reusable display variants in one dependable system.
                     </p>
                 </div>
 
                 <div class="fu-principles__grid fu-principles__grid--compact" aria-label="Implementation capabilities">
                     <div class="fu-principles__item fu-principles__item--compact">
-                        <h3>Parent/Child ACF Architecture</h3>
+                        <h3>Structured Editor Model</h3>
                         <p>Parent settings control the switcher while each panel manages its own content.</p>
                     </div>
 
                     <div class="fu-principles__item fu-principles__item--compact">
-                        <h3>Accessible Tab Semantics</h3>
+                        <h3>Accessible Interaction Built In</h3>
                         <p>Server-rendered tab and tabpanel markup supports assistive technology.</p>
                     </div>
 
@@ -230,7 +228,7 @@ if ($editor_experience_url === '') {
                     </div>
 
                     <div class="fu-principles__item fu-principles__item--compact">
-                        <h3>Instance-Safe Deep Links</h3>
+                        <h3>Safe Deep Linking</h3>
                         <p>Panel hashes are scoped so multiple switchers can coexist on one page.</p>
                     </div>
 
@@ -240,7 +238,7 @@ if ($editor_experience_url === '') {
                     </div>
 
                     <div class="fu-principles__item fu-principles__item--compact">
-                        <h3>Scoped CSS Variables</h3>
+                        <h3>Portable Visual System</h3>
                         <p>Display variants share one system instead of duplicated stylesheets.</p>
                     </div>
 
@@ -297,9 +295,9 @@ if ($editor_experience_url === '') {
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
-                    <h2 class="fu-portfolio-piece__closing-heading">Need a structured content component that editors can actually use?</h2>
+                    <h2 class="fu-portfolio-piece__closing-heading">Need WordPress components that are easier to launch, reuse, and maintain?</h2>
                     <p class="fu-portfolio-piece__closing-body">
-                        I build WordPress blocks that solve real content problems — structured panels, accessible interactions, and editor controls that hold up in production.
+                        I help agencies turn complex content needs into dependable WordPress features, with thoughtful front-end implementation, guided editor controls, and production-ready behavior.
                     </p>
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
