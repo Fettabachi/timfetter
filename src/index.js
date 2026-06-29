@@ -5,8 +5,10 @@ import SkipLinkFocusFix from "./modules/SkipLinkFocusFix";
 import ToggleNavMenu from "./modules/ToggleNavMenu";
 import A11yDialog from "./modules/A11yDialog";
 import HandleOnPageLinks from "./modules/HandleOnPageLinks";
+import ResourceSectionNav from "./modules/ResourceSectionNav";
 
 const handleOnPageLinks = new HandleOnPageLinks();
+const resourceSectionNav = new ResourceSectionNav();
 const checkIsTouchDevice = new CheckIsTouchDevice();
 const checkBrowser = new CheckBrowser();
 const skipLinkFocusFix = new SkipLinkFocusFix();

@@ -124,38 +124,28 @@ if (! function_exists('fu_resource_single_parse_content')) {
     }
 }
 
-if (! function_exists('fu_resource_single_get_format_label')) {
-    function fu_resource_single_get_format_label($primary_term)
+if (! function_exists('fu_resource_single_get_nav_label')) {
+    function fu_resource_single_get_nav_label($heading)
     {
-        $term_name = $primary_term ? $primary_term->name : '';
-        $formats = [
-            'checklists' => 'Checklist',
-            'guides'     => 'Guide',
-            'templates'  => 'Template',
-            'tools'      => 'Toolkit',
-            'tutorials'  => 'Tutorial',
+        $label_map = [
+            'the problem this solves' => 'Problem',
+            'what is a wordpress ability?' => 'WordPress Ability',
+            'why structure and permissions matter' => 'Permissions',
+            'how this can provide value to clients' => 'Client Value',
+            'how this can provide value to agencies' => 'Agency Value',
+            'example: a read-only system audit' => 'System Audit',
+            'where live audit results belong' => 'Audit Results',
+            'what authorized editors can see' => 'Editor View',
+            'how this connects to acf and editor-friendly wordpress builds' => 'Editor-Friendly Builds',
+            'technical note' => 'Technical Note',
+            'the takeaway' => 'Takeaway',
+            'further reading' => 'Further Reading',
         ];
 
-        return $formats[strtolower($term_name)] ?? 'Resource';
-    }
-}
+        $heading = trim((string) $heading);
+        $lookup_key = strtolower($heading);
 
-if (! function_exists('fu_resource_single_get_first_use_case')) {
-    function fu_resource_single_get_first_use_case($sections)
-    {
-        foreach ($sections as $section) {
-            if (strcasecmp($section['title'], 'Use this when') !== 0) {
-                continue;
-            }
-
-            if (! preg_match('/<li\b[^>]*>(.*?)<\/li>/is', $section['content'], $matches)) {
-                return '';
-            }
-
-            return trim(html_entity_decode(wp_strip_all_tags($matches[1]), ENT_QUOTES, get_bloginfo('charset')));
-        }
-
-        return '';
+        return $label_map[$lookup_key] ?? $heading;
     }
 }
 
@@ -221,31 +211,13 @@ $resource_content = apply_filters('the_content', get_the_content());
 $resource_content_parts = fu_resource_single_parse_content($resource_content);
 $resource_sections = $resource_content_parts['sections'];
 $resource_further_reading_links = fu_resource_single_get_further_reading_links();
-$resource_glance_items = [
-    [
-        'label' => 'Resource type',
-        'value' => $primary_term ? $primary_term->name : '',
-    ],
-    [
-        'label' => 'Best for',
-        'value' => fu_resource_single_get_first_use_case($resource_sections),
-    ],
-    [
-        'label' => 'Format',
-        'value' => fu_resource_single_get_format_label($primary_term),
-    ],
-];
-$resource_glance_items = array_filter(
-    $resource_glance_items,
-    function ($item) {
-        return trim((string) $item['value']) !== '';
-    }
-);
+$resource_jump_link_count = count($resource_sections) + (! empty($resource_further_reading_links) ? 1 : 0);
+$resource_section_nav_id = 'resource-section-nav-links-' . get_the_ID();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-resource-single'); ?>>
     <div class="container">
-        <div class="fu-resource-single__inner">
+        <div id="top" class="fu-resource-single__inner">
 
             <nav class="fu-resource-single__back" aria-label="Back navigation">
                 <a href="<?php echo esc_url(home_url('/filtered-content-grid/')); ?>">← Back to Resource Library</a>
@@ -275,27 +247,27 @@ $resource_glance_items = array_filter(
                 <?php endif; ?>
             </header>
 
-            <?php if (! empty($resource_glance_items)) : ?>
-                <div class="fu-resource-single__glance" aria-label="Resource summary">
-                    <?php foreach ($resource_glance_items as $item) : ?>
-                        <div class="fu-resource-single__glance-item">
-                            <span class="fu-resource-single__glance-label"><?php echo esc_html($item['label']); ?></span>
-                            <span class="fu-resource-single__glance-value"><?php echo esc_html($item['value']); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-
             <?php if (! empty($resource_sections)) : ?>
                 <nav class="fu-resource-single__section-nav" aria-label="Resource section navigation">
-                    <p class="fu-resource-single__section-nav-label">Jump to sections</p>
-                    <div class="fu-resource-single__section-nav-links">
-                        <?php foreach ($resource_sections as $section) : ?>
-                            <a href="#<?php echo esc_attr($section['id']); ?>"><?php echo esc_html($section['title']); ?></a>
-                        <?php endforeach; ?>
-                        <?php if (! empty($resource_further_reading_links)) : ?>
-                            <a href="#resource-further-reading-heading">Further reading</a>
-                        <?php endif; ?>
+                    <button
+                        class="fu-resource-single__section-nav-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="<?php echo esc_attr($resource_section_nav_id); ?>">
+                        <span>Browse sections (<?php echo esc_html($resource_jump_link_count); ?>)</span>
+                        <span class="fu-resource-single__section-nav-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="fu-resource-single__section-nav-expander" id="<?php echo esc_attr($resource_section_nav_id); ?>">
+                        <div class="fu-resource-single__section-nav-expander-content">
+                            <div class="fu-resource-single__section-nav-links">
+                                <?php foreach ($resource_sections as $section) : ?>
+                                    <a href="#<?php echo esc_attr($section['id']); ?>"><?php echo esc_html(fu_resource_single_get_nav_label($section['title'])); ?></a>
+                                <?php endforeach; ?>
+                                <?php if (! empty($resource_further_reading_links)) : ?>
+                                    <a href="#resource-further-reading-heading"><?php echo esc_html(fu_resource_single_get_nav_label('Further reading')); ?></a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                     </div>
                 </nav>
             <?php endif; ?>
@@ -367,6 +339,10 @@ $resource_glance_items = array_filter(
                     </div>
                 </section>
             <?php endif; ?>
+
+            <div class="fu-resource-single__back-to-top">
+                <a href="#top">Back to top ↑</a>
+            </div>
 
             <?php if ($related_resources->have_posts()) : ?>
                 <section class="fu-resource-single__related">
