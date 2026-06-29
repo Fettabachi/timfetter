@@ -561,8 +561,7 @@ $proof_cards_demos = array(
                             <p class="fu-eyebrow">Reusable WordPress Section</p>
                             <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                             <div class="fu-portfolio-piece__lead-body">
-                                <p>Proof Cards is a structured social proof block for WordPress that helps editors combine testimonials, metrics, client outcomes, logos, and source attribution in one reusable system.</p>
-                                <p>Instead of building one-off testimonial sections, teams can reuse the same pattern wherever proof needs to feel credible and easy to manage.</p>
+                                <p>Most trust content starts strong, then becomes scattered across pages or difficult for editors to maintain. Proof Cards gives testimonials, outcomes, metrics, logos, and supporting evidence a reusable structure that keeps credibility clear and consistent over time.</p>
                             </div>
                         </div>
 
@@ -570,7 +569,7 @@ $proof_cards_demos = array(
                             <figure class="fu-portfolio-piece__lead-figure">
                                 <img src="<?php echo esc_url($proof_cards_hero_media_uri); ?>" alt="Proof Cards ACF block planning notebook, implementation code, and WordPress editor preview.">
                             </figure>
-                            <p class="fu-portfolio-piece__lead-caption">A parent/child block system for turning quotes, outcomes, metrics, and source details into reusable proof sections.</p>
+                            <p class="fu-portfolio-piece__lead-caption">A reusable proof system for turning testimonials, outcomes, metrics, and source details into clear, editor-safe credibility sections.</p>
                         </div>
 
                         <div class="fu-portfolio-piece__meta fu-portfolio-piece__meta--hero-row">
@@ -580,7 +579,7 @@ $proof_cards_demos = array(
                             </div>
                             <div class="fu-portfolio-piece__meta-item">
                                 <span class="fu-portfolio-piece__meta-label">Content Model</span>
-                                <span class="fu-portfolio-piece__meta-value">Parent/child block architecture</span>
+                                <span class="fu-portfolio-piece__meta-value">Editor-safe content structure</span>
                             </div>
                             <div class="fu-portfolio-piece__meta-item">
                                 <span class="fu-portfolio-piece__meta-label">Key Strength</span>
@@ -596,8 +595,8 @@ $proof_cards_demos = array(
                     <p class="fu-eyebrow">Overview</p>
                     <h2 class="fu-case-section__heading fu-section-heading">From generic testimonials to structured proof</h2>
                     <div class="fu-case-section__body fu-section-body">
-                        <p>Most testimonial sections stop at a quote, name, and title. Proof Cards gives editors a more useful structure: outcome metrics, proof statements, source details, optional images or logos, and links to deeper case studies or reviews.</p>
-                        <p>The point is not just attractive cards. It’s a better content model for trust signals, so editors can reuse the same pattern wherever credibility matters.</p>
+                        <p>Most testimonial sections stop at a quote, name, and title. Proof Cards gives editors a clearer way to pair customer feedback with outcomes, source details, optional images or logos, and links to deeper case studies or reviews.</p>
+                        <p>The point is not just attractive cards. It is a reusable credibility pattern that keeps trust signals consistent across the pages where they matter most.</p>
                     </div>
                 </div>
             </section>
@@ -669,10 +668,10 @@ $proof_cards_demos = array(
 
             <section class="fu-case-section" id="technical-approach">
                 <div class="fu-case-section__inner container container--readable">
-                    <p class="fu-eyebrow">Technical Notes</p>
-                    <h2 class="fu-case-section__heading fu-section-heading">Technical approach</h2>
+                    <p class="fu-eyebrow">Maintainable Implementation</p>
+                    <h2 class="fu-case-section__heading fu-section-heading">Implementation choices that keep the block maintainable</h2>
                     <div class="fu-case-section__body fu-section-body">
-                        <p>The implementation uses ACF parent/child blocks, InnerBlocks, structured fields, a limited WYSIWYG statement field, scoped CSS variables, and responsive CSS Grid. It supports optional logos and images, accessible source attribution, and rebrandable styling without requiring JavaScript in v1.</p>
+                        <p>The block separates shared section controls from individual proof items, so editors can manage content naturally while the layout stays consistent. Structured fields and scoped styles keep the component portable, predictable, and easier to hand off.</p>
                     </div>
 
                     <div class="fu-principles__grid fu-principles__grid--compact fu-proof-page__spaced-grid" aria-label="Technical approach highlights">
@@ -727,8 +726,8 @@ $proof_cards_demos = array(
                 <div class="container container--page">
                     <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                         <p class="fu-eyebrow">Closing Thought</p>
-                        <h2 class="fu-portfolio-piece__closing-heading">Need a better way to structure proof content?</h2>
-                        <p class="fu-portfolio-piece__closing-body">I build WordPress components that help editors present credibility clearly, reuse content intelligently, and keep the front end consistent.</p>
+                        <h2 class="fu-portfolio-piece__closing-heading">Need WordPress components that make important content easier to manage?</h2>
+                        <p class="fu-portfolio-piece__closing-body">I build reusable WordPress sections that help agencies turn design systems, content models, and editor workflows into dependable production components.</p>
 
                         <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                             <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
