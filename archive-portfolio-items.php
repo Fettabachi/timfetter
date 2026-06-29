@@ -188,55 +188,6 @@ $get_portfolio_card_kicker = static function ($post_id) {
 
     return '';
 };
-
-$get_portfolio_focus_labels = static function ($post_id) {
-    $labels = array();
-
-    $focus_fields = array(
-        'focus_tags',
-        'focus_areas',
-        'skills',
-    );
-
-    foreach ($focus_fields as $focus_field_key) {
-        $value = get_field($focus_field_key, $post_id);
-
-        if (is_array($value)) {
-            foreach ($value as $item) {
-                if (is_array($item) && !empty($item['label'])) {
-                    $labels[] = (string) $item['label'];
-                } elseif (is_string($item) && trim($item) !== '') {
-                    $labels[] = trim($item);
-                }
-            }
-        } elseif (is_string($value) && trim($value) !== '') {
-            $labels[] = trim($value);
-        }
-    }
-
-    $portfolio_content = get_field('portfolio_content', $post_id);
-
-    if (is_array($portfolio_content) && !empty($portfolio_content['skills']) && is_array($portfolio_content['skills'])) {
-        foreach ($portfolio_content['skills'] as $skill_item) {
-            if (is_array($skill_item) && !empty($skill_item['label'])) {
-                $labels[] = (string) $skill_item['label'];
-            } elseif (is_string($skill_item) && trim($skill_item) !== '') {
-                $labels[] = trim($skill_item);
-            }
-        }
-    }
-
-    if (empty($labels)) {
-        return array();
-    }
-
-    $labels = array_map('trim', $labels);
-    $labels = array_filter($labels, static function ($item) {
-        return $item !== '';
-    });
-
-    return array_values(array_unique($labels));
-};
 ?>
 
 <main id="primary" class="site-main">
@@ -359,7 +310,6 @@ $get_portfolio_focus_labels = static function ($post_id) {
                             <?php
                             $portfolio_card_link = get_permalink();
                             $portfolio_card_kicker = $get_portfolio_card_kicker(get_the_ID());
-                            $portfolio_focus_labels = $get_portfolio_focus_labels(get_the_ID());
                             $portfolio_excerpt = has_excerpt() ? get_the_excerpt() : wp_trim_words(wp_strip_all_tags(get_the_content()), 26);
                             ?>
 
@@ -389,10 +339,6 @@ $get_portfolio_focus_labels = static function ($post_id) {
 
                                     <?php if ($portfolio_excerpt !== '') : ?>
                                         <p class="fu-work-card__text"><?php echo esc_html($portfolio_excerpt); ?></p>
-                                    <?php endif; ?>
-
-                                    <?php if (!empty($portfolio_focus_labels)) : ?>
-                                        <p class="fu-work-card__text"><strong>Focus:</strong> <?php echo esc_html(implode(', ', array_slice($portfolio_focus_labels, 0, 4))); ?></p>
                                     <?php endif; ?>
 
                                     <span class="fu-work-card__link">View case study</span>

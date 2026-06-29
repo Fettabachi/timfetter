@@ -175,12 +175,12 @@ $earlier_work = array(
     array(
         'title' => 'Omni Hotels & Resorts',
         'slug' => 'omni-hotels-resorts',
-        'summary' => 'Front-end implementation, CMS updates, reusable templates, and production support for hospitality site work inside an established team workflow.',
+        'summary' => 'Helped implement Omni\'s brand refresh through accessible, responsive UI work, including a custom interactive Special Offers experience.',
     ),
     array(
         'title' => 'National University',
         'slug' => 'national-university',
-        'summary' => 'Responsive front-end implementation, CMS/page-builder updates, and reusable page support across a large higher-education content surface.',
+        'summary' => 'Built enrollment-focused interfaces that helped prospective students discover programs and complete applications more easily.',
     ),
     // array(
     //     'title' => 'Fibroid Foundation',
@@ -190,7 +190,7 @@ $earlier_work = array(
     array(
         'title' => 'Blackberry Farm & Blackberry Mountain',
         'slug' => 'blackberry-farm-blackberry-mountain',
-        'summary' => 'Front-end implementation, responsive UI refinements, reusable component updates, and ongoing production support for hospitality web properties.',
+        'summary' => 'Improved luxury reservation workflows by adapting complex booking components into responsive, user-friendly experiences.',
     ),
 );
 ?>
@@ -369,7 +369,7 @@ $earlier_work = array(
                             <div class="fu-section-head">
                                 <p class="fu-eyebrow">Earlier work</p>
                                 <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected Client Work</h2>
-                                <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
+                                <p class="fu-section-lede">Selected projects where I supported agency teams with front-end implementation, CMS updates, reusable templates, scripted UI components, and ongoing production improvements.</p>
                             </div>
 
                             <div class="fu-home__legacy-grid fu-work-grid">
@@ -427,9 +427,6 @@ $earlier_work = array(
                             <div class="fu-home-contract-work__footer">
                                 <a class="fu-home-contract-work__section-cta fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="/work/#contract-work">View More Contract Work</a>
                             </div>
-                            <!-- <div class="fu-home__section-footer fu-home__section-footer--compact">
-                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_archive_url); ?>">View all work</a>
-                            </div> -->
                         </div>
                     </section>
 
