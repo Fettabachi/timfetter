@@ -1221,7 +1221,7 @@ h2.fu-block-navigation__heading,
 	margin-inline: 0;
 
 	&.readable-text {
-		width: var(--fu-container-readable);
+		max-width: var(--fu-container-readable);
 		margin-inline: auto;
 	}
 }
