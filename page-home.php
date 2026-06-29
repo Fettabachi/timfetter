@@ -40,7 +40,6 @@ if (!$portfolio_archive_url) {
 $service_lanes = array(
     array(
         'title' => 'WordPress Development Support',
-        'summary' => 'Theme and template work, ACF Blocks, structured content, page-builder cleanup, responsive fixes, reusable components, editor-friendly implementation, and ongoing site improvements.',
         'points' => array(
             'WordPress theme and template work',
             'ACF Blocks and structured content',
@@ -51,8 +50,7 @@ $service_lanes = array(
         ),
     ),
     array(
-        'title' => 'Front-End Design & UI Implementation',
-        'summary' => 'Responsive HTML, CSS, and JavaScript implementation for custom layouts, interface states, workflow screens, and front-end polish that may live inside WordPress or another production system.',
+        'title' => 'Front-End Implementation',
         'points' => array(
             'Responsive HTML/CSS/JS implementation',
             'Custom UI layouts and content sections',
@@ -249,7 +247,6 @@ $earlier_work = array(
                                 <?php foreach ($service_lanes as $lane) : ?>
                                     <article class="fu-home__service-card">
                                         <h3><?php echo esc_html($lane['title']); ?></h3>
-                                        <p class="fu-home__service-summary"><?php echo esc_html($lane['summary']); ?></p>
                                         <ul class="fu-home__service-list">
                                             <?php foreach ($lane['points'] as $point) : ?>
                                                 <li><?php echo esc_html($point); ?></li>
