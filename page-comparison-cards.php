@@ -31,9 +31,9 @@ if ($editor_experience_url === '') {
                         <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>A reusable WordPress comparison block for memberships, service tiers, packages, and product options—built around editor-friendly card blocks, optional pricing, accessible feature states, and responsive layouts.</p>
+                            <p>When visitors need to compare options, the content has to stay clear, consistent, and easy to update. Comparison Cards gives editors a reusable way to manage plans, services, packages, or product options without rebuilding the layout every time.</p>
                             <ul class="fu-portfolio-piece__lead-points">
-                                <li>Parent/child card structure instead of dense repeater fields</li>
+                                <li>One editable card per option instead of dense repeater fields</li>
                                 <li>Optional pricing and feature states without rigid table markup</li>
                                 <li>Responsive comparison layouts that stay readable on small screens</li>
                             </ul>
@@ -117,14 +117,14 @@ if ($editor_experience_url === '') {
         <section class="fu-case-section">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">The Approach</p>
-                <h2 class="fu-case-section__heading fu-section-heading">Parent Controls Layout, Each Card Controls Its Own Content</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">One Layout. Independent Content.</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>Instead of placing every option inside a single repeater, the Comparison Cards block uses a parent/child architecture where:</p>
+                    <p>The block keeps shared presentation in one place while each comparison option stays easy to manage on its own:</p>
 
                     <ul class="fu-case-section__list">
                         <li><strong>The parent block</strong> owns the section heading, intro text, layout choice, card style, and background styling.</li>
                         <li><strong>Each child card block</strong> manages its own plan or package name, description, pricing, CTA, and feature list.</li>
-                        <li><strong>Editors add, reorder, and duplicate cards</strong> directly in the block canvas—no nested field navigation.</li>
+                        <li><strong>Editors add, reorder, and duplicate cards</strong> directly in the block canvas.</li>
                         <li><strong>Pricing is optional</strong>, so the block works for more than traditional pricing tables—it can compare anything.</li>
                         <li><strong>Feature groups are semantic</strong>: included, limited, not included, and highlighted—not color-coded.</li>
                         <li><strong>Feature content is rich</strong>, allowing lists, descriptions, and context instead of one-line-only text.</li>
@@ -138,13 +138,12 @@ if ($editor_experience_url === '') {
                 <p class="fu-eyebrow">Editor Experience</p>
                 <h2 class="fu-case-section__heading fu-section-heading">Designed for the Block Canvas, Not a Settings Panel</h2>
                 <div class="fu-case-section__body fu-section-body">
-                    <p>Instead of using a crowded repeater or a complex settings interface, each comparison option is an individual child block in the canvas. This keeps the editing surface focused and natural.</p>
+                    <p>Editors work with the comparison directly in the block canvas instead of digging through a crowded settings interface. This keeps the editing surface focused and natural.</p>
 
                     <ul class="fu-case-section__list">
                         <li><strong>No nested repeaters</strong>—cards are visible as blocks, not hidden in a field stack.</li>
-                        <li><strong>Canvas-based controls</strong>—parent and child options are accessible without leaving the editor.</li>
-                        <li><strong>Card-level independence</strong>—each card has its own title, description, pricing, and feature list.</li>
-                        <li><strong>Parent/child separation</strong>—the parent controls overall layout and styling; cards control their own content.</li>
+                        <li><strong>Canvas-based controls</strong>—section and card options are accessible without leaving the editor.</li>
+                        <li><strong>Guided card fields</strong>—each card has a clear place for its title, description, pricing, and feature list.</li>
                         <li><strong>Editor/frontend parity</strong>—what editors see in the canvas matches what visitors see on the front end.</li>
                     </ul>
                 </div>
@@ -172,17 +171,16 @@ if ($editor_experience_url === '') {
         <section class="fu-case-section">
             <div class="fu-case-section__inner container container--readable">
                 <p class="fu-eyebrow">Technical Highlights</p>
-                <h2 class="fu-case-section__heading fu-section-heading">Built for Scale and Maintainability</h2>
+                <h2 class="fu-case-section__heading fu-section-heading">Built to Stay Reliable Over Time</h2>
                 <div class="fu-case-section__body fu-section-body">
                     <ul class="fu-case-section__list">
-                        <li><strong>ACF parent/child blocks</strong>—InnerBlocks API for native block management.</li>
-                        <li><strong>CSS Grid responsive layout</strong>—mobile 1-col, tablet 2-col, desktop 3-col with intentional breakpoints.</li>
-                        <li><strong>No JavaScript required</strong>—all layout and interaction is CSS or semantic markup.</li>
-                        <li><strong>Editor-specific handling</strong>—Gutenberg InnerBlocks wrappers are styled separately to match front-end output.</li>
-                        <li><strong>Optional pricing</strong>—prefix, value, suffix, and note fields work independently.</li>
-                        <li><strong>Safe WYSIWYG output</strong>—feature content is rendered through WordPress content filters.</li>
-                        <li><strong>Design-token theming</strong>—CSS custom properties allow multi-variant styling (None, Cool Tint, Dark, Warm Tint).</li>
-                        <li><strong>Token cleanup</strong>—no scattered hard-coded colors, all values are source variables or derived semantic roles.</li>
+                        <li><strong>Native block management</strong>—editors can add, duplicate, and reorder cards using familiar WordPress controls.</li>
+                        <li><strong>Responsive CSS Grid</strong>—cards move from one to three columns with intentional breakpoints.</li>
+                        <li><strong>No JavaScript required</strong>—layout and card presentation rely on CSS and semantic markup.</li>
+                        <li><strong>Matched editor output</strong>—Gutenberg wrapper styles are handled so the canvas stays close to the front end.</li>
+                        <li><strong>Flexible pricing fields</strong>—prefix, value, suffix, and note fields work independently.</li>
+                        <li><strong>Filtered feature content</strong>—rich feature copy still renders through WordPress content filters.</li>
+                        <li><strong>Design-token theming</strong>—CSS custom properties keep visual variants portable and easier to rebrand.</li>
                     </ul>
                 </div>
             </div>
@@ -195,7 +193,7 @@ if ($editor_experience_url === '') {
                 <div class="fu-case-section__body fu-section-body">
                     <p>The result is a comparison block that feels polished on the front end and manageable in the editor. It works for memberships, service tiers, packages, programs, or product options—without locking the client into a rigid pricing-table model.</p>
 
-                    <p>The parent/child architecture means editors never have to dig into dense nested fields. Each option is its own block, making comparison content as easy to manage as any other page block.</p>
+                    <p>Editors can add, reorder, or update options without asking for a new layout each time. That keeps comparison content easier to maintain as offers change.</p>
                 </div>
             </div>
         </section>
@@ -224,8 +222,8 @@ if ($editor_experience_url === '') {
             <div class="container container--page">
                 <div class="fu-cta-panel--dark fu-portfolio-piece__closing-inner fu-cta-panel">
                     <p class="fu-eyebrow">Closing Thought</p>
-                    <h2 class="fu-portfolio-piece__closing-heading">Need a better way to build and manage comparison content?</h2>
-                    <p class="fu-portfolio-piece__closing-body">I build WordPress components that make content easier to edit, easier to style, and easier for visitors to understand.</p>
+                    <h2 class="fu-portfolio-piece__closing-heading">Need WordPress components your clients can actually maintain?</h2>
+                    <p class="fu-portfolio-piece__closing-body">I help agencies build dependable WordPress sections with thoughtful front-end implementation, guided editor controls, and clean handoff.</p>
 
                     <div class="fu-portfolio-piece__actions fu-cta-panel__actions">
                         <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>

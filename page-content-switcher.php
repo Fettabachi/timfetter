@@ -136,7 +136,7 @@ if ($editor_experience_url === '') {
                 <div class="fu-principles__inner">
                     <p class="fu-eyebrow">Design Principles</p>
 
-                    <p class="fu-content-switcher-portfolio__principles-intro">
+                    <p class="fu-principles__heading fu-case-section__heading">
                         Each decision in this block was made to reduce the gap between what an editor can do and what the front end
                         actually needs to support.
                     </p>
