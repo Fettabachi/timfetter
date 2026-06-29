@@ -29,9 +29,6 @@ get_header();
                 <div class="fu-contact-page__service-stack">
                     <article class="fu-contact-page__service-card">
                         <h3>WordPress Development Support</h3>
-                        <p>
-                            Theme and template updates, ACF Blocks, page-builder cleanup, responsive fixes, and content structures that are easier for editors to maintain.
-                        </p>
                         <ul>
                             <li>WordPress theme and template work</li>
                             <li>ACF Blocks and editor-friendly content fields</li>
@@ -41,10 +38,7 @@ get_header();
                     </article>
 
                     <article class="fu-contact-page__service-card">
-                        <h3>Front-End Design &amp; UI Implementation</h3>
-                        <p>
-                            Responsive HTML, CSS, and JavaScript implementation for custom layouts, interface states, workflow screens, and production-ready front-end polish.
-                        </p>
+                        <h3>Front-End Implementation</h3>
                         <ul>
                             <li>Responsive HTML/CSS/JS implementation</li>
                             <li>Custom UI layouts and content sections</li>
