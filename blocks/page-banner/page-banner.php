@@ -28,7 +28,8 @@ $padding_bottom = get_field('padding_bottom') ?: 'medium';
 
 // Visual Filters & Overlays
 $contrast     = get_field('banner_contrast') ?? '100';
-$grayscale    = get_field('banner_grayscale') ? '100%' : '0%';
+$grayscale_raw = get_field('banner_grayscale') ? 1 : 0;
+$grayscale    = $grayscale_raw ? '100%' : '0%';
 $saturate     = get_field('banner_saturation') ?: '100';
 $blur         = get_field('pause_blur_intensity') ?: '0';
 $brand_hex    = get_field('banner_overlay_brand_color') ?: '#000000';
@@ -131,6 +132,19 @@ if (is_admin()) : ?>
 <section id="<?php echo esc_attr($block['anchor'] ?? $block_id); ?>"
     class="<?php echo esc_attr(implode(' ', $classes)); ?>"
     style="<?php echo esc_attr($style_string); ?>"
+    data-overlay-blend-mode="<?php echo esc_attr($blend_mode); ?>"
+    data-overlay-opacity="<?php echo esc_attr($opacity_raw); ?>"
+    data-overlay-color="<?php echo esc_attr($brand_hex); ?>"
+    data-overlay-contrast="<?php echo esc_attr($contrast); ?>"
+    data-overlay-grayscale="<?php echo esc_attr($grayscale_raw); ?>"
+    data-banner-saturation="<?php echo esc_attr($saturate); ?>"
+    data-blur-on-pause="<?php echo esc_attr($blur); ?>"
+    data-content-alignment="<?php echo esc_attr($alignment); ?>"
+    data-bg-focal-point="<?php echo esc_attr($focal_point); ?>"
+    data-show-subhead="<?php echo esc_attr($show_subhead ? '1' : '0'); ?>"
+    data-show-body="<?php echo esc_attr($show_body ? '1' : '0'); ?>"
+    data-show-btn-1="<?php echo esc_attr($show_btn_1 ? '1' : '0'); ?>"
+    data-show-btn-2="<?php echo esc_attr($show_btn_2 ? '1' : '0'); ?>"
     <?php echo $banner_args; // No escaping needed for hardcoded data-args 
     ?>>
     <?php if (!is_admin()) : ?>

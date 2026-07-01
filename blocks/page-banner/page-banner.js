@@ -25,6 +25,23 @@
 		pause_blur_intensity: 7,
 		bg_focal_point: "center center",
 	};
+	const RESET_FIELD_NAMES = [
+		"banner_contrast",
+		"banner_grayscale",
+		"banner_saturation",
+		"pause_blur_intensity",
+		"banner_overlay_brand_color",
+		"banner_overlay_opacity",
+		"bg_focal_point",
+		"banner_overlay_blend_mode",
+		"alignment_buttons",
+		"show_subhead",
+		"show_body",
+		"show_btn_1",
+		"show_btn_2",
+	];
+	const bannerResetBaselines = new Map();
+	let fallbackResetBaselineId = 0;
 	const BANNER_HEADING_ROLE_CLASSES = [
 		"fu-page-banner__primary-heading",
 		"fu-page-banner__subhead",
@@ -56,6 +73,15 @@
 		}
 		return Boolean(value);
 	};
+
+	const normalizeNumericValue = (value) => {
+		if (value === undefined || value === null || value === "") return null;
+		const normalized = Number(String(value).replace(/[^0-9.-]/g, ""));
+		return Number.isFinite(normalized) ? normalized : null;
+	};
+
+	const normalizeCssValue = (value) =>
+		typeof value === "string" ? value.trim() : "";
 
 	const getFieldElement = (field) =>
 		field?.$el?.get?.(0) || field?.$el?.[0] || null;
@@ -326,6 +352,172 @@
 				".acf-block-fields"
 			) ||
 			null
+		);
+	};
+
+	const getResetBaselineKey = (blockEl) => {
+		if (!blockEl) return "";
+
+		const component = getBannerComponentElement(blockEl);
+		const clientId =
+			component?.closest?.("[data-block]")?.dataset?.block ||
+			component?.dataset?.block ||
+			"";
+
+		if (clientId) return clientId;
+
+		if (!blockEl.dataset.fuResetBaselineKey) {
+			fallbackResetBaselineId += 1;
+			blockEl.dataset.fuResetBaselineKey = `page-banner-${fallbackResetBaselineId}`;
+		}
+
+		return blockEl.dataset.fuResetBaselineKey;
+	};
+
+	const readRenderedBannerResetValues = (banner) => {
+		if (!banner) return null;
+
+		const style = banner.style;
+		const overlayOpacity =
+			normalizeNumericValue(banner.dataset.overlayOpacity) ??
+			(() => {
+				const cssOpacity = normalizeNumericValue(
+					style.getPropertyValue("--banner-overlay-opacity")
+				);
+				return cssOpacity === null ? null : Math.round(cssOpacity * 100);
+			})();
+		const contrast =
+			normalizeNumericValue(banner.dataset.overlayContrast) ??
+			normalizeNumericValue(style.getPropertyValue("--banner-contrast"));
+		const saturation =
+			normalizeNumericValue(banner.dataset.bannerSaturation) ??
+			normalizeNumericValue(style.getPropertyValue("--banner-saturate"));
+		const blur =
+			normalizeNumericValue(banner.dataset.blurOnPause) ??
+			normalizeNumericValue(style.getPropertyValue("--banner-blur"));
+		const grayscale =
+			normalizeNumericValue(banner.dataset.overlayGrayscale) ??
+			(normalizeCssValue(style.getPropertyValue("--banner-grayscale")) ===
+			"100%"
+				? 1
+				: 0);
+		const alignment =
+			normalizeCssValue(banner.dataset.contentAlignment) ||
+			ALIGNMENT_CLASSES.reduce((current, className) => {
+				if (current || !banner.classList.contains(className)) return current;
+				return className.replace("fu-page-banner--align-", "");
+			}, "");
+
+		return {
+			banner_contrast: contrast,
+			banner_grayscale: grayscale ? 1 : 0,
+			banner_saturation: saturation,
+			pause_blur_intensity: blur,
+			banner_overlay_brand_color:
+				normalizeCssValue(banner.dataset.overlayColor) ||
+				normalizeCssValue(style.getPropertyValue("--banner-overlay-color")),
+			banner_overlay_opacity: overlayOpacity,
+			bg_focal_point:
+				normalizeCssValue(banner.dataset.bgFocalPoint) ||
+				normalizeCssValue(
+					style.getPropertyValue("--banner-video-focal-point")
+				),
+			banner_overlay_blend_mode:
+				normalizeCssValue(banner.dataset.overlayBlendMode) ||
+				normalizeCssValue(style.getPropertyValue("--banner-blend-mode")),
+			alignment_buttons: alignment,
+			show_subhead: normalizeBooleanValue(
+				banner.dataset.showSubhead,
+				!banner.classList.contains("hide-subhead")
+			)
+				? 1
+				: 0,
+			show_body: normalizeBooleanValue(
+				banner.dataset.showBody,
+				!banner.classList.contains("hide-body")
+			)
+				? 1
+				: 0,
+			show_btn_1: normalizeBooleanValue(
+				banner.dataset.showBtn1,
+				!banner.classList.contains("hide-btn-1")
+			)
+				? 1
+				: 0,
+			show_btn_2: normalizeBooleanValue(
+				banner.dataset.showBtn2,
+				!banner.classList.contains("hide-btn-2")
+			)
+				? 1
+				: 0,
+		};
+	};
+
+	const readCurrentFieldResetValues = (blockEl) => {
+		if (!blockEl || typeof acf?.getFields !== "function") return null;
+
+		const fields = acf.getFields({ parent: blockEl }) || [];
+		const values = {};
+
+		fields.forEach((field) => {
+			const name = field?.get?.("name");
+			if (!RESET_FIELD_NAMES.includes(name)) return;
+			values[name] = field.val();
+		});
+
+		return Object.keys(values).length > 0 ? values : null;
+	};
+
+	const compactResetValues = (values) => {
+		const compacted = {};
+
+		RESET_FIELD_NAMES.forEach((name) => {
+			if (values?.[name] !== undefined && values[name] !== null) {
+				compacted[name] = values[name];
+			}
+		});
+
+		return compacted;
+	};
+
+	const captureBannerResetBaseline = (fieldOrElement) => {
+		const blockEl = getBannerFieldsContainer(fieldOrElement);
+		if (!blockEl) return null;
+
+		const baselineKey = getResetBaselineKey(blockEl);
+		if (baselineKey && bannerResetBaselines.has(baselineKey)) {
+			return bannerResetBaselines.get(baselineKey);
+		}
+
+		const banner = getBannerPreviewElement(blockEl);
+		const baseline = compactResetValues({
+			...(readCurrentFieldResetValues(blockEl) || {}),
+			...(readRenderedBannerResetValues(banner) || {}),
+		});
+
+		if (Object.keys(baseline).length > 0 && baselineKey) {
+			bannerResetBaselines.set(baselineKey, baseline);
+		}
+
+		return baseline;
+	};
+
+	const captureAllBannerResetBaselines = () => {
+		document
+			.querySelectorAll(".acf-block-fields")
+			.forEach((blockEl) => {
+				if (blockEl.querySelector(".fu-banner-reset")) {
+					captureBannerResetBaseline(blockEl);
+				}
+			});
+	};
+
+	const getBannerResetBaseline = (blockEl) => {
+		const baselineKey = getResetBaselineKey(blockEl);
+		return (
+			(baselineKey && bannerResetBaselines.get(baselineKey)) ||
+			captureBannerResetBaseline(blockEl) ||
+			{}
 		);
 	};
 
@@ -646,8 +838,19 @@
 			requestAnimationFrame(() => {
 				migratePageBannerHeadingClasses();
 				syncHeadingFieldLabels();
+				captureAllBannerResetBaselines();
 			});
 		});
+		acf.addAction("append", () => {
+			requestAnimationFrame(captureAllBannerResetBaselines);
+		});
+		acf.addAction("change", (field) => {
+			const blockEl = getBannerFieldsContainer(field);
+			if (blockEl?.querySelector?.(".fu-banner-reset")) {
+				captureBannerResetBaseline(blockEl);
+			}
+		});
+		requestAnimationFrame(captureAllBannerResetBaselines);
 
 		const requestEditorPlayback = (video, banner, button) => {
 			if (banner.hasAttribute("data-manual-pause")) return;
@@ -884,23 +1087,7 @@
 	};
 
 	function resetBannerFields(blockEl) {
-		const defaults = {
-			banner_contrast: 100,
-			banner_grayscale: 0,
-			banner_saturation: 100,
-			pause_blur_intensity: 7,
-			banner_overlay_brand_color: "#000000",
-			banner_overlay_opacity: 50,
-			bg_focal_point: "center center",
-			banner_overlay_blend_mode: "normal",
-			// alignment_buttons is a button_group field (treated like a radio)
-			alignment_buttons: "center",
-			// visibility controls - true means show (don't apply hide class)
-			show_subhead: 1,
-			show_body: 1,
-			show_btn_1: 1,
-			show_btn_2: 1,
-		};
+		const defaults = getBannerResetBaseline(blockEl);
 		const fields = acf.getFields({ parent: blockEl });
 		if (!fields.length) return;
 		fields.forEach((field) => {
