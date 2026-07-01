@@ -251,7 +251,7 @@
 .page-contact .fu-contact-page .forminator-input:focus,
 .page-contact .fu-contact-page .forminator-textarea:focus {
 	outline: 3px solid
-		color-mix(in srgb, var(--fu-yellow, #f4d35e) 48%, transparent);
+		color-mix(in srgb, var(--fu-blue, #0d3b66) 48%, transparent);
 	outline-offset: 2px;
 	border-color: var(--fu-blue, #0d3b66);
 	box-shadow: 0 0.85rem 1.6rem rgba(13, 59, 102, 0.08);
