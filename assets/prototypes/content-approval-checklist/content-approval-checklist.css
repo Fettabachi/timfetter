@@ -17,12 +17,6 @@
 	max-width: min(100%, 1120px);
 }
 
-.fu-content-approval-checklist-demo *,
-.fu-content-approval-checklist-demo *::before,
-.fu-content-approval-checklist-demo *::after {
-	box-sizing: border-box;
-}
-
 .fu-content-approval-checklist-demo .fu-demo-shell {
 	width: 100%;
 	margin-inline: auto;
