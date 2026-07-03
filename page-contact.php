@@ -14,16 +14,16 @@ get_header();
 <main id="primary" class="site-main">
     <div class="fu-contact-page container container--page">
         <div class="fu-contact-page__intro">
-            <p class="fu-kicker">Contact</p>
+            <p class="fu-eyebrow fu-eyebrow--inverse fu-eyebrow--pill">Contact</p>
             <h1>Tell me what you need built, fixed, or improved</h1>
-            <p>
+            <p class="fu-section-lede fu-section-lede--inverse fu-contact-page__lede">
                 Share a few details about the site, project, timeline, or problem you’re trying to solve.<br> I can help with WordPress work, front-end implementation, responsive polish, cleanup, and editor-friendly enhancements across a range of web projects.
             </p>
         </div>
 
         <div class="fu-contact-page__layout">
             <div class="fu-contact-page__details">
-                <p class="fu-contact-page__eyebrow">How I can help</p>
+                <p class="fu-eyebrow fu-eyebrow--inverse fu-contact-page__eyebrow">How I can help</p>
                 <h2>Common requests</h2>
 
                 <div class="fu-contact-page__service-stack">
@@ -51,7 +51,7 @@ get_header();
 
             <div class="fu-contact-page__form">
                 <h2>Send a message</h2>
-                <p>
+                <p class="fu-contact-page__form-intro">
                     Share the page, block, bug, design file, or workflow that needs attention, plus any timeline, access, or review details that would help me understand the next step.
                 </p>
 
