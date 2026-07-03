@@ -717,9 +717,6 @@ h2.fu-block-navigation__heading,
 .fu-block-navigation__intro {
 	margin: 0.75rem 0 0;
 	max-width: 44rem;
-	color: var(--fu-text-muted);
-	font-size: 1rem;
-	line-height: 1.65;
 }
 
 .fu-block-navigation__collection {
@@ -768,6 +765,12 @@ h2.fu-block-navigation__heading,
 	color: var(--fu-text-muted);
 	font-size: 0.92rem;
 	line-height: 1.45;
+}
+
+@media (min-width: 768px) {
+	.fu-block-navigation__pager-link--next .fu-block-navigation__pager-kicker {
+		justify-self: end;
+	}
 }
 
 @media (max-width: 900px) {

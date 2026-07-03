@@ -64,7 +64,7 @@ $next_key       = $current_index < count($prototype_keys) - 1 ? $prototype_keys[
             <div class="fu-block-navigation__header">
                 <p class="fu-eyebrow">Front-End UI Examples</p>
                 <h2 id="fu-prototype-navigation-heading" class="fu-block-navigation__heading">Explore more Front-End UI Examples</h2>
-                <p class="fu-block-navigation__intro">
+                <p class="fu-section-lede fu-block-navigation__intro">
                     Interactive front-end examples showing how workflows, decision points, state changes, and handoff details can be clarified before full production development.
                 </p>
             </div>

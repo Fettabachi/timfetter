@@ -76,7 +76,7 @@ $next_key      = $current_index < count($project_keys) - 1 ? $project_keys[$curr
             <div class="fu-block-navigation__header">
                 <p class="fu-eyebrow">Selected contract work</p>
                 <h2 id="fu-contract-work-navigation-heading" class="fu-block-navigation__heading">Explore more selected contract work</h2>
-                <p class="fu-block-navigation__intro">
+                <p class="fu-section-lede fu-block-navigation__intro">
                     A few examples of production WordPress and front-end implementation work completed in support of larger client and agency projects.
                 </p>
             </div>
