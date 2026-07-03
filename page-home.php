@@ -406,7 +406,7 @@ $earlier_work = array(
                                             </div>
 
                                             <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
+                                                <p class="fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post->post_title); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                                 <span class="fu-work-card__link">View case study</span>
@@ -416,7 +416,7 @@ $earlier_work = array(
                                         <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
                                             <div class="fu-home__legacy-card-media fu-work-card__media"></div>
                                             <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
+                                                <p class="fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($item['title']); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                             </div>
