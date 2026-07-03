@@ -41,15 +41,8 @@
 }
 
 .fu-content-approval-checklist-demo .fu-demo-shell__eyebrow {
-	display: inline-flex;
-	align-items: center;
 	margin: 0 0 0.65rem;
 	color: #93c5fd;
-	font-size: 0.8125rem;
-	font-weight: 700;
-	letter-spacing: 0.14em;
-	line-height: 1.2;
-	text-transform: uppercase;
 }
 
 .fu-content-approval-checklist-demo .fu-demo-shell__heading {

@@ -10,7 +10,7 @@
 <div class="fu-client-timeline-demo" data-client-project-timeline>
     <div class="fu-demo-shell">
         <div class="fu-demo-shell__framing">
-            <p class="fu-demo-shell__eyebrow">Live Component Preview</p>
+            <p class="fu-eyebrow fu-demo-shell__eyebrow">Live Component Preview</p>
             <h2 class="fu-demo-shell__heading">Test project timeline states</h2>
             <p class="fu-demo-shell__instruction">Try it: Change the tracking mode, milestone count, and current progress to test different workflow states. On wider screens, you can also switch the timeline layout.</p>
         </div>

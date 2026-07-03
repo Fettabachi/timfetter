@@ -10,7 +10,7 @@
 <div class="fu-project-scope-estimator-demo" data-project-scope-estimator>
     <div class="fu-demo-shell">
         <div class="fu-demo-shell__framing">
-            <p class="fu-demo-shell__eyebrow">Live Component Preview</p>
+            <p class="fu-eyebrow fu-demo-shell__eyebrow">Live Component Preview</p>
             <h2 class="fu-demo-shell__heading">Test project scope scenarios</h2>
             <p class="fu-demo-shell__instruction">Try it: Choose a project type, select feature needs, and adjust content/design readiness to see how the project summary responds.</p>
         </div>

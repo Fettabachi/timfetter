@@ -34,16 +34,8 @@
 		margin-bottom: 2.5rem;
 	}
 	.fu-demo-shell__eyebrow {
-		align-items: center;
 		color: #93c5fd;
-		display: inline-flex;
-		font-size: 0.8125rem;
-		font-weight: 700;
-		gap: 0;
-		letter-spacing: 0.14em;
-		line-height: 1.2;
 		margin: 0;
-		text-transform: uppercase;
 	}
 	.fu-demo-shell__heading {
 		font-family: "Raleway", sans-serif;

@@ -9,7 +9,7 @@
 <div class="fu-content-approval-checklist-demo" data-content-approval-checklist>
     <div class="fu-demo-shell">
         <div class="fu-demo-shell__framing">
-            <p class="fu-demo-shell__eyebrow">Live Component Preview</p>
+            <p class="fu-eyebrow fu-demo-shell__eyebrow">Live Component Preview</p>
             <h2 class="fu-demo-shell__heading">Test content approval states</h2>
             <p class="fu-demo-shell__instruction">Try it: Change item statuses and filter the checklist to see how launch readiness responds.</p>
         </div>
