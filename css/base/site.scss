@@ -1158,11 +1158,11 @@ h2 {
 	grid-template-columns: 1fr;
 }
 
-.fu-work-grid--archive .fu-work-card__media {
+.fu-work-card--short-media .fu-work-card__media {
 	height: clamp(200px, 48vw, 240px);
 }
 
-.fu-work-grid--archive .fu-work-card__media img {
+.fu-work-card--short-media .fu-work-card__media img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -1514,7 +1514,7 @@ h2 {
 		grid-template-columns: repeat(1, minmax(0, 1fr));
 	}
 
-	.fu-work-grid--archive .fu-work-card__media {
+	.fu-work-card--short-media .fu-work-card__media {
 		height: clamp(220px, 18vw, 260px);
 	}
 

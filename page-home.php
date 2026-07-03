@@ -378,7 +378,7 @@ $earlier_work = array(
                                     $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
                                     ?>
                                     <?php if ($portfolio_post) : ?>
-                                        <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
+                                        <a class="fu-work-card fu-work-card--linked fu-work-card--short-media" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
                                             <div class="fu-work-card__media">
                                                 <?php if (has_post_thumbnail($portfolio_post)) : ?>
                                                     <?php
@@ -413,7 +413,7 @@ $earlier_work = array(
                                             </div>
                                         </a>
                                     <?php else : ?>
-                                        <article class="fu-work-card fu-work-card--legacy">
+                                        <article class="fu-work-card fu-work-card--legacy fu-work-card--short-media">
                                             <div class="fu-work-card__media"></div>
                                             <div class="fu-work-card__body">
                                                 <p class="fu-work-card__kicker">Contract support</p>

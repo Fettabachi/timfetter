@@ -313,7 +313,7 @@ $get_portfolio_card_kicker = static function ($post_id) {
                             $portfolio_excerpt = has_excerpt() ? get_the_excerpt() : wp_trim_words(wp_strip_all_tags(get_the_content()), 26);
                             ?>
 
-                            <a class="fu-work-card fu-work-card--linked" href="<?php echo esc_url($portfolio_card_link); ?>">
+                            <a class="fu-work-card fu-work-card--linked fu-work-card--short-media" href="<?php echo esc_url($portfolio_card_link); ?>">
                                 <?php if (has_post_thumbnail()) : ?>
                                     <div class="fu-work-card__media">
                                         <?php
