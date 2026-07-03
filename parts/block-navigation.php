@@ -57,7 +57,7 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
             <nav class="fu-block-navigation__pager" aria-label="Previous and next ACF block builds">
                 <?php if ($previous_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--previous" href="<?php echo esc_url($resolve_block_url($previous_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">&larr; Previous section</span>
+                        <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__pager-kicker">&larr; Previous section</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($blocks[$previous_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -66,7 +66,7 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
 
                 <?php if ($next_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--next" href="<?php echo esc_url($resolve_block_url($next_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">Next section &rarr;</span>
+                        <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__pager-kicker">Next section &rarr;</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($blocks[$next_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -89,7 +89,7 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
                         <li class="fu-block-navigation__item">
                             <?php if ($key === $current) : ?>
                                 <div class="fu-block-navigation__card fu-block-navigation__card--current" aria-current="page">
-                                    <span class="fu-block-navigation__status">Currently viewing</span>
+                                    <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__status">Currently viewing</span>
                                     <h3 class="fu-block-navigation__card-title"><?php echo esc_html($block['label']); ?></h3>
                                     <p class="fu-block-navigation__card-description"><?php echo esc_html($block['description']); ?></p>
                                 </div>

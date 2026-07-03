@@ -555,6 +555,11 @@ h2 {
 	color: var(--fu-text-muted-on-inverse);
 }
 
+.fu-eyebrow--compact {
+	font-size: 0.76rem;
+	letter-spacing: 0.04em;
+}
+
 .fu-eyebrow--pill {
 	display: inline-flex;
 	align-items: center;
