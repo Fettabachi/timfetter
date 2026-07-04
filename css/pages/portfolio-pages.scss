@@ -717,9 +717,6 @@ h2.fu-block-navigation__heading,
 .fu-block-navigation__intro {
 	margin: 0.75rem 0 0;
 	max-width: 44rem;
-	color: var(--fu-text-muted);
-	font-size: 1rem;
-	line-height: 1.65;
 }
 
 .fu-block-navigation__collection {
@@ -770,13 +767,19 @@ h2.fu-block-navigation__heading,
 	line-height: 1.45;
 }
 
+@media (min-width: 541px) {
+	.fu-block-navigation__pager-link--next .fu-block-navigation__pager-kicker {
+		justify-self: end;
+	}
+}
+
 @media (max-width: 900px) {
 	.fu-block-navigation__grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 540px) {
 	.fu-block-navigation__inner {
 		padding: 1rem;
 	}

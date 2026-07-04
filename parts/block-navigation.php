@@ -77,7 +77,7 @@ $next_key      = $current_index < count($block_keys) - 1 ? $block_keys[$current_
             <div class="fu-block-navigation__header">
                 <p class="fu-eyebrow">REUSABLE WORDPRESS SECTIONS</p>
                 <h2 id="fu-block-navigation-heading" class="fu-block-navigation__heading">Explore more reusable sections</h2>
-                <p class="fu-block-navigation__intro">
+                <p class="fu-section-lede fu-block-navigation__intro">
                     These reusable sections are designed for flexible content needs, safer editing, and a smoother WordPress editor experience. Explore any example to see how it works and how it can help pages stay easier to update.
 
                 </p>

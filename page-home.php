@@ -378,8 +378,8 @@ $earlier_work = array(
                                     $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
                                     ?>
                                     <?php if ($portfolio_post) : ?>
-                                        <a class="fu-home__legacy-card fu-work-card fu-work-card--linked" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
-                                            <div class="fu-home__legacy-card-media fu-work-card__media">
+                                        <a class="fu-work-card fu-work-card--linked fu-work-card--short-media" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
+                                            <div class="fu-work-card__media">
                                                 <?php if (has_post_thumbnail($portfolio_post)) : ?>
                                                     <?php
                                                     $thumbnail_id = get_post_thumbnail_id($portfolio_post);
@@ -405,18 +405,18 @@ $earlier_work = array(
                                                 <?php endif; ?>
                                             </div>
 
-                                            <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
+                                            <div class="fu-work-card__body">
+                                                <p class="fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post->post_title); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                                 <span class="fu-work-card__link">View case study</span>
                                             </div>
                                         </a>
                                     <?php else : ?>
-                                        <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
-                                            <div class="fu-home__legacy-card-media fu-work-card__media"></div>
-                                            <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
+                                        <article class="fu-work-card fu-work-card--legacy fu-work-card--short-media">
+                                            <div class="fu-work-card__media"></div>
+                                            <div class="fu-work-card__body">
+                                                <p class="fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($item['title']); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                             </div>

@@ -60,7 +60,7 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
             <div class="fu-block-navigation__header">
                 <p class="fu-eyebrow">Related WordPress work</p>
                 <h2 id="fu-wordpress-system-navigation-heading" class="fu-block-navigation__heading">Explore more editor-friendly WordPress work</h2>
-                <p class="fu-block-navigation__intro">
+                <p class="fu-section-lede fu-block-navigation__intro">
                     Examples showing how reusable sections, editor workflows, and structured templates can support maintainable pages after handoff.
                 </p>
             </div>
