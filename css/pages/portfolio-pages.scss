@@ -767,7 +767,7 @@ h2.fu-block-navigation__heading,
 	line-height: 1.45;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 541px) {
 	.fu-block-navigation__pager-link--next .fu-block-navigation__pager-kicker {
 		justify-self: end;
 	}
@@ -779,7 +779,7 @@ h2.fu-block-navigation__heading,
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 540px) {
 	.fu-block-navigation__inner {
 		padding: 1rem;
 	}
