@@ -180,6 +180,20 @@ wp-content/plugins/timfetter-portfolio-abilities/
 
 This workflow intentionally keeps the theme repository root as-is. Treat `tracked-plugins/timfetter-portfolio-abilities/` as the source-controlled copy, and deploy/copy it to the active plugins directory whenever the plugin changes. When editing the Portfolio Abilities plugin, make changes in `tracked-plugins/timfetter-portfolio-abilities/` first, then copy those changes to the active WordPress plugin directory for local testing.
 
+## Global Layout System
+
+The shared layout foundation lives in `css/base/layout.css`. It provides reusable page-width, editorial-grid, and generic grid utilities without introducing a layout framework.
+
+A live layout reference template is available in `page-layouts.php` and rendered through `template-parts/content-page-layouts.php`. Assign the `Layouts` template to a page in WordPress when you want a front-end reference for the layout system.
+
+### What It Provides
+
+- `.container` and container size modifiers for centered wrappers
+- `.content-grid` for readable default content with controlled breakout zones
+- `.grid` with shared gap utilities
+- intrinsic auto-grid utilities for repeated items
+- split-layout utilities for simple two-column compositions
+
 ### Containers
 
 Use `.container` for a centered wrapper with consistent side gutters. Add one size modifier to change the maximum width.
