@@ -260,6 +260,41 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
     return $urls;
 }
 
+/**
+ * Remove users from the native WordPress XML sitemap.
+ */
+function timfetter_remove_users_from_sitemap($provider, $name)
+{
+    if ('users' === $name) {
+        return false;
+    }
+
+    return $provider;
+}
+add_filter('wp_sitemaps_add_provider', 'timfetter_remove_users_from_sitemap', 10, 2);
+
+/**
+ * Keep only selected post types in the native WordPress XML sitemap.
+ */
+function timfetter_filter_sitemap_post_types($post_types)
+{
+    $allowed_post_types = [
+        'page',
+        'post',
+        'resource',
+        'portfolio-items',
+    ];
+
+    foreach ($post_types as $post_type_name => $post_type_object) {
+        if (! in_array($post_type_name, $allowed_post_types, true)) {
+            unset($post_types[$post_type_name]);
+        }
+    }
+
+    return $post_types;
+}
+add_filter('wp_sitemaps_post_types', 'timfetter_filter_sitemap_post_types');
+
 /*  DISABLE GUTENBERG STYLE IN HEADER| WordPress 5.9 */
 // function wps_deregister_styles() {
 //     wp_dequeue_style( 'global-styles' );
