@@ -101,7 +101,7 @@ $resume_client_work_links = array(
             </div>
 
             <p class="fu-section-lede resume-hero__summary">
-                I help agencies, designers, and businesses turn approved designs and project requirements into polished, maintainable WordPress and front-end interfaces. My work focuses on custom theme implementation, ACF-powered content systems, responsive layouts, interactive UI, and practical improvements that make sites easier to maintain after launch. I collaborate comfortably with designers, project managers, developers, and business owners on scoped builds, overflow support, and ongoing improvements.
+                I help agencies, designers, and businesses turn approved designs and project requirements into polished, maintainable WordPress and front-end interfaces. My work focuses on custom theme implementation, reusable WordPress sections, responsive layouts, interactive UI, and practical improvements that are easier to maintain after launch.
             </p>
 
             <div class="resume-hero__actions" aria-label="Resume actions">
@@ -186,7 +186,7 @@ $resume_client_work_links = array(
 </main><!-- #main -->
 
 <script>
-    (function () {
+    (function() {
         var printLinks = Array.prototype.slice.call(document.querySelectorAll('[data-print-href]'));
 
         if (!printLinks.length) {
@@ -194,7 +194,7 @@ $resume_client_work_links = array(
         }
 
         function usePrintLinks() {
-            printLinks.forEach(function (link) {
+            printLinks.forEach(function(link) {
                 if (!link.dataset.screenHref) {
                     link.dataset.screenHref = link.getAttribute('href') || '';
                 }
@@ -204,7 +204,7 @@ $resume_client_work_links = array(
         }
 
         function useScreenLinks() {
-            printLinks.forEach(function (link) {
+            printLinks.forEach(function(link) {
                 if (link.dataset.screenHref) {
                     link.setAttribute('href', link.dataset.screenHref);
                 }
@@ -213,7 +213,7 @@ $resume_client_work_links = array(
 
         if (window.matchMedia) {
             var printMedia = window.matchMedia('print');
-            var handlePrintChange = function (event) {
+            var handlePrintChange = function(event) {
                 if (event.matches) {
                     usePrintLinks();
                 } else {
