@@ -1730,6 +1730,206 @@ h2.fu-block-navigation__heading,
 	background: linear-gradient(180deg, #fbfcfe 0%, #f6f8fb 100%);
 }
 
+/*
+ * Scroll-linked stopwatch inspired by Ryan Mulligan:
+ * https://ryanmulligan.dev/blog/transition-to-the-other-side/
+ *
+ * Adapted for Tim Fetter's resource article layout.
+ * Original site source licensed under MIT.
+ */
+
+.resource-scroll-timer-wrap {
+	display: none;
+	position: relative;
+}
+
+.resource-scroll-timer {
+	display: none;
+	opacity: 0;
+	scale: 0.9;
+
+	cursor: help;
+	outline: none;
+}
+
+.resource-scroll-timer:focus-visible {
+	outline: 2px solid var(--fu-orange);
+	outline-offset: 0.25rem;
+}
+
+.resource-scroll-timer__credit {
+	position: absolute;
+	top: 0;
+	left: 110%;
+
+	width: 17rem;
+	max-width: calc(100vw - 6rem);
+	margin: 0;
+	padding: 0.75rem 1rem;
+
+	border-radius: 0.5rem;
+	background: var(--fu-blue);
+	color: var(--fu-white);
+	box-shadow: 0 0.75rem 2rem rgba(13, 59, 102, 0.2);
+
+	font-size: 0.8125rem;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: left;
+
+	opacity: 0;
+	visibility: hidden;
+	translate: 0.25rem 0;
+	pointer-events: none;
+
+	transition:
+		opacity 160ms ease,
+		visibility 160ms ease,
+		translate 160ms ease;
+
+	z-index: 20;
+}
+
+.resource-scroll-timer-wrap:hover .resource-scroll-timer__credit,
+.resource-scroll-timer-wrap:focus-within .resource-scroll-timer__credit {
+	opacity: 1;
+	visibility: visible;
+	translate: 0 0;
+}
+
+/*
+ * Only reveal the component when the browser supports
+ * CSS scroll-driven animations.
+ */
+@supports (animation-timeline: scroll()) {
+	@property --resource-scroll-progress {
+		syntax: "<number>";
+		initial-value: 0;
+		inherits: false;
+	}
+
+	@media (min-width: 78.125rem) {
+		.resource-scroll-timer-wrap {
+			--resource-scroll-timer-size: 2.5rem;
+
+			display: grid;
+			place-items: center;
+
+			position: sticky;
+			top: 5rem;
+
+			width: var(--resource-scroll-timer-size);
+			height: var(--resource-scroll-timer-size);
+			margin-block: 0;
+			margin-inline-start: calc(
+				(var(--resource-scroll-timer-size) + 1.5rem) * -1
+			);
+
+			z-index: 10;
+		}
+
+		.resource-scroll-timer {
+			--resource-scroll-timer-size: 2.5rem;
+			--resource-scroll-start: 10rem;
+			--resource-scroll-end: calc(100% - 4rem);
+			--resource-scroll-timer-face: #e8edf2;
+			--resource-scroll-timer-progress: var(--fu-orange);
+
+			display: grid;
+			place-items: center;
+
+			/* position: sticky;
+			top: 5rem; */
+
+			width: var(--resource-scroll-timer-size);
+			height: var(--resource-scroll-timer-size);
+			margin-block: 0;
+			/* margin-inline-start: calc(
+				(var(--resource-scroll-timer-size) + 1.5rem) * -1
+			); */
+
+			border-radius: 50%;
+			color: var(--fu-blue);
+			background: conic-gradient(
+				from 45deg,
+				var(--resource-scroll-timer-progress)
+					calc(var(--resource-scroll-progress) * 1%),
+				transparent 0
+			);
+
+			/*
+			 * Progress runs through the page timeline.
+			 * The entrance animation runs only across its short range.
+			 * Further Reading visibility is handled by the
+			 * .is-hidden state rather than a page-percentage animation.
+			 */
+			animation-name: resource-scroll-progress, resource-scroll-timer-appear;
+			animation-duration: 1ms;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: scroll(root block), scroll(root block),
+				scroll(root block);
+			animation-range:
+				var(--resource-scroll-start) var(--resource-scroll-end),
+				var(--resource-scroll-start) calc(var(--resource-scroll-start) + 3rem),
+				var(--resource-scroll-start) calc(var(--resource-scroll-start) + 3rem);
+
+			transition:
+				opacity 200ms ease,
+				scale 200ms ease;
+			rotate: -10deg;
+			z-index: 1;
+		}
+
+		.resource-scroll-timer__icon {
+			display: block;
+			width: calc(var(--resource-scroll-timer-size) / 1.25);
+			height: calc(var(--resource-scroll-timer-size) / 1.25);
+			overflow: visible;
+		}
+
+		.resource-scroll-timer__face {
+			fill: var(--resource-scroll-timer-face);
+		}
+
+		.resource-scroll-timer__hand {
+			transform-origin: 50% 50%;
+			rotate: calc((var(--resource-scroll-progress) / 100) * 360deg);
+
+			animation-name: resource-scroll-progress;
+			animation-duration: 1ms;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: scroll(root block);
+			animation-range: var(--resource-scroll-start) var(--resource-scroll-end);
+		}
+	}
+
+	@keyframes resource-scroll-progress {
+		to {
+			--resource-scroll-progress: 100;
+		}
+	}
+
+	@keyframes resource-scroll-timer-appear {
+		from {
+			opacity: 0;
+			scale: 0.9;
+		}
+
+		to {
+			opacity: 1;
+			scale: 1;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.resource-scroll-timer {
+		display: none;
+	}
+}
+
 .fu-resource-single__inner {
 	margin: 0 auto;
 	max-width: min(100%, var(--fu-container-page));

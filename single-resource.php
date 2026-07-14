@@ -218,6 +218,67 @@ $resource_section_nav_id = 'resource-section-nav-links-' . get_the_ID();
 <article id="post-<?php the_ID(); ?>" <?php post_class('fu-resource-single'); ?>>
     <div class="container">
         <div id="top" class="fu-resource-single__inner">
+            <div class="resource-scroll-timer-wrap">
+                <figure
+                    class="resource-scroll-timer"
+                    tabindex="0"
+                    aria-describedby="resource-scroll-timer-credit">
+                    <svg
+                        class="resource-scroll-timer__icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                        focusable="false"
+                        aria-hidden="true">
+                        <rect width="256" height="256" fill="none"></rect>
+
+                        <circle
+                            class="resource-scroll-timer__face"
+                            cx="128"
+                            cy="128"
+                            r="88"></circle>
+
+                        <circle
+                            cx="128"
+                            cy="128"
+                            r="88"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-miterlimit="10"
+                            stroke-width="16"></circle>
+
+                        <line
+                            class="resource-scroll-timer__hand"
+                            x1="128"
+                            y1="128"
+                            x2="167.6"
+                            y2="88.4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="16"></line>
+
+                        <line
+                            x1="104"
+                            y1="8"
+                            x2="152"
+                            y2="8"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="16"></line>
+                    </svg>
+                </figure>
+
+                <p
+                    class="resource-scroll-timer__credit"
+                    id="resource-scroll-timer-credit">
+                    Scroll-progress stopwatch inspired by Ryan Mulligan’s
+                    scroll-driven animation experiment and adapted for this
+                    WordPress resource template.
+                </p>
+            </div>
 
             <nav class="fu-resource-single__back" aria-label="Back navigation">
                 <a href="<?php echo esc_url(home_url('/filtered-content-grid/')); ?>">← Back to Resource Library</a>
