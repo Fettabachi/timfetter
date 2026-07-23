@@ -236,7 +236,6 @@ address {
 .site-header {
 	position: sticky;
 	top: 0;
-	z-index: 1000;
 	padding: 0.75em 0;
 	background: var(--fu-surface-header);
 	z-index: 3;
@@ -1378,7 +1377,6 @@ h2 {
 }
 
 .fu-work-card--wordpress {
-	border-color: rgba(13, 59, 102, 0.16);
 	border: 0;
 	border-radius: 14px;
 	background: var(--fu-blue);
@@ -2051,7 +2049,6 @@ p.fu-work-card__text {
 	visibility: hidden;
 	transition: 0.3s ease-in-out;
 	transition-property: opacity, visibility, transform;
-	transform: translateY(57px);
 	transform: translateY(0px);
 	z-index: 99999;
 	background-color: #efefef;
@@ -2153,10 +2150,8 @@ p.fu-work-card__text {
 		text-align: center;
 		white-space: nowrap;
 		font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size: 12px;
 		line-height: 12px;
 		text-transform: uppercase;
-		letter-spacing: 2px;
 		font-weight: 700;
 		letter-spacing: 0.75px;
 		border-radius: 0;

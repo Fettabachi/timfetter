@@ -182,7 +182,6 @@
 
 .fu-content-approval-checklist-demo .fu-checklist__group {
 	display: grid;
-	margin-top: clamp(1.25rem, 2.4vw, 1.85rem);
 	margin-top: clamp(1.25rem, 4vw, 3rem);
 }
 
