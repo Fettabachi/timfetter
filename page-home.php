@@ -221,9 +221,10 @@ $earlier_work = array(
                                 <h1 class="fu-home__title">Polished, maintainable WordPress and front-end experiences.</h1>
                                 <p class="fu-home__lede">I help agencies, designers, and businesses bring designs to life with clean implementation, responsive polish, and pages that are easier to update.
                                 </p>
+                                <p class="status-line">Available for part-time contract and agency overflow work.</p>
 
                                 <div class="fu-home__actions">
-                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Ask About Availability</a>
                                     <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#service-lanes">See How I Can Help</a>
                                 </div>
 
