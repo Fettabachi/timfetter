@@ -15,6 +15,7 @@ if (!function_exists('base_setup')) :
         add_theme_support('editor-styles');
         add_theme_support('post-thumbnails');
         add_theme_support('title-tag');
+        add_post_type_support('page', 'excerpt');
         add_image_size('small-image', 600);
         add_image_size('wide-image', 1400);
         add_image_size('extra-wide-image', 2000);
@@ -331,11 +332,22 @@ function tf_output_meta_description()
         }
     } elseif (is_post_type_archive()) {
         $description = get_the_archive_description();
+
+        if (!$description) {
+            $archive_descriptions = array(
+                'portfolio-items' => 'Explore reusable WordPress sections, front-end UI examples, and selected client work focused on responsive, maintainable implementation.',
+                'resource' => 'Practical WordPress and front-end resources for planning content, improving accessibility, reviewing quality, and preparing websites for launch.',
+            );
+            $post_type = get_query_var('post_type');
+
+            if (is_string($post_type) && isset($archive_descriptions[$post_type])) {
+                $description = $archive_descriptions[$post_type];
+            }
+        }
     }
 
-    // 4. Final site-wide fallback.
-    if (!$description) {
-        $description = get_bloginfo('description');
+    if (!is_string($description)) {
+        return;
     }
 
     $description = strip_shortcodes($description);
@@ -343,7 +355,7 @@ function tf_output_meta_description()
     $description = preg_replace('/\s+/', ' ', $description);
     $description = trim($description);
 
-    if (!$description) {
+    if (!$description || 'my career website' === strtolower(rtrim($description, '.'))) {
         return;
     }
 
