@@ -40,7 +40,7 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
             <nav class="fu-block-navigation__pager" aria-label="Previous and next related WordPress case studies">
                 <?php if ($previous_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--previous" href="<?php echo esc_url($resolve_system_url($previous_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">&larr; Previous case study</span>
+                        <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__pager-kicker">&larr; Previous case study</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($systems[$previous_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -49,7 +49,7 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
 
                 <?php if ($next_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--next" href="<?php echo esc_url($resolve_system_url($next_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">Next case study &rarr;</span>
+                        <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__pager-kicker">Next case study &rarr;</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($systems[$next_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -60,7 +60,7 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
             <div class="fu-block-navigation__header">
                 <p class="fu-eyebrow">Related WordPress work</p>
                 <h2 id="fu-wordpress-system-navigation-heading" class="fu-block-navigation__heading">Explore more editor-friendly WordPress work</h2>
-                <p class="fu-block-navigation__intro">
+                <p class="fu-section-lede fu-block-navigation__intro">
                     Examples showing how reusable sections, editor workflows, and structured templates can support maintainable pages after handoff.
                 </p>
             </div>
@@ -71,7 +71,7 @@ $next_key      = $current_index < count($system_keys) - 1 ? $system_keys[$curren
                         <li class="fu-block-navigation__item">
                             <?php if ($key === $current) : ?>
                                 <div class="fu-block-navigation__card fu-block-navigation__card--current" aria-current="page">
-                                    <span class="fu-block-navigation__status">Currently viewing</span>
+                                    <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__status">Currently viewing</span>
                                     <h3 class="fu-block-navigation__card-title"><?php echo esc_html($system['label']); ?></h3>
                                     <p class="fu-block-navigation__card-description"><?php echo esc_html($system['description']); ?></p>
                                 </div>

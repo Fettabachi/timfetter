@@ -19,6 +19,7 @@
 		let activeVideo = null;
 		let state = null;
 		let storageKey = "";
+		const resetBaselines = new Map();
 
 		const DEFAULTS = {
 			vars: {
@@ -27,6 +28,8 @@
 				"--banner-grayscale": "0%",
 				"--banner-overlay-color": "#000000",
 				"--banner-blend-mode": "normal",
+				"--banner-saturate": "100%",
+				"--banner-video-focal-point": "center center",
 			},
 			pauseBlur: "10px",
 			align: "center",
@@ -38,7 +41,35 @@
 			},
 		};
 
-		const cloneDefaults = () => JSON.parse(JSON.stringify(DEFAULTS));
+		const cloneState = (value) => JSON.parse(JSON.stringify(value));
+
+		const getBannerStateKey = (banner) => banner.id || "generic";
+
+		const getSavedVar = (banner, variable) => {
+			const dataValues = {
+				"--banner-overlay-opacity": banner.dataset.overlayOpacity
+					? String(Number(banner.dataset.overlayOpacity) / 100)
+					: "",
+				"--banner-contrast": banner.dataset.overlayContrast
+					? `${banner.dataset.overlayContrast}%`
+					: "",
+				"--banner-grayscale": banner.dataset.overlayGrayscale
+					? `${Number(banner.dataset.overlayGrayscale) * 100}%`
+					: "",
+				"--banner-overlay-color": banner.dataset.overlayColor || "",
+				"--banner-blend-mode": banner.dataset.overlayBlendMode || "",
+				"--banner-saturate": banner.dataset.bannerSaturation
+					? `${banner.dataset.bannerSaturation}%`
+					: "",
+				"--banner-video-focal-point": banner.dataset.bgFocalPoint || "",
+			};
+
+			const dataValue = dataValues[variable];
+			if (dataValue) return dataValue;
+
+			const styleValue = banner.style.getPropertyValue(variable);
+			return styleValue ? styleValue.trim() : DEFAULTS.vars[variable];
+		};
 
 		const closePanel = () => {
 			panel.classList.remove("is-open");
@@ -67,15 +98,17 @@
 			const vars = {};
 
 			Object.keys(DEFAULTS.vars).forEach((key) => {
-				const value = banner.style.getPropertyValue(key);
-				vars[key] = value ? value.trim() : DEFAULTS.vars[key];
+				vars[key] = getSavedVar(banner, key);
 			});
 
 			let pauseBlur =
-				banner.style.getPropertyValue("--banner-blur") || DEFAULTS.pauseBlur;
+				(banner.dataset.blurOnPause
+					? `${banner.dataset.blurOnPause}px`
+					: banner.style.getPropertyValue("--banner-blur")) ||
+				DEFAULTS.pauseBlur;
 			pauseBlur = pauseBlur.trim() || DEFAULTS.pauseBlur;
 
-			let align = DEFAULTS.align;
+			let align = banner.dataset.contentAlignment || DEFAULTS.align;
 			if (banner.classList.contains("fu-page-banner--align-left"))
 				align = "left";
 			else if (banner.classList.contains("fu-page-banner--align-right")) {
@@ -85,9 +118,22 @@
 			}
 
 			const visibility = {};
-			Object.keys(DEFAULTS.visibility).forEach((className) => {
-				visibility[className] = !banner.classList.contains(className);
-			});
+			visibility["hide-subhead"] =
+				banner.dataset.showSubhead !== undefined
+					? banner.dataset.showSubhead !== "0"
+					: !banner.classList.contains("hide-subhead");
+			visibility["hide-body"] =
+				banner.dataset.showBody !== undefined
+					? banner.dataset.showBody !== "0"
+					: !banner.classList.contains("hide-body");
+			visibility["hide-btn-1"] =
+				banner.dataset.showBtn1 !== undefined
+					? banner.dataset.showBtn1 !== "0"
+					: !banner.classList.contains("hide-btn-1");
+			visibility["hide-btn-2"] =
+				banner.dataset.showBtn2 !== undefined
+					? banner.dataset.showBtn2 !== "0"
+					: !banner.classList.contains("hide-btn-2");
 
 			return {
 				vars,
@@ -97,8 +143,18 @@
 			};
 		};
 
+		const captureResetBaseline = (banner) => {
+			const key = getBannerStateKey(banner);
+			if (!resetBaselines.has(key)) {
+				resetBaselines.set(key, readFromDOM(banner));
+			}
+
+			return resetBaselines.get(key);
+		};
+
 		const loadState = (banner) => {
-			storageKey = `fuBannerState-${banner.id || "generic"}`;
+			storageKey = `fuBannerState-${getBannerStateKey(banner)}`;
+			const resetBaseline = captureResetBaseline(banner);
 			let nextState = null;
 			const stored = sessionStorage.getItem(storageKey);
 
@@ -115,7 +171,7 @@
 			}
 
 			if (!nextState) {
-				nextState = readFromDOM(banner);
+				nextState = cloneState(resetBaseline);
 			}
 
 			return nextState;
@@ -254,7 +310,7 @@
 				event.preventDefault();
 				if (!activeBanner) return;
 				sessionStorage.removeItem(storageKey);
-				state = cloneDefaults();
+				state = cloneState(captureResetBaseline(activeBanner));
 				syncUI();
 			}
 		});

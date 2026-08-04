@@ -551,7 +551,6 @@
 
 @media (max-width: 47.99rem) {
 	.fu-feature-section {
-		padding-block: clamp(2.5rem, 1.8rem + 3vw, 4rem);
 		padding-block: clamp(2rem, 3.743vw + 1.123rem, 4rem);
 	}
 

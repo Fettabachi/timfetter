@@ -1,0 +1,40 @@
+# Tim Fetter
+
+Tim Fetter is a WordPress and front-end developer who builds responsive, editor-friendly websites, reusable ACF Blocks, and polished front-end UI examples for agencies, designers, and small businesses.
+
+## Focus
+
+- WordPress theme development
+- ACF Pro Blocks
+- Reusable WordPress sections
+- Responsive front-end implementation
+- Editor-friendly page-building workflows
+- UI prototypes and interaction states
+- Website cleanup, polish, and ongoing support
+
+## Key pages
+
+- [Home](https://timfetter.com/): Overview of services and fit.
+- [Work](https://timfetter.com/work/): Selected WordPress, front-end UI, and client examples.
+- [Reusable WordPress Sections](https://timfetter.com/acf-block-system-for-editor-friendly-wordpress-builds/): ACF Block examples built for flexible, editor-friendly WordPress sites.
+- [Editor Experience & Handoff](https://timfetter.com/editor-experience-handoff/): Examples of client-friendly editing workflows and handoff considerations.
+- [Contact](https://timfetter.com/contact/): Project inquiry page.
+
+## Reusable WordPress section examples
+
+- Page Banner
+- Flexible Feature Section
+- Filtered Content Grid
+- Content Switcher
+- Comparison Cards
+- Proof Cards
+
+## Front-end UI examples
+
+- Client Project Timeline
+- Project Scope Estimator
+- Content Approval Checklist
+
+## Best description
+
+Tim helps agencies, designers, and small businesses turn designs or content needs into clean, maintainable WordPress interfaces with thoughtful editing experiences.

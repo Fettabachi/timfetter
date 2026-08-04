@@ -260,8 +260,99 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
     return $urls;
 }
 
+/**
+ * Remove users from the native WordPress XML sitemap.
+ */
+function timfetter_remove_users_from_sitemap($provider, $name)
+{
+    if ('users' === $name) {
+        return false;
+    }
+
+    return $provider;
+}
+add_filter('wp_sitemaps_add_provider', 'timfetter_remove_users_from_sitemap', 10, 2);
+
+/**
+ * Keep only selected post types in the native WordPress XML sitemap.
+ */
+function timfetter_filter_sitemap_post_types($post_types)
+{
+    $allowed_post_types = [
+        'page',
+        'post',
+        'resource',
+        'portfolio-items',
+    ];
+
+    foreach ($post_types as $post_type_name => $post_type_object) {
+        if (! in_array($post_type_name, $allowed_post_types, true)) {
+            unset($post_types[$post_type_name]);
+        }
+    }
+
+    return $post_types;
+}
+add_filter('wp_sitemaps_post_types', 'timfetter_filter_sitemap_post_types');
+
 /*  DISABLE GUTENBERG STYLE IN HEADER| WordPress 5.9 */
 // function wps_deregister_styles() {
 //     wp_dequeue_style( 'global-styles' );
 // }
 // add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
+
+/**
+ * Output a meta description for public-facing pages.
+ */
+function tf_output_meta_description()
+{
+    if (is_admin() || is_404() || is_search()) {
+        return;
+    }
+
+    $description = '';
+
+    if (is_singular()) {
+        $post_id = get_queried_object_id();
+
+        // 1. Use a manually entered ACF description when available.
+        if (function_exists('get_field')) {
+            $description = get_field('meta_description', $post_id);
+        }
+
+        // 2. Fall back to a manually entered WordPress excerpt.
+        if (!$description && has_excerpt($post_id)) {
+            $description = get_the_excerpt($post_id);
+        }
+
+        // 3. Fall back to the page's normal WordPress content.
+        if (!$description) {
+            $description = get_post_field('post_content', $post_id);
+        }
+    } elseif (is_post_type_archive()) {
+        $description = get_the_archive_description();
+    }
+
+    // 4. Final site-wide fallback.
+    if (!$description) {
+        $description = get_bloginfo('description');
+    }
+
+    $description = strip_shortcodes($description);
+    $description = wp_strip_all_tags($description, true);
+    $description = preg_replace('/\s+/', ' ', $description);
+    $description = trim($description);
+
+    if (!$description) {
+        return;
+    }
+
+    $description = wp_html_excerpt($description, 160, '…');
+
+    printf(
+        '<meta name="description" content="%s">' . "\n",
+        esc_attr($description)
+    );
+}
+
+add_action('wp_head', 'tf_output_meta_description', 5);

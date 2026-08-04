@@ -467,7 +467,6 @@
 	padding: 0.85rem 0 0;
 	border-top: 1px solid var(--fu-border);
 	list-style: none;
-	display: grid;
 	display: none;
 	gap: 0.5rem;
 	max-width: 40rem;
@@ -689,10 +688,6 @@
 .fu-block-navigation__pager-kicker,
 .fu-block-navigation__status {
 	color: var(--fu-text-muted);
-	font-size: 0.76rem;
-	font-weight: 700;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
 }
 
 .fu-block-navigation__pager-title {
@@ -721,9 +716,6 @@ h2.fu-block-navigation__heading,
 .fu-block-navigation__intro {
 	margin: 0.75rem 0 0;
 	max-width: 44rem;
-	color: var(--fu-text-muted);
-	font-size: 1rem;
-	line-height: 1.65;
 }
 
 .fu-block-navigation__collection {
@@ -774,13 +766,19 @@ h2.fu-block-navigation__heading,
 	line-height: 1.45;
 }
 
+@media (min-width: 541px) {
+	.fu-block-navigation__pager-link--next .fu-block-navigation__pager-kicker {
+		justify-self: end;
+	}
+}
+
 @media (max-width: 900px) {
 	.fu-block-navigation__grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: 540px) {
 	.fu-block-navigation__inner {
 		padding: 1rem;
 	}
@@ -1018,7 +1016,6 @@ h2.fu-block-navigation__heading,
 
 .fu-system-workflow__item p {
 	margin: 0;
-	color: rgba(239, 246, 255, 0.82);
 	color: rgb(239, 246, 255);
 	font-size: clamp(0.95rem, 0.9rem + 0.18vw, 1.05rem);
 	line-height: 1.55;
@@ -1333,14 +1330,6 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-system-editor-callout__card {
-	display: grid;
-	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-	gap: clamp(1.5rem, 4vw, 3rem);
-	align-items: end;
-	width: 100%;
-	max-width: none;
-	padding: clamp(1.6rem, 4vw, 2.6rem);
-
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -1729,6 +1718,206 @@ h2.fu-block-navigation__heading,
 .fu-resource-single {
 	padding-block: clamp(3rem, 2.5rem + 2vw, 5rem);
 	background: linear-gradient(180deg, #fbfcfe 0%, #f6f8fb 100%);
+}
+
+/*
+ * Scroll-linked stopwatch inspired by Ryan Mulligan:
+ * https://ryanmulligan.dev/blog/transition-to-the-other-side/
+ *
+ * Adapted for Tim Fetter's resource article layout.
+ * Original site source licensed under MIT.
+ */
+
+.resource-scroll-timer-wrap {
+	display: none;
+	position: relative;
+}
+
+.resource-scroll-timer {
+	display: none;
+	opacity: 0;
+	scale: 0.9;
+
+	cursor: help;
+	outline: none;
+}
+
+.resource-scroll-timer:focus-visible {
+	outline: 2px solid var(--fu-orange);
+	outline-offset: 0.25rem;
+}
+
+.resource-scroll-timer__credit {
+	position: absolute;
+	top: 0;
+	left: 110%;
+
+	width: 17rem;
+	max-width: calc(100vw - 6rem);
+	margin: 0;
+	padding: 0.75rem 1rem;
+
+	border-radius: 0.5rem;
+	background: var(--fu-blue);
+	color: var(--fu-white);
+	box-shadow: 0 0.75rem 2rem rgba(13, 59, 102, 0.2);
+
+	font-size: 0.8125rem;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: left;
+
+	opacity: 0;
+	visibility: hidden;
+	translate: 0.25rem 0;
+	pointer-events: none;
+
+	transition:
+		opacity 160ms ease,
+		visibility 160ms ease,
+		translate 160ms ease;
+
+	z-index: 20;
+}
+
+.resource-scroll-timer-wrap:hover .resource-scroll-timer__credit,
+.resource-scroll-timer-wrap:focus-within .resource-scroll-timer__credit {
+	opacity: 1;
+	visibility: visible;
+	translate: 0 0;
+}
+
+/*
+ * Only reveal the component when the browser supports
+ * CSS scroll-driven animations.
+ */
+@supports (animation-timeline: scroll()) {
+	@property --resource-scroll-progress {
+		syntax: "<number>";
+		initial-value: 0;
+		inherits: false;
+	}
+
+	@media (min-width: 78.125rem) {
+		.resource-scroll-timer-wrap {
+			--resource-scroll-timer-size: 2.5rem;
+
+			display: grid;
+			place-items: center;
+
+			position: sticky;
+			top: 5rem;
+
+			width: var(--resource-scroll-timer-size);
+			height: var(--resource-scroll-timer-size);
+			margin-block: 0;
+			margin-inline-start: calc(
+				(var(--resource-scroll-timer-size) + 1.5rem) * -1
+			);
+
+			z-index: 10;
+		}
+
+		.resource-scroll-timer {
+			--resource-scroll-timer-size: 2.5rem;
+			--resource-scroll-start: 10rem;
+			--resource-scroll-end: calc(100% - 4rem);
+			--resource-scroll-timer-face: #e8edf2;
+			--resource-scroll-timer-progress: var(--fu-orange);
+
+			display: grid;
+			place-items: center;
+
+			/* position: sticky;
+			top: 5rem; */
+
+			width: var(--resource-scroll-timer-size);
+			height: var(--resource-scroll-timer-size);
+			margin-block: 0;
+			/* margin-inline-start: calc(
+				(var(--resource-scroll-timer-size) + 1.5rem) * -1
+			); */
+
+			border-radius: 50%;
+			color: var(--fu-blue);
+			background: conic-gradient(
+				from 45deg,
+				var(--resource-scroll-timer-progress)
+					calc(var(--resource-scroll-progress) * 1%),
+				transparent 0
+			);
+
+			/*
+			 * Progress runs through the page timeline.
+			 * The entrance animation runs only across its short range.
+			 * Further Reading visibility is handled by the
+			 * .is-hidden state rather than a page-percentage animation.
+			 */
+			animation-name: resource-scroll-progress, resource-scroll-timer-appear;
+			animation-duration: 1ms;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: scroll(root block), scroll(root block),
+				scroll(root block);
+			animation-range:
+				var(--resource-scroll-start) var(--resource-scroll-end),
+				var(--resource-scroll-start) calc(var(--resource-scroll-start) + 3rem),
+				var(--resource-scroll-start) calc(var(--resource-scroll-start) + 3rem);
+
+			transition:
+				opacity 200ms ease,
+				scale 200ms ease;
+			rotate: -10deg;
+			z-index: 1;
+		}
+
+		.resource-scroll-timer__icon {
+			display: block;
+			width: calc(var(--resource-scroll-timer-size) / 1.25);
+			height: calc(var(--resource-scroll-timer-size) / 1.25);
+			overflow: visible;
+		}
+
+		.resource-scroll-timer__face {
+			fill: var(--resource-scroll-timer-face);
+		}
+
+		.resource-scroll-timer__hand {
+			transform-origin: 50% 50%;
+			rotate: calc((var(--resource-scroll-progress) / 100) * 360deg);
+
+			animation-name: resource-scroll-progress;
+			animation-duration: 1ms;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: scroll(root block);
+			animation-range: var(--resource-scroll-start) var(--resource-scroll-end);
+		}
+	}
+
+	@keyframes resource-scroll-progress {
+		to {
+			--resource-scroll-progress: 100;
+		}
+	}
+
+	@keyframes resource-scroll-timer-appear {
+		from {
+			opacity: 0;
+			scale: 0.9;
+		}
+
+		to {
+			opacity: 1;
+			scale: 1;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.resource-scroll-timer {
+		display: none;
+	}
 }
 
 .fu-resource-single__inner {
@@ -2292,7 +2481,6 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__related-card {
-	padding: 1.1rem 1.1rem 1.2rem;
 	padding: 0;
 	border: 1px solid var(--fu-border);
 	border-radius: 18px;
@@ -2962,9 +3150,7 @@ h2.fu-block-navigation__heading,
 .fu-card--is-quote {
 	--pc-quote-accent: color-mix(in srgb, #d2dae3 55%, transparent);
 
-	margin: 1rem 0 1.25rem;
 	margin: clamp(2.5rem, 6vw, 4.5rem) -3rem;
-	padding-inline-start: clamp(0.875rem, 1.5vw, 1.1rem);
 	padding: clamp(0.875rem, 1.5vw, 1.1rem);
 	background: var(--fu-gradient-lux);
 	border-radius: 12px;
@@ -3208,6 +3394,5 @@ h2.fu-block-navigation__heading,
 	width: 100%;
 	height: auto;
 	border-radius: 16px;
-	filter: contrast(1.06) saturate(1.08) brightness(0.96);
 	filter: contrast(1.1) saturate(1.12) brightness(0.92);
 }

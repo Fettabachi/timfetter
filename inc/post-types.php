@@ -21,10 +21,14 @@ function tf_work_items_register_post_type()
             'not_found'          => 'No work found.',
             'not_found_in_trash' => 'No work found in Trash.',
         ),
-        'public' => true,
-        'has_archive' => 'work',
-        'rewrite' => array(
-            'slug' => 'work',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_rest'       => true,
+        'has_archive'        => 'work',
+        'rewrite'            => array(
+            'slug'       => 'work',
             'with_front' => false,
         ),
         'supports' => array(
@@ -33,7 +37,7 @@ function tf_work_items_register_post_type()
             'excerpt',
             'thumbnail',
             'page-attributes',
-        )
+        ),
     ));
 }
 
@@ -57,7 +61,7 @@ function fu_register_property_cpt()
 
     $args = array(
         'labels'             => $labels,
-        'public'             => true,
+        'public'             => false,
         'has_archive'        => true,
         'menu_icon'          => 'dashicons-admin-home',
         'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
@@ -84,7 +88,7 @@ function fu_register_lab_cpt()
 
     $args = array(
         'labels'             => $labels,
-        'public'             => true,
+        'public'             => false,
         'has_archive'        => true,
         'menu_icon'          => 'dashicons-rest-api',
         'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
@@ -166,3 +170,24 @@ function fu_register_resource_content()
     );
 }
 add_action('init', 'fu_register_resource_content');
+
+/**
+ * Remove blog posts from the native WordPress XML sitemap.
+ */
+function tf_filter_sitemap_post_types($post_types)
+{
+    unset($post_types['post']);
+
+    return $post_types;
+}
+add_filter('wp_sitemaps_post_types', 'tf_filter_sitemap_post_types');
+
+
+/**
+ * Remove taxonomy archives from the native WordPress XML sitemap.
+ */
+function tf_filter_sitemap_taxonomies($taxonomies)
+{
+    return array();
+}
+add_filter('wp_sitemaps_taxonomies', 'tf_filter_sitemap_taxonomies');

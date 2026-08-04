@@ -175,12 +175,12 @@ $earlier_work = array(
     array(
         'title' => 'Omni Hotels & Resorts',
         'slug' => 'omni-hotels-resorts',
-        'summary' => 'Front-end implementation, CMS updates, reusable templates, and production support for hospitality site work inside an established team workflow.',
+        'summary' => 'Helped implement Omni\'s brand refresh through accessible, responsive UI work, including a custom interactive Special Offers experience.',
     ),
     array(
         'title' => 'National University',
         'slug' => 'national-university',
-        'summary' => 'Responsive front-end implementation, CMS/page-builder updates, and reusable page support across a large higher-education content surface.',
+        'summary' => 'Built enrollment-focused interfaces that helped prospective students discover programs and complete applications more easily.',
     ),
     // array(
     //     'title' => 'Fibroid Foundation',
@@ -190,7 +190,7 @@ $earlier_work = array(
     array(
         'title' => 'Blackberry Farm & Blackberry Mountain',
         'slug' => 'blackberry-farm-blackberry-mountain',
-        'summary' => 'Front-end implementation, responsive UI refinements, reusable component updates, and ongoing production support for hospitality web properties.',
+        'summary' => 'Improved luxury reservation workflows by adapting complex booking components into responsive, user-friendly experiences.',
     ),
 );
 ?>
@@ -221,9 +221,10 @@ $earlier_work = array(
                                 <h1 class="fu-home__title">Polished, maintainable WordPress and front-end experiences.</h1>
                                 <p class="fu-home__lede">I help agencies, designers, and businesses bring designs to life with clean implementation, responsive polish, and pages that are easier to update.
                                 </p>
+                                <p class="status-line">Available for part-time contract and agency overflow work.</p>
 
                                 <div class="fu-home__actions">
-                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Start a Conversation</a>
+                                    <a class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Ask About Availability</a>
                                     <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="#service-lanes">See How I Can Help</a>
                                 </div>
 
@@ -369,7 +370,7 @@ $earlier_work = array(
                             <div class="fu-section-head">
                                 <p class="fu-eyebrow">Earlier work</p>
                                 <h2 class="fu-section-heading" id="earlier-client-work-heading">Selected Client Work</h2>
-                                <p class="fu-section-lede">Selected projects where I supported larger teams with front-end implementation, CMS updates, reusable templates, scripted UI components, page-builder work, static site updates, and ongoing production improvements.</p>
+                                <p class="fu-section-lede">Selected projects where I supported agency teams with front-end implementation, CMS updates, reusable templates, scripted UI components, and ongoing production improvements.</p>
                             </div>
 
                             <div class="fu-home__legacy-grid fu-work-grid">
@@ -378,8 +379,8 @@ $earlier_work = array(
                                     $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
                                     ?>
                                     <?php if ($portfolio_post) : ?>
-                                        <a class="fu-home__legacy-card fu-work-card fu-work-card--linked" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
-                                            <div class="fu-home__legacy-card-media fu-work-card__media">
+                                        <a class="fu-work-card fu-work-card--linked fu-work-card--short-media" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
+                                            <div class="fu-work-card__media">
                                                 <?php if (has_post_thumbnail($portfolio_post)) : ?>
                                                     <?php
                                                     $thumbnail_id = get_post_thumbnail_id($portfolio_post);
@@ -405,18 +406,18 @@ $earlier_work = array(
                                                 <?php endif; ?>
                                             </div>
 
-                                            <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
+                                            <div class="fu-work-card__body">
+                                                <p class="fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post->post_title); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                                 <span class="fu-work-card__link">View case study</span>
                                             </div>
                                         </a>
                                     <?php else : ?>
-                                        <article class="fu-home__legacy-card fu-work-card fu-work-card--legacy">
-                                            <div class="fu-home__legacy-card-media fu-work-card__media"></div>
-                                            <div class="fu-home__legacy-card-body fu-work-card__body">
-                                                <p class="fu-home__legacy-card-kicker fu-work-card__kicker">Contract support</p>
+                                        <article class="fu-work-card fu-work-card--legacy fu-work-card--short-media">
+                                            <div class="fu-work-card__media"></div>
+                                            <div class="fu-work-card__body">
+                                                <p class="fu-work-card__kicker">Contract support</p>
                                                 <h3 class="fu-work-card__title"><?php echo esc_html($item['title']); ?></h3>
                                                 <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
                                             </div>
@@ -427,9 +428,6 @@ $earlier_work = array(
                             <div class="fu-home-contract-work__footer">
                                 <a class="fu-home-contract-work__section-cta fu-portfolio-piece__button fu-portfolio-piece__button--primary" href="/work/#contract-work">View More Contract Work</a>
                             </div>
-                            <!-- <div class="fu-home__section-footer fu-home__section-footer--compact">
-                                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" href="<?php echo esc_url($portfolio_archive_url); ?>">View all work</a>
-                            </div> -->
                         </div>
                     </section>
 

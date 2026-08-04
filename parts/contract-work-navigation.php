@@ -56,7 +56,7 @@ $next_key      = $current_index < count($project_keys) - 1 ? $project_keys[$curr
             <nav class="fu-block-navigation__pager" aria-label="Previous and next selected contract work projects">
                 <?php if ($previous_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--previous" href="<?php echo esc_url($resolve_project_url($previous_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">&larr; Previous project</span>
+                        <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__pager-kicker">&larr; Previous project</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($projects[$previous_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -65,7 +65,7 @@ $next_key      = $current_index < count($project_keys) - 1 ? $project_keys[$curr
 
                 <?php if ($next_key !== '') : ?>
                     <a class="fu-block-navigation__pager-link fu-block-navigation__pager-link--next" href="<?php echo esc_url($resolve_project_url($next_key)); ?>">
-                        <span class="fu-block-navigation__pager-kicker">Next project &rarr;</span>
+                        <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__pager-kicker">Next project &rarr;</span>
                         <span class="fu-block-navigation__pager-title"><?php echo esc_html($projects[$next_key]['label']); ?></span>
                     </a>
                 <?php else : ?>
@@ -76,7 +76,7 @@ $next_key      = $current_index < count($project_keys) - 1 ? $project_keys[$curr
             <div class="fu-block-navigation__header">
                 <p class="fu-eyebrow">Selected contract work</p>
                 <h2 id="fu-contract-work-navigation-heading" class="fu-block-navigation__heading">Explore more selected contract work</h2>
-                <p class="fu-block-navigation__intro">
+                <p class="fu-section-lede fu-block-navigation__intro">
                     A few examples of production WordPress and front-end implementation work completed in support of larger client and agency projects.
                 </p>
             </div>
@@ -87,7 +87,7 @@ $next_key      = $current_index < count($project_keys) - 1 ? $project_keys[$curr
                         <li class="fu-block-navigation__item">
                             <?php if ($key === $current) : ?>
                                 <div class="fu-block-navigation__card fu-block-navigation__card--current" aria-current="page">
-                                    <span class="fu-block-navigation__status">Currently viewing</span>
+                                    <span class="fu-eyebrow fu-eyebrow--compact fu-block-navigation__status">Currently viewing</span>
                                     <h3 class="fu-block-navigation__card-title"><?php echo esc_html($project['label']); ?></h3>
                                     <p class="fu-block-navigation__card-description"><?php echo esc_html($project['description']); ?></p>
                                 </div>

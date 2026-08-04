@@ -17,12 +17,6 @@
 	max-width: min(100%, 1120px);
 }
 
-.fu-content-approval-checklist-demo *,
-.fu-content-approval-checklist-demo *::before,
-.fu-content-approval-checklist-demo *::after {
-	box-sizing: border-box;
-}
-
 .fu-content-approval-checklist-demo .fu-demo-shell {
 	width: 100%;
 	margin-inline: auto;
@@ -41,15 +35,8 @@
 }
 
 .fu-content-approval-checklist-demo .fu-demo-shell__eyebrow {
-	display: inline-flex;
-	align-items: center;
 	margin: 0 0 0.65rem;
 	color: #93c5fd;
-	font-size: 0.8125rem;
-	font-weight: 700;
-	letter-spacing: 0.14em;
-	line-height: 1.2;
-	text-transform: uppercase;
 }
 
 .fu-content-approval-checklist-demo .fu-demo-shell__heading {
@@ -195,7 +182,6 @@
 
 .fu-content-approval-checklist-demo .fu-checklist__group {
 	display: grid;
-	margin-top: clamp(1.25rem, 2.4vw, 1.85rem);
 	margin-top: clamp(1.25rem, 4vw, 3rem);
 }
 
