@@ -15,6 +15,7 @@ if (!function_exists('base_setup')) :
         add_theme_support('editor-styles');
         add_theme_support('post-thumbnails');
         add_theme_support('title-tag');
+        add_post_type_support('page', 'excerpt');
         add_image_size('small-image', 600);
         add_image_size('wide-image', 1400);
         add_image_size('extra-wide-image', 2000);
@@ -300,3 +301,70 @@ add_filter('wp_sitemaps_post_types', 'timfetter_filter_sitemap_post_types');
 //     wp_dequeue_style( 'global-styles' );
 // }
 // add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
+
+/**
+ * Output a meta description for public-facing pages.
+ */
+function tf_output_meta_description()
+{
+    if (is_admin() || is_404() || is_search()) {
+        return;
+    }
+
+    $description = '';
+
+    if (is_singular()) {
+        $post_id = get_queried_object_id();
+
+        // 1. Use a manually entered ACF description when available.
+        if (function_exists('get_field')) {
+            $description = get_field('meta_description', $post_id);
+        }
+
+        // 2. Fall back to a manually entered WordPress excerpt.
+        if (!$description && has_excerpt($post_id)) {
+            $description = get_the_excerpt($post_id);
+        }
+
+        // 3. Fall back to the page's normal WordPress content.
+        if (!$description) {
+            $description = get_post_field('post_content', $post_id);
+        }
+    } elseif (is_post_type_archive()) {
+        $description = get_the_archive_description();
+
+        if (!$description) {
+            $archive_descriptions = array(
+                'portfolio-items' => 'Explore reusable WordPress sections, front-end UI examples, and selected client work focused on responsive, maintainable implementation.',
+                'resource' => 'Practical WordPress and front-end resources for planning content, improving accessibility, reviewing quality, and preparing websites for launch.',
+            );
+            $post_type = get_query_var('post_type');
+
+            if (is_string($post_type) && isset($archive_descriptions[$post_type])) {
+                $description = $archive_descriptions[$post_type];
+            }
+        }
+    }
+
+    if (!is_string($description)) {
+        return;
+    }
+
+    $description = strip_shortcodes($description);
+    $description = wp_strip_all_tags($description, true);
+    $description = preg_replace('/\s+/', ' ', $description);
+    $description = trim($description);
+
+    if (!$description || 'my career website' === strtolower(rtrim($description, '.'))) {
+        return;
+    }
+
+    $description = wp_html_excerpt($description, 160, '…');
+
+    printf(
+        '<meta name="description" content="%s">' . "\n",
+        esc_attr($description)
+    );
+}
+
+add_action('wp_head', 'tf_output_meta_description', 5);
