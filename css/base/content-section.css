@@ -36,7 +36,7 @@
 	letter-spacing: -0.02em;
 	line-height: 1.1;
 	margin: 0;
-    margin-block-end: 1rem !important;
+	margin-block-end: 1rem !important;
 	text-wrap: balance;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .fu-prose p:not(.fu-section-lede),
-.fu-section-body p:not(.fu-section-lede),
+.fu-section-body p:not(.fu-section-lede, .fu-work-card__kicker),
 .fu-case-section__body p:not(.fu-section-lede) {
 	margin: 0 0 1rem;
 }

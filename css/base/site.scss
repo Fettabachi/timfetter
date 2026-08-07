@@ -1077,6 +1077,16 @@ h2 {
 	line-height: 1.6;
 }
 
+.fu-work-card__meta {
+	color: var(--fu-text-muted);
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1.2;
+	margin: 0.45rem 0 0;
+	text-transform: uppercase;
+}
+
 .fu-work-card__link {
 	display: inline-flex;
 	align-items: center;
@@ -1094,6 +1104,35 @@ h2 {
 .fu-work-card__link::after {
 	content: "→";
 	transition: transform 180ms ease;
+}
+
+.fu-work-card--client-work .fu-work-card__body {
+	/* align-content: space-between;
+	display: grid; */
+	gap: clamp(0.7rem, 1.2vw, 0.9rem);
+	padding: clamp(1.15rem, 2vw, 1.3rem);
+}
+
+.fu-work-card--client-work .fu-work-card__heading {
+	display: grid;
+	gap: 0.3rem;
+}
+
+.fu-work-card--client-work .fu-work-card__title {
+	margin: 0;
+}
+
+.fu-work-card--client-work .fu-work-card__meta {
+	margin: 0;
+}
+
+.fu-work-card--client-work .fu-work-card__text {
+	line-height: 1.58;
+	margin: 0;
+}
+
+.fu-work-card--client-work .fu-work-card__link {
+	padding-top: 0;
 }
 
 .fu-work-card--linked:hover .fu-work-card__link::after,
@@ -1194,11 +1233,6 @@ h2 {
 	img {
 	-o-object-position: center top;
 	object-position: center top;
-}
-
-.fu-work-grid--archive .fu-work-card__text {
-	margin-top: 0.65rem;
-	line-height: 1.55;
 }
 
 .fu-work-archive .fu-work-archive__group:first-of-type {

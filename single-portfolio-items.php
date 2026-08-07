@@ -149,6 +149,7 @@ if (!$portfolio_archive_url) {
     <?php while (have_posts()) : the_post(); ?>
         <?php
         $portfolio_subtitle = $get_portfolio_subtitle(get_the_ID());
+        $portfolio_project_type = fu_get_portfolio_project_type_label(get_the_ID());
         $portfolio_supporting_images = $get_portfolio_supporting_images(get_the_ID());
         $portfolio_has_content = trim(wp_strip_all_tags(get_the_content())) !== '';
         $portfolio_slug = get_post_field('post_name', get_the_ID());
@@ -167,6 +168,9 @@ if (!$portfolio_archive_url) {
                     <h1 class="fu-section-heading" id="portfolio-single-heading"><?php the_title(); ?></h1>
                     <?php if ($portfolio_subtitle !== '') : ?>
                         <p class="fu-section-lede"><?php echo esc_html($portfolio_subtitle); ?></p>
+                    <?php endif; ?>
+                    <?php if ($portfolio_project_type !== '') : ?>
+                        <p class="fu-work-card__meta"><?php echo esc_html($portfolio_project_type); ?></p>
                     <?php endif; ?>
                     <?php if ($portfolio_slug === 'client-project-timeline') : ?>
                         <p class="fu-section-lede fu-section-lede--prototype">A self-contained front-end UI example for testing milestone states, responsive timeline behavior, and client-facing workflow language before production development begins.</p>

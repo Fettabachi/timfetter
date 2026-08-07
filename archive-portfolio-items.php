@@ -308,42 +308,13 @@ $get_portfolio_card_kicker = static function ($post_id) {
                     <div class="fu-work-grid fu-work-grid--archive" aria-label="Work case studies">
                         <?php while ($contract_work_query->have_posts()) : $contract_work_query->the_post(); ?>
                             <?php
-                            $portfolio_card_link = get_permalink();
                             $portfolio_card_kicker = $get_portfolio_card_kicker(get_the_ID());
-                            $portfolio_excerpt = has_excerpt() ? get_the_excerpt() : wp_trim_words(wp_strip_all_tags(get_the_content()), 26);
+                            get_template_part('template-parts/content', 'client-work-card', array(
+                                'post' => get_post(),
+                                'kicker' => $portfolio_card_kicker,
+                                'heading_level' => 'h2',
+                            ));
                             ?>
-
-                            <a class="fu-work-card fu-work-card--linked fu-work-card--short-media" href="<?php echo esc_url($portfolio_card_link); ?>">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <div class="fu-work-card__media">
-                                        <?php
-                                        $thumbnail_id = get_post_thumbnail_id();
-                                        $alt          = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-                                        $fallback_alt = $alt ? $alt : get_the_title();
-
-                                        the_post_thumbnail('medium_large', array(
-                                            'loading'  => 'lazy',
-                                            'decoding' => 'async',
-                                            'alt'      => esc_attr($fallback_alt),
-                                        ));
-                                        ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <div class="fu-work-card__body">
-                                    <?php if ($portfolio_card_kicker !== '') : ?>
-                                        <p class="fu-work-card__kicker"><?php echo esc_html($portfolio_card_kicker); ?></p>
-                                    <?php endif; ?>
-
-                                    <h2 class="fu-work-card__title"><?php the_title(); ?></h2>
-
-                                    <?php if ($portfolio_excerpt !== '') : ?>
-                                        <p class="fu-work-card__text"><?php echo esc_html($portfolio_excerpt); ?></p>
-                                    <?php endif; ?>
-
-                                    <span class="fu-work-card__link">View case study</span>
-                                </div>
-                            </a>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                     </div>

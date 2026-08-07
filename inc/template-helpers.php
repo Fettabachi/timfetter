@@ -23,6 +23,23 @@ function fu_should_load_demo_panel_assets()
     return fu_should_load_page_banner_demo_panel() || is_page_template('page-content-switcher.php');
 }
 
+/**
+ * Return the display label for a portfolio item's stored project type.
+ */
+function fu_get_portfolio_project_type_label($post_id)
+{
+    $project_types = array(
+        'wordpress' => 'WordPress',
+        'front-end-prototype' => 'Front-End Prototype',
+    );
+    $portfolio_content = get_field('portfolio_content', $post_id);
+    $project_type = is_array($portfolio_content) && isset($portfolio_content['project_type'])
+        ? $portfolio_content['project_type']
+        : '';
+
+    return isset($project_types[$project_type]) ? $project_types[$project_type] : '';
+}
+
 function fu_inject_demo_panel()
 {
     if (fu_should_load_page_banner_demo_panel()) {

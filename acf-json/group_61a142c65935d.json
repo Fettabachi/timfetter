@@ -19,6 +19,32 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_68a5f20001001",
+                    "label": "Project Type",
+                    "name": "project_type",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "Choose the primary project type shown on portfolio cards.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "wordpress": "WordPress",
+                        "front-end-prototype": "Front-End Prototype"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "allow_in_bindings": 1,
+                    "layout": "horizontal",
+                    "save_other_choice": 0
+                },
+                {
                     "key": "field_61a14a38df95d",
                     "label": "Website Sub Title",
                     "name": "website_sub_title",

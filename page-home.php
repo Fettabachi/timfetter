@@ -175,12 +175,10 @@ $earlier_work = array(
     array(
         'title' => 'Omni Hotels & Resorts',
         'slug' => 'omni-hotels-resorts',
-        'summary' => 'Helped implement Omni\'s brand refresh through accessible, responsive UI work, including a custom interactive Special Offers experience.',
     ),
     array(
         'title' => 'National University',
         'slug' => 'national-university',
-        'summary' => 'Built enrollment-focused interfaces that helped prospective students discover programs and complete applications more easily.',
     ),
     // array(
     //     'title' => 'Fibroid Foundation',
@@ -190,7 +188,6 @@ $earlier_work = array(
     array(
         'title' => 'Blackberry Farm & Blackberry Mountain',
         'slug' => 'blackberry-farm-blackberry-mountain',
-        'summary' => 'Improved luxury reservation workflows by adapting complex booking components into responsive, user-friendly experiences.',
     ),
 );
 ?>
@@ -379,49 +376,13 @@ $earlier_work = array(
                                     $portfolio_post = $resolve_portfolio_item($item['title'], $item['slug']);
                                     ?>
                                     <?php if ($portfolio_post) : ?>
-                                        <a class="fu-work-card fu-work-card--linked fu-work-card--short-media" href="<?php echo esc_url(get_permalink($portfolio_post)); ?>">
-                                            <div class="fu-work-card__media">
-                                                <?php if (has_post_thumbnail($portfolio_post)) : ?>
-                                                    <?php
-                                                    $thumbnail_id = get_post_thumbnail_id($portfolio_post);
-                                                    $thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-
-                                                    if (!$thumbnail_alt) {
-                                                        $thumbnail_alt = sprintf(
-                                                            '%s project thumbnail.',
-                                                            get_the_title($portfolio_post)
-                                                        );
-                                                    }
-
-                                                    echo get_the_post_thumbnail(
-                                                        $portfolio_post,
-                                                        'medium_large',
-                                                        array(
-                                                            'loading'  => 'lazy',
-                                                            'decoding' => 'async',
-                                                            'alt'      => $thumbnail_alt,
-                                                        )
-                                                    );
-                                                    ?>
-                                                <?php endif; ?>
-                                            </div>
-
-                                            <div class="fu-work-card__body">
-                                                <p class="fu-work-card__kicker">Contract support</p>
-                                                <h3 class="fu-work-card__title"><?php echo esc_html($portfolio_post->post_title); ?></h3>
-                                                <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
-                                                <span class="fu-work-card__link">View case study</span>
-                                            </div>
-                                        </a>
-                                    <?php else : ?>
-                                        <article class="fu-work-card fu-work-card--legacy fu-work-card--short-media">
-                                            <div class="fu-work-card__media"></div>
-                                            <div class="fu-work-card__body">
-                                                <p class="fu-work-card__kicker">Contract support</p>
-                                                <h3 class="fu-work-card__title"><?php echo esc_html($item['title']); ?></h3>
-                                                <p class="fu-work-card__text"><?php echo esc_html($item['summary']); ?></p>
-                                            </div>
-                                        </article>
+                                        <?php
+                                        get_template_part('template-parts/content', 'client-work-card', array(
+                                            'post' => $portfolio_post,
+                                            'kicker' => 'Contract support',
+                                            'heading_level' => 'h3',
+                                        ));
+                                        ?>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
