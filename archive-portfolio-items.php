@@ -152,6 +152,25 @@ foreach ($prototype_slugs as $prototype_slug) {
     }
 }
 
+$selected_client_work_slugs = array(
+    'plastic-makers',
+    'fibroid-foundation',
+    'good-chemistry-lives-here',
+    'omni-hotels-resorts',
+    'national-university',
+    'blackberry-farm-blackberry-mountain',
+);
+
+$selected_client_work_ids = array();
+
+foreach ($selected_client_work_slugs as $selected_client_work_slug) {
+    $selected_client_work_post = get_page_by_path($selected_client_work_slug, OBJECT, 'portfolio-items');
+
+    if ($selected_client_work_post && !empty($selected_client_work_post->ID)) {
+        $selected_client_work_ids[] = (int) $selected_client_work_post->ID;
+    }
+}
+
 $get_portfolio_card_kicker = static function ($post_id) {
     $kicker_fields = array(
         'work_type',
@@ -297,11 +316,9 @@ $get_portfolio_card_kicker = static function ($post_id) {
                 $contract_work_query = new WP_Query(array(
                     'post_type'      => 'portfolio-items',
                     'posts_per_page' => $selected_contract_work_limit,
+                    'post__in'       => $selected_client_work_ids,
                     'post__not_in'   => $prototype_post_ids,
-                    'orderby'        => array(
-                        'menu_order' => 'ASC',
-                        'date'       => 'DESC',
-                    ),
+                    'orderby'        => 'post__in',
                 ));
                 ?>
                 <?php if ($contract_work_query->have_posts()) : ?>

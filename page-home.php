@@ -173,21 +173,16 @@ $recent_systems = array(
 
 $earlier_work = array(
     array(
-        'title' => 'Omni Hotels & Resorts',
-        'slug' => 'omni-hotels-resorts',
+        'title' => 'Plastic Makers',
+        'slug' => 'plastic-makers',
     ),
     array(
-        'title' => 'National University',
-        'slug' => 'national-university',
+        'title' => 'Fibroid Foundation',
+        'slug' => 'fibroid-foundation',
     ),
-    // array(
-    //     'title' => 'Fibroid Foundation',
-    //     'slug' => 'fibroid-foundation',
-    //     'summary' => 'WordPress support, content updates, front-end refinements, and requested implementation work for an active nonprofit site.',
-    // ),
     array(
-        'title' => 'Blackberry Farm & Blackberry Mountain',
-        'slug' => 'blackberry-farm-blackberry-mountain',
+        'title' => 'Good Chemistry Lives Here',
+        'slug' => 'good-chemistry-lives-here',
     ),
 );
 ?>
