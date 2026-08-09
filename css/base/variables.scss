@@ -40,13 +40,13 @@ $selectionBackgroundColor: #ab977a;
 	--fu-text-body: #17324d;
 	--fu-text-body-portfolio: var(--fu-text-muted);
 	--fu-text-heading: var(--fu-blue);
-	--fu-text-muted: rgba(13, 59, 102, 0.72);
+	--fu-text-muted: rgb(13 59 102 / 0.72);
 	--fu-text-on-inverse: var(--fu-white);
 	--fu-text-muted-on-inverse: #b7b7b7;
 
 	/* Surfaces */
 	--fu-surface: var(--fu-white);
-	--fu-surface-alt: rgba(248, 251, 254, 0.96);
+	--fu-surface-alt: rgb(248 251 254 / 0.96);
 	--fu-surface-inverse: #08263f;
 	--fu-gradient-lux: linear-gradient(
 		135deg,
@@ -59,18 +59,18 @@ $selectionBackgroundColor: #ab977a;
 	--fu-surface-footer: var(--fu-gradient-lux-darkest);
 
 	/* Borders */
-	--fu-border: rgba(13, 59, 102, 0.1);
-	--fu-border-strong: rgba(13, 59, 102, 0.2);
+	--fu-border: rgb(13 59 102 / 0.1);
+	--fu-border-strong: rgb(13 59 102 / 0.2);
 
 	/* Actions */
 	--fu-action-bg: var(--fu-blue);
 	--fu-action-bg-hover: var(--fu-surface-inverse);
 	--fu-action-text: var(--fu-white);
-	--fu-action-secondary-bg: rgba(255, 255, 255, 0.9);
-	--fu-action-secondary-border: rgba(13, 59, 102, 0.16);
+	--fu-action-secondary-bg: rgb(255 255 255 / 0.9);
+	--fu-action-secondary-border: rgb(13 59 102 / 0.16);
 	--fu-action-secondary-text: var(--fu-text-body);
-	--fu-action-secondary-bg-on-inverse: rgba(255, 255, 255, 0.14);
-	--fu-action-secondary-border-on-inverse: rgba(255, 255, 255, 0.48);
+	--fu-action-secondary-bg-on-inverse: rgb(255 255 255 / 0.14);
+	--fu-action-secondary-border-on-inverse: rgb(255 255 255 / 0.48);
 
 	/* Buttons */
 	--fu-button-primary-bg: var(--fu-action-bg);
@@ -86,14 +86,14 @@ $selectionBackgroundColor: #ab977a;
 	--fu-button-legacy-bg: #ab977a;
 	--fu-button-legacy-bg-hover: #9c8462;
 	--fu-button-legacy-text: var(--fu-white);
-	--fu-focus-ring: hsla(220, 100%, 50%, 0.8);
+	--fu-focus-ring: hsl(220 100% 50% / 0.8);
 	--fu-focus-ring-on-dark: #ffffff;
 	--fu-focus-ring-on-light: #000000;
 
 	/* Shadows */
-	--fu-shadow-card: 0 12px 24px rgba(13, 59, 102, 0.05);
-	--fu-shadow-panel: 0 22px 46px rgba(13, 59, 102, 0.08);
-	--fu-shadow-card-hover: 0 18px 44px rgba(13, 59, 102, 0.1);
+	--fu-shadow-card: 0 12px 24px rgb(13 59 102 / 0.05);
+	--fu-shadow-panel: 0 22px 46px rgb(13 59 102 / 0.08);
+	--fu-shadow-card-hover: 0 18px 44px rgb(13 59 102 / 0.1);
 
 	/* Spacing System */
 	--fu-space-xs: 0.5rem;

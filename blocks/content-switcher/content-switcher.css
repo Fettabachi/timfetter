@@ -1,22 +1,22 @@
 .fu-content-switcher {
-	--switcher-surface: rgba(255, 255, 255, 0.78);
-	--switcher-surface-strong: rgba(255, 255, 255, 0.94);
-	--switcher-surface-soft: rgba(250, 240, 202, 0.52);
-	--switcher-border: rgba(13, 59, 102, 0.16);
-	--switcher-border-strong: rgba(13, 59, 102, 0.24);
+	--switcher-surface: rgb(255 255 255 / 0.78);
+	--switcher-surface-strong: rgb(255 255 255 / 0.94);
+	--switcher-surface-soft: rgb(250 240 202 / 0.52);
+	--switcher-border: rgb(13 59 102 / 0.16);
+	--switcher-border-strong: rgb(13 59 102 / 0.24);
 	--switcher-text: var(--fu-blue);
-	--switcher-muted: rgba(13, 59, 102, 0.68);
+	--switcher-muted: rgb(13 59 102 / 0.68);
 	--switcher-accent: var(--fu-orange);
-	--switcher-accent-soft: rgba(249, 87, 56, 0.14);
-	--switcher-shadow: 0 22px 56px rgba(13, 59, 102, 0.12);
+	--switcher-accent-soft: rgb(249 87 56 / 0.14);
+	--switcher-shadow: 0 22px 56px rgb(13 59 102 / 0.12);
 	--switcher-shell-radius: calc(var(--fu-radius-lg) + 8px);
-	--switcher-panel-surface: rgba(255, 255, 255, 0.88);
-	--switcher-panel-surface-strong: rgba(255, 255, 255, 0.96);
-	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
-	--switcher-panel-border: rgba(13, 59, 102, 0.12);
-	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
+	--switcher-panel-surface: rgb(255 255 255 / 0.88);
+	--switcher-panel-surface-strong: rgb(255 255 255 / 0.96);
+	--switcher-panel-surface-soft: rgb(13 59 102 / 0.04);
+	--switcher-panel-border: rgb(13 59 102 / 0.12);
+	--switcher-panel-border-strong: rgb(13 59 102 / 0.2);
 	--switcher-panel-text: var(--fu-blue);
-	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+	--switcher-panel-muted: rgb(13 59 102 / 0.68);
 	--switcher-panel-effective-surface: var(--switcher-panel-surface);
 	--switcher-panel-effective-surface-strong: var(
 		--switcher-panel-surface-strong
@@ -43,7 +43,7 @@
 	--switcher-tabs-active-text: var(--switcher-panel-effective-text);
 	--switcher-panel-radius: calc(var(--fu-radius-lg) + 8px);
 	--switcher-panel-min-height: clamp(22rem, 32vw, 30rem);
-	--switcher-outline: 0 0 0 3px rgba(249, 87, 56, 0.18);
+	--switcher-outline: 0 0 0 3px rgb(249 87 56 / 0.18);
 	color: var(--switcher-text);
 	position: relative;
 }
@@ -125,20 +125,20 @@
 }
 
 .fu-content-switcher--bg-none {
-	--switcher-surface: rgba(255, 255, 255, 0.72);
-	--switcher-surface-strong: rgba(255, 255, 255, 0.92);
-	--switcher-surface-soft: rgba(13, 59, 102, 0.04);
+	--switcher-surface: rgb(255 255 255 / 0.72);
+	--switcher-surface-strong: rgb(255 255 255 / 0.92);
+	--switcher-surface-soft: rgb(13 59 102 / 0.04);
 	background: transparent;
 }
 
 .fu-content-switcher--bg-light {
-	--switcher-surface: rgba(255, 255, 255, 0.9);
-	--switcher-surface-strong: rgba(255, 255, 255, 0.98);
-	--switcher-surface-soft: rgba(13, 59, 102, 0.06);
+	--switcher-surface: rgb(255 255 255 / 0.9);
+	--switcher-surface-strong: rgb(255 255 255 / 0.98);
+	--switcher-surface-soft: rgb(13 59 102 / 0.06);
 	background: linear-gradient(
 		180deg,
-		rgba(250, 240, 202, 0.2),
-		rgba(255, 255, 255, 0)
+		rgb(250 240 202 / 0.2),
+		rgb(255 255 255 / 0)
 	);
 }
 
@@ -147,30 +147,30 @@
 }
 
 .fu-content-switcher--shadow-soft {
-	--switcher-shadow: 0 18px 44px rgba(13, 59, 102, 0.1);
+	--switcher-shadow: 0 18px 44px rgb(13 59 102 / 0.1);
 }
 
 .fu-content-switcher--shadow-medium {
-	--switcher-shadow: 0 22px 56px rgba(13, 59, 102, 0.16);
+	--switcher-shadow: 0 22px 56px rgb(13 59 102 / 0.16);
 }
 
 .fu-content-switcher--shadow-strong {
-	--switcher-shadow: 0 28px 68px rgba(13, 59, 102, 0.24);
+	--switcher-shadow: 0 28px 68px rgb(13 59 102 / 0.24);
 }
 
 .fu-content-switcher--bg-dark {
-	--switcher-surface: rgba(255, 255, 255, 0.08);
-	--switcher-surface-strong: rgba(255, 255, 255, 0.12);
-	--switcher-surface-soft: rgba(255, 255, 255, 0.06);
-	--switcher-border: rgba(255, 255, 255, 0.14);
-	--switcher-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-surface: rgb(255 255 255 / 0.08);
+	--switcher-surface-strong: rgb(255 255 255 / 0.12);
+	--switcher-surface-soft: rgb(255 255 255 / 0.06);
+	--switcher-border: rgb(255 255 255 / 0.14);
+	--switcher-border-strong: rgb(255 255 255 / 0.24);
 	--switcher-text: var(--fu-white);
-	--switcher-muted: rgba(255, 255, 255, 0.74);
-	--switcher-accent-soft: rgba(250, 240, 202, 0.16);
+	--switcher-muted: rgb(255 255 255 / 0.74);
+	--switcher-accent-soft: rgb(250 240 202 / 0.16);
 	background: linear-gradient(
 		180deg,
-		rgba(13, 59, 102, 0.98),
-		rgba(17, 24, 39, 0.94)
+		rgb(13 59 102 / 0.98),
+		rgb(17 24 39 / 0.94)
 	);
 }
 
@@ -182,39 +182,39 @@
 .fu-content-switcher--panel-bg-none {
 	--switcher-panel-surface: transparent;
 	--switcher-panel-surface-strong: transparent;
-	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.04);
-	--switcher-panel-border: rgba(13, 59, 102, 0.12);
-	--switcher-panel-border-strong: rgba(13, 59, 102, 0.2);
+	--switcher-panel-surface-soft: rgb(13 59 102 / 0.04);
+	--switcher-panel-border: rgb(13 59 102 / 0.12);
+	--switcher-panel-border-strong: rgb(13 59 102 / 0.2);
 	--switcher-panel-text: var(--fu-blue);
-	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+	--switcher-panel-muted: rgb(13 59 102 / 0.68);
 }
 
 .fu-content-switcher--panel-bg-light {
-	--switcher-panel-surface: rgba(255, 255, 255, 0.88);
-	--switcher-panel-surface-strong: rgba(255, 255, 255, 0.96);
-	--switcher-panel-surface-soft: rgba(13, 59, 102, 0.06);
-	--switcher-panel-border: rgba(13, 59, 102, 0.12);
-	--switcher-panel-border-strong: rgba(13, 59, 102, 0.22);
+	--switcher-panel-surface: rgb(255 255 255 / 0.88);
+	--switcher-panel-surface-strong: rgb(255 255 255 / 0.96);
+	--switcher-panel-surface-soft: rgb(13 59 102 / 0.06);
+	--switcher-panel-border: rgb(13 59 102 / 0.12);
+	--switcher-panel-border-strong: rgb(13 59 102 / 0.22);
 	--switcher-panel-text: var(--fu-blue);
-	--switcher-panel-muted: rgba(13, 59, 102, 0.68);
+	--switcher-panel-muted: rgb(13 59 102 / 0.68);
 }
 
 .fu-content-switcher--panel-bg-dark {
-	--switcher-panel-surface: rgba(13, 59, 102, 0.92);
-	--switcher-panel-surface-strong: rgba(17, 24, 39, 0.96);
-	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
-	--switcher-panel-border: rgba(255, 255, 255, 0.14);
-	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-surface: rgb(13 59 102 / 0.92);
+	--switcher-panel-surface-strong: rgb(17 24 39 / 0.96);
+	--switcher-panel-surface-soft: rgb(255 255 255 / 0.08);
+	--switcher-panel-border: rgb(255 255 255 / 0.14);
+	--switcher-panel-border-strong: rgb(255 255 255 / 0.24);
 	--switcher-panel-text: var(--fu-white);
-	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+	--switcher-panel-muted: rgb(255 255 255 / 0.74);
 }
 
 .fu-content-switcher--panel-surface-dark {
-	--switcher-panel-surface-soft: rgba(255, 255, 255, 0.08);
-	--switcher-panel-border: rgba(255, 255, 255, 0.14);
-	--switcher-panel-border-strong: rgba(255, 255, 255, 0.24);
+	--switcher-panel-surface-soft: rgb(255 255 255 / 0.08);
+	--switcher-panel-border: rgb(255 255 255 / 0.14);
+	--switcher-panel-border-strong: rgb(255 255 255 / 0.24);
 	--switcher-panel-text: var(--fu-white);
-	--switcher-panel-muted: rgba(255, 255, 255, 0.74);
+	--switcher-panel-muted: rgb(255 255 255 / 0.74);
 }
 
 .fu-content-switcher--radius-none {
@@ -341,8 +341,8 @@
 .fu-content-switcher__tab.is-active,
 .fu-content-switcher__accordion-trigger.is-active {
 	background: var(--switcher-surface-strong);
-	border-color: rgba(249, 87, 56, 0.6);
-	box-shadow: 0 14px 32px rgba(13, 59, 102, 0.12);
+	border-color: rgb(249 87 56 / 0.6);
+	box-shadow: 0 14px 32px rgb(13 59 102 / 0.12);
 	color: var(--switcher-text);
 }
 
@@ -748,21 +748,21 @@
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__media {
-	background: rgba(255, 255, 255, 0.06);
+	background: rgb(255 255 255 / 0.06);
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--secondary {
-	border-color: rgba(255, 255, 255, 0.24);
+	border-color: rgb(255 255 255 / 0.24);
 	color: var(--fu-white);
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel {
-	--switcher-action-secondary-bg: rgba(255, 255, 255, 0.08);
-	--switcher-action-secondary-border: rgba(255, 255, 255, 0.24);
-	--switcher-action-secondary-hover-bg: rgba(255, 255, 255, 0.12);
-	--switcher-action-outline-border: rgba(255, 255, 255, 0.32);
-	--switcher-action-outline-hover-bg: rgba(255, 255, 255, 0.08);
-	--switcher-action-text: rgba(255, 255, 255, 0.92);
+	--switcher-action-secondary-bg: rgb(255 255 255 / 0.08);
+	--switcher-action-secondary-border: rgb(255 255 255 / 0.24);
+	--switcher-action-secondary-hover-bg: rgb(255 255 255 / 0.12);
+	--switcher-action-outline-border: rgb(255 255 255 / 0.32);
+	--switcher-action-outline-hover-bg: rgb(255 255 255 / 0.08);
+	--switcher-action-text: rgb(255 255 255 / 0.92);
 	--switcher-action-text-hover: var(--fu-white);
 }
 
@@ -770,7 +770,7 @@
 	.fu-switcher-panel__action--secondary:hover,
 .fu-content-switcher--panel-surface-dark
 	.fu-switcher-panel__action--secondary:focus-visible {
-	background: rgba(255, 255, 255, 0.08);
+	background: rgb(255 255 255 / 0.08);
 }
 
 .fu-content-switcher--panel-surface-dark .fu-switcher-panel__action--outline,
@@ -1703,9 +1703,9 @@
 		var(--cs-panel-bg-strong, #fff) 86%,
 		transparent
 	);
-	border: 1px dashed var(--cs-panel-border, rgba(13, 59, 102, 0.18));
+	border: 1px dashed var(--cs-panel-border, rgb(13 59 102 / 0.18));
 	border-radius: 0.75rem;
-	box-shadow: 0 0.35rem 1rem rgba(13, 59, 102, 0.08);
+	box-shadow: 0 0.35rem 1rem rgb(13 59 102 / 0.08);
 	display: grid;
 	gap: 0.35rem;
 	justify-items: start;
@@ -1734,7 +1734,7 @@
 
 .editor-styles-wrapper .fu-content-switcher__editor-label,
 .acf-block-component .fu-content-switcher__editor-label {
-	color: var(--cs-panel-muted, rgba(13, 59, 102, 0.68));
+	color: var(--cs-panel-muted, rgb(13 59 102 / 0.68));
 	font-size: 0.7rem;
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1746,7 +1746,7 @@
 .acf-block-component .fu-content-switcher .fu-content-switcher__copy-link {
 	appearance: none;
 	background: var(--cs-panel-bg, #fff);
-	border: 1px solid var(--cs-panel-border, rgba(13, 59, 102, 0.18));
+	border: 1px solid var(--cs-panel-border, rgb(13 59 102 / 0.18));
 	border-radius: 999px;
 	color: var(--cs-panel-text, var(--fu-blue));
 	cursor: pointer;
@@ -1769,9 +1769,9 @@
 .acf-block-component
 	.fu-content-switcher
 	.fu-content-switcher__copy-link:focus-visible {
-	background: var(--cs-panel-bg-soft, rgba(13, 59, 102, 0.06));
-	border-color: var(--cs-panel-border-strong, rgba(13, 59, 102, 0.28));
-	box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.18);
+	background: var(--cs-panel-bg-soft, rgb(13 59 102 / 0.06));
+	border-color: var(--cs-panel-border-strong, rgb(13 59 102 / 0.28));
+	box-shadow: 0 0 0 3px rgb(13 59 102 / 0.18);
 	outline: none;
 }
 
@@ -1787,8 +1787,8 @@
 .acf-block-component
 	.fu-content-switcher--panel-surface-dark
 	.fu-content-switcher__editor-utility {
-	background: rgba(255, 255, 255, 0.08);
-	border-color: rgba(255, 255, 255, 0.18);
+	background: rgb(255 255 255 / 0.08);
+	border-color: rgb(255 255 255 / 0.18);
 	box-shadow: none;
 }
 
@@ -1804,7 +1804,7 @@
 .acf-block-component
 	.fu-content-switcher--panel-surface-dark
 	.fu-content-switcher__editor-label {
-	color: rgba(255, 255, 255, 0.72);
+	color: rgb(255 255 255 / 0.72);
 }
 
 .editor-styles-wrapper
@@ -1819,8 +1819,8 @@
 .acf-block-component
 	.fu-content-switcher--panel-surface-dark
 	.fu-content-switcher__copy-link {
-	background: rgba(255, 255, 255, 0.08);
-	border-color: rgba(255, 255, 255, 0.22);
+	background: rgb(255 255 255 / 0.08);
+	border-color: rgb(255 255 255 / 0.22);
 	color: var(--fu-white);
 }
 
@@ -1848,8 +1848,8 @@
 .acf-block-component
 	.fu-content-switcher--panel-surface-dark
 	.fu-content-switcher__copy-link:focus-visible {
-	background: rgba(255, 255, 255, 0.14);
-	border-color: rgba(255, 255, 255, 0.34);
+	background: rgb(255 255 255 / 0.14);
+	border-color: rgb(255 255 255 / 0.34);
 }
 
 /* Tabs: scoped dark-panel edge treatment for light/no switcher backgrounds.

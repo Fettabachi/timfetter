@@ -20,7 +20,7 @@
 .fu-home-prototypes__card {
 	background: #fff;
 	border-radius: 1.2rem;
-	box-shadow: 0 2px 8px rgba(13, 59, 102, 0.06);
+	box-shadow: 0 2px 8px rgb(13 59 102 / 0.06);
 	display: flex;
 	flex-direction: column;
 	min-width: 0;
@@ -30,7 +30,7 @@
 }
 .fu-home-prototypes__card:hover,
 .fu-home-prototypes__card:focus {
-	box-shadow: 0 6px 24px rgba(13, 59, 102, 0.13);
+	box-shadow: 0 6px 24px rgb(13 59 102 / 0.13);
 	border-color: #bae6fd;
 }
 .fu-home-prototypes__media img {

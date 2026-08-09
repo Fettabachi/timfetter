@@ -8,13 +8,13 @@
 }
 
 .editor-styles-wrapper .fu-feature-section {
-	outline: 1px dashed rgba(0, 0, 0, 0.08);
+	outline: 1px dashed rgb(0 0 0 / 0.08);
 	outline-offset: -10px;
 	position: relative;
 }
 
 .editor-styles-wrapper .fu-feature-section::before {
-	color: rgba(0, 0, 0, 0.42);
+	color: rgb(0 0 0 / 0.42);
 	content: "Feature Section";
 	font-size: 0.65rem;
 	font-weight: 700;

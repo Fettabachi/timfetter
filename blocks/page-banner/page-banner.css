@@ -249,7 +249,7 @@
 
 	.fu-page-banner__primary-heading,
 	.fu-page-banner__subhead {
-		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.25);
+		text-shadow: 0 1px 1px rgb(0 0 0 / 0.35), 0 2px 6px rgb(0 0 0 / 0.25);
 	}
 
 	/* p,
@@ -427,7 +427,7 @@
 		filter: saturate(0.85);
 		transform: none;
 		text-decoration: none;
-		outline: 2px dashed rgba(255, 255, 255, 0.45);
+		outline: 2px dashed rgb(255 255 255 / 0.45);
 		outline-offset: 2px;
 	}
 }
@@ -445,7 +445,7 @@
 	bottom: 1.5rem;
 	right: 1.5rem;
 	z-index: 10;
-	background: rgba(255, 255, 255, 0.2);
+	background: rgb(255 255 255 / 0.2);
 	border: 1px solid white;
 	width: 44px;
 	height: 44px;
@@ -458,7 +458,7 @@
 }
 
 .fu-banner-mute-toggle:hover {
-	background: rgba(255, 255, 255, 0.4);
+	background: rgb(255 255 255 / 0.4);
 }
 
 .video-icon {

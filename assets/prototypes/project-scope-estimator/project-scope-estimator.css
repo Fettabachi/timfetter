@@ -7,7 +7,7 @@
 	--fu-border: #e5e7eb;
 	--fu-muted: #64748b;
 	--fu-radius: 28px;
-	--fu-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+	--fu-shadow: 0 22px 46px rgb(0 0 0 / 0.28);
 	--fu-green: #059669;
 	--fu-yellow: #eab308;
 	--fu-red: #dc2626;
@@ -19,7 +19,7 @@
 	padding: clamp(1.25rem, 2.8vw, 1.8rem);
 	margin-inline: auto;
 	background: linear-gradient(135deg, #08233f, #0d3b66 52%, #061827);
-	border: 1px solid hsla(0, 0%, 100%, 0.14);
+	border: 1px solid rgb(255 255 255 / 0.14);
 	border-radius: var(--fu-radius);
 	box-shadow: var(--fu-shadow);
 }
@@ -69,7 +69,7 @@
 	background: var(--fu-card-bg);
 	border: 1px solid var(--fu-border);
 	border-radius: 16px;
-	box-shadow: 0 2px 12px rgba(30, 41, 59, 0.04);
+	box-shadow: 0 2px 12px rgb(30 41 59 / 0.04);
 	padding: 1.5rem 1.25rem;
 }
 .fu-project-scope-estimator-demo .fu-scope-estimator__input-panel {
@@ -268,7 +268,7 @@
 	font-size: 0.75em;
 	background: #f1f5f9;
 	color: var(--fu-blue);
-	box-shadow: 0 1px 4px rgba(30, 41, 59, 0.07);
+	box-shadow: 0 1px 4px rgb(30 41 59 / 0.07);
 	border: 1.2px solid #e0e7ef;
 	display: inline-block;
 	letter-spacing: 0.01em;

@@ -28,7 +28,7 @@
 
 /* Card style: elevated */
 .fu-comparison-cards--style-elevated .fu-comparison-card__article {
-	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 4px 24px rgb(0 0 0 / 0.08);
 }
 
 /* Card style: bordered */
@@ -39,7 +39,7 @@
 /* Featured card — accent border overrides card style */
 .fu-comparison-card--featured .fu-comparison-card__article {
 	border: 2px solid var(--cc-featured-border-color);
-	box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 6px 30px rgb(0 0 0 / 0.1);
 }
 
 /* --------------------------------------------------------------------------
@@ -74,7 +74,7 @@
 	.fu-comparison-card--featured
 	.fu-comparison-card__article {
 	border: 2px solid var(--cc-featured-border-color);
-	box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 6px 30px rgb(0 0 0 / 0.1);
 }
 
 /* --------------------------------------------------------------------------

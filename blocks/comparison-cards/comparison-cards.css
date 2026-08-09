@@ -32,24 +32,24 @@
 	--cc-color-limited: #ffd28c;
 	--cc-color-not-included-strike: #b9b9b9;
 	--cc-color-not-included-strike-light: #d7deea;
-	--cc-color-card-dark-bg: rgba(255, 255, 255, 0.08);
-	--cc-color-card-dark-border: rgba(255, 255, 255, 0.28);
+	--cc-color-card-dark-bg: rgb(255 255 255 / 0.08);
+	--cc-color-card-dark-border: rgb(255 255 255 / 0.28);
 
 	/* Dark bg + card-style palette: one source per variant, no scattered literals. */
-	--cc-color-card-dark-clean-bg: rgba(255, 255, 255, 0.055);
-	--cc-color-card-dark-clean-border: rgba(255, 255, 255, 0.18);
-	--cc-color-card-dark-elevated-bg: rgba(255, 255, 255, 0.085);
-	--cc-color-card-dark-elevated-border: rgba(255, 255, 255, 0.24);
-	--cc-color-card-dark-elevated-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-	--cc-color-card-dark-bordered-bg: rgba(255, 255, 255, 0.045);
-	--cc-color-card-dark-bordered-border: rgba(255, 255, 255, 0.38);
+	--cc-color-card-dark-clean-bg: rgb(255 255 255 / 0.055);
+	--cc-color-card-dark-clean-border: rgb(255 255 255 / 0.18);
+	--cc-color-card-dark-elevated-bg: rgb(255 255 255 / 0.085);
+	--cc-color-card-dark-elevated-border: rgb(255 255 255 / 0.24);
+	--cc-color-card-dark-elevated-shadow: 0 24px 60px rgb(0 0 0 / 0.28);
+	--cc-color-card-dark-bordered-bg: rgb(255 255 255 / 0.045);
+	--cc-color-card-dark-bordered-border: rgb(255 255 255 / 0.38);
 
-	--cc-color-control-badge-dark: rgba(255, 255, 255, 0.14);
-	--cc-color-control-badge-border-dark: rgba(255, 255, 255, 0.16);
-	--cc-color-control-border-dark: rgba(255, 255, 255, 0.55);
-	--cc-color-control-hover-dark: rgba(255, 255, 255, 0.12);
-	--cc-color-divider-dark: rgba(255, 255, 255, 0.2);
-	--cc-color-divider-light: rgba(0, 0, 0, 0.08);
+	--cc-color-control-badge-dark: rgb(255 255 255 / 0.14);
+	--cc-color-control-badge-border-dark: rgb(255 255 255 / 0.16);
+	--cc-color-control-border-dark: rgb(255 255 255 / 0.55);
+	--cc-color-control-hover-dark: rgb(255 255 255 / 0.12);
+	--cc-color-divider-dark: rgb(255 255 255 / 0.2);
+	--cc-color-divider-light: rgb(0 0 0 / 0.08);
 	--cc-color-empty-text: #888;
 	--cc-color-empty-border: #ddd;
 

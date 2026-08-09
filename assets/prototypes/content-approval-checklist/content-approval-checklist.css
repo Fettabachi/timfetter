@@ -10,7 +10,7 @@
 	--fu-muted: #64748b;
 	--fu-muted-strong: #475569;
 	--fu-radius: 28px;
-	--fu-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+	--fu-shadow: 0 22px 46px rgb(0 0 0 / 0.28);
 	--fu-focus: #60a5fa;
 	margin-block: clamp(2.5rem, 4vw, 4.5rem);
 	margin-inline: auto;
@@ -23,7 +23,7 @@
 	padding: clamp(1.25rem, 2.8vw, 1.8rem);
 	overflow: hidden;
 	background: linear-gradient(135deg, #08233f, #0d3b66 52%, #061827);
-	border: 1px solid hsla(0, 0%, 100%, 0.14);
+	border: 1px solid rgb(255 255 255 / 0.14);
 	border-radius: var(--fu-radius);
 	box-shadow: var(--fu-shadow);
 }
@@ -70,9 +70,9 @@
 	max-width: 100%;
 	padding: clamp(1.15rem, 2.6vw, 2rem);
 	background: var(--fu-card-bg);
-	border: 1px solid rgba(13, 59, 102, 0.08);
+	border: 1px solid rgb(13 59 102 / 0.08);
 	border-radius: var(--fu-radius);
-	box-shadow: 0 2px 8px rgba(13, 59, 102, 0.06);
+	box-shadow: 0 2px 8px rgb(13 59 102 / 0.06);
 }
 
 .fu-content-approval-checklist-demo .fu-checklist__controls-row {
@@ -124,7 +124,7 @@
 	.fu-checklist__workflow-type
 	select:focus-visible {
 	border-color: var(--fu-focus);
-	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.28);
+	box-shadow: 0 0 0 3px rgb(96 165 250 / 0.28);
 }
 
 .fu-content-approval-checklist-demo .fu-checklist__workflow-helper {
@@ -177,7 +177,7 @@
 }
 
 .fu-content-approval-checklist-demo .fu-checklist__filter-btn:focus-visible {
-	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.34);
+	box-shadow: 0 0 0 3px rgb(96 165 250 / 0.34);
 }
 
 .fu-content-approval-checklist-demo .fu-checklist__group {
@@ -248,7 +248,7 @@
 	background: #eaf1f8;
 	border: 1.5px solid #c3d2e3;
 	border-radius: 999px;
-	box-shadow: inset 0 -1px 0 rgba(13, 59, 102, 0.08);
+	box-shadow: inset 0 -1px 0 rgb(13 59 102 / 0.08);
 	font-size: 0.9rem;
 	font-weight: 600;
 	line-height: 1.1;
@@ -270,7 +270,7 @@
 	color: #ffffff;
 	background: var(--fu-blue);
 	border-color: var(--fu-blue);
-	box-shadow: 0 4px 10px rgba(13, 59, 102, 0.18);
+	box-shadow: 0 4px 10px rgb(13 59 102 / 0.18);
 
 	&:hover {
 		background: var(--fu-blue);
@@ -279,7 +279,7 @@
 }
 
 .fu-content-approval-checklist-demo .fu-checklist__status-pill:focus-within {
-	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.34);
+	box-shadow: 0 0 0 3px rgb(96 165 250 / 0.34);
 	z-index: 2;
 }
 
@@ -486,7 +486,7 @@
 	margin-top: clamp(1.5rem, 3vw, 2.5rem);
 	padding: 1.1rem 1.5rem;
 	color: #e0e7ef;
-	background: rgba(13, 59, 102, 0.18);
+	background: rgb(13 59 102 / 0.18);
 	border-radius: 1rem;
 	font-size: 1.01rem;
 	line-height: 1.55;

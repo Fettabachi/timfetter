@@ -58,7 +58,7 @@
 	filter: saturate(0.85);
 	transform: none;
 	text-decoration: none;
-	outline: 2px dashed rgba(255, 255, 255, 0.45);
+	outline: 2px dashed rgb(255 255 255 / 0.45);
 	outline-offset: 2px;
 }
 

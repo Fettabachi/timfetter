@@ -14,7 +14,7 @@
 	color: var(--fcg-text);
 	background: radial-gradient(
 			circle at top left,
-			rgba(13, 59, 102, 0.08),
+			rgb(13 59 102 / 0.08),
 			transparent 28%
 		),
 		linear-gradient(180deg, #fbfcfe 0%, var(--fu-portfolio-bg) 100%);
@@ -36,7 +36,7 @@
 .fu-portfolio__callout,
 .fu-portfolio__closing {
 	border: 1px solid var(--fu-border);
-	background: rgba(255, 255, 255, 0.92);
+	background: rgb(255 255 255 / 0.92);
 	border-radius: 28px;
 }
 
@@ -44,8 +44,8 @@
 	padding: clamp(1.75rem, 4vw, 2.4rem);
 	background: linear-gradient(
 		135deg,
-		rgba(255, 255, 255, 0.96) 0%,
-		rgba(244, 248, 252, 0.98) 100%
+		rgb(255 255 255 / 0.96) 0%,
+		rgb(244 248 252 / 0.98) 100%
 	);
 }
 
@@ -61,9 +61,9 @@
 	align-items: center;
 	gap: 0.55rem;
 	padding: 0.45rem 0.8rem;
-	border: 1px solid rgba(13, 59, 102, 0.14);
+	border: 1px solid rgb(13 59 102 / 0.14);
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.7);
+	background: rgb(255 255 255 / 0.7);
 	color: var(--fcg-accent);
 	font-size: 0.82rem;
 	font-weight: 700;
@@ -167,7 +167,7 @@
 	padding: 1rem 1rem 1.1rem;
 	border: 1px solid var(--fcg-line);
 	border-radius: var(--fcg-radius-md);
-	background: rgba(255, 255, 255, 0.78);
+	background: rgb(255 255 255 / 0.78);
 }
 
 .fu-portfolio__meta-label {
@@ -258,9 +258,9 @@
 
 .fu-portfolio__card {
 	padding: clamp(1.1rem, 2vw, 1.35rem);
-	border: 1px solid rgba(13, 59, 102, 0.09);
+	border: 1px solid rgb(13 59 102 / 0.09);
 	border-radius: 22px;
-	background: rgba(255, 255, 255, 0.9);
+	background: rgb(255 255 255 / 0.9);
 	transition:
 		border-color 0.22s ease,
 		background-color 0.22s ease;
@@ -268,8 +268,8 @@
 
 .fu-portfolio__card:hover,
 .fu-portfolio__card:focus-within {
-	border-color: rgba(13, 59, 102, 0.18);
-	background: rgba(255, 255, 255, 0.96);
+	border-color: rgb(13 59 102 / 0.18);
+	background: rgb(255 255 255 / 0.96);
 }
 
 .fu-portfolio__card h3 {
@@ -348,9 +348,9 @@
 	padding: clamp(1.55rem, 3vw, 2.2rem);
 	background: linear-gradient(
 		135deg,
-		rgba(13, 59, 102, 0.06) 0%,
-		rgba(255, 255, 255, 0.95) 45%,
-		rgba(255, 255, 255, 0.92) 100%
+		rgb(13 59 102 / 0.06) 0%,
+		rgb(255 255 255 / 0.95) 45%,
+		rgb(255 255 255 / 0.92) 100%
 	);
 }
 
@@ -422,7 +422,7 @@
 .fu-portfolio-piece__demo-panel-inner {
 	border: 1px solid var(--fu-border);
 	border-radius: 28px;
-	background: rgba(255, 255, 255, 0.92);
+	background: rgb(255 255 255 / 0.92);
 }
 
 .fu-portfolio-piece__lead-inner {
@@ -432,8 +432,8 @@
 	gap: clamp(1.5rem, 3vw, 2.5rem);
 	background: linear-gradient(
 		135deg,
-		rgba(255, 255, 255, 0.96) 0%,
-		rgba(244, 248, 252, 0.98) 100%
+		rgb(255 255 255 / 0.96) 0%,
+		rgb(244 248 252 / 0.98) 100%
 	);
 }
 
@@ -538,14 +538,14 @@
 
 .fu-portfolio-piece__meta-item {
 	padding: 1rem 1rem 1.1rem;
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 14px;
 	background: #fff;
 }
 
 .fu-portfolio-piece__meta-label {
 	display: block;
-	color: rgba(13, 59, 102, 0.65);
+	color: rgb(13 59 102 / 0.65);
 	font-size: 0.84rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -660,7 +660,7 @@
 	gap: 0.25rem;
 	min-height: 5rem;
 	padding: 0.9rem 1rem;
-	background: rgba(13, 59, 102, 0.04);
+	background: rgb(13 59 102 / 0.04);
 	color: var(--fu-blue);
 }
 
@@ -742,13 +742,13 @@ h2.fu-block-navigation__heading,
 	gap: 0.45rem;
 	min-height: 100%;
 	padding: 1rem;
-	background: rgba(255, 255, 255, 0.82);
+	background: rgb(255 255 255 / 0.82);
 	color: var(--fu-blue);
 }
 
 .fu-block-navigation__card--current {
-	border-color: rgba(13, 59, 102, 0.28);
-	background: rgba(13, 59, 102, 0.05);
+	border-color: rgb(13 59 102 / 0.28);
+	background: rgb(13 59 102 / 0.05);
 }
 
 .fu-block-navigation__card-title {
@@ -854,14 +854,14 @@ h2.fu-block-navigation__heading,
 	padding: 1.25rem 1.25rem 1.35rem;
 	border: 1px solid var(--fu-border);
 	border-radius: 16px;
-	background: rgba(255, 255, 255, 0.85);
+	background: rgb(255 255 255 / 0.85);
 }
 
 .fu-principles__item h3 {
 	margin: 0.5rem 0;
 	font-size: 1.05rem;
 	line-height: 1.3;
-	color: rgba(13, 59, 102, 0.8);
+	color: rgb(13 59 102 / 0.8);
 	font-weight: 600;
 }
 
@@ -882,19 +882,19 @@ h2.fu-block-navigation__heading,
 	gap: clamp(1.5rem, 4vw, 3rem);
 	align-items: start;
 	padding: clamp(1.75rem, 4vw, 3rem);
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 28px;
 	background: radial-gradient(
 			circle at 12% 18%,
-			rgba(96, 165, 250, 0.12),
+			rgb(96 165 250 / 0.12),
 			transparent 22rem
 		),
 		linear-gradient(
 			135deg,
-			rgba(248, 251, 254, 0.98),
-			rgba(238, 246, 252, 0.92)
+			rgb(248 251 254 / 0.98),
+			rgb(238 246 252 / 0.92)
 		);
-	box-shadow: 0 18px 48px rgba(13, 59, 102, 0.06);
+	box-shadow: 0 18px 48px rgb(13 59 102 / 0.06);
 }
 
 .fu-system-purpose .fu-eyebrow {
@@ -919,10 +919,10 @@ h2.fu-block-navigation__heading,
 
 .fu-system-purpose__principle {
 	padding: 1rem;
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 16px;
-	background: rgba(255, 255, 255, 0.78);
-	box-shadow: 0 10px 28px rgba(13, 59, 102, 0.05);
+	background: rgb(255 255 255 / 0.78);
+	box-shadow: 0 10px 28px rgb(13 59 102 / 0.05);
 }
 
 .fu-system-purpose__principle-label,
@@ -940,7 +940,7 @@ h2.fu-block-navigation__heading,
 
 .fu-system-purpose__principle-text {
 	margin-top: 0.4rem;
-	color: rgba(13, 59, 102, 0.78);
+	color: rgb(13 59 102 / 0.78);
 	line-height: 1.5;
 }
 
@@ -983,11 +983,11 @@ h2.fu-block-navigation__heading,
 	border-radius: 12px;
 	background: radial-gradient(
 			circle at 18% 20%,
-			rgba(96, 165, 250, 0.22),
+			rgb(96 165 250 / 0.22),
 			transparent 28rem
 		),
 		var(--fu-gradient-lux);
-	box-shadow: 0 22px 54px rgba(13, 59, 102, 0.18);
+	box-shadow: 0 22px 54px rgb(13 59 102 / 0.18);
 }
 
 .fu-system-workflow__item {
@@ -1016,7 +1016,7 @@ h2.fu-block-navigation__heading,
 
 .fu-system-workflow__item p {
 	margin: 0;
-	color: rgb(239, 246, 255);
+	color: rgb(239 246 255);
 	font-size: clamp(0.95rem, 0.9rem + 0.18vw, 1.05rem);
 	line-height: 1.55;
 	text-wrap: pretty;
@@ -1058,14 +1058,14 @@ h2.fu-block-navigation__heading,
 
 .fu-system-value__panel {
 	padding: clamp(1.35rem, 3vw, 2rem);
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 22px;
 	background: linear-gradient(
 		145deg,
-		rgba(255, 255, 255, 0.98),
-		rgba(248, 251, 254, 0.94)
+		rgb(255 255 255 / 0.98),
+		rgb(248 251 254 / 0.94)
 	);
-	box-shadow: 0 14px 36px rgba(13, 59, 102, 0.06);
+	box-shadow: 0 14px 36px rgb(13 59 102 / 0.06);
 }
 
 .fu-system-value__panel h3 {
@@ -1079,7 +1079,7 @@ h2.fu-block-navigation__heading,
 
 .fu-system-value__panel p {
 	margin: 0.8rem 0 0;
-	color: rgba(13, 59, 102, 0.78);
+	color: rgb(13 59 102 / 0.78);
 	line-height: 1.6;
 	text-wrap: pretty;
 }
@@ -1095,7 +1095,7 @@ h2.fu-block-navigation__heading,
 .fu-system-value__panel li {
 	position: relative;
 	padding-left: 1.35rem;
-	color: rgba(13, 59, 102, 0.84);
+	color: rgb(13 59 102 / 0.84);
 	line-height: 1.45;
 }
 
@@ -1115,13 +1115,13 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-system-fit {
-	--fu-system-fit-card-border: rgba(13, 59, 102, 0.12);
+	--fu-system-fit-card-border: rgb(13 59 102 / 0.12);
 	--fu-system-fit-card-bg: linear-gradient(
 		160deg,
-		rgba(255, 255, 255, 0.98),
-		rgba(245, 249, 253, 0.95)
+		rgb(255 255 255 / 0.98),
+		rgb(245 249 253 / 0.95)
 	);
-	--fu-system-fit-card-shadow: 0 10px 26px rgba(13, 59, 102, 0.06);
+	--fu-system-fit-card-shadow: 0 10px 26px rgb(13 59 102 / 0.06);
 }
 
 .fu-system-fit .fu-eyebrow {
@@ -1167,7 +1167,7 @@ h2.fu-block-navigation__heading,
 .fu-system-fit__card li {
 	position: relative;
 	padding-left: 1.2rem;
-	color: rgba(13, 59, 102, 0.84);
+	color: rgb(13 59 102 / 0.84);
 	font-size: 0.94rem;
 	line-height: 1.55;
 	text-wrap: pretty;
@@ -1178,7 +1178,7 @@ h2.fu-block-navigation__heading,
 	position: absolute;
 	left: 0;
 	top: 0.02rem;
-	color: rgba(13, 59, 102, 0.6);
+	color: rgb(13 59 102 / 0.6);
 	font-weight: 700;
 }
 
@@ -1197,13 +1197,13 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-card--is-quote.fu-card--is-quote-light {
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	background: white;
-	box-shadow: 0 10px 26px rgba(13, 59, 102, 0.06);
+	box-shadow: 0 10px 26px rgb(13 59 102 / 0.06);
 }
 
 .fu-card--is-quote.fu-card--is-quote-light > .fu-system-fit__quote-statement {
-	border-inline-start: 4px solid rgba(13, 59, 102, 0.12);
+	border-inline-start: 4px solid rgb(13 59 102 / 0.12);
 	color: var(--fu-blue);
 	font-size: clamp(1.05rem, 1rem + 0.25vw, 1.18rem);
 	font-weight: 300;
@@ -1246,17 +1246,17 @@ h2.fu-block-navigation__heading,
 	align-items: start;
 	gap: clamp(1rem, 3vw, 2.5rem);
 	padding-block: 1.75rem;
-	border-top: 1px solid rgba(13, 59, 102, 0.12);
+	border-top: 1px solid rgb(13 59 102 / 0.12);
 
 	&:last-child {
-		border-bottom: 1px solid rgba(13, 59, 102, 0.12);
+		border-bottom: 1px solid rgb(13 59 102 / 0.12);
 	}
 }
 
 .fu-system-principle-group__eyebrow {
 	display: block;
 	margin-bottom: 0.35rem;
-	color: rgba(13, 59, 102, 0.45);
+	color: rgb(13 59 102 / 0.45);
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.13em;
@@ -1274,7 +1274,7 @@ h2.fu-block-navigation__heading,
 
 .fu-system-principle-group > p {
 	margin: 0;
-	color: rgba(13, 59, 102, 0.78);
+	color: rgb(13 59 102 / 0.78);
 	font-size: clamp(0.93rem, 0.88rem + 0.2vw, 1.03rem);
 	line-height: 1.65;
 	text-wrap: pretty;
@@ -1293,7 +1293,7 @@ h2.fu-block-navigation__heading,
 	display: flex;
 	align-items: center;
 	gap: 0.55rem;
-	color: rgba(13, 59, 102, 0.78);
+	color: rgb(13 59 102 / 0.78);
 	font-size: 0.9rem;
 	font-weight: 600;
 
@@ -1304,7 +1304,7 @@ h2.fu-block-navigation__heading,
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background: rgba(13, 59, 102, 0.3);
+		background: rgb(13 59 102 / 0.3);
 	}
 }
 
@@ -1323,7 +1323,7 @@ h2.fu-block-navigation__heading,
 	transform: translateX(-50%);
 	background: radial-gradient(
 			circle at 18% 20%,
-			rgba(96, 165, 250, 0.24),
+			rgb(96 165 250 / 0.24),
 			transparent 32rem
 		),
 		var(--fu-gradient-lux);
@@ -1338,17 +1338,17 @@ h2.fu-block-navigation__heading,
 	max-width: none;
 	padding: clamp(1.8rem, 5vw, 3rem);
 
-	border: 1px solid rgba(255, 255, 255, 0.18);
+	border: 1px solid rgb(255 255 255 / 0.18);
 	border-radius: 24px;
 	background: linear-gradient(
 		145deg,
-		rgba(255, 255, 255, 0.13),
-		rgba(255, 255, 255, 0.06)
+		rgb(255 255 255 / 0.13),
+		rgb(255 255 255 / 0.06)
 	);
 	color: #fff;
 	text-decoration: none;
 	overflow: hidden;
-	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+	box-shadow: 0 24px 60px rgb(0 0 0 / 0.22);
 	transition:
 		transform 180ms ease,
 		border-color 180ms ease,
@@ -1366,12 +1366,12 @@ h2.fu-block-navigation__heading,
 .fu-system-editor-callout__card:hover,
 .fu-system-editor-callout__card:focus-visible {
 	transform: translateY(-2px);
-	border-color: rgba(255, 255, 255, 0.36);
-	box-shadow: 0 30px 72px rgba(0, 0, 0, 0.28);
+	border-color: rgb(255 255 255 / 0.36);
+	box-shadow: 0 30px 72px rgb(0 0 0 / 0.28);
 }
 
 .fu-system-editor-callout__card:focus-visible {
-	outline: 3px solid rgba(255, 255, 255, 0.72);
+	outline: 3px solid rgb(255 255 255 / 0.72);
 	outline-offset: 5px;
 }
 
@@ -1391,7 +1391,7 @@ h2.fu-block-navigation__heading,
 .fu-system-editor-callout__card p {
 	max-width: 72ch;
 	margin: clamp(1.15rem, 2.5vw, 1.6rem) 0 0;
-	color: rgba(239, 246, 255, 0.86);
+	color: rgb(239 246 255 / 0.86);
 	font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem);
 	line-height: 1.65;
 	text-wrap: pretty;
@@ -1448,12 +1448,12 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-portfolio-audit {
-	--fu-portfolio-audit-border: rgba(13, 59, 102, 0.12);
-	--fu-portfolio-audit-muted: rgba(13, 59, 102, 0.72);
+	--fu-portfolio-audit-border: rgb(13 59 102 / 0.12);
+	--fu-portfolio-audit-muted: rgb(13 59 102 / 0.72);
 	--fu-portfolio-audit-surface: linear-gradient(
 		145deg,
-		rgba(255, 255, 255, 0.98),
-		rgba(248, 251, 254, 0.94)
+		rgb(255 255 255 / 0.98),
+		rgb(248 251 254 / 0.94)
 	);
 	margin-block: clamp(4rem, 8vw, 6rem);
 }
@@ -1463,7 +1463,7 @@ h2.fu-block-navigation__heading,
 	border: 1px solid var(--fu-portfolio-audit-border);
 	border-radius: 18px;
 	background: var(--fu-portfolio-audit-surface);
-	box-shadow: 0 14px 36px rgba(13, 59, 102, 0.07);
+	box-shadow: 0 14px 36px rgb(13 59 102 / 0.07);
 }
 
 .fu-portfolio-audit__header .fu-eyebrow {
@@ -1529,9 +1529,9 @@ h2.fu-block-navigation__heading,
 .fu-portfolio-audit__empty {
 	margin: 1.1rem 0 0;
 	padding: 0.9rem 1rem;
-	border: 1px solid rgba(242, 148, 59, 0.34);
+	border: 1px solid rgb(242 148 59 / 0.34);
 	border-radius: 8px;
-	background: rgba(242, 148, 59, 0.1);
+	background: rgb(242 148 59 / 0.1);
 	color: var(--fu-blue);
 	font-size: 0.94rem;
 	line-height: 1.5;
@@ -1564,9 +1564,9 @@ h2.fu-block-navigation__heading,
 	justify-content: center;
 	min-height: 1.8rem;
 	padding: 0.32rem 0.62rem;
-	border: 1px solid rgba(13, 59, 102, 0.14);
+	border: 1px solid rgb(13 59 102 / 0.14);
 	border-radius: 999px;
-	background: rgba(13, 59, 102, 0.06);
+	background: rgb(13 59 102 / 0.06);
 	color: var(--fu-blue);
 	font-size: 0.76rem;
 	font-weight: 800;
@@ -1576,13 +1576,13 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-portfolio-audit__check--pass .fu-portfolio-audit__check-status {
-	border-color: rgba(13, 59, 102, 0.18);
-	background: rgba(13, 59, 102, 0.08);
+	border-color: rgb(13 59 102 / 0.18);
+	background: rgb(13 59 102 / 0.08);
 }
 
 .fu-portfolio-audit__check--notice .fu-portfolio-audit__check-status {
-	border-color: rgba(242, 148, 59, 0.34);
-	background: rgba(242, 148, 59, 0.12);
+	border-color: rgb(242 148 59 / 0.34);
+	background: rgb(242 148 59 / 0.12);
 }
 
 .fu-portfolio-audit__check-body {
@@ -1607,7 +1607,7 @@ h2.fu-block-navigation__heading,
 
 .fu-portfolio-audit__check-term,
 .fu-portfolio-audit__admin-heading {
-	color: rgba(13, 59, 102, 0.58);
+	color: rgb(13 59 102 / 0.58);
 	font-size: 0.72rem;
 	font-weight: 800;
 	letter-spacing: 0.08em;
@@ -1634,7 +1634,7 @@ h2.fu-block-navigation__heading,
 .fu-portfolio-audit__admin-list li {
 	position: relative;
 	padding-left: 1rem;
-	color: rgba(13, 59, 102, 0.82);
+	color: rgb(13 59 102 / 0.82);
 }
 
 .fu-portfolio-audit__admin-list li::before {
@@ -1645,7 +1645,7 @@ h2.fu-block-navigation__heading,
 	width: 0.38rem;
 	height: 0.38rem;
 	border-radius: 999px;
-	background: rgba(13, 59, 102, 0.32);
+	background: rgb(13 59 102 / 0.32);
 }
 
 .fu-portfolio-audit__admin-list a {
@@ -1760,7 +1760,7 @@ h2.fu-block-navigation__heading,
 	border-radius: 0.5rem;
 	background: var(--fu-blue);
 	color: var(--fu-white);
-	box-shadow: 0 0.75rem 2rem rgba(13, 59, 102, 0.2);
+	box-shadow: 0 0.75rem 2rem rgb(13 59 102 / 0.2);
 
 	font-size: 0.8125rem;
 	font-weight: 400;
@@ -1930,7 +1930,7 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__back a {
-	color: rgba(13, 59, 102, 0.78);
+	color: rgb(13 59 102 / 0.78);
 	font-weight: 600;
 	text-decoration: none;
 	transition: color 0.22s ease;
@@ -1959,7 +1959,7 @@ h2.fu-block-navigation__heading,
 	min-height: 2rem;
 	padding: 0.45rem 0.75rem;
 	border-radius: 999px;
-	background: rgba(13, 59, 102, 0.08);
+	background: rgb(13 59 102 / 0.08);
 	color: var(--fu-blue);
 	font-size: 0.82rem;
 	font-weight: 700;
@@ -1981,7 +1981,7 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__excerpt {
 	max-width: 50rem;
-	color: rgba(13, 59, 102, 0.8);
+	color: rgb(13 59 102 / 0.8);
 	font-size: clamp(1rem, 0.97rem + 0.2vw, 1.08rem);
 	line-height: 1.75;
 }
@@ -2011,7 +2011,7 @@ h2.fu-block-navigation__heading,
 	max-width: 50rem;
 	margin: clamp(1.4rem, 3vw, 2rem) 0 clamp(1.8rem, 3.5vw, 2.6rem);
 	padding: clamp(1rem, 2vw, 1.15rem) 0;
-	border-block: 1px solid rgba(13, 59, 102, 0.1);
+	border-block: 1px solid rgb(13 59 102 / 0.1);
 }
 
 .fu-resource-single__section-nav-toggle {
@@ -2021,10 +2021,10 @@ h2.fu-block-navigation__heading,
 	gap: 0.65rem;
 	min-height: 2.35rem;
 	padding: 0.5rem 0.75rem;
-	border: 1px solid rgba(13, 59, 102, 0.13);
+	border: 1px solid rgb(13 59 102 / 0.13);
 	border-radius: 8px;
-	background: rgba(255, 255, 255, 0.76);
-	color: rgba(13, 59, 102, 0.86);
+	background: rgb(255 255 255 / 0.76);
+	color: rgb(13 59 102 / 0.86);
 	cursor: pointer;
 	font: inherit;
 	font-size: 0.9rem;
@@ -2038,13 +2038,13 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__section-nav-toggle:hover,
 .fu-resource-single__section-nav-toggle:focus-visible {
-	border-color: rgba(13, 59, 102, 0.26);
+	border-color: rgb(13 59 102 / 0.26);
 	background: #ffffff;
 	color: var(--fu-blue);
 }
 
 .fu-resource-single__section-nav-toggle:focus-visible {
-	outline: 3px solid rgba(13, 59, 102, 0.18);
+	outline: 3px solid rgb(13 59 102 / 0.18);
 	outline-offset: 3px;
 }
 
@@ -2107,10 +2107,10 @@ h2.fu-block-navigation__heading,
 	align-items: center;
 	min-height: 1.85rem;
 	padding: 0.34rem 0.58rem;
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.66);
-	color: rgba(13, 59, 102, 0.82);
+	background: rgb(255 255 255 / 0.66);
+	color: rgb(13 59 102 / 0.82);
 	font-size: 0.8rem;
 	font-weight: 700;
 	line-height: 1.2;
@@ -2124,7 +2124,7 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__section-nav-links a:hover,
 .fu-resource-single__section-nav-links a:focus-visible {
-	border-color: rgba(13, 59, 102, 0.24);
+	border-color: rgb(13 59 102 / 0.24);
 	background: #ffffff;
 	color: var(--fu-blue);
 	outline: none;
@@ -2155,7 +2155,7 @@ h2.fu-block-navigation__heading,
 .fu-resource-single__intro {
 	max-width: 50rem;
 	margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
-	color: rgba(13, 59, 102, 0.82);
+	color: rgb(13 59 102 / 0.82);
 	font-size: clamp(1rem, 0.95rem + 0.24vw, 1.12rem);
 	line-height: 1.75;
 }
@@ -2172,14 +2172,14 @@ h2.fu-block-navigation__heading,
 .fu-resource-single__panel {
 	scroll-margin-top: 5rem;
 	padding: clamp(1.15rem, 3vw, 1.65rem);
-	border: 1px solid rgba(13, 59, 102, 0.11);
+	border: 1px solid rgb(13 59 102 / 0.11);
 	border-radius: 18px;
 	background: linear-gradient(
 		145deg,
-		rgba(255, 255, 255, 0.98),
-		rgba(248, 251, 254, 0.94)
+		rgb(255 255 255 / 0.98),
+		rgb(248 251 254 / 0.94)
 	);
-	box-shadow: 0 12px 30px rgba(13, 59, 102, 0.05);
+	box-shadow: 0 12px 30px rgb(13 59 102 / 0.05);
 }
 
 .fu-resource-single__content h2,
@@ -2224,7 +2224,7 @@ h2.fu-block-navigation__heading,
 .fu-resource-single__content li {
 	position: relative;
 	margin: 0;
-	color: rgba(13, 59, 102, 0.82);
+	color: rgb(13 59 102 / 0.82);
 	line-height: 1.6;
 	text-wrap: pretty;
 }
@@ -2241,7 +2241,7 @@ h2.fu-block-navigation__heading,
 	width: 0.42rem;
 	height: 0.42rem;
 	border-radius: 999px;
-	background: rgba(13, 59, 102, 0.38);
+	background: rgb(13 59 102 / 0.38);
 }
 
 .fu-resource-single__content ol {
@@ -2264,9 +2264,9 @@ h2.fu-block-navigation__heading,
 	place-items: center;
 	width: 1.8rem;
 	height: 1.8rem;
-	border: 1px solid rgba(13, 59, 102, 0.14);
+	border: 1px solid rgb(13 59 102 / 0.14);
 	border-radius: 999px;
-	background: rgba(13, 59, 102, 0.06);
+	background: rgb(13 59 102 / 0.06);
 	color: var(--fu-blue);
 	font-size: 0.78rem;
 	font-weight: 800;
@@ -2274,13 +2274,13 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__panel--quality {
-	border-color: rgba(13, 59, 102, 0.18);
+	border-color: rgb(13 59 102 / 0.18);
 	background: linear-gradient(
 		145deg,
-		rgba(13, 59, 102, 0.96),
-		rgba(8, 38, 63, 0.96)
+		rgb(13 59 102 / 0.96),
+		rgb(8 38 63 / 0.96)
 	);
-	box-shadow: 0 18px 44px rgba(13, 59, 102, 0.16);
+	box-shadow: 0 18px 44px rgb(13 59 102 / 0.16);
 }
 
 .fu-resource-single__panel--quality h2 {
@@ -2289,7 +2289,7 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__panel--quality p,
 .fu-resource-single__panel--quality li {
-	color: rgba(239, 246, 255, 0.88);
+	color: rgb(239 246 255 / 0.88);
 }
 
 .fu-resource-single__panel--quality ul li::before {
@@ -2297,8 +2297,8 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__panel--quality ol li::before {
-	border-color: rgba(255, 255, 255, 0.22);
-	background: rgba(255, 255, 255, 0.12);
+	border-color: rgb(255 255 255 / 0.22);
+	background: rgb(255 255 255 / 0.12);
 	color: #ffffff;
 }
 
@@ -2306,10 +2306,10 @@ h2.fu-block-navigation__heading,
 	max-width: 52rem;
 	margin-top: clamp(2rem, 4vw, 3rem);
 	padding: clamp(1.2rem, 3vw, 1.65rem);
-	border: 1px solid rgba(13, 59, 102, 0.11);
+	border: 1px solid rgb(13 59 102 / 0.11);
 	border-radius: 18px;
-	background: rgba(255, 255, 255, 0.82);
-	box-shadow: 0 12px 30px rgba(13, 59, 102, 0.05);
+	background: rgb(255 255 255 / 0.82);
+	box-shadow: 0 12px 30px rgb(13 59 102 / 0.05);
 }
 
 .fu-resource-single__further-reading-head {
@@ -2333,7 +2333,7 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__further-reading-head p:not(.fu-eyebrow) {
 	margin: 0.55rem 0 0;
-	color: rgba(13, 59, 102, 0.72);
+	color: rgb(13 59 102 / 0.72);
 	line-height: 1.55;
 }
 
@@ -2352,12 +2352,12 @@ h2.fu-block-navigation__heading,
 	flex-direction: column;
 	min-height: 100%;
 	padding: 1rem;
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	border: 1px solid rgb(13 59 102 / 0.1);
 	border-radius: 14px;
 	background: linear-gradient(
 		145deg,
-		rgba(255, 255, 255, 0.98),
-		rgba(248, 251, 254, 0.92)
+		rgb(255 255 255 / 0.98),
+		rgb(248 251 254 / 0.92)
 	);
 	color: inherit;
 	text-decoration: none;
@@ -2370,22 +2370,22 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__further-reading-link:hover,
 .fu-resource-single__further-reading-link:focus-visible {
-	border-color: rgba(13, 59, 102, 0.22);
+	border-color: rgb(13 59 102 / 0.22);
 	background: #ffffff;
-	box-shadow: 0 12px 28px rgba(13, 59, 102, 0.07);
+	box-shadow: 0 12px 28px rgb(13 59 102 / 0.07);
 	outline: none;
 	transform: translateY(-1px);
 }
 
 .fu-resource-single__further-reading-link:focus-visible {
 	box-shadow:
-		0 0 0 3px rgba(13, 59, 102, 0.14),
-		0 12px 28px rgba(13, 59, 102, 0.07);
+		0 0 0 3px rgb(13 59 102 / 0.14),
+		0 12px 28px rgb(13 59 102 / 0.07);
 }
 
 .fu-resource-single__further-reading-source {
 	margin-bottom: 0.45rem;
-	color: rgba(13, 59, 102, 0.58);
+	color: rgb(13 59 102 / 0.58);
 	font-size: 0.7rem;
 	font-weight: 800;
 	letter-spacing: 0.09em;
@@ -2403,7 +2403,7 @@ h2.fu-block-navigation__heading,
 
 .fu-resource-single__further-reading-description {
 	margin-top: 0.55rem;
-	color: rgba(13, 59, 102, 0.76);
+	color: rgb(13 59 102 / 0.76);
 	font-size: 0.94rem;
 	line-height: 1.55;
 	text-wrap: pretty;
@@ -2412,7 +2412,7 @@ h2.fu-block-navigation__heading,
 .fu-resource-single__further-reading-action {
 	margin-top: auto;
 	padding-top: 0.9rem;
-	color: rgba(13, 59, 102, 0.72);
+	color: rgb(13 59 102 / 0.72);
 	font-size: 0.78rem;
 	font-weight: 800;
 	letter-spacing: 0.06em;
@@ -2429,7 +2429,7 @@ h2.fu-block-navigation__heading,
 	display: inline-flex;
 	align-items: center;
 	min-height: 2rem;
-	color: rgba(13, 59, 102, 0.72);
+	color: rgb(13 59 102 / 0.72);
 	font-size: 0.9rem;
 	font-weight: 700;
 	line-height: 1.2;
@@ -2447,7 +2447,7 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__back-to-top a:focus-visible {
-	outline: 3px solid rgba(13, 59, 102, 0.18);
+	outline: 3px solid rgb(13 59 102 / 0.18);
 	outline-offset: 4px;
 }
 
@@ -2484,7 +2484,7 @@ h2.fu-block-navigation__heading,
 	padding: 0;
 	border: 1px solid var(--fu-border);
 	border-radius: 18px;
-	background: rgba(255, 255, 255, 0.92);
+	background: rgb(255 255 255 / 0.92);
 	transition:
 		border-color 0.22s ease,
 		background-color 0.22s ease;
@@ -2528,7 +2528,7 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-resource-single__related-excerpt {
-	color: rgba(13, 59, 102, 0.76);
+	color: rgb(13 59 102 / 0.76);
 	font-size: 0.94rem;
 	line-height: 1.6;
 }
@@ -2604,10 +2604,10 @@ h2.fu-block-navigation__heading,
 .fu-page-banner-portfolio__demo-note {
 	margin-bottom: 1.25rem;
 	padding: 1rem 1.15rem;
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 14px;
-	background: rgba(13, 59, 102, 0.05);
-	color: rgba(13, 59, 102, 0.84);
+	background: rgb(13 59 102 / 0.05);
+	color: rgb(13 59 102 / 0.84);
 }
 
 .fu-page-banner-portfolio__demo-note p {
@@ -2642,7 +2642,7 @@ h2.fu-block-navigation__heading,
 /* Give the front-end settings button a little more visibility without changing the component design */
 .fu-page-banner-portfolio__demo-stage .fu-page-banner__controls-toggle,
 .fu-page-banner-portfolio__demo-stage [class*="controls-toggle"] {
-	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+	box-shadow: 0 0 0 6px rgb(255 255 255 / 0.18);
 }
 
 @media (max-width: 760px) {
@@ -2668,10 +2668,10 @@ h2.fu-block-navigation__heading,
 .fu-page-banner-portfolio__demo-note {
 	margin-bottom: 1rem;
 	padding: 1rem 1.15rem;
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 14px;
-	background: rgba(13, 59, 102, 0.05);
-	color: rgba(13, 59, 102, 0.84);
+	background: rgb(13 59 102 / 0.05);
+	color: rgb(13 59 102 / 0.84);
 }
 
 .fu-page-banner-portfolio__demo-note p {
@@ -2693,9 +2693,9 @@ h2.fu-block-navigation__heading,
 	min-height: 2rem;
 	margin: 0;
 	padding: 0.45rem 0.75rem;
-	border: 1px solid rgba(13, 59, 102, 0.12);
+	border: 1px solid rgb(13 59 102 / 0.12);
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.92);
+	background: rgb(255 255 255 / 0.92);
 	color: var(--fu-blue);
 	font-size: 0.78rem;
 	font-weight: 700;
@@ -2733,7 +2733,7 @@ h2.fu-block-navigation__heading,
 /* Give the front-end settings button a little more visibility */
 .fu-page-banner-portfolio__demo-stage .fu-page-banner__controls-toggle,
 .fu-page-banner-portfolio__demo-stage [class*="controls-toggle"] {
-	box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+	box-shadow: 0 0 0 6px rgb(255 255 255 / 0.18);
 }
 
 /* ============================================================
@@ -2776,8 +2776,8 @@ h2.fu-block-navigation__heading,
 	}
 
 	.fu-portfolio-piece__lead-figure {
-		border-color: rgba(13, 59, 102, 0.12);
-		box-shadow: 0 12px 30px rgba(13, 59, 102, 0.08);
+		border-color: rgb(13 59 102 / 0.12);
+		box-shadow: 0 12px 30px rgb(13 59 102 / 0.08);
 	}
 
 	.fu-portfolio-piece__meta--hero-row {
@@ -2788,10 +2788,10 @@ h2.fu-block-navigation__heading,
 
 	.fu-portfolio-piece__meta--hero-row .fu-portfolio-piece__meta-item {
 		padding: 1.1rem 1.1rem 1.15rem;
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		border: 1px solid rgb(255 255 255 / 0.12);
 		border-radius: 16px;
 		background: var(--fu-blue);
-		box-shadow: 0 14px 28px rgba(13, 59, 102, 0.14);
+		box-shadow: 0 14px 28px rgb(13 59 102 / 0.14);
 	}
 
 	.fu-portfolio-piece__meta--hero-row .fu-portfolio-piece__meta-label {
@@ -2906,9 +2906,9 @@ h2.fu-block-navigation__heading,
 
 /* Strengthen the principles cards slightly */
 .fu-principles__item {
-	background: rgba(255, 255, 255, 0.94);
-	border-color: rgba(13, 59, 102, 0.12);
-	box-shadow: 0 10px 24px rgba(13, 59, 102, 0.04);
+	background: rgb(255 255 255 / 0.94);
+	border-color: rgb(13 59 102 / 0.12);
+	box-shadow: 0 10px 24px rgb(13 59 102 / 0.04);
 	transition:
 		transform 0.22s ease,
 		border-color 0.22s ease,
@@ -2919,9 +2919,9 @@ h2.fu-block-navigation__heading,
 .fu-principles__item:hover,
 .fu-principles__item:focus-within {
 	transform: translateY(-2px);
-	border-color: rgba(13, 59, 102, 0.18);
+	border-color: rgb(13 59 102 / 0.18);
 	background: #ffffff;
-	box-shadow: 0 14px 32px rgba(13, 59, 102, 0.08);
+	box-shadow: 0 14px 32px rgb(13 59 102 / 0.08);
 }
 
 .fu-principles__item h3 {
@@ -2930,15 +2930,15 @@ h2.fu-block-navigation__heading,
 
 .fu-editor-handoff-callout__card {
 	padding: clamp(1.5rem, 3vw, 2.15rem);
-	border: 1px solid rgba(13, 59, 102, 0.14);
+	border: 1px solid rgb(13 59 102 / 0.14);
 	border-radius: 16px;
 	background: linear-gradient(
 		135deg,
-		rgba(255, 255, 255, 0.98) 0%,
-		rgba(238, 243, 249, 0.9) 58%,
-		rgba(226, 237, 248, 0.72) 100%
+		rgb(255 255 255 / 0.98) 0%,
+		rgb(238 243 249 / 0.9) 58%,
+		rgb(226 237 248 / 0.72) 100%
 	);
-	box-shadow: 0 16px 34px rgba(13, 59, 102, 0.08);
+	box-shadow: 0 16px 34px rgb(13 59 102 / 0.08);
 }
 
 .fu-editor-handoff-callout__card h3 {
@@ -2988,7 +2988,7 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-editor-handoff-callout__link:focus-visible {
-	outline: 3px solid rgba(13, 59, 102, 0.3);
+	outline: 3px solid rgb(13 59 102 / 0.3);
 	outline-offset: 4px;
 }
 
@@ -3017,7 +3017,7 @@ h2.fu-block-navigation__heading,
 	top: 1.5rem;
 	right: 1.5rem;
 	font-size: 0.8rem;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgb(0 0 0 / 0.6);
 	color: #fff;
 	padding: 0.35rem 0.6rem;
 	border-radius: 3px;
@@ -3029,7 +3029,7 @@ h2.fu-block-navigation__heading,
 .fu-content-switcher-portfolio__implementation-intro {
 	margin: 0 0 1.5rem !important;
 	max-width: 56rem;
-	color: rgba(13, 59, 102, 0.8);
+	color: rgb(13 59 102 / 0.8);
 	font-size: clamp(1rem, 0.97rem + 0.2vw, 1.08rem);
 	line-height: 1.75;
 }
@@ -3046,10 +3046,10 @@ h2.fu-block-navigation__heading,
 
 .fu-editor-safety--dark .fu-case-section__inner {
 	padding: clamp(1.35rem, 3.2vw, 2.25rem);
-	border: 1px solid rgba(255, 255, 255, 0.16);
+	border: 1px solid rgb(255 255 255 / 0.16);
 	border-radius: 24px;
 	background: var(--fu-gradient-lux);
-	box-shadow: 0 20px 46px rgba(13, 59, 102, 0.2);
+	box-shadow: 0 20px 46px rgb(13 59 102 / 0.2);
 }
 
 .fu-editor-safety--dark .fu-case-section__heading,
@@ -3085,10 +3085,10 @@ h2.fu-block-navigation__heading,
 
 .fu-editor-experience__handoff-card {
 	padding: clamp(1.1rem, 2vw, 1.35rem);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 1px solid rgb(255 255 255 / 0.2);
 	border-radius: 16px;
-	background: rgba(255, 255, 255, 0.12);
-	box-shadow: 0 14px 30px rgba(4, 18, 33, 0.28);
+	background: rgb(255 255 255 / 0.12);
+	box-shadow: 0 14px 30px rgb(4 18 33 / 0.28);
 }
 
 .fu-editor-experience__handoff-card h3 {
@@ -3111,7 +3111,7 @@ h2.fu-block-navigation__heading,
 	grid-template-columns: 1rem 1fr;
 	gap: 0.65rem;
 	align-items: start;
-	color: rgba(239, 246, 255, 0.86);
+	color: rgb(239 246 255 / 0.86);
 }
 
 .fu-editor-experience__handoff-card .fu-case-section__list li::before {
@@ -3119,7 +3119,7 @@ h2.fu-block-navigation__heading,
 	display: inline-block;
 	width: 1rem;
 	margin-top: 0.175rem;
-	color: rgba(219, 234, 254, 0.96);
+	color: rgb(219 234 254 / 0.96);
 	font-size: 0.9rem;
 	font-weight: 800;
 	line-height: 1;
@@ -3183,12 +3183,12 @@ h2.fu-block-navigation__heading,
 	padding: 1.6rem 1.6rem 1.8rem;
 	background: linear-gradient(
 		160deg,
-		rgba(255, 255, 255, 0.96) 0%,
-		rgba(245, 248, 252, 0.92) 100%
+		rgb(255 255 255 / 0.96) 0%,
+		rgb(245 248 252 / 0.92) 100%
 	);
-	border: 1px solid rgba(13, 59, 102, 0.11);
+	border: 1px solid rgb(13 59 102 / 0.11);
 	border-radius: 16px;
-	box-shadow: 0 4px 16px rgba(13, 59, 102, 0.05);
+	box-shadow: 0 4px 16px rgb(13 59 102 / 0.05);
 	transition:
 		transform 0.22s ease,
 		border-color 0.22s ease,
@@ -3198,8 +3198,8 @@ h2.fu-block-navigation__heading,
 .fu-editor-experience__model-card:hover,
 .fu-editor-experience__model-card:focus-within {
 	transform: translateY(-2px);
-	border-color: rgba(13, 59, 102, 0.18);
-	box-shadow: 0 10px 28px rgba(13, 59, 102, 0.09);
+	border-color: rgb(13 59 102 / 0.18);
+	box-shadow: 0 10px 28px rgb(13 59 102 / 0.09);
 }
 
 .fu-editor-experience__model-kicker {
@@ -3254,7 +3254,7 @@ h2.fu-block-navigation__heading,
 	grid-template-columns: 5.5rem 1fr;
 	gap: 0.25rem 0.6rem;
 	padding: 0.55rem 0;
-	border-top: 1px solid rgba(13, 59, 102, 0.08);
+	border-top: 1px solid rgb(13 59 102 / 0.08);
 }
 
 .fu-editor-experience__model-row:first-child {
@@ -3268,7 +3268,7 @@ h2.fu-block-navigation__heading,
 	font-weight: 800;
 	letter-spacing: 0.045em;
 	text-transform: uppercase;
-	color: rgba(13, 59, 102, 0.88);
+	color: rgb(13 59 102 / 0.88);
 	line-height: 1.55;
 	padding-top: 0.05rem;
 }
@@ -3296,14 +3296,14 @@ h2.fu-block-navigation__heading,
 	flex-direction: column;
 	gap: 0;
 	padding: 1.75rem 1.75rem 2rem;
-	border: 1px solid rgba(13, 59, 102, 0.11);
+	border: 1px solid rgb(13 59 102 / 0.11);
 	border-radius: 16px;
 	background: linear-gradient(
 		160deg,
-		rgba(255, 255, 255, 0.96),
-		rgba(244, 248, 252, 0.98)
+		rgb(255 255 255 / 0.96),
+		rgb(244 248 252 / 0.98)
 	);
-	box-shadow: 0 4px 16px rgba(13, 59, 102, 0.05);
+	box-shadow: 0 4px 16px rgb(13 59 102 / 0.05);
 	transition:
 		transform 0.22s ease,
 		box-shadow 0.22s ease,
@@ -3313,8 +3313,8 @@ h2.fu-block-navigation__heading,
 .fu-editor-experience__value-card:hover,
 .fu-editor-experience__value-card:focus-within {
 	transform: translateY(-2px);
-	border-color: rgba(13, 59, 102, 0.18);
-	box-shadow: 0 12px 28px rgba(13, 59, 102, 0.11);
+	border-color: rgb(13 59 102 / 0.18);
+	box-shadow: 0 12px 28px rgb(13 59 102 / 0.11);
 }
 
 .fu-editor-experience__value-badge {
@@ -3326,7 +3326,7 @@ h2.fu-block-navigation__heading,
 	width: 2.25rem;
 	margin-bottom: 0.6rem;
 	border-radius: 50%;
-	background: rgba(13, 59, 102, 0.08);
+	background: rgb(13 59 102 / 0.08);
 	color: var(--fu-blue);
 	flex-shrink: 0;
 }
@@ -3350,7 +3350,7 @@ h2.fu-block-navigation__heading,
 	margin: 0;
 	font-size: 0.94rem;
 	line-height: 1.65;
-	color: rgba(13, 59, 102, 0.75);
+	color: rgb(13 59 102 / 0.75);
 }
 
 @media (max-width: 860px) {
@@ -3378,15 +3378,15 @@ h2.fu-block-navigation__heading,
 }
 
 .fu-editor-experience .fu-portfolio-piece__lead-figure {
-	border: 1px solid rgba(13, 59, 102, 0.18);
+	border: 1px solid rgb(13 59 102 / 0.18);
 	border-radius: 20px;
 	background: linear-gradient(
 			145deg,
-			rgba(13, 59, 102, 0.08),
-			rgba(13, 59, 102, 0.02)
+			rgb(13 59 102 / 0.08),
+			rgb(13 59 102 / 0.02)
 		),
-		rgba(255, 255, 255, 0.9);
-	box-shadow: 0 18px 45px rgba(13, 59, 102, 0.12);
+		rgb(255 255 255 / 0.9);
+	box-shadow: 0 18px 45px rgb(13 59 102 / 0.12);
 }
 
 .fu-editor-experience .fu-portfolio-piece__lead-figure img {

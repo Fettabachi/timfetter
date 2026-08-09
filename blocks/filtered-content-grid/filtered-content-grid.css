@@ -40,14 +40,14 @@
 	gap: 0.65rem;
 	margin-bottom: 0.5rem;
 	padding-bottom: 1rem;
-	border-bottom: 1px solid rgba(13, 59, 102, 0.08);
+	border-bottom: 1px solid rgb(13 59 102 / 0.08);
 }
 
 .fu-filtered-content-grid__filter {
 	min-width: 5rem;
 	appearance: none;
-	border: 1px solid rgba(13, 59, 102, 0.12);
-	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid rgb(13 59 102 / 0.12);
+	background: rgb(255 255 255 / 0.92);
 	color: var(--fu-filtered-text);
 	border-radius: 999px;
 	padding: 0.72rem 1rem;
@@ -63,13 +63,13 @@
 
 .fu-filtered-content-grid__filter:hover,
 .fu-filtered-content-grid__filter:focus-visible {
-	border-color: rgba(13, 59, 102, 0.3);
+	border-color: rgb(13 59 102 / 0.3);
 	background: #ffffff;
 	outline: none;
 }
 
 .fu-filtered-content-grid__filter:focus-visible {
-	box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.12);
+	box-shadow: 0 0 0 3px rgb(13 59 102 / 0.12);
 }
 
 .fu-filtered-content-grid__filter.is-active {
@@ -123,7 +123,7 @@
 	left: 1rem;
 	width: 3rem;
 	height: 3rem;
-	border: 4px solid rgba(13, 59, 102, 0.18);
+	border: 4px solid rgb(13 59 102 / 0.18);
 	border-color: var(--fu-filtered-accent);
 	border-top-color: white;
 	border-radius: 999px;
@@ -144,8 +144,8 @@
 	align-self: start;
 	contain: layout;
 	overflow: clip;
-	background: rgba(255, 255, 255, 0.94);
-	border: 1px solid rgba(13, 59, 102, 0.1);
+	background: rgb(255 255 255 / 0.94);
+	border: 1px solid rgb(13 59 102 / 0.1);
 	border-radius: 18px;
 	animation: fuFilteredGridFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 	animation-delay: calc(var(--fu-filtered-index, 0) * 0.06s);
@@ -154,7 +154,7 @@
 
 .fu-filtered-content-grid__card:hover,
 .fu-filtered-content-grid__card:focus-within {
-	border-color: rgba(13, 59, 102, 0.22);
+	border-color: rgb(13 59 102 / 0.22);
 	background: #ffffff;
 }
 
@@ -196,7 +196,7 @@
 .fu-filtered-content-grid__image-placeholder {
 	background: radial-gradient(
 			circle at top right,
-			rgba(13, 59, 102, 0.16),
+			rgb(13 59 102 / 0.16),
 			transparent 40%
 		),
 		linear-gradient(135deg, #edf2f7 0%, #d9e2ec 100%);
@@ -236,7 +236,7 @@
 
 .fu-filtered-content-grid__excerpt {
 	margin-bottom: 0.9rem;
-	color: rgba(13, 59, 102, 0.78);
+	color: rgb(13 59 102 / 0.78);
 	font-size: 0.95rem;
 	line-height: 1.55;
 }
@@ -281,7 +281,7 @@
 	justify-content: center;
 	min-height: 14rem;
 	padding: 2rem;
-	border: 1px dashed rgba(13, 59, 102, 0.16);
+	border: 1px dashed rgb(13 59 102 / 0.16);
 	border-radius: 18px;
 	background: var(--fu-filtered-surface-alt);
 	text-align: center;

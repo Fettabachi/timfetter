@@ -84,10 +84,10 @@
 .page-contact .fu-contact-page__service-card {
 	padding: clamp(1.1rem, 2vw, 1.35rem);
 	color: var(--fu-white, #fff);
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.16);
+	background: rgb(255 255 255 / 0.1);
+	border: 1px solid rgb(255 255 255 / 0.16);
 	border-radius: 22px;
-	box-shadow: 0 1rem 2rem rgba(6, 24, 39, 0.14);
+	box-shadow: 0 1rem 2rem rgb(6 24 39 / 0.14);
 }
 
 .page-contact .fu-contact-page__service-card h3 {
@@ -101,7 +101,7 @@
 
 .page-contact .fu-contact-page__service-card p {
 	margin: 0 0 1rem;
-	color: rgba(239, 246, 255, 0.84);
+	color: rgb(239 246 255 / 0.84);
 	font-size: 0.95rem;
 	line-height: 1.6;
 }
@@ -117,7 +117,7 @@
 .page-contact .fu-contact-page__service-card li {
 	position: relative;
 	padding-left: 1.05rem;
-	color: rgba(239, 246, 255, 0.82);
+	color: rgb(239 246 255 / 0.82);
 	font-size: 0.92rem;
 	line-height: 1.45;
 }
@@ -129,7 +129,7 @@
 	top: 0.5em;
 	width: 0.42rem;
 	height: 0.42rem;
-	background: rgba(255, 255, 255, 0.45);
+	background: rgb(255 255 255 / 0.45);
 	border-radius: 999px;
 }
 
@@ -137,10 +137,10 @@
 	padding: clamp(1.5rem, 4vw, 2.5rem);
 	padding-bottom: 0.5rem;
 	color: var(--fu-blue, #0d3b66);
-	background: rgba(255, 255, 255, 0.96);
-	border: 1px solid rgba(255, 255, 255, 0.65);
+	background: rgb(255 255 255 / 0.96);
+	border: 1px solid rgb(255 255 255 / 0.65);
 	border-radius: 22px;
-	box-shadow: 0 1.25rem 3rem rgba(6, 24, 39, 0.2);
+	box-shadow: 0 1.25rem 3rem rgb(6 24 39 / 0.2);
 }
 
 .page-contact .fu-contact-page__form h2 {
@@ -206,7 +206,7 @@
 	border: 1px solid
 		color-mix(in srgb, var(--fu-blue, #0d3b66) 18%, var(--fu-white, #fff));
 	border-radius: 0.65rem;
-	box-shadow: 0 0.5rem 1.25rem rgba(13, 59, 102, 0.035);
+	box-shadow: 0 0.5rem 1.25rem rgb(13 59 102 / 0.035);
 	transition:
 		background-color 0.2s ease,
 		border-color 0.2s ease,
@@ -228,7 +228,7 @@
 		color-mix(in srgb, var(--fu-blue, #0d3b66) 48%, transparent);
 	outline-offset: 2px;
 	border-color: var(--fu-blue, #0d3b66);
-	box-shadow: 0 0.85rem 1.6rem rgba(13, 59, 102, 0.08);
+	box-shadow: 0 0.85rem 1.6rem rgb(13 59 102 / 0.08);
 }
 
 .page-contact .fu-contact-page .forminator-textarea {
@@ -261,7 +261,7 @@
 	background: var(--fu-blue, #0d3b66);
 	border: 0;
 	border-radius: 999px;
-	box-shadow: 0 0.85rem 1.65rem rgba(13, 59, 102, 0.18);
+	box-shadow: 0 0.85rem 1.65rem rgb(13 59 102 / 0.18);
 	cursor: pointer;
 	transition:
 		background-color 0.2s ease,
@@ -272,7 +272,7 @@
 .page-contact .fu-contact-page .forminator-button-submit:hover,
 .page-contact .fu-contact-page .forminator-button-submit:focus-visible {
 	background: color-mix(in srgb, var(--fu-blue, #0d3b66) 82%, black);
-	box-shadow: 0 1rem 1.9rem rgba(13, 59, 102, 0.22);
+	box-shadow: 0 1rem 1.9rem rgb(13 59 102 / 0.22);
 	transform: translateY(-1px);
 }
 
