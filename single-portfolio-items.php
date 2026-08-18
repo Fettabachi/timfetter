@@ -138,6 +138,34 @@ $get_portfolio_supporting_images = static function ($post_id) {
     return $images;
 };
 
+$get_portfolio_primary_link = static function ($post_id) {
+    $portfolio_content = get_field('portfolio_content', $post_id);
+
+    if (!is_array($portfolio_content) || empty($portfolio_content['website_links']) || !is_array($portfolio_content['website_links'])) {
+        return array();
+    }
+
+    foreach ($portfolio_content['website_links'] as $link_row) {
+        if (!is_array($link_row) || empty($link_row['link']) || !is_array($link_row['link'])) {
+            continue;
+        }
+
+        $link = $link_row['link'];
+        $url = isset($link['url']) && is_string($link['url']) ? trim($link['url']) : '';
+
+        if ($url === '') {
+            continue;
+        }
+
+        return array(
+            'url'    => $url,
+            'target' => isset($link['target']) && is_string($link['target']) ? trim($link['target']) : '',
+        );
+    }
+
+    return array();
+};
+
 $portfolio_archive_url = get_post_type_archive_link('portfolio-items');
 
 if (!$portfolio_archive_url) {
@@ -151,8 +179,10 @@ if (!$portfolio_archive_url) {
         $portfolio_subtitle = $get_portfolio_subtitle(get_the_ID());
         $portfolio_project_type = fu_get_portfolio_project_type_label(get_the_ID());
         $portfolio_supporting_images = $get_portfolio_supporting_images(get_the_ID());
+        $portfolio_primary_link = $get_portfolio_primary_link(get_the_ID());
         $portfolio_has_content = trim(wp_strip_all_tags(get_the_content())) !== '';
         $portfolio_slug = get_post_field('post_name', get_the_ID());
+        $is_mission_control = $portfolio_slug === 'mission-control';
         $frontend_ui_example_slugs = array(
             'client-project-timeline',
             'project-scope-estimator',
@@ -170,7 +200,16 @@ if (!$portfolio_archive_url) {
                     <?php if ($portfolio_subtitle !== '') : ?>
                         <p class="fu-section-lede"><?php echo esc_html($portfolio_subtitle); ?></p>
                     <?php endif; ?>
-                    <?php if ($portfolio_project_type !== '') : ?>
+                    <?php if ($is_mission_control && !empty($portfolio_primary_link['url'])) : ?>
+                        <div class="fu-portfolio__actions">
+                            <a
+                                class="fu-portfolio__button fu-portfolio__button--primary"
+                                href="<?php echo esc_url($portfolio_primary_link['url']); ?>"
+                                <?php if (!empty($portfolio_primary_link['target'])) : ?>target="<?php echo esc_attr($portfolio_primary_link['target']); ?>"<?php endif; ?>
+                                <?php if (!empty($portfolio_primary_link['target']) && $portfolio_primary_link['target'] === '_blank') : ?>rel="noopener noreferrer"<?php endif; ?>>View Live Prototype</a>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($portfolio_project_type !== '' && !$is_mission_control) : ?>
                         <p class="fu-work-card__meta"><?php echo esc_html($portfolio_project_type); ?></p>
                     <?php endif; ?>
                     <?php if ($portfolio_slug === 'client-project-timeline') : ?>
@@ -182,7 +221,7 @@ if (!$portfolio_archive_url) {
                     <?php endif; ?>
                 </div>
 
-                <?php if (has_post_thumbnail()) : ?>
+                <?php if (has_post_thumbnail() && !$is_mission_control) : ?>
                     <div class="fu-portfolio-single__media-frame">
                         <figure class="fu-work-card__media fu-portfolio-single__media">
                             <?php
@@ -200,7 +239,17 @@ if (!$portfolio_archive_url) {
                     </div>
                 <?php endif; ?>
 
-                <?php if ($portfolio_has_content) : ?>
+                <?php if ($is_mission_control) : ?>
+                    <?php
+                    get_template_part(
+                        'parts/prototypes/mission-control',
+                        null,
+                        array(
+                            'live_link' => $portfolio_primary_link,
+                        )
+                    );
+                    ?>
+                <?php elseif ($portfolio_has_content) : ?>
                     <div class="fu-section-body fu-prose">
                         <h2 class="fu-section-heading fu-section-heading--compact">Overview</h2>
                         <?php the_content(); ?>
