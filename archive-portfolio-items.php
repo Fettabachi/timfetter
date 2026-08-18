@@ -112,6 +112,16 @@ $frontend_prototypes = array(
         'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
         'cta' => 'View UI Example',
     ),
+    array(
+        'title' => 'Mission Control',
+        'slug' => 'mission-control',
+        'summary' => 'A responsive workday dashboard for organizing priorities, calendar events, deadlines, messages, and tasks in one focused interface.',
+        'image' => content_url('/uploads/2026/08/mission-control-card-hero-4-3.webp'),
+        'alt' => 'Mission Control dashboard showing workday priorities, calendar events, deadlines, messages, and tasks.',
+        'eyebrow' => 'Front-End UI Example',
+        'focus' => array('React', 'CSS', 'Responsive UI', 'Interaction Design', 'Accessibility'),
+        'cta' => 'View UI Example',
+    ),
 );
 
 $starting_examples = array(
