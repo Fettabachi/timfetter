@@ -20,6 +20,10 @@ $prototypes = array(
         'label'       => 'Content Approval Checklist',
         'description' => 'A responsive checklist interface for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
     ),
+    'mission-control'               => array(
+        'label'       => 'Mission Control',
+        'description' => 'A responsive workday dashboard for organizing priorities, calendar events, deadlines, messages, and tasks in one focused interface.',
+    ),
 );
 
 if (! isset($prototypes[$current])) {
@@ -35,7 +39,7 @@ $resolve_prototype_url = static function ($slug) {
 $prototype_keys = array_keys($prototypes);
 $current_index  = array_search($current, $prototype_keys, true);
 $previous_key   = $current_index > 0 ? $prototype_keys[$current_index - 1] : '';
-$next_key       = $current_index < count($prototype_keys) - 1 ? $prototype_keys[$current_index + 1] : '';
+$next_key       = $prototype_keys[($current_index + 1) % count($prototype_keys)];
 ?>
 
 <section class="fu-block-navigation fu-prototype-navigation" aria-labelledby="fu-prototype-navigation-heading">

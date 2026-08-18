@@ -153,12 +153,13 @@ if (!$portfolio_archive_url) {
         $portfolio_supporting_images = $get_portfolio_supporting_images(get_the_ID());
         $portfolio_has_content = trim(wp_strip_all_tags(get_the_content())) !== '';
         $portfolio_slug = get_post_field('post_name', get_the_ID());
-        $prototype_slugs = array(
+        $frontend_ui_example_slugs = array(
             'client-project-timeline',
             'project-scope-estimator',
             'content-approval-checklist',
+            'mission-control',
         );
-        $portfolio_eyebrow = in_array($portfolio_slug, $prototype_slugs, true) ? 'Front-End UI Example' : 'Selected Client Work';
+        $portfolio_eyebrow = in_array($portfolio_slug, $frontend_ui_example_slugs, true) ? 'Front-End UI Example' : 'Selected Client Work';
         ?>
 
         <section class="fu-content-section fu-portfolio-single" aria-labelledby="portfolio-single-heading">
