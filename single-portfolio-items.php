@@ -180,6 +180,7 @@ if (!$portfolio_archive_url) {
         $portfolio_project_type = fu_get_portfolio_project_type_label(get_the_ID());
         $portfolio_supporting_images = $get_portfolio_supporting_images(get_the_ID());
         $portfolio_primary_link = $get_portfolio_primary_link(get_the_ID());
+        $portfolio_has_content = trim(wp_strip_all_tags(get_the_content())) !== '';
         $portfolio_slug = get_post_field('post_name', get_the_ID());
         $is_mission_control = $portfolio_slug === 'mission-control';
         $frontend_ui_example_slugs = array(
@@ -248,6 +249,11 @@ if (!$portfolio_archive_url) {
                         )
                     );
                     ?>
+                <?php elseif ($portfolio_has_content) : ?>
+                    <div class="fu-section-body fu-prose">
+                        <h2 class="fu-section-heading fu-section-heading--compact">Overview</h2>
+                        <?php the_content(); ?>
+                    </div>
                 <?php endif; ?>
 
                 <?php // Conditionally render the demo outside the readable container. 
