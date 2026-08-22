@@ -208,6 +208,20 @@ Prefer existing tokens and utilities before introducing one-off values.
 - Confirm ACF JSON changes in `acf-json/` are intentional before committing.
 - Avoid committing local-only files, database exports, uploads, or environment-specific configuration unless that is already part of the project workflow.
 
+The guarded SiteGround deployment helper previews changes by default:
+
+```text
+./deploy.sh
+```
+
+Copy `.deploy-config.example` to `.deploy-config` and enter the SiteGround SSH details. The local configuration is ignored by Git. After running the build and reviewing the preview, deploy the same theme files with:
+
+```text
+./deploy.sh --apply
+```
+
+The script deploys only from a clean `master` branch that matches GitHub. It never deploys the WordPress database, uploads, plugins, or WordPress core.
+
 ## Validation Checklist
 
 Before shipping meaningful changes:
