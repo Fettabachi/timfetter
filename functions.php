@@ -1,5 +1,7 @@
 <?php
 
+add_filter('xmlrpc_enabled', '__return_false');
+
 require get_theme_file_path('/inc/acf-block-loader.php');
 require_once get_theme_file_path('/inc/acf-admin-ui.php');
 include get_theme_file_path('/inc/post-types.php');
