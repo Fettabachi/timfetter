@@ -31,7 +31,7 @@ if ($editor_experience_url === '') {
                         <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>When visitors need to compare options, the content has to stay clear, consistent, and easy to update. Comparison Cards gives editors a reusable way to manage plans, services, packages, or product options without rebuilding the layout every time.</p>
+                            <p>When visitors need to compare options, the content has to stay clear, consistent, and easy to update. Developed through an AI-accelerated, developer-led workflow, Comparison Cards gives editors a reusable way to manage plans, services, packages, or product options without rebuilding the layout every time.</p>
                             <ul class="fu-portfolio-piece__lead-points">
                                 <li>One editable card per option instead of dense repeater fields</li>
                                 <li>Optional pricing and feature states without rigid table markup</li>
@@ -64,6 +64,7 @@ if ($editor_experience_url === '') {
                             <span class="fu-portfolio-piece__meta-value">Canvas editing, no dense repeaters</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

@@ -69,7 +69,7 @@ $next_key       = $prototype_keys[($current_index + 1) % count($prototype_keys)]
                 <p class="fu-eyebrow">Front-End UI Examples</p>
                 <h2 id="fu-prototype-navigation-heading" class="fu-block-navigation__heading">Explore more Front-End UI Examples</h2>
                 <p class="fu-section-lede fu-block-navigation__intro">
-                    Interactive front-end examples showing how workflows, decision points, state changes, and handoff details can be clarified before full production development.
+                    Interactive front-end examples showing how workflows, decision points, state changes, and handoff details can be clarified before full production development. My current approach uses an AI-accelerated, developer-led workflow to move from exploration to implementation efficiently.
                 </p>
             </div>
 

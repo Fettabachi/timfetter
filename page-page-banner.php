@@ -33,7 +33,7 @@ if ($editor_experience_url === '') {
 
                         <div class="fu-portfolio-piece__lead-body">
                             <p>
-                                A reusable page banner built to help editors create flexible, high-impact page headers without sacrificing consistency or maintainability.
+                                Developed through an AI-accelerated, developer-led workflow, this reusable page banner helps editors create flexible, high-impact page headers without sacrificing consistency or maintainability.
                             </p>
 
                             <p>
@@ -72,6 +72,7 @@ if ($editor_experience_url === '') {
                             <span class="fu-portfolio-piece__meta-value">Editor parity with flexible presentation</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

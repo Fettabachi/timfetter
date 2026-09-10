@@ -34,7 +34,8 @@ if ($editor_experience_url === '') {
                         <div class="fu-portfolio-piece__lead-body">
                             <p>
                                 Some pages need to serve different audiences, services, or decision paths without turning into
-                                a long stack of repeated sections. The Content Switcher gives teams a structured way to organize
+                                a long stack of repeated sections. Developed through an AI-accelerated, developer-led workflow,
+                                the Content Switcher gives teams a structured way to organize
                                 that content while keeping the page easy to scan.
                             </p>
 
@@ -70,6 +71,7 @@ if ($editor_experience_url === '') {
                             <span class="fu-portfolio-piece__meta-value">Structured panels with accessible interaction and reusable display styles</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

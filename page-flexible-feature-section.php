@@ -18,7 +18,7 @@ get_header();
                         <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>A reusable feature section designed to stay balanced with real content. Editors have meaningful layout flexibility while the underlying structure keeps every variation responsive and consistent.</p>
+                            <p>Developed through an AI-accelerated, developer-led workflow, this reusable feature section is designed to stay balanced with real content. Editors have meaningful layout flexibility while the underlying structure keeps every variation responsive and consistent.</p>
                             <ul class="fu-portfolio-piece__lead-points">
                                 <li>Guided layout options instead of open-ended design decisions</li>
                                 <li>Responsive media/text combinations that stay balanced</li>
@@ -48,6 +48,7 @@ get_header();
                             <span class="fu-portfolio-piece__meta-value">Constraint-driven flexibility</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

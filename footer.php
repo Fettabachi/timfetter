@@ -7,8 +7,7 @@
 		            <div class="site-footer__brand">
 		                <p class="site-footer__name">Tim Fetter</p>
 		                <p class="site-footer__summary">
-		                    Front-end WordPress developer building practical systems,
-		                    reusable components, and interactive prototypes.
+		                    Front-end WordPress developer using an AI-accelerated workflow to build maintainable websites, reusable content systems, and production-ready interfaces.
 		                </p>
 		            </div>
 

@@ -561,7 +561,7 @@ $proof_cards_demos = array(
                             <p class="fu-eyebrow">Reusable WordPress Section</p>
                             <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                             <div class="fu-portfolio-piece__lead-body">
-                                <p>Most trust content starts strong, then becomes scattered across pages or difficult for editors to maintain. Proof Cards gives testimonials, outcomes, metrics, logos, and supporting evidence a reusable structure that keeps credibility clear and consistent over time.</p>
+                                <p>Most trust content starts strong, then becomes scattered across pages or difficult for editors to maintain. Developed through an AI-accelerated, developer-led workflow, Proof Cards gives testimonials, outcomes, metrics, logos, and supporting evidence a reusable structure that keeps credibility clear and consistent over time.</p>
                             </div>
                         </div>
 
@@ -586,6 +586,7 @@ $proof_cards_demos = array(
                                 <span class="fu-portfolio-piece__meta-value">Structured proof, canvas editing</span>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>

@@ -83,44 +83,14 @@ $acf_block_case_studies = array(
 
 $frontend_prototypes = array(
     array(
-        'title' => 'Client Project Timeline',
-        'slug' => 'client-project-timeline',
-        'summary' => 'A configurable milestone tracker for testing workflow states, responsive timeline layouts, and handoff-ready UI behavior before production buildout.',
-        'image' => content_url('/uploads/2026/05/client-project-timeline-cover.webp'),
-        'alt' => 'Front-end UI example showing project milestones, timeline phases, and delivery status.',
-        'eyebrow' => 'Front-End UI Example',
-        'focus' => array('HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Interaction Logic'),
-        'cta' => 'View UI Example',
-    ),
-    array(
-        'title' => 'Project Scope Estimator',
-        'slug' => 'project-scope-estimator',
-        'summary' => 'A guided interface that helps teams define project requirements, preview complexity, and generate a handoff-friendly summary before production planning.',
-        'image' => content_url('/uploads/2026/05/client-project-scope-cover.webp'),
-        'alt' => 'Front-end UI example showing project scope options, complexity indicators, and summary details.',
-        'eyebrow' => 'Front-End UI Example',
-        'focus' => array('HTML', 'CSS', 'JavaScript', 'Conditional UI', 'Form Logic'),
-        'cta' => 'View UI Example',
-    ),
-    array(
-        'title' => 'Content Approval Checklist',
-        'slug' => 'content-approval-checklist',
-        'summary' => 'A responsive checklist interface for tracking content readiness, review status, blockers, and launch approval across website production workflows.',
-        'image' => content_url('/uploads/2026/06/client-project-content-approval-cover.webp'),
-        'alt' => 'Front-end UI example showing content review tasks, approval status, and launch readiness.',
-        'eyebrow' => 'Front-End UI Example',
-        'focus' => array('HTML', 'CSS', 'JavaScript', 'Workflow UI', 'State Management'),
-        'cta' => 'View UI Example',
-    ),
-    array(
         'title' => 'Mission Control',
         'slug' => 'mission-control',
         'summary' => 'A responsive workday dashboard for organizing priorities, calendar events, deadlines, messages, and tasks in one focused interface.',
         'image' => content_url('/uploads/2026/08/mission-control-card-hero-4-3.webp'),
         'alt' => 'Mission Control dashboard showing workday priorities, calendar events, deadlines, messages, and tasks.',
-        'eyebrow' => 'Front-End UI Example',
+        'eyebrow' => 'Interface Prototype',
         'focus' => array('React', 'CSS', 'Responsive UI', 'Interaction Design', 'Accessibility'),
-        'cta' => 'View UI Example',
+        'cta' => 'View Prototype',
     ),
 );
 
@@ -136,12 +106,6 @@ $starting_examples = array(
         'target' => '#contract-work',
         'summary' => 'Client work involving responsive polish, content updates, template cleanup, and production-ready front-end fixes.',
         'cta' => 'Scroll to selected client work ↓',
-    ),
-    array(
-        'title' => 'Custom front-end UI examples',
-        'target' => '#front-end-prototypes',
-        'summary' => 'Interactive prototypes for workflows, planning tools, approval states, and interface logic before production buildout.',
-        'cta' => 'Scroll to UI examples ↓',
     ),
 );
 
@@ -224,7 +188,7 @@ $get_portfolio_card_kicker = static function ($post_id) {
         <div class="fu-content-section__inner container container--page">
             <div class="fu-section-head">
                 <h1 class="fu-section-heading" id="portfolio-archive-heading">Work</h1>
-                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work focused on reusable sections, responsive polish, editor-friendly workflows, and maintainable handoff.</p>
+                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work, delivered through an AI-accelerated workflow and grounded in responsive polish, editor-friendly systems, and maintainable handoff.</p>
             </div>
 
             <section class="fu-section-body fu-work-archive__group fu-work-archive__group--start fu-work-archive__start" aria-labelledby="work-start-heading">
@@ -249,8 +213,8 @@ $get_portfolio_card_kicker = static function ($post_id) {
 
             <div id="reusable-wordpress-sections" class="fu-section-body fu-work-archive__group fu-work-archive__group--case-studies" aria-labelledby="reusable-wordpress-sections-heading">
                 <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="reusable-wordpress-sections-heading">Reusable WordPress Sections</h2>
-                    <p class="fu-section-lede">Focused ACF block examples designed to solve common editing, layout, and content-management problems.</p>
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="reusable-wordpress-sections-heading">Reusable WordPress Systems</h2>
+                    <p class="fu-section-lede">Production-ready ACF blocks designed to solve recurring editing, layout, and content-management challenges, with accessible output, responsive behavior, guided editor controls, and maintainable implementation.</p>
                 </div>
 
                 <div class="fu-work-archive__acf-showcase">
@@ -354,10 +318,10 @@ $get_portfolio_card_kicker = static function ($post_id) {
 
             <div class="fu-section-body fu-work-archive__group fu-work-archive__group--prototypes" id="front-end-prototypes" aria-labelledby="frontend-prototypes-heading">
                 <div class="fu-section-head">
-                    <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Front-End UI Examples</h2>
-                    <p class="fu-section-lede">HTML, CSS, and JavaScript examples that make workflows, states, interaction details, and handoff-ready UI thinking easier to review before production buildout.</p>
+                    <h2 class="fu-section-heading fu-section-heading--compact" id="frontend-prototypes-heading">Additional Interface Prototype</h2>
+                    <p class="fu-section-lede">A focused example of responsive interaction design, application structure, and accessible front-end implementation.</p>
                 </div>
-                <div class="fu-work-grid fu-work-grid--archive fu-work-archive__prototype-list" aria-label="Front-End UI Examples">
+                <div class="fu-work-grid fu-work-grid--archive fu-work-archive__prototype-list" aria-label="Additional interface prototype">
                     <?php foreach ($frontend_prototypes as $prototype) : ?>
                         <?php $prototype_url = $resolve_portfolio_item_url($prototype['slug']); ?>
                         <a class="fu-work-card fu-work-card--linked fu-work-card--prototype" href="<?php echo esc_url($prototype_url); ?>">

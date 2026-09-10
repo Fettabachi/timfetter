@@ -137,7 +137,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                         <h1 class="fu-portfolio-piece__lead-heading">Reusable WordPress Blocks for Editor-Friendly Pages</h1>
 
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>Reusable WordPress blocks built around structured content, guided editor controls, responsive layouts, accessible markup, and portable styling.</p>
+                            <p>Developed through an AI-accelerated, developer-led workflow, these reusable WordPress blocks are built around structured content, guided editor controls, responsive layouts, accessible markup, and portable styling.</p>
                             <p>These blocks help clients and agencies build pages that stay easier to update without relying on fragile one-off templates or overwhelming editors with freeform layout decisions.</p>
                         </div>
                     </div>
@@ -166,6 +166,7 @@ $acf_block_system_hero_image_url = home_url('/wp-content/uploads/2026/05/page-bl
                             <span class="fu-portfolio-piece__meta-value">Responsive CSS, accessible markup, scoped styles</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

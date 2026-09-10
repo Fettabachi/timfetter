@@ -19,7 +19,7 @@ get_header();
                         <p class="fu-eyebrow">Reusable WordPress Section</p>
                         <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                         <div class="fu-portfolio-piece__lead-body">
-                            <p>Content libraries become less useful when visitors cannot quickly find what matters. This reusable WordPress section turns growing collections into a clear, filterable browsing experience without making content harder to manage.</p>
+                            <p>Content libraries become less useful when visitors cannot quickly find what matters. Developed through an AI-accelerated, developer-led workflow, this reusable WordPress section turns growing collections into a clear, filterable browsing experience without making content harder to manage.</p>
                             <ul class="fu-portfolio-piece__lead-points">
                                 <li>Helps visitors narrow large content sets quickly</li>
                                 <li>Keeps entries managed in WordPress instead of one-off layouts</li>
@@ -49,6 +49,7 @@ get_header();
                             <span class="fu-portfolio-piece__meta-value">Fast content discovery</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
