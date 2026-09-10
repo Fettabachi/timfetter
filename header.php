@@ -13,8 +13,6 @@
     <meta name="theme-color" content="#0d3b66">
     <meta name="msapplication-TileColor" content="#0d3b66">
     <meta name="msapplication-config" content="<?php echo esc_url(get_theme_file_uri('/assets/favicons/browserconfig.xml')); ?>">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKFVCPJGEY"></script>
 
     <?php wp_head(); ?>
 </head>
