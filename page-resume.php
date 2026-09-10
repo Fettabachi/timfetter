@@ -96,12 +96,11 @@ $resume_client_work_links = array(
                     <li><a <?php echo $resume_link_attrs($resume_home_url); ?>>timfetter.com</a></li>
                     <li><a href="mailto:contact@timfetter.com">contact@timfetter.com</a></li>
                     <li><a href="<?php echo esc_url($resume_linkedin_url); ?>" target="_blank" rel="noopener noreferrer">linkedin.com/in/tim-fetter</a></li>
-                    <li>United States</li>
                 </ul>
             </div>
 
             <p class="fu-section-lede resume-hero__summary">
-                I help agencies, designers, and businesses turn approved designs and project requirements into polished, maintainable WordPress and front-end interfaces. My work focuses on custom theme implementation, reusable WordPress sections, responsive layouts, interactive UI, and practical improvements that are easier to maintain after launch.
+                I build custom themes, responsive interfaces, and structured, editor-friendly content systems for agencies and businesses. My workflow is AI-accelerated but developer-led — using AI to speed up implementation and debugging, while owning accessibility, testing, and production quality end to end.
             </p>
 
             <div class="resume-hero__actions" aria-label="Resume actions">
@@ -118,13 +117,13 @@ $resume_client_work_links = array(
                     <h2 id="resume-skills-heading">Core Skills</h2>
                     <ul class="resume-skill-list resume-skills">
                         <li>WordPress theme development</li>
-                        <li>ACF Blocks and structured fields</li>
-                        <li>Responsive HTML, CSS, and JavaScript</li>
-                        <li>Custom templates and reusable content sections</li>
-                        <li>Editor-friendly implementation and handoff</li>
-                        <li>Accessibility-minded UI patterns</li>
-                        <li>Front-end polish, cleanup, and bug fixes</li>
-                        <li>Interactive prototypes and workflow screens</li>
+                        <li>Advanced Custom Fields (ACF) block development</li>
+                        <li>Semantic HTML, modern CSS, and JavaScript</li>
+                        <li>Responsive and cross-browser implementation</li>
+                        <li>Structured content modeling</li>
+                        <li>Accessible UI and keyboard interaction</li>
+                        <li>Legacy site support, cleanup, and debugging</li>
+                        <li>Git-based version control</li>
                     </ul>
                 </section>
 
@@ -134,31 +133,30 @@ $resume_client_work_links = array(
                     <article class="resume-role">
                         <div class="resume-role__header">
                             <h3>Independent WordPress &amp; Front-End Developer</h3>
+                            <p>2020-Present | Remote, United States</p>
                         </div>
 
                         <ul>
-                            <li>Build and refine custom WordPress templates, ACF-powered content systems, and reusable page sections for maintainable client sites.</li>
+                            <li>Build and refine custom WordPress templates, ACF-powered content systems, and reusable page sections.</li>
                             <li>Translate approved designs and production requirements into responsive front-end interfaces with clean markup, scoped styles, and practical editor controls.</li>
-                            <li>Support agency and business teams with overflow development, responsive fixes, page-builder cleanup, and ongoing site improvements.</li>
-                            <li>Create interactive prototypes and workflow screens that help teams clarify behavior, states, and implementation details before production.</li>
+                            <li>Support with overflow development, responsive fixes, page-builder cleanup, and ongoing site improvements.</li>
                             <li>Collaborate comfortably with designers, project managers, developers, and content teams throughout implementation.</li>
                         </ul>
 
                         <div class="resume-client-work">
-                            <h3 class="resume-client-work__heading">Selected Client Work</h3>
+                            <h3 class="resume-client-work__heading">Selected Agency Partnerships & Client Work</h3>
+                            <em class="resume-client-work__description">Client names link to detailed case studies.</em>
 
                             <ul class="resume-project-list">
                                 <li>
-                                    <strong>Rare Medium:</strong>
-                                    <span><?php echo $resume_link('Omni Hotels & Resorts', $resume_client_work_links['omni']); ?>, <?php echo $resume_link('Blackberry Farm & Blackberry Mountain', $resume_client_work_links['blackberry']); ?></span>
+                                    <strong>Rare Medium </strong>— Contract front-end implementation, responsive styling, and accessibility support for <?php echo $resume_link('Omni Hotels & Resorts', $resume_client_work_links['omni']); ?> and <?php echo $resume_link('Blackberry Farm & Blackberry Mountain', $resume_client_work_links['blackberry']); ?>.
                                 </li>
                                 <li>
-                                    <strong>The Brick Factory:</strong>
-                                    <span><?php echo $resume_link('Plastic Makers', $resume_client_work_links['plastic_makers']); ?>, <?php echo $resume_link('National University', $resume_client_work_links['national_university']); ?>, <?php echo $resume_link('Fibroid Foundation', $resume_client_work_links['fibroid_foundation']); ?>, <?php echo $resume_link('Good Chemistry Lives Here', $resume_client_work_links['good_chemistry']); ?></span>
+                                    <strong>The Brick Factory </strong>— WordPress, Elementor, custom JavaScript, content-system, and production support for <?php echo $resume_link('Plastic Makers', $resume_client_work_links['plastic_makers']); ?>, <?php echo $resume_link('National University', $resume_client_work_links['national_university']); ?>, <?php echo $resume_link('Fibroid Foundation', $resume_client_work_links['fibroid_foundation']); ?>, and <?php echo $resume_link('Good Chemistry Lives Here', $resume_client_work_links['good_chemistry']); ?>.
                                 </li>
                                 <li>
                                     <strong>Portfolio:</strong>
-                                    <span><?php echo $resume_link('Reusable WordPress Sections', $resume_client_work_links['reusable_sections']); ?> • <?php echo $resume_link('Editor Experience & Handoff', $resume_client_work_links['editor_handoff']); ?> • <?php echo $resume_link('Front-End UI Examples', $resume_client_work_links['front_end_ui_examples']); ?></span>
+                                    <span><?php echo $resume_link('Reusable WordPress Sections', $resume_client_work_links['reusable_sections']); ?> • <?php echo $resume_link('Editor Experience & Handoff', $resume_client_work_links['editor_handoff']); ?></span>
                                 </li>
                             </ul>
                         </div>

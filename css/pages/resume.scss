@@ -39,17 +39,18 @@
 	color: var(--fu-text-heading);
 	font-family: "Raleway", sans-serif;
 	font-size: clamp(2.75rem, 2rem + 4vw, 5.45rem);
-	font-weight: 300;
+	font-size: clamp(2.63rem, calc(2.204rem + 1.728vw), 3.5rem);
+	font-weight: 600;
 	letter-spacing: 0;
 	line-height: 0.98;
 	text-wrap: balance;
 }
 
 .page-resume .resume-hero__role {
-	margin-top: 0.55rem;
+	margin-top: 0;
 	color: var(--fu-text-muted);
 	font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 1.35;
 }
 
@@ -180,9 +181,9 @@
 }
 
 .page-resume .resume-role__header p {
-	color: var(--fu-text-muted);
+	color: var(--fu-blue);
 	font-size: 0.95rem;
-	font-weight: 700;
+	font-weight: 500;
 	line-height: 1.4;
 }
 
@@ -191,7 +192,16 @@
 }
 
 .page-resume .resume-client-work .resume-client-work__heading {
+	margin-bottom: 0;
+}
+
+.page-resume .resume-client-work .resume-client-work__description {
+	display: inline-block;
+	margin-block-start: 0.2rem;
 	margin-bottom: clamp(0.95rem, 0.85rem + 0.35vw, 1.15rem);
+	font-size: 0.75rem;
+	text-box-trim: trim-both;
+	text-box-edge: cap alphabetic;
 }
 
 .page-resume .resume-project-list {
@@ -217,7 +227,8 @@
 
 .page-resume .resume-section a {
 	color: var(--fu-text-heading);
-	text-decoration-thickness: 0.08em;
+	text-decoration: underline;
+	text-decoration-thickness: 0.07em;
 	text-underline-offset: 0.18em;
 }
 
