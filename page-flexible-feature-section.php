@@ -23,6 +23,7 @@ get_header();
                                 <li>Guided layout options instead of open-ended design decisions</li>
                                 <li>Responsive media/text combinations that stay balanced</li>
                                 <li>Editor controls that protect spacing, readability, and hierarchy</li>
+                                <li>Semantic content structure stays clear across layout variations</li>
                             </ul>
                         </div>
                     </div>

@@ -188,7 +188,7 @@ $get_portfolio_card_kicker = static function ($post_id) {
         <div class="fu-content-section__inner container container--page">
             <div class="fu-section-head">
                 <h1 class="fu-section-heading" id="portfolio-archive-heading">Work</h1>
-                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work, delivered through an AI-accelerated workflow and grounded in responsive polish, editor-friendly systems, and maintainable handoff.</p>
+                <p class="fu-section-lede">A curated look at WordPress and front-end implementation work, delivered through an AI-accelerated workflow and grounded in accessible, responsive implementation, editor-friendly systems, and maintainable handoff.</p>
             </div>
 
             <section class="fu-section-body fu-work-archive__group fu-work-archive__group--start fu-work-archive__start" aria-labelledby="work-start-heading">

@@ -36,6 +36,7 @@ if ($editor_experience_url === '') {
                                 <li>One editable card per option instead of dense repeater fields</li>
                                 <li>Optional pricing and feature states without rigid table markup</li>
                                 <li>Responsive comparison layouts that stay readable on small screens</li>
+                                <li>Semantic feature states use text and icons instead of color alone</li>
                             </ul>
                         </div>
                     </div>

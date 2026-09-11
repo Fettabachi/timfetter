@@ -24,6 +24,7 @@ get_header();
                                 <li>Helps visitors narrow large content sets quickly</li>
                                 <li>Keeps entries managed in WordPress instead of one-off layouts</li>
                                 <li>Supports responsive browsing for resource libraries and similar collections</li>
+                                <li>Stable semantic markup keeps content readable before enhanced filtering runs</li>
                             </ul>
                         </div>
                     </div>

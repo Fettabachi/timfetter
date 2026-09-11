@@ -211,7 +211,7 @@ $earlier_work = array(
                             <div class="fu-home__hero-copy">
                                 <p class="fu-eyebrow">WORDPRESS DEVELOPMENT | FRONT-END IMPLEMENTATION</p>
                                 <h1 class="fu-home__title">Polished, maintainable WordPress and front-end experiences.</h1>
-                                <p class="fu-home__lede">I help agencies, designers, and businesses bring designs to life through an AI-accelerated workflow, with clean implementation, responsive polish, and pages that are easier to update.
+                                <p class="fu-home__lede">I help agencies, designers, and businesses bring designs to life through an AI-accelerated workflow, with semantic, accessible implementation, responsive polish, and pages that are easier to update.
                                 </p>
                                 <p class="status-line">Available for part-time, contract, and agency overflow work.</p>
 

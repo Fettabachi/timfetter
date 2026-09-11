@@ -42,6 +42,7 @@ if ($editor_experience_url === '') {
                             <ul class="fu-portfolio-piece__lead-points">
                                 <li>Image and video backgrounds with readability controls</li>
                                 <li>Editor-safe alignment, overlay, and focal-point options</li>
+                                <li>Semantic heading and content structure across visual variations</li>
                             </ul>
                         </div>
                     </div>

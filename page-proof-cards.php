@@ -562,6 +562,7 @@ $proof_cards_demos = array(
                             <h1 class="fu-portfolio-piece__lead-heading"><?php the_title(); ?></h1>
                             <div class="fu-portfolio-piece__lead-body">
                                 <p>Most trust content starts strong, then becomes scattered across pages or difficult for editors to maintain. Developed through an AI-accelerated, developer-led workflow, Proof Cards gives testimonials, outcomes, metrics, logos, and supporting evidence a reusable structure that keeps credibility clear and consistent over time.</p>
+                                <p>Semantic markup keeps statements, sources, metrics, and supporting media distinct and understandable.</p>
                             </div>
                         </div>
 
