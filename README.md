@@ -222,6 +222,8 @@ Copy `.deploy-config.example` to `.deploy-config` and enter the SiteGround SSH d
 
 The script deploys only from a clean `master` branch that matches GitHub. It never deploys the WordPress database, uploads, plugins, or WordPress core.
 
+For full-site migrations between Local and SiteGround with Duplicator Lite, including automatic environment detection, credential safety, verification commands, Analytics checks, and cleanup, see [Duplicator Migration Runbook](docs/duplicator-migration-runbook.md).
+
 ## Validation Checklist
 
 Before shipping meaningful changes:
