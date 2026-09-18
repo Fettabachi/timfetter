@@ -160,6 +160,21 @@ $resume_client_work_links = array(
                                 </li>
                             </ul>
                         </div>
+
+                        <div class="resume-client-work">
+                            <h3 class="resume-client-work__heading" style="margin-bottom: clamp(0.95rem, 0.85rem + 0.35vw, 1.15rem);">Earlier Work</h3>
+                            <ul class="resume-project-list">
+                                <li>
+                                    <strong>magicJack for Business </strong>— Front-End Developer, 2016-2020
+                                </li>
+                                <li>
+                                    <strong>Koncept Design Studio </strong>— Front-End Developer, 2014-2016.
+                                </li>
+                                <li>
+                                    <strong>Brand Fever </strong>— Front-End Developer, 2011-2014.
+                                </li>
+                            </ul>
+                        </div>
                     </article>
                 </section>
 
