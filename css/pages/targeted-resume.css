@@ -142,11 +142,8 @@
   white-space: pre-line;
 }
 
-.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__date {
-  margin-bottom: 1.5em;
-}
-
-.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__recipient {
+.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__attention,
+.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__subject {
   margin-bottom: 1.5em;
 }
 
@@ -232,8 +229,8 @@
     margin-bottom: 0.17in;
   }
 
-  body.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__date,
-  body.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__recipient {
+  body.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__attention,
+  body.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__subject {
     margin-bottom: 0.25in;
   }
 
