@@ -1,0 +1,243 @@
+/* Extends the existing /resume/ styles only on the targeted document page. */
+.page-targeted-resume .targeted-resume-editor {
+  padding-block: clamp(2.75rem, 2rem + 3vw, 5rem);
+  background: #fff;
+}
+
+.page-targeted-resume .targeted-resume-editor h1 {
+  margin: 0 0 1rem;
+  color: var(--fu-text-heading);
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.page-targeted-resume .targeted-resume-editor > .container > p:not(.fu-eyebrow) {
+  max-width: 68ch;
+}
+
+.page-targeted-resume .targeted-resume-form {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
+
+.page-targeted-resume .targeted-resume-form__row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-targeted-resume .targeted-resume-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--fu-text-heading);
+  font-weight: 700;
+}
+
+.page-targeted-resume .targeted-resume-form input,
+.page-targeted-resume .targeted-resume-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--fu-border);
+  border-radius: 0.25rem;
+  color: var(--fu-text-body);
+  background: #fff;
+  font: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.page-targeted-resume .targeted-resume-form input:focus-visible,
+.page-targeted-resume .targeted-resume-form textarea:focus-visible {
+  outline: 2px solid var(--fu-blue);
+  outline-offset: 2px;
+}
+
+.page-targeted-resume .targeted-resume-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.page-targeted-resume .targeted-resume-form__actions button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.page-targeted-resume .targeted-resume-form__status {
+  margin: 0;
+}
+
+.page-targeted-resume .targeted-resume-letter,
+.page-targeted-resume .targeted-resume-sheet {
+  max-width: 8.5in;
+  margin: 2rem auto;
+  padding: 0.55in;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 0.4rem 1.5rem rgb(13 59 102 / 10%);
+}
+
+.page-targeted-resume .targeted-resume-letter > .container,
+.page-targeted-resume .targeted-resume-sheet .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.page-targeted-resume .targeted-resume-letter {
+  min-height: 11in;
+  color: var(--fu-text-body);
+}
+
+.page-targeted-resume .targeted-resume-letter__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: start;
+  padding-bottom: 0.15in;
+  border-bottom: 1px solid var(--fu-text-heading);
+}
+
+.page-targeted-resume .targeted-resume-letter__heading p {
+  margin: 0;
+}
+
+.page-targeted-resume .targeted-resume-letter__name {
+  color: var(--fu-text-heading);
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.page-targeted-resume .targeted-resume-letter__role {
+  margin-top: 0.08in !important;
+  color: var(--fu-text-muted);
+  font-weight: 600;
+}
+
+.page-targeted-resume .targeted-resume-letter__contact {
+  display: grid;
+  gap: 0.2rem;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.page-targeted-resume .targeted-resume-letter a {
+  color: var(--fu-text-heading);
+  text-decoration: none;
+}
+
+.page-targeted-resume .targeted-resume-letter__body {
+  max-width: 72ch;
+  padding-top: 0.3in;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.page-targeted-resume .targeted-resume-letter__body p {
+  margin: 0 0 1em;
+  white-space: pre-line;
+}
+
+.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__date {
+  margin-bottom: 1.5em;
+}
+
+.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__recipient {
+  margin-bottom: 1.5em;
+}
+
+.page-targeted-resume .targeted-resume-letter__signoff {
+  margin-top: 1.5em !important;
+}
+
+.page-targeted-resume .targeted-resume-sheet .resume-page .section,
+.page-targeted-resume .targeted-resume-sheet .section {
+  padding-block: 0;
+}
+
+.page-targeted-resume .targeted-resume-sheet .resume-content {
+  padding-top: 2rem !important;
+}
+
+@media (max-width: 40rem) {
+  .page-targeted-resume .targeted-resume-form__row,
+  .page-targeted-resume .targeted-resume-letter__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .page-targeted-resume .targeted-resume-letter__contact {
+    text-align: left;
+  }
+
+  .page-targeted-resume .targeted-resume-letter,
+  .page-targeted-resume .targeted-resume-sheet {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+@media print {
+  body.page-targeted-resume .targeted-resume-editor {
+    display: none !important;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter,
+  body.page-targeted-resume .targeted-resume-sheet {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  body.page-targeted-resume .targeted-resume-sheet {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__heading {
+    gap: 0.2in;
+    padding-bottom: 0.12in;
+    border-color: #222;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__name {
+    font-size: 24pt;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__role {
+    font-size: 10.5pt;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__contact {
+    gap: 0.03in;
+    font-size: 9pt;
+    line-height: 1.25;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__body {
+    max-width: none;
+    padding-top: 0.28in;
+    font-size: 10.5pt;
+    line-height: 1.43;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__body p {
+    margin-bottom: 0.17in;
+  }
+
+  body.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__date,
+  body.page-targeted-resume .targeted-resume-letter__body .targeted-resume-letter__recipient {
+    margin-bottom: 0.25in;
+  }
+
+  body.page-targeted-resume .targeted-resume-sheet .resume-content {
+    padding-top: 0 !important;
+  }
+}

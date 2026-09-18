@@ -1,12 +1,34 @@
 <?php
 
 /**
- * The template for displaying the Resume page
+ * Template Name: Targeted Resume PDF
+ *
+ * A printable letter and a copy of the public resume, kept separate from /resume/.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Tim_Fetter_Portfolio
  */
+
+add_filter('body_class', static function ($classes) {
+    $classes[] = 'page-resume';
+    $classes[] = 'page-targeted-resume';
+    return $classes;
+});
+
+wp_enqueue_style(
+    'targeted-resume',
+    get_theme_file_uri('/css/pages/targeted-resume.css'),
+    array('our-main-styles'),
+    filemtime(get_theme_file_path('/css/pages/targeted-resume.css'))
+);
+wp_enqueue_script(
+    'targeted-resume',
+    get_theme_file_uri('/src/targeted-resume.js'),
+    array(),
+    filemtime(get_theme_file_path('/src/targeted-resume.js')),
+    true
+);
 
 get_header();
 
@@ -82,7 +104,59 @@ $resume_client_work_links = array(
 );
 ?>
 
-<main id="primary" class="site-main resume-page">
+<main id="primary" class="site-main resume-page targeted-resume-page">
+    <section class="targeted-resume-editor section" aria-labelledby="targeted-resume-editor-title">
+        <div class="container container--readable">
+            <p class="fu-eyebrow">Targeted résumé</p>
+            <h1 id="targeted-resume-editor-title">Cover letter + résumé</h1>
+            <p>Edit the letter below, then print or save this two-page document as a PDF. Review the print preview before saving if your letter changes substantially.</p>
+            <form class="targeted-resume-form" id="targeted-resume-form">
+                <div class="targeted-resume-form__row">
+                    <label>Company name <input name="company" value="The Mauldin Group" required></label>
+                    <label>Company location <input name="location" value="Roswell, GA"></label>
+                    <label>Date <input name="date" value="September 18, 2026" required></label>
+                    <label>Greeting <input name="greeting" value="Hello," required></label>
+                </div>
+                <label>Opening <textarea name="opening" rows="3" required>I'm reaching out to introduce myself in case The Mauldin Group needs additional WordPress or front-end development support for client websites.</textarea></label>
+                <label>Experience <textarea name="experience" rows="4" required>I'm a WordPress and front-end developer with 15+ years of experience helping agencies turn approved designs and project requirements into polished, responsive websites. I build custom themes and reusable content sections, work with Advanced Custom Fields and Elementor, and refine interfaces for accessibility and long-term maintenance.</textarea></label>
+                <label>Why this company <textarea name="fit" rows="4" required>Your focus on websites and ongoing digital support for nonprofits, associations, and membership organizations is a strong fit for my work. Those sites need clear content, dependable editing tools, and careful implementation across devices. I can help your team build and improve client pages while respecting existing designs and workflows.</textarea></label>
+                <label>Close <textarea name="close" rows="4" required>I would welcome a conversation if freelance or overflow development support would be useful. My résumé is on the next page, and selected work is available at timfetter.com. Thank you for your time and consideration.</textarea></label>
+                <div class="targeted-resume-form__actions">
+                    <button class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" type="button" id="targeted-resume-print">Print or save PDF</button>
+                    <button class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" type="reset">Restore Mauldin letter</button>
+                </div>
+                <p class="targeted-resume-form__status" id="targeted-resume-status" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <section class="targeted-resume-letter" aria-label="Cover letter">
+        <div class="container container--readable">
+            <div class="targeted-resume-letter__heading">
+                <div>
+                    <p class="targeted-resume-letter__name">Tim Fetter</p>
+                    <p class="targeted-resume-letter__role">WordPress &amp; Front-End Developer</p>
+                </div>
+                <div class="targeted-resume-letter__contact">
+                    <a href="https://timfetter.com">timfetter.com</a>
+                    <a href="mailto:contact@timfetter.com">contact@timfetter.com</a>
+                    <a href="https://www.linkedin.com/in/tim-fetter/">linkedin.com/in/tim-fetter</a>
+                </div>
+            </div>
+            <div class="targeted-resume-letter__body">
+                <p class="targeted-resume-letter__date" data-targeted-output="date">September 18, 2026</p>
+                <p class="targeted-resume-letter__recipient"><span data-targeted-output="company">The Mauldin Group</span><br><span data-targeted-output="location">Roswell, GA</span></p>
+                <p data-targeted-output="greeting">Hello,</p>
+                <p data-targeted-output="opening">I'm reaching out to introduce myself in case The Mauldin Group needs additional WordPress or front-end development support for client websites.</p>
+                <p data-targeted-output="experience">I'm a WordPress and front-end developer with 15+ years of experience helping agencies turn approved designs and project requirements into polished, responsive websites. I build custom themes and reusable content sections, work with Advanced Custom Fields and Elementor, and refine interfaces for accessibility and long-term maintenance.</p>
+                <p data-targeted-output="fit">Your focus on websites and ongoing digital support for nonprofits, associations, and membership organizations is a strong fit for my work. Those sites need clear content, dependable editing tools, and careful implementation across devices. I can help your team build and improve client pages while respecting existing designs and workflows.</p>
+                <p data-targeted-output="close">I would welcome a conversation if freelance or overflow development support would be useful. My résumé is on the next page, and selected work is available at timfetter.com. Thank you for your time and consideration.</p>
+                <p class="targeted-resume-letter__signoff">Sincerely,<br><strong>Tim Fetter</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="targeted-resume-sheet" aria-label="Résumé">
     <section class="resume-hero section" aria-labelledby="resume-title">
         <div class="container container--readable">
             <p class="fu-eyebrow">Resume</p>
@@ -103,10 +177,6 @@ $resume_client_work_links = array(
                 I help agencies, designers, and businesses turn approved designs and project requirements into polished, maintainable WordPress and front-end interfaces. My work focuses on custom theme implementation, reusable WordPress sections, responsive layouts, interactive UI, and practical improvements that are easier to maintain after launch. My workflow is AI-accelerated but developer-led — using AI to speed up implementation and debugging, while owning accessibility, testing, and production quality end to end.
             </p>
 
-            <div class="resume-hero__actions" aria-label="Resume actions">
-                <button class="fu-portfolio-piece__button fu-portfolio-piece__button--primary resume-print-button" type="button" onclick="window.print()">Print or Save PDF</button>
-                <a class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" <?php echo $resume_link_attrs($resume_work_url); ?>>View Selected Work</a>
-            </div>
         </div>
     </section>
 
@@ -181,6 +251,7 @@ $resume_client_work_links = array(
             </div>
         </div>
     </section>
+    </div>
 </main><!-- #main -->
 
 <script>
