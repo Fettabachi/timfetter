@@ -24,9 +24,9 @@ wp_enqueue_style(
 );
 wp_enqueue_script(
     'targeted-resume',
-    get_theme_file_uri('/src/targeted-resume.js'),
+    get_theme_file_uri('/assets/js/targeted-resume.js'),
     array(),
-    filemtime(get_theme_file_path('/src/targeted-resume.js')),
+    filemtime(get_theme_file_path('/assets/js/targeted-resume.js')),
     true
 );
 
@@ -122,7 +122,7 @@ $resume_client_work_links = array(
                 <label>Close <textarea name="close" rows="4" required>I would welcome a conversation if freelance or overflow development support would be useful. My résumé is on the next page, and selected work is available at timfetter.com. Thank you for your time and consideration.</textarea></label>
                 <div class="targeted-resume-form__actions">
                     <button class="fu-portfolio-piece__button fu-portfolio-piece__button--primary" type="button" id="targeted-resume-print">Print or save PDF</button>
-                    <button class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" type="reset">Restore Mauldin letter</button>
+                    <button class="fu-portfolio-piece__button fu-portfolio-piece__button--secondary" type="button" id="targeted-resume-new">Start a new letter</button>
                 </div>
                 <p class="targeted-resume-form__status" id="targeted-resume-status" role="status" aria-live="polite"></p>
             </form>
