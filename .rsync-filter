@@ -15,7 +15,12 @@
 - *.sql
 - *.log
 - docs/
-- src/
++ src/
++ src/blocks/
++ src/blocks/demo-panel.js
++ src/blocks/demo-panel-content-switcher.js
++ src/blocks/demo-panel-comparison-cards.js
+- src/***
 - tracked-plugins/
 - .editorconfig
 - .eslintignore
