@@ -10,6 +10,7 @@
 		"[data-fu-content-switcher-demo-target] .fu-content-switcher";
 	const FALLBACK_TARGET_SELECTOR = ".fu-content-switcher";
 	const PANEL_TRANSITION_MS = 450;
+	const PANEL_SURFACE_DARK_CLASS = "fu-content-switcher--panel-surface-dark";
 	const CONTROL_CLASS_SETS = {
 		"display-style": [
 			"fu-content-switcher--tabs",
@@ -132,6 +133,15 @@
 		}
 	};
 
+	const syncPanelSurfaceClass = (switcher, values) => {
+		const usesDarkSurface =
+			values.panelBackground === "dark" ||
+			(values.panelBackground === "none" &&
+				values.switcherBackground === "dark");
+
+		switcher.classList.toggle(PANEL_SURFACE_DARK_CLASS, usesDarkSurface);
+	};
+
 	const initContentSwitcherDemoPanel = () => {
 		const panel = document.querySelector(PANEL_SELECTOR);
 		const toggle = document.querySelector(TOGGLE_SELECTOR);
@@ -227,7 +237,9 @@
 
 		const originalClassName = switcher.className;
 
-		syncUI(panel, readValuesFromClassList(switcher));
+		const initialValues = readValuesFromClassList(switcher);
+		syncPanelSurfaceClass(switcher, initialValues);
+		syncUI(panel, initialValues);
 		triggerSwitcherRefresh();
 
 		panel.addEventListener("click", (event) => {
@@ -251,6 +263,7 @@
 				}
 
 				applyClassControl(switcher, controlName, value);
+				syncPanelSurfaceClass(switcher, readValuesFromClassList(switcher));
 				syncButtonState(panel, controlName, value);
 				triggerSwitcherRefresh();
 				return;
@@ -260,7 +273,9 @@
 			if (resetButton) {
 				event.preventDefault();
 				switcher.className = originalClassName;
-				syncUI(panel, readValuesFromClassList(switcher));
+				const resetValues = readValuesFromClassList(switcher);
+				syncPanelSurfaceClass(switcher, resetValues);
+				syncUI(panel, resetValues);
 				triggerSwitcherRefresh();
 			}
 		});
