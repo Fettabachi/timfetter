@@ -168,10 +168,10 @@ $resume_client_work_links = array(
                                     <strong>magicJack for Business </strong>— Front-End Developer, 2016-2020
                                 </li>
                                 <li>
-                                    <strong>Koncept Design Studio </strong>— Front-End Developer, 2014-2016.
+                                    <strong>Koncept Design Studio </strong>— WordPress Developer, 2014-2016.
                                 </li>
                                 <li>
-                                    <strong>Brand Fever </strong>— Front-End Developer, 2011-2014.
+                                    <strong>Brand Fever </strong>— WordPress Developer, 2011-2014.
                                 </li>
                             </ul>
                         </div>
