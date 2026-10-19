@@ -696,24 +696,6 @@ h2 {
 	line-height: 1.75;
 }
 
-.status-line {
-	position: relative;
-	padding-left: 0.75rem;
-	margin-block-start: 0.4em;
-	color: var(--fu-text-body);
-
-	&:before {
-		content: "";
-		width: 0.4rem;
-		height: 0.4rem;
-		position: absolute;
-		left: 0;
-		top: 0.45rem;
-		background: var(--fu-text-body);
-		border-radius: 999px;
-	}
-}
-
 .fu-home__actions,
 .fu-home__prototype-actions {
 	display: flex;
@@ -740,13 +722,6 @@ h2 {
 	color: var(--fu-text-on-inverse);
 }
 
-.fu-home__resume-link {
-	display: none;
-	margin: 1rem 0 0;
-	font-size: 0.95rem;
-}
-
-.fu-home__resume-link a,
 .fu-home__text-link {
 	color: var(--fu-action-bg);
 	text-decoration: underline;
