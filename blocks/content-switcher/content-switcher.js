@@ -9,14 +9,17 @@
 	const FRONTEND_PANEL_INNER_SELECTOR = ".fu-content-switcher__panel-inner";
 	const ACCORDION_SELECTOR =
 		".fu-content-switcher__accordion-trigger[data-fu-switcher-accordion]";
+	const MOBILE_SELECTOR = "[data-fu-switcher-mobile-selector]";
+	const MOBILE_SELECT_SELECTOR = "[data-fu-switcher-mobile-select]";
 	const CHILD_PANEL_SELECTOR = ".fu-switcher-panel";
 	const EDITOR_PANEL_SELECTORS = [
 		".wp-block-acf-fu-switcher-panel",
 		'.block-editor-block-list__block[data-type="acf/fu-switcher-panel"]',
 	].join(", ");
 	const MOBILE_BREAKPOINT = window.matchMedia("(max-width: 48rem)");
+	const EDITOR_MOBILE_MAX_WIDTH = 768;
 	const instances = new WeakMap();
-	let observer = null;
+	const observers = new WeakMap();
 	let rafId = 0;
 
 	const isEditorEnvironment =
@@ -48,9 +51,6 @@
 			'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.55 16.2 5.3 11.95a1 1 0 1 1 1.4-1.42l2.85 2.86 7.75-7.76a1 1 0 1 1 1.4 1.42l-9.15 9.15a1 1 0 0 1-1.4 0Z"></path></svg>',
 	};
 
-	const getElementNode = (value) =>
-		value?.get?.(0) || value?.[0] || value || null;
-	const getClosestRoot = (element) => element?.closest?.(ROOT_SELECTOR) || null;
 	const slugify = (value) =>
 		String(value || "")
 			.toLowerCase()
@@ -95,15 +95,22 @@
 			this.handleTabClick = this.handleTabClick.bind(this);
 			this.handleTabKeydown = this.handleTabKeydown.bind(this);
 			this.handleAccordionClick = this.handleAccordionClick.bind(this);
+			this.handleMobileSelectChange =
+				this.handleMobileSelectChange.bind(this);
 			this.handleCopyLinkClick = this.handleCopyLinkClick.bind(this);
 			this.handleViewportChange = this.handleViewportChange.bind(this);
+			this.handleEditorResize = this.handleEditorResize.bind(this);
 			this.activeIndex = Number.NaN;
+			this.editorMobilePreview = false;
+			this.editorResizeObserver = null;
 			this.refresh();
 			this.bindEvents();
 		}
 
 		refresh() {
 			this.nav = this.root.querySelector(".fu-content-switcher__nav");
+			this.mobileSelector = this.root.querySelector(MOBILE_SELECTOR);
+			this.mobileSelect = this.root.querySelector(MOBILE_SELECT_SELECTOR);
 			this.panelsContainer = this.root.querySelector(PANELS_SELECTOR);
 			this.tabs = Array.from(this.root.querySelectorAll(TAB_SELECTOR));
 			this.frontendPanels = Array.from(
@@ -125,6 +132,9 @@
 				: this.collectEditorPanels();
 			this.syncCopyLinkControls();
 			this.syncEditorControls();
+			this.syncEditorAccordionControls();
+			this.syncMobileSelector();
+			this.updateEditorViewportMode();
 			this.activeIndex = this.getValidIndex(this.resolveStartingIndex());
 			this.applyState({ updateHash: false });
 		}
@@ -133,16 +143,57 @@
 			this.root.addEventListener("click", this.handleTabClick);
 			this.root.addEventListener("keydown", this.handleTabKeydown);
 			this.root.addEventListener("click", this.handleAccordionClick);
+			this.root.addEventListener("change", this.handleMobileSelectChange);
 			this.root.addEventListener("click", this.handleCopyLinkClick);
 			if (typeof MOBILE_BREAKPOINT.addEventListener === "function") {
 				MOBILE_BREAKPOINT.addEventListener("change", this.handleViewportChange);
 			} else if (typeof MOBILE_BREAKPOINT.addListener === "function") {
 				MOBILE_BREAKPOINT.addListener(this.handleViewportChange);
 			}
+
+			if (
+				isEditorEnvironment &&
+				!this.frontendMode &&
+				typeof ResizeObserver !== "undefined"
+			) {
+				this.editorResizeObserver = new ResizeObserver(this.handleEditorResize);
+				this.editorResizeObserver.observe(this.root);
+			}
 		}
 
 		handleViewportChange() {
+			this.updateEditorViewportMode();
 			this.applyState({ updateHash: false });
+		}
+
+		handleEditorResize(entries) {
+			const entry = entries.find((item) => item.target === this.root);
+			const width = entry?.contentRect?.width;
+			const changed = this.updateEditorViewportMode(width);
+
+			if (changed) {
+				this.applyState({ updateHash: false });
+			}
+		}
+
+		updateEditorViewportMode(width) {
+			if (!isEditorEnvironment || this.frontendMode) {
+				this.root.classList.remove("is-editor-mobile-preview");
+				this.editorMobilePreview = false;
+				return false;
+			}
+
+			const measuredWidth = Number.isFinite(width)
+				? width
+				: this.root.getBoundingClientRect().width;
+			const nextState =
+				measuredWidth > 0 && measuredWidth <= EDITOR_MOBILE_MAX_WIDTH;
+			const changed = nextState !== this.editorMobilePreview;
+
+			this.editorMobilePreview = nextState;
+			this.root.classList.toggle("is-editor-mobile-preview", nextState);
+
+			return changed;
 		}
 
 		getCanonicalInstancePrefix() {
@@ -154,7 +205,9 @@
 			}
 
 			const basePrefix = stripRenderOrderSuffix(rawPrefix);
-			const roots = Array.from(document.querySelectorAll(ROOT_SELECTOR));
+			const roots = Array.from(
+				this.root.ownerDocument.querySelectorAll(ROOT_SELECTOR)
+			);
 			const matchingRoots = roots.filter((root) => {
 				const rootPrefix =
 					root.dataset.instancePrefix || root.id || "switcher-instance";
@@ -227,11 +280,12 @@
 				wrapper.dataset.fuSwitcherEditorPanel = "true";
 				const deepLinkEnabled =
 					dataNode?.dataset.panelDeeplinkEnabled === "true";
+				const accordion = wrapper.querySelector(ACCORDION_SELECTOR);
 				return {
 					index,
 					wrapper,
 					content: blockEdit,
-					accordion: null,
+					accordion,
 					dataNode,
 					slug:
 						dataNode?.dataset.panelSlug ||
@@ -468,6 +522,75 @@
 			});
 		}
 
+		syncEditorAccordionControls() {
+			if (this.frontendMode || this.panels.length === 0) {
+				return;
+			}
+
+			this.panels.forEach((panel, index) => {
+				let trigger = panel.wrapper.querySelector(ACCORDION_SELECTOR);
+
+				if (!trigger) {
+					trigger = document.createElement("button");
+					trigger.type = "button";
+					trigger.className = "fu-content-switcher__accordion-trigger";
+					trigger.dataset.fuSwitcherAccordion = "true";
+
+					const label = document.createElement("span");
+					label.className = "fu-content-switcher__tab-label";
+					trigger.appendChild(label);
+
+					if (panel.content === panel.wrapper) {
+						panel.wrapper.prepend(trigger);
+					} else {
+						panel.wrapper.insertBefore(trigger, panel.content);
+					}
+				}
+
+				const label = panel.label || `Panel ${index + 1}`;
+				const labelNode = trigger.querySelector(
+					".fu-content-switcher__tab-label"
+				);
+
+				if (labelNode && labelNode.textContent !== label) {
+					labelNode.textContent = label;
+				}
+
+				trigger.id = `${this.controlIdPrefix}-accordion-preview-${index + 1}`;
+				trigger.dataset.panelIndex = String(index);
+				trigger.dataset.panelSlug = panel.slug || String(index + 1);
+				trigger.dataset.panelHash = panel.hashSlug || "";
+				trigger.dataset.panelLabel = label;
+
+				panel.content.id = `${this.controlIdPrefix}-panel-preview-${index + 1}`;
+				trigger.setAttribute("aria-controls", panel.content.id);
+				this.syncTabIcon(trigger, panel);
+				panel.accordion = trigger;
+			});
+		}
+
+		syncMobileSelector() {
+			if (!this.mobileSelect) {
+				return;
+			}
+
+			const existingOptions = Array.from(this.mobileSelect.options);
+
+			this.panels.forEach((panel, index) => {
+				const option = existingOptions[index] || document.createElement("option");
+				option.value = String(index);
+				option.textContent = panel.label || `Panel ${index + 1}`;
+
+				if (!option.parentElement) {
+					this.mobileSelect.appendChild(option);
+				}
+			});
+
+			while (this.mobileSelect.options.length > this.panels.length) {
+				this.mobileSelect.remove(this.mobileSelect.options.length - 1);
+			}
+		}
+
 		resolveStartingIndex() {
 			if (isEditorEnvironment && !this.frontendMode) {
 				const selectedIndex = this.getSelectedEditorPanelIndex();
@@ -500,7 +623,7 @@
 				return -1;
 			}
 
-			const selectedElement = document.querySelector(
+			const selectedElement = this.root.ownerDocument.querySelector(
 				`[data-block="${selectedBlockId}"]`
 			);
 			if (!selectedElement) {
@@ -533,11 +656,19 @@
 		}
 
 		isMobile() {
+			if (isEditorEnvironment && !this.frontendMode) {
+				return this.editorMobilePreview;
+			}
+
 			return MOBILE_BREAKPOINT.matches;
 		}
 
 		isAccordionMode() {
 			return this.isMobile() && this.mobileBehavior === "accordion";
+		}
+
+		isDropdownMode() {
+			return this.isMobile() && this.mobileBehavior === "dropdown";
 		}
 
 		isMatchPanelHeightEnabled() {
@@ -576,6 +707,16 @@
 			event.preventDefault();
 			const index = Number.parseInt(button.dataset.panelIndex || "0", 10);
 			this.activate(index, { updateHash: true, focusControl: true });
+		}
+
+		handleMobileSelectChange(event) {
+			const select = event.target.closest(MOBILE_SELECT_SELECTOR);
+			if (!select || select.closest(ROOT_SELECTOR) !== this.root) {
+				return;
+			}
+
+			const index = Number.parseInt(select.value || "0", 10);
+			this.activate(index, { updateHash: true });
 		}
 
 		handleCopyLinkClick(event) {
@@ -709,12 +850,13 @@
 			}
 
 			const accordionMode = this.isAccordionMode();
+			const dropdownMode = this.isDropdownMode();
 			const stackedMode = this.isStackedMode();
 			const orientation = this.currentOrientation();
 			const matchHeightMode = this.isMatchPanelHeightEnabled();
 
 			if (this.nav) {
-				this.nav.hidden = accordionMode || stackedMode;
+				this.nav.hidden = accordionMode || dropdownMode || stackedMode;
 				this.nav.setAttribute("role", "tablist");
 				this.nav.setAttribute("aria-orientation", orientation);
 			}
@@ -724,8 +866,20 @@
 				tab.classList.toggle("is-active", isActive);
 				tab.setAttribute("aria-selected", isActive ? "true" : "false");
 				tab.setAttribute("tabindex", isActive ? "0" : "-1");
-				tab.hidden = accordionMode || stackedMode;
+				tab.hidden = accordionMode || dropdownMode || stackedMode;
 			});
+
+			if (this.mobileSelector) {
+				this.mobileSelector.hidden = !dropdownMode;
+			}
+
+			if (this.mobileSelect) {
+				this.mobileSelect.value = String(this.activeIndex);
+				const activePanel = this.panels[this.activeIndex];
+				if (activePanel?.content?.id) {
+					this.mobileSelect.setAttribute("aria-controls", activePanel.content.id);
+				}
+			}
 
 			this.panels.forEach((panel, index) => {
 				const isActive = index === this.activeIndex;
@@ -760,6 +914,7 @@
 					panel.content.removeAttribute("aria-hidden");
 					panel.content.inert = false;
 					panel.content.removeAttribute("role");
+					panel.content.removeAttribute("aria-label");
 					panel.content.removeAttribute("aria-labelledby");
 					if (panel.content.id) {
 						panel.content.setAttribute("data-panel-id", panel.content.id);
@@ -774,9 +929,22 @@
 						panel.content.inert = true;
 					}
 					panel.content.setAttribute("role", "region");
+					panel.content.removeAttribute("aria-label");
 					if (panel.accordion?.id) {
 						panel.content.setAttribute("aria-labelledby", panel.accordion.id);
 					}
+				} else if (dropdownMode) {
+					panel.content.hidden = !isActive;
+					if (isActive) {
+						panel.content.removeAttribute("aria-hidden");
+						panel.content.inert = false;
+					} else {
+						panel.content.setAttribute("aria-hidden", "true");
+						panel.content.inert = true;
+					}
+					panel.content.setAttribute("role", "region");
+					panel.content.setAttribute("aria-label", panel.label);
+					panel.content.removeAttribute("aria-labelledby");
 				} else {
 					if (isActive) {
 						panel.content.hidden = false;
@@ -792,15 +960,20 @@
 						panel.content.inert = true;
 					}
 					panel.content.setAttribute("role", "tabpanel");
+					panel.content.removeAttribute("aria-label");
 					const relatedTab = this.tabs[index];
 					if (relatedTab?.id) {
 						panel.content.setAttribute("aria-labelledby", relatedTab.id);
 					}
 				}
 
-				if (!this.frontendMode) {
+				if (this.frontendMode && dropdownMode) {
+					panel.wrapper.hidden = !isActive;
+				} else if (this.frontendMode) {
+					panel.wrapper.hidden = false;
+				} else {
 					panel.wrapper.hidden =
-						stackedMode || matchHeightMode ? false : !isActive;
+						accordionMode || stackedMode ? false : !isActive;
 				}
 			});
 
@@ -811,7 +984,9 @@
 			if (focusControl) {
 				const target = accordionMode
 					? this.panels[this.activeIndex]?.accordion
-					: this.tabs[this.activeIndex];
+					: dropdownMode
+						? this.mobileSelect
+						: this.tabs[this.activeIndex];
 				target?.focus();
 			}
 		}
@@ -850,6 +1025,33 @@
 		}
 	}
 
+	const getEditorDocuments = () => {
+		const documents = [document];
+
+		if (!isEditorEnvironment) {
+			return documents;
+		}
+
+		document.querySelectorAll("iframe").forEach((iframe) => {
+			try {
+				const frameDocument = iframe.contentDocument;
+				if (frameDocument?.documentElement) {
+					documents.push(frameDocument);
+				}
+			} catch (error) {
+				// Ignore unrelated cross-origin editor integrations.
+			}
+		});
+
+		return documents;
+	};
+
+	const forEachSwitcherRoot = (callback) => {
+		getEditorDocuments().forEach((contextDocument) => {
+			contextDocument.querySelectorAll(ROOT_SELECTOR).forEach(callback);
+		});
+	};
+
 	const initSwitchers = (target = document) => {
 		if (!target?.querySelectorAll) {
 			return;
@@ -870,27 +1072,22 @@
 		});
 	};
 
-	const scheduleInit = (target = document) => {
-		if (rafId) {
-			window.cancelAnimationFrame(rafId);
-		}
-
-		rafId = window.requestAnimationFrame(() => {
-			initSwitchers(target);
-			rafId = 0;
-		});
-	};
-
-	const bindObservers = () => {
-		if (observer || typeof MutationObserver === "undefined") {
+	const observeDocument = (contextDocument) => {
+		if (
+			observers.has(contextDocument) ||
+			!contextDocument.body ||
+			typeof contextDocument.defaultView?.MutationObserver === "undefined"
+		) {
 			return;
 		}
 
-		observer = new MutationObserver(() => {
-			scheduleInit(document);
-		});
+		const contextObserver = new contextDocument.defaultView.MutationObserver(
+			() => {
+				scheduleInit();
+			}
+		);
 
-		observer.observe(document.body, {
+		contextObserver.observe(contextDocument.body, {
 			childList: true,
 			subtree: true,
 			characterData: true,
@@ -902,6 +1099,42 @@
 				"data-panel-deeplink-enabled",
 			],
 		});
+		observers.set(contextDocument, contextObserver);
+	};
+
+	const initEditorDocuments = () => {
+		getEditorDocuments().forEach((contextDocument) => {
+			initSwitchers(contextDocument);
+			observeDocument(contextDocument);
+		});
+	};
+
+	const scheduleInit = () => {
+		if (rafId) {
+			window.cancelAnimationFrame(rafId);
+		}
+
+		rafId = window.requestAnimationFrame(() => {
+			initEditorDocuments();
+			rafId = 0;
+		});
+	};
+
+	const bindObservers = () => {
+		initEditorDocuments();
+
+		if (isEditorEnvironment && !document.documentElement.dataset.fuSwitcherFrameWatch) {
+			document.documentElement.dataset.fuSwitcherFrameWatch = "true";
+			document.addEventListener(
+				"load",
+				(event) => {
+					if (event.target?.tagName === "IFRAME") {
+						scheduleInit();
+					}
+				},
+				true
+			);
+		}
 	};
 
 	const bindEditorSelectionSync = () => {
@@ -925,7 +1158,7 @@
 			}
 
 			lastSelectedBlockId = selectedBlockId;
-			document.querySelectorAll(ROOT_SELECTOR).forEach((root) => {
+			forEachSwitcherRoot((root) => {
 				instances.get(root)?.syncEditorSelection();
 			});
 		});
@@ -933,20 +1166,20 @@
 
 	const handleHashChange = () => {
 		const hash = decodeHash();
-		document.querySelectorAll(ROOT_SELECTOR).forEach((root) => {
+		forEachSwitcherRoot((root) => {
 			instances.get(root)?.activateFromHash(hash, { scrollToRoot: true });
 		});
 	};
 
 	document.addEventListener("DOMContentLoaded", () => {
-		initSwitchers(document);
+		initEditorDocuments();
 		bindObservers();
 		bindEditorSelectionSync();
 		handleHashChange();
 	});
 
 	if (document.readyState !== "loading") {
-		initSwitchers(document);
+		initEditorDocuments();
 		bindObservers();
 		bindEditorSelectionSync();
 		handleHashChange();
@@ -955,28 +1188,18 @@
 	window.addEventListener("hashchange", handleHashChange);
 
 	window.addEventListener("fuContentSwitcherDemoChange", () => {
-		initSwitchers(document);
+		initEditorDocuments();
 	});
 
 	if (window.acf?.addAction) {
 		window.acf.addAction(
 			"render_block_preview/type=fu-content-switcher",
-			($el) => {
-				scheduleInit($el?.get?.(0) || document);
-			}
+			() => scheduleInit()
 		);
 		window.acf.addAction(
 			"render_block_preview/type=fu-switcher-panel",
-			($el) => {
-				const element = getElementNode($el);
-				const root = getClosestRoot(element);
-				scheduleInit(root || document);
-			}
+			() => scheduleInit()
 		);
-		window.acf.addAction("append", ($el) => {
-			const element = getElementNode($el);
-			const root = getClosestRoot(element);
-			scheduleInit(root || document);
-		});
+		window.acf.addAction("append", () => scheduleInit());
 	}
 })();

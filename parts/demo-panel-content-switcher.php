@@ -15,14 +15,15 @@
 
         <p class="fu-demo-note">These controls are for the portfolio demo only. The production block is configured in the WordPress editor.</p>
 
-        <div class="fu-demo-group">
+        <div class="fu-demo-group" data-fu-demo-display-style-group>
             <p class="fu-demo-group-label" id="fu-cs-demo-display-style-label">Display Style</p>
-            <div class="fu-demo-btns fu-demo-btns--text fu-demo-btns--wrap" role="group" aria-labelledby="fu-cs-demo-display-style-label">
+            <div class="fu-demo-btns fu-demo-btns--text fu-demo-btns--wrap" role="group" aria-labelledby="fu-cs-demo-display-style-label" aria-describedby="fu-cs-demo-display-style-note">
                 <button type="button" class="is-active" aria-pressed="true" data-demo-control="display-style" data-demo-value="tabs">Tabs</button>
                 <button type="button" aria-pressed="false" data-demo-control="display-style" data-demo-value="pills">Pills</button>
                 <button type="button" aria-pressed="false" data-demo-control="display-style" data-demo-value="minimal">Minimal</button>
                 <button type="button" class="fu-demo-option--vertical" aria-pressed="false" data-demo-control="display-style" data-demo-value="vertical">Vertical</button>
             </div>
+            <p class="fu-demo-group-note" id="fu-cs-demo-display-style-note" data-fu-demo-display-style-note hidden>Display Style is unavailable while the mobile dropdown selector is active.</p>
         </div>
 
         <div class="fu-demo-group">

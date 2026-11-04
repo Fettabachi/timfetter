@@ -44,6 +44,9 @@
 	--switcher-panel-radius: calc(var(--fu-radius-lg) + 8px);
 	--switcher-panel-min-height: clamp(22rem, 32vw, 30rem);
 	--switcher-outline: 0 0 0 3px rgb(249 87 56 / 0.18);
+	--switcher-select-menu-background: var(--fu-white, #ffffff);
+	--switcher-select-menu-text: var(--fu-blue, #0d3b66);
+	--switcher-select-option-active: #e7edf3;
 	color: var(--switcher-text);
 	position: relative;
 }
@@ -167,6 +170,9 @@
 	--switcher-text: var(--fu-white);
 	--switcher-muted: rgb(255 255 255 / 0.74);
 	--switcher-accent-soft: rgb(250 240 202 / 0.16);
+	--switcher-select-menu-background: var(--fu-blue, #0d3b66);
+	--switcher-select-menu-text: var(--fu-white, #ffffff);
+	--switcher-select-option-active: #315f88;
 	background: linear-gradient(
 		180deg,
 		rgb(13 59 102 / 0.98),
@@ -527,6 +533,81 @@
 	position: relative;
 }
 
+.fu-content-switcher__panel[hidden],
+.fu-content-switcher [data-fu-switcher-editor-panel][hidden] {
+	display: none !important;
+}
+
+/* Gutenberg can replace a child block wrapper after its hidden attribute is
+   applied. Keep inactive editor panels out of layout using the state class
+   that the switcher restores whenever the block preview is rendered. */
+.fu-content-switcher
+	[data-fu-switcher-editor-panel]:not(.is-active) {
+	display: none !important;
+}
+
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-stacked
+	)
+	[data-fu-switcher-editor-panel] {
+	display: block !important;
+}
+
+/* Before the iframe script initializes, keep Gutenberg's child block wrappers
+   from forming a long vertical stack. The active class takes over once the
+   switcher has initialized inside the editor canvas. */
+.fu-content-switcher__panels
+	.block-editor-block-list__layout
+	> :is(
+		.block-editor-block-list__block[data-type="acf/fu-switcher-panel"],
+		.wp-block-acf-fu-switcher-panel
+	) {
+	display: none !important;
+}
+
+.fu-content-switcher__panels
+	.block-editor-block-list__layout
+	> :is(
+		.block-editor-block-list__block[data-type="acf/fu-switcher-panel"],
+		.wp-block-acf-fu-switcher-panel
+	):first-child,
+.fu-content-switcher__panels
+	.block-editor-block-list__layout
+	> :is(
+		.block-editor-block-list__block[data-type="acf/fu-switcher-panel"],
+		.wp-block-acf-fu-switcher-panel
+	).is-active {
+	display: block !important;
+}
+
+.fu-content-switcher__panels
+	.block-editor-block-list__layout:has(
+		> :is(
+			.block-editor-block-list__block[data-type="acf/fu-switcher-panel"],
+			.wp-block-acf-fu-switcher-panel
+		).is-active
+	)
+	> :is(
+		.block-editor-block-list__block[data-type="acf/fu-switcher-panel"],
+		.wp-block-acf-fu-switcher-panel
+	):not(.is-active) {
+	display: none !important;
+}
+
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-stacked
+	)
+	.fu-content-switcher__panels
+	.block-editor-block-list__layout
+	> :is(
+		.block-editor-block-list__block[data-type="acf/fu-switcher-panel"],
+		.wp-block-acf-fu-switcher-panel
+	) {
+	display: block !important;
+}
+
 .fu-content-switcher__panel-inner {
 	background: linear-gradient(
 			180deg,
@@ -563,6 +644,110 @@
 	display: none;
 	margin-bottom: 0.75rem;
 	width: 100%;
+}
+
+.fu-content-switcher__mobile-selector {
+	display: none;
+	margin: 0 auto clamp(1rem, 0.7rem + 1vw, 1.75rem);
+	max-width: min(100%, var(--switcher-shell-max));
+	padding-inline: var(--switcher-shell-pad-inline);
+}
+
+.fu-content-switcher__mobile-selector-label {
+	color: var(--switcher-text);
+	display: block;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	margin-bottom: 0.45rem;
+	text-transform: uppercase;
+}
+
+.fu-content-switcher__mobile-select-wrap {
+	position: relative;
+}
+
+.fu-content-switcher__mobile-select-wrap::after {
+	border-bottom: 2px solid currentColor;
+	border-right: 2px solid currentColor;
+	color: var(--switcher-text);
+	content: "";
+	height: 0.55rem;
+	pointer-events: none;
+	position: absolute;
+	right: 1.1rem;
+	top: calc(50% - 0.4rem);
+	transform: rotate(45deg);
+	width: 0.55rem;
+}
+
+.fu-content-switcher__mobile-select {
+	-webkit-appearance: none;
+	appearance: none;
+	background: var(--switcher-surface-strong);
+	border: 1px solid var(--switcher-border-strong);
+	border-radius: var(--switcher-tab-radius);
+	color: var(--switcher-text);
+	cursor: pointer;
+	display: block;
+	font: inherit;
+	font-weight: 600;
+	inline-size: 100%;
+	line-height: 1.25;
+	min-block-size: 48px;
+	padding: 0.85rem 1rem;
+}
+
+.fu-content-switcher__mobile-select:focus-visible {
+	box-shadow: var(--switcher-outline);
+	outline: none;
+}
+
+@supports (appearance: base-select) {
+	.fu-content-switcher__mobile-select,
+	.fu-content-switcher__mobile-select::picker(select) {
+		appearance: base-select;
+	}
+
+	.fu-content-switcher__mobile-select {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.fu-content-switcher__mobile-select::picker-icon {
+		color: currentColor;
+		margin-inline-start: auto;
+	}
+
+	.fu-content-switcher__mobile-select-wrap::after {
+		display: none;
+	}
+
+	.fu-content-switcher__mobile-select::picker(select) {
+		background-color: var(--switcher-select-menu-background);
+		background-image: none;
+		border: 1px solid var(--switcher-panel-effective-border-strong);
+		border-radius: clamp(0.5rem, var(--switcher-tab-radius), 1rem);
+		box-shadow: var(--switcher-shadow);
+		color: var(--switcher-select-menu-text);
+		margin-block: 0.35rem;
+		opacity: 1;
+	}
+
+	.fu-content-switcher__mobile-select option {
+		background-color: var(--switcher-select-menu-background);
+		color: var(--switcher-select-menu-text);
+		padding: 0.8rem 1rem;
+	}
+
+	.fu-content-switcher__mobile-select option:hover,
+	.fu-content-switcher__mobile-select option:focus,
+	.fu-content-switcher__mobile-select option:checked {
+		background-color: var(--switcher-select-option-active);
+		color: var(--switcher-select-menu-text);
+		font-weight: 700;
+	}
 }
 
 .fu-content-switcher--show-icons .fu-content-switcher__tab,
@@ -893,7 +1078,18 @@
 	}
 
 	.fu-content-switcher--mobile-accordion .fu-content-switcher__nav,
+	.fu-content-switcher--mobile-dropdown .fu-content-switcher__nav,
 	.fu-content-switcher--mobile-stacked .fu-content-switcher__nav {
+		display: none;
+	}
+
+	.fu-content-switcher--mobile-dropdown
+		.fu-content-switcher__mobile-selector {
+		display: block;
+	}
+
+	.fu-content-switcher--mobile-dropdown
+		.fu-content-switcher__accordion-trigger {
 		display: none;
 	}
 
@@ -943,16 +1139,87 @@
 
 	.fu-content-switcher--mobile-accordion.fu-content-switcher--match-panel-height
 		.fu-content-switcher__panels,
+	.fu-content-switcher--mobile-dropdown.fu-content-switcher--match-panel-height
+		.fu-content-switcher__panels,
 	.fu-content-switcher--mobile-stacked.fu-content-switcher--match-panel-height
 		.fu-content-switcher__panels {
 		display: block;
 	}
 
+	.fu-content-switcher--mobile-accordion.fu-content-switcher--match-panel-height
+		.fu-content-switcher__panel:not(.is-active),
 	.fu-content-switcher--mobile-stacked.fu-content-switcher--match-panel-height
 		.fu-content-switcher__panel:not(.is-active) {
 		visibility: visible;
 		pointer-events: auto;
 	}
+}
+
+/* Gutenberg's device preview can be narrower than the window that owns the
+   block script. JS applies this class from the rendered block width so the
+   optional ACF preview follows the same mobile behavior as the front end. */
+.fu-content-switcher.is-editor-mobile-preview
+	.fu-content-switcher__panels {
+	padding-inline: var(--switcher-shell-pad-inline);
+}
+
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-dropdown,
+		.fu-content-switcher--mobile-stacked
+	)
+	.fu-content-switcher__nav {
+	display: none;
+}
+
+.fu-content-switcher.is-editor-mobile-preview.fu-content-switcher--mobile-dropdown
+	.fu-content-switcher__mobile-selector {
+	display: block;
+}
+
+.fu-content-switcher.is-editor-mobile-preview.fu-content-switcher--mobile-accordion
+	.fu-content-switcher__accordion-trigger {
+	display: inline-flex;
+}
+
+.fu-content-switcher.is-editor-mobile-preview.fu-content-switcher--mobile-accordion
+	.fu-content-switcher__panel,
+.fu-content-switcher.is-editor-mobile-preview.fu-content-switcher--mobile-stacked
+	.fu-content-switcher__panel {
+	margin-bottom: 1rem;
+}
+
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-stacked
+	)
+	.fu-content-switcher__panel-inner {
+	min-height: 0;
+}
+
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-dropdown,
+		.fu-content-switcher--mobile-stacked
+	).fu-content-switcher--match-panel-height
+	.fu-content-switcher__panels,
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-dropdown,
+		.fu-content-switcher--mobile-stacked
+	).fu-content-switcher--match-panel-height
+	.fu-content-switcher__panels
+	.block-editor-block-list__layout {
+	display: block;
+}
+
+.fu-content-switcher.is-editor-mobile-preview:is(
+		.fu-content-switcher--mobile-accordion,
+		.fu-content-switcher--mobile-stacked
+	).fu-content-switcher--match-panel-height
+	.fu-content-switcher__panel:not(.is-active) {
+	pointer-events: auto;
+	visibility: visible;
 }
 
 @keyframes fuContentSwitcherFade {
@@ -1569,7 +1836,9 @@
 }
 
 .fu-content-switcher .fu-switcher-panel__action:focus-visible {
-	box-shadow: 0 0 0 3px color-mix(in srgb, var(--cs-orange) 42%, transparent);
+	/* A dark inner ring separates the indicator from light controls while the
+	   white outer ring stays visible against dark panel surfaces. */
+	box-shadow: 0 0 0 2px var(--cs-charcoal), 0 0 0 5px var(--cs-white);
 	outline: none;
 }
 

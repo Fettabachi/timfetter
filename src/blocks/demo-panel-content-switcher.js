@@ -10,6 +10,7 @@
 		"[data-fu-content-switcher-demo-target] .fu-content-switcher";
 	const FALLBACK_TARGET_SELECTOR = ".fu-content-switcher";
 	const PANEL_TRANSITION_MS = 450;
+	const MOBILE_DROPDOWN_BREAKPOINT = "(max-width: 48rem)";
 	const PANEL_SURFACE_DARK_CLASS = "fu-content-switcher--panel-surface-dark";
 	const CONTROL_CLASS_SETS = {
 		"display-style": [
@@ -236,11 +237,59 @@
 		}
 
 		const originalClassName = switcher.className;
+		const mobileDropdownQuery = window.matchMedia(
+			MOBILE_DROPDOWN_BREAKPOINT
+		);
+		const displayStyleGroup = panel.querySelector(
+			"[data-fu-demo-display-style-group]"
+		);
+		const displayStyleNote = panel.querySelector(
+			"[data-fu-demo-display-style-note]"
+		);
+
+		const syncDisplayStyleAvailability = () => {
+			const isMobileDropdownActive =
+				switcher.dataset.mobileBehavior === "dropdown" &&
+				mobileDropdownQuery.matches;
+
+			displayStyleGroup?.classList.toggle(
+				"is-disabled",
+				isMobileDropdownActive
+			);
+
+			panel
+				.querySelectorAll('button[data-demo-control="display-style"]')
+				.forEach((button) => {
+					button.disabled = isMobileDropdownActive;
+				});
+
+			if (displayStyleNote) {
+				displayStyleNote.hidden = !isMobileDropdownActive;
+			}
+		};
 
 		const initialValues = readValuesFromClassList(switcher);
 		syncPanelSurfaceClass(switcher, initialValues);
 		syncUI(panel, initialValues);
+		syncDisplayStyleAvailability();
 		triggerSwitcherRefresh();
+
+		if (typeof mobileDropdownQuery.addEventListener === "function") {
+			mobileDropdownQuery.addEventListener(
+				"change",
+				syncDisplayStyleAvailability
+			);
+		} else {
+			mobileDropdownQuery.addListener(syncDisplayStyleAvailability);
+		}
+
+		const mobileBehaviorObserver = new MutationObserver(
+			syncDisplayStyleAvailability
+		);
+		mobileBehaviorObserver.observe(switcher, {
+			attributes: true,
+			attributeFilter: ["data-mobile-behavior"],
+		});
 
 		panel.addEventListener("click", (event) => {
 			const closeTrigger = event.target.closest(CLOSE_SELECTOR);
@@ -255,6 +304,9 @@
 			);
 			if (controlButton) {
 				event.preventDefault();
+				if (controlButton.disabled) {
+					return;
+				}
 
 				const controlName = controlButton.dataset.demoControl;
 				const value = controlButton.dataset.demoValue;
@@ -276,6 +328,7 @@
 				const resetValues = readValuesFromClassList(switcher);
 				syncPanelSurfaceClass(switcher, resetValues);
 				syncUI(panel, resetValues);
+				syncDisplayStyleAvailability();
 				triggerSwitcherRefresh();
 			}
 		});

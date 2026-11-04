@@ -63,6 +63,17 @@
 	margin-bottom: 18px;
 }
 
+.fu-demo-group-note {
+	margin: 7px 0 0;
+	color: #646970;
+	font-size: 11px;
+	line-height: 1.4;
+}
+
+.fu-demo-group.is-disabled .fu-demo-group-label {
+	color: #8c8f94;
+}
+
 .fu-demo-group label {
 	display: block;
 	font-size: 10px;
@@ -112,6 +123,17 @@
 
 .fu-demo-ui[data-demo-type="content-switcher"] .fu-demo-btns--wrap button {
 	flex: 1 1 calc(50% - 6px);
+}
+
+.fu-demo-ui[data-demo-type="content-switcher"]
+	.fu-demo-group.is-disabled
+	.fu-demo-btns
+	button:disabled {
+	background: #f6f7f7 !important;
+	border-color: #dcdcde !important;
+	color: #8c8f94 !important;
+	cursor: not-allowed;
+	opacity: 0.75;
 }
 
 .fu-demo-reset {

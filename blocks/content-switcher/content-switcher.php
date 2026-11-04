@@ -489,7 +489,7 @@ $display_style = fu_content_switcher_sanitize_choice(
 
 $mobile_behavior = fu_content_switcher_sanitize_choice(
     get_field('mobile_behavior') ?: 'accordion',
-    array('accordion', 'stacked'),
+    array('dropdown', 'accordion', 'stacked'),
     'accordion'
 );
 
@@ -767,6 +767,30 @@ if (function_exists('get_permalink')) {
                 </button>
             <?php endforeach; ?>
         </div>
+
+		<div class="fu-content-switcher__mobile-selector" data-fu-switcher-mobile-selector>
+			<label
+				id="<?php echo esc_attr($internal_id_prefix . '-mobile-label'); ?>"
+				class="fu-content-switcher__mobile-selector-label"
+				for="<?php echo esc_attr($internal_id_prefix . '-mobile-select'); ?>">
+				<?php esc_html_e('Choose a section', 'tim-fetter-portfolio'); ?>
+			</label>
+			<div class="fu-content-switcher__mobile-select-wrap">
+				<select
+					id="<?php echo esc_attr($internal_id_prefix . '-mobile-select'); ?>"
+					class="fu-content-switcher__mobile-select"
+					data-fu-switcher-mobile-select
+					aria-controls="<?php echo esc_attr($panels[$initial_index]['panel_id']); ?>">
+					<?php foreach ($panels as $panel) : ?>
+						<option
+							value="<?php echo esc_attr((string) $panel['index']); ?>"
+							<?php selected($panel['index'], $initial_index); ?>>
+							<?php echo esc_html($panel['label']); ?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
 
         <div class="fu-content-switcher__panels" data-fu-switcher-panels>
             <?php if ($is_preview) : ?>
